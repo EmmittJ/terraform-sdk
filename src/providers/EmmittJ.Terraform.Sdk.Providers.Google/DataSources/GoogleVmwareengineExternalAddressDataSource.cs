@@ -16,7 +16,7 @@ public partial class GoogleVmwareengineExternalAddressDataSource : TerraformData
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the external IP Address.
@@ -24,7 +24,7 @@ public partial class GoogleVmwareengineExternalAddressDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource name of the private cloud to create a new external address in.
@@ -34,7 +34,7 @@ public partial class GoogleVmwareengineExternalAddressDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Creation time of this resource.
@@ -43,42 +43,42 @@ public partial class GoogleVmwareengineExternalAddressDataSource : TerraformData
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// User-provided description for this resource.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The external IP address of a workload VM.
     /// </summary>
     [TerraformProperty("external_ip")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExternalIp { get; }
+    public partial TerraformValue<string> ExternalIp { get; }
 
     /// <summary>
     /// The internal IP address of a workload VM.
     /// </summary>
     [TerraformProperty("internal_ip")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> InternalIp { get; }
+    public partial TerraformValue<string> InternalIp { get; }
 
     /// <summary>
     /// State of the resource.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Last updated time of this resource.
@@ -87,6 +87,6 @@ public partial class GoogleVmwareengineExternalAddressDataSource : TerraformData
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

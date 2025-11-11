@@ -13,21 +13,21 @@ public partial class AzurermSynapseRoleAssignmentTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermSynapseRoleAssignment : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
@@ -53,14 +53,14 @@ public partial class AzurermSynapseRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     [TerraformProperty("principal_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrincipalId { get; set; }
+    public required partial TerraformValue<string> PrincipalId { get; set; }
 
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
     [TerraformProperty("principal_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrincipalType { get; set; }
+    public partial TerraformValue<string>? PrincipalType { get; set; }
 
     /// <summary>
     /// The role_name attribute.
@@ -68,27 +68,27 @@ public partial class AzurermSynapseRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     [TerraformProperty("role_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleName { get; set; }
+    public required partial TerraformValue<string> RoleName { get; set; }
 
     /// <summary>
     /// The synapse_spark_pool_id attribute.
     /// </summary>
     [TerraformProperty("synapse_spark_pool_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SynapseSparkPoolId { get; set; }
+    public partial TerraformValue<string>? SynapseSparkPoolId { get; set; }
 
     /// <summary>
     /// The synapse_workspace_id attribute.
     /// </summary>
     [TerraformProperty("synapse_workspace_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SynapseWorkspaceId { get; set; }
+    public partial TerraformValue<string>? SynapseWorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSynapseRoleAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSynapseRoleAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

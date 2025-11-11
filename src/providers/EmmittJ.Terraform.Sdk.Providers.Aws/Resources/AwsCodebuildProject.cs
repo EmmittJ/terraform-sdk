@@ -13,63 +13,63 @@ public partial class AwsCodebuildProjectArtifactsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("artifact_identifier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ArtifactIdentifier { get; set; }
+    public partial TerraformValue<string>? ArtifactIdentifier { get; set; }
 
     /// <summary>
     /// The bucket_owner_access attribute.
     /// </summary>
     [TerraformProperty("bucket_owner_access")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BucketOwnerAccess { get; set; }
+    public partial TerraformValue<string>? BucketOwnerAccess { get; set; }
 
     /// <summary>
     /// The encryption_disabled attribute.
     /// </summary>
     [TerraformProperty("encryption_disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EncryptionDisabled { get; set; }
+    public partial TerraformValue<bool>? EncryptionDisabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The namespace_type attribute.
     /// </summary>
     [TerraformProperty("namespace_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NamespaceType { get; set; }
+    public partial TerraformValue<string>? NamespaceType { get; set; }
 
     /// <summary>
     /// The override_artifact_name attribute.
     /// </summary>
     [TerraformProperty("override_artifact_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? OverrideArtifactName { get; set; }
+    public partial TerraformValue<bool>? OverrideArtifactName { get; set; }
 
     /// <summary>
     /// The packaging attribute.
     /// </summary>
     [TerraformProperty("packaging")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Packaging { get; set; }
+    public partial TerraformValue<string>? Packaging { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [TerraformProperty("path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Path { get; set; }
+    public partial TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -77,7 +77,7 @@ public partial class AwsCodebuildProjectArtifactsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -92,7 +92,7 @@ public partial class AwsCodebuildProjectBuildBatchConfigBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("combine_artifacts")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CombineArtifacts { get; set; }
+    public partial TerraformValue<bool>? CombineArtifacts { get; set; }
 
     /// <summary>
     /// The service_role attribute.
@@ -100,14 +100,14 @@ public partial class AwsCodebuildProjectBuildBatchConfigBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
     [TerraformProperty("service_role")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceRole { get; set; }
+    public required partial TerraformValue<string> ServiceRole { get; set; }
 
     /// <summary>
     /// The timeout_in_mins attribute.
     /// </summary>
     [TerraformProperty("timeout_in_mins")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? TimeoutInMins { get; set; }
+    public partial TerraformValue<double>? TimeoutInMins { get; set; }
 
 }
 
@@ -122,21 +122,21 @@ public partial class AwsCodebuildProjectCacheBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The modes attribute.
     /// </summary>
     [TerraformProperty("modes")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Modes { get; set; }
+    public partial TerraformList<string>? Modes { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -151,7 +151,7 @@ public partial class AwsCodebuildProjectEnvironmentBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("certificate")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Certificate { get; set; }
+    public partial TerraformValue<string>? Certificate { get; set; }
 
     /// <summary>
     /// The compute_type attribute.
@@ -159,7 +159,7 @@ public partial class AwsCodebuildProjectEnvironmentBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeType is required")]
     [TerraformProperty("compute_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ComputeType { get; set; }
+    public required partial TerraformValue<string> ComputeType { get; set; }
 
     /// <summary>
     /// The image attribute.
@@ -167,21 +167,21 @@ public partial class AwsCodebuildProjectEnvironmentBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     [TerraformProperty("image")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Image { get; set; }
+    public required partial TerraformValue<string> Image { get; set; }
 
     /// <summary>
     /// The image_pull_credentials_type attribute.
     /// </summary>
     [TerraformProperty("image_pull_credentials_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ImagePullCredentialsType { get; set; }
+    public partial TerraformValue<string>? ImagePullCredentialsType { get; set; }
 
     /// <summary>
     /// The privileged_mode attribute.
     /// </summary>
     [TerraformProperty("privileged_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PrivilegedMode { get; set; }
+    public partial TerraformValue<bool>? PrivilegedMode { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -189,7 +189,7 @@ public partial class AwsCodebuildProjectEnvironmentBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -204,35 +204,35 @@ public partial class AwsCodebuildProjectFileSystemLocationsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("identifier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Identifier { get; set; }
+    public partial TerraformValue<string>? Identifier { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The mount_options attribute.
     /// </summary>
     [TerraformProperty("mount_options")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MountOptions { get; set; }
+    public partial TerraformValue<string>? MountOptions { get; set; }
 
     /// <summary>
     /// The mount_point attribute.
     /// </summary>
     [TerraformProperty("mount_point")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MountPoint { get; set; }
+    public partial TerraformValue<string>? MountPoint { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -256,63 +256,63 @@ public partial class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactIdentifier is required")]
     [TerraformProperty("artifact_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ArtifactIdentifier { get; set; }
+    public required partial TerraformValue<string> ArtifactIdentifier { get; set; }
 
     /// <summary>
     /// The bucket_owner_access attribute.
     /// </summary>
     [TerraformProperty("bucket_owner_access")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BucketOwnerAccess { get; set; }
+    public partial TerraformValue<string>? BucketOwnerAccess { get; set; }
 
     /// <summary>
     /// The encryption_disabled attribute.
     /// </summary>
     [TerraformProperty("encryption_disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EncryptionDisabled { get; set; }
+    public partial TerraformValue<bool>? EncryptionDisabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The namespace_type attribute.
     /// </summary>
     [TerraformProperty("namespace_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NamespaceType { get; set; }
+    public partial TerraformValue<string>? NamespaceType { get; set; }
 
     /// <summary>
     /// The override_artifact_name attribute.
     /// </summary>
     [TerraformProperty("override_artifact_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? OverrideArtifactName { get; set; }
+    public partial TerraformValue<bool>? OverrideArtifactName { get; set; }
 
     /// <summary>
     /// The packaging attribute.
     /// </summary>
     [TerraformProperty("packaging")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Packaging { get; set; }
+    public partial TerraformValue<string>? Packaging { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [TerraformProperty("path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Path { get; set; }
+    public partial TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -320,7 +320,7 @@ public partial class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -336,7 +336,7 @@ public partial class AwsCodebuildProjectSecondarySourceVersionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIdentifier is required")]
     [TerraformProperty("source_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceIdentifier { get; set; }
+    public required partial TerraformValue<string> SourceIdentifier { get; set; }
 
     /// <summary>
     /// The source_version attribute.
@@ -344,7 +344,7 @@ public partial class AwsCodebuildProjectSecondarySourceVersionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVersion is required")]
     [TerraformProperty("source_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceVersion { get; set; }
+    public required partial TerraformValue<string> SourceVersion { get; set; }
 
 }
 
@@ -359,35 +359,35 @@ public partial class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("buildspec")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Buildspec { get; set; }
+    public partial TerraformValue<string>? Buildspec { get; set; }
 
     /// <summary>
     /// The git_clone_depth attribute.
     /// </summary>
     [TerraformProperty("git_clone_depth")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? GitCloneDepth { get; set; }
+    public partial TerraformValue<double>? GitCloneDepth { get; set; }
 
     /// <summary>
     /// The insecure_ssl attribute.
     /// </summary>
     [TerraformProperty("insecure_ssl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? InsecureSsl { get; set; }
+    public partial TerraformValue<bool>? InsecureSsl { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The report_build_status attribute.
     /// </summary>
     [TerraformProperty("report_build_status")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ReportBuildStatus { get; set; }
+    public partial TerraformValue<bool>? ReportBuildStatus { get; set; }
 
     /// <summary>
     /// The source_identifier attribute.
@@ -395,7 +395,7 @@ public partial class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIdentifier is required")]
     [TerraformProperty("source_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceIdentifier { get; set; }
+    public required partial TerraformValue<string> SourceIdentifier { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -403,7 +403,7 @@ public partial class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -418,35 +418,35 @@ public partial class AwsCodebuildProjectSourceBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("buildspec")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Buildspec { get; set; }
+    public partial TerraformValue<string>? Buildspec { get; set; }
 
     /// <summary>
     /// The git_clone_depth attribute.
     /// </summary>
     [TerraformProperty("git_clone_depth")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? GitCloneDepth { get; set; }
+    public partial TerraformValue<double>? GitCloneDepth { get; set; }
 
     /// <summary>
     /// The insecure_ssl attribute.
     /// </summary>
     [TerraformProperty("insecure_ssl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? InsecureSsl { get; set; }
+    public partial TerraformValue<bool>? InsecureSsl { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The report_build_status attribute.
     /// </summary>
     [TerraformProperty("report_build_status")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ReportBuildStatus { get; set; }
+    public partial TerraformValue<bool>? ReportBuildStatus { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -454,7 +454,7 @@ public partial class AwsCodebuildProjectSourceBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -470,7 +470,7 @@ public partial class AwsCodebuildProjectVpcConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     [TerraformProperty("security_group_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> SecurityGroupIds { get; set; }
+    public required partial TerraformSet<string> SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnets attribute.
@@ -478,7 +478,7 @@ public partial class AwsCodebuildProjectVpcConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     [TerraformProperty("subnets")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Subnets { get; set; }
+    public required partial TerraformSet<string> Subnets { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
@@ -486,7 +486,7 @@ public partial class AwsCodebuildProjectVpcConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     [TerraformProperty("vpc_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VpcId { get; set; }
+    public required partial TerraformValue<string> VpcId { get; set; }
 
 }
 
@@ -505,49 +505,49 @@ public partial class AwsCodebuildProject : TerraformResource
     /// </summary>
     [TerraformProperty("auto_retry_limit")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> AutoRetryLimit { get; set; }
+    public partial TerraformValue<double> AutoRetryLimit { get; set; }
 
     /// <summary>
     /// The badge_enabled attribute.
     /// </summary>
     [TerraformProperty("badge_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? BadgeEnabled { get; set; }
+    public partial TerraformValue<bool>? BadgeEnabled { get; set; }
 
     /// <summary>
     /// The build_timeout attribute.
     /// </summary>
     [TerraformProperty("build_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BuildTimeout { get; set; }
+    public partial TerraformValue<double>? BuildTimeout { get; set; }
 
     /// <summary>
     /// The concurrent_build_limit attribute.
     /// </summary>
     [TerraformProperty("concurrent_build_limit")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ConcurrentBuildLimit { get; set; }
+    public partial TerraformValue<double>? ConcurrentBuildLimit { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Description { get; set; }
+    public partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The encryption_key attribute.
     /// </summary>
     [TerraformProperty("encryption_key")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> EncryptionKey { get; set; }
+    public partial TerraformValue<string> EncryptionKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -555,35 +555,35 @@ public partial class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project_visibility attribute.
     /// </summary>
     [TerraformProperty("project_visibility")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProjectVisibility { get; set; }
+    public partial TerraformValue<string>? ProjectVisibility { get; set; }
 
     /// <summary>
     /// The queued_timeout attribute.
     /// </summary>
     [TerraformProperty("queued_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? QueuedTimeout { get; set; }
+    public partial TerraformValue<double>? QueuedTimeout { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_access_role attribute.
     /// </summary>
     [TerraformProperty("resource_access_role")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResourceAccessRole { get; set; }
+    public partial TerraformValue<string>? ResourceAccessRole { get; set; }
 
     /// <summary>
     /// The service_role attribute.
@@ -591,28 +591,28 @@ public partial class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
     [TerraformProperty("service_role")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceRole { get; set; }
+    public required partial TerraformValue<string> ServiceRole { get; set; }
 
     /// <summary>
     /// The source_version attribute.
     /// </summary>
     [TerraformProperty("source_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SourceVersion { get; set; }
+    public partial TerraformValue<string>? SourceVersion { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for artifacts.
@@ -622,7 +622,7 @@ public partial class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Artifacts block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Artifacts block(s) allowed")]
     [TerraformProperty("artifacts")]
-    public TerraformList<TerraformBlock<AwsCodebuildProjectArtifactsBlock>>? Artifacts { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCodebuildProjectArtifactsBlock>>? Artifacts { get; set; }
 
     /// <summary>
     /// Block for build_batch_config.
@@ -630,7 +630,7 @@ public partial class AwsCodebuildProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BuildBatchConfig block(s) allowed")]
     [TerraformProperty("build_batch_config")]
-    public TerraformList<TerraformBlock<AwsCodebuildProjectBuildBatchConfigBlock>>? BuildBatchConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCodebuildProjectBuildBatchConfigBlock>>? BuildBatchConfig { get; set; }
 
     /// <summary>
     /// Block for cache.
@@ -638,7 +638,7 @@ public partial class AwsCodebuildProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cache block(s) allowed")]
     [TerraformProperty("cache")]
-    public TerraformList<TerraformBlock<AwsCodebuildProjectCacheBlock>>? Cache { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCodebuildProjectCacheBlock>>? Cache { get; set; }
 
     /// <summary>
     /// Block for environment.
@@ -648,14 +648,14 @@ public partial class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Environment block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Environment block(s) allowed")]
     [TerraformProperty("environment")]
-    public TerraformList<TerraformBlock<AwsCodebuildProjectEnvironmentBlock>>? Environment { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCodebuildProjectEnvironmentBlock>>? Environment { get; set; }
 
     /// <summary>
     /// Block for file_system_locations.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("file_system_locations")]
-    public TerraformSet<TerraformBlock<AwsCodebuildProjectFileSystemLocationsBlock>>? FileSystemLocations { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsCodebuildProjectFileSystemLocationsBlock>>? FileSystemLocations { get; set; }
 
     /// <summary>
     /// Block for logs_config.
@@ -663,7 +663,7 @@ public partial class AwsCodebuildProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogsConfig block(s) allowed")]
     [TerraformProperty("logs_config")]
-    public TerraformList<TerraformBlock<AwsCodebuildProjectLogsConfigBlock>>? LogsConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCodebuildProjectLogsConfigBlock>>? LogsConfig { get; set; }
 
     /// <summary>
     /// Block for secondary_artifacts.
@@ -671,7 +671,7 @@ public partial class AwsCodebuildProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(12, ErrorMessage = "Maximum 12 SecondaryArtifacts block(s) allowed")]
     [TerraformProperty("secondary_artifacts")]
-    public TerraformSet<TerraformBlock<AwsCodebuildProjectSecondaryArtifactsBlock>>? SecondaryArtifacts { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsCodebuildProjectSecondaryArtifactsBlock>>? SecondaryArtifacts { get; set; }
 
     /// <summary>
     /// Block for secondary_source_version.
@@ -679,7 +679,7 @@ public partial class AwsCodebuildProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(12, ErrorMessage = "Maximum 12 SecondarySourceVersion block(s) allowed")]
     [TerraformProperty("secondary_source_version")]
-    public TerraformSet<TerraformBlock<AwsCodebuildProjectSecondarySourceVersionBlock>>? SecondarySourceVersion { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsCodebuildProjectSecondarySourceVersionBlock>>? SecondarySourceVersion { get; set; }
 
     /// <summary>
     /// Block for secondary_sources.
@@ -687,7 +687,7 @@ public partial class AwsCodebuildProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(12, ErrorMessage = "Maximum 12 SecondarySources block(s) allowed")]
     [TerraformProperty("secondary_sources")]
-    public TerraformSet<TerraformBlock<AwsCodebuildProjectSecondarySourcesBlock>>? SecondarySources { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsCodebuildProjectSecondarySourcesBlock>>? SecondarySources { get; set; }
 
     /// <summary>
     /// Block for source.
@@ -697,7 +697,7 @@ public partial class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public TerraformList<TerraformBlock<AwsCodebuildProjectSourceBlock>>? Source { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCodebuildProjectSourceBlock>>? Source { get; set; }
 
     /// <summary>
     /// Block for vpc_config.
@@ -705,27 +705,27 @@ public partial class AwsCodebuildProject : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     [TerraformProperty("vpc_config")]
-    public TerraformList<TerraformBlock<AwsCodebuildProjectVpcConfigBlock>>? VpcConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCodebuildProjectVpcConfigBlock>>? VpcConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The badge_url attribute.
     /// </summary>
     [TerraformProperty("badge_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BadgeUrl { get; }
+    public partial TerraformValue<string> BadgeUrl { get; }
 
     /// <summary>
     /// The public_project_alias attribute.
     /// </summary>
     [TerraformProperty("public_project_alias")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PublicProjectAlias { get; }
+    public partial TerraformValue<string> PublicProjectAlias { get; }
 
 }

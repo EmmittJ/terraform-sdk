@@ -13,14 +13,14 @@ public partial class GoogleDiscoveryEngineSchemaTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,21 +39,21 @@ public partial class GoogleDiscoveryEngineSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     [TerraformProperty("data_store_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataStoreId { get; set; }
+    public required partial TerraformValue<string> DataStoreId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The JSON representation of the schema.
     /// </summary>
     [TerraformProperty("json_schema")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? JsonSchema { get; set; }
+    public partial TerraformValue<string>? JsonSchema { get; set; }
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
@@ -62,14 +62,14 @@ public partial class GoogleDiscoveryEngineSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The unique id of the schema.
@@ -77,14 +77,14 @@ public partial class GoogleDiscoveryEngineSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaId is required")]
     [TerraformProperty("schema_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SchemaId { get; set; }
+    public required partial TerraformValue<string> SchemaId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDiscoveryEngineSchemaTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDiscoveryEngineSchemaTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique full resource name of the schema. Values are of the format
@@ -94,6 +94,6 @@ public partial class GoogleDiscoveryEngineSchema : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

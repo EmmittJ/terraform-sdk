@@ -14,7 +14,7 @@ public partial class AwsElasticBeanstalkConfigurationTemplateSettingBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The namespace attribute.
@@ -22,14 +22,14 @@ public partial class AwsElasticBeanstalkConfigurationTemplateSettingBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     [TerraformProperty("namespace")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Namespace { get; set; }
+    public required partial TerraformValue<string> Namespace { get; set; }
 
     /// <summary>
     /// The resource attribute.
     /// </summary>
     [TerraformProperty("resource")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Resource { get; set; }
+    public partial TerraformValue<string>? Resource { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -37,7 +37,7 @@ public partial class AwsElasticBeanstalkConfigurationTemplateSettingBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
 }
 
@@ -56,28 +56,28 @@ public partial class AwsElasticBeanstalkConfigurationTemplate : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Application is required")]
     [TerraformProperty("application")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Application { get; set; }
+    public required partial TerraformValue<string> Application { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
     [TerraformProperty("environment_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EnvironmentId { get; set; }
+    public partial TerraformValue<string>? EnvironmentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -85,27 +85,27 @@ public partial class AwsElasticBeanstalkConfigurationTemplate : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The solution_stack_name attribute.
     /// </summary>
     [TerraformProperty("solution_stack_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SolutionStackName { get; set; }
+    public partial TerraformValue<string>? SolutionStackName { get; set; }
 
     /// <summary>
     /// Block for setting.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("setting")]
-    public TerraformSet<TerraformBlock<AwsElasticBeanstalkConfigurationTemplateSettingBlock>>? Setting { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsElasticBeanstalkConfigurationTemplateSettingBlock>>? Setting { get; set; }
 
 }

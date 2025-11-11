@@ -17,48 +17,48 @@ public partial class AwsArnDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     [TerraformProperty("arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Arn { get; set; }
+    public required partial TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The account attribute.
     /// </summary>
     [TerraformProperty("account")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Account { get; }
+    public partial TerraformValue<string> Account { get; }
 
     /// <summary>
     /// The partition attribute.
     /// </summary>
     [TerraformProperty("partition")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Partition { get; }
+    public partial TerraformValue<string> Partition { get; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [TerraformProperty("region")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Region { get; }
+    public partial TerraformValue<string> Region { get; }
 
     /// <summary>
     /// The resource attribute.
     /// </summary>
     [TerraformProperty("resource")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Resource { get; }
+    public partial TerraformValue<string> Resource { get; }
 
     /// <summary>
     /// The service attribute.
     /// </summary>
     [TerraformProperty("service")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Service { get; }
+    public partial TerraformValue<string> Service { get; }
 
 }

@@ -16,7 +16,7 @@ public partial class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The KeyRing that this key belongs to.
@@ -25,7 +25,7 @@ public partial class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     [TerraformProperty("key_ring")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyRing { get; set; }
+    public required partial TerraformValue<string> KeyRing { get; set; }
 
     /// <summary>
     /// The resource name for the CryptoKey.
@@ -33,7 +33,7 @@ public partial class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource name of the backend environment associated with all CryptoKeyVersions within this CryptoKey.
@@ -41,7 +41,7 @@ public partial class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("crypto_key_backend")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CryptoKeyBackend { get; }
+    public partial TerraformValue<string> CryptoKeyBackend { get; }
 
     /// <summary>
     /// The period of time that versions of this key spend in the DESTROY_SCHEDULED state before transitioning to DESTROYED.
@@ -49,21 +49,21 @@ public partial class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("destroy_scheduled_duration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DestroyScheduledDuration { get; }
+    public partial TerraformValue<string> DestroyScheduledDuration { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Whether this key may contain imported versions only.
     /// </summary>
     [TerraformProperty("import_only")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> ImportOnly { get; }
+    public partial TerraformValue<bool> ImportOnly { get; }
 
     /// <summary>
     /// Labels with user-defined metadata to apply to this resource.
@@ -74,7 +74,7 @@ public partial class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// A copy of the primary CryptoKeyVersion that will be used by cryptoKeys.encrypt when this CryptoKey is given in EncryptRequest.name.
@@ -82,7 +82,7 @@ public partial class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("primary")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Primary { get; }
+    public partial TerraformList<object> Primary { get; }
 
     /// <summary>
     /// The immutable purpose of this CryptoKey. See the
@@ -92,7 +92,7 @@ public partial class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("purpose")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Purpose { get; }
+    public partial TerraformValue<string> Purpose { get; }
 
     /// <summary>
     /// Every time this period passes, generate a new CryptoKeyVersion and set it as the primary.
@@ -102,7 +102,7 @@ public partial class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("rotation_period")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RotationPeriod { get; }
+    public partial TerraformValue<string> RotationPeriod { get; }
 
     /// <summary>
     /// If set to true, the request will create a CryptoKey without any CryptoKeyVersions.
@@ -112,7 +112,7 @@ public partial class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("skip_initial_version_creation")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> SkipInitialVersionCreation { get; }
+    public partial TerraformValue<bool> SkipInitialVersionCreation { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -120,13 +120,13 @@ public partial class GoogleKmsCryptoKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// A template describing settings for new crypto key versions.
     /// </summary>
     [TerraformProperty("version_template")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> VersionTemplate { get; }
+    public partial TerraformList<object> VersionTemplate { get; }
 
 }

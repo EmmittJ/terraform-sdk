@@ -13,21 +13,21 @@ public partial class AzurermOrbitalContactTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -47,7 +47,7 @@ public partial class AzurermOrbitalContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactProfileId is required")]
     [TerraformProperty("contact_profile_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContactProfileId { get; set; }
+    public required partial TerraformValue<string> ContactProfileId { get; set; }
 
     /// <summary>
     /// The ground_station_name attribute.
@@ -55,14 +55,14 @@ public partial class AzurermOrbitalContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroundStationName is required")]
     [TerraformProperty("ground_station_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GroundStationName { get; set; }
+    public required partial TerraformValue<string> GroundStationName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -70,7 +70,7 @@ public partial class AzurermOrbitalContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The reservation_end_time attribute.
@@ -78,7 +78,7 @@ public partial class AzurermOrbitalContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservationEndTime is required")]
     [TerraformProperty("reservation_end_time")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ReservationEndTime { get; set; }
+    public required partial TerraformValue<string> ReservationEndTime { get; set; }
 
     /// <summary>
     /// The reservation_start_time attribute.
@@ -86,7 +86,7 @@ public partial class AzurermOrbitalContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservationStartTime is required")]
     [TerraformProperty("reservation_start_time")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ReservationStartTime { get; set; }
+    public required partial TerraformValue<string> ReservationStartTime { get; set; }
 
     /// <summary>
     /// The spacecraft_id attribute.
@@ -94,13 +94,13 @@ public partial class AzurermOrbitalContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpacecraftId is required")]
     [TerraformProperty("spacecraft_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SpacecraftId { get; set; }
+    public required partial TerraformValue<string> SpacecraftId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermOrbitalContactTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermOrbitalContactTimeoutsBlock>? Timeouts { get; set; }
 
 }

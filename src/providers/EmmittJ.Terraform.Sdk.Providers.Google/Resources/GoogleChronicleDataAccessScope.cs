@@ -14,14 +14,14 @@ public partial class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock 
     /// </summary>
     [TerraformProperty("asset_namespace")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AssetNamespace { get; set; }
+    public partial TerraformValue<string>? AssetNamespace { get; set; }
 
     /// <summary>
     /// The name of the data access label.
     /// </summary>
     [TerraformProperty("data_access_label")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DataAccessLabel { get; set; }
+    public partial TerraformValue<string>? DataAccessLabel { get; set; }
 
 
     /// <summary>
@@ -29,7 +29,7 @@ public partial class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock 
     /// </summary>
     [TerraformProperty("log_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LogType { get; set; }
+    public partial TerraformValue<string>? LogType { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public partial class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock :
     /// </summary>
     [TerraformProperty("asset_namespace")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AssetNamespace { get; set; }
+    public partial TerraformValue<string>? AssetNamespace { get; set; }
 
     /// <summary>
     /// The name of the data access label.
     /// </summary>
     [TerraformProperty("data_access_label")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DataAccessLabel { get; set; }
+    public partial TerraformValue<string>? DataAccessLabel { get; set; }
 
 
     /// <summary>
@@ -60,7 +60,7 @@ public partial class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock :
     /// </summary>
     [TerraformProperty("log_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LogType { get; set; }
+    public partial TerraformValue<string>? LogType { get; set; }
 
 }
 
@@ -75,21 +75,21 @@ public partial class GoogleChronicleDataAccessScopeTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -114,7 +114,7 @@ public partial class GoogleChronicleDataAccessScope : TerraformResource
     /// </summary>
     [TerraformProperty("allow_all")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowAll { get; set; }
+    public partial TerraformValue<bool>? AllowAll { get; set; }
 
     /// <summary>
     /// Required. The user provided scope id which will become the last part of the name
@@ -124,21 +124,21 @@ public partial class GoogleChronicleDataAccessScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessScopeId is required")]
     [TerraformProperty("data_access_scope_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataAccessScopeId { get; set; }
+    public required partial TerraformValue<string> DataAccessScopeId { get; set; }
 
     /// <summary>
     /// Optional. A description of the data access scope for a human reader.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
@@ -146,7 +146,7 @@ public partial class GoogleChronicleDataAccessScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
@@ -154,63 +154,63 @@ public partial class GoogleChronicleDataAccessScope : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for allowed_data_access_labels.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("allowed_data_access_labels")]
-    public TerraformList<TerraformBlock<GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock>>? AllowedDataAccessLabels { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock>>? AllowedDataAccessLabels { get; set; }
 
     /// <summary>
     /// Block for denied_data_access_labels.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("denied_data_access_labels")]
-    public TerraformList<TerraformBlock<GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock>>? DeniedDataAccessLabels { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock>>? DeniedDataAccessLabels { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleChronicleDataAccessScopeTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleChronicleDataAccessScopeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The user who created the data access scope.
     /// </summary>
     [TerraformProperty("author")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Author { get; }
+    public partial TerraformValue<string> Author { get; }
 
     /// <summary>
     /// Output only. The time at which the data access scope was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Output only. The name to be used for display to customers of the data access scope.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// Output only. The user who last updated the data access scope.
     /// </summary>
     [TerraformProperty("last_editor")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastEditor { get; }
+    public partial TerraformValue<string> LastEditor { get; }
 
     /// <summary>
     /// The unique full name of the data access scope. This unique identifier is generated using values provided for the URL parameters.
@@ -219,13 +219,13 @@ public partial class GoogleChronicleDataAccessScope : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. The time at which the data access scope was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

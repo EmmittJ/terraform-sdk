@@ -14,7 +14,7 @@ public partial class GoogleStorageTransferAgentPoolBandwidthLimitBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LimitMbps is required")]
     [TerraformProperty("limit_mbps")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LimitMbps { get; set; }
+    public required partial TerraformValue<string> LimitMbps { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public partial class GoogleStorageTransferAgentPoolTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -62,14 +62,14 @@ public partial class GoogleStorageTransferAgentPool : TerraformResource
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the agent pool to create.
@@ -86,14 +86,14 @@ public partial class GoogleStorageTransferAgentPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for bandwidth_limit.
@@ -101,20 +101,20 @@ public partial class GoogleStorageTransferAgentPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BandwidthLimit block(s) allowed")]
     [TerraformProperty("bandwidth_limit")]
-    public TerraformList<TerraformBlock<GoogleStorageTransferAgentPoolBandwidthLimitBlock>>? BandwidthLimit { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageTransferAgentPoolBandwidthLimitBlock>>? BandwidthLimit { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleStorageTransferAgentPoolTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleStorageTransferAgentPoolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Specifies the state of the AgentPool.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

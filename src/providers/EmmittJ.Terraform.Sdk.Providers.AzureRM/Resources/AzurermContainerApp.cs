@@ -14,21 +14,21 @@ public partial class AzurermContainerAppDaprBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     [TerraformProperty("app_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AppId { get; set; }
+    public required partial TerraformValue<string> AppId { get; set; }
 
     /// <summary>
     /// The port which the application is listening on. This is the same as the `ingress` port.
     /// </summary>
     [TerraformProperty("app_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AppPort { get; set; }
+    public partial TerraformValue<double>? AppPort { get; set; }
 
     /// <summary>
     /// The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
     /// </summary>
     [TerraformProperty("app_protocol")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AppProtocol { get; set; }
+    public partial TerraformValue<string>? AppProtocol { get; set; }
 
 }
 
@@ -43,7 +43,7 @@ public partial class AzurermContainerAppIdentityBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -53,7 +53,7 @@ public partial class AzurermContainerAppIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -68,14 +68,14 @@ public partial class AzurermContainerAppIngressBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("allow_insecure_connections")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowInsecureConnections { get; set; }
+    public partial TerraformValue<bool>? AllowInsecureConnections { get; set; }
 
     /// <summary>
     /// Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate.
     /// </summary>
     [TerraformProperty("client_certificate_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientCertificateMode { get; set; }
+    public partial TerraformValue<string>? ClientCertificateMode { get; set; }
 
 
     /// <summary>
@@ -83,14 +83,14 @@ public partial class AzurermContainerAppIngressBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("exposed_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ExposedPort { get; set; }
+    public partial TerraformValue<double>? ExposedPort { get; set; }
 
     /// <summary>
     /// Is this an external Ingress.
     /// </summary>
     [TerraformProperty("external_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ExternalEnabled { get; set; }
+    public partial TerraformValue<bool>? ExternalEnabled { get; set; }
 
 
     /// <summary>
@@ -99,14 +99,14 @@ public partial class AzurermContainerAppIngressBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPort is required")]
     [TerraformProperty("target_port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> TargetPort { get; set; }
+    public required partial TerraformValue<double> TargetPort { get; set; }
 
     /// <summary>
     /// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`, `tcp`. Defaults to `auto`
     /// </summary>
     [TerraformProperty("transport")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Transport { get; set; }
+    public partial TerraformValue<string>? Transport { get; set; }
 
 }
 
@@ -121,14 +121,14 @@ public partial class AzurermContainerAppRegistryBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Identity { get; set; }
+    public partial TerraformValue<string>? Identity { get; set; }
 
     /// <summary>
     /// The name of the Secret Reference containing the password value for this user on the Container Registry.
     /// </summary>
     [TerraformProperty("password_secret_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PasswordSecretName { get; set; }
+    public partial TerraformValue<string>? PasswordSecretName { get; set; }
 
     /// <summary>
     /// The hostname for the Container Registry.
@@ -136,14 +136,14 @@ public partial class AzurermContainerAppRegistryBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     [TerraformProperty("server")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Server { get; set; }
+    public required partial TerraformValue<string> Server { get; set; }
 
     /// <summary>
     /// The username to use for this Container Registry.
     /// </summary>
     [TerraformProperty("username")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Username { get; set; }
+    public partial TerraformValue<string>? Username { get; set; }
 
 }
 
@@ -158,14 +158,14 @@ public partial class AzurermContainerAppSecretBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Identity { get; set; }
+    public partial TerraformValue<string>? Identity { get; set; }
 
     /// <summary>
     /// The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
     /// </summary>
     [TerraformProperty("key_vault_secret_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyVaultSecretId { get; set; }
+    public partial TerraformValue<string>? KeyVaultSecretId { get; set; }
 
     /// <summary>
     /// The secret name.
@@ -173,14 +173,14 @@ public partial class AzurermContainerAppSecretBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The value for this secret.
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Value { get; set; }
+    public partial TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -195,28 +195,28 @@ public partial class AzurermContainerAppTemplateBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("max_replicas")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxReplicas { get; set; }
+    public partial TerraformValue<double>? MaxReplicas { get; set; }
 
     /// <summary>
     /// The minimum number of replicas for this container.
     /// </summary>
     [TerraformProperty("min_replicas")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinReplicas { get; set; }
+    public partial TerraformValue<double>? MinReplicas { get; set; }
 
     /// <summary>
     /// The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
     /// </summary>
     [TerraformProperty("revision_suffix")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> RevisionSuffix { get; set; }
+    public partial TerraformValue<string> RevisionSuffix { get; set; }
 
     /// <summary>
     /// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
     /// </summary>
     [TerraformProperty("termination_grace_period_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? TerminationGracePeriodSeconds { get; set; }
+    public partial TerraformValue<double>? TerminationGracePeriodSeconds { get; set; }
 
 }
 
@@ -231,28 +231,28 @@ public partial class AzurermContainerAppTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -272,21 +272,21 @@ public partial class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     [TerraformProperty("container_app_environment_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerAppEnvironmentId { get; set; }
+    public required partial TerraformValue<string> ContainerAppEnvironmentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The max_inactive_revisions attribute.
     /// </summary>
     [TerraformProperty("max_inactive_revisions")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxInactiveRevisions { get; set; }
+    public partial TerraformValue<double>? MaxInactiveRevisions { get; set; }
 
     /// <summary>
     /// The name for this Container App.
@@ -294,7 +294,7 @@ public partial class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -302,7 +302,7 @@ public partial class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The revision_mode attribute.
@@ -310,21 +310,21 @@ public partial class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RevisionMode is required")]
     [TerraformProperty("revision_mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RevisionMode { get; set; }
+    public required partial TerraformValue<string> RevisionMode { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The workload_profile_name attribute.
     /// </summary>
     [TerraformProperty("workload_profile_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WorkloadProfileName { get; set; }
+    public partial TerraformValue<string>? WorkloadProfileName { get; set; }
 
     /// <summary>
     /// Block for dapr.
@@ -332,7 +332,7 @@ public partial class AzurermContainerApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dapr block(s) allowed")]
     [TerraformProperty("dapr")]
-    public TerraformList<TerraformBlock<AzurermContainerAppDaprBlock>>? Dapr { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermContainerAppDaprBlock>>? Dapr { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -340,7 +340,7 @@ public partial class AzurermContainerApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermContainerAppIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermContainerAppIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for ingress.
@@ -348,21 +348,21 @@ public partial class AzurermContainerApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ingress block(s) allowed")]
     [TerraformProperty("ingress")]
-    public TerraformList<TerraformBlock<AzurermContainerAppIngressBlock>>? Ingress { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermContainerAppIngressBlock>>? Ingress { get; set; }
 
     /// <summary>
     /// Block for registry.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("registry")]
-    public TerraformList<TerraformBlock<AzurermContainerAppRegistryBlock>>? Registry { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermContainerAppRegistryBlock>>? Registry { get; set; }
 
     /// <summary>
     /// Block for secret.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("secret")]
-    public TerraformSet<TerraformBlock<AzurermContainerAppSecretBlock>>? Secret { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermContainerAppSecretBlock>>? Secret { get; set; }
 
     /// <summary>
     /// Block for template.
@@ -372,48 +372,48 @@ public partial class AzurermContainerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Template block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
     [TerraformProperty("template")]
-    public TerraformList<TerraformBlock<AzurermContainerAppTemplateBlock>>? Template { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermContainerAppTemplateBlock>>? Template { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermContainerAppTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermContainerAppTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The ID of the Custom Domain Verification for this Container App.
     /// </summary>
     [TerraformProperty("custom_domain_verification_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CustomDomainVerificationId { get; }
+    public partial TerraformValue<string> CustomDomainVerificationId { get; }
 
     /// <summary>
     /// The FQDN of the Latest Revision of the Container App.
     /// </summary>
     [TerraformProperty("latest_revision_fqdn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LatestRevisionFqdn { get; }
+    public partial TerraformValue<string> LatestRevisionFqdn { get; }
 
     /// <summary>
     /// The name of the latest Container Revision.
     /// </summary>
     [TerraformProperty("latest_revision_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LatestRevisionName { get; }
+    public partial TerraformValue<string> LatestRevisionName { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The outbound_ip_addresses attribute.
     /// </summary>
     [TerraformProperty("outbound_ip_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> OutboundIpAddresses { get; }
+    public partial TerraformList<string> OutboundIpAddresses { get; }
 
 }

@@ -22,7 +22,7 @@ public partial class GoogleCloudIdentityGroupGroupKeyBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The namespace in which the entity exists.
@@ -36,7 +36,7 @@ public partial class GoogleCloudIdentityGroupGroupKeyBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("namespace")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Namespace { get; set; }
+    public partial TerraformValue<string>? Namespace { get; set; }
 
 }
 
@@ -51,21 +51,21 @@ public partial class GoogleCloudIdentityGroupTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -85,21 +85,21 @@ public partial class GoogleCloudIdentityGroup : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display name of the Group.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The initial configuration options for creating a Group.
@@ -110,7 +110,7 @@ public partial class GoogleCloudIdentityGroup : TerraformResource
     /// </summary>
     [TerraformProperty("initial_group_config")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InitialGroupConfig { get; set; }
+    public partial TerraformValue<string>? InitialGroupConfig { get; set; }
 
     /// <summary>
     /// One or more label entries that apply to the Group. Currently supported labels contain a key with an empty value.
@@ -126,7 +126,7 @@ public partial class GoogleCloudIdentityGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Labels is required")]
     [TerraformProperty("labels")]
     // Required argument - source generator will implement get/set
-    public required TerraformMap<string> Labels { get; set; }
+    public required partial TerraformMap<string> Labels { get; set; }
 
     /// <summary>
     /// The resource name of the entity under which this Group resides in the
@@ -138,7 +138,7 @@ public partial class GoogleCloudIdentityGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Block for group_key.
@@ -148,28 +148,28 @@ public partial class GoogleCloudIdentityGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GroupKey block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GroupKey block(s) allowed")]
     [TerraformProperty("group_key")]
-    public TerraformList<TerraformBlock<GoogleCloudIdentityGroupGroupKeyBlock>>? GroupKey { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudIdentityGroupGroupKeyBlock>>? GroupKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleCloudIdentityGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleCloudIdentityGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Additional group keys associated with the Group
     /// </summary>
     [TerraformProperty("additional_group_keys")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> AdditionalGroupKeys { get; }
+    public partial TerraformList<object> AdditionalGroupKeys { get; }
 
     /// <summary>
     /// The time when the Group was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Resource name of the Group in the format: groups/{group_id}, where group_id
@@ -177,13 +177,13 @@ public partial class GoogleCloudIdentityGroup : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The time when the Group was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

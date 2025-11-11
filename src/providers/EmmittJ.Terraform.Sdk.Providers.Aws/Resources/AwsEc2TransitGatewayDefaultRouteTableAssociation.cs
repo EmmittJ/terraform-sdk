@@ -13,21 +13,21 @@ public partial class AwsEc2TransitGatewayDefaultRouteTableAssociationTimeoutsBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AwsEc2TransitGatewayDefaultRouteTableAssociation : Terrafor
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The transit_gateway_id attribute.
@@ -53,7 +53,7 @@ public partial class AwsEc2TransitGatewayDefaultRouteTableAssociation : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayId is required")]
     [TerraformProperty("transit_gateway_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TransitGatewayId { get; set; }
+    public required partial TerraformValue<string> TransitGatewayId { get; set; }
 
     /// <summary>
     /// The transit_gateway_route_table_id attribute.
@@ -61,27 +61,27 @@ public partial class AwsEc2TransitGatewayDefaultRouteTableAssociation : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayRouteTableId is required")]
     [TerraformProperty("transit_gateway_route_table_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TransitGatewayRouteTableId { get; set; }
+    public required partial TerraformValue<string> TransitGatewayRouteTableId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsEc2TransitGatewayDefaultRouteTableAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsEc2TransitGatewayDefaultRouteTableAssociationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The original_default_route_table_id attribute.
     /// </summary>
     [TerraformProperty("original_default_route_table_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OriginalDefaultRouteTableId { get; }
+    public partial TerraformValue<string> OriginalDefaultRouteTableId { get; }
 
 }

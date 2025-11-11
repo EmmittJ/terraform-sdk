@@ -17,14 +17,14 @@ public partial class AwsIamUserSshKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encoding is required")]
     [TerraformProperty("encoding")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Encoding { get; set; }
+    public required partial TerraformValue<string> Encoding { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ssh_public_key_id attribute.
@@ -32,7 +32,7 @@ public partial class AwsIamUserSshKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPublicKeyId is required")]
     [TerraformProperty("ssh_public_key_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SshPublicKeyId { get; set; }
+    public required partial TerraformValue<string> SshPublicKeyId { get; set; }
 
     /// <summary>
     /// The username attribute.
@@ -40,27 +40,27 @@ public partial class AwsIamUserSshKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformProperty("username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Username { get; set; }
+    public required partial TerraformValue<string> Username { get; set; }
 
     /// <summary>
     /// The fingerprint attribute.
     /// </summary>
     [TerraformProperty("fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Fingerprint { get; }
+    public partial TerraformValue<string> Fingerprint { get; }
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     [TerraformProperty("public_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PublicKey { get; }
+    public partial TerraformValue<string> PublicKey { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
 }

@@ -13,28 +13,28 @@ public partial class AzurermAutomationVariableDatetimeTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,28 +53,28 @@ public partial class AzurermAutomationVariableDatetime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     [TerraformProperty("automation_account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AutomationAccountName { get; set; }
+    public required partial TerraformValue<string> AutomationAccountName { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     [TerraformProperty("encrypted")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Encrypted { get; set; }
+    public partial TerraformValue<bool>? Encrypted { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -82,7 +82,7 @@ public partial class AzurermAutomationVariableDatetime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -90,20 +90,20 @@ public partial class AzurermAutomationVariableDatetime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Value { get; set; }
+    public partial TerraformValue<string>? Value { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAutomationVariableDatetimeTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAutomationVariableDatetimeTimeoutsBlock>? Timeouts { get; set; }
 
 }

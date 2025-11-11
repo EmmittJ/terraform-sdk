@@ -13,28 +13,28 @@ public partial class GoogleProjectTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public partial class GoogleProject : TerraformResource
     /// </summary>
     [TerraformProperty("auto_create_network")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutoCreateNetwork { get; set; }
+    public partial TerraformValue<bool>? AutoCreateNetwork { get; set; }
 
     /// <summary>
     /// The alphanumeric ID of the billing account this project belongs to. The user or service account performing this operation with Terraform must have Billing Account Administrator privileges (roles/billing.admin) in the organization. See Google Cloud Billing API Access Control for more details.
     /// </summary>
     [TerraformProperty("billing_account")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BillingAccount { get; set; }
+    public partial TerraformValue<string>? BillingAccount { get; set; }
 
     /// <summary>
     /// The deletion policy for the Project. Setting PREVENT will protect the project against any destroy actions caused by a terraform apply or terraform destroy. Setting ABANDON allows the resource
@@ -67,21 +67,21 @@ public partial class GoogleProject : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeletionPolicy { get; set; }
+    public partial TerraformValue<string>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// The numeric ID of the folder this project should be created under. Only one of org_id or folder_id may be specified. If the folder_id is specified, then the project is created under the specified folder. Changing this forces the project to be migrated to the newly specified folder.
     /// </summary>
     [TerraformProperty("folder_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FolderId { get; set; }
+    public partial TerraformValue<string>? FolderId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A set of key/value label pairs to assign to the project.
@@ -91,7 +91,7 @@ public partial class GoogleProject : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The display name of the project.
@@ -99,14 +99,14 @@ public partial class GoogleProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The numeric ID of the organization this project belongs to. Changing this forces a new project to be created.  Only one of org_id or folder_id may be specified. If the org_id is specified then the project is created at the top level. Changing this forces the project to be migrated to the newly specified organization.
     /// </summary>
     [TerraformProperty("org_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OrgId { get; set; }
+    public partial TerraformValue<string>? OrgId { get; set; }
 
     /// <summary>
     /// The project ID. Changing this forces a new project to be created.
@@ -114,41 +114,41 @@ public partial class GoogleProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     [TerraformProperty("project_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProjectId { get; set; }
+    public required partial TerraformValue<string> ProjectId { get; set; }
 
     /// <summary>
     /// A map of resource manager tags. Resource manager tag keys and values have the same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/456. The field is ignored when empty. This field is only set at create time and modifying this field after creation will trigger recreation. To apply tags to an existing resource, see the google_tags_tag_value resource.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleProjectTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleProjectTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The numeric identifier of the project.
     /// </summary>
     [TerraformProperty("number")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Number { get; }
+    public partial TerraformValue<string> Number { get; }
 
     /// <summary>
     /// (ReadOnly) The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

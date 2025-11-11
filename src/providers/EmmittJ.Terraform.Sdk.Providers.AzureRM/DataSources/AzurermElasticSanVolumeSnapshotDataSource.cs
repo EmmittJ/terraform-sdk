@@ -13,7 +13,7 @@ public partial class AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The volume_group_id attribute.
@@ -47,34 +47,34 @@ public partial class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeGroupId is required")]
     [TerraformProperty("volume_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VolumeGroupId { get; set; }
+    public required partial TerraformValue<string> VolumeGroupId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The source_id attribute.
     /// </summary>
     [TerraformProperty("source_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SourceId { get; }
+    public partial TerraformValue<string> SourceId { get; }
 
     /// <summary>
     /// The source_volume_size_in_gib attribute.
     /// </summary>
     [TerraformProperty("source_volume_size_in_gib")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> SourceVolumeSizeInGib { get; }
+    public partial TerraformValue<double> SourceVolumeSizeInGib { get; }
 
     /// <summary>
     /// The volume_name attribute.
     /// </summary>
     [TerraformProperty("volume_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VolumeName { get; }
+    public partial TerraformValue<string> VolumeName { get; }
 
 }

@@ -16,7 +16,7 @@ public partial class AwsNotificationsEventRule : TerraformResource
     /// </summary>
     [TerraformProperty("event_pattern")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EventPattern { get; set; }
+    public partial TerraformValue<string>? EventPattern { get; set; }
 
     /// <summary>
     /// The event_type attribute.
@@ -24,7 +24,7 @@ public partial class AwsNotificationsEventRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
     [TerraformProperty("event_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EventType { get; set; }
+    public required partial TerraformValue<string> EventType { get; set; }
 
     /// <summary>
     /// The notification_configuration_arn attribute.
@@ -32,7 +32,7 @@ public partial class AwsNotificationsEventRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationConfigurationArn is required")]
     [TerraformProperty("notification_configuration_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NotificationConfigurationArn { get; set; }
+    public required partial TerraformValue<string> NotificationConfigurationArn { get; set; }
 
     /// <summary>
     /// The regions attribute.
@@ -40,7 +40,7 @@ public partial class AwsNotificationsEventRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Regions is required")]
     [TerraformProperty("regions")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Regions { get; set; }
+    public required partial TerraformSet<string> Regions { get; set; }
 
     /// <summary>
     /// The source attribute.
@@ -48,13 +48,13 @@ public partial class AwsNotificationsEventRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [TerraformProperty("source")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Source { get; set; }
+    public required partial TerraformValue<string> Source { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

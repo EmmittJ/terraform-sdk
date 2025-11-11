@@ -21,14 +21,14 @@ public partial class GoogleDataprocSessionTemplateJupyterSessionBlock : Terrafor
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// Kernel to be used with Jupyter interactive session. Possible values: [&amp;quot;PYTHON&amp;quot;, &amp;quot;SCALA&amp;quot;]
     /// </summary>
     [TerraformProperty("kernel")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Kernel { get; set; }
+    public partial TerraformValue<string>? Kernel { get; set; }
 
 }
 
@@ -43,7 +43,7 @@ public partial class GoogleDataprocSessionTemplateRuntimeConfigBlock : Terraform
     /// </summary>
     [TerraformProperty("container_image")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContainerImage { get; set; }
+    public partial TerraformValue<string>? ContainerImage { get; set; }
 
 
     /// <summary>
@@ -51,14 +51,14 @@ public partial class GoogleDataprocSessionTemplateRuntimeConfigBlock : Terraform
     /// </summary>
     [TerraformProperty("properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Properties { get; set; }
+    public partial TerraformMap<string>? Properties { get; set; }
 
     /// <summary>
     /// Version of the session runtime.
     /// </summary>
     [TerraformProperty("version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Version { get; set; }
+    public partial TerraformValue<string>? Version { get; set; }
 
 }
 
@@ -81,21 +81,21 @@ public partial class GoogleDataprocSessionTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -114,7 +114,7 @@ public partial class GoogleDataprocSessionTemplate : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The labels to associate with this session template.
@@ -125,14 +125,14 @@ public partial class GoogleDataprocSessionTemplate : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location in which the session template will be created in.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The resource name of the session template in the following format:
@@ -141,14 +141,14 @@ public partial class GoogleDataprocSessionTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for environment_config.
@@ -156,7 +156,7 @@ public partial class GoogleDataprocSessionTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnvironmentConfig block(s) allowed")]
     [TerraformProperty("environment_config")]
-    public TerraformList<TerraformBlock<GoogleDataprocSessionTemplateEnvironmentConfigBlock>>? EnvironmentConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocSessionTemplateEnvironmentConfigBlock>>? EnvironmentConfig { get; set; }
 
     /// <summary>
     /// Block for jupyter_session.
@@ -164,7 +164,7 @@ public partial class GoogleDataprocSessionTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JupyterSession block(s) allowed")]
     [TerraformProperty("jupyter_session")]
-    public TerraformList<TerraformBlock<GoogleDataprocSessionTemplateJupyterSessionBlock>>? JupyterSession { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocSessionTemplateJupyterSessionBlock>>? JupyterSession { get; set; }
 
     /// <summary>
     /// Block for runtime_config.
@@ -172,7 +172,7 @@ public partial class GoogleDataprocSessionTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuntimeConfig block(s) allowed")]
     [TerraformProperty("runtime_config")]
-    public TerraformList<TerraformBlock<GoogleDataprocSessionTemplateRuntimeConfigBlock>>? RuntimeConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocSessionTemplateRuntimeConfigBlock>>? RuntimeConfig { get; set; }
 
     /// <summary>
     /// Block for spark_connect_session.
@@ -180,35 +180,35 @@ public partial class GoogleDataprocSessionTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkConnectSession block(s) allowed")]
     [TerraformProperty("spark_connect_session")]
-    public TerraformList<TerraformBlock<GoogleDataprocSessionTemplateSparkConnectSessionBlock>>? SparkConnectSession { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocSessionTemplateSparkConnectSessionBlock>>? SparkConnectSession { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDataprocSessionTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDataprocSessionTemplateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when the session template was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The email address of the user who created the session template.
     /// </summary>
     [TerraformProperty("creator")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Creator { get; }
+    public partial TerraformValue<string> Creator { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -216,20 +216,20 @@ public partial class GoogleDataprocSessionTemplate : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The time when the session template was updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// A session template UUID (Unique Universal Identifier). The service generates this value when it creates the session template.
     /// </summary>
     [TerraformProperty("uuid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uuid { get; }
+    public partial TerraformValue<string> Uuid { get; }
 
 }

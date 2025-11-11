@@ -16,21 +16,21 @@ public partial class AwsVpclatticeAuthPolicyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     [TerraformProperty("policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Policy { get; set; }
+    public partial TerraformValue<string>? Policy { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_identifier attribute.
@@ -38,13 +38,13 @@ public partial class AwsVpclatticeAuthPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceIdentifier is required")]
     [TerraformProperty("resource_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceIdentifier { get; set; }
+    public required partial TerraformValue<string> ResourceIdentifier { get; set; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformProperty("state")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? State { get; set; }
+    public partial TerraformValue<string>? State { get; set; }
 
 }

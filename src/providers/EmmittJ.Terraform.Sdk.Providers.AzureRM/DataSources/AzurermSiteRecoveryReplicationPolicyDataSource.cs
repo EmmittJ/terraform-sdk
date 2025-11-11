@@ -13,7 +13,7 @@ public partial class AzurermSiteRecoveryReplicationPolicyDataSourceTimeoutsBlock
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermSiteRecoveryReplicationPolicyDataSource : TerraformD
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermSiteRecoveryReplicationPolicyDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recovery_vault_name attribute.
@@ -47,7 +47,7 @@ public partial class AzurermSiteRecoveryReplicationPolicyDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     [TerraformProperty("recovery_vault_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecoveryVaultName { get; set; }
+    public required partial TerraformValue<string> RecoveryVaultName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -55,27 +55,27 @@ public partial class AzurermSiteRecoveryReplicationPolicyDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSiteRecoveryReplicationPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSiteRecoveryReplicationPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The application_consistent_snapshot_frequency_in_minutes attribute.
     /// </summary>
     [TerraformProperty("application_consistent_snapshot_frequency_in_minutes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ApplicationConsistentSnapshotFrequencyInMinutes { get; }
+    public partial TerraformValue<double> ApplicationConsistentSnapshotFrequencyInMinutes { get; }
 
     /// <summary>
     /// The recovery_point_retention_in_minutes attribute.
     /// </summary>
     [TerraformProperty("recovery_point_retention_in_minutes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> RecoveryPointRetentionInMinutes { get; }
+    public partial TerraformValue<double> RecoveryPointRetentionInMinutes { get; }
 
 }

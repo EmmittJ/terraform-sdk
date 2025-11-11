@@ -17,14 +17,14 @@ public partial class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformProperty("action")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Action { get; set; }
+    public required partial TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The layer_name attribute.
@@ -32,14 +32,14 @@ public partial class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LayerName is required")]
     [TerraformProperty("layer_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LayerName { get; set; }
+    public required partial TerraformValue<string> LayerName { get; set; }
 
     /// <summary>
     /// The organization_id attribute.
     /// </summary>
     [TerraformProperty("organization_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OrganizationId { get; set; }
+    public partial TerraformValue<string>? OrganizationId { get; set; }
 
     /// <summary>
     /// The principal attribute.
@@ -47,21 +47,21 @@ public partial class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     [TerraformProperty("principal")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Principal { get; set; }
+    public required partial TerraformValue<string> Principal { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
     [TerraformProperty("skip_destroy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SkipDestroy { get; set; }
+    public partial TerraformValue<bool>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The statement_id attribute.
@@ -69,7 +69,7 @@ public partial class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatementId is required")]
     [TerraformProperty("statement_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StatementId { get; set; }
+    public required partial TerraformValue<string> StatementId { get; set; }
 
     /// <summary>
     /// The version_number attribute.
@@ -77,20 +77,20 @@ public partial class AwsLambdaLayerVersionPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionNumber is required")]
     [TerraformProperty("version_number")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> VersionNumber { get; set; }
+    public required partial TerraformValue<double> VersionNumber { get; set; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     [TerraformProperty("policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Policy { get; }
+    public partial TerraformValue<string> Policy { get; }
 
     /// <summary>
     /// The revision_id attribute.
     /// </summary>
     [TerraformProperty("revision_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RevisionId { get; }
+    public partial TerraformValue<string> RevisionId { get; }
 
 }

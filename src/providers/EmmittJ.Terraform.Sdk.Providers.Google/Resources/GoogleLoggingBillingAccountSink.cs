@@ -14,7 +14,7 @@ public partial class GoogleLoggingBillingAccountSinkBigqueryOptionsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsePartitionedTables is required")]
     [TerraformProperty("use_partitioned_tables")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> UsePartitionedTables { get; set; }
+    public required partial TerraformValue<bool> UsePartitionedTables { get; set; }
 
 }
 
@@ -29,14 +29,14 @@ public partial class GoogleLoggingBillingAccountSinkExclusionsBlock : TerraformB
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// If set to True, then this exclusion is disabled and it does not exclude any log entries
     /// </summary>
     [TerraformProperty("disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Disabled { get; set; }
+    public partial TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// An advanced logs filter that matches the log entries to be excluded. By using the sample function, you can exclude less than 100% of the matching log entries
@@ -44,7 +44,7 @@ public partial class GoogleLoggingBillingAccountSinkExclusionsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [TerraformProperty("filter")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Filter { get; set; }
+    public required partial TerraformValue<string> Filter { get; set; }
 
     /// <summary>
     /// A client-assigned identifier, such as &amp;quot;load-balancer-exclusion&amp;quot;. Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. First character has to be alphanumeric.
@@ -52,7 +52,7 @@ public partial class GoogleLoggingBillingAccountSinkExclusionsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -72,14 +72,14 @@ public partial class GoogleLoggingBillingAccountSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccount is required")]
     [TerraformProperty("billing_account")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BillingAccount { get; set; }
+    public required partial TerraformValue<string> BillingAccount { get; set; }
 
     /// <summary>
     /// A description of this sink. The maximum length of the description is 8000 characters.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The destination of the sink (or, in other words, where logs are written to). Can be a Cloud Storage bucket, a PubSub topic, or a BigQuery dataset. Examples: &amp;quot;storage.googleapis.com/[GCS_BUCKET]&amp;quot; &amp;quot;bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET]&amp;quot; &amp;quot;pubsub.googleapis.com/projects/[PROJECT_ID]/topics/[TOPIC_ID]&amp;quot; The writer associated with the sink must have access to write to the above resource.
@@ -87,28 +87,28 @@ public partial class GoogleLoggingBillingAccountSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [TerraformProperty("destination")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Destination { get; set; }
+    public required partial TerraformValue<string> Destination { get; set; }
 
     /// <summary>
     /// If set to True, then this sink is disabled and it does not export any log entries.
     /// </summary>
     [TerraformProperty("disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Disabled { get; set; }
+    public partial TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The filter to apply when exporting logs. Only log entries that match the filter are exported.
     /// </summary>
     [TerraformProperty("filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Filter { get; set; }
+    public partial TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the logging sink.
@@ -116,7 +116,7 @@ public partial class GoogleLoggingBillingAccountSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for bigquery_options.
@@ -124,20 +124,20 @@ public partial class GoogleLoggingBillingAccountSink : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigqueryOptions block(s) allowed")]
     [TerraformProperty("bigquery_options")]
-    public TerraformList<TerraformBlock<GoogleLoggingBillingAccountSinkBigqueryOptionsBlock>>? BigqueryOptions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleLoggingBillingAccountSinkBigqueryOptionsBlock>>? BigqueryOptions { get; set; }
 
     /// <summary>
     /// Block for exclusions.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("exclusions")]
-    public TerraformList<TerraformBlock<GoogleLoggingBillingAccountSinkExclusionsBlock>>? Exclusions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleLoggingBillingAccountSinkExclusionsBlock>>? Exclusions { get; set; }
 
     /// <summary>
     /// The identity associated with this sink. This identity must be granted write access to the configured destination.
     /// </summary>
     [TerraformProperty("writer_identity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> WriterIdentity { get; }
+    public partial TerraformValue<string> WriterIdentity { get; }
 
 }

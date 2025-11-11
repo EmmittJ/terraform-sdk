@@ -17,21 +17,21 @@ public partial class AwsRoute53recoverycontrolconfigRoutingControl : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterArn is required")]
     [TerraformProperty("cluster_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterArn { get; set; }
+    public required partial TerraformValue<string> ClusterArn { get; set; }
 
     /// <summary>
     /// The control_panel_arn attribute.
     /// </summary>
     [TerraformProperty("control_panel_arn")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ControlPanelArn { get; set; }
+    public partial TerraformValue<string> ControlPanelArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,20 +39,20 @@ public partial class AwsRoute53recoverycontrolconfigRoutingControl : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
 }

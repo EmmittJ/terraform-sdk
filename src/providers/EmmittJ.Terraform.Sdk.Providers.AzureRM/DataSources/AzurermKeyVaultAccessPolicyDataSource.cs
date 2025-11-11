@@ -13,7 +13,7 @@ public partial class AzurermKeyVaultAccessPolicyDataSourceTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermKeyVaultAccessPolicyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,34 +39,34 @@ public partial class AzurermKeyVaultAccessPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKeyVaultAccessPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKeyVaultAccessPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The certificate_permissions attribute.
     /// </summary>
     [TerraformProperty("certificate_permissions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> CertificatePermissions { get; }
+    public partial TerraformList<string> CertificatePermissions { get; }
 
     /// <summary>
     /// The key_permissions attribute.
     /// </summary>
     [TerraformProperty("key_permissions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> KeyPermissions { get; }
+    public partial TerraformList<string> KeyPermissions { get; }
 
     /// <summary>
     /// The secret_permissions attribute.
     /// </summary>
     [TerraformProperty("secret_permissions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> SecretPermissions { get; }
+    public partial TerraformList<string> SecretPermissions { get; }
 
 }

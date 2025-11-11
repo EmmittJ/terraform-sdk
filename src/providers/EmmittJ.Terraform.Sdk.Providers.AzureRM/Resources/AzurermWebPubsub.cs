@@ -13,7 +13,7 @@ public partial class AzurermWebPubsubIdentityBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -23,7 +23,7 @@ public partial class AzurermWebPubsubIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -38,28 +38,28 @@ public partial class AzurermWebPubsubLiveTraceBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("connectivity_logs_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ConnectivityLogsEnabled { get; set; }
+    public partial TerraformValue<bool>? ConnectivityLogsEnabled { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The http_request_logs_enabled attribute.
     /// </summary>
     [TerraformProperty("http_request_logs_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? HttpRequestLogsEnabled { get; set; }
+    public partial TerraformValue<bool>? HttpRequestLogsEnabled { get; set; }
 
     /// <summary>
     /// The messaging_logs_enabled attribute.
     /// </summary>
     [TerraformProperty("messaging_logs_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? MessagingLogsEnabled { get; set; }
+    public partial TerraformValue<bool>? MessagingLogsEnabled { get; set; }
 
 }
 
@@ -74,28 +74,28 @@ public partial class AzurermWebPubsubTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -114,28 +114,28 @@ public partial class AzurermWebPubsub : TerraformResource
     /// </summary>
     [TerraformProperty("aad_auth_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AadAuthEnabled { get; set; }
+    public partial TerraformValue<bool>? AadAuthEnabled { get; set; }
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
     [TerraformProperty("capacity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Capacity { get; set; }
+    public partial TerraformValue<double>? Capacity { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
     [TerraformProperty("local_auth_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LocalAuthEnabled { get; set; }
+    public partial TerraformValue<bool>? LocalAuthEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -143,7 +143,7 @@ public partial class AzurermWebPubsub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -151,14 +151,14 @@ public partial class AzurermWebPubsub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformProperty("public_network_access_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
+    public partial TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -166,7 +166,7 @@ public partial class AzurermWebPubsub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
@@ -174,21 +174,21 @@ public partial class AzurermWebPubsub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [TerraformProperty("sku")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Sku { get; set; }
+    public required partial TerraformValue<string> Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tls_client_cert_enabled attribute.
     /// </summary>
     [TerraformProperty("tls_client_cert_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? TlsClientCertEnabled { get; set; }
+    public partial TerraformValue<bool>? TlsClientCertEnabled { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -196,7 +196,7 @@ public partial class AzurermWebPubsub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermWebPubsubIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermWebPubsubIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for live_trace.
@@ -204,76 +204,76 @@ public partial class AzurermWebPubsub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LiveTrace block(s) allowed")]
     [TerraformProperty("live_trace")]
-    public TerraformList<TerraformBlock<AzurermWebPubsubLiveTraceBlock>>? LiveTrace { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermWebPubsubLiveTraceBlock>>? LiveTrace { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermWebPubsubTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermWebPubsubTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The external_ip attribute.
     /// </summary>
     [TerraformProperty("external_ip")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExternalIp { get; }
+    public partial TerraformValue<string> ExternalIp { get; }
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
     [TerraformProperty("hostname")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Hostname { get; }
+    public partial TerraformValue<string> Hostname { get; }
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     [TerraformProperty("primary_access_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryAccessKey { get; }
+    public partial TerraformValue<string> PrimaryAccessKey { get; }
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
     [TerraformProperty("primary_connection_string")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryConnectionString { get; }
+    public partial TerraformValue<string> PrimaryConnectionString { get; }
 
     /// <summary>
     /// The public_port attribute.
     /// </summary>
     [TerraformProperty("public_port")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> PublicPort { get; }
+    public partial TerraformValue<double> PublicPort { get; }
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     [TerraformProperty("secondary_access_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecondaryAccessKey { get; }
+    public partial TerraformValue<string> SecondaryAccessKey { get; }
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     [TerraformProperty("secondary_connection_string")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecondaryConnectionString { get; }
+    public partial TerraformValue<string> SecondaryConnectionString { get; }
 
     /// <summary>
     /// The server_port attribute.
     /// </summary>
     [TerraformProperty("server_port")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ServerPort { get; }
+    public partial TerraformValue<double> ServerPort { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Version { get; }
+    public partial TerraformValue<string> Version { get; }
 
 }

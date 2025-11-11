@@ -16,7 +16,7 @@ public partial class GoogleKmsKeyHandleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the KeyHandle.
@@ -25,7 +25,7 @@ public partial class GoogleKmsKeyHandleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource name for the KeyHandle.
@@ -33,14 +33,14 @@ public partial class GoogleKmsKeyHandleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// A reference to a Cloud KMS CryptoKey that can be used for CMEK in the requested
@@ -49,7 +49,7 @@ public partial class GoogleKmsKeyHandleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("kms_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KmsKey { get; }
+    public partial TerraformValue<string> KmsKey { get; }
 
     /// <summary>
     /// Selector of the resource type where we want to protect resources.
@@ -57,6 +57,6 @@ public partial class GoogleKmsKeyHandleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("resource_type_selector")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceTypeSelector { get; }
+    public partial TerraformValue<string> ResourceTypeSelector { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class GoogleCertificateManagerTrustConfigAllowlistedCertificatesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PemCertificate is required")]
     [TerraformProperty("pem_certificate")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PemCertificate { get; set; }
+    public required partial TerraformValue<string> PemCertificate { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public partial class GoogleCertificateManagerTrustConfigTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -69,14 +69,14 @@ public partial class GoogleCertificateManagerTrustConfig : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Set of label tags associated with the trust config.
@@ -86,7 +86,7 @@ public partial class GoogleCertificateManagerTrustConfig : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The trust config location.
@@ -94,7 +94,7 @@ public partial class GoogleCertificateManagerTrustConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// A user-defined name of the trust config. Trust config names must be unique globally.
@@ -102,35 +102,35 @@ public partial class GoogleCertificateManagerTrustConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for allowlisted_certificates.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("allowlisted_certificates")]
-    public TerraformList<TerraformBlock<GoogleCertificateManagerTrustConfigAllowlistedCertificatesBlock>>? AllowlistedCertificates { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCertificateManagerTrustConfigAllowlistedCertificatesBlock>>? AllowlistedCertificates { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleCertificateManagerTrustConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleCertificateManagerTrustConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for trust_stores.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("trust_stores")]
-    public TerraformList<TerraformBlock<GoogleCertificateManagerTrustConfigTrustStoresBlock>>? TrustStores { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCertificateManagerTrustConfigTrustStoresBlock>>? TrustStores { get; set; }
 
     /// <summary>
     /// The creation timestamp of a TrustConfig.
@@ -140,14 +140,14 @@ public partial class GoogleCertificateManagerTrustConfig : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -155,7 +155,7 @@ public partial class GoogleCertificateManagerTrustConfig : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The last update timestamp of a TrustConfig.
@@ -165,6 +165,6 @@ public partial class GoogleCertificateManagerTrustConfig : TerraformResource
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class GoogleComputeNetworkPeeringRoutesConfigTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportCustomRoutes is required")]
     [TerraformProperty("export_custom_routes")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> ExportCustomRoutes { get; set; }
+    public required partial TerraformValue<bool> ExportCustomRoutes { get; set; }
 
     /// <summary>
     /// Whether subnet routes with public IP range are exported.
@@ -55,14 +55,14 @@ public partial class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// </summary>
     [TerraformProperty("export_subnet_routes_with_public_ip")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> ExportSubnetRoutesWithPublicIp { get; set; }
+    public partial TerraformValue<bool> ExportSubnetRoutesWithPublicIp { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Whether to import the custom routes to the peer network.
@@ -70,7 +70,7 @@ public partial class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportCustomRoutes is required")]
     [TerraformProperty("import_custom_routes")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> ImportCustomRoutes { get; set; }
+    public required partial TerraformValue<bool> ImportCustomRoutes { get; set; }
 
     /// <summary>
     /// Whether subnet routes with public IP range are imported.
@@ -79,7 +79,7 @@ public partial class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// </summary>
     [TerraformProperty("import_subnet_routes_with_public_ip")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> ImportSubnetRoutesWithPublicIp { get; set; }
+    public partial TerraformValue<bool> ImportSubnetRoutesWithPublicIp { get; set; }
 
     /// <summary>
     /// The name of the primary network for the peering.
@@ -87,7 +87,7 @@ public partial class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformProperty("network")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Network { get; set; }
+    public required partial TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// Name of the peering.
@@ -95,20 +95,20 @@ public partial class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
     [TerraformProperty("peering")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Peering { get; set; }
+    public required partial TerraformValue<string> Peering { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeNetworkPeeringRoutesConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeNetworkPeeringRoutesConfigTimeoutsBlock>? Timeouts { get; set; }
 
 }

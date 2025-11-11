@@ -13,21 +13,21 @@ public partial class AzurermApiManagementNotificationRecipientEmailTimeoutsBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AzurermApiManagementNotificationRecipientEmail : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     [TerraformProperty("api_management_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiManagementId { get; set; }
+    public required partial TerraformValue<string> ApiManagementId { get; set; }
 
     /// <summary>
     /// The email attribute.
@@ -54,14 +54,14 @@ public partial class AzurermApiManagementNotificationRecipientEmail : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     [TerraformProperty("email")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Email { get; set; }
+    public required partial TerraformValue<string> Email { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The notification_type attribute.
@@ -69,13 +69,13 @@ public partial class AzurermApiManagementNotificationRecipientEmail : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
     [TerraformProperty("notification_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NotificationType { get; set; }
+    public required partial TerraformValue<string> NotificationType { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApiManagementNotificationRecipientEmailTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApiManagementNotificationRecipientEmailTimeoutsBlock>? Timeouts { get; set; }
 
 }

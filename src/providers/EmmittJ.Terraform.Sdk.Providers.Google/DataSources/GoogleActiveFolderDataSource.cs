@@ -16,7 +16,7 @@ public partial class GoogleActiveFolderDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("api_method")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ApiMethod { get; set; }
+    public partial TerraformValue<string>? ApiMethod { get; set; }
 
     /// <summary>
     /// The display_name attribute.
@@ -24,14 +24,14 @@ public partial class GoogleActiveFolderDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The parent attribute.
@@ -39,13 +39,13 @@ public partial class GoogleActiveFolderDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

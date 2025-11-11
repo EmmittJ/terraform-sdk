@@ -13,7 +13,7 @@ public partial class AwsLakeformationResourceLfTagsDatabaseBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("catalog_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CatalogId { get; set; }
+    public partial TerraformValue<string> CatalogId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -21,7 +21,7 @@ public partial class AwsLakeformationResourceLfTagsDatabaseBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public partial class AwsLakeformationResourceLfTagsLfTagBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("catalog_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CatalogId { get; set; }
+    public partial TerraformValue<string> CatalogId { get; set; }
 
     /// <summary>
     /// The key attribute.
@@ -44,7 +44,7 @@ public partial class AwsLakeformationResourceLfTagsLfTagBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -52,7 +52,7 @@ public partial class AwsLakeformationResourceLfTagsLfTagBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
 }
 
@@ -67,7 +67,7 @@ public partial class AwsLakeformationResourceLfTagsTableBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("catalog_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CatalogId { get; set; }
+    public partial TerraformValue<string> CatalogId { get; set; }
 
     /// <summary>
     /// The database_name attribute.
@@ -75,21 +75,21 @@ public partial class AwsLakeformationResourceLfTagsTableBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformProperty("database_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatabaseName { get; set; }
+    public required partial TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The wildcard attribute.
     /// </summary>
     [TerraformProperty("wildcard")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Wildcard { get; set; }
+    public partial TerraformValue<bool>? Wildcard { get; set; }
 
 }
 
@@ -104,14 +104,14 @@ public partial class AwsLakeformationResourceLfTagsTableWithColumnsBlock : Terra
     /// </summary>
     [TerraformProperty("catalog_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CatalogId { get; set; }
+    public partial TerraformValue<string> CatalogId { get; set; }
 
     /// <summary>
     /// The column_names attribute.
     /// </summary>
     [TerraformProperty("column_names")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ColumnNames { get; set; }
+    public partial TerraformSet<string>? ColumnNames { get; set; }
 
     /// <summary>
     /// The database_name attribute.
@@ -119,14 +119,14 @@ public partial class AwsLakeformationResourceLfTagsTableWithColumnsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformProperty("database_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatabaseName { get; set; }
+    public required partial TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The excluded_column_names attribute.
     /// </summary>
     [TerraformProperty("excluded_column_names")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ExcludedColumnNames { get; set; }
+    public partial TerraformSet<string>? ExcludedColumnNames { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -134,14 +134,14 @@ public partial class AwsLakeformationResourceLfTagsTableWithColumnsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The wildcard attribute.
     /// </summary>
     [TerraformProperty("wildcard")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Wildcard { get; set; }
+    public partial TerraformValue<bool>? Wildcard { get; set; }
 
 }
 
@@ -156,14 +156,14 @@ public partial class AwsLakeformationResourceLfTagsTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -182,21 +182,21 @@ public partial class AwsLakeformationResourceLfTags : TerraformResource
     /// </summary>
     [TerraformProperty("catalog_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CatalogId { get; set; }
+    public partial TerraformValue<string> CatalogId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for database.
@@ -204,7 +204,7 @@ public partial class AwsLakeformationResourceLfTags : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Database block(s) allowed")]
     [TerraformProperty("database")]
-    public TerraformList<TerraformBlock<AwsLakeformationResourceLfTagsDatabaseBlock>>? Database { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLakeformationResourceLfTagsDatabaseBlock>>? Database { get; set; }
 
     /// <summary>
     /// Block for lf_tag.
@@ -213,7 +213,7 @@ public partial class AwsLakeformationResourceLfTags : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LfTag is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LfTag block(s) required")]
     [TerraformProperty("lf_tag")]
-    public TerraformSet<TerraformBlock<AwsLakeformationResourceLfTagsLfTagBlock>>? LfTag { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsLakeformationResourceLfTagsLfTagBlock>>? LfTag { get; set; }
 
     /// <summary>
     /// Block for table.
@@ -221,7 +221,7 @@ public partial class AwsLakeformationResourceLfTags : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Table block(s) allowed")]
     [TerraformProperty("table")]
-    public TerraformList<TerraformBlock<AwsLakeformationResourceLfTagsTableBlock>>? Table { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLakeformationResourceLfTagsTableBlock>>? Table { get; set; }
 
     /// <summary>
     /// Block for table_with_columns.
@@ -229,13 +229,13 @@ public partial class AwsLakeformationResourceLfTags : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TableWithColumns block(s) allowed")]
     [TerraformProperty("table_with_columns")]
-    public TerraformList<TerraformBlock<AwsLakeformationResourceLfTagsTableWithColumnsBlock>>? TableWithColumns { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLakeformationResourceLfTagsTableWithColumnsBlock>>? TableWithColumns { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsLakeformationResourceLfTagsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsLakeformationResourceLfTagsTimeoutsBlock>? Timeouts { get; set; }
 
 }

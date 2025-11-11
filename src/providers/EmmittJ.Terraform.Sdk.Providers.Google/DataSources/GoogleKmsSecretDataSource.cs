@@ -16,7 +16,7 @@ public partial class GoogleKmsSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("additional_authenticated_data")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AdditionalAuthenticatedData { get; set; }
+    public partial TerraformValue<string>? AdditionalAuthenticatedData { get; set; }
 
     /// <summary>
     /// The ciphertext attribute.
@@ -24,7 +24,7 @@ public partial class GoogleKmsSecretDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ciphertext is required")]
     [TerraformProperty("ciphertext")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Ciphertext { get; set; }
+    public required partial TerraformValue<string> Ciphertext { get; set; }
 
     /// <summary>
     /// The crypto_key attribute.
@@ -32,20 +32,20 @@ public partial class GoogleKmsSecretDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     [TerraformProperty("crypto_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CryptoKey { get; set; }
+    public required partial TerraformValue<string> CryptoKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The plaintext attribute.
     /// </summary>
     [TerraformProperty("plaintext")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Plaintext { get; }
+    public partial TerraformValue<string> Plaintext { get; }
 
 }

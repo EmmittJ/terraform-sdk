@@ -13,21 +13,21 @@ public partial class GoogleBackupDrBackupPlanAssociationTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -49,7 +49,7 @@ public partial class GoogleBackupDrBackupPlanAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlan is required")]
     [TerraformProperty("backup_plan")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackupPlan { get; set; }
+    public required partial TerraformValue<string> BackupPlan { get; set; }
 
     /// <summary>
     /// The id of backupplan association
@@ -57,14 +57,14 @@ public partial class GoogleBackupDrBackupPlanAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanAssociationId is required")]
     [TerraformProperty("backup_plan_association_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackupPlanAssociationId { get; set; }
+    public required partial TerraformValue<string> BackupPlanAssociationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the backupplan association
@@ -72,14 +72,14 @@ public partial class GoogleBackupDrBackupPlanAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The resource for which BPA needs to be created
@@ -87,7 +87,7 @@ public partial class GoogleBackupDrBackupPlanAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     [TerraformProperty("resource")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Resource { get; set; }
+    public required partial TerraformValue<string> Resource { get; set; }
 
     /// <summary>
     /// The resource type of workload on which backupplan is applied.
@@ -96,55 +96,55 @@ public partial class GoogleBackupDrBackupPlanAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     [TerraformProperty("resource_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceType { get; set; }
+    public required partial TerraformValue<string> ResourceType { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBackupDrBackupPlanAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBackupDrBackupPlanAssociationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when the instance was created
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Resource name of data source which will be used as storage location for backups taken
     /// </summary>
     [TerraformProperty("data_source")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DataSource { get; }
+    public partial TerraformValue<string> DataSource { get; }
 
     /// <summary>
     /// The point in time when the last successful backup was captured from the source
     /// </summary>
     [TerraformProperty("last_successful_backup_consistency_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastSuccessfulBackupConsistencyTime { get; }
+    public partial TerraformValue<string> LastSuccessfulBackupConsistencyTime { get; }
 
     /// <summary>
     /// The name of backup plan association resource created
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Message for rules config info
     /// </summary>
     [TerraformProperty("rules_config_info")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> RulesConfigInfo { get; }
+    public partial TerraformList<object> RulesConfigInfo { get; }
 
     /// <summary>
     /// The time when the instance was updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

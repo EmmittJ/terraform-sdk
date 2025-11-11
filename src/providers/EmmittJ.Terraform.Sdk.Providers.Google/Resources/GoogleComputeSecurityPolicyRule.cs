@@ -22,7 +22,7 @@ public partial class GoogleComputeSecurityPolicyRuleMatchBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("versioned_expr")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VersionedExpr { get; set; }
+    public partial TerraformValue<string>? VersionedExpr { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock : Terr
     /// </summary>
     [TerraformProperty("ban_duration_sec")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BanDurationSec { get; set; }
+    public partial TerraformValue<double>? BanDurationSec { get; set; }
 
     /// <summary>
     /// Action to take for requests that are under the configured rate limit threshold.
@@ -54,7 +54,7 @@ public partial class GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock : Terr
     /// </summary>
     [TerraformProperty("conform_action")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConformAction { get; set; }
+    public partial TerraformValue<string>? ConformAction { get; set; }
 
     /// <summary>
     /// Determines the key to enforce the rateLimitThreshold on. Possible values are:
@@ -72,7 +72,7 @@ public partial class GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock : Terr
     /// </summary>
     [TerraformProperty("enforce_on_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EnforceOnKey { get; set; }
+    public partial TerraformValue<string>? EnforceOnKey { get; set; }
 
     /// <summary>
     /// Rate limit key name applicable only for the following key types:
@@ -81,7 +81,7 @@ public partial class GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock : Terr
     /// </summary>
     [TerraformProperty("enforce_on_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EnforceOnKeyName { get; set; }
+    public partial TerraformValue<string>? EnforceOnKeyName { get; set; }
 
     /// <summary>
     /// Action to take for requests that are above the configured rate limit threshold, to either deny with a specified HTTP response code, or redirect to a different endpoint.
@@ -89,7 +89,7 @@ public partial class GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock : Terr
     /// </summary>
     [TerraformProperty("exceed_action")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExceedAction { get; set; }
+    public partial TerraformValue<string>? ExceedAction { get; set; }
 
 }
 
@@ -104,14 +104,14 @@ public partial class GoogleComputeSecurityPolicyRuleRedirectOptionsBlock : Terra
     /// </summary>
     [TerraformProperty("target")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Target { get; set; }
+    public partial TerraformValue<string>? Target { get; set; }
 
     /// <summary>
     /// Type of the redirect action.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -126,21 +126,21 @@ public partial class GoogleComputeSecurityPolicyRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -170,28 +170,28 @@ public partial class GoogleComputeSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformProperty("action")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Action { get; set; }
+    public required partial TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// If set to true, the specified action is not enforced.
     /// </summary>
     [TerraformProperty("preview")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Preview { get; set; }
+    public partial TerraformValue<bool>? Preview { get; set; }
 
     /// <summary>
     /// An integer indicating the priority of a rule in the list.
@@ -201,14 +201,14 @@ public partial class GoogleComputeSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformProperty("priority")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Priority { get; set; }
+    public required partial TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The name of the security policy this rule belongs to.
@@ -216,7 +216,7 @@ public partial class GoogleComputeSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityPolicy is required")]
     [TerraformProperty("security_policy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SecurityPolicy { get; set; }
+    public required partial TerraformValue<string> SecurityPolicy { get; set; }
 
     /// <summary>
     /// Block for header_action.
@@ -224,7 +224,7 @@ public partial class GoogleComputeSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HeaderAction block(s) allowed")]
     [TerraformProperty("header_action")]
-    public TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRuleHeaderActionBlock>>? HeaderAction { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRuleHeaderActionBlock>>? HeaderAction { get; set; }
 
     /// <summary>
     /// Block for match.
@@ -232,7 +232,7 @@ public partial class GoogleComputeSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Match block(s) allowed")]
     [TerraformProperty("match")]
-    public TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRuleMatchBlock>>? Match { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRuleMatchBlock>>? Match { get; set; }
 
     /// <summary>
     /// Block for preconfigured_waf_config.
@@ -240,7 +240,7 @@ public partial class GoogleComputeSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreconfiguredWafConfig block(s) allowed")]
     [TerraformProperty("preconfigured_waf_config")]
-    public TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRulePreconfiguredWafConfigBlock>>? PreconfiguredWafConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRulePreconfiguredWafConfigBlock>>? PreconfiguredWafConfig { get; set; }
 
     /// <summary>
     /// Block for rate_limit_options.
@@ -248,7 +248,7 @@ public partial class GoogleComputeSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RateLimitOptions block(s) allowed")]
     [TerraformProperty("rate_limit_options")]
-    public TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock>>? RateLimitOptions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock>>? RateLimitOptions { get; set; }
 
     /// <summary>
     /// Block for redirect_options.
@@ -256,13 +256,13 @@ public partial class GoogleComputeSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedirectOptions block(s) allowed")]
     [TerraformProperty("redirect_options")]
-    public TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRuleRedirectOptionsBlock>>? RedirectOptions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRuleRedirectOptionsBlock>>? RedirectOptions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeSecurityPolicyRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeSecurityPolicyRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

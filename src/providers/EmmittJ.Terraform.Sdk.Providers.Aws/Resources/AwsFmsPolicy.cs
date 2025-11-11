@@ -13,14 +13,14 @@ public partial class AwsFmsPolicyExcludeMapBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("account")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Account { get; set; }
+    public partial TerraformSet<string>? Account { get; set; }
 
     /// <summary>
     /// The orgunit attribute.
     /// </summary>
     [TerraformProperty("orgunit")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Orgunit { get; set; }
+    public partial TerraformSet<string>? Orgunit { get; set; }
 
 }
 
@@ -35,14 +35,14 @@ public partial class AwsFmsPolicyIncludeMapBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("account")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Account { get; set; }
+    public partial TerraformSet<string>? Account { get; set; }
 
     /// <summary>
     /// The orgunit attribute.
     /// </summary>
     [TerraformProperty("orgunit")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Orgunit { get; set; }
+    public partial TerraformSet<string>? Orgunit { get; set; }
 
 }
 
@@ -57,7 +57,7 @@ public partial class AwsFmsPolicySecurityServicePolicyDataBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("managed_service_data")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ManagedServiceData { get; set; }
+    public partial TerraformValue<string>? ManagedServiceData { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -65,7 +65,7 @@ public partial class AwsFmsPolicySecurityServicePolicyDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -84,21 +84,21 @@ public partial class AwsFmsPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("delete_all_policy_resources")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeleteAllPolicyResources { get; set; }
+    public partial TerraformValue<bool>? DeleteAllPolicyResources { get; set; }
 
     /// <summary>
     /// The delete_unused_fm_managed_resources attribute.
     /// </summary>
     [TerraformProperty("delete_unused_fm_managed_resources")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeleteUnusedFmManagedResources { get; set; }
+    public partial TerraformValue<bool>? DeleteUnusedFmManagedResources { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The exclude_resource_tags attribute.
@@ -106,14 +106,14 @@ public partial class AwsFmsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExcludeResourceTags is required")]
     [TerraformProperty("exclude_resource_tags")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> ExcludeResourceTags { get; set; }
+    public required partial TerraformValue<bool> ExcludeResourceTags { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -121,70 +121,70 @@ public partial class AwsFmsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The remediation_enabled attribute.
     /// </summary>
     [TerraformProperty("remediation_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RemediationEnabled { get; set; }
+    public partial TerraformValue<bool>? RemediationEnabled { get; set; }
 
     /// <summary>
     /// The resource_set_ids attribute.
     /// </summary>
     [TerraformProperty("resource_set_ids")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> ResourceSetIds { get; set; }
+    public partial TerraformSet<string> ResourceSetIds { get; set; }
 
     /// <summary>
     /// The resource_tag_logical_operator attribute.
     /// </summary>
     [TerraformProperty("resource_tag_logical_operator")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ResourceTagLogicalOperator { get; set; }
+    public partial TerraformValue<string> ResourceTagLogicalOperator { get; set; }
 
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
     [TerraformProperty("resource_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? ResourceTags { get; set; }
+    public partial TerraformMap<string>? ResourceTags { get; set; }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
     [TerraformProperty("resource_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ResourceType { get; set; }
+    public partial TerraformValue<string> ResourceType { get; set; }
 
     /// <summary>
     /// The resource_type_list attribute.
     /// </summary>
     [TerraformProperty("resource_type_list")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> ResourceTypeList { get; set; }
+    public partial TerraformSet<string> ResourceTypeList { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for exclude_map.
@@ -192,7 +192,7 @@ public partial class AwsFmsPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExcludeMap block(s) allowed")]
     [TerraformProperty("exclude_map")]
-    public TerraformList<TerraformBlock<AwsFmsPolicyExcludeMapBlock>>? ExcludeMap { get; set; }
+    public partial TerraformList<TerraformBlock<AwsFmsPolicyExcludeMapBlock>>? ExcludeMap { get; set; }
 
     /// <summary>
     /// Block for include_map.
@@ -200,7 +200,7 @@ public partial class AwsFmsPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncludeMap block(s) allowed")]
     [TerraformProperty("include_map")]
-    public TerraformList<TerraformBlock<AwsFmsPolicyIncludeMapBlock>>? IncludeMap { get; set; }
+    public partial TerraformList<TerraformBlock<AwsFmsPolicyIncludeMapBlock>>? IncludeMap { get; set; }
 
     /// <summary>
     /// Block for security_service_policy_data.
@@ -210,20 +210,20 @@ public partial class AwsFmsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SecurityServicePolicyData block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityServicePolicyData block(s) allowed")]
     [TerraformProperty("security_service_policy_data")]
-    public TerraformList<TerraformBlock<AwsFmsPolicySecurityServicePolicyDataBlock>>? SecurityServicePolicyData { get; set; }
+    public partial TerraformList<TerraformBlock<AwsFmsPolicySecurityServicePolicyDataBlock>>? SecurityServicePolicyData { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The policy_update_token attribute.
     /// </summary>
     [TerraformProperty("policy_update_token")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PolicyUpdateToken { get; }
+    public partial TerraformValue<string> PolicyUpdateToken { get; }
 
 }

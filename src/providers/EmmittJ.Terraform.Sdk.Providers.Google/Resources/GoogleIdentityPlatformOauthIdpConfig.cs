@@ -13,14 +13,14 @@ public partial class GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock : Ter
     /// </summary>
     [TerraformProperty("code")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Code { get; set; }
+    public partial TerraformValue<bool>? Code { get; set; }
 
     /// <summary>
     /// If true, ID token is returned from IdP&#39;s authorization endpoint.
     /// </summary>
     [TerraformProperty("id_token")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IdToken { get; set; }
+    public partial TerraformValue<bool>? IdToken { get; set; }
 
 }
 
@@ -35,21 +35,21 @@ public partial class GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -69,35 +69,35 @@ public partial class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     [TerraformProperty("client_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientId { get; set; }
+    public required partial TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The client secret of the OAuth client, to enable OIDC code flow.
     /// </summary>
     [TerraformProperty("client_secret")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientSecret { get; set; }
+    public partial TerraformValue<string>? ClientSecret { get; set; }
 
     /// <summary>
     /// Human friendly display name.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// If this config allows users to sign in with the provider.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// For OIDC Idps, the issuer identifier.
@@ -105,7 +105,7 @@ public partial class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     [TerraformProperty("issuer")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Issuer { get; set; }
+    public required partial TerraformValue<string> Issuer { get; set; }
 
     /// <summary>
     /// The name of the OauthIdpConfig. Must start with &#39;oidc.&#39;.
@@ -113,14 +113,14 @@ public partial class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for response_type.
@@ -128,13 +128,13 @@ public partial class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResponseType block(s) allowed")]
     [TerraformProperty("response_type")]
-    public TerraformList<TerraformBlock<GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock>>? ResponseType { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock>>? ResponseType { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock>? Timeouts { get; set; }
 
 }

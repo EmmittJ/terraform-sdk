@@ -13,21 +13,21 @@ public partial class GoogleResourceManagerCapabilityTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class GoogleResourceManagerCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapabilityName is required")]
     [TerraformProperty("capability_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CapabilityName { get; set; }
+    public required partial TerraformValue<string> CapabilityName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Folder on which Capability needs to be updated in the format folders/folder_id.
@@ -61,7 +61,7 @@ public partial class GoogleResourceManagerCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Capability Value.
@@ -69,13 +69,13 @@ public partial class GoogleResourceManagerCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Value { get; set; }
+    public required partial TerraformValue<bool> Value { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleResourceManagerCapabilityTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleResourceManagerCapabilityTimeoutsBlock>? Timeouts { get; set; }
 
 }

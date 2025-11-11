@@ -13,7 +13,7 @@ public partial class AzurermMssqlManagedDatabaseDataSourceTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermMssqlManagedDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The managed_instance_id attribute.
@@ -39,7 +39,7 @@ public partial class AzurermMssqlManagedDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     [TerraformProperty("managed_instance_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ManagedInstanceId { get; set; }
+    public required partial TerraformValue<string> ManagedInstanceId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,48 +47,48 @@ public partial class AzurermMssqlManagedDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMssqlManagedDatabaseDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMssqlManagedDatabaseDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The long_term_retention_policy attribute.
     /// </summary>
     [TerraformProperty("long_term_retention_policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> LongTermRetentionPolicy { get; }
+    public partial TerraformList<object> LongTermRetentionPolicy { get; }
 
     /// <summary>
     /// The managed_instance_name attribute.
     /// </summary>
     [TerraformProperty("managed_instance_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ManagedInstanceName { get; }
+    public partial TerraformValue<string> ManagedInstanceName { get; }
 
     /// <summary>
     /// The point_in_time_restore attribute.
     /// </summary>
     [TerraformProperty("point_in_time_restore")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PointInTimeRestore { get; }
+    public partial TerraformList<object> PointInTimeRestore { get; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [TerraformProperty("resource_group_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceGroupName { get; }
+    public partial TerraformValue<string> ResourceGroupName { get; }
 
     /// <summary>
     /// The short_term_retention_days attribute.
     /// </summary>
     [TerraformProperty("short_term_retention_days")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ShortTermRetentionDays { get; }
+    public partial TerraformValue<double> ShortTermRetentionDays { get; }
 
 }

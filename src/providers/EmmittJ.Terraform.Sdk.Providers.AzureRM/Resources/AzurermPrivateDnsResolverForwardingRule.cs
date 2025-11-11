@@ -14,14 +14,14 @@ public partial class AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     [TerraformProperty("ip_address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IpAddress { get; set; }
+    public required partial TerraformValue<string> IpAddress { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
 }
 
@@ -36,28 +36,28 @@ public partial class AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -77,7 +77,7 @@ public partial class AzurermPrivateDnsResolverForwardingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsForwardingRulesetId is required")]
     [TerraformProperty("dns_forwarding_ruleset_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DnsForwardingRulesetId { get; set; }
+    public required partial TerraformValue<string> DnsForwardingRulesetId { get; set; }
 
     /// <summary>
     /// The domain_name attribute.
@@ -85,28 +85,28 @@ public partial class AzurermPrivateDnsResolverForwardingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformProperty("domain_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainName { get; set; }
+    public required partial TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     [TerraformProperty("metadata")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Metadata { get; set; }
+    public partial TerraformMap<string>? Metadata { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -114,7 +114,7 @@ public partial class AzurermPrivateDnsResolverForwardingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for target_dns_servers.
@@ -123,13 +123,13 @@ public partial class AzurermPrivateDnsResolverForwardingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDnsServers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetDnsServers block(s) required")]
     [TerraformProperty("target_dns_servers")]
-    public TerraformList<TerraformBlock<AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock>>? TargetDnsServers { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock>>? TargetDnsServers { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

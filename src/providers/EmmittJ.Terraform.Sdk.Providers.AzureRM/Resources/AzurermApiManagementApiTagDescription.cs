@@ -13,28 +13,28 @@ public partial class AzurermApiManagementApiTagDescriptionTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,41 +53,41 @@ public partial class AzurermApiManagementApiTagDescription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiTagId is required")]
     [TerraformProperty("api_tag_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiTagId { get; set; }
+    public required partial TerraformValue<string> ApiTagId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The external_documentation_description attribute.
     /// </summary>
     [TerraformProperty("external_documentation_description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExternalDocumentationDescription { get; set; }
+    public partial TerraformValue<string>? ExternalDocumentationDescription { get; set; }
 
     /// <summary>
     /// The external_documentation_url attribute.
     /// </summary>
     [TerraformProperty("external_documentation_url")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExternalDocumentationUrl { get; set; }
+    public partial TerraformValue<string>? ExternalDocumentationUrl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApiManagementApiTagDescriptionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApiManagementApiTagDescriptionTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermClientConfigDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,41 +31,41 @@ public partial class AzurermClientConfigDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermClientConfigDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermClientConfigDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [TerraformProperty("client_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ClientId { get; }
+    public partial TerraformValue<string> ClientId { get; }
 
     /// <summary>
     /// The object_id attribute.
     /// </summary>
     [TerraformProperty("object_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ObjectId { get; }
+    public partial TerraformValue<string> ObjectId { get; }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
     [TerraformProperty("subscription_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SubscriptionId { get; }
+    public partial TerraformValue<string> SubscriptionId { get; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [TerraformProperty("tenant_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TenantId { get; }
+    public partial TerraformValue<string> TenantId { get; }
 
 }

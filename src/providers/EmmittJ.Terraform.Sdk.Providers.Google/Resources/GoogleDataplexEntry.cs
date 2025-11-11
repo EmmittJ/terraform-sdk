@@ -17,7 +17,7 @@ public partial class GoogleDataplexEntryAspectsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AspectKey is required")]
     [TerraformProperty("aspect_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AspectKey { get; set; }
+    public required partial TerraformValue<string> AspectKey { get; set; }
 
 }
 
@@ -32,21 +32,21 @@ public partial class GoogleDataplexEntryEntrySourceBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CreateTime { get; set; }
+    public partial TerraformValue<string>? CreateTime { get; set; }
 
     /// <summary>
     /// A description of the data resource. Maximum length is 2,000 characters.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A user-friendly display name. Maximum length is 500 characters.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// User-defined labels. The maximum size of keys and values is 128 characters each.
@@ -54,7 +54,7 @@ public partial class GoogleDataplexEntryEntrySourceBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
 
     /// <summary>
@@ -62,21 +62,21 @@ public partial class GoogleDataplexEntryEntrySourceBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("platform")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Platform { get; set; }
+    public partial TerraformValue<string>? Platform { get; set; }
 
     /// <summary>
     /// The name of the resource in the source system. Maximum length is 4,000 characters.
     /// </summary>
     [TerraformProperty("resource")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Resource { get; set; }
+    public partial TerraformValue<string>? Resource { get; set; }
 
     /// <summary>
     /// The name of the source system. Maximum length is 64 characters.
     /// </summary>
     [TerraformProperty("system")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? System { get; set; }
+    public partial TerraformValue<string>? System { get; set; }
 
     /// <summary>
     /// The time when the resource was last updated in the source system.
@@ -85,7 +85,7 @@ public partial class GoogleDataplexEntryEntrySourceBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("update_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UpdateTime { get; set; }
+    public partial TerraformValue<string>? UpdateTime { get; set; }
 
 }
 
@@ -100,21 +100,21 @@ public partial class GoogleDataplexEntryTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -133,14 +133,14 @@ public partial class GoogleDataplexEntry : TerraformResource
     /// </summary>
     [TerraformProperty("entry_group_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EntryGroupId { get; set; }
+    public partial TerraformValue<string>? EntryGroupId { get; set; }
 
     /// <summary>
     /// The entry id of the entry.
     /// </summary>
     [TerraformProperty("entry_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EntryId { get; set; }
+    public partial TerraformValue<string>? EntryId { get; set; }
 
     /// <summary>
     /// The relative resource name of the entry type that was used to create this entry, in the format projects/{project_number}/locations/{locationId}/entryTypes/{entryTypeId}.
@@ -148,7 +148,7 @@ public partial class GoogleDataplexEntry : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryType is required")]
     [TerraformProperty("entry_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EntryType { get; set; }
+    public required partial TerraformValue<string> EntryType { get; set; }
 
     /// <summary>
     /// A name for the entry that can be referenced by an external system. For more information, see https://cloud.google.com/dataplex/docs/fully-qualified-names.
@@ -156,42 +156,42 @@ public partial class GoogleDataplexEntry : TerraformResource
     /// </summary>
     [TerraformProperty("fully_qualified_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FullyQualifiedName { get; set; }
+    public partial TerraformValue<string>? FullyQualifiedName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location where entry will be created.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The resource name of the parent entry, in the format projects/{project_number}/locations/{locationId}/entryGroups/{entryGroupId}/entries/{entryId}.
     /// </summary>
     [TerraformProperty("parent_entry")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ParentEntry { get; set; }
+    public partial TerraformValue<string>? ParentEntry { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for aspects.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("aspects")]
-    public TerraformList<TerraformBlock<GoogleDataplexEntryAspectsBlock>>? Aspects { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataplexEntryAspectsBlock>>? Aspects { get; set; }
 
     /// <summary>
     /// Block for entry_source.
@@ -199,34 +199,34 @@ public partial class GoogleDataplexEntry : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EntrySource block(s) allowed")]
     [TerraformProperty("entry_source")]
-    public TerraformList<TerraformBlock<GoogleDataplexEntryEntrySourceBlock>>? EntrySource { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataplexEntryEntrySourceBlock>>? EntrySource { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDataplexEntryTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDataplexEntryTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when the Entry was created in Dataplex.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The relative resource name of the entry, in the format projects/{project_number}/locations/{locationId}/entryGroups/{entryGroupId}/entries/{entryId}.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The time when the entry was last updated in Dataplex.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

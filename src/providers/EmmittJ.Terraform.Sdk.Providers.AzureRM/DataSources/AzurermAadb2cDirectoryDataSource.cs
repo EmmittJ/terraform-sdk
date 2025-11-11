@@ -13,7 +13,7 @@ public partial class AzurermAadb2cDirectoryDataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzurermAadb2cDirectoryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformProperty("domain_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainName { get; set; }
+    public required partial TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,55 +47,55 @@ public partial class AzurermAadb2cDirectoryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAadb2cDirectoryDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAadb2cDirectoryDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The type of billing for the B2C tenant. Possible values include: `MAU` or `Auths`.
     /// </summary>
     [TerraformProperty("billing_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BillingType { get; }
+    public partial TerraformValue<string> BillingType { get; }
 
     /// <summary>
     /// Location in which the B2C tenant is hosted and data resides.
     /// </summary>
     [TerraformProperty("data_residency_location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DataResidencyLocation { get; }
+    public partial TerraformValue<string> DataResidencyLocation { get; }
 
     /// <summary>
     /// The date from which the billing type took effect. May not be populated until after the first billing cycle.
     /// </summary>
     [TerraformProperty("effective_start_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EffectiveStartDate { get; }
+    public partial TerraformValue<string> EffectiveStartDate { get; }
 
     /// <summary>
     /// Billing SKU for the B2C tenant.
     /// </summary>
     [TerraformProperty("sku_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SkuName { get; }
+    public partial TerraformValue<string> SkuName { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The Tenant ID for the B2C tenant.
     /// </summary>
     [TerraformProperty("tenant_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TenantId { get; }
+    public partial TerraformValue<string> TenantId { get; }
 
 }

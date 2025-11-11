@@ -13,21 +13,21 @@ public partial class GoogleDialogflowIntentTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class GoogleDialogflowIntent : TerraformResource
     /// </summary>
     [TerraformProperty("action")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Action { get; set; }
+    public partial TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The list of platforms for which the first responses will be copied from the messages in PLATFORM_UNSPECIFIED
@@ -54,7 +54,7 @@ public partial class GoogleDialogflowIntent : TerraformResource
     /// </summary>
     [TerraformProperty("default_response_platforms")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? DefaultResponsePlatforms { get; set; }
+    public partial TerraformList<string>? DefaultResponsePlatforms { get; set; }
 
     /// <summary>
     /// The name of this intent to be displayed on the console.
@@ -62,7 +62,7 @@ public partial class GoogleDialogflowIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The collection of event names that trigger the intent. If the collection of input contexts is not empty, all of
@@ -71,14 +71,14 @@ public partial class GoogleDialogflowIntent : TerraformResource
     /// </summary>
     [TerraformProperty("events")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Events { get; set; }
+    public partial TerraformList<string>? Events { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The list of context names required for this intent to be triggered.
@@ -86,14 +86,14 @@ public partial class GoogleDialogflowIntent : TerraformResource
     /// </summary>
     [TerraformProperty("input_context_names")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? InputContextNames { get; set; }
+    public partial TerraformList<string>? InputContextNames { get; set; }
 
     /// <summary>
     /// Indicates whether this is a fallback intent.
     /// </summary>
     [TerraformProperty("is_fallback")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> IsFallback { get; set; }
+    public partial TerraformValue<bool> IsFallback { get; set; }
 
     /// <summary>
     /// Indicates whether Machine Learning is disabled for the intent.
@@ -102,7 +102,7 @@ public partial class GoogleDialogflowIntent : TerraformResource
     /// </summary>
     [TerraformProperty("ml_disabled")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> MlDisabled { get; set; }
+    public partial TerraformValue<bool> MlDisabled { get; set; }
 
     /// <summary>
     /// The unique identifier of the parent intent in the chain of followup intents.
@@ -110,7 +110,7 @@ public partial class GoogleDialogflowIntent : TerraformResource
     /// </summary>
     [TerraformProperty("parent_followup_intent_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ParentFollowupIntentName { get; set; }
+    public partial TerraformValue<string> ParentFollowupIntentName { get; set; }
 
     /// <summary>
     /// The priority of this intent. Higher numbers represent higher priorities.
@@ -120,21 +120,21 @@ public partial class GoogleDialogflowIntent : TerraformResource
     /// </summary>
     [TerraformProperty("priority")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Priority { get; set; }
+    public partial TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Indicates whether to delete all contexts in the current session when this intent is matched.
     /// </summary>
     [TerraformProperty("reset_contexts")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> ResetContexts { get; set; }
+    public partial TerraformValue<bool> ResetContexts { get; set; }
 
     /// <summary>
     /// Indicates whether webhooks are enabled for the intent.
@@ -144,14 +144,14 @@ public partial class GoogleDialogflowIntent : TerraformResource
     /// </summary>
     [TerraformProperty("webhook_state")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> WebhookState { get; set; }
+    public partial TerraformValue<string> WebhookState { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDialogflowIntentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDialogflowIntentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Information about all followup intents that have this intent as a direct or indirect parent. We populate this field
@@ -159,7 +159,7 @@ public partial class GoogleDialogflowIntent : TerraformResource
     /// </summary>
     [TerraformProperty("followup_intent_info")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> FollowupIntentInfo { get; }
+    public partial TerraformList<object> FollowupIntentInfo { get; }
 
     /// <summary>
     /// The unique identifier of this intent.
@@ -167,7 +167,7 @@ public partial class GoogleDialogflowIntent : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The unique identifier of the root intent in the chain of followup intents. It identifies the correct followup
@@ -176,6 +176,6 @@ public partial class GoogleDialogflowIntent : TerraformResource
     /// </summary>
     [TerraformProperty("root_followup_intent_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RootFollowupIntentName { get; }
+    public partial TerraformValue<string> RootFollowupIntentName { get; }
 
 }

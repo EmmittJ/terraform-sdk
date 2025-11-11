@@ -17,27 +17,27 @@ public partial class GoogleKmsCryptoKeyIamPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyId is required")]
     [TerraformProperty("crypto_key_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CryptoKeyId { get; set; }
+    public required partial TerraformValue<string> CryptoKeyId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     [TerraformProperty("policy_data")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PolicyData { get; }
+    public partial TerraformValue<string> PolicyData { get; }
 
 }

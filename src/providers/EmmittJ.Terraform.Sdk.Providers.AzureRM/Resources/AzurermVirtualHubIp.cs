@@ -13,28 +13,28 @@ public partial class AzurermVirtualHubIpTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermVirtualHubIp : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -60,21 +60,21 @@ public partial class AzurermVirtualHubIp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     [TerraformProperty("private_ip_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrivateIpAddress { get; set; }
+    public partial TerraformValue<string>? PrivateIpAddress { get; set; }
 
     /// <summary>
     /// The private_ip_allocation_method attribute.
     /// </summary>
     [TerraformProperty("private_ip_allocation_method")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrivateIpAllocationMethod { get; set; }
+    public partial TerraformValue<string>? PrivateIpAllocationMethod { get; set; }
 
     /// <summary>
     /// The public_ip_address_id attribute.
@@ -82,7 +82,7 @@ public partial class AzurermVirtualHubIp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
     [TerraformProperty("public_ip_address_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PublicIpAddressId { get; set; }
+    public required partial TerraformValue<string> PublicIpAddressId { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -90,7 +90,7 @@ public partial class AzurermVirtualHubIp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
     /// <summary>
     /// The virtual_hub_id attribute.
@@ -98,13 +98,13 @@ public partial class AzurermVirtualHubIp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     [TerraformProperty("virtual_hub_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualHubId { get; set; }
+    public required partial TerraformValue<string> VirtualHubId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVirtualHubIpTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVirtualHubIpTimeoutsBlock>? Timeouts { get; set; }
 
 }

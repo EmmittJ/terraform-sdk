@@ -14,7 +14,7 @@ public partial class GoogleComputeRouterRoutePolicyTermsBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformProperty("priority")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Priority { get; set; }
+    public required partial TerraformValue<double> Priority { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public partial class GoogleComputeRouterRoutePolicyTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -62,7 +62,7 @@ public partial class GoogleComputeRouterRoutePolicy : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the route policy. This policy&#39;s name, which must be a resource ID segment and unique within all policies owned by the Router
@@ -70,21 +70,21 @@ public partial class GoogleComputeRouterRoutePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Region where the router and NAT reside.
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The name of the Cloud Router in which this route policy will be configured.
@@ -92,14 +92,14 @@ public partial class GoogleComputeRouterRoutePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     [TerraformProperty("router")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Router { get; set; }
+    public required partial TerraformValue<string> Router { get; set; }
 
     /// <summary>
     /// This is policy&#39;s type, which is one of IMPORT or EXPORT Possible values: [&amp;quot;ROUTE_POLICY_TYPE_IMPORT&amp;quot;, &amp;quot;ROUTE_POLICY_TYPE_EXPORT&amp;quot;]
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// Block for terms.
@@ -108,14 +108,14 @@ public partial class GoogleComputeRouterRoutePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Terms is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Terms block(s) required")]
     [TerraformProperty("terms")]
-    public TerraformList<TerraformBlock<GoogleComputeRouterRoutePolicyTermsBlock>>? Terms { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRouterRoutePolicyTermsBlock>>? Terms { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeRouterRoutePolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeRouterRoutePolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
@@ -123,6 +123,6 @@ public partial class GoogleComputeRouterRoutePolicy : TerraformResource
     /// </summary>
     [TerraformProperty("fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Fingerprint { get; }
+    public partial TerraformValue<string> Fingerprint { get; }
 
 }

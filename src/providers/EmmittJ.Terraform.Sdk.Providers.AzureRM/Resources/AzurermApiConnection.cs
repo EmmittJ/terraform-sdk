@@ -13,28 +13,28 @@ public partial class AzurermApiConnectionTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public partial class AzurermApiConnection : TerraformResource
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DisplayName { get; set; }
+    public partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The managed_api_id attribute.
@@ -67,7 +67,7 @@ public partial class AzurermApiConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedApiId is required")]
     [TerraformProperty("managed_api_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ManagedApiId { get; set; }
+    public required partial TerraformValue<string> ManagedApiId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -75,14 +75,14 @@ public partial class AzurermApiConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameter_values attribute.
     /// </summary>
     [TerraformProperty("parameter_values")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? ParameterValues { get; set; }
+    public partial TerraformMap<string>? ParameterValues { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -90,20 +90,20 @@ public partial class AzurermApiConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApiConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApiConnectionTimeoutsBlock>? Timeouts { get; set; }
 
 }

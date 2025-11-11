@@ -13,28 +13,28 @@ public partial class AzurermVirtualMachineImplicitDataDiskFromSourceTimeoutsBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermVirtualMachineImplicitDataDiskFromSource : Terraform
     /// </summary>
     [TerraformProperty("caching")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Caching { get; set; }
+    public partial TerraformValue<string>? Caching { get; set; }
 
     /// <summary>
     /// The create_option attribute.
@@ -60,7 +60,7 @@ public partial class AzurermVirtualMachineImplicitDataDiskFromSource : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateOption is required")]
     [TerraformProperty("create_option")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CreateOption { get; set; }
+    public required partial TerraformValue<string> CreateOption { get; set; }
 
     /// <summary>
     /// The disk_size_gb attribute.
@@ -68,14 +68,14 @@ public partial class AzurermVirtualMachineImplicitDataDiskFromSource : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeGb is required")]
     [TerraformProperty("disk_size_gb")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> DiskSizeGb { get; set; }
+    public required partial TerraformValue<double> DiskSizeGb { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The lun attribute.
@@ -83,7 +83,7 @@ public partial class AzurermVirtualMachineImplicitDataDiskFromSource : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
     [TerraformProperty("lun")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Lun { get; set; }
+    public required partial TerraformValue<double> Lun { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -91,7 +91,7 @@ public partial class AzurermVirtualMachineImplicitDataDiskFromSource : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The source_resource_id attribute.
@@ -99,7 +99,7 @@ public partial class AzurermVirtualMachineImplicitDataDiskFromSource : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceId is required")]
     [TerraformProperty("source_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceResourceId { get; set; }
+    public required partial TerraformValue<string> SourceResourceId { get; set; }
 
     /// <summary>
     /// The virtual_machine_id attribute.
@@ -107,20 +107,20 @@ public partial class AzurermVirtualMachineImplicitDataDiskFromSource : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     [TerraformProperty("virtual_machine_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualMachineId { get; set; }
+    public required partial TerraformValue<string> VirtualMachineId { get; set; }
 
     /// <summary>
     /// The write_accelerator_enabled attribute.
     /// </summary>
     [TerraformProperty("write_accelerator_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? WriteAcceleratorEnabled { get; set; }
+    public partial TerraformValue<bool>? WriteAcceleratorEnabled { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVirtualMachineImplicitDataDiskFromSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVirtualMachineImplicitDataDiskFromSourceTimeoutsBlock>? Timeouts { get; set; }
 
 }

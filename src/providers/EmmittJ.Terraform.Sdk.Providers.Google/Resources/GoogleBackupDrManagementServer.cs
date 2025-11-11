@@ -14,14 +14,14 @@ public partial class GoogleBackupDrManagementServerNetworksBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformProperty("network")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Network { get; set; }
+    public required partial TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// Type of Network peeringMode Default value: &amp;quot;PRIVATE_SERVICE_ACCESS&amp;quot; Possible values: [&amp;quot;PRIVATE_SERVICE_ACCESS&amp;quot;]
     /// </summary>
     [TerraformProperty("peering_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PeeringMode { get; set; }
+    public partial TerraformValue<string>? PeeringMode { get; set; }
 
 }
 
@@ -36,14 +36,14 @@ public partial class GoogleBackupDrManagementServerTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -61,7 +61,7 @@ public partial class GoogleBackupDrManagementServer : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the management server (management console)
@@ -69,7 +69,7 @@ public partial class GoogleBackupDrManagementServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of management server (management console)
@@ -77,48 +77,48 @@ public partial class GoogleBackupDrManagementServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The type of management server (management console). Default value: &amp;quot;BACKUP_RESTORE&amp;quot; Possible values: [&amp;quot;BACKUP_RESTORE&amp;quot;]
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// Block for networks.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("networks")]
-    public TerraformList<TerraformBlock<GoogleBackupDrManagementServerNetworksBlock>>? Networks { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBackupDrManagementServerNetworksBlock>>? Networks { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBackupDrManagementServerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBackupDrManagementServerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The management console URI
     /// </summary>
     [TerraformProperty("management_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ManagementUri { get; }
+    public partial TerraformList<object> ManagementUri { get; }
 
     /// <summary>
     /// The oauth2ClientId of management console.
     /// </summary>
     [TerraformProperty("oauth2_client_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Oauth2ClientId { get; }
+    public partial TerraformValue<string> Oauth2ClientId { get; }
 
 }

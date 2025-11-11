@@ -13,21 +13,21 @@ public partial class AzureadDirectoryRoleAssignmentTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,21 +45,21 @@ public partial class AzureadDirectoryRoleAssignment : TerraformResource
     /// </summary>
     [TerraformProperty("app_scope_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AppScopeId { get; set; }
+    public partial TerraformValue<string> AppScopeId { get; set; }
 
     /// <summary>
     /// Identifier of the directory object representing the scope of the assignment
     /// </summary>
     [TerraformProperty("directory_scope_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DirectoryScopeId { get; set; }
+    public partial TerraformValue<string> DirectoryScopeId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The object ID of the member principal
@@ -67,7 +67,7 @@ public partial class AzureadDirectoryRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalObjectId is required")]
     [TerraformProperty("principal_object_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrincipalObjectId { get; set; }
+    public required partial TerraformValue<string> PrincipalObjectId { get; set; }
 
     /// <summary>
     /// The object ID of the directory role for this assignment
@@ -75,13 +75,13 @@ public partial class AzureadDirectoryRoleAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     [TerraformProperty("role_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleId { get; set; }
+    public required partial TerraformValue<string> RoleId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadDirectoryRoleAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadDirectoryRoleAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,28 +13,28 @@ public partial class AzurermApiManagementApiSchemaTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermApiManagementApiSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     [TerraformProperty("api_management_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiManagementName { get; set; }
+    public required partial TerraformValue<string> ApiManagementName { get; set; }
 
     /// <summary>
     /// The api_name attribute.
@@ -61,14 +61,14 @@ public partial class AzurermApiManagementApiSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiName is required")]
     [TerraformProperty("api_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiName { get; set; }
+    public required partial TerraformValue<string> ApiName { get; set; }
 
     /// <summary>
     /// The components attribute.
     /// </summary>
     [TerraformProperty("components")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Components { get; set; }
+    public partial TerraformValue<string>? Components { get; set; }
 
     /// <summary>
     /// The content_type attribute.
@@ -76,21 +76,21 @@ public partial class AzurermApiManagementApiSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     [TerraformProperty("content_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContentType { get; set; }
+    public required partial TerraformValue<string> ContentType { get; set; }
 
     /// <summary>
     /// The definitions attribute.
     /// </summary>
     [TerraformProperty("definitions")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Definitions { get; set; }
+    public partial TerraformValue<string>? Definitions { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -98,7 +98,7 @@ public partial class AzurermApiManagementApiSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The schema_id attribute.
@@ -106,20 +106,20 @@ public partial class AzurermApiManagementApiSchema : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaId is required")]
     [TerraformProperty("schema_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SchemaId { get; set; }
+    public required partial TerraformValue<string> SchemaId { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Value { get; set; }
+    public partial TerraformValue<string>? Value { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApiManagementApiSchemaTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApiManagementApiSchemaTimeoutsBlock>? Timeouts { get; set; }
 
 }

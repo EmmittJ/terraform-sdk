@@ -14,7 +14,7 @@ public partial class AzurermStorageManagementPolicyRuleBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -22,7 +22,7 @@ public partial class AzurermStorageManagementPolicyRuleBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -37,28 +37,28 @@ public partial class AzurermStorageManagementPolicyTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -76,7 +76,7 @@ public partial class AzurermStorageManagementPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -84,20 +84,20 @@ public partial class AzurermStorageManagementPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformProperty("storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountId { get; set; }
+    public required partial TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("rule")]
-    public TerraformList<TerraformBlock<AzurermStorageManagementPolicyRuleBlock>>? Rule { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermStorageManagementPolicyRuleBlock>>? Rule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageManagementPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageManagementPolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

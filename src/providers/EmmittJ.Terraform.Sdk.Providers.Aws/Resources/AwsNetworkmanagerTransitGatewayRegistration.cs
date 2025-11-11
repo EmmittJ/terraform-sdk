@@ -13,14 +13,14 @@ public partial class AwsNetworkmanagerTransitGatewayRegistrationTimeoutsBlock : 
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public partial class AwsNetworkmanagerTransitGatewayRegistration : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     [TerraformProperty("global_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GlobalNetworkId { get; set; }
+    public required partial TerraformValue<string> GlobalNetworkId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The transit_gateway_arn attribute.
@@ -54,13 +54,13 @@ public partial class AwsNetworkmanagerTransitGatewayRegistration : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayArn is required")]
     [TerraformProperty("transit_gateway_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TransitGatewayArn { get; set; }
+    public required partial TerraformValue<string> TransitGatewayArn { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsNetworkmanagerTransitGatewayRegistrationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsNetworkmanagerTransitGatewayRegistrationTimeoutsBlock>? Timeouts { get; set; }
 
 }

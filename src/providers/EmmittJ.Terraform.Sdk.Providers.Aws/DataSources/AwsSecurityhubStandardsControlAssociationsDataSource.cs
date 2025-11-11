@@ -16,7 +16,7 @@ public partial class AwsSecurityhubStandardsControlAssociationsDataSource : Terr
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_control_id attribute.
@@ -24,20 +24,20 @@ public partial class AwsSecurityhubStandardsControlAssociationsDataSource : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityControlId is required")]
     [TerraformProperty("security_control_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SecurityControlId { get; set; }
+    public required partial TerraformValue<string> SecurityControlId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The standards_control_associations attribute.
     /// </summary>
     [TerraformProperty("standards_control_associations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> StandardsControlAssociations { get; }
+    public partial TerraformList<object> StandardsControlAssociations { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzureadNamedLocationDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,41 +32,41 @@ public partial class AzureadNamedLocationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadNamedLocationDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadNamedLocationDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The country attribute.
     /// </summary>
     [TerraformProperty("country")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Country { get; }
+    public partial TerraformList<object> Country { get; }
 
     /// <summary>
     /// The ip attribute.
     /// </summary>
     [TerraformProperty("ip")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Ip { get; }
+    public partial TerraformList<object> Ip { get; }
 
     /// <summary>
     /// The object ID of the named location
     /// </summary>
     [TerraformProperty("object_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ObjectId { get; }
+    public partial TerraformValue<string> ObjectId { get; }
 
 }

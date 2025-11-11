@@ -13,7 +13,7 @@ public partial class AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock : 
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzurermContainerRegistryCacheRuleDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     [TerraformProperty("container_registry_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerRegistryId { get; set; }
+    public required partial TerraformValue<string> ContainerRegistryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,34 +47,34 @@ public partial class AzurermContainerRegistryCacheRuleDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The credential_set_id attribute.
     /// </summary>
     [TerraformProperty("credential_set_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CredentialSetId { get; }
+    public partial TerraformValue<string> CredentialSetId { get; }
 
     /// <summary>
     /// The source_repo attribute.
     /// </summary>
     [TerraformProperty("source_repo")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SourceRepo { get; }
+    public partial TerraformValue<string> SourceRepo { get; }
 
     /// <summary>
     /// The target_repo attribute.
     /// </summary>
     [TerraformProperty("target_repo")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TargetRepo { get; }
+    public partial TerraformValue<string> TargetRepo { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class AzurermAppServiceSlotCustomHostnameBindingTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AzurermAppServiceSlotCustomHostnameBinding : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceSlotId is required")]
     [TerraformProperty("app_service_slot_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AppServiceSlotId { get; set; }
+    public required partial TerraformValue<string> AppServiceSlotId { get; set; }
 
     /// <summary>
     /// The hostname attribute.
@@ -54,41 +54,41 @@ public partial class AzurermAppServiceSlotCustomHostnameBinding : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     [TerraformProperty("hostname")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Hostname { get; set; }
+    public required partial TerraformValue<string> Hostname { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ssl_state attribute.
     /// </summary>
     [TerraformProperty("ssl_state")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SslState { get; set; }
+    public partial TerraformValue<string> SslState { get; set; }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     [TerraformProperty("thumbprint")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Thumbprint { get; set; }
+    public partial TerraformValue<string> Thumbprint { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAppServiceSlotCustomHostnameBindingTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAppServiceSlotCustomHostnameBindingTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The virtual_ip attribute.
     /// </summary>
     [TerraformProperty("virtual_ip")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VirtualIp { get; }
+    public partial TerraformValue<string> VirtualIp { get; }
 
 }

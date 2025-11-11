@@ -13,21 +13,21 @@ public partial class AzurermNetworkInterfaceNatRuleAssociationTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermNetworkInterfaceNatRuleAssociation : TerraformResour
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ip_configuration_name attribute.
@@ -53,7 +53,7 @@ public partial class AzurermNetworkInterfaceNatRuleAssociation : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfigurationName is required")]
     [TerraformProperty("ip_configuration_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IpConfigurationName { get; set; }
+    public required partial TerraformValue<string> IpConfigurationName { get; set; }
 
     /// <summary>
     /// The nat_rule_id attribute.
@@ -61,7 +61,7 @@ public partial class AzurermNetworkInterfaceNatRuleAssociation : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatRuleId is required")]
     [TerraformProperty("nat_rule_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NatRuleId { get; set; }
+    public required partial TerraformValue<string> NatRuleId { get; set; }
 
     /// <summary>
     /// The network_interface_id attribute.
@@ -69,13 +69,13 @@ public partial class AzurermNetworkInterfaceNatRuleAssociation : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     [TerraformProperty("network_interface_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NetworkInterfaceId { get; set; }
+    public required partial TerraformValue<string> NetworkInterfaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetworkInterfaceNatRuleAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetworkInterfaceNatRuleAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

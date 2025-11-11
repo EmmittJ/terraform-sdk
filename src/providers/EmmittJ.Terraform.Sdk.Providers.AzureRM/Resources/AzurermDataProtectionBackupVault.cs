@@ -13,7 +13,7 @@ public partial class AzurermDataProtectionBackupVaultIdentityBlock : TerraformBl
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -23,7 +23,7 @@ public partial class AzurermDataProtectionBackupVaultIdentityBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -38,28 +38,28 @@ public partial class AzurermDataProtectionBackupVaultTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -78,7 +78,7 @@ public partial class AzurermDataProtectionBackupVault : TerraformResource
     /// </summary>
     [TerraformProperty("cross_region_restore_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CrossRegionRestoreEnabled { get; set; }
+    public partial TerraformValue<bool>? CrossRegionRestoreEnabled { get; set; }
 
     /// <summary>
     /// The datastore_type attribute.
@@ -86,21 +86,21 @@ public partial class AzurermDataProtectionBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatastoreType is required")]
     [TerraformProperty("datastore_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatastoreType { get; set; }
+    public required partial TerraformValue<string> DatastoreType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The immutability attribute.
     /// </summary>
     [TerraformProperty("immutability")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Immutability { get; set; }
+    public partial TerraformValue<string>? Immutability { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -108,7 +108,7 @@ public partial class AzurermDataProtectionBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -116,7 +116,7 @@ public partial class AzurermDataProtectionBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The redundancy attribute.
@@ -124,7 +124,7 @@ public partial class AzurermDataProtectionBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Redundancy is required")]
     [TerraformProperty("redundancy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Redundancy { get; set; }
+    public required partial TerraformValue<string> Redundancy { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -132,28 +132,28 @@ public partial class AzurermDataProtectionBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The retention_duration_in_days attribute.
     /// </summary>
     [TerraformProperty("retention_duration_in_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetentionDurationInDays { get; set; }
+    public partial TerraformValue<double>? RetentionDurationInDays { get; set; }
 
     /// <summary>
     /// The soft_delete attribute.
     /// </summary>
     [TerraformProperty("soft_delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SoftDelete { get; set; }
+    public partial TerraformValue<string>? SoftDelete { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -161,13 +161,13 @@ public partial class AzurermDataProtectionBackupVault : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermDataProtectionBackupVaultIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataProtectionBackupVaultIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataProtectionBackupVaultTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataProtectionBackupVaultTimeoutsBlock>? Timeouts { get; set; }
 
 }

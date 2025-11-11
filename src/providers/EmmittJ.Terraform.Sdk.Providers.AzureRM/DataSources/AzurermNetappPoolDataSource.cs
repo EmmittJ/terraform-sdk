@@ -13,7 +13,7 @@ public partial class AzurermNetappPoolDataSourceTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzurermNetappPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     [TerraformProperty("account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccountName { get; set; }
+    public required partial TerraformValue<string> AccountName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,7 +47,7 @@ public partial class AzurermNetappPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -55,55 +55,55 @@ public partial class AzurermNetappPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetappPoolDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetappPoolDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The cool_access_enabled attribute.
     /// </summary>
     [TerraformProperty("cool_access_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> CoolAccessEnabled { get; }
+    public partial TerraformValue<bool> CoolAccessEnabled { get; }
 
     /// <summary>
     /// The custom_throughput_mibps attribute.
     /// </summary>
     [TerraformProperty("custom_throughput_mibps")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> CustomThroughputMibps { get; }
+    public partial TerraformValue<double> CustomThroughputMibps { get; }
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
     [TerraformProperty("encryption_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EncryptionType { get; }
+    public partial TerraformValue<string> EncryptionType { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The service_level attribute.
     /// </summary>
     [TerraformProperty("service_level")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServiceLevel { get; }
+    public partial TerraformValue<string> ServiceLevel { get; }
 
     /// <summary>
     /// The size_in_tb attribute.
     /// </summary>
     [TerraformProperty("size_in_tb")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> SizeInTb { get; }
+    public partial TerraformValue<double> SizeInTb { get; }
 
 }

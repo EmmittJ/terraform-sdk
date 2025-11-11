@@ -16,13 +16,13 @@ public partial class AwsOdbCloudExadataInfrastructuresDataSource : TerraformData
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// List of Cloud Exadata Infrastructures. Returns basic information about the Cloud Exadata Infrastructures.
     /// </summary>
     [TerraformProperty("cloud_exadata_infrastructures")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CloudExadataInfrastructures { get; }
+    public partial TerraformList<object> CloudExadataInfrastructures { get; }
 
 }

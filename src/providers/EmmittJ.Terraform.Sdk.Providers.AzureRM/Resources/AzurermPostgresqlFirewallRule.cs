@@ -13,21 +13,21 @@ public partial class AzurermPostgresqlFirewallRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -47,14 +47,14 @@ public partial class AzurermPostgresqlFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndIpAddress is required")]
     [TerraformProperty("end_ip_address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EndIpAddress { get; set; }
+    public required partial TerraformValue<string> EndIpAddress { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -62,7 +62,7 @@ public partial class AzurermPostgresqlFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -70,7 +70,7 @@ public partial class AzurermPostgresqlFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The server_name attribute.
@@ -78,7 +78,7 @@ public partial class AzurermPostgresqlFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     [TerraformProperty("server_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServerName { get; set; }
+    public required partial TerraformValue<string> ServerName { get; set; }
 
     /// <summary>
     /// The start_ip_address attribute.
@@ -86,13 +86,13 @@ public partial class AzurermPostgresqlFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartIpAddress is required")]
     [TerraformProperty("start_ip_address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StartIpAddress { get; set; }
+    public required partial TerraformValue<string> StartIpAddress { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPostgresqlFirewallRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPostgresqlFirewallRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

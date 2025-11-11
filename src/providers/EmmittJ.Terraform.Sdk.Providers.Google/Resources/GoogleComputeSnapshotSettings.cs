@@ -14,7 +14,7 @@ public partial class GoogleComputeSnapshotSettingsStorageLocationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     [TerraformProperty("policy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Policy { get; set; }
+    public required partial TerraformValue<string> Policy { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public partial class GoogleComputeSnapshotSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -62,14 +62,14 @@ public partial class GoogleComputeSnapshotSettings : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for storage_location.
@@ -79,13 +79,13 @@ public partial class GoogleComputeSnapshotSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageLocation block(s) allowed")]
     [TerraformProperty("storage_location")]
-    public TerraformList<TerraformBlock<GoogleComputeSnapshotSettingsStorageLocationBlock>>? StorageLocation { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeSnapshotSettingsStorageLocationBlock>>? StorageLocation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeSnapshotSettingsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeSnapshotSettingsTimeoutsBlock>? Timeouts { get; set; }
 
 }

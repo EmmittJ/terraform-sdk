@@ -13,35 +13,35 @@ public partial class AwsGlueTriggerActionsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("arguments")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Arguments { get; set; }
+    public partial TerraformMap<string>? Arguments { get; set; }
 
     /// <summary>
     /// The crawler_name attribute.
     /// </summary>
     [TerraformProperty("crawler_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CrawlerName { get; set; }
+    public partial TerraformValue<string>? CrawlerName { get; set; }
 
     /// <summary>
     /// The job_name attribute.
     /// </summary>
     [TerraformProperty("job_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? JobName { get; set; }
+    public partial TerraformValue<string>? JobName { get; set; }
 
     /// <summary>
     /// The security_configuration attribute.
     /// </summary>
     [TerraformProperty("security_configuration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecurityConfiguration { get; set; }
+    public partial TerraformValue<string>? SecurityConfiguration { get; set; }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
     [TerraformProperty("timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Timeout { get; set; }
+    public partial TerraformValue<double>? Timeout { get; set; }
 
 }
 
@@ -57,14 +57,14 @@ public partial class AwsGlueTriggerEventBatchingConditionBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchSize is required")]
     [TerraformProperty("batch_size")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> BatchSize { get; set; }
+    public required partial TerraformValue<double> BatchSize { get; set; }
 
     /// <summary>
     /// The batch_window attribute.
     /// </summary>
     [TerraformProperty("batch_window")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BatchWindow { get; set; }
+    public partial TerraformValue<double>? BatchWindow { get; set; }
 
 }
 
@@ -79,7 +79,7 @@ public partial class AwsGlueTriggerPredicateBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("logical")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Logical { get; set; }
+    public partial TerraformValue<string>? Logical { get; set; }
 
 }
 
@@ -94,21 +94,21 @@ public partial class AwsGlueTriggerTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -127,21 +127,21 @@ public partial class AwsGlueTrigger : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -149,42 +149,42 @@ public partial class AwsGlueTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
     [TerraformProperty("schedule")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Schedule { get; set; }
+    public partial TerraformValue<string>? Schedule { get; set; }
 
     /// <summary>
     /// The start_on_creation attribute.
     /// </summary>
     [TerraformProperty("start_on_creation")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? StartOnCreation { get; set; }
+    public partial TerraformValue<bool>? StartOnCreation { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -192,14 +192,14 @@ public partial class AwsGlueTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The workflow_name attribute.
     /// </summary>
     [TerraformProperty("workflow_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WorkflowName { get; set; }
+    public partial TerraformValue<string>? WorkflowName { get; set; }
 
     /// <summary>
     /// Block for actions.
@@ -208,14 +208,14 @@ public partial class AwsGlueTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Actions block(s) required")]
     [TerraformProperty("actions")]
-    public TerraformList<TerraformBlock<AwsGlueTriggerActionsBlock>>? Actions { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGlueTriggerActionsBlock>>? Actions { get; set; }
 
     /// <summary>
     /// Block for event_batching_condition.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("event_batching_condition")]
-    public TerraformList<TerraformBlock<AwsGlueTriggerEventBatchingConditionBlock>>? EventBatchingCondition { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGlueTriggerEventBatchingConditionBlock>>? EventBatchingCondition { get; set; }
 
     /// <summary>
     /// Block for predicate.
@@ -223,27 +223,27 @@ public partial class AwsGlueTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Predicate block(s) allowed")]
     [TerraformProperty("predicate")]
-    public TerraformList<TerraformBlock<AwsGlueTriggerPredicateBlock>>? Predicate { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGlueTriggerPredicateBlock>>? Predicate { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsGlueTriggerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsGlueTriggerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

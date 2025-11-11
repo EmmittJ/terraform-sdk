@@ -16,7 +16,7 @@ public partial class GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The namespace in which the entity exists. If not specified, the EntityKey represents a Google-managed entity such as a Google user or a Google Group.
@@ -24,7 +24,7 @@ public partial class GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock : Ter
     /// </summary>
     [TerraformProperty("namespace")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Namespace { get; set; }
+    public partial TerraformValue<string>? Namespace { get; set; }
 
 }
 
@@ -43,7 +43,7 @@ public partial class GoogleCloudIdentityGroupLookupDataSource : TerraformDataSou
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for group_key.
@@ -53,13 +53,13 @@ public partial class GoogleCloudIdentityGroupLookupDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GroupKey block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GroupKey block(s) allowed")]
     [TerraformProperty("group_key")]
-    public TerraformList<TerraformBlock<GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock>>? GroupKey { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock>>? GroupKey { get; set; }
 
     /// <summary>
     /// The [resource name](https://cloud.google.com/apis/design/resource_names) of the looked-up Group.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

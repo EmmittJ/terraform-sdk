@@ -13,21 +13,21 @@ public partial class AzurermApplicationInsightsApiKeyTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzurermApplicationInsightsApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
     [TerraformProperty("application_insights_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApplicationInsightsId { get; set; }
+    public required partial TerraformValue<string> ApplicationInsightsId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -61,34 +61,34 @@ public partial class AzurermApplicationInsightsApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The read_permissions attribute.
     /// </summary>
     [TerraformProperty("read_permissions")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ReadPermissions { get; set; }
+    public partial TerraformSet<string>? ReadPermissions { get; set; }
 
     /// <summary>
     /// The write_permissions attribute.
     /// </summary>
     [TerraformProperty("write_permissions")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? WritePermissions { get; set; }
+    public partial TerraformSet<string>? WritePermissions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApplicationInsightsApiKeyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApplicationInsightsApiKeyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The api_key attribute.
     /// </summary>
     [TerraformProperty("api_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ApiKey { get; }
+    public partial TerraformValue<string> ApiKey { get; }
 
 }

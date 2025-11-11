@@ -14,7 +14,7 @@ public partial class AzurermBotChannelLineLineChannelBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessToken is required")]
     [TerraformProperty("access_token")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccessToken { get; set; }
+    public required partial TerraformValue<string> AccessToken { get; set; }
 
     /// <summary>
     /// The secret attribute.
@@ -22,7 +22,7 @@ public partial class AzurermBotChannelLineLineChannelBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     [TerraformProperty("secret")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Secret { get; set; }
+    public required partial TerraformValue<string> Secret { get; set; }
 
 }
 
@@ -37,28 +37,28 @@ public partial class AzurermBotChannelLineTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -78,14 +78,14 @@ public partial class AzurermBotChannelLine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     [TerraformProperty("bot_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BotName { get; set; }
+    public required partial TerraformValue<string> BotName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -93,7 +93,7 @@ public partial class AzurermBotChannelLine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -101,7 +101,7 @@ public partial class AzurermBotChannelLine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for line_channel.
@@ -110,13 +110,13 @@ public partial class AzurermBotChannelLine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LineChannel is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LineChannel block(s) required")]
     [TerraformProperty("line_channel")]
-    public TerraformSet<TerraformBlock<AzurermBotChannelLineLineChannelBlock>>? LineChannel { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermBotChannelLineLineChannelBlock>>? LineChannel { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermBotChannelLineTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermBotChannelLineTimeoutsBlock>? Timeouts { get; set; }
 
 }

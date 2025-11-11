@@ -16,7 +16,7 @@ public partial class GoogleHealthcareDatasetEncryptionSpecBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("kms_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyName { get; set; }
+    public partial TerraformValue<string>? KmsKeyName { get; set; }
 
 }
 
@@ -31,21 +31,21 @@ public partial class GoogleHealthcareDatasetTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -64,7 +64,7 @@ public partial class GoogleHealthcareDataset : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the Dataset.
@@ -72,7 +72,7 @@ public partial class GoogleHealthcareDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource name for the Dataset.
@@ -80,14 +80,14 @@ public partial class GoogleHealthcareDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The default timezone used by this dataset. Must be a either a valid IANA time zone name such as
@@ -96,7 +96,7 @@ public partial class GoogleHealthcareDataset : TerraformResource
     /// </summary>
     [TerraformProperty("time_zone")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TimeZone { get; set; }
+    public partial TerraformValue<string> TimeZone { get; set; }
 
     /// <summary>
     /// Block for encryption_spec.
@@ -104,20 +104,20 @@ public partial class GoogleHealthcareDataset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public TerraformList<TerraformBlock<GoogleHealthcareDatasetEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleHealthcareDatasetEncryptionSpecBlock>>? EncryptionSpec { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleHealthcareDatasetTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleHealthcareDatasetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fully qualified name of this dataset
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
 }

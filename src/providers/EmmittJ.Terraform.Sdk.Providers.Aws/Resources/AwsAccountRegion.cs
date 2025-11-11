@@ -13,14 +13,14 @@ public partial class AwsAccountRegionTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class AwsAccountRegion : TerraformResource
     /// </summary>
     [TerraformProperty("account_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AccountId { get; set; }
+    public partial TerraformValue<string>? AccountId { get; set; }
 
     /// <summary>
     /// The enabled attribute.
@@ -46,14 +46,14 @@ public partial class AwsAccountRegion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The region_name attribute.
@@ -61,20 +61,20 @@ public partial class AwsAccountRegion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
     [TerraformProperty("region_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RegionName { get; set; }
+    public required partial TerraformValue<string> RegionName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsAccountRegionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsAccountRegionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The opt_status attribute.
     /// </summary>
     [TerraformProperty("opt_status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OptStatus { get; }
+    public partial TerraformValue<string> OptStatus { get; }
 
 }

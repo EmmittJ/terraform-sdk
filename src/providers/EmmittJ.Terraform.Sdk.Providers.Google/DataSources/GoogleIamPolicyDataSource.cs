@@ -14,7 +14,7 @@ public partial class GoogleIamPolicyDataSourceAuditConfigBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformProperty("service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Service { get; set; }
+    public required partial TerraformValue<string> Service { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public partial class GoogleIamPolicyDataSourceBindingBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Members is required")]
     [TerraformProperty("members")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Members { get; set; }
+    public required partial TerraformSet<string> Members { get; set; }
 
     /// <summary>
     /// The role attribute.
@@ -38,7 +38,7 @@ public partial class GoogleIamPolicyDataSourceBindingBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     [TerraformProperty("role")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Role { get; set; }
+    public required partial TerraformValue<string> Role { get; set; }
 
 }
 
@@ -56,27 +56,27 @@ public partial class GoogleIamPolicyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for audit_config.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("audit_config")]
-    public TerraformSet<TerraformBlock<GoogleIamPolicyDataSourceAuditConfigBlock>>? AuditConfig { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleIamPolicyDataSourceAuditConfigBlock>>? AuditConfig { get; set; }
 
     /// <summary>
     /// Block for binding.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("binding")]
-    public TerraformSet<TerraformBlock<GoogleIamPolicyDataSourceBindingBlock>>? Binding { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleIamPolicyDataSourceBindingBlock>>? Binding { get; set; }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     [TerraformProperty("policy_data")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PolicyData { get; }
+    public partial TerraformValue<string> PolicyData { get; }
 
 }

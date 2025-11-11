@@ -13,28 +13,28 @@ public partial class AzurermVirtualHubBgpConnectionTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermVirtualHubBgpConnection : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -60,7 +60,7 @@ public partial class AzurermVirtualHubBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The peer_asn attribute.
@@ -68,7 +68,7 @@ public partial class AzurermVirtualHubBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAsn is required")]
     [TerraformProperty("peer_asn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> PeerAsn { get; set; }
+    public required partial TerraformValue<double> PeerAsn { get; set; }
 
     /// <summary>
     /// The peer_ip attribute.
@@ -76,7 +76,7 @@ public partial class AzurermVirtualHubBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerIp is required")]
     [TerraformProperty("peer_ip")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PeerIp { get; set; }
+    public required partial TerraformValue<string> PeerIp { get; set; }
 
     /// <summary>
     /// The virtual_hub_id attribute.
@@ -84,20 +84,20 @@ public partial class AzurermVirtualHubBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     [TerraformProperty("virtual_hub_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualHubId { get; set; }
+    public required partial TerraformValue<string> VirtualHubId { get; set; }
 
     /// <summary>
     /// The virtual_network_connection_id attribute.
     /// </summary>
     [TerraformProperty("virtual_network_connection_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VirtualNetworkConnectionId { get; set; }
+    public partial TerraformValue<string>? VirtualNetworkConnectionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVirtualHubBgpConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVirtualHubBgpConnectionTimeoutsBlock>? Timeouts { get; set; }
 
 }

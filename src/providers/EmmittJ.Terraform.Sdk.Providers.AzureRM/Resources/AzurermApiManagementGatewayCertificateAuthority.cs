@@ -13,28 +13,28 @@ public partial class AzurermApiManagementGatewayCertificateAuthorityTimeoutsBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermApiManagementGatewayCertificateAuthority : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     [TerraformProperty("api_management_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiManagementId { get; set; }
+    public required partial TerraformValue<string> ApiManagementId { get; set; }
 
     /// <summary>
     /// The certificate_name attribute.
@@ -61,7 +61,7 @@ public partial class AzurermApiManagementGatewayCertificateAuthority : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateName is required")]
     [TerraformProperty("certificate_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CertificateName { get; set; }
+    public required partial TerraformValue<string> CertificateName { get; set; }
 
     /// <summary>
     /// The gateway_name attribute.
@@ -69,27 +69,27 @@ public partial class AzurermApiManagementGatewayCertificateAuthority : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
     [TerraformProperty("gateway_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GatewayName { get; set; }
+    public required partial TerraformValue<string> GatewayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The is_trusted attribute.
     /// </summary>
     [TerraformProperty("is_trusted")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IsTrusted { get; set; }
+    public partial TerraformValue<bool>? IsTrusted { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock>? Timeouts { get; set; }
 
 }

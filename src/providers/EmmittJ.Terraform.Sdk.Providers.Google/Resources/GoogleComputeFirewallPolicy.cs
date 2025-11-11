@@ -13,21 +13,21 @@ public partial class GoogleComputeFirewallPolicyTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public partial class GoogleComputeFirewallPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The parent of the firewall policy.
@@ -60,7 +60,7 @@ public partial class GoogleComputeFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// User-provided name of the Organization firewall policy. The name should be unique in the organization in which the firewall policy is created.
@@ -70,62 +70,62 @@ public partial class GoogleComputeFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShortName is required")]
     [TerraformProperty("short_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ShortName { get; set; }
+    public required partial TerraformValue<string> ShortName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeFirewallPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeFirewallPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// Fingerprint of the resource. This field is used internally during updates of this resource.
     /// </summary>
     [TerraformProperty("fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Fingerprint { get; }
+    public partial TerraformValue<string> Fingerprint { get; }
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformProperty("firewall_policy_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> FirewallPolicyId { get; }
+    public partial TerraformValue<string> FirewallPolicyId { get; }
 
     /// <summary>
     /// Name of the resource. It is a numeric ID allocated by GCP which uniquely identifies the Firewall Policy.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Total count of all firewall policy rule tuples. A firewall policy can not exceed a set number of tuples.
     /// </summary>
     [TerraformProperty("rule_tuple_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> RuleTupleCount { get; }
+    public partial TerraformValue<double> RuleTupleCount { get; }
 
     /// <summary>
     /// Server-defined URL for the resource.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// Server-defined URL for this resource with the resource id.
     /// </summary>
     [TerraformProperty("self_link_with_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLinkWithId { get; }
+    public partial TerraformValue<string> SelfLinkWithId { get; }
 
 }

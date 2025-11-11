@@ -13,21 +13,21 @@ public partial class GoogleSqlDatabaseTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -49,7 +49,7 @@ public partial class GoogleSqlDatabase : TerraformResource
     /// </summary>
     [TerraformProperty("charset")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Charset { get; set; }
+    public partial TerraformValue<string> Charset { get; set; }
 
     /// <summary>
     /// The collation value. See MySQL&#39;s
@@ -60,7 +60,7 @@ public partial class GoogleSqlDatabase : TerraformResource
     /// </summary>
     [TerraformProperty("collation")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Collation { get; set; }
+    public partial TerraformValue<string> Collation { get; set; }
 
     /// <summary>
     /// The deletion policy for the database. Setting ABANDON allows the resource
@@ -70,14 +70,14 @@ public partial class GoogleSqlDatabase : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeletionPolicy { get; set; }
+    public partial TerraformValue<string>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the Cloud SQL instance. This does not include the project
@@ -86,7 +86,7 @@ public partial class GoogleSqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The name of the database in the Cloud SQL instance.
@@ -95,27 +95,27 @@ public partial class GoogleSqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleSqlDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleSqlDatabaseTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
 }

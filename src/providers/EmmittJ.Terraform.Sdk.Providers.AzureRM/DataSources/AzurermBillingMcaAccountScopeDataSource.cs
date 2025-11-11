@@ -13,7 +13,7 @@ public partial class AzurermBillingMcaAccountScopeDataSourceTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,7 +32,7 @@ public partial class AzurermBillingMcaAccountScopeDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountName is required")]
     [TerraformProperty("billing_account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BillingAccountName { get; set; }
+    public required partial TerraformValue<string> BillingAccountName { get; set; }
 
     /// <summary>
     /// The billing_profile_name attribute.
@@ -40,14 +40,14 @@ public partial class AzurermBillingMcaAccountScopeDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingProfileName is required")]
     [TerraformProperty("billing_profile_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BillingProfileName { get; set; }
+    public required partial TerraformValue<string> BillingProfileName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The invoice_section_name attribute.
@@ -55,13 +55,13 @@ public partial class AzurermBillingMcaAccountScopeDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InvoiceSectionName is required")]
     [TerraformProperty("invoice_section_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InvoiceSectionName { get; set; }
+    public required partial TerraformValue<string> InvoiceSectionName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermBillingMcaAccountScopeDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermBillingMcaAccountScopeDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
 }

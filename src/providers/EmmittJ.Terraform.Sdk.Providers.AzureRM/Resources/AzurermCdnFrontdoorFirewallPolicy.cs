@@ -14,14 +14,14 @@ public partial class AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformProperty("action")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Action { get; set; }
+    public required partial TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -29,28 +29,28 @@ public partial class AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [TerraformProperty("priority")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Priority { get; set; }
+    public partial TerraformValue<double>? Priority { get; set; }
 
     /// <summary>
     /// The rate_limit_duration_in_minutes attribute.
     /// </summary>
     [TerraformProperty("rate_limit_duration_in_minutes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RateLimitDurationInMinutes { get; set; }
+    public partial TerraformValue<double>? RateLimitDurationInMinutes { get; set; }
 
     /// <summary>
     /// The rate_limit_threshold attribute.
     /// </summary>
     [TerraformProperty("rate_limit_threshold")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RateLimitThreshold { get; set; }
+    public partial TerraformValue<double>? RateLimitThreshold { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -58,7 +58,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -73,7 +73,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock : Terraf
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
 }
 
@@ -89,7 +89,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformProperty("action")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Action { get; set; }
+    public required partial TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -97,7 +97,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The version attribute.
@@ -105,7 +105,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformProperty("version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Version { get; set; }
+    public required partial TerraformValue<string> Version { get; set; }
 
 }
 
@@ -120,28 +120,28 @@ public partial class AzurermCdnFrontdoorFirewallPolicyTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -160,42 +160,42 @@ public partial class AzurermCdnFrontdoorFirewallPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("captcha_cookie_expiration_in_minutes")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> CaptchaCookieExpirationInMinutes { get; set; }
+    public partial TerraformValue<double> CaptchaCookieExpirationInMinutes { get; set; }
 
     /// <summary>
     /// The custom_block_response_body attribute.
     /// </summary>
     [TerraformProperty("custom_block_response_body")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CustomBlockResponseBody { get; set; }
+    public partial TerraformValue<string>? CustomBlockResponseBody { get; set; }
 
     /// <summary>
     /// The custom_block_response_status_code attribute.
     /// </summary>
     [TerraformProperty("custom_block_response_status_code")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? CustomBlockResponseStatusCode { get; set; }
+    public partial TerraformValue<double>? CustomBlockResponseStatusCode { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The js_challenge_cookie_expiration_in_minutes attribute.
     /// </summary>
     [TerraformProperty("js_challenge_cookie_expiration_in_minutes")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> JsChallengeCookieExpirationInMinutes { get; set; }
+    public partial TerraformValue<double> JsChallengeCookieExpirationInMinutes { get; set; }
 
     /// <summary>
     /// The mode attribute.
@@ -203,7 +203,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     [TerraformProperty("mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Mode { get; set; }
+    public required partial TerraformValue<string> Mode { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -211,21 +211,21 @@ public partial class AzurermCdnFrontdoorFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The redirect_url attribute.
     /// </summary>
     [TerraformProperty("redirect_url")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RedirectUrl { get; set; }
+    public partial TerraformValue<string>? RedirectUrl { get; set; }
 
     /// <summary>
     /// The request_body_check_enabled attribute.
     /// </summary>
     [TerraformProperty("request_body_check_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RequestBodyCheckEnabled { get; set; }
+    public partial TerraformValue<bool>? RequestBodyCheckEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -233,7 +233,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
@@ -241,14 +241,14 @@ public partial class AzurermCdnFrontdoorFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     [TerraformProperty("sku_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SkuName { get; set; }
+    public required partial TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for custom_rule.
@@ -256,7 +256,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 CustomRule block(s) allowed")]
     [TerraformProperty("custom_rule")]
-    public TerraformList<TerraformBlock<AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock>>? CustomRule { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock>>? CustomRule { get; set; }
 
     /// <summary>
     /// Block for log_scrubbing.
@@ -264,7 +264,7 @@ public partial class AzurermCdnFrontdoorFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogScrubbing block(s) allowed")]
     [TerraformProperty("log_scrubbing")]
-    public TerraformList<TerraformBlock<AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock>>? LogScrubbing { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock>>? LogScrubbing { get; set; }
 
     /// <summary>
     /// Block for managed_rule.
@@ -272,20 +272,20 @@ public partial class AzurermCdnFrontdoorFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 ManagedRule block(s) allowed")]
     [TerraformProperty("managed_rule")]
-    public TerraformList<TerraformBlock<AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock>>? ManagedRule { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock>>? ManagedRule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCdnFrontdoorFirewallPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCdnFrontdoorFirewallPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The frontend_endpoint_ids attribute.
     /// </summary>
     [TerraformProperty("frontend_endpoint_ids")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> FrontendEndpointIds { get; }
+    public partial TerraformList<string> FrontendEndpointIds { get; }
 
 }

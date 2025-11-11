@@ -17,14 +17,14 @@ public partial class GoogleHealthcareHl7V2StoreIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hl7V2StoreId is required")]
     [TerraformProperty("hl7_v2_store_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Hl7V2StoreId { get; set; }
+    public required partial TerraformValue<string> Hl7V2StoreId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_data attribute.
@@ -32,13 +32,13 @@ public partial class GoogleHealthcareHl7V2StoreIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     [TerraformProperty("policy_data")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyData { get; set; }
+    public required partial TerraformValue<string> PolicyData { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
 }

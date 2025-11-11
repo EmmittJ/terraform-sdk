@@ -13,14 +13,14 @@ public partial class GoogleDeploymentManagerDeploymentLabelsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Key { get; set; }
+    public partial TerraformValue<string>? Key { get; set; }
 
     /// <summary>
     /// Value of label.
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Value { get; set; }
+    public partial TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -43,21 +43,21 @@ public partial class GoogleDeploymentManagerDeploymentTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -80,7 +80,7 @@ public partial class GoogleDeploymentManagerDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("create_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CreatePolicy { get; set; }
+    public partial TerraformValue<string>? CreatePolicy { get; set; }
 
     /// <summary>
     /// Set the policy to use for deleting new resources on update/delete.
@@ -92,21 +92,21 @@ public partial class GoogleDeploymentManagerDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("delete_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeletePolicy { get; set; }
+    public partial TerraformValue<string>? DeletePolicy { get; set; }
 
     /// <summary>
     /// Optional user-provided description of deployment.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Unique name for the deployment
@@ -114,7 +114,7 @@ public partial class GoogleDeploymentManagerDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// If set to true, a deployment is created with &amp;quot;shell&amp;quot; resources
@@ -128,21 +128,21 @@ public partial class GoogleDeploymentManagerDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("preview")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Preview { get; set; }
+    public partial TerraformValue<bool>? Preview { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for labels.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("labels")]
-    public TerraformSet<TerraformBlock<GoogleDeploymentManagerDeploymentLabelsBlock>>? Labels { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleDeploymentManagerDeploymentLabelsBlock>>? Labels { get; set; }
 
     /// <summary>
     /// Block for target.
@@ -152,21 +152,21 @@ public partial class GoogleDeploymentManagerDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     [TerraformProperty("target")]
-    public TerraformList<TerraformBlock<GoogleDeploymentManagerDeploymentTargetBlock>>? Target { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDeploymentManagerDeploymentTargetBlock>>? Target { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDeploymentManagerDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDeploymentManagerDeploymentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Unique identifier for deployment. Output only.
     /// </summary>
     [TerraformProperty("deployment_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeploymentId { get; }
+    public partial TerraformValue<string> DeploymentId { get; }
 
     /// <summary>
     /// Output only. URL of the manifest representing the last manifest that
@@ -174,13 +174,13 @@ public partial class GoogleDeploymentManagerDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("manifest")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Manifest { get; }
+    public partial TerraformValue<string> Manifest { get; }
 
     /// <summary>
     /// Output only. Server defined URL for the resource.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
 }

@@ -17,14 +17,14 @@ public partial class GoogleContainerAttachedInstallManifestDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     [TerraformProperty("cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterId { get; set; }
+    public required partial TerraformValue<string> ClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -32,7 +32,7 @@ public partial class GoogleContainerAttachedInstallManifestDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The platform_version attribute.
@@ -40,7 +40,7 @@ public partial class GoogleContainerAttachedInstallManifestDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformVersion is required")]
     [TerraformProperty("platform_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PlatformVersion { get; set; }
+    public required partial TerraformValue<string> PlatformVersion { get; set; }
 
     /// <summary>
     /// The project attribute.
@@ -48,13 +48,13 @@ public partial class GoogleContainerAttachedInstallManifestDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformProperty("project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Project { get; set; }
+    public required partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The manifest attribute.
     /// </summary>
     [TerraformProperty("manifest")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Manifest { get; }
+    public partial TerraformValue<string> Manifest { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class GoogleProjectDefaultServiceAccountsTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -47,14 +47,14 @@ public partial class GoogleProjectDefaultServiceAccounts : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformProperty("action")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Action { get; set; }
+    public required partial TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project ID where service accounts are created.
@@ -62,7 +62,7 @@ public partial class GoogleProjectDefaultServiceAccounts : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformProperty("project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Project { get; set; }
+    public required partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The action to be performed in the default service accounts on the resource destroy.
@@ -70,20 +70,20 @@ public partial class GoogleProjectDefaultServiceAccounts : TerraformResource
     /// </summary>
     [TerraformProperty("restore_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RestorePolicy { get; set; }
+    public partial TerraformValue<string>? RestorePolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleProjectDefaultServiceAccountsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleProjectDefaultServiceAccountsTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The Service Accounts changed by this resource. It is used for revert the action on the destroy.
     /// </summary>
     [TerraformProperty("service_accounts")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> ServiceAccounts { get; }
+    public partial TerraformMap<string> ServiceAccounts { get; }
 
 }

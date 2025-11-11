@@ -16,48 +16,48 @@ public partial class GoogleComputeRegionInstanceGroupDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SelfLink { get; set; }
+    public partial TerraformValue<string> SelfLink { get; set; }
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
     [TerraformProperty("instances")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Instances { get; }
+    public partial TerraformList<object> Instances { get; }
 
     /// <summary>
     /// The size attribute.
     /// </summary>
     [TerraformProperty("size")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> Size { get; }
+    public partial TerraformValue<double> Size { get; }
 
 }

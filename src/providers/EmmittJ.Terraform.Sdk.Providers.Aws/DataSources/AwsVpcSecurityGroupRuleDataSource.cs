@@ -14,7 +14,7 @@ public partial class AwsVpcSecurityGroupRuleDataSourceFilterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
@@ -22,7 +22,7 @@ public partial class AwsVpcSecurityGroupRuleDataSourceFilterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     [TerraformProperty("values")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Values { get; set; }
+    public required partial TerraformSet<string> Values { get; set; }
 
 }
 
@@ -40,111 +40,111 @@ public partial class AwsVpcSecurityGroupRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_group_rule_id attribute.
     /// </summary>
     [TerraformProperty("security_group_rule_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SecurityGroupRuleId { get; set; }
+    public partial TerraformValue<string> SecurityGroupRuleId { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public TerraformSet<TerraformBlock<AwsVpcSecurityGroupRuleDataSourceFilterBlock>>? Filter { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsVpcSecurityGroupRuleDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The cidr_ipv4 attribute.
     /// </summary>
     [TerraformProperty("cidr_ipv4")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CidrIpv4 { get; }
+    public partial TerraformValue<string> CidrIpv4 { get; }
 
     /// <summary>
     /// The cidr_ipv6 attribute.
     /// </summary>
     [TerraformProperty("cidr_ipv6")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CidrIpv6 { get; }
+    public partial TerraformValue<string> CidrIpv6 { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The from_port attribute.
     /// </summary>
     [TerraformProperty("from_port")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> FromPort { get; }
+    public partial TerraformValue<double> FromPort { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The ip_protocol attribute.
     /// </summary>
     [TerraformProperty("ip_protocol")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IpProtocol { get; }
+    public partial TerraformValue<string> IpProtocol { get; }
 
     /// <summary>
     /// The is_egress attribute.
     /// </summary>
     [TerraformProperty("is_egress")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> IsEgress { get; }
+    public partial TerraformValue<bool> IsEgress { get; }
 
     /// <summary>
     /// The prefix_list_id attribute.
     /// </summary>
     [TerraformProperty("prefix_list_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrefixListId { get; }
+    public partial TerraformValue<string> PrefixListId { get; }
 
     /// <summary>
     /// The referenced_security_group_id attribute.
     /// </summary>
     [TerraformProperty("referenced_security_group_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ReferencedSecurityGroupId { get; }
+    public partial TerraformValue<string> ReferencedSecurityGroupId { get; }
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
     [TerraformProperty("security_group_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecurityGroupId { get; }
+    public partial TerraformValue<string> SecurityGroupId { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The to_port attribute.
     /// </summary>
     [TerraformProperty("to_port")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ToPort { get; }
+    public partial TerraformValue<double> ToPort { get; }
 
 }

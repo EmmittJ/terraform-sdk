@@ -13,28 +13,28 @@ public partial class AzurermPortalTenantConfigurationTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermPortalTenantConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The private_markdown_storage_enforced attribute.
@@ -60,13 +60,13 @@ public partial class AzurermPortalTenantConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateMarkdownStorageEnforced is required")]
     [TerraformProperty("private_markdown_storage_enforced")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> PrivateMarkdownStorageEnforced { get; set; }
+    public required partial TerraformValue<bool> PrivateMarkdownStorageEnforced { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPortalTenantConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPortalTenantConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
 }

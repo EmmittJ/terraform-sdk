@@ -17,14 +17,14 @@ public partial class GoogleDataCatalogEntryGroupIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroup is required")]
     [TerraformProperty("entry_group")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EntryGroup { get; set; }
+    public required partial TerraformValue<string> EntryGroup { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_data attribute.
@@ -32,27 +32,27 @@ public partial class GoogleDataCatalogEntryGroupIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     [TerraformProperty("policy_data")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyData { get; set; }
+    public required partial TerraformValue<string> PolicyData { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
 }

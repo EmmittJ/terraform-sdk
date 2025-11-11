@@ -16,7 +16,7 @@ public partial class GoogleArtifactRegistryPythonPackageDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The region of the Artifact Registry repository.
@@ -24,7 +24,7 @@ public partial class GoogleArtifactRegistryPythonPackageDataSource : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of the Python package.
@@ -32,14 +32,14 @@ public partial class GoogleArtifactRegistryPythonPackageDataSource : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageName is required")]
     [TerraformProperty("package_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PackageName { get; set; }
+    public required partial TerraformValue<string> PackageName { get; set; }
 
     /// <summary>
     /// Project ID of the project.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The repository ID containing the Python package.
@@ -47,34 +47,34 @@ public partial class GoogleArtifactRegistryPythonPackageDataSource : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     [TerraformProperty("repository_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepositoryId { get; set; }
+    public required partial TerraformValue<string> RepositoryId { get; set; }
 
     /// <summary>
     /// The time the package was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The fully qualified name of the Python package.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The time the package was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// The version of the Python package.
     /// </summary>
     [TerraformProperty("version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Version { get; }
+    public partial TerraformValue<string> Version { get; }
 
 }

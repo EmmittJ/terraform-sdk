@@ -13,7 +13,7 @@ public partial class GoogleNetworkServicesEdgeCacheServiceLogConfigBlock : Terra
     /// </summary>
     [TerraformProperty("enable")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> Enable { get; set; }
+    public partial TerraformValue<bool> Enable { get; set; }
 
     /// <summary>
     /// Configures the sampling rate of requests, where 1.0 means all logged requests are reported and 0.0 means no logged requests are reported. The default value is 1.0, and the value of the field must be in [0, 1].
@@ -22,7 +22,7 @@ public partial class GoogleNetworkServicesEdgeCacheServiceLogConfigBlock : Terra
     /// </summary>
     [TerraformProperty("sample_rate")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SampleRate { get; set; }
+    public partial TerraformValue<double>? SampleRate { get; set; }
 
 }
 
@@ -45,21 +45,21 @@ public partial class GoogleNetworkServicesEdgeCacheServiceTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -78,7 +78,7 @@ public partial class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Disables HTTP/2.
@@ -89,21 +89,21 @@ public partial class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     [TerraformProperty("disable_http2")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableHttp2 { get; set; }
+    public partial TerraformValue<bool>? DisableHttp2 { get; set; }
 
     /// <summary>
     /// HTTP/3 (IETF QUIC) and Google QUIC are enabled by default.
     /// </summary>
     [TerraformProperty("disable_quic")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> DisableQuic { get; set; }
+    public partial TerraformValue<bool> DisableQuic { get; set; }
 
     /// <summary>
     /// Resource URL that points at the Cloud Armor edge security policy that is applied on each request against the EdgeCacheService.
     /// </summary>
     [TerraformProperty("edge_security_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EdgeSecurityPolicy { get; set; }
+    public partial TerraformValue<string>? EdgeSecurityPolicy { get; set; }
 
     /// <summary>
     /// URLs to sslCertificate resources that are used to authenticate connections between users and the EdgeCacheService.
@@ -112,14 +112,14 @@ public partial class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     [TerraformProperty("edge_ssl_certificates")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? EdgeSslCertificates { get; set; }
+    public partial TerraformList<string>? EdgeSslCertificates { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Set of label tags associated with the EdgeCache resource.
@@ -129,7 +129,7 @@ public partial class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is created.
@@ -139,14 +139,14 @@ public partial class GoogleNetworkServicesEdgeCacheService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Require TLS (HTTPS) for all clients connecting to this service.
@@ -156,7 +156,7 @@ public partial class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     [TerraformProperty("require_tls")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> RequireTls { get; set; }
+    public partial TerraformValue<bool> RequireTls { get; set; }
 
     /// <summary>
     /// URL of the SslPolicy resource that will be associated with the EdgeCacheService.
@@ -165,7 +165,7 @@ public partial class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     [TerraformProperty("ssl_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SslPolicy { get; set; }
+    public partial TerraformValue<string>? SslPolicy { get; set; }
 
     /// <summary>
     /// Block for log_config.
@@ -173,7 +173,7 @@ public partial class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformProperty("log_config")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheServiceLogConfigBlock>>? LogConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheServiceLogConfigBlock>>? LogConfig { get; set; }
 
     /// <summary>
     /// Block for routing.
@@ -183,35 +183,35 @@ public partial class GoogleNetworkServicesEdgeCacheService : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Routing block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
     [TerraformProperty("routing")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheServiceRoutingBlock>>? Routing { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheServiceRoutingBlock>>? Routing { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkServicesEdgeCacheServiceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkServicesEdgeCacheServiceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The IPv4 addresses associated with this service. Addresses are static for the lifetime of the service.
     /// </summary>
     [TerraformProperty("ipv4_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Ipv4Addresses { get; }
+    public partial TerraformList<string> Ipv4Addresses { get; }
 
     /// <summary>
     /// The IPv6 addresses associated with this service. Addresses are static for the lifetime of the service.
     /// </summary>
     [TerraformProperty("ipv6_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Ipv6Addresses { get; }
+    public partial TerraformList<string> Ipv6Addresses { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -219,6 +219,6 @@ public partial class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

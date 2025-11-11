@@ -13,28 +13,28 @@ public partial class AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     /// </summary>
     [TerraformProperty("authentication_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthenticationMode { get; set; }
+    public partial TerraformValue<string>? AuthenticationMode { get; set; }
 
     /// <summary>
     /// The container_name attribute.
@@ -60,7 +60,7 @@ public partial class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     [TerraformProperty("container_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerName { get; set; }
+    public required partial TerraformValue<string> ContainerName { get; set; }
 
     /// <summary>
     /// The cosmosdb_account_key attribute.
@@ -68,7 +68,7 @@ public partial class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccountKey is required")]
     [TerraformProperty("cosmosdb_account_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CosmosdbAccountKey { get; set; }
+    public required partial TerraformValue<string> CosmosdbAccountKey { get; set; }
 
     /// <summary>
     /// The cosmosdb_sql_database_id attribute.
@@ -76,21 +76,21 @@ public partial class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbSqlDatabaseId is required")]
     [TerraformProperty("cosmosdb_sql_database_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CosmosdbSqlDatabaseId { get; set; }
+    public required partial TerraformValue<string> CosmosdbSqlDatabaseId { get; set; }
 
     /// <summary>
     /// The document_id attribute.
     /// </summary>
     [TerraformProperty("document_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DocumentId { get; set; }
+    public partial TerraformValue<string>? DocumentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -98,14 +98,14 @@ public partial class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The partition_key attribute.
     /// </summary>
     [TerraformProperty("partition_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PartitionKey { get; set; }
+    public partial TerraformValue<string>? PartitionKey { get; set; }
 
     /// <summary>
     /// The stream_analytics_job_id attribute.
@@ -113,13 +113,13 @@ public partial class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     [TerraformProperty("stream_analytics_job_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StreamAnalyticsJobId { get; set; }
+    public required partial TerraformValue<string> StreamAnalyticsJobId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock>? Timeouts { get; set; }
 
 }

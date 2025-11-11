@@ -14,7 +14,7 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityIdColumns is required")]
     [TerraformProperty("entity_id_columns")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? EntityIdColumns { get; set; }
+    public partial TerraformList<string>? EntityIdColumns { get; set; }
 
     /// <summary>
     /// The BigQuery view URI that will be materialized on each sync trigger based on FeatureView.SyncConfig.
@@ -22,7 +22,7 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     [TerraformProperty("uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Uri { get; set; }
+    public required partial TerraformValue<string> Uri { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistryS
     /// </summary>
     [TerraformProperty("project_number")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProjectNumber { get; set; }
+    public partial TerraformValue<string>? ProjectNumber { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock 
     /// </summary>
     [TerraformProperty("continuous")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Continuous { get; set; }
+    public partial TerraformValue<bool>? Continuous { get; set; }
 
     /// <summary>
     /// Cron schedule (https://en.wikipedia.org/wiki/Cron) to launch scheduled runs.
@@ -60,7 +60,7 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock 
     /// </summary>
     [TerraformProperty("cron")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Cron { get; set; }
+    public partial TerraformValue<string> Cron { get; set; }
 
 }
 
@@ -75,21 +75,21 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock : 
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -109,14 +109,14 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureOnlineStore is required")]
     [TerraformProperty("feature_online_store")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FeatureOnlineStore { get; set; }
+    public required partial TerraformValue<string> FeatureOnlineStore { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A set of key/value label pairs to assign to this FeatureView.
@@ -127,28 +127,28 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformReso
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Name of the FeatureView. This value may be up to 60 characters, and valid characters are [a-z0-9_]. The first character cannot be a number.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region for the resource. It should be the same as the featureonlinestore region.
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for big_query_source.
@@ -156,7 +156,7 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformReso
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigQuerySource block(s) allowed")]
     [TerraformProperty("big_query_source")]
-    public TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock>>? BigQuerySource { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock>>? BigQuerySource { get; set; }
 
     /// <summary>
     /// Block for feature_registry_source.
@@ -164,7 +164,7 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformReso
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FeatureRegistrySource block(s) allowed")]
     [TerraformProperty("feature_registry_source")]
-    public TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlock>>? FeatureRegistrySource { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlock>>? FeatureRegistrySource { get; set; }
 
     /// <summary>
     /// Block for sync_config.
@@ -172,28 +172,28 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformReso
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SyncConfig block(s) allowed")]
     [TerraformProperty("sync_config")]
-    public TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock>>? SyncConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock>>? SyncConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp of when the featureOnlinestore was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -201,13 +201,13 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformReso
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The timestamp of when the featureOnlinestore was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

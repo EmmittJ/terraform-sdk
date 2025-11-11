@@ -13,7 +13,7 @@ public partial class GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlock
     /// </summary>
     [TerraformProperty("max_replica_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxReplicaCount { get; set; }
+    public partial TerraformValue<double>? MaxReplicaCount { get; set; }
 
     /// <summary>
     /// The minimum number of machine replicas this DeployedModel will be always deployed on. This value must be greater than or equal to 1. If traffic against the DeployedModel increases, it may dynamically be deployed onto more replicas, and as traffic decreases, some of these extra replicas may be freed.
@@ -21,7 +21,7 @@ public partial class GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicaCount is required")]
     [TerraformProperty("min_replica_count")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MinReplicaCount { get; set; }
+    public required partial TerraformValue<double> MinReplicaCount { get; set; }
 
 }
 
@@ -36,14 +36,14 @@ public partial class GoogleVertexAiDeploymentResourcePoolTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -62,7 +62,7 @@ public partial class GoogleVertexAiDeploymentResourcePool : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource name of deployment resource pool. The maximum length is 63 characters, and valid characters are &#39;/^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$/&#39;.
@@ -70,21 +70,21 @@ public partial class GoogleVertexAiDeploymentResourcePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region of deployment resource pool. eg us-central1
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// Block for dedicated_resources.
@@ -92,20 +92,20 @@ public partial class GoogleVertexAiDeploymentResourcePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DedicatedResources block(s) allowed")]
     [TerraformProperty("dedicated_resources")]
-    public TerraformList<TerraformBlock<GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlock>>? DedicatedResources { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlock>>? DedicatedResources { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleVertexAiDeploymentResourcePoolTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleVertexAiDeploymentResourcePoolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class AzurermSignalrServiceCustomDomainTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzurermSignalrServiceCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformProperty("domain_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainName { get; set; }
+    public required partial TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -61,7 +61,7 @@ public partial class AzurermSignalrServiceCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The signalr_custom_certificate_id attribute.
@@ -69,7 +69,7 @@ public partial class AzurermSignalrServiceCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrCustomCertificateId is required")]
     [TerraformProperty("signalr_custom_certificate_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SignalrCustomCertificateId { get; set; }
+    public required partial TerraformValue<string> SignalrCustomCertificateId { get; set; }
 
     /// <summary>
     /// The signalr_service_id attribute.
@@ -77,13 +77,13 @@ public partial class AzurermSignalrServiceCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrServiceId is required")]
     [TerraformProperty("signalr_service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SignalrServiceId { get; set; }
+    public required partial TerraformValue<string> SignalrServiceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSignalrServiceCustomDomainTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSignalrServiceCustomDomainTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,28 +13,28 @@ public partial class AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermKubernetesClusterTrustedAccessRoleBinding : Terrafor
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kubernetes_cluster_id attribute.
@@ -60,7 +60,7 @@ public partial class AzurermKubernetesClusterTrustedAccessRoleBinding : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
     [TerraformProperty("kubernetes_cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KubernetesClusterId { get; set; }
+    public required partial TerraformValue<string> KubernetesClusterId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -68,7 +68,7 @@ public partial class AzurermKubernetesClusterTrustedAccessRoleBinding : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The roles attribute.
@@ -76,7 +76,7 @@ public partial class AzurermKubernetesClusterTrustedAccessRoleBinding : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     [TerraformProperty("roles")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Roles { get; set; }
+    public partial TerraformList<string>? Roles { get; set; }
 
     /// <summary>
     /// The source_resource_id attribute.
@@ -84,13 +84,13 @@ public partial class AzurermKubernetesClusterTrustedAccessRoleBinding : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceId is required")]
     [TerraformProperty("source_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceResourceId { get; set; }
+    public required partial TerraformValue<string> SourceResourceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock>? Timeouts { get; set; }
 
 }

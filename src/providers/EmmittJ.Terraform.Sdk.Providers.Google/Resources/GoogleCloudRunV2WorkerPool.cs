@@ -13,21 +13,21 @@ public partial class GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock : Terraf
     /// </summary>
     [TerraformProperty("breakglass_justification")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BreakglassJustification { get; set; }
+    public partial TerraformValue<string>? BreakglassJustification { get; set; }
 
     /// <summary>
     /// The path to a binary authorization policy. Format: projects/{project}/platforms/cloudRun/{policy-name}
     /// </summary>
     [TerraformProperty("policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Policy { get; set; }
+    public partial TerraformValue<string>? Policy { get; set; }
 
     /// <summary>
     /// If True, indicates to use the default project&#39;s binary authorization policy. If False, binary authorization will be disabled.
     /// </summary>
     [TerraformProperty("use_default")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseDefault { get; set; }
+    public partial TerraformValue<bool>? UseDefault { get; set; }
 
 }
 
@@ -42,21 +42,21 @@ public partial class GoogleCloudRunV2WorkerPoolInstanceSplitsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("percent")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Percent { get; set; }
+    public partial TerraformValue<double> Percent { get; set; }
 
     /// <summary>
     /// Revision to which to assign this portion of instances, if split allocation is by revision.
     /// </summary>
     [TerraformProperty("revision")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Revision { get; set; }
+    public partial TerraformValue<string>? Revision { get; set; }
 
     /// <summary>
     /// The allocation type for this instance split. Possible values: [&amp;quot;INSTANCE_SPLIT_ALLOCATION_TYPE_LATEST&amp;quot;, &amp;quot;INSTANCE_SPLIT_ALLOCATION_TYPE_REVISION&amp;quot;]
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -71,28 +71,28 @@ public partial class GoogleCloudRunV2WorkerPoolScalingBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("manual_instance_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ManualInstanceCount { get; set; }
+    public partial TerraformValue<double>? ManualInstanceCount { get; set; }
 
     /// <summary>
     /// The maximum count of instances distributed among revisions based on the specified instance split percentages.
     /// </summary>
     [TerraformProperty("max_instance_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxInstanceCount { get; set; }
+    public partial TerraformValue<double>? MaxInstanceCount { get; set; }
 
     /// <summary>
     /// The minimum count of instances distributed among revisions based on the specified instance split percentages.
     /// </summary>
     [TerraformProperty("min_instance_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinInstanceCount { get; set; }
+    public partial TerraformValue<double>? MinInstanceCount { get; set; }
 
     /// <summary>
     /// The scaling mode for the worker pool. It defaults to MANUAL. Possible values: [&amp;quot;AUTOMATIC&amp;quot;, &amp;quot;MANUAL&amp;quot;]
     /// </summary>
     [TerraformProperty("scaling_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ScalingMode { get; set; }
+    public partial TerraformValue<string>? ScalingMode { get; set; }
 
 }
 
@@ -112,21 +112,21 @@ public partial class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// A reference to a customer managed encryption key (CMEK) to use to encrypt this container image. For more information, go to https://cloud.google.com/run/docs/securing/using-cmek
     /// </summary>
     [TerraformProperty("encryption_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EncryptionKey { get; set; }
+    public partial TerraformValue<string>? EncryptionKey { get; set; }
 
     /// <summary>
     /// The action to take if the encryption key is revoked. Possible values: [&amp;quot;PREVENT_NEW&amp;quot;, &amp;quot;SHUTDOWN&amp;quot;]
     /// </summary>
     [TerraformProperty("encryption_key_revocation_action")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EncryptionKeyRevocationAction { get; set; }
+    public partial TerraformValue<string>? EncryptionKeyRevocationAction { get; set; }
 
     /// <summary>
     /// If encryptionKeyRevocationAction is SHUTDOWN, the duration before shutting down all instances. The minimum increment is 1 hour.
@@ -135,14 +135,14 @@ public partial class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("encryption_key_shutdown_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EncryptionKeyShutdownDuration { get; set; }
+    public partial TerraformValue<string>? EncryptionKeyShutdownDuration { get; set; }
 
     /// <summary>
     /// True if GPU zonal redundancy is disabled on this revision.
     /// </summary>
     [TerraformProperty("gpu_zonal_redundancy_disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? GpuZonalRedundancyDisabled { get; set; }
+    public partial TerraformValue<bool>? GpuZonalRedundancyDisabled { get; set; }
 
     /// <summary>
     /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google&#39;s billing system, so they can be used to filter, or break down billing charges by team, component, environment, state, etc.
@@ -153,21 +153,21 @@ public partial class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The unique name for the revision. If this field is omitted, it will be automatically generated based on the WorkerPool name.
     /// </summary>
     [TerraformProperty("revision")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Revision { get; set; }
+    public partial TerraformValue<string>? Revision { get; set; }
 
     /// <summary>
     /// Email address of the IAM service account associated with the revision of the WorkerPool. The service account represents the identity of the running revision, and determines what permissions the revision has. If not provided, the revision will use the project&#39;s default service account.
     /// </summary>
     [TerraformProperty("service_account")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ServiceAccount { get; set; }
+    public partial TerraformValue<string> ServiceAccount { get; set; }
 
 }
 
@@ -182,21 +182,21 @@ public partial class GoogleCloudRunV2WorkerPoolTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -223,21 +223,21 @@ public partial class GoogleCloudRunV2WorkerPool : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// Arbitrary identifier for the API client.
     /// </summary>
     [TerraformProperty("client")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Client { get; set; }
+    public partial TerraformValue<string>? Client { get; set; }
 
     /// <summary>
     /// Arbitrary version identifier for the API client.
     /// </summary>
     [TerraformProperty("client_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientVersion { get; set; }
+    public partial TerraformValue<string>? ClientVersion { get; set; }
 
     /// <summary>
     /// One or more custom audiences that you want this worker pool to support. Specify each custom audience as the full URL in a string. The custom audiences are encoded in the token and used to authenticate requests.
@@ -245,7 +245,7 @@ public partial class GoogleCloudRunV2WorkerPool : TerraformResource
     /// </summary>
     [TerraformProperty("custom_audiences")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? CustomAudiences { get; set; }
+    public partial TerraformList<string>? CustomAudiences { get; set; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the service. Defaults to true.
@@ -257,21 +257,21 @@ public partial class GoogleCloudRunV2WorkerPool : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeletionProtection { get; set; }
+    public partial TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// User-provided description of the WorkerPool. This field currently has a 512-character limit.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google&#39;s billing system, so they can be used to filter, or break down billing charges by team, component,
@@ -285,7 +285,7 @@ public partial class GoogleCloudRunV2WorkerPool : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The launch stage as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/products#product-launch-stages). Cloud Run supports ALPHA, BETA, and GA.
@@ -295,7 +295,7 @@ public partial class GoogleCloudRunV2WorkerPool : TerraformResource
     /// </summary>
     [TerraformProperty("launch_stage")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> LaunchStage { get; set; }
+    public partial TerraformValue<string> LaunchStage { get; set; }
 
     /// <summary>
     /// The location of the cloud run worker pool
@@ -303,7 +303,7 @@ public partial class GoogleCloudRunV2WorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Name of the WorkerPool.
@@ -311,14 +311,14 @@ public partial class GoogleCloudRunV2WorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for binary_authorization.
@@ -326,14 +326,14 @@ public partial class GoogleCloudRunV2WorkerPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
     [TerraformProperty("binary_authorization")]
-    public TerraformList<TerraformBlock<GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock>>? BinaryAuthorization { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock>>? BinaryAuthorization { get; set; }
 
     /// <summary>
     /// Block for instance_splits.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("instance_splits")]
-    public TerraformList<TerraformBlock<GoogleCloudRunV2WorkerPoolInstanceSplitsBlock>>? InstanceSplits { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudRunV2WorkerPoolInstanceSplitsBlock>>? InstanceSplits { get; set; }
 
     /// <summary>
     /// Block for scaling.
@@ -341,7 +341,7 @@ public partial class GoogleCloudRunV2WorkerPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scaling block(s) allowed")]
     [TerraformProperty("scaling")]
-    public TerraformList<TerraformBlock<GoogleCloudRunV2WorkerPoolScalingBlock>>? Scaling { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudRunV2WorkerPoolScalingBlock>>? Scaling { get; set; }
 
     /// <summary>
     /// Block for template.
@@ -351,112 +351,112 @@ public partial class GoogleCloudRunV2WorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Template block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
     [TerraformProperty("template")]
-    public TerraformList<TerraformBlock<GoogleCloudRunV2WorkerPoolTemplateBlock>>? Template { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudRunV2WorkerPoolTemplateBlock>>? Template { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleCloudRunV2WorkerPoolTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleCloudRunV2WorkerPoolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the WorkerPool does not reach its Serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     [TerraformProperty("conditions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Conditions { get; }
+    public partial TerraformList<object> Conditions { get; }
 
     /// <summary>
     /// The creation time.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Email address of the authenticated creator.
     /// </summary>
     [TerraformProperty("creator")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Creator { get; }
+    public partial TerraformValue<string> Creator { get; }
 
     /// <summary>
     /// The deletion time.
     /// </summary>
     [TerraformProperty("delete_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeleteTime { get; }
+    public partial TerraformValue<string> DeleteTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// For a deleted resource, the time after which it will be permanently deleted.
     /// </summary>
     [TerraformProperty("expire_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpireTime { get; }
+    public partial TerraformValue<string> ExpireTime { get; }
 
     /// <summary>
     /// A number that monotonically increases every time the user modifies the desired state. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a string instead of an integer.
     /// </summary>
     [TerraformProperty("generation")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Generation { get; }
+    public partial TerraformValue<string> Generation { get; }
 
     /// <summary>
     /// Detailed status information for corresponding instance splits. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     [TerraformProperty("instance_split_statuses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> InstanceSplitStatuses { get; }
+    public partial TerraformList<object> InstanceSplitStatuses { get; }
 
     /// <summary>
     /// Email address of the last authenticated modifier.
     /// </summary>
     [TerraformProperty("last_modifier")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastModifier { get; }
+    public partial TerraformValue<string> LastModifier { get; }
 
     /// <summary>
     /// Name of the last created revision. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     [TerraformProperty("latest_created_revision")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LatestCreatedRevision { get; }
+    public partial TerraformValue<string> LatestCreatedRevision { get; }
 
     /// <summary>
     /// Name of the latest revision that is serving traffic. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     [TerraformProperty("latest_ready_revision")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LatestReadyRevision { get; }
+    public partial TerraformValue<string> LatestReadyRevision { get; }
 
     /// <summary>
     /// The generation of this WorkerPool currently serving traffic. See comments in reconciling for additional information on reconciliation process in Cloud Run. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a string instead of an integer.
     /// </summary>
     [TerraformProperty("observed_generation")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ObservedGeneration { get; }
+    public partial TerraformValue<string> ObservedGeneration { get; }
 
     /// <summary>
     /// Returns true if the WorkerPool is currently being acted upon by the system to bring it into the desired state.
@@ -469,14 +469,14 @@ public partial class GoogleCloudRunV2WorkerPool : TerraformResource
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// The Condition of this WorkerPool, containing its readiness status, and detailed error information in case it did not reach a serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     [TerraformProperty("terminal_condition")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> TerminalCondition { get; }
+    public partial TerraformList<object> TerminalCondition { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -484,20 +484,20 @@ public partial class GoogleCloudRunV2WorkerPool : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Server assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// The last-modified time.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

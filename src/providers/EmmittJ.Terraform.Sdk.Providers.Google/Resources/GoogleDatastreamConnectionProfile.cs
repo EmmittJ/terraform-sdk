@@ -22,28 +22,28 @@ public partial class GoogleDatastreamConnectionProfileForwardSshConnectivityBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     [TerraformProperty("hostname")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Hostname { get; set; }
+    public required partial TerraformValue<string> Hostname { get; set; }
 
     /// <summary>
     /// SSH password.
     /// </summary>
     [TerraformProperty("password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Password { get; set; }
+    public partial TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// Port for the SSH tunnel.
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// SSH private key.
     /// </summary>
     [TerraformProperty("private_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrivateKey { get; set; }
+    public partial TerraformValue<string>? PrivateKey { get; set; }
 
     /// <summary>
     /// Username for the SSH tunnel.
@@ -51,7 +51,7 @@ public partial class GoogleDatastreamConnectionProfileForwardSshConnectivityBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformProperty("username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Username { get; set; }
+    public required partial TerraformValue<string> Username { get; set; }
 
 }
 
@@ -67,14 +67,14 @@ public partial class GoogleDatastreamConnectionProfileGcsProfileBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The root path inside the Cloud Storage bucket.
     /// </summary>
     [TerraformProperty("root_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RootPath { get; set; }
+    public partial TerraformValue<string>? RootPath { get; set; }
 
 }
 
@@ -90,14 +90,14 @@ public partial class GoogleDatastreamConnectionProfileMongodbProfileBlock : Terr
     /// </summary>
     [TerraformProperty("password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Password { get; set; }
+    public partial TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// Name of the replica set.
     /// </summary>
     [TerraformProperty("replica_set")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ReplicaSet { get; set; }
+    public partial TerraformValue<string>? ReplicaSet { get; set; }
 
     /// <summary>
     /// A reference to a Secret Manager resource name storing the MongoDB
@@ -105,7 +105,7 @@ public partial class GoogleDatastreamConnectionProfileMongodbProfileBlock : Terr
     /// </summary>
     [TerraformProperty("secret_manager_stored_password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecretManagerStoredPassword { get; set; }
+    public partial TerraformValue<string>? SecretManagerStoredPassword { get; set; }
 
     /// <summary>
     /// Username for the MongoDB connection.
@@ -113,7 +113,7 @@ public partial class GoogleDatastreamConnectionProfileMongodbProfileBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformProperty("username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Username { get; set; }
+    public required partial TerraformValue<string> Username { get; set; }
 
 }
 
@@ -129,28 +129,28 @@ public partial class GoogleDatastreamConnectionProfileMysqlProfileBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     [TerraformProperty("hostname")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Hostname { get; set; }
+    public required partial TerraformValue<string> Hostname { get; set; }
 
     /// <summary>
     /// Password for the MySQL connection.
     /// </summary>
     [TerraformProperty("password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Password { get; set; }
+    public partial TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// Port for the MySQL connection.
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// A reference to a Secret Manager resource name storing the user&#39;s password.
     /// </summary>
     [TerraformProperty("secret_manager_stored_password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecretManagerStoredPassword { get; set; }
+    public partial TerraformValue<string>? SecretManagerStoredPassword { get; set; }
 
     /// <summary>
     /// Username for the MySQL connection.
@@ -158,7 +158,7 @@ public partial class GoogleDatastreamConnectionProfileMysqlProfileBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformProperty("username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Username { get; set; }
+    public required partial TerraformValue<string> Username { get; set; }
 
 }
 
@@ -173,7 +173,7 @@ public partial class GoogleDatastreamConnectionProfileOracleProfileBlock : Terra
     /// </summary>
     [TerraformProperty("connection_attributes")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? ConnectionAttributes { get; set; }
+    public partial TerraformMap<string>? ConnectionAttributes { get; set; }
 
     /// <summary>
     /// Database for the Oracle connection.
@@ -181,7 +181,7 @@ public partial class GoogleDatastreamConnectionProfileOracleProfileBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseService is required")]
     [TerraformProperty("database_service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatabaseService { get; set; }
+    public required partial TerraformValue<string> DatabaseService { get; set; }
 
     /// <summary>
     /// Hostname for the Oracle connection.
@@ -189,28 +189,28 @@ public partial class GoogleDatastreamConnectionProfileOracleProfileBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     [TerraformProperty("hostname")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Hostname { get; set; }
+    public required partial TerraformValue<string> Hostname { get; set; }
 
     /// <summary>
     /// Password for the Oracle connection.
     /// </summary>
     [TerraformProperty("password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Password { get; set; }
+    public partial TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// Port for the Oracle connection.
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// A reference to a Secret Manager resource name storing the user&#39;s password.
     /// </summary>
     [TerraformProperty("secret_manager_stored_password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecretManagerStoredPassword { get; set; }
+    public partial TerraformValue<string>? SecretManagerStoredPassword { get; set; }
 
     /// <summary>
     /// Username for the Oracle connection.
@@ -218,7 +218,7 @@ public partial class GoogleDatastreamConnectionProfileOracleProfileBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformProperty("username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Username { get; set; }
+    public required partial TerraformValue<string> Username { get; set; }
 
 }
 
@@ -234,7 +234,7 @@ public partial class GoogleDatastreamConnectionProfilePostgresqlProfileBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     [TerraformProperty("database")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Database { get; set; }
+    public required partial TerraformValue<string> Database { get; set; }
 
     /// <summary>
     /// Hostname for the PostgreSQL connection.
@@ -242,28 +242,28 @@ public partial class GoogleDatastreamConnectionProfilePostgresqlProfileBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     [TerraformProperty("hostname")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Hostname { get; set; }
+    public required partial TerraformValue<string> Hostname { get; set; }
 
     /// <summary>
     /// Password for the PostgreSQL connection.
     /// </summary>
     [TerraformProperty("password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Password { get; set; }
+    public partial TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// Port for the PostgreSQL connection.
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// A reference to a Secret Manager resource name storing the user&#39;s password.
     /// </summary>
     [TerraformProperty("secret_manager_stored_password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecretManagerStoredPassword { get; set; }
+    public partial TerraformValue<string>? SecretManagerStoredPassword { get; set; }
 
     /// <summary>
     /// Username for the PostgreSQL connection.
@@ -271,7 +271,7 @@ public partial class GoogleDatastreamConnectionProfilePostgresqlProfileBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformProperty("username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Username { get; set; }
+    public required partial TerraformValue<string> Username { get; set; }
 
 }
 
@@ -287,7 +287,7 @@ public partial class GoogleDatastreamConnectionProfilePrivateConnectivityBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateConnection is required")]
     [TerraformProperty("private_connection")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrivateConnection { get; set; }
+    public required partial TerraformValue<string> PrivateConnection { get; set; }
 
 }
 
@@ -303,7 +303,7 @@ public partial class GoogleDatastreamConnectionProfileSqlServerProfileBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     [TerraformProperty("database")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Database { get; set; }
+    public required partial TerraformValue<string> Database { get; set; }
 
     /// <summary>
     /// Hostname for the SQL Server connection.
@@ -311,28 +311,28 @@ public partial class GoogleDatastreamConnectionProfileSqlServerProfileBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     [TerraformProperty("hostname")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Hostname { get; set; }
+    public required partial TerraformValue<string> Hostname { get; set; }
 
     /// <summary>
     /// Password for the SQL Server connection.
     /// </summary>
     [TerraformProperty("password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Password { get; set; }
+    public partial TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// Port for the SQL Server connection.
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// A reference to a Secret Manager resource name storing the user&#39;s password.
     /// </summary>
     [TerraformProperty("secret_manager_stored_password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecretManagerStoredPassword { get; set; }
+    public partial TerraformValue<string>? SecretManagerStoredPassword { get; set; }
 
     /// <summary>
     /// Username for the SQL Server connection.
@@ -340,7 +340,7 @@ public partial class GoogleDatastreamConnectionProfileSqlServerProfileBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformProperty("username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Username { get; set; }
+    public required partial TerraformValue<string> Username { get; set; }
 
 }
 
@@ -355,21 +355,21 @@ public partial class GoogleDatastreamConnectionProfileTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -389,14 +389,14 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionProfileId is required")]
     [TerraformProperty("connection_profile_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConnectionProfileId { get; set; }
+    public required partial TerraformValue<string> ConnectionProfileId { get; set; }
 
     /// <summary>
     /// Create the connection profile without validating it.
     /// </summary>
     [TerraformProperty("create_without_validation")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CreateWithoutValidation { get; set; }
+    public partial TerraformValue<bool>? CreateWithoutValidation { get; set; }
 
     /// <summary>
     /// Display name.
@@ -404,14 +404,14 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels.
@@ -421,7 +421,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The name of the location this connection profile is located in.
@@ -429,14 +429,14 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for bigquery_profile.
@@ -444,7 +444,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigqueryProfile block(s) allowed")]
     [TerraformProperty("bigquery_profile")]
-    public TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileBigqueryProfileBlock>>? BigqueryProfile { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileBigqueryProfileBlock>>? BigqueryProfile { get; set; }
 
     /// <summary>
     /// Block for forward_ssh_connectivity.
@@ -452,7 +452,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ForwardSshConnectivity block(s) allowed")]
     [TerraformProperty("forward_ssh_connectivity")]
-    public TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileForwardSshConnectivityBlock>>? ForwardSshConnectivity { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileForwardSshConnectivityBlock>>? ForwardSshConnectivity { get; set; }
 
     /// <summary>
     /// Block for gcs_profile.
@@ -460,7 +460,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcsProfile block(s) allowed")]
     [TerraformProperty("gcs_profile")]
-    public TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileGcsProfileBlock>>? GcsProfile { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileGcsProfileBlock>>? GcsProfile { get; set; }
 
     /// <summary>
     /// Block for mongodb_profile.
@@ -468,7 +468,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MongodbProfile block(s) allowed")]
     [TerraformProperty("mongodb_profile")]
-    public TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileMongodbProfileBlock>>? MongodbProfile { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileMongodbProfileBlock>>? MongodbProfile { get; set; }
 
     /// <summary>
     /// Block for mysql_profile.
@@ -476,7 +476,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MysqlProfile block(s) allowed")]
     [TerraformProperty("mysql_profile")]
-    public TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileMysqlProfileBlock>>? MysqlProfile { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileMysqlProfileBlock>>? MysqlProfile { get; set; }
 
     /// <summary>
     /// Block for oracle_profile.
@@ -484,7 +484,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OracleProfile block(s) allowed")]
     [TerraformProperty("oracle_profile")]
-    public TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileOracleProfileBlock>>? OracleProfile { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileOracleProfileBlock>>? OracleProfile { get; set; }
 
     /// <summary>
     /// Block for postgresql_profile.
@@ -492,7 +492,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PostgresqlProfile block(s) allowed")]
     [TerraformProperty("postgresql_profile")]
-    public TerraformList<TerraformBlock<GoogleDatastreamConnectionProfilePostgresqlProfileBlock>>? PostgresqlProfile { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfilePostgresqlProfileBlock>>? PostgresqlProfile { get; set; }
 
     /// <summary>
     /// Block for private_connectivity.
@@ -500,7 +500,7 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateConnectivity block(s) allowed")]
     [TerraformProperty("private_connectivity")]
-    public TerraformList<TerraformBlock<GoogleDatastreamConnectionProfilePrivateConnectivityBlock>>? PrivateConnectivity { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfilePrivateConnectivityBlock>>? PrivateConnectivity { get; set; }
 
     /// <summary>
     /// Block for sql_server_profile.
@@ -508,28 +508,28 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SqlServerProfile block(s) allowed")]
     [TerraformProperty("sql_server_profile")]
-    public TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileSqlServerProfileBlock>>? SqlServerProfile { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDatastreamConnectionProfileSqlServerProfileBlock>>? SqlServerProfile { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDatastreamConnectionProfileTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDatastreamConnectionProfileTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The resource&#39;s name.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -537,6 +537,6 @@ public partial class GoogleDatastreamConnectionProfile : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

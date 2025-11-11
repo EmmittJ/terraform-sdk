@@ -13,14 +13,14 @@ public partial class GoogleResourceManagerLienTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleResourceManagerLien : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A stable, user-visible/meaningful string identifying the origin
@@ -48,7 +48,7 @@ public partial class GoogleResourceManagerLien : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Origin is required")]
     [TerraformProperty("origin")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Origin { get; set; }
+    public required partial TerraformValue<string> Origin { get; set; }
 
     /// <summary>
     /// A reference to the resource this Lien is attached to.
@@ -59,7 +59,7 @@ public partial class GoogleResourceManagerLien : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Concise user-visible strings indicating why an action cannot be performed
@@ -68,7 +68,7 @@ public partial class GoogleResourceManagerLien : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reason is required")]
     [TerraformProperty("reason")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Reason { get; set; }
+    public required partial TerraformValue<string> Reason { get; set; }
 
     /// <summary>
     /// The types of operations which should be blocked as a result of this Lien.
@@ -80,27 +80,27 @@ public partial class GoogleResourceManagerLien : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Restrictions is required")]
     [TerraformProperty("restrictions")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Restrictions { get; set; }
+    public partial TerraformList<string>? Restrictions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleResourceManagerLienTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleResourceManagerLienTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time of creation
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// A system-generated unique identifier for this Lien.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

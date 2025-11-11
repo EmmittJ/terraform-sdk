@@ -21,21 +21,21 @@ public partial class GoogleFirebaseAppHostingBuildTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -59,7 +59,7 @@ public partial class GoogleFirebaseAppHostingBuild : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// The ID of the Backend that this Build applies to
@@ -67,7 +67,7 @@ public partial class GoogleFirebaseAppHostingBuild : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backend is required")]
     [TerraformProperty("backend")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Backend { get; set; }
+    public required partial TerraformValue<string> Backend { get; set; }
 
     /// <summary>
     /// The user-specified ID of the build being created.
@@ -75,21 +75,21 @@ public partial class GoogleFirebaseAppHostingBuild : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuildId is required")]
     [TerraformProperty("build_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BuildId { get; set; }
+    public required partial TerraformValue<string> BuildId { get; set; }
 
     /// <summary>
     /// Human-readable name. 63 character limit.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Unstructured key value map that can be used to organize and categorize
@@ -100,7 +100,7 @@ public partial class GoogleFirebaseAppHostingBuild : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the Backend that this Build applies to
@@ -108,14 +108,14 @@ public partial class GoogleFirebaseAppHostingBuild : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for source.
@@ -125,14 +125,14 @@ public partial class GoogleFirebaseAppHostingBuild : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public TerraformList<TerraformBlock<GoogleFirebaseAppHostingBuildSourceBlock>>? Source { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleFirebaseAppHostingBuildSourceBlock>>? Source { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleFirebaseAppHostingBuildTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleFirebaseAppHostingBuildTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The location of the [Cloud Build
@@ -141,35 +141,35 @@ public partial class GoogleFirebaseAppHostingBuild : TerraformResource
     /// </summary>
     [TerraformProperty("build_logs_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BuildLogsUri { get; }
+    public partial TerraformValue<string> BuildLogsUri { get; }
 
     /// <summary>
     /// Time at which the build was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The environment name of the backend when this build was created.
     /// </summary>
     [TerraformProperty("environment")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Environment { get; }
+    public partial TerraformValue<string> Environment { get; }
 
     /// <summary>
     /// The &#39;Status&#39; type defines a logical error model that is suitable for
@@ -182,7 +182,7 @@ public partial class GoogleFirebaseAppHostingBuild : TerraformResource
     /// </summary>
     [TerraformProperty("error")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Error { get; }
+    public partial TerraformList<object> Error { get; }
 
     /// <summary>
     /// The source of the error for the build, if in a &#39;FAILED&#39; state.
@@ -192,7 +192,7 @@ public partial class GoogleFirebaseAppHostingBuild : TerraformResource
     /// </summary>
     [TerraformProperty("error_source")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ErrorSource { get; }
+    public partial TerraformValue<string> ErrorSource { get; }
 
     /// <summary>
     /// Server-computed checksum based on other values; may be sent
@@ -200,7 +200,7 @@ public partial class GoogleFirebaseAppHostingBuild : TerraformResource
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The Artifact Registry
@@ -212,7 +212,7 @@ public partial class GoogleFirebaseAppHostingBuild : TerraformResource
     /// </summary>
     [TerraformProperty("image")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Image { get; }
+    public partial TerraformValue<string> Image { get; }
 
     /// <summary>
     /// Identifier. The resource name of the build.
@@ -223,7 +223,7 @@ public partial class GoogleFirebaseAppHostingBuild : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The state of the build.
@@ -236,7 +236,7 @@ public partial class GoogleFirebaseAppHostingBuild : TerraformResource
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -244,20 +244,20 @@ public partial class GoogleFirebaseAppHostingBuild : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// System-assigned, unique identifier.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Time at which the build was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

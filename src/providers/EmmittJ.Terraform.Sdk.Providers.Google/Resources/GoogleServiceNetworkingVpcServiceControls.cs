@@ -13,21 +13,21 @@ public partial class GoogleServiceNetworkingVpcServiceControlsTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -47,14 +47,14 @@ public partial class GoogleServiceNetworkingVpcServiceControls : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The network that the consumer is using to connect with services.
@@ -62,14 +62,14 @@ public partial class GoogleServiceNetworkingVpcServiceControls : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformProperty("network")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Network { get; set; }
+    public required partial TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The id of the Google Cloud project containing the consumer network.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The service that is managing peering connectivity for a service
@@ -79,13 +79,13 @@ public partial class GoogleServiceNetworkingVpcServiceControls : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformProperty("service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Service { get; set; }
+    public required partial TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleServiceNetworkingVpcServiceControlsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleServiceNetworkingVpcServiceControlsTimeoutsBlock>? Timeouts { get; set; }
 
 }

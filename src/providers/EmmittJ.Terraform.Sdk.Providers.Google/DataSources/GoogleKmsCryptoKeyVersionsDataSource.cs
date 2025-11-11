@@ -17,7 +17,7 @@ public partial class GoogleKmsCryptoKeyVersionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     [TerraformProperty("crypto_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CryptoKey { get; set; }
+    public required partial TerraformValue<string> CryptoKey { get; set; }
 
     /// <summary>
     /// 
@@ -32,27 +32,27 @@ public partial class GoogleKmsCryptoKeyVersionsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Filter { get; set; }
+    public partial TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     [TerraformProperty("public_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PublicKey { get; }
+    public partial TerraformList<object> PublicKey { get; }
 
     /// <summary>
     /// A list of all the retrieved cryptoKeyVersions from the provided crypto key
     /// </summary>
     [TerraformProperty("versions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Versions { get; }
+    public partial TerraformList<object> Versions { get; }
 
 }

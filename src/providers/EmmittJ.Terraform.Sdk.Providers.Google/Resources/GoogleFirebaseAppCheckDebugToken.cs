@@ -13,21 +13,21 @@ public partial class GoogleFirebaseAppCheckDebugTokenTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -49,7 +49,7 @@ public partial class GoogleFirebaseAppCheckDebugToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     [TerraformProperty("app_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AppId { get; set; }
+    public required partial TerraformValue<string> AppId { get; set; }
 
     /// <summary>
     /// A human readable display name used to identify this debug token.
@@ -57,21 +57,21 @@ public partial class GoogleFirebaseAppCheckDebugToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The secret token itself. Must be provided during creation, and must be a UUID4,
@@ -86,20 +86,20 @@ public partial class GoogleFirebaseAppCheckDebugToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     [TerraformProperty("token")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Token { get; set; }
+    public required partial TerraformValue<string> Token { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleFirebaseAppCheckDebugTokenTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleFirebaseAppCheckDebugTokenTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The last segment of the resource name of the debug token.
     /// </summary>
     [TerraformProperty("debug_token_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DebugTokenId { get; }
+    public partial TerraformValue<string> DebugTokenId { get; }
 
 }

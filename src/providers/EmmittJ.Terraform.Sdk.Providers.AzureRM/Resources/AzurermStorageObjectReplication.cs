@@ -13,7 +13,7 @@ public partial class AzurermStorageObjectReplicationRulesBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("copy_blobs_created_after")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CopyBlobsCreatedAfter { get; set; }
+    public partial TerraformValue<string>? CopyBlobsCreatedAfter { get; set; }
 
     /// <summary>
     /// The destination_container_name attribute.
@@ -21,14 +21,14 @@ public partial class AzurermStorageObjectReplicationRulesBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationContainerName is required")]
     [TerraformProperty("destination_container_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DestinationContainerName { get; set; }
+    public required partial TerraformValue<string> DestinationContainerName { get; set; }
 
     /// <summary>
     /// The filter_out_blobs_with_prefix attribute.
     /// </summary>
     [TerraformProperty("filter_out_blobs_with_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? FilterOutBlobsWithPrefix { get; set; }
+    public partial TerraformSet<string>? FilterOutBlobsWithPrefix { get; set; }
 
 
     /// <summary>
@@ -37,7 +37,7 @@ public partial class AzurermStorageObjectReplicationRulesBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceContainerName is required")]
     [TerraformProperty("source_container_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceContainerName { get; set; }
+    public required partial TerraformValue<string> SourceContainerName { get; set; }
 
 }
 
@@ -52,28 +52,28 @@ public partial class AzurermStorageObjectReplicationTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -93,14 +93,14 @@ public partial class AzurermStorageObjectReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationStorageAccountId is required")]
     [TerraformProperty("destination_storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DestinationStorageAccountId { get; set; }
+    public required partial TerraformValue<string> DestinationStorageAccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The source_storage_account_id attribute.
@@ -108,7 +108,7 @@ public partial class AzurermStorageObjectReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceStorageAccountId is required")]
     [TerraformProperty("source_storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceStorageAccountId { get; set; }
+    public required partial TerraformValue<string> SourceStorageAccountId { get; set; }
 
     /// <summary>
     /// Block for rules.
@@ -117,27 +117,27 @@ public partial class AzurermStorageObjectReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
     [TerraformProperty("rules")]
-    public TerraformSet<TerraformBlock<AzurermStorageObjectReplicationRulesBlock>>? Rules { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermStorageObjectReplicationRulesBlock>>? Rules { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageObjectReplicationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageObjectReplicationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The destination_object_replication_id attribute.
     /// </summary>
     [TerraformProperty("destination_object_replication_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DestinationObjectReplicationId { get; }
+    public partial TerraformValue<string> DestinationObjectReplicationId { get; }
 
     /// <summary>
     /// The source_object_replication_id attribute.
     /// </summary>
     [TerraformProperty("source_object_replication_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SourceObjectReplicationId { get; }
+    public partial TerraformValue<string> SourceObjectReplicationId { get; }
 
 }

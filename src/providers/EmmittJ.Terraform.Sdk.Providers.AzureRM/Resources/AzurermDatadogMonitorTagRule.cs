@@ -13,21 +13,21 @@ public partial class AzurermDatadogMonitorTagRuleLogBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("aad_log_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AadLogEnabled { get; set; }
+    public partial TerraformValue<bool>? AadLogEnabled { get; set; }
 
     /// <summary>
     /// The resource_log_enabled attribute.
     /// </summary>
     [TerraformProperty("resource_log_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ResourceLogEnabled { get; set; }
+    public partial TerraformValue<bool>? ResourceLogEnabled { get; set; }
 
     /// <summary>
     /// The subscription_log_enabled attribute.
     /// </summary>
     [TerraformProperty("subscription_log_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SubscriptionLogEnabled { get; set; }
+    public partial TerraformValue<bool>? SubscriptionLogEnabled { get; set; }
 
 }
 
@@ -50,28 +50,28 @@ public partial class AzurermDatadogMonitorTagRuleTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -90,41 +90,41 @@ public partial class AzurermDatadogMonitorTagRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatadogMonitorId is required")]
     [TerraformProperty("datadog_monitor_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatadogMonitorId { get; set; }
+    public required partial TerraformValue<string> DatadogMonitorId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Block for log.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("log")]
-    public TerraformList<TerraformBlock<AzurermDatadogMonitorTagRuleLogBlock>>? Log { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDatadogMonitorTagRuleLogBlock>>? Log { get; set; }
 
     /// <summary>
     /// Block for metric.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("metric")]
-    public TerraformList<TerraformBlock<AzurermDatadogMonitorTagRuleMetricBlock>>? Metric { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDatadogMonitorTagRuleMetricBlock>>? Metric { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDatadogMonitorTagRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDatadogMonitorTagRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

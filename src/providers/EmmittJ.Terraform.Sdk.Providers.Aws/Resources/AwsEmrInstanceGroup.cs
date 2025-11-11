@@ -13,7 +13,7 @@ public partial class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("iops")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Iops { get; set; }
+    public partial TerraformValue<double>? Iops { get; set; }
 
     /// <summary>
     /// The size attribute.
@@ -21,7 +21,7 @@ public partial class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     [TerraformProperty("size")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Size { get; set; }
+    public required partial TerraformValue<double> Size { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -29,14 +29,14 @@ public partial class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The volumes_per_instance attribute.
     /// </summary>
     [TerraformProperty("volumes_per_instance")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? VolumesPerInstance { get; set; }
+    public partial TerraformValue<double>? VolumesPerInstance { get; set; }
 
 }
 
@@ -54,14 +54,14 @@ public partial class AwsEmrInstanceGroup : TerraformResource
     /// </summary>
     [TerraformProperty("autoscaling_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AutoscalingPolicy { get; set; }
+    public partial TerraformValue<string>? AutoscalingPolicy { get; set; }
 
     /// <summary>
     /// The bid_price attribute.
     /// </summary>
     [TerraformProperty("bid_price")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BidPrice { get; set; }
+    public partial TerraformValue<string>? BidPrice { get; set; }
 
     /// <summary>
     /// The cluster_id attribute.
@@ -69,35 +69,35 @@ public partial class AwsEmrInstanceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     [TerraformProperty("cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterId { get; set; }
+    public required partial TerraformValue<string> ClusterId { get; set; }
 
     /// <summary>
     /// The configurations_json attribute.
     /// </summary>
     [TerraformProperty("configurations_json")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConfigurationsJson { get; set; }
+    public partial TerraformValue<string>? ConfigurationsJson { get; set; }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
     [TerraformProperty("ebs_optimized")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EbsOptimized { get; set; }
+    public partial TerraformValue<bool>? EbsOptimized { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
     [TerraformProperty("instance_count")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> InstanceCount { get; set; }
+    public partial TerraformValue<double> InstanceCount { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
@@ -105,41 +105,41 @@ public partial class AwsEmrInstanceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     [TerraformProperty("instance_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InstanceType { get; set; }
+    public required partial TerraformValue<string> InstanceType { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for ebs_config.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ebs_config")]
-    public TerraformSet<TerraformBlock<AwsEmrInstanceGroupEbsConfigBlock>>? EbsConfig { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsEmrInstanceGroupEbsConfigBlock>>? EbsConfig { get; set; }
 
     /// <summary>
     /// The running_instance_count attribute.
     /// </summary>
     [TerraformProperty("running_instance_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> RunningInstanceCount { get; }
+    public partial TerraformValue<double> RunningInstanceCount { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class AzurermChaosStudioCapabilityTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AzurermChaosStudioCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapabilityType is required")]
     [TerraformProperty("capability_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CapabilityType { get; set; }
+    public required partial TerraformValue<string> CapabilityType { get; set; }
 
     /// <summary>
     /// The chaos_studio_target_id attribute.
@@ -54,27 +54,27 @@ public partial class AzurermChaosStudioCapability : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChaosStudioTargetId is required")]
     [TerraformProperty("chaos_studio_target_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ChaosStudioTargetId { get; set; }
+    public required partial TerraformValue<string> ChaosStudioTargetId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermChaosStudioCapabilityTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermChaosStudioCapabilityTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The urn attribute.
     /// </summary>
     [TerraformProperty("urn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Urn { get; }
+    public partial TerraformValue<string> Urn { get; }
 
 }

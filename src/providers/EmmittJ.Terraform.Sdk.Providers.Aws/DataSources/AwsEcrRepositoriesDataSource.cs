@@ -16,20 +16,20 @@ public partial class AwsEcrRepositoriesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The names attribute.
     /// </summary>
     [TerraformProperty("names")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> Names { get; }
+    public partial TerraformSet<string> Names { get; }
 
 }

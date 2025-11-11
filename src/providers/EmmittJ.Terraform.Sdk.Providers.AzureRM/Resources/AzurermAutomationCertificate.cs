@@ -13,28 +13,28 @@ public partial class AzurermAutomationCertificateTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermAutomationCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     [TerraformProperty("automation_account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AutomationAccountName { get; set; }
+    public required partial TerraformValue<string> AutomationAccountName { get; set; }
 
     /// <summary>
     /// The base64 attribute.
@@ -61,28 +61,28 @@ public partial class AzurermAutomationCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Base64 is required")]
     [TerraformProperty("base64")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Base64 { get; set; }
+    public required partial TerraformValue<string> Base64 { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The exportable attribute.
     /// </summary>
     [TerraformProperty("exportable")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Exportable { get; set; }
+    public partial TerraformValue<bool>? Exportable { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -90,7 +90,7 @@ public partial class AzurermAutomationCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -98,20 +98,20 @@ public partial class AzurermAutomationCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAutomationCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAutomationCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     [TerraformProperty("thumbprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Thumbprint { get; }
+    public partial TerraformValue<string> Thumbprint { get; }
 
 }

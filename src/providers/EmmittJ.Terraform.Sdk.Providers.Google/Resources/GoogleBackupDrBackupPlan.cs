@@ -14,7 +14,7 @@ public partial class GoogleBackupDrBackupPlanBackupRulesBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRetentionDays is required")]
     [TerraformProperty("backup_retention_days")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> BackupRetentionDays { get; set; }
+    public required partial TerraformValue<double> BackupRetentionDays { get; set; }
 
     /// <summary>
     /// The unique ID of this &#39;BackupRule&#39;. The &#39;rule_id&#39; is unique per &#39;BackupPlan&#39;.
@@ -22,7 +22,7 @@ public partial class GoogleBackupDrBackupPlanBackupRulesBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleId is required")]
     [TerraformProperty("rule_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RuleId { get; set; }
+    public required partial TerraformValue<string> RuleId { get; set; }
 
 }
 
@@ -37,21 +37,21 @@ public partial class GoogleBackupDrBackupPlanTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -71,7 +71,7 @@ public partial class GoogleBackupDrBackupPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanId is required")]
     [TerraformProperty("backup_plan_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackupPlanId { get; set; }
+    public required partial TerraformValue<string> BackupPlanId { get; set; }
 
     /// <summary>
     /// Backup vault where the backups gets stored using this Backup plan.
@@ -79,21 +79,21 @@ public partial class GoogleBackupDrBackupPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVault is required")]
     [TerraformProperty("backup_vault")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackupVault { get; set; }
+    public required partial TerraformValue<string> BackupVault { get; set; }
 
     /// <summary>
     /// The description allows for additional details about &#39;BackupPlan&#39; and its use cases to be provided.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the backup plan
@@ -101,21 +101,21 @@ public partial class GoogleBackupDrBackupPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// This is only applicable for CloudSql resource. Days for which logs will be stored. This value should be greater than or equal to minimum enforced log retention duration of the backup vault.
     /// </summary>
     [TerraformProperty("log_retention_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? LogRetentionDays { get; set; }
+    public partial TerraformValue<double>? LogRetentionDays { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The resource type to which the &#39;BackupPlan&#39; will be applied.
@@ -124,7 +124,7 @@ public partial class GoogleBackupDrBackupPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     [TerraformProperty("resource_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceType { get; set; }
+    public required partial TerraformValue<string> ResourceType { get; set; }
 
     /// <summary>
     /// Block for backup_rules.
@@ -133,48 +133,48 @@ public partial class GoogleBackupDrBackupPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackupRules block(s) required")]
     [TerraformProperty("backup_rules")]
-    public TerraformList<TerraformBlock<GoogleBackupDrBackupPlanBackupRulesBlock>>? BackupRules { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBackupDrBackupPlanBackupRulesBlock>>? BackupRules { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBackupDrBackupPlanTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBackupDrBackupPlanTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The Google Cloud Platform Service Account to be used by the BackupVault for taking backups.
     /// </summary>
     [TerraformProperty("backup_vault_service_account")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BackupVaultServiceAccount { get; }
+    public partial TerraformValue<string> BackupVaultServiceAccount { get; }
 
     /// <summary>
     /// When the &#39;BackupPlan&#39; was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The name of backup plan resource created
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The list of all resource types to which the &#39;BackupPlan&#39; can be applied.
     /// </summary>
     [TerraformProperty("supported_resource_types")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> SupportedResourceTypes { get; }
+    public partial TerraformList<string> SupportedResourceTypes { get; }
 
     /// <summary>
     /// When the &#39;BackupPlan&#39; was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -16,20 +16,20 @@ public partial class AwsSpotDatafeedSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [TerraformProperty("bucket")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Bucket { get; }
+    public partial TerraformValue<string> Bucket { get; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
     [TerraformProperty("prefix")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Prefix { get; }
+    public partial TerraformValue<string> Prefix { get; }
 
 }

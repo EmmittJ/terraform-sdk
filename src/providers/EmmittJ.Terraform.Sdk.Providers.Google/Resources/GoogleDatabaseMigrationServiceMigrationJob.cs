@@ -21,7 +21,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJobPerformanceConfig
     /// </summary>
     [TerraformProperty("dump_parallel_level")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DumpParallelLevel { get; set; }
+    public partial TerraformValue<string>? DumpParallelLevel { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnect
     /// </summary>
     [TerraformProperty("vm")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Vm { get; set; }
+    public partial TerraformValue<string>? Vm { get; set; }
 
     /// <summary>
     /// The IP of the virtual machine (Compute Engine) used as the bastion server
@@ -45,7 +45,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnect
     /// </summary>
     [TerraformProperty("vm_ip")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VmIp { get; set; }
+    public partial TerraformValue<string>? VmIp { get; set; }
 
     /// <summary>
     /// The forwarding port of the virtual machine (Compute Engine) used as the
@@ -53,14 +53,14 @@ public partial class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnect
     /// </summary>
     [TerraformProperty("vm_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? VmPort { get; set; }
+    public partial TerraformValue<double>? VmPort { get; set; }
 
     /// <summary>
     /// The name of the VPC to peer with the Cloud SQL private network.
     /// </summary>
     [TerraformProperty("vpc")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Vpc { get; set; }
+    public partial TerraformValue<string>? Vpc { get; set; }
 
 }
 
@@ -83,21 +83,21 @@ public partial class GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -112,7 +112,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnect
     /// </summary>
     [TerraformProperty("vpc")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Vpc { get; set; }
+    public partial TerraformValue<string>? Vpc { get; set; }
 
 }
 
@@ -132,14 +132,14 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [TerraformProperty("destination")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Destination { get; set; }
+    public required partial TerraformValue<string> Destination { get; set; }
 
     /// <summary>
     /// The migration job display name.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The path to the dump file in Google Cloud Storage,
@@ -148,7 +148,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     /// </summary>
     [TerraformProperty("dump_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DumpPath { get; set; }
+    public partial TerraformValue<string>? DumpPath { get; set; }
 
     /// <summary>
     /// The type of the data dump. Supported for MySQL to CloudSQL for MySQL
@@ -156,14 +156,14 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     /// </summary>
     [TerraformProperty("dump_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DumpType { get; set; }
+    public partial TerraformValue<string>? DumpType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource labels for migration job to use to annotate any related underlying resources such as Compute Engine VMs.
@@ -174,14 +174,14 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location where the migration job should reside.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The ID of the migration job.
@@ -189,14 +189,14 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MigrationJobId is required")]
     [TerraformProperty("migration_job_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MigrationJobId { get; set; }
+    public required partial TerraformValue<string> MigrationJobId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The name of the source connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{sourceConnectionProfile}.
@@ -204,7 +204,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [TerraformProperty("source")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Source { get; set; }
+    public required partial TerraformValue<string> Source { get; set; }
 
     /// <summary>
     /// The type of the migration job. Possible values: [&amp;quot;ONE_TIME&amp;quot;, &amp;quot;CONTINUOUS&amp;quot;]
@@ -212,7 +212,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for dump_flags.
@@ -220,7 +220,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DumpFlags block(s) allowed")]
     [TerraformProperty("dump_flags")]
-    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock>>? DumpFlags { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock>>? DumpFlags { get; set; }
 
     /// <summary>
     /// Block for performance_config.
@@ -228,7 +228,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PerformanceConfig block(s) allowed")]
     [TerraformProperty("performance_config")]
-    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock>>? PerformanceConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock>>? PerformanceConfig { get; set; }
 
     /// <summary>
     /// Block for reverse_ssh_connectivity.
@@ -236,7 +236,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReverseSshConnectivity block(s) allowed")]
     [TerraformProperty("reverse_ssh_connectivity")]
-    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlock>>? ReverseSshConnectivity { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlock>>? ReverseSshConnectivity { get; set; }
 
     /// <summary>
     /// Block for static_ip_connectivity.
@@ -244,14 +244,14 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StaticIpConnectivity block(s) allowed")]
     [TerraformProperty("static_ip_connectivity")]
-    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectivityBlock>>? StaticIpConnectivity { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectivityBlock>>? StaticIpConnectivity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vpc_peering_connectivity.
@@ -259,49 +259,49 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcPeeringConnectivity block(s) allowed")]
     [TerraformProperty("vpc_peering_connectivity")]
-    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlock>>? VpcPeeringConnectivity { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlock>>? VpcPeeringConnectivity { get; set; }
 
     /// <summary>
     /// Output only. The timestamp when the resource was created. A timestamp in RFC3339 UTC &#39;Zulu&#39; format, accurate to nanoseconds. Example: &#39;2014-10-02T15:01:23.045123456Z&#39;.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Output only. The error details in case of state FAILED.
     /// </summary>
     [TerraformProperty("error")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Error { get; }
+    public partial TerraformList<object> Error { get; }
 
     /// <summary>
     /// The name of this migration job resource in the form of projects/{project}/locations/{location}/migrationJobs/{migrationJob}.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The current migration job phase.
     /// </summary>
     [TerraformProperty("phase")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Phase { get; }
+    public partial TerraformValue<string> Phase { get; }
 
     /// <summary>
     /// The current migration job state.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -309,6 +309,6 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob : TerraformResou
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

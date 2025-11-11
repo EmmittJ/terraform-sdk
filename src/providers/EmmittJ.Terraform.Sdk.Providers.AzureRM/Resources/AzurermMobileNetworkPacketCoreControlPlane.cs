@@ -14,7 +14,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     [TerraformProperty("identity_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> IdentityIds { get; set; }
+    public required partial TerraformSet<string> IdentityIds { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -38,14 +38,14 @@ public partial class AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     [TerraformProperty("authentication_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AuthenticationType { get; set; }
+    public required partial TerraformValue<string> AuthenticationType { get; set; }
 
     /// <summary>
     /// The https_server_certificate_url attribute.
     /// </summary>
     [TerraformProperty("https_server_certificate_url")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HttpsServerCertificateUrl { get; set; }
+    public partial TerraformValue<string>? HttpsServerCertificateUrl { get; set; }
 
 }
 
@@ -60,28 +60,28 @@ public partial class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock : T
     /// </summary>
     [TerraformProperty("arc_kubernetes_cluster_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ArcKubernetesClusterId { get; set; }
+    public partial TerraformValue<string>? ArcKubernetesClusterId { get; set; }
 
     /// <summary>
     /// The custom_location_id attribute.
     /// </summary>
     [TerraformProperty("custom_location_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CustomLocationId { get; set; }
+    public partial TerraformValue<string>? CustomLocationId { get; set; }
 
     /// <summary>
     /// The edge_device_id attribute.
     /// </summary>
     [TerraformProperty("edge_device_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EdgeDeviceId { get; set; }
+    public partial TerraformValue<string>? EdgeDeviceId { get; set; }
 
     /// <summary>
     /// The stack_hci_cluster_id attribute.
     /// </summary>
     [TerraformProperty("stack_hci_cluster_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StackHciClusterId { get; set; }
+    public partial TerraformValue<string>? StackHciClusterId { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -89,7 +89,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -104,28 +104,28 @@ public partial class AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -144,49 +144,49 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane : TerraformResou
     /// </summary>
     [TerraformProperty("control_plane_access_ipv4_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ControlPlaneAccessIpv4Address { get; set; }
+    public partial TerraformValue<string>? ControlPlaneAccessIpv4Address { get; set; }
 
     /// <summary>
     /// The control_plane_access_ipv4_gateway attribute.
     /// </summary>
     [TerraformProperty("control_plane_access_ipv4_gateway")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ControlPlaneAccessIpv4Gateway { get; set; }
+    public partial TerraformValue<string>? ControlPlaneAccessIpv4Gateway { get; set; }
 
     /// <summary>
     /// The control_plane_access_ipv4_subnet attribute.
     /// </summary>
     [TerraformProperty("control_plane_access_ipv4_subnet")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ControlPlaneAccessIpv4Subnet { get; set; }
+    public partial TerraformValue<string>? ControlPlaneAccessIpv4Subnet { get; set; }
 
     /// <summary>
     /// The control_plane_access_name attribute.
     /// </summary>
     [TerraformProperty("control_plane_access_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ControlPlaneAccessName { get; set; }
+    public partial TerraformValue<string>? ControlPlaneAccessName { get; set; }
 
     /// <summary>
     /// The core_network_technology attribute.
     /// </summary>
     [TerraformProperty("core_network_technology")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CoreNetworkTechnology { get; set; }
+    public partial TerraformValue<string>? CoreNetworkTechnology { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The interoperability_settings_json attribute.
     /// </summary>
     [TerraformProperty("interoperability_settings_json")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InteroperabilitySettingsJson { get; set; }
+    public partial TerraformValue<string>? InteroperabilitySettingsJson { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -194,7 +194,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -202,7 +202,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -210,7 +210,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The site_ids attribute.
@@ -218,7 +218,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteIds is required")]
     [TerraformProperty("site_ids")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? SiteIds { get; set; }
+    public partial TerraformList<string>? SiteIds { get; set; }
 
     /// <summary>
     /// The sku attribute.
@@ -226,28 +226,28 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [TerraformProperty("sku")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Sku { get; set; }
+    public required partial TerraformValue<string> Sku { get; set; }
 
     /// <summary>
     /// The software_version attribute.
     /// </summary>
     [TerraformProperty("software_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SoftwareVersion { get; set; }
+    public partial TerraformValue<string>? SoftwareVersion { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The user_equipment_mtu_in_bytes attribute.
     /// </summary>
     [TerraformProperty("user_equipment_mtu_in_bytes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? UserEquipmentMtuInBytes { get; set; }
+    public partial TerraformValue<double>? UserEquipmentMtuInBytes { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -255,7 +255,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for local_diagnostics_access.
@@ -265,7 +265,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane : TerraformResou
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LocalDiagnosticsAccess block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalDiagnosticsAccess block(s) allowed")]
     [TerraformProperty("local_diagnostics_access")]
-    public TerraformList<TerraformBlock<AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlock>>? LocalDiagnosticsAccess { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlock>>? LocalDiagnosticsAccess { get; set; }
 
     /// <summary>
     /// Block for platform.
@@ -273,13 +273,13 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Platform block(s) allowed")]
     [TerraformProperty("platform")]
-    public TerraformList<TerraformBlock<AzurermMobileNetworkPacketCoreControlPlanePlatformBlock>>? Platform { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMobileNetworkPacketCoreControlPlanePlatformBlock>>? Platform { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock>? Timeouts { get; set; }
 
 }

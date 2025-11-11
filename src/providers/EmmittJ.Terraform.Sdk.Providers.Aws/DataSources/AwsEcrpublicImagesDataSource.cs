@@ -13,14 +13,14 @@ public partial class AwsEcrpublicImagesDataSourceImageIdsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("image_digest")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ImageDigest { get; set; }
+    public partial TerraformValue<string>? ImageDigest { get; set; }
 
     /// <summary>
     /// Image tag.
     /// </summary>
     [TerraformProperty("image_tag")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ImageTag { get; set; }
+    public partial TerraformValue<string>? ImageTag { get; set; }
 
 }
 
@@ -38,14 +38,14 @@ public partial class AwsEcrpublicImagesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
     /// </summary>
     [TerraformProperty("registry_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RegistryId { get; set; }
+    public partial TerraformValue<string>? RegistryId { get; set; }
 
     /// <summary>
     /// Name of the public repository.
@@ -53,20 +53,20 @@ public partial class AwsEcrpublicImagesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     [TerraformProperty("repository_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepositoryName { get; set; }
+    public required partial TerraformValue<string> RepositoryName { get; set; }
 
     /// <summary>
     /// Block for image_ids.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("image_ids")]
-    public TerraformList<TerraformBlock<AwsEcrpublicImagesDataSourceImageIdsBlock>>? ImageIds { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcrpublicImagesDataSourceImageIdsBlock>>? ImageIds { get; set; }
 
     /// <summary>
     /// The images attribute.
     /// </summary>
     [TerraformProperty("images")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Images { get; }
+    public partial TerraformList<object> Images { get; }
 
 }

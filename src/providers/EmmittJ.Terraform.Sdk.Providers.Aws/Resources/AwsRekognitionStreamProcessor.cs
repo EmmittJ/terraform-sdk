@@ -14,7 +14,7 @@ public partial class AwsRekognitionStreamProcessorDataSharingPreferenceBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OptIn is required")]
     [TerraformProperty("opt_in")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> OptIn { get; set; }
+    public required partial TerraformValue<bool> OptIn { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class AwsRekognitionStreamProcessorNotificationChannelBlock : Ter
     /// </summary>
     [TerraformProperty("sns_topic_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SnsTopicArn { get; set; }
+    public partial TerraformValue<string>? SnsTopicArn { get; set; }
 
 }
 
@@ -76,21 +76,21 @@ public partial class AwsRekognitionStreamProcessorTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -108,7 +108,7 @@ public partial class AwsRekognitionStreamProcessor : TerraformResource
     /// </summary>
     [TerraformProperty("kms_key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyId { get; set; }
+    public partial TerraformValue<string>? KmsKeyId { get; set; }
 
     /// <summary>
     /// An identifier you assign to the stream processor.
@@ -116,14 +116,14 @@ public partial class AwsRekognitionStreamProcessor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor.
@@ -131,83 +131,83 @@ public partial class AwsRekognitionStreamProcessor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for data_sharing_preference.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("data_sharing_preference")]
-    public TerraformList<TerraformBlock<AwsRekognitionStreamProcessorDataSharingPreferenceBlock>>? DataSharingPreference { get; set; }
+    public partial TerraformList<TerraformBlock<AwsRekognitionStreamProcessorDataSharingPreferenceBlock>>? DataSharingPreference { get; set; }
 
     /// <summary>
     /// Block for input.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("input")]
-    public TerraformList<TerraformBlock<AwsRekognitionStreamProcessorInputBlock>>? Input { get; set; }
+    public partial TerraformList<TerraformBlock<AwsRekognitionStreamProcessorInputBlock>>? Input { get; set; }
 
     /// <summary>
     /// Block for notification_channel.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("notification_channel")]
-    public TerraformList<TerraformBlock<AwsRekognitionStreamProcessorNotificationChannelBlock>>? NotificationChannel { get; set; }
+    public partial TerraformList<TerraformBlock<AwsRekognitionStreamProcessorNotificationChannelBlock>>? NotificationChannel { get; set; }
 
     /// <summary>
     /// Block for output.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("output")]
-    public TerraformList<TerraformBlock<AwsRekognitionStreamProcessorOutputBlock>>? Output { get; set; }
+    public partial TerraformList<TerraformBlock<AwsRekognitionStreamProcessorOutputBlock>>? Output { get; set; }
 
     /// <summary>
     /// Block for regions_of_interest.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("regions_of_interest")]
-    public TerraformList<TerraformBlock<AwsRekognitionStreamProcessorRegionsOfInterestBlock>>? RegionsOfInterest { get; set; }
+    public partial TerraformList<TerraformBlock<AwsRekognitionStreamProcessorRegionsOfInterestBlock>>? RegionsOfInterest { get; set; }
 
     /// <summary>
     /// Block for settings.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("settings")]
-    public TerraformList<TerraformBlock<AwsRekognitionStreamProcessorSettingsBlock>>? Settings { get; set; }
+    public partial TerraformList<TerraformBlock<AwsRekognitionStreamProcessorSettingsBlock>>? Settings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsRekognitionStreamProcessorTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsRekognitionStreamProcessorTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The stream_processor_arn attribute.
     /// </summary>
     [TerraformProperty("stream_processor_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StreamProcessorArn { get; }
+    public partial TerraformValue<string> StreamProcessorArn { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
 }

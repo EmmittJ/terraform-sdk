@@ -13,14 +13,14 @@ public partial class AwsEksNodeGroupLaunchTemplateBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The version attribute.
@@ -28,7 +28,7 @@ public partial class AwsEksNodeGroupLaunchTemplateBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformProperty("version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Version { get; set; }
+    public required partial TerraformValue<string> Version { get; set; }
 
 }
 
@@ -43,7 +43,7 @@ public partial class AwsEksNodeGroupNodeRepairConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
 }
 
@@ -58,14 +58,14 @@ public partial class AwsEksNodeGroupRemoteAccessBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("ec2_ssh_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Ec2SshKey { get; set; }
+    public partial TerraformValue<string>? Ec2SshKey { get; set; }
 
     /// <summary>
     /// The source_security_group_ids attribute.
     /// </summary>
     [TerraformProperty("source_security_group_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? SourceSecurityGroupIds { get; set; }
+    public partial TerraformSet<string>? SourceSecurityGroupIds { get; set; }
 
 }
 
@@ -81,7 +81,7 @@ public partial class AwsEksNodeGroupScalingConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredSize is required")]
     [TerraformProperty("desired_size")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> DesiredSize { get; set; }
+    public required partial TerraformValue<double> DesiredSize { get; set; }
 
     /// <summary>
     /// The max_size attribute.
@@ -89,7 +89,7 @@ public partial class AwsEksNodeGroupScalingConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSize is required")]
     [TerraformProperty("max_size")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MaxSize { get; set; }
+    public required partial TerraformValue<double> MaxSize { get; set; }
 
     /// <summary>
     /// The min_size attribute.
@@ -97,7 +97,7 @@ public partial class AwsEksNodeGroupScalingConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinSize is required")]
     [TerraformProperty("min_size")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MinSize { get; set; }
+    public required partial TerraformValue<double> MinSize { get; set; }
 
 }
 
@@ -113,7 +113,7 @@ public partial class AwsEksNodeGroupTaintBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Effect is required")]
     [TerraformProperty("effect")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Effect { get; set; }
+    public required partial TerraformValue<string> Effect { get; set; }
 
     /// <summary>
     /// The key attribute.
@@ -121,14 +121,14 @@ public partial class AwsEksNodeGroupTaintBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Value { get; set; }
+    public partial TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -143,21 +143,21 @@ public partial class AwsEksNodeGroupTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -172,14 +172,14 @@ public partial class AwsEksNodeGroupUpdateConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("max_unavailable")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxUnavailable { get; set; }
+    public partial TerraformValue<double>? MaxUnavailable { get; set; }
 
     /// <summary>
     /// The max_unavailable_percentage attribute.
     /// </summary>
     [TerraformProperty("max_unavailable_percentage")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxUnavailablePercentage { get; set; }
+    public partial TerraformValue<double>? MaxUnavailablePercentage { get; set; }
 
 }
 
@@ -198,14 +198,14 @@ public partial class AwsEksNodeGroup : TerraformResource
     /// </summary>
     [TerraformProperty("ami_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AmiType { get; set; }
+    public partial TerraformValue<string> AmiType { get; set; }
 
     /// <summary>
     /// The capacity_type attribute.
     /// </summary>
     [TerraformProperty("capacity_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CapacityType { get; set; }
+    public partial TerraformValue<string> CapacityType { get; set; }
 
     /// <summary>
     /// The cluster_name attribute.
@@ -213,56 +213,56 @@ public partial class AwsEksNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     [TerraformProperty("cluster_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterName { get; set; }
+    public required partial TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The disk_size attribute.
     /// </summary>
     [TerraformProperty("disk_size")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> DiskSize { get; set; }
+    public partial TerraformValue<double> DiskSize { get; set; }
 
     /// <summary>
     /// The force_update_version attribute.
     /// </summary>
     [TerraformProperty("force_update_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ForceUpdateVersion { get; set; }
+    public partial TerraformValue<bool>? ForceUpdateVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_types attribute.
     /// </summary>
     [TerraformProperty("instance_types")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> InstanceTypes { get; set; }
+    public partial TerraformList<string> InstanceTypes { get; set; }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The node_group_name attribute.
     /// </summary>
     [TerraformProperty("node_group_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NodeGroupName { get; set; }
+    public partial TerraformValue<string> NodeGroupName { get; set; }
 
     /// <summary>
     /// The node_group_name_prefix attribute.
     /// </summary>
     [TerraformProperty("node_group_name_prefix")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NodeGroupNamePrefix { get; set; }
+    public partial TerraformValue<string> NodeGroupNamePrefix { get; set; }
 
     /// <summary>
     /// The node_role_arn attribute.
@@ -270,21 +270,21 @@ public partial class AwsEksNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeRoleArn is required")]
     [TerraformProperty("node_role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NodeRoleArn { get; set; }
+    public required partial TerraformValue<string> NodeRoleArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The release_version attribute.
     /// </summary>
     [TerraformProperty("release_version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ReleaseVersion { get; set; }
+    public partial TerraformValue<string> ReleaseVersion { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
@@ -292,28 +292,28 @@ public partial class AwsEksNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     [TerraformProperty("subnet_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> SubnetIds { get; set; }
+    public required partial TerraformSet<string> SubnetIds { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Version { get; set; }
+    public partial TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// Block for launch_template.
@@ -321,7 +321,7 @@ public partial class AwsEksNodeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LaunchTemplate block(s) allowed")]
     [TerraformProperty("launch_template")]
-    public TerraformList<TerraformBlock<AwsEksNodeGroupLaunchTemplateBlock>>? LaunchTemplate { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEksNodeGroupLaunchTemplateBlock>>? LaunchTemplate { get; set; }
 
     /// <summary>
     /// Block for node_repair_config.
@@ -329,7 +329,7 @@ public partial class AwsEksNodeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeRepairConfig block(s) allowed")]
     [TerraformProperty("node_repair_config")]
-    public TerraformList<TerraformBlock<AwsEksNodeGroupNodeRepairConfigBlock>>? NodeRepairConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEksNodeGroupNodeRepairConfigBlock>>? NodeRepairConfig { get; set; }
 
     /// <summary>
     /// Block for remote_access.
@@ -337,7 +337,7 @@ public partial class AwsEksNodeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteAccess block(s) allowed")]
     [TerraformProperty("remote_access")]
-    public TerraformList<TerraformBlock<AwsEksNodeGroupRemoteAccessBlock>>? RemoteAccess { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEksNodeGroupRemoteAccessBlock>>? RemoteAccess { get; set; }
 
     /// <summary>
     /// Block for scaling_config.
@@ -347,7 +347,7 @@ public partial class AwsEksNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScalingConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfig block(s) allowed")]
     [TerraformProperty("scaling_config")]
-    public TerraformList<TerraformBlock<AwsEksNodeGroupScalingConfigBlock>>? ScalingConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEksNodeGroupScalingConfigBlock>>? ScalingConfig { get; set; }
 
     /// <summary>
     /// Block for taint.
@@ -355,14 +355,14 @@ public partial class AwsEksNodeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 Taint block(s) allowed")]
     [TerraformProperty("taint")]
-    public TerraformSet<TerraformBlock<AwsEksNodeGroupTaintBlock>>? Taint { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsEksNodeGroupTaintBlock>>? Taint { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsEksNodeGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsEksNodeGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for update_config.
@@ -370,27 +370,27 @@ public partial class AwsEksNodeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpdateConfig block(s) allowed")]
     [TerraformProperty("update_config")]
-    public TerraformList<TerraformBlock<AwsEksNodeGroupUpdateConfigBlock>>? UpdateConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEksNodeGroupUpdateConfigBlock>>? UpdateConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
     [TerraformProperty("resources")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Resources { get; }
+    public partial TerraformList<object> Resources { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
 }

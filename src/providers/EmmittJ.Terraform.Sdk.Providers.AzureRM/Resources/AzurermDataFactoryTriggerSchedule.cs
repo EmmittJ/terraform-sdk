@@ -14,14 +14,14 @@ public partial class AzurermDataFactoryTriggerSchedulePipelineBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
 }
 
@@ -36,28 +36,28 @@ public partial class AzurermDataFactoryTriggerScheduleScheduleBlock : TerraformB
     /// </summary>
     [TerraformProperty("days_of_month")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<double>? DaysOfMonth { get; set; }
+    public partial TerraformList<double>? DaysOfMonth { get; set; }
 
     /// <summary>
     /// The days_of_week attribute.
     /// </summary>
     [TerraformProperty("days_of_week")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? DaysOfWeek { get; set; }
+    public partial TerraformList<string>? DaysOfWeek { get; set; }
 
     /// <summary>
     /// The hours attribute.
     /// </summary>
     [TerraformProperty("hours")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<double>? Hours { get; set; }
+    public partial TerraformList<double>? Hours { get; set; }
 
     /// <summary>
     /// The minutes attribute.
     /// </summary>
     [TerraformProperty("minutes")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<double>? Minutes { get; set; }
+    public partial TerraformList<double>? Minutes { get; set; }
 
 }
 
@@ -72,28 +72,28 @@ public partial class AzurermDataFactoryTriggerScheduleTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -112,14 +112,14 @@ public partial class AzurermDataFactoryTriggerSchedule : TerraformResource
     /// </summary>
     [TerraformProperty("activated")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Activated { get; set; }
+    public partial TerraformValue<bool>? Activated { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Annotations { get; set; }
+    public partial TerraformList<string>? Annotations { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
@@ -127,42 +127,42 @@ public partial class AzurermDataFactoryTriggerSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformProperty("data_factory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataFactoryId { get; set; }
+    public required partial TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
     [TerraformProperty("end_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EndTime { get; set; }
+    public partial TerraformValue<string>? EndTime { get; set; }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
     [TerraformProperty("frequency")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Frequency { get; set; }
+    public partial TerraformValue<string>? Frequency { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
     [TerraformProperty("interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Interval { get; set; }
+    public partial TerraformValue<double>? Interval { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -170,42 +170,42 @@ public partial class AzurermDataFactoryTriggerSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The pipeline_name attribute.
     /// </summary>
     [TerraformProperty("pipeline_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PipelineName { get; set; }
+    public partial TerraformValue<string> PipelineName { get; set; }
 
     /// <summary>
     /// The pipeline_parameters attribute.
     /// </summary>
     [TerraformProperty("pipeline_parameters")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> PipelineParameters { get; set; }
+    public partial TerraformMap<string> PipelineParameters { get; set; }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     [TerraformProperty("start_time")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> StartTime { get; set; }
+    public partial TerraformValue<string> StartTime { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
     [TerraformProperty("time_zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TimeZone { get; set; }
+    public partial TerraformValue<string>? TimeZone { get; set; }
 
     /// <summary>
     /// Block for pipeline.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("pipeline")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryTriggerSchedulePipelineBlock>>? Pipeline { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryTriggerSchedulePipelineBlock>>? Pipeline { get; set; }
 
     /// <summary>
     /// Block for schedule.
@@ -213,13 +213,13 @@ public partial class AzurermDataFactoryTriggerSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryTriggerScheduleScheduleBlock>>? Schedule { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryTriggerScheduleScheduleBlock>>? Schedule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataFactoryTriggerScheduleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataFactoryTriggerScheduleTimeoutsBlock>? Timeouts { get; set; }
 
 }

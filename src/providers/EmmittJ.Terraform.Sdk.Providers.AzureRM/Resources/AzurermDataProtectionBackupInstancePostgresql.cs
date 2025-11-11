@@ -13,28 +13,28 @@ public partial class AzurermDataProtectionBackupInstancePostgresqlTimeoutsBlock 
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,14 +53,14 @@ public partial class AzurermDataProtectionBackupInstancePostgresql : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
     [TerraformProperty("backup_policy_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackupPolicyId { get; set; }
+    public required partial TerraformValue<string> BackupPolicyId { get; set; }
 
     /// <summary>
     /// The database_credential_key_vault_secret_id attribute.
     /// </summary>
     [TerraformProperty("database_credential_key_vault_secret_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DatabaseCredentialKeyVaultSecretId { get; set; }
+    public partial TerraformValue<string>? DatabaseCredentialKeyVaultSecretId { get; set; }
 
     /// <summary>
     /// The database_id attribute.
@@ -68,14 +68,14 @@ public partial class AzurermDataProtectionBackupInstancePostgresql : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseId is required")]
     [TerraformProperty("database_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatabaseId { get; set; }
+    public required partial TerraformValue<string> DatabaseId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -83,7 +83,7 @@ public partial class AzurermDataProtectionBackupInstancePostgresql : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -91,7 +91,7 @@ public partial class AzurermDataProtectionBackupInstancePostgresql : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The vault_id attribute.
@@ -99,13 +99,13 @@ public partial class AzurermDataProtectionBackupInstancePostgresql : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
     [TerraformProperty("vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VaultId { get; set; }
+    public required partial TerraformValue<string> VaultId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataProtectionBackupInstancePostgresqlTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataProtectionBackupInstancePostgresqlTimeoutsBlock>? Timeouts { get; set; }
 
 }

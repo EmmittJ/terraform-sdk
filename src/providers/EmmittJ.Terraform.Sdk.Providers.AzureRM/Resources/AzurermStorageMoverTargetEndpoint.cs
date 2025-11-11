@@ -13,28 +13,28 @@ public partial class AzurermStorageMoverTargetEndpointTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public partial class AzurermStorageMoverTargetEndpoint : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -67,7 +67,7 @@ public partial class AzurermStorageMoverTargetEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -75,7 +75,7 @@ public partial class AzurermStorageMoverTargetEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformProperty("storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountId { get; set; }
+    public required partial TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// The storage_container_name attribute.
@@ -83,7 +83,7 @@ public partial class AzurermStorageMoverTargetEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     [TerraformProperty("storage_container_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageContainerName { get; set; }
+    public required partial TerraformValue<string> StorageContainerName { get; set; }
 
     /// <summary>
     /// The storage_mover_id attribute.
@@ -91,13 +91,13 @@ public partial class AzurermStorageMoverTargetEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageMoverId is required")]
     [TerraformProperty("storage_mover_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageMoverId { get; set; }
+    public required partial TerraformValue<string> StorageMoverId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageMoverTargetEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageMoverTargetEndpointTimeoutsBlock>? Timeouts { get; set; }
 
 }

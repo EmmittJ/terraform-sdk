@@ -14,7 +14,7 @@ public partial class AwsApiGatewayStageAccessLogSettingsBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     [TerraformProperty("destination_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DestinationArn { get; set; }
+    public required partial TerraformValue<string> DestinationArn { get; set; }
 
     /// <summary>
     /// The format attribute.
@@ -22,7 +22,7 @@ public partial class AwsApiGatewayStageAccessLogSettingsBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     [TerraformProperty("format")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Format { get; set; }
+    public required partial TerraformValue<string> Format { get; set; }
 
 }
 
@@ -38,28 +38,28 @@ public partial class AwsApiGatewayStageCanarySettingsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentId is required")]
     [TerraformProperty("deployment_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DeploymentId { get; set; }
+    public required partial TerraformValue<string> DeploymentId { get; set; }
 
     /// <summary>
     /// The percent_traffic attribute.
     /// </summary>
     [TerraformProperty("percent_traffic")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? PercentTraffic { get; set; }
+    public partial TerraformValue<double>? PercentTraffic { get; set; }
 
     /// <summary>
     /// The stage_variable_overrides attribute.
     /// </summary>
     [TerraformProperty("stage_variable_overrides")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? StageVariableOverrides { get; set; }
+    public partial TerraformMap<string>? StageVariableOverrides { get; set; }
 
     /// <summary>
     /// The use_stage_cache attribute.
     /// </summary>
     [TerraformProperty("use_stage_cache")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseStageCache { get; set; }
+    public partial TerraformValue<bool>? UseStageCache { get; set; }
 
 }
 
@@ -78,21 +78,21 @@ public partial class AwsApiGatewayStage : TerraformResource
     /// </summary>
     [TerraformProperty("cache_cluster_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CacheClusterEnabled { get; set; }
+    public partial TerraformValue<bool>? CacheClusterEnabled { get; set; }
 
     /// <summary>
     /// The cache_cluster_size attribute.
     /// </summary>
     [TerraformProperty("cache_cluster_size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CacheClusterSize { get; set; }
+    public partial TerraformValue<string>? CacheClusterSize { get; set; }
 
     /// <summary>
     /// The client_certificate_id attribute.
     /// </summary>
     [TerraformProperty("client_certificate_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientCertificateId { get; set; }
+    public partial TerraformValue<string>? ClientCertificateId { get; set; }
 
     /// <summary>
     /// The deployment_id attribute.
@@ -100,35 +100,35 @@ public partial class AwsApiGatewayStage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentId is required")]
     [TerraformProperty("deployment_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DeploymentId { get; set; }
+    public required partial TerraformValue<string> DeploymentId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The documentation_version attribute.
     /// </summary>
     [TerraformProperty("documentation_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DocumentationVersion { get; set; }
+    public partial TerraformValue<string>? DocumentationVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The rest_api_id attribute.
@@ -136,7 +136,7 @@ public partial class AwsApiGatewayStage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     [TerraformProperty("rest_api_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RestApiId { get; set; }
+    public required partial TerraformValue<string> RestApiId { get; set; }
 
     /// <summary>
     /// The stage_name attribute.
@@ -144,35 +144,35 @@ public partial class AwsApiGatewayStage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StageName is required")]
     [TerraformProperty("stage_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StageName { get; set; }
+    public required partial TerraformValue<string> StageName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The variables attribute.
     /// </summary>
     [TerraformProperty("variables")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Variables { get; set; }
+    public partial TerraformMap<string>? Variables { get; set; }
 
     /// <summary>
     /// The xray_tracing_enabled attribute.
     /// </summary>
     [TerraformProperty("xray_tracing_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? XrayTracingEnabled { get; set; }
+    public partial TerraformValue<bool>? XrayTracingEnabled { get; set; }
 
     /// <summary>
     /// Block for access_log_settings.
@@ -180,7 +180,7 @@ public partial class AwsApiGatewayStage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLogSettings block(s) allowed")]
     [TerraformProperty("access_log_settings")]
-    public TerraformList<TerraformBlock<AwsApiGatewayStageAccessLogSettingsBlock>>? AccessLogSettings { get; set; }
+    public partial TerraformList<TerraformBlock<AwsApiGatewayStageAccessLogSettingsBlock>>? AccessLogSettings { get; set; }
 
     /// <summary>
     /// Block for canary_settings.
@@ -188,34 +188,34 @@ public partial class AwsApiGatewayStage : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CanarySettings block(s) allowed")]
     [TerraformProperty("canary_settings")]
-    public TerraformList<TerraformBlock<AwsApiGatewayStageCanarySettingsBlock>>? CanarySettings { get; set; }
+    public partial TerraformList<TerraformBlock<AwsApiGatewayStageCanarySettingsBlock>>? CanarySettings { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The execution_arn attribute.
     /// </summary>
     [TerraformProperty("execution_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExecutionArn { get; }
+    public partial TerraformValue<string> ExecutionArn { get; }
 
     /// <summary>
     /// The invoke_url attribute.
     /// </summary>
     [TerraformProperty("invoke_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> InvokeUrl { get; }
+    public partial TerraformValue<string> InvokeUrl { get; }
 
     /// <summary>
     /// The web_acl_arn attribute.
     /// </summary>
     [TerraformProperty("web_acl_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> WebAclArn { get; }
+    public partial TerraformValue<string> WebAclArn { get; }
 
 }

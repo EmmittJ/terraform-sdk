@@ -21,14 +21,14 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBl
     /// </summary>
     [TerraformProperty("allowed_google_producers_resource_hierarchy_level")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AllowedGoogleProducersResourceHierarchyLevel { get; set; }
+    public partial TerraformList<string>? AllowedGoogleProducersResourceHierarchyLevel { get; set; }
 
     /// <summary>
     /// Max number of PSC connections for this policy.
     /// </summary>
     [TerraformProperty("limit")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Limit { get; set; }
+    public partial TerraformValue<string>? Limit { get; set; }
 
     /// <summary>
     /// ProducerInstanceLocation is used to specify which authorization mechanism to use to determine which projects
@@ -36,7 +36,7 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBl
     /// </summary>
     [TerraformProperty("producer_instance_location")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ProducerInstanceLocation { get; set; }
+    public partial TerraformValue<string> ProducerInstanceLocation { get; set; }
 
     /// <summary>
     /// IDs of the subnetworks or fully qualified identifiers for the subnetworks
@@ -44,7 +44,7 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnetworks is required")]
     [TerraformProperty("subnetworks")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Subnetworks { get; set; }
+    public partial TerraformList<string>? Subnetworks { get; set; }
 
 }
 
@@ -59,21 +59,21 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -92,14 +92,14 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy : Terrafor
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// User-defined labels.
@@ -110,7 +110,7 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy : Terrafor
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the ServiceConnectionPolicy.
@@ -118,7 +118,7 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of a ServiceConnectionPolicy. Format: projects/{project}/locations/{location}/serviceConnectionPolicies/{service_connection_policy} See: https://google.aip.dev/122#fields-representing-resource-names
@@ -126,7 +126,7 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource path of the consumer network. Example: - projects/{projectNumOrId}/global/networks/{resourceId}.
@@ -134,14 +134,14 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformProperty("network")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Network { get; set; }
+    public required partial TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The service class identifier for which this ServiceConnectionPolicy is for. The service class identifier is a unique, symbolic representation of a ServiceClass.
@@ -150,7 +150,7 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceClass is required")]
     [TerraformProperty("service_class")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceClass { get; set; }
+    public required partial TerraformValue<string> ServiceClass { get; set; }
 
     /// <summary>
     /// Block for psc_config.
@@ -158,49 +158,49 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy : Terrafor
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscConfig block(s) allowed")]
     [TerraformProperty("psc_config")]
-    public TerraformList<TerraformBlock<GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock>>? PscConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock>>? PscConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp when the resource was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The etag is computed by the server, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The type of underlying resources used to create the connection.
     /// </summary>
     [TerraformProperty("infrastructure")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Infrastructure { get; }
+    public partial TerraformValue<string> Infrastructure { get; }
 
     /// <summary>
     /// Information about each Private Service Connect connection.
     /// </summary>
     [TerraformProperty("psc_connections")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PscConnections { get; }
+    public partial TerraformList<object> PscConnections { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -208,13 +208,13 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy : Terrafor
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The timestamp when the resource was updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

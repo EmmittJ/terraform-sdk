@@ -22,14 +22,14 @@ public partial class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock : Terra
     /// </summary>
     [TerraformProperty("labels")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Labels { get; set; }
+    public partial TerraformMap<string> Labels { get; set; }
 
     /// <summary>
     /// Specifies the nodes operating system (default: LINUX).
     /// </summary>
     [TerraformProperty("operating_system")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> OperatingSystem { get; set; }
+    public partial TerraformValue<string> OperatingSystem { get; set; }
 
 }
 
@@ -44,21 +44,21 @@ public partial class GoogleGkeonpremBareMetalNodePoolTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -88,7 +88,7 @@ public partial class GoogleGkeonpremBareMetalNodePool : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// The cluster this node pool belongs to.
@@ -96,21 +96,21 @@ public partial class GoogleGkeonpremBareMetalNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BareMetalCluster is required")]
     [TerraformProperty("bare_metal_cluster")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BareMetalCluster { get; set; }
+    public required partial TerraformValue<string> BareMetalCluster { get; set; }
 
     /// <summary>
     /// The display name for the Bare Metal Node Pool.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the resource.
@@ -118,7 +118,7 @@ public partial class GoogleGkeonpremBareMetalNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The bare metal node pool name.
@@ -126,14 +126,14 @@ public partial class GoogleGkeonpremBareMetalNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for node_pool_config.
@@ -143,35 +143,35 @@ public partial class GoogleGkeonpremBareMetalNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NodePoolConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodePoolConfig block(s) allowed")]
     [TerraformProperty("node_pool_config")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock>>? NodePoolConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock>>? NodePoolConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleGkeonpremBareMetalNodePoolTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleGkeonpremBareMetalNodePoolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The time the cluster was deleted, in RFC3339 text format.
     /// </summary>
     [TerraformProperty("delete_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeleteTime { get; }
+    public partial TerraformValue<string> DeleteTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -182,41 +182,41 @@ public partial class GoogleGkeonpremBareMetalNodePool : TerraformResource
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// If set, there are currently changes in flight to the Bare Metal User Cluster.
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// The current state of this cluster.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Specifies detailed node pool status.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Status { get; }
+    public partial TerraformList<object> Status { get; }
 
     /// <summary>
     /// The unique identifier of the Bare Metal Node Pool.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

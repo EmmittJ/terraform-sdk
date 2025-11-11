@@ -13,21 +13,21 @@ public partial class GoogleIapTunnelDestGroupTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public partial class GoogleIapTunnelDestGroup : TerraformResource
     /// </summary>
     [TerraformProperty("cidrs")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Cidrs { get; set; }
+    public partial TerraformList<string>? Cidrs { get; set; }
 
     /// <summary>
     /// List of FQDNs that this group applies to.
     /// </summary>
     [TerraformProperty("fqdns")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Fqdns { get; set; }
+    public partial TerraformList<string>? Fqdns { get; set; }
 
     /// <summary>
     /// Unique tunnel destination group name.
@@ -60,41 +60,41 @@ public partial class GoogleIapTunnelDestGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     [TerraformProperty("group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GroupName { get; set; }
+    public required partial TerraformValue<string> GroupName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region of the tunnel group. Must be the same as the network resources in the group.
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleIapTunnelDestGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleIapTunnelDestGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Full resource name.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

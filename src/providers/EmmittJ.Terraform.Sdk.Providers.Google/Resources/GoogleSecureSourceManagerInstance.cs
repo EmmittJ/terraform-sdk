@@ -13,7 +13,7 @@ public partial class GoogleSecureSourceManagerInstancePrivateConfigBlock : Terra
     /// </summary>
     [TerraformProperty("ca_pool")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CaPool { get; set; }
+    public partial TerraformValue<string>? CaPool { get; set; }
 
 
     /// <summary>
@@ -22,7 +22,7 @@ public partial class GoogleSecureSourceManagerInstancePrivateConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsPrivate is required")]
     [TerraformProperty("is_private")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> IsPrivate { get; set; }
+    public required partial TerraformValue<bool> IsPrivate { get; set; }
 
 
 }
@@ -38,21 +38,21 @@ public partial class GoogleSecureSourceManagerInstanceTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -68,7 +68,7 @@ public partial class GoogleSecureSourceManagerInstanceWorkforceIdentityFederatio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
 }
 
@@ -94,14 +94,14 @@ public partial class GoogleSecureSourceManagerInstance : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeletionPolicy { get; set; }
+    public partial TerraformValue<string>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name for the Instance.
@@ -109,14 +109,14 @@ public partial class GoogleSecureSourceManagerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     [TerraformProperty("instance_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InstanceId { get; set; }
+    public required partial TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
     /// Customer-managed encryption key name, in the format projects/*/locations/*/keyRings/*/cryptoKeys/*.
     /// </summary>
     [TerraformProperty("kms_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKey { get; set; }
+    public partial TerraformValue<string>? KmsKey { get; set; }
 
     /// <summary>
     /// Labels as key value pairs.
@@ -127,7 +127,7 @@ public partial class GoogleSecureSourceManagerInstance : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location for the Instance.
@@ -135,14 +135,14 @@ public partial class GoogleSecureSourceManagerInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for private_config.
@@ -150,14 +150,14 @@ public partial class GoogleSecureSourceManagerInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateConfig block(s) allowed")]
     [TerraformProperty("private_config")]
-    public TerraformList<TerraformBlock<GoogleSecureSourceManagerInstancePrivateConfigBlock>>? PrivateConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleSecureSourceManagerInstancePrivateConfigBlock>>? PrivateConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleSecureSourceManagerInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleSecureSourceManagerInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for workforce_identity_federation_config.
@@ -165,49 +165,49 @@ public partial class GoogleSecureSourceManagerInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkforceIdentityFederationConfig block(s) allowed")]
     [TerraformProperty("workforce_identity_federation_config")]
-    public TerraformList<TerraformBlock<GoogleSecureSourceManagerInstanceWorkforceIdentityFederationConfigBlock>>? WorkforceIdentityFederationConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleSecureSourceManagerInstanceWorkforceIdentityFederationConfigBlock>>? WorkforceIdentityFederationConfig { get; set; }
 
     /// <summary>
     /// Time the Instance was created in UTC.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// A list of hostnames for this instance.
     /// </summary>
     [TerraformProperty("host_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> HostConfig { get; }
+    public partial TerraformList<object> HostConfig { get; }
 
     /// <summary>
     /// The resource name for the Instance.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The current state of the Instance.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Provides information about the current instance state.
     /// </summary>
     [TerraformProperty("state_note")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StateNote { get; }
+    public partial TerraformValue<string> StateNote { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -215,13 +215,13 @@ public partial class GoogleSecureSourceManagerInstance : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Time the Instance was updated in UTC.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -16,7 +16,7 @@ public partial class AwsOrganizationsPolicyAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_id attribute.
@@ -24,14 +24,14 @@ public partial class AwsOrganizationsPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     [TerraformProperty("policy_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyId { get; set; }
+    public required partial TerraformValue<string> PolicyId { get; set; }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
     [TerraformProperty("skip_destroy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SkipDestroy { get; set; }
+    public partial TerraformValue<bool>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The target_id attribute.
@@ -39,6 +39,6 @@ public partial class AwsOrganizationsPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     [TerraformProperty("target_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetId { get; set; }
+    public required partial TerraformValue<string> TargetId { get; set; }
 
 }

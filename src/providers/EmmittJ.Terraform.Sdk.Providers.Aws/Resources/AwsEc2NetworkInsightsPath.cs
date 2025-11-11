@@ -13,14 +13,14 @@ public partial class AwsEc2NetworkInsightsPathFilterAtDestinationBlock : Terrafo
     /// </summary>
     [TerraformProperty("destination_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DestinationAddress { get; set; }
+    public partial TerraformValue<string>? DestinationAddress { get; set; }
 
     /// <summary>
     /// The source_address attribute.
     /// </summary>
     [TerraformProperty("source_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SourceAddress { get; set; }
+    public partial TerraformValue<string>? SourceAddress { get; set; }
 
 }
 
@@ -35,14 +35,14 @@ public partial class AwsEc2NetworkInsightsPathFilterAtSourceBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("destination_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DestinationAddress { get; set; }
+    public partial TerraformValue<string>? DestinationAddress { get; set; }
 
     /// <summary>
     /// The source_address attribute.
     /// </summary>
     [TerraformProperty("source_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SourceAddress { get; set; }
+    public partial TerraformValue<string>? SourceAddress { get; set; }
 
 }
 
@@ -61,28 +61,28 @@ public partial class AwsEc2NetworkInsightsPath : TerraformResource
     /// </summary>
     [TerraformProperty("destination")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Destination { get; set; }
+    public partial TerraformValue<string>? Destination { get; set; }
 
     /// <summary>
     /// The destination_ip attribute.
     /// </summary>
     [TerraformProperty("destination_ip")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DestinationIp { get; set; }
+    public partial TerraformValue<string>? DestinationIp { get; set; }
 
     /// <summary>
     /// The destination_port attribute.
     /// </summary>
     [TerraformProperty("destination_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DestinationPort { get; set; }
+    public partial TerraformValue<double>? DestinationPort { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The protocol attribute.
@@ -90,14 +90,14 @@ public partial class AwsEc2NetworkInsightsPath : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformProperty("protocol")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Protocol { get; set; }
+    public required partial TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The source attribute.
@@ -105,28 +105,28 @@ public partial class AwsEc2NetworkInsightsPath : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [TerraformProperty("source")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Source { get; set; }
+    public required partial TerraformValue<string> Source { get; set; }
 
     /// <summary>
     /// The source_ip attribute.
     /// </summary>
     [TerraformProperty("source_ip")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SourceIp { get; set; }
+    public partial TerraformValue<string>? SourceIp { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for filter_at_destination.
@@ -134,7 +134,7 @@ public partial class AwsEc2NetworkInsightsPath : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterAtDestination block(s) allowed")]
     [TerraformProperty("filter_at_destination")]
-    public TerraformList<TerraformBlock<AwsEc2NetworkInsightsPathFilterAtDestinationBlock>>? FilterAtDestination { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEc2NetworkInsightsPathFilterAtDestinationBlock>>? FilterAtDestination { get; set; }
 
     /// <summary>
     /// Block for filter_at_source.
@@ -142,27 +142,27 @@ public partial class AwsEc2NetworkInsightsPath : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterAtSource block(s) allowed")]
     [TerraformProperty("filter_at_source")]
-    public TerraformList<TerraformBlock<AwsEc2NetworkInsightsPathFilterAtSourceBlock>>? FilterAtSource { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEc2NetworkInsightsPathFilterAtSourceBlock>>? FilterAtSource { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The destination_arn attribute.
     /// </summary>
     [TerraformProperty("destination_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DestinationArn { get; }
+    public partial TerraformValue<string> DestinationArn { get; }
 
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
     [TerraformProperty("source_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SourceArn { get; }
+    public partial TerraformValue<string> SourceArn { get; }
 
 }

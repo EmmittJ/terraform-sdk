@@ -13,21 +13,21 @@ public partial class GoogleDataCatalogTaxonomyTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class GoogleDataCatalogTaxonomy : TerraformResource
     /// </summary>
     [TerraformProperty("activated_policy_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ActivatedPolicyTypes { get; set; }
+    public partial TerraformList<string>? ActivatedPolicyTypes { get; set; }
 
     /// <summary>
     /// Description of this taxonomy. It must: contain only unicode characters,
@@ -55,7 +55,7 @@ public partial class GoogleDataCatalogTaxonomy : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// User defined name of this taxonomy.
@@ -67,35 +67,35 @@ public partial class GoogleDataCatalogTaxonomy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Taxonomy location region.
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDataCatalogTaxonomyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDataCatalogTaxonomyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Resource name of this taxonomy, whose format is:
@@ -103,6 +103,6 @@ public partial class GoogleDataCatalogTaxonomy : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

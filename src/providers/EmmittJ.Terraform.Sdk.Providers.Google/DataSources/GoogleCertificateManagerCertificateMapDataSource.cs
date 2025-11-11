@@ -16,7 +16,7 @@ public partial class GoogleCertificateManagerCertificateMapDataSource : Terrafor
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A user-defined name of the Certificate Map. Certificate Map names must be unique
@@ -25,14 +25,14 @@ public partial class GoogleCertificateManagerCertificateMapDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Creation timestamp of a Certificate Map. Timestamp is in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
@@ -41,28 +41,28 @@ public partial class GoogleCertificateManagerCertificateMapDataSource : Terrafor
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// A human-readable description of the resource.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// A list of target proxies that use this Certificate Map
     /// </summary>
     [TerraformProperty("gclb_targets")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> GclbTargets { get; }
+    public partial TerraformList<object> GclbTargets { get; }
 
     /// <summary>
     /// Set of labels associated with a Certificate Map resource.
@@ -73,7 +73,7 @@ public partial class GoogleCertificateManagerCertificateMapDataSource : Terrafor
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -81,7 +81,7 @@ public partial class GoogleCertificateManagerCertificateMapDataSource : Terrafor
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Update timestamp of a Certificate Map. Timestamp is in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
@@ -90,6 +90,6 @@ public partial class GoogleCertificateManagerCertificateMapDataSource : Terrafor
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

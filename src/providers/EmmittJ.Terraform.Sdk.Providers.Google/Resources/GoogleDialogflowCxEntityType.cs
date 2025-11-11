@@ -14,7 +14,7 @@ public partial class GoogleDialogflowCxEntityTypeEntitiesBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("synonyms")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Synonyms { get; set; }
+    public partial TerraformList<string>? Synonyms { get; set; }
 
     /// <summary>
     /// The primary value associated with this entity entry. For example, if the entity type is vegetable, the value could be scallions.
@@ -23,7 +23,7 @@ public partial class GoogleDialogflowCxEntityTypeEntitiesBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Value { get; set; }
+    public partial TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleDialogflowCxEntityTypeExcludedPhrasesBlock : Terrafor
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Value { get; set; }
+    public partial TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -53,21 +53,21 @@ public partial class GoogleDialogflowCxEntityTypeTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -88,7 +88,7 @@ public partial class GoogleDialogflowCxEntityType : TerraformResource
     /// </summary>
     [TerraformProperty("auto_expansion_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AutoExpansionMode { get; set; }
+    public partial TerraformValue<string>? AutoExpansionMode { get; set; }
 
     /// <summary>
     /// The human-readable name of the entity type, unique within the agent.
@@ -96,21 +96,21 @@ public partial class GoogleDialogflowCxEntityType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Enables fuzzy entity extraction during classification.
     /// </summary>
     [TerraformProperty("enable_fuzzy_extraction")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableFuzzyExtraction { get; set; }
+    public partial TerraformValue<bool>? EnableFuzzyExtraction { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Indicates whether the entity type can be automatically expanded.
@@ -121,7 +121,7 @@ public partial class GoogleDialogflowCxEntityType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     [TerraformProperty("kind")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Kind { get; set; }
+    public required partial TerraformValue<string> Kind { get; set; }
 
     /// <summary>
     /// The language of the following fields in entityType:
@@ -132,7 +132,7 @@ public partial class GoogleDialogflowCxEntityType : TerraformResource
     /// </summary>
     [TerraformProperty("language_code")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LanguageCode { get; set; }
+    public partial TerraformValue<string>? LanguageCode { get; set; }
 
     /// <summary>
     /// The agent to create a entity type for.
@@ -140,14 +140,14 @@ public partial class GoogleDialogflowCxEntityType : TerraformResource
     /// </summary>
     [TerraformProperty("parent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Parent { get; set; }
+    public partial TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// Indicates whether parameters of the entity type should be redacted in log. If redaction is enabled, page parameters and intent parameters referring to the entity type will be replaced by parameter name when logging.
     /// </summary>
     [TerraformProperty("redact")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Redact { get; set; }
+    public partial TerraformValue<bool>? Redact { get; set; }
 
     /// <summary>
     /// Block for entities.
@@ -156,21 +156,21 @@ public partial class GoogleDialogflowCxEntityType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entities is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Entities block(s) required")]
     [TerraformProperty("entities")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxEntityTypeEntitiesBlock>>? Entities { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxEntityTypeEntitiesBlock>>? Entities { get; set; }
 
     /// <summary>
     /// Block for excluded_phrases.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("excluded_phrases")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxEntityTypeExcludedPhrasesBlock>>? ExcludedPhrases { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxEntityTypeExcludedPhrasesBlock>>? ExcludedPhrases { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDialogflowCxEntityTypeTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDialogflowCxEntityTypeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique identifier of the entity type.
@@ -178,6 +178,6 @@ public partial class GoogleDialogflowCxEntityType : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

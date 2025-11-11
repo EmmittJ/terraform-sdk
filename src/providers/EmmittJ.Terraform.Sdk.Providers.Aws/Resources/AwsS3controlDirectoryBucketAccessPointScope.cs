@@ -13,14 +13,14 @@ public partial class AwsS3controlDirectoryBucketAccessPointScopeScopeBlock : Ter
     /// </summary>
     [TerraformProperty("permissions")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Permissions { get; set; }
+    public partial TerraformList<string>? Permissions { get; set; }
 
     /// <summary>
     /// The prefixes attribute.
     /// </summary>
     [TerraformProperty("prefixes")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Prefixes { get; set; }
+    public partial TerraformList<string>? Prefixes { get; set; }
 
 }
 
@@ -39,7 +39,7 @@ public partial class AwsS3controlDirectoryBucketAccessPointScope : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     [TerraformProperty("account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccountId { get; set; }
+    public required partial TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,20 +47,20 @@ public partial class AwsS3controlDirectoryBucketAccessPointScope : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for scope.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("scope")]
-    public TerraformList<TerraformBlock<AwsS3controlDirectoryBucketAccessPointScopeScopeBlock>>? Scope { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3controlDirectoryBucketAccessPointScopeScopeBlock>>? Scope { get; set; }
 
 }

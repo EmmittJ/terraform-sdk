@@ -13,14 +13,14 @@ public partial class GoogleComputePublicDelegatedPrefixTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,21 +38,21 @@ public partial class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// </summary>
     [TerraformProperty("allocatable_prefix_length")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> AllocatablePrefixLength { get; set; }
+    public partial TerraformValue<double> AllocatablePrefixLength { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The IP address range, in CIDR format, represented by this public delegated prefix.
@@ -60,14 +60,14 @@ public partial class GoogleComputePublicDelegatedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
     [TerraformProperty("ip_cidr_range")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IpCidrRange { get; set; }
+    public required partial TerraformValue<string> IpCidrRange { get; set; }
 
     /// <summary>
     /// If true, the prefix will be live migrated.
     /// </summary>
     [TerraformProperty("is_live_migration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IsLiveMigration { get; set; }
+    public partial TerraformValue<bool>? IsLiveMigration { get; set; }
 
     /// <summary>
     /// Specifies the mode of this IPv6 PDP. MODE must be one of: DELEGATION,
@@ -75,7 +75,7 @@ public partial class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// </summary>
     [TerraformProperty("mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Mode { get; set; }
+    public partial TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// Name of the resource. The name must be 1-63 characters long, and
@@ -88,7 +88,7 @@ public partial class GoogleComputePublicDelegatedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The URL of parent prefix. Either PublicAdvertisedPrefix or PublicDelegatedPrefix.
@@ -96,14 +96,14 @@ public partial class GoogleComputePublicDelegatedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentPrefix is required")]
     [TerraformProperty("parent_prefix")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ParentPrefix { get; set; }
+    public required partial TerraformValue<string> ParentPrefix { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// A region where the prefix will reside.
@@ -111,14 +111,14 @@ public partial class GoogleComputePublicDelegatedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     [TerraformProperty("region")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Region { get; set; }
+    public required partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputePublicDelegatedPrefixTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputePublicDelegatedPrefixTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// List of sub public delegated fixes for BYO IP functionality.
@@ -127,13 +127,13 @@ public partial class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// </summary>
     [TerraformProperty("public_delegated_sub_prefixs")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PublicDelegatedSubPrefixs { get; }
+    public partial TerraformList<object> PublicDelegatedSubPrefixs { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
 }

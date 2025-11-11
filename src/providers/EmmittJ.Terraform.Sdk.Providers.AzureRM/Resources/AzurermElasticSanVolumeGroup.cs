@@ -16,7 +16,7 @@ public partial class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     [TerraformProperty("key_vault_key_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultKeyId { get; set; }
+    public required partial TerraformValue<string> KeyVaultKeyId { get; set; }
 
 
     /// <summary>
@@ -24,7 +24,7 @@ public partial class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("user_assigned_identity_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserAssignedIdentityId { get; set; }
+    public partial TerraformValue<string>? UserAssignedIdentityId { get; set; }
 
 }
 
@@ -39,7 +39,7 @@ public partial class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -49,7 +49,7 @@ public partial class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -64,7 +64,7 @@ public partial class AzurermElasticSanVolumeGroupNetworkRuleBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("action")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Action { get; set; }
+    public partial TerraformValue<string>? Action { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -72,7 +72,7 @@ public partial class AzurermElasticSanVolumeGroupNetworkRuleBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
 }
 
@@ -87,28 +87,28 @@ public partial class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -128,21 +128,21 @@ public partial class AzurermElasticSanVolumeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticSanId is required")]
     [TerraformProperty("elastic_san_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ElasticSanId { get; set; }
+    public required partial TerraformValue<string> ElasticSanId { get; set; }
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
     [TerraformProperty("encryption_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EncryptionType { get; set; }
+    public partial TerraformValue<string>? EncryptionType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -150,14 +150,14 @@ public partial class AzurermElasticSanVolumeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The protocol_type attribute.
     /// </summary>
     [TerraformProperty("protocol_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProtocolType { get; set; }
+    public partial TerraformValue<string>? ProtocolType { get; set; }
 
     /// <summary>
     /// Block for encryption.
@@ -165,7 +165,7 @@ public partial class AzurermElasticSanVolumeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
     [TerraformProperty("encryption")]
-    public TerraformList<TerraformBlock<AzurermElasticSanVolumeGroupEncryptionBlock>>? Encryption { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermElasticSanVolumeGroupEncryptionBlock>>? Encryption { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -173,20 +173,20 @@ public partial class AzurermElasticSanVolumeGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermElasticSanVolumeGroupIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermElasticSanVolumeGroupIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for network_rule.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("network_rule")]
-    public TerraformList<TerraformBlock<AzurermElasticSanVolumeGroupNetworkRuleBlock>>? NetworkRule { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermElasticSanVolumeGroupNetworkRuleBlock>>? NetworkRule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermElasticSanVolumeGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermElasticSanVolumeGroupTimeoutsBlock>? Timeouts { get; set; }
 
 }

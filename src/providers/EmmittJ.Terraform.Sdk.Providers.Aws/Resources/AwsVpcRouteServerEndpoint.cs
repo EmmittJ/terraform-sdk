@@ -13,14 +13,14 @@ public partial class AwsVpcRouteServerEndpointTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class AwsVpcRouteServerEndpoint : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The route_server_id attribute.
@@ -46,7 +46,7 @@ public partial class AwsVpcRouteServerEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteServerId is required")]
     [TerraformProperty("route_server_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RouteServerId { get; set; }
+    public required partial TerraformValue<string> RouteServerId { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -54,62 +54,62 @@ public partial class AwsVpcRouteServerEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsVpcRouteServerEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsVpcRouteServerEndpointTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The eni_address attribute.
     /// </summary>
     [TerraformProperty("eni_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EniAddress { get; }
+    public partial TerraformValue<string> EniAddress { get; }
 
     /// <summary>
     /// The eni_id attribute.
     /// </summary>
     [TerraformProperty("eni_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EniId { get; }
+    public partial TerraformValue<string> EniId { get; }
 
     /// <summary>
     /// The route_server_endpoint_id attribute.
     /// </summary>
     [TerraformProperty("route_server_endpoint_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RouteServerEndpointId { get; }
+    public partial TerraformValue<string> RouteServerEndpointId { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [TerraformProperty("vpc_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VpcId { get; }
+    public partial TerraformValue<string> VpcId { get; }
 
 }

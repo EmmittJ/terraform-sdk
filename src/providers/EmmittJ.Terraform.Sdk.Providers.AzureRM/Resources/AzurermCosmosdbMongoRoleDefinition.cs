@@ -14,7 +14,7 @@ public partial class AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     [TerraformProperty("actions")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Actions { get; set; }
+    public partial TerraformList<string>? Actions { get; set; }
 
 }
 
@@ -29,28 +29,28 @@ public partial class AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -69,21 +69,21 @@ public partial class AzurermCosmosdbMongoRoleDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosMongoDatabaseId is required")]
     [TerraformProperty("cosmos_mongo_database_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CosmosMongoDatabaseId { get; set; }
+    public required partial TerraformValue<string> CosmosMongoDatabaseId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The inherited_role_names attribute.
     /// </summary>
     [TerraformProperty("inherited_role_names")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? InheritedRoleNames { get; set; }
+    public partial TerraformList<string>? InheritedRoleNames { get; set; }
 
     /// <summary>
     /// The role_name attribute.
@@ -91,20 +91,20 @@ public partial class AzurermCosmosdbMongoRoleDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     [TerraformProperty("role_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleName { get; set; }
+    public required partial TerraformValue<string> RoleName { get; set; }
 
     /// <summary>
     /// Block for privilege.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("privilege")]
-    public TerraformList<TerraformBlock<AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock>>? Privilege { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock>>? Privilege { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock>? Timeouts { get; set; }
 
 }

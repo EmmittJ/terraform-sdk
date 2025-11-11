@@ -14,42 +14,42 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlo
     /// </summary>
     [TerraformProperty("api_enable_admin")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ApiEnableAdmin { get; set; }
+    public partial TerraformValue<bool>? ApiEnableAdmin { get; set; }
 
     /// <summary>
     /// Enables JSON-RPC access to functions in the debug namespace. Defaults to false.
     /// </summary>
     [TerraformProperty("api_enable_debug")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ApiEnableDebug { get; set; }
+    public partial TerraformValue<bool>? ApiEnableDebug { get; set; }
 
     /// <summary>
     /// The consensus client Possible values: [&amp;quot;CONSENSUS_CLIENT_UNSPECIFIED&amp;quot;, &amp;quot;LIGHTHOUSE&amp;quot;]
     /// </summary>
     [TerraformProperty("consensus_client")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConsensusClient { get; set; }
+    public partial TerraformValue<string>? ConsensusClient { get; set; }
 
     /// <summary>
     /// The execution client Possible values: [&amp;quot;EXECUTION_CLIENT_UNSPECIFIED&amp;quot;, &amp;quot;GETH&amp;quot;, &amp;quot;ERIGON&amp;quot;]
     /// </summary>
     [TerraformProperty("execution_client")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExecutionClient { get; set; }
+    public partial TerraformValue<string>? ExecutionClient { get; set; }
 
     /// <summary>
     /// The Ethereum environment being accessed. Possible values: [&amp;quot;MAINNET&amp;quot;, &amp;quot;TESTNET_GOERLI_PRATER&amp;quot;, &amp;quot;TESTNET_SEPOLIA&amp;quot;]
     /// </summary>
     [TerraformProperty("network")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Network { get; set; }
+    public partial TerraformValue<string>? Network { get; set; }
 
     /// <summary>
     /// The type of Ethereum node. Possible values: [&amp;quot;LIGHT&amp;quot;, &amp;quot;FULL&amp;quot;, &amp;quot;ARCHIVE&amp;quot;]
     /// </summary>
     [TerraformProperty("node_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NodeType { get; set; }
+    public partial TerraformValue<string>? NodeType { get; set; }
 
 }
 
@@ -64,21 +64,21 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -98,21 +98,21 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockchainNodeId is required")]
     [TerraformProperty("blockchain_node_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BlockchainNodeId { get; set; }
+    public required partial TerraformValue<string> BlockchainNodeId { get; set; }
 
     /// <summary>
     /// User-provided key-value pairs Possible values: [&amp;quot;ETHEREUM&amp;quot;]
     /// </summary>
     [TerraformProperty("blockchain_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BlockchainType { get; set; }
+    public partial TerraformValue<string>? BlockchainType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// User-provided key-value pairs
@@ -123,7 +123,7 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResour
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Location of Blockchain Node being created.
@@ -131,14 +131,14 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for ethereum_details.
@@ -146,42 +146,42 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EthereumDetails block(s) allowed")]
     [TerraformProperty("ethereum_details")]
-    public TerraformList<TerraformBlock<GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock>>? EthereumDetails { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock>>? EthereumDetails { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The connection information through which to interact with a blockchain node.
     /// </summary>
     [TerraformProperty("connection_info")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ConnectionInfo { get; }
+    public partial TerraformList<object> ConnectionInfo { get; }
 
     /// <summary>
     /// The timestamp at which the blockchain node was first created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The fully qualified name of the blockchain node. e.g. projects/my-project/locations/us-central1/blockchainNodes/my-node.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -189,13 +189,13 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResour
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The timestamp at which the blockchain node was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

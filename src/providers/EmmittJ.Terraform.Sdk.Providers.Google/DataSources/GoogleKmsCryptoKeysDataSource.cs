@@ -24,14 +24,14 @@ public partial class GoogleKmsCryptoKeysDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Filter { get; set; }
+    public partial TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key ring that the keys belongs to. Format: &#39;projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}&#39;.
@@ -39,13 +39,13 @@ public partial class GoogleKmsCryptoKeysDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     [TerraformProperty("key_ring")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyRing { get; set; }
+    public required partial TerraformValue<string> KeyRing { get; set; }
 
     /// <summary>
     /// A list of all the retrieved keys from the provided key ring
     /// </summary>
     [TerraformProperty("keys")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Keys { get; }
+    public partial TerraformList<object> Keys { get; }
 
 }

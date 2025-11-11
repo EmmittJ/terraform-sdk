@@ -13,42 +13,42 @@ public partial class AzurermSpringCloudConnectionAuthenticationBlock : Terraform
     /// </summary>
     [TerraformProperty("certificate")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Certificate { get; set; }
+    public partial TerraformValue<string>? Certificate { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [TerraformProperty("client_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientId { get; set; }
+    public partial TerraformValue<string>? ClientId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
     [TerraformProperty("principal_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrincipalId { get; set; }
+    public partial TerraformValue<string>? PrincipalId { get; set; }
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
     [TerraformProperty("secret")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Secret { get; set; }
+    public partial TerraformValue<string>? Secret { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
     [TerraformProperty("subscription_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SubscriptionId { get; set; }
+    public partial TerraformValue<string>? SubscriptionId { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -56,7 +56,7 @@ public partial class AzurermSpringCloudConnectionAuthenticationBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -72,7 +72,7 @@ public partial class AzurermSpringCloudConnectionSecretStoreBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformProperty("key_vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultId { get; set; }
+    public required partial TerraformValue<string> KeyVaultId { get; set; }
 
 }
 
@@ -87,28 +87,28 @@ public partial class AzurermSpringCloudConnectionTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -127,14 +127,14 @@ public partial class AzurermSpringCloudConnection : TerraformResource
     /// </summary>
     [TerraformProperty("client_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientType { get; set; }
+    public partial TerraformValue<string>? ClientType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -142,7 +142,7 @@ public partial class AzurermSpringCloudConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The spring_cloud_id attribute.
@@ -150,7 +150,7 @@ public partial class AzurermSpringCloudConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudId is required")]
     [TerraformProperty("spring_cloud_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SpringCloudId { get; set; }
+    public required partial TerraformValue<string> SpringCloudId { get; set; }
 
     /// <summary>
     /// The target_resource_id attribute.
@@ -158,14 +158,14 @@ public partial class AzurermSpringCloudConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     [TerraformProperty("target_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetResourceId { get; set; }
+    public required partial TerraformValue<string> TargetResourceId { get; set; }
 
     /// <summary>
     /// The vnet_solution attribute.
     /// </summary>
     [TerraformProperty("vnet_solution")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VnetSolution { get; set; }
+    public partial TerraformValue<string>? VnetSolution { get; set; }
 
     /// <summary>
     /// Block for authentication.
@@ -175,7 +175,7 @@ public partial class AzurermSpringCloudConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
     [TerraformProperty("authentication")]
-    public TerraformList<TerraformBlock<AzurermSpringCloudConnectionAuthenticationBlock>>? Authentication { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSpringCloudConnectionAuthenticationBlock>>? Authentication { get; set; }
 
     /// <summary>
     /// Block for secret_store.
@@ -183,13 +183,13 @@ public partial class AzurermSpringCloudConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecretStore block(s) allowed")]
     [TerraformProperty("secret_store")]
-    public TerraformList<TerraformBlock<AzurermSpringCloudConnectionSecretStoreBlock>>? SecretStore { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSpringCloudConnectionSecretStoreBlock>>? SecretStore { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSpringCloudConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSpringCloudConnectionTimeoutsBlock>? Timeouts { get; set; }
 
 }

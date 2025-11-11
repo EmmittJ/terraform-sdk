@@ -14,7 +14,7 @@ public partial class AzurermServiceFabricClusterAzureActiveDirectoryBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientApplicationId is required")]
     [TerraformProperty("client_application_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientApplicationId { get; set; }
+    public required partial TerraformValue<string> ClientApplicationId { get; set; }
 
     /// <summary>
     /// The cluster_application_id attribute.
@@ -22,7 +22,7 @@ public partial class AzurermServiceFabricClusterAzureActiveDirectoryBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterApplicationId is required")]
     [TerraformProperty("cluster_application_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterApplicationId { get; set; }
+    public required partial TerraformValue<string> ClusterApplicationId { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
@@ -30,7 +30,7 @@ public partial class AzurermServiceFabricClusterAzureActiveDirectoryBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     [TerraformProperty("tenant_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TenantId { get; set; }
+    public required partial TerraformValue<string> TenantId { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzurermServiceFabricClusterCertificateBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
     [TerraformProperty("thumbprint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Thumbprint { get; set; }
+    public required partial TerraformValue<string> Thumbprint { get; set; }
 
     /// <summary>
     /// The thumbprint_secondary attribute.
     /// </summary>
     [TerraformProperty("thumbprint_secondary")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ThumbprintSecondary { get; set; }
+    public partial TerraformValue<string>? ThumbprintSecondary { get; set; }
 
     /// <summary>
     /// The x509_store_name attribute.
@@ -61,7 +61,7 @@ public partial class AzurermServiceFabricClusterCertificateBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "X509StoreName is required")]
     [TerraformProperty("x509_store_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> X509StoreName { get; set; }
+    public required partial TerraformValue<string> X509StoreName { get; set; }
 
 }
 
@@ -77,7 +77,7 @@ public partial class AzurermServiceFabricClusterCertificateCommonNamesBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "X509StoreName is required")]
     [TerraformProperty("x509_store_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> X509StoreName { get; set; }
+    public required partial TerraformValue<string> X509StoreName { get; set; }
 
 }
 
@@ -93,7 +93,7 @@ public partial class AzurermServiceFabricClusterClientCertificateCommonNameBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommonName is required")]
     [TerraformProperty("common_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CommonName { get; set; }
+    public required partial TerraformValue<string> CommonName { get; set; }
 
     /// <summary>
     /// The is_admin attribute.
@@ -101,14 +101,14 @@ public partial class AzurermServiceFabricClusterClientCertificateCommonNameBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsAdmin is required")]
     [TerraformProperty("is_admin")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> IsAdmin { get; set; }
+    public required partial TerraformValue<bool> IsAdmin { get; set; }
 
     /// <summary>
     /// The issuer_thumbprint attribute.
     /// </summary>
     [TerraformProperty("issuer_thumbprint")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IssuerThumbprint { get; set; }
+    public partial TerraformValue<string>? IssuerThumbprint { get; set; }
 
 }
 
@@ -124,7 +124,7 @@ public partial class AzurermServiceFabricClusterClientCertificateThumbprintBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsAdmin is required")]
     [TerraformProperty("is_admin")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> IsAdmin { get; set; }
+    public required partial TerraformValue<bool> IsAdmin { get; set; }
 
     /// <summary>
     /// The thumbprint attribute.
@@ -132,7 +132,7 @@ public partial class AzurermServiceFabricClusterClientCertificateThumbprintBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
     [TerraformProperty("thumbprint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Thumbprint { get; set; }
+    public required partial TerraformValue<string> Thumbprint { get; set; }
 
 }
 
@@ -148,7 +148,7 @@ public partial class AzurermServiceFabricClusterDiagnosticsConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlobEndpoint is required")]
     [TerraformProperty("blob_endpoint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BlobEndpoint { get; set; }
+    public required partial TerraformValue<string> BlobEndpoint { get; set; }
 
     /// <summary>
     /// The protected_account_key_name attribute.
@@ -156,7 +156,7 @@ public partial class AzurermServiceFabricClusterDiagnosticsConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectedAccountKeyName is required")]
     [TerraformProperty("protected_account_key_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProtectedAccountKeyName { get; set; }
+    public required partial TerraformValue<string> ProtectedAccountKeyName { get; set; }
 
     /// <summary>
     /// The queue_endpoint attribute.
@@ -164,7 +164,7 @@ public partial class AzurermServiceFabricClusterDiagnosticsConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueEndpoint is required")]
     [TerraformProperty("queue_endpoint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> QueueEndpoint { get; set; }
+    public required partial TerraformValue<string> QueueEndpoint { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
@@ -172,7 +172,7 @@ public partial class AzurermServiceFabricClusterDiagnosticsConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     [TerraformProperty("storage_account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountName { get; set; }
+    public required partial TerraformValue<string> StorageAccountName { get; set; }
 
     /// <summary>
     /// The table_endpoint attribute.
@@ -180,7 +180,7 @@ public partial class AzurermServiceFabricClusterDiagnosticsConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableEndpoint is required")]
     [TerraformProperty("table_endpoint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TableEndpoint { get; set; }
+    public required partial TerraformValue<string> TableEndpoint { get; set; }
 
 }
 
@@ -196,14 +196,14 @@ public partial class AzurermServiceFabricClusterFabricSettingsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
 }
 
@@ -218,7 +218,7 @@ public partial class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("capacities")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Capacities { get; set; }
+    public partial TerraformMap<string>? Capacities { get; set; }
 
     /// <summary>
     /// The client_endpoint_port attribute.
@@ -226,14 +226,14 @@ public partial class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientEndpointPort is required")]
     [TerraformProperty("client_endpoint_port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ClientEndpointPort { get; set; }
+    public required partial TerraformValue<double> ClientEndpointPort { get; set; }
 
     /// <summary>
     /// The durability_level attribute.
     /// </summary>
     [TerraformProperty("durability_level")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DurabilityLevel { get; set; }
+    public partial TerraformValue<string>? DurabilityLevel { get; set; }
 
     /// <summary>
     /// The http_endpoint_port attribute.
@@ -241,7 +241,7 @@ public partial class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpEndpointPort is required")]
     [TerraformProperty("http_endpoint_port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> HttpEndpointPort { get; set; }
+    public required partial TerraformValue<double> HttpEndpointPort { get; set; }
 
     /// <summary>
     /// The instance_count attribute.
@@ -249,7 +249,7 @@ public partial class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
     [TerraformProperty("instance_count")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> InstanceCount { get; set; }
+    public required partial TerraformValue<double> InstanceCount { get; set; }
 
     /// <summary>
     /// The is_primary attribute.
@@ -257,21 +257,21 @@ public partial class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsPrimary is required")]
     [TerraformProperty("is_primary")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> IsPrimary { get; set; }
+    public required partial TerraformValue<bool> IsPrimary { get; set; }
 
     /// <summary>
     /// The is_stateless attribute.
     /// </summary>
     [TerraformProperty("is_stateless")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IsStateless { get; set; }
+    public partial TerraformValue<bool>? IsStateless { get; set; }
 
     /// <summary>
     /// The multiple_availability_zones attribute.
     /// </summary>
     [TerraformProperty("multiple_availability_zones")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? MultipleAvailabilityZones { get; set; }
+    public partial TerraformValue<bool>? MultipleAvailabilityZones { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -279,21 +279,21 @@ public partial class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The placement_properties attribute.
     /// </summary>
     [TerraformProperty("placement_properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? PlacementProperties { get; set; }
+    public partial TerraformMap<string>? PlacementProperties { get; set; }
 
     /// <summary>
     /// The reverse_proxy_endpoint_port attribute.
     /// </summary>
     [TerraformProperty("reverse_proxy_endpoint_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ReverseProxyEndpointPort { get; set; }
+    public partial TerraformValue<double>? ReverseProxyEndpointPort { get; set; }
 
 }
 
@@ -309,14 +309,14 @@ public partial class AzurermServiceFabricClusterReverseProxyCertificateBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
     [TerraformProperty("thumbprint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Thumbprint { get; set; }
+    public required partial TerraformValue<string> Thumbprint { get; set; }
 
     /// <summary>
     /// The thumbprint_secondary attribute.
     /// </summary>
     [TerraformProperty("thumbprint_secondary")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ThumbprintSecondary { get; set; }
+    public partial TerraformValue<string>? ThumbprintSecondary { get; set; }
 
     /// <summary>
     /// The x509_store_name attribute.
@@ -324,7 +324,7 @@ public partial class AzurermServiceFabricClusterReverseProxyCertificateBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "X509StoreName is required")]
     [TerraformProperty("x509_store_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> X509StoreName { get; set; }
+    public required partial TerraformValue<string> X509StoreName { get; set; }
 
 }
 
@@ -340,7 +340,7 @@ public partial class AzurermServiceFabricClusterReverseProxyCertificateCommonNam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "X509StoreName is required")]
     [TerraformProperty("x509_store_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> X509StoreName { get; set; }
+    public required partial TerraformValue<string> X509StoreName { get; set; }
 
 }
 
@@ -355,28 +355,28 @@ public partial class AzurermServiceFabricClusterTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -391,49 +391,49 @@ public partial class AzurermServiceFabricClusterUpgradePolicyBlock : TerraformBl
     /// </summary>
     [TerraformProperty("force_restart_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ForceRestartEnabled { get; set; }
+    public partial TerraformValue<bool>? ForceRestartEnabled { get; set; }
 
     /// <summary>
     /// The health_check_retry_timeout attribute.
     /// </summary>
     [TerraformProperty("health_check_retry_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HealthCheckRetryTimeout { get; set; }
+    public partial TerraformValue<string>? HealthCheckRetryTimeout { get; set; }
 
     /// <summary>
     /// The health_check_stable_duration attribute.
     /// </summary>
     [TerraformProperty("health_check_stable_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HealthCheckStableDuration { get; set; }
+    public partial TerraformValue<string>? HealthCheckStableDuration { get; set; }
 
     /// <summary>
     /// The health_check_wait_duration attribute.
     /// </summary>
     [TerraformProperty("health_check_wait_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HealthCheckWaitDuration { get; set; }
+    public partial TerraformValue<string>? HealthCheckWaitDuration { get; set; }
 
     /// <summary>
     /// The upgrade_domain_timeout attribute.
     /// </summary>
     [TerraformProperty("upgrade_domain_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UpgradeDomainTimeout { get; set; }
+    public partial TerraformValue<string>? UpgradeDomainTimeout { get; set; }
 
     /// <summary>
     /// The upgrade_replica_set_check_timeout attribute.
     /// </summary>
     [TerraformProperty("upgrade_replica_set_check_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UpgradeReplicaSetCheckTimeout { get; set; }
+    public partial TerraformValue<string>? UpgradeReplicaSetCheckTimeout { get; set; }
 
     /// <summary>
     /// The upgrade_timeout attribute.
     /// </summary>
     [TerraformProperty("upgrade_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UpgradeTimeout { get; set; }
+    public partial TerraformValue<string>? UpgradeTimeout { get; set; }
 
 }
 
@@ -452,21 +452,21 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     /// </summary>
     [TerraformProperty("add_on_features")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AddOnFeatures { get; set; }
+    public partial TerraformSet<string>? AddOnFeatures { get; set; }
 
     /// <summary>
     /// The cluster_code_version attribute.
     /// </summary>
     [TerraformProperty("cluster_code_version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ClusterCodeVersion { get; set; }
+    public partial TerraformValue<string> ClusterCodeVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -474,7 +474,7 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The management_endpoint attribute.
@@ -482,7 +482,7 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementEndpoint is required")]
     [TerraformProperty("management_endpoint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ManagementEndpoint { get; set; }
+    public required partial TerraformValue<string> ManagementEndpoint { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -490,7 +490,7 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The reliability_level attribute.
@@ -498,7 +498,7 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReliabilityLevel is required")]
     [TerraformProperty("reliability_level")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ReliabilityLevel { get; set; }
+    public required partial TerraformValue<string> ReliabilityLevel { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -506,21 +506,21 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The service_fabric_zonal_upgrade_mode attribute.
     /// </summary>
     [TerraformProperty("service_fabric_zonal_upgrade_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServiceFabricZonalUpgradeMode { get; set; }
+    public partial TerraformValue<string>? ServiceFabricZonalUpgradeMode { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The upgrade_mode attribute.
@@ -528,7 +528,7 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UpgradeMode is required")]
     [TerraformProperty("upgrade_mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UpgradeMode { get; set; }
+    public required partial TerraformValue<string> UpgradeMode { get; set; }
 
     /// <summary>
     /// The vm_image attribute.
@@ -536,14 +536,14 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmImage is required")]
     [TerraformProperty("vm_image")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VmImage { get; set; }
+    public required partial TerraformValue<string> VmImage { get; set; }
 
     /// <summary>
     /// The vmss_zonal_upgrade_mode attribute.
     /// </summary>
     [TerraformProperty("vmss_zonal_upgrade_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VmssZonalUpgradeMode { get; set; }
+    public partial TerraformValue<string>? VmssZonalUpgradeMode { get; set; }
 
     /// <summary>
     /// Block for azure_active_directory.
@@ -551,7 +551,7 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectory block(s) allowed")]
     [TerraformProperty("azure_active_directory")]
-    public TerraformList<TerraformBlock<AzurermServiceFabricClusterAzureActiveDirectoryBlock>>? AzureActiveDirectory { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterAzureActiveDirectoryBlock>>? AzureActiveDirectory { get; set; }
 
     /// <summary>
     /// Block for certificate.
@@ -559,7 +559,7 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Certificate block(s) allowed")]
     [TerraformProperty("certificate")]
-    public TerraformList<TerraformBlock<AzurermServiceFabricClusterCertificateBlock>>? Certificate { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterCertificateBlock>>? Certificate { get; set; }
 
     /// <summary>
     /// Block for certificate_common_names.
@@ -567,21 +567,21 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateCommonNames block(s) allowed")]
     [TerraformProperty("certificate_common_names")]
-    public TerraformList<TerraformBlock<AzurermServiceFabricClusterCertificateCommonNamesBlock>>? CertificateCommonNames { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterCertificateCommonNamesBlock>>? CertificateCommonNames { get; set; }
 
     /// <summary>
     /// Block for client_certificate_common_name.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("client_certificate_common_name")]
-    public TerraformList<TerraformBlock<AzurermServiceFabricClusterClientCertificateCommonNameBlock>>? ClientCertificateCommonName { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterClientCertificateCommonNameBlock>>? ClientCertificateCommonName { get; set; }
 
     /// <summary>
     /// Block for client_certificate_thumbprint.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("client_certificate_thumbprint")]
-    public TerraformList<TerraformBlock<AzurermServiceFabricClusterClientCertificateThumbprintBlock>>? ClientCertificateThumbprint { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterClientCertificateThumbprintBlock>>? ClientCertificateThumbprint { get; set; }
 
     /// <summary>
     /// Block for diagnostics_config.
@@ -589,14 +589,14 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiagnosticsConfig block(s) allowed")]
     [TerraformProperty("diagnostics_config")]
-    public TerraformList<TerraformBlock<AzurermServiceFabricClusterDiagnosticsConfigBlock>>? DiagnosticsConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterDiagnosticsConfigBlock>>? DiagnosticsConfig { get; set; }
 
     /// <summary>
     /// Block for fabric_settings.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("fabric_settings")]
-    public TerraformList<TerraformBlock<AzurermServiceFabricClusterFabricSettingsBlock>>? FabricSettings { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterFabricSettingsBlock>>? FabricSettings { get; set; }
 
     /// <summary>
     /// Block for node_type.
@@ -605,7 +605,7 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NodeType block(s) required")]
     [TerraformProperty("node_type")]
-    public TerraformList<TerraformBlock<AzurermServiceFabricClusterNodeTypeBlock>>? NodeType { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterNodeTypeBlock>>? NodeType { get; set; }
 
     /// <summary>
     /// Block for reverse_proxy_certificate.
@@ -613,7 +613,7 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReverseProxyCertificate block(s) allowed")]
     [TerraformProperty("reverse_proxy_certificate")]
-    public TerraformList<TerraformBlock<AzurermServiceFabricClusterReverseProxyCertificateBlock>>? ReverseProxyCertificate { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterReverseProxyCertificateBlock>>? ReverseProxyCertificate { get; set; }
 
     /// <summary>
     /// Block for reverse_proxy_certificate_common_names.
@@ -621,14 +621,14 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReverseProxyCertificateCommonNames block(s) allowed")]
     [TerraformProperty("reverse_proxy_certificate_common_names")]
-    public TerraformList<TerraformBlock<AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock>>? ReverseProxyCertificateCommonNames { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock>>? ReverseProxyCertificateCommonNames { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermServiceFabricClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermServiceFabricClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for upgrade_policy.
@@ -636,13 +636,13 @@ public partial class AzurermServiceFabricCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradePolicy block(s) allowed")]
     [TerraformProperty("upgrade_policy")]
-    public TerraformList<TerraformBlock<AzurermServiceFabricClusterUpgradePolicyBlock>>? UpgradePolicy { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermServiceFabricClusterUpgradePolicyBlock>>? UpgradePolicy { get; set; }
 
     /// <summary>
     /// The cluster_endpoint attribute.
     /// </summary>
     [TerraformProperty("cluster_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ClusterEndpoint { get; }
+    public partial TerraformValue<string> ClusterEndpoint { get; }
 
 }

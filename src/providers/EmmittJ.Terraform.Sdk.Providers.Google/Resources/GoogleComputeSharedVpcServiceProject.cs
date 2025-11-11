@@ -13,14 +13,14 @@ public partial class GoogleComputeSharedVpcServiceProjectTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,7 +39,7 @@ public partial class GoogleComputeSharedVpcServiceProject : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeletionPolicy { get; set; }
+    public partial TerraformValue<string>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// The ID of a host project to associate.
@@ -47,14 +47,14 @@ public partial class GoogleComputeSharedVpcServiceProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostProject is required")]
     [TerraformProperty("host_project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HostProject { get; set; }
+    public required partial TerraformValue<string> HostProject { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the project that will serve as a Shared VPC service project.
@@ -62,13 +62,13 @@ public partial class GoogleComputeSharedVpcServiceProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceProject is required")]
     [TerraformProperty("service_project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceProject { get; set; }
+    public required partial TerraformValue<string> ServiceProject { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeSharedVpcServiceProjectTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeSharedVpcServiceProjectTimeoutsBlock>? Timeouts { get; set; }
 
 }

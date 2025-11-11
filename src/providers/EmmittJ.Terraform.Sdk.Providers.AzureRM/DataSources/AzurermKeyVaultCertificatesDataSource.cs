@@ -13,7 +13,7 @@ public partial class AzurermKeyVaultCertificatesDataSourceTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,14 +31,14 @@ public partial class AzurermKeyVaultCertificatesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The include_pending attribute.
     /// </summary>
     [TerraformProperty("include_pending")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IncludePending { get; set; }
+    public partial TerraformValue<bool>? IncludePending { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
@@ -46,27 +46,27 @@ public partial class AzurermKeyVaultCertificatesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformProperty("key_vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultId { get; set; }
+    public required partial TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKeyVaultCertificatesDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKeyVaultCertificatesDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The certificates attribute.
     /// </summary>
     [TerraformProperty("certificates")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Certificates { get; }
+    public partial TerraformList<object> Certificates { get; }
 
     /// <summary>
     /// The names attribute.
     /// </summary>
     [TerraformProperty("names")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Names { get; }
+    public partial TerraformList<string> Names { get; }
 
 }

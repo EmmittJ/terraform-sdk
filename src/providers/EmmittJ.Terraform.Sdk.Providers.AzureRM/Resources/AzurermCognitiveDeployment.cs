@@ -14,7 +14,7 @@ public partial class AzurermCognitiveDeploymentModelBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     [TerraformProperty("format")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Format { get; set; }
+    public required partial TerraformValue<string> Format { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -22,14 +22,14 @@ public partial class AzurermCognitiveDeploymentModelBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Version { get; set; }
+    public partial TerraformValue<string>? Version { get; set; }
 
 }
 
@@ -44,14 +44,14 @@ public partial class AzurermCognitiveDeploymentSkuBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("capacity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Capacity { get; set; }
+    public partial TerraformValue<double>? Capacity { get; set; }
 
     /// <summary>
     /// The family attribute.
     /// </summary>
     [TerraformProperty("family")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Family { get; set; }
+    public partial TerraformValue<string>? Family { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -59,21 +59,21 @@ public partial class AzurermCognitiveDeploymentSkuBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The size attribute.
     /// </summary>
     [TerraformProperty("size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Size { get; set; }
+    public partial TerraformValue<string>? Size { get; set; }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
     [TerraformProperty("tier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Tier { get; set; }
+    public partial TerraformValue<string>? Tier { get; set; }
 
 }
 
@@ -88,28 +88,28 @@ public partial class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -129,21 +129,21 @@ public partial class AzurermCognitiveDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveAccountId is required")]
     [TerraformProperty("cognitive_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CognitiveAccountId { get; set; }
+    public required partial TerraformValue<string> CognitiveAccountId { get; set; }
 
     /// <summary>
     /// The dynamic_throttling_enabled attribute.
     /// </summary>
     [TerraformProperty("dynamic_throttling_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DynamicThrottlingEnabled { get; set; }
+    public partial TerraformValue<bool>? DynamicThrottlingEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -151,21 +151,21 @@ public partial class AzurermCognitiveDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The rai_policy_name attribute.
     /// </summary>
     [TerraformProperty("rai_policy_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RaiPolicyName { get; set; }
+    public partial TerraformValue<string>? RaiPolicyName { get; set; }
 
     /// <summary>
     /// The version_upgrade_option attribute.
     /// </summary>
     [TerraformProperty("version_upgrade_option")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VersionUpgradeOption { get; set; }
+    public partial TerraformValue<string>? VersionUpgradeOption { get; set; }
 
     /// <summary>
     /// Block for model.
@@ -175,7 +175,7 @@ public partial class AzurermCognitiveDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Model block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Model block(s) allowed")]
     [TerraformProperty("model")]
-    public TerraformList<TerraformBlock<AzurermCognitiveDeploymentModelBlock>>? Model { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermCognitiveDeploymentModelBlock>>? Model { get; set; }
 
     /// <summary>
     /// Block for sku.
@@ -185,13 +185,13 @@ public partial class AzurermCognitiveDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformProperty("sku")]
-    public TerraformList<TerraformBlock<AzurermCognitiveDeploymentSkuBlock>>? Sku { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermCognitiveDeploymentSkuBlock>>? Sku { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCognitiveDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCognitiveDeploymentTimeoutsBlock>? Timeouts { get; set; }
 
 }

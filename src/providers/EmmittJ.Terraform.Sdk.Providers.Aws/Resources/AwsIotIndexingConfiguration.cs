@@ -14,7 +14,7 @@ public partial class AwsIotIndexingConfigurationThingGroupIndexingConfigurationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingGroupIndexingMode is required")]
     [TerraformProperty("thing_group_indexing_mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ThingGroupIndexingMode { get; set; }
+    public required partial TerraformValue<string> ThingGroupIndexingMode { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public partial class AwsIotIndexingConfigurationThingIndexingConfigurationBlock 
     /// </summary>
     [TerraformProperty("device_defender_indexing_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeviceDefenderIndexingMode { get; set; }
+    public partial TerraformValue<string>? DeviceDefenderIndexingMode { get; set; }
 
     /// <summary>
     /// The named_shadow_indexing_mode attribute.
     /// </summary>
     [TerraformProperty("named_shadow_indexing_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NamedShadowIndexingMode { get; set; }
+    public partial TerraformValue<string>? NamedShadowIndexingMode { get; set; }
 
     /// <summary>
     /// The thing_connectivity_indexing_mode attribute.
     /// </summary>
     [TerraformProperty("thing_connectivity_indexing_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ThingConnectivityIndexingMode { get; set; }
+    public partial TerraformValue<string>? ThingConnectivityIndexingMode { get; set; }
 
     /// <summary>
     /// The thing_indexing_mode attribute.
@@ -51,7 +51,7 @@ public partial class AwsIotIndexingConfigurationThingIndexingConfigurationBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingIndexingMode is required")]
     [TerraformProperty("thing_indexing_mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ThingIndexingMode { get; set; }
+    public required partial TerraformValue<string> ThingIndexingMode { get; set; }
 
 }
 
@@ -70,14 +70,14 @@ public partial class AwsIotIndexingConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for thing_group_indexing_configuration.
@@ -85,7 +85,7 @@ public partial class AwsIotIndexingConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThingGroupIndexingConfiguration block(s) allowed")]
     [TerraformProperty("thing_group_indexing_configuration")]
-    public TerraformList<TerraformBlock<AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlock>>? ThingGroupIndexingConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlock>>? ThingGroupIndexingConfiguration { get; set; }
 
     /// <summary>
     /// Block for thing_indexing_configuration.
@@ -93,6 +93,6 @@ public partial class AwsIotIndexingConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThingIndexingConfiguration block(s) allowed")]
     [TerraformProperty("thing_indexing_configuration")]
-    public TerraformList<TerraformBlock<AwsIotIndexingConfigurationThingIndexingConfigurationBlock>>? ThingIndexingConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsIotIndexingConfigurationThingIndexingConfigurationBlock>>? ThingIndexingConfiguration { get; set; }
 
 }

@@ -13,21 +13,21 @@ public partial class GoogleCertificateManagerDnsAuthorizationTimeoutsBlock : Ter
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class GoogleCertificateManagerDnsAuthorization : TerraformResourc
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A domain which is being authorized. A DnsAuthorization resource covers a
@@ -55,14 +55,14 @@ public partial class GoogleCertificateManagerDnsAuthorization : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     [TerraformProperty("domain")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Domain { get; set; }
+    public required partial TerraformValue<string> Domain { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Set of label tags associated with the DNS Authorization resource.
@@ -72,14 +72,14 @@ public partial class GoogleCertificateManagerDnsAuthorization : TerraformResourc
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The Certificate Manager location. If not specified, &amp;quot;global&amp;quot; is used.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is created.
@@ -89,14 +89,14 @@ public partial class GoogleCertificateManagerDnsAuthorization : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// type of DNS authorization. If unset during the resource creation, FIXED_RECORD will
@@ -110,14 +110,14 @@ public partial class GoogleCertificateManagerDnsAuthorization : TerraformResourc
     /// </summary>
     [TerraformProperty("type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Type { get; set; }
+    public partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleCertificateManagerDnsAuthorizationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleCertificateManagerDnsAuthorizationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The structure describing the DNS Resource Record that needs to be added
@@ -126,14 +126,14 @@ public partial class GoogleCertificateManagerDnsAuthorization : TerraformResourc
     /// </summary>
     [TerraformProperty("dns_resource_record")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> DnsResourceRecord { get; }
+    public partial TerraformList<object> DnsResourceRecord { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -141,6 +141,6 @@ public partial class GoogleCertificateManagerDnsAuthorization : TerraformResourc
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

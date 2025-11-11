@@ -22,14 +22,14 @@ public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceState
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataIdentifiers is required")]
     [TerraformProperty("data_identifiers")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> DataIdentifiers { get; set; }
+    public required partial TerraformSet<string> DataIdentifiers { get; set; }
 
     /// <summary>
     /// The sid attribute.
     /// </summary>
     [TerraformProperty("sid")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Sid { get; set; }
+    public partial TerraformValue<string>? Sid { get; set; }
 
 }
 
@@ -48,14 +48,14 @@ public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : Te
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -63,14 +63,14 @@ public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Version { get; set; }
+    public partial TerraformValue<string>? Version { get; set; }
 
     /// <summary>
     /// Block for configuration.
@@ -78,7 +78,7 @@ public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : Te
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformProperty("configuration")]
-    public TerraformList<TerraformBlock<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfigurationBlock>>? Configuration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfigurationBlock>>? Configuration { get; set; }
 
     /// <summary>
     /// Block for statement.
@@ -87,13 +87,13 @@ public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : Te
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 Statement block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 Statement block(s) allowed")]
     [TerraformProperty("statement")]
-    public TerraformList<TerraformBlock<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBlock>>? Statement { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBlock>>? Statement { get; set; }
 
     /// <summary>
     /// The json attribute.
     /// </summary>
     [TerraformProperty("json")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Json { get; }
+    public partial TerraformValue<string> Json { get; }
 
 }

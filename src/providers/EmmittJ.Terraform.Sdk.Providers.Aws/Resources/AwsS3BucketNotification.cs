@@ -14,35 +14,35 @@ public partial class AwsS3BucketNotificationLambdaFunctionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     [TerraformProperty("events")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Events { get; set; }
+    public required partial TerraformSet<string> Events { get; set; }
 
     /// <summary>
     /// The filter_prefix attribute.
     /// </summary>
     [TerraformProperty("filter_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FilterPrefix { get; set; }
+    public partial TerraformValue<string>? FilterPrefix { get; set; }
 
     /// <summary>
     /// The filter_suffix attribute.
     /// </summary>
     [TerraformProperty("filter_suffix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FilterSuffix { get; set; }
+    public partial TerraformValue<string>? FilterSuffix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The lambda_function_arn attribute.
     /// </summary>
     [TerraformProperty("lambda_function_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LambdaFunctionArn { get; set; }
+    public partial TerraformValue<string>? LambdaFunctionArn { get; set; }
 
 }
 
@@ -58,28 +58,28 @@ public partial class AwsS3BucketNotificationQueueBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     [TerraformProperty("events")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Events { get; set; }
+    public required partial TerraformSet<string> Events { get; set; }
 
     /// <summary>
     /// The filter_prefix attribute.
     /// </summary>
     [TerraformProperty("filter_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FilterPrefix { get; set; }
+    public partial TerraformValue<string>? FilterPrefix { get; set; }
 
     /// <summary>
     /// The filter_suffix attribute.
     /// </summary>
     [TerraformProperty("filter_suffix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FilterSuffix { get; set; }
+    public partial TerraformValue<string>? FilterSuffix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The queue_arn attribute.
@@ -87,7 +87,7 @@ public partial class AwsS3BucketNotificationQueueBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueArn is required")]
     [TerraformProperty("queue_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> QueueArn { get; set; }
+    public required partial TerraformValue<string> QueueArn { get; set; }
 
 }
 
@@ -103,28 +103,28 @@ public partial class AwsS3BucketNotificationTopicBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     [TerraformProperty("events")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Events { get; set; }
+    public required partial TerraformSet<string> Events { get; set; }
 
     /// <summary>
     /// The filter_prefix attribute.
     /// </summary>
     [TerraformProperty("filter_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FilterPrefix { get; set; }
+    public partial TerraformValue<string>? FilterPrefix { get; set; }
 
     /// <summary>
     /// The filter_suffix attribute.
     /// </summary>
     [TerraformProperty("filter_suffix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FilterSuffix { get; set; }
+    public partial TerraformValue<string>? FilterSuffix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The topic_arn attribute.
@@ -132,7 +132,7 @@ public partial class AwsS3BucketNotificationTopicBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     [TerraformProperty("topic_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TopicArn { get; set; }
+    public required partial TerraformValue<string> TopicArn { get; set; }
 
 }
 
@@ -151,48 +151,48 @@ public partial class AwsS3BucketNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The eventbridge attribute.
     /// </summary>
     [TerraformProperty("eventbridge")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Eventbridge { get; set; }
+    public partial TerraformValue<bool>? Eventbridge { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for lambda_function.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("lambda_function")]
-    public TerraformList<TerraformBlock<AwsS3BucketNotificationLambdaFunctionBlock>>? LambdaFunction { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3BucketNotificationLambdaFunctionBlock>>? LambdaFunction { get; set; }
 
     /// <summary>
     /// Block for queue.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("queue")]
-    public TerraformList<TerraformBlock<AwsS3BucketNotificationQueueBlock>>? Queue { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3BucketNotificationQueueBlock>>? Queue { get; set; }
 
     /// <summary>
     /// Block for topic.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("topic")]
-    public TerraformList<TerraformBlock<AwsS3BucketNotificationTopicBlock>>? Topic { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3BucketNotificationTopicBlock>>? Topic { get; set; }
 
 }

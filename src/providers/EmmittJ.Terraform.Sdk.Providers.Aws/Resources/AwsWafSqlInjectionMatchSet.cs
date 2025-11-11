@@ -14,7 +14,7 @@ public partial class AwsWafSqlInjectionMatchSetSqlInjectionMatchTuplesBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     [TerraformProperty("text_transformation")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TextTransformation { get; set; }
+    public required partial TerraformValue<string> TextTransformation { get; set; }
 
 }
 
@@ -32,7 +32,7 @@ public partial class AwsWafSqlInjectionMatchSet : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -40,20 +40,20 @@ public partial class AwsWafSqlInjectionMatchSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for sql_injection_match_tuples.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("sql_injection_match_tuples")]
-    public TerraformSet<TerraformBlock<AwsWafSqlInjectionMatchSetSqlInjectionMatchTuplesBlock>>? SqlInjectionMatchTuples { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsWafSqlInjectionMatchSetSqlInjectionMatchTuplesBlock>>? SqlInjectionMatchTuples { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

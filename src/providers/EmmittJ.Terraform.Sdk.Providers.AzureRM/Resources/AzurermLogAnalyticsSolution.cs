@@ -15,14 +15,14 @@ public partial class AzurermLogAnalyticsSolutionPlanBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     [TerraformProperty("product")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Product { get; set; }
+    public required partial TerraformValue<string> Product { get; set; }
 
     /// <summary>
     /// The promotion_code attribute.
     /// </summary>
     [TerraformProperty("promotion_code")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PromotionCode { get; set; }
+    public partial TerraformValue<string>? PromotionCode { get; set; }
 
     /// <summary>
     /// The publisher attribute.
@@ -30,7 +30,7 @@ public partial class AzurermLogAnalyticsSolutionPlanBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     [TerraformProperty("publisher")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Publisher { get; set; }
+    public required partial TerraformValue<string> Publisher { get; set; }
 
 }
 
@@ -45,28 +45,28 @@ public partial class AzurermLogAnalyticsSolutionTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -85,7 +85,7 @@ public partial class AzurermLogAnalyticsSolution : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -93,7 +93,7 @@ public partial class AzurermLogAnalyticsSolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -101,7 +101,7 @@ public partial class AzurermLogAnalyticsSolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The solution_name attribute.
@@ -109,14 +109,14 @@ public partial class AzurermLogAnalyticsSolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SolutionName is required")]
     [TerraformProperty("solution_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SolutionName { get; set; }
+    public required partial TerraformValue<string> SolutionName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The workspace_name attribute.
@@ -124,7 +124,7 @@ public partial class AzurermLogAnalyticsSolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceName is required")]
     [TerraformProperty("workspace_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceName { get; set; }
+    public required partial TerraformValue<string> WorkspaceName { get; set; }
 
     /// <summary>
     /// The workspace_resource_id attribute.
@@ -132,7 +132,7 @@ public partial class AzurermLogAnalyticsSolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceResourceId is required")]
     [TerraformProperty("workspace_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceResourceId { get; set; }
+    public required partial TerraformValue<string> WorkspaceResourceId { get; set; }
 
     /// <summary>
     /// Block for plan.
@@ -142,13 +142,13 @@ public partial class AzurermLogAnalyticsSolution : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Plan block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
     [TerraformProperty("plan")]
-    public TerraformList<TerraformBlock<AzurermLogAnalyticsSolutionPlanBlock>>? Plan { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermLogAnalyticsSolutionPlanBlock>>? Plan { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLogAnalyticsSolutionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLogAnalyticsSolutionTimeoutsBlock>? Timeouts { get; set; }
 
 }

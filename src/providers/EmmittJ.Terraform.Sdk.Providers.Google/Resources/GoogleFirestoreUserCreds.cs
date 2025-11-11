@@ -13,14 +13,14 @@ public partial class GoogleFirestoreUserCredsTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public partial class GoogleFirestoreUserCreds : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     [TerraformProperty("database")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Database { get; set; }
+    public required partial TerraformValue<string> Database { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID to use for the user creds, which will become the final component
@@ -59,55 +59,55 @@ public partial class GoogleFirestoreUserCreds : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleFirestoreUserCredsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleFirestoreUserCredsTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp at which these user creds were created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Describes the Resource Identity principal.
     /// </summary>
     [TerraformProperty("resource_identity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ResourceIdentity { get; }
+    public partial TerraformList<object> ResourceIdentity { get; }
 
     /// <summary>
     /// The plaintext server-generated password for the user creds.
     /// </summary>
     [TerraformProperty("secure_password")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecurePassword { get; }
+    public partial TerraformValue<string> SecurePassword { get; }
 
     /// <summary>
     /// The state of the user creds.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The timestamp at which these user creds were updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

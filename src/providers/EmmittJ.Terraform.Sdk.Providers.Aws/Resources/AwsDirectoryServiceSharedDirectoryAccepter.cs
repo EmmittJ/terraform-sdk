@@ -13,14 +13,14 @@ public partial class AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,14 +38,14 @@ public partial class AwsDirectoryServiceSharedDirectoryAccepter : TerraformResou
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The shared_directory_id attribute.
@@ -53,41 +53,41 @@ public partial class AwsDirectoryServiceSharedDirectoryAccepter : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedDirectoryId is required")]
     [TerraformProperty("shared_directory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SharedDirectoryId { get; set; }
+    public required partial TerraformValue<string> SharedDirectoryId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The method attribute.
     /// </summary>
     [TerraformProperty("method")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Method { get; }
+    public partial TerraformValue<string> Method { get; }
 
     /// <summary>
     /// The notes attribute.
     /// </summary>
     [TerraformProperty("notes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Notes { get; }
+    public partial TerraformValue<string> Notes { get; }
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     [TerraformProperty("owner_account_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OwnerAccountId { get; }
+    public partial TerraformValue<string> OwnerAccountId { get; }
 
     /// <summary>
     /// The owner_directory_id attribute.
     /// </summary>
     [TerraformProperty("owner_directory_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OwnerDirectoryId { get; }
+    public partial TerraformValue<string> OwnerDirectoryId { get; }
 
 }

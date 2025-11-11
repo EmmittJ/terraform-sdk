@@ -13,28 +13,28 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     /// </summary>
     [TerraformProperty("api_token")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ApiToken { get; set; }
+    public partial TerraformValue<string>? ApiToken { get; set; }
 
     /// <summary>
     /// The api_url attribute.
     /// </summary>
     [TerraformProperty("api_url")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ApiUrl { get; set; }
+    public partial TerraformValue<string>? ApiUrl { get; set; }
 
     /// <summary>
     /// The connection_point attribute.
@@ -67,28 +67,28 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionPoint is required")]
     [TerraformProperty("connection_point")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConnectionPoint { get; set; }
+    public required partial TerraformValue<string> ConnectionPoint { get; set; }
 
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
     [TerraformProperty("environment_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EnvironmentId { get; set; }
+    public partial TerraformValue<string>? EnvironmentId { get; set; }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
     [TerraformProperty("globally_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? GloballyEnabled { get; set; }
+    public partial TerraformValue<bool>? GloballyEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -96,7 +96,7 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
@@ -104,7 +104,7 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     [TerraformProperty("spring_cloud_service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SpringCloudServiceId { get; set; }
+    public required partial TerraformValue<string> SpringCloudServiceId { get; set; }
 
     /// <summary>
     /// The tenant attribute.
@@ -112,7 +112,7 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tenant is required")]
     [TerraformProperty("tenant")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Tenant { get; set; }
+    public required partial TerraformValue<string> Tenant { get; set; }
 
     /// <summary>
     /// The tenant_token attribute.
@@ -120,13 +120,13 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantToken is required")]
     [TerraformProperty("tenant_token")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TenantToken { get; set; }
+    public required partial TerraformValue<string> TenantToken { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSpringCloudDynatraceApplicationPerformanceMonitoringTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSpringCloudDynatraceApplicationPerformanceMonitoringTimeoutsBlock>? Timeouts { get; set; }
 
 }

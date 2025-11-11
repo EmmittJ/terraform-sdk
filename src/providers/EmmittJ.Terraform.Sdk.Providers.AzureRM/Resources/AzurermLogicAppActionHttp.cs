@@ -14,7 +14,7 @@ public partial class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionName is required")]
     [TerraformProperty("action_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ActionName { get; set; }
+    public required partial TerraformValue<string> ActionName { get; set; }
 
     /// <summary>
     /// The action_result attribute.
@@ -22,7 +22,7 @@ public partial class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionResult is required")]
     [TerraformProperty("action_result")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ActionResult { get; set; }
+    public required partial TerraformValue<string> ActionResult { get; set; }
 
 }
 
@@ -37,28 +37,28 @@ public partial class AzurermLogicAppActionHttpTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -76,21 +76,21 @@ public partial class AzurermLogicAppActionHttp : TerraformResource
     /// </summary>
     [TerraformProperty("body")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Body { get; set; }
+    public partial TerraformValue<string>? Body { get; set; }
 
     /// <summary>
     /// The headers attribute.
     /// </summary>
     [TerraformProperty("headers")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Headers { get; set; }
+    public partial TerraformMap<string>? Headers { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The logic_app_id attribute.
@@ -98,7 +98,7 @@ public partial class AzurermLogicAppActionHttp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     [TerraformProperty("logic_app_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LogicAppId { get; set; }
+    public required partial TerraformValue<string> LogicAppId { get; set; }
 
     /// <summary>
     /// The method attribute.
@@ -106,7 +106,7 @@ public partial class AzurermLogicAppActionHttp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
     [TerraformProperty("method")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Method { get; set; }
+    public required partial TerraformValue<string> Method { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -114,14 +114,14 @@ public partial class AzurermLogicAppActionHttp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The queries attribute.
     /// </summary>
     [TerraformProperty("queries")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Queries { get; set; }
+    public partial TerraformMap<string>? Queries { get; set; }
 
     /// <summary>
     /// The uri attribute.
@@ -129,20 +129,20 @@ public partial class AzurermLogicAppActionHttp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     [TerraformProperty("uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Uri { get; set; }
+    public required partial TerraformValue<string> Uri { get; set; }
 
     /// <summary>
     /// Block for run_after.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("run_after")]
-    public TerraformSet<TerraformBlock<AzurermLogicAppActionHttpRunAfterBlock>>? RunAfter { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermLogicAppActionHttpRunAfterBlock>>? RunAfter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLogicAppActionHttpTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLogicAppActionHttpTimeoutsBlock>? Timeouts { get; set; }
 
 }

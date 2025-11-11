@@ -13,35 +13,35 @@ public partial class AwsSagemakerAppResourceSpecBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("instance_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InstanceType { get; set; }
+    public partial TerraformValue<string>? InstanceType { get; set; }
 
     /// <summary>
     /// The lifecycle_config_arn attribute.
     /// </summary>
     [TerraformProperty("lifecycle_config_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LifecycleConfigArn { get; set; }
+    public partial TerraformValue<string>? LifecycleConfigArn { get; set; }
 
     /// <summary>
     /// The sagemaker_image_arn attribute.
     /// </summary>
     [TerraformProperty("sagemaker_image_arn")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SagemakerImageArn { get; set; }
+    public partial TerraformValue<string> SagemakerImageArn { get; set; }
 
     /// <summary>
     /// The sagemaker_image_version_alias attribute.
     /// </summary>
     [TerraformProperty("sagemaker_image_version_alias")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SagemakerImageVersionAlias { get; set; }
+    public partial TerraformValue<string>? SagemakerImageVersionAlias { get; set; }
 
     /// <summary>
     /// The sagemaker_image_version_arn attribute.
     /// </summary>
     [TerraformProperty("sagemaker_image_version_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SagemakerImageVersionArn { get; set; }
+    public partial TerraformValue<string>? SagemakerImageVersionArn { get; set; }
 
 }
 
@@ -61,7 +61,7 @@ public partial class AwsSagemakerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppName is required")]
     [TerraformProperty("app_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AppName { get; set; }
+    public required partial TerraformValue<string> AppName { get; set; }
 
     /// <summary>
     /// The app_type attribute.
@@ -69,7 +69,7 @@ public partial class AwsSagemakerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppType is required")]
     [TerraformProperty("app_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AppType { get; set; }
+    public required partial TerraformValue<string> AppType { get; set; }
 
     /// <summary>
     /// The domain_id attribute.
@@ -77,49 +77,49 @@ public partial class AwsSagemakerApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     [TerraformProperty("domain_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainId { get; set; }
+    public required partial TerraformValue<string> DomainId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The space_name attribute.
     /// </summary>
     [TerraformProperty("space_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SpaceName { get; set; }
+    public partial TerraformValue<string>? SpaceName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The user_profile_name attribute.
     /// </summary>
     [TerraformProperty("user_profile_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserProfileName { get; set; }
+    public partial TerraformValue<string>? UserProfileName { get; set; }
 
     /// <summary>
     /// Block for resource_spec.
@@ -127,13 +127,13 @@ public partial class AwsSagemakerApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceSpec block(s) allowed")]
     [TerraformProperty("resource_spec")]
-    public TerraformList<TerraformBlock<AwsSagemakerAppResourceSpecBlock>>? ResourceSpec { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerAppResourceSpecBlock>>? ResourceSpec { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

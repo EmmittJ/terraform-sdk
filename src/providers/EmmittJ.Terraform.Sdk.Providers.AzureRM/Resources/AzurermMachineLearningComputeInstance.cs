@@ -13,14 +13,14 @@ public partial class AzurermMachineLearningComputeInstanceAssignToUserBlock : Te
     /// </summary>
     [TerraformProperty("object_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ObjectId { get; set; }
+    public partial TerraformValue<string>? ObjectId { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [TerraformProperty("tenant_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TenantId { get; set; }
+    public partial TerraformValue<string>? TenantId { get; set; }
 
 }
 
@@ -35,7 +35,7 @@ public partial class AzurermMachineLearningComputeInstanceIdentityBlock : Terraf
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -45,7 +45,7 @@ public partial class AzurermMachineLearningComputeInstanceIdentityBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -62,7 +62,7 @@ public partial class AzurermMachineLearningComputeInstanceSshBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
     [TerraformProperty("public_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PublicKey { get; set; }
+    public required partial TerraformValue<string> PublicKey { get; set; }
 
 
 }
@@ -78,21 +78,21 @@ public partial class AzurermMachineLearningComputeInstanceTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -111,28 +111,28 @@ public partial class AzurermMachineLearningComputeInstance : TerraformResource
     /// </summary>
     [TerraformProperty("authorization_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthorizationType { get; set; }
+    public partial TerraformValue<string>? AuthorizationType { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
     [TerraformProperty("local_auth_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LocalAuthEnabled { get; set; }
+    public partial TerraformValue<bool>? LocalAuthEnabled { get; set; }
 
     /// <summary>
     /// The machine_learning_workspace_id attribute.
@@ -140,7 +140,7 @@ public partial class AzurermMachineLearningComputeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineLearningWorkspaceId is required")]
     [TerraformProperty("machine_learning_workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MachineLearningWorkspaceId { get; set; }
+    public required partial TerraformValue<string> MachineLearningWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -148,28 +148,28 @@ public partial class AzurermMachineLearningComputeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The node_public_ip_enabled attribute.
     /// </summary>
     [TerraformProperty("node_public_ip_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? NodePublicIpEnabled { get; set; }
+    public partial TerraformValue<bool>? NodePublicIpEnabled { get; set; }
 
     /// <summary>
     /// The subnet_resource_id attribute.
     /// </summary>
     [TerraformProperty("subnet_resource_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SubnetResourceId { get; set; }
+    public partial TerraformValue<string>? SubnetResourceId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The virtual_machine_size attribute.
@@ -177,7 +177,7 @@ public partial class AzurermMachineLearningComputeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineSize is required")]
     [TerraformProperty("virtual_machine_size")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualMachineSize { get; set; }
+    public required partial TerraformValue<string> VirtualMachineSize { get; set; }
 
     /// <summary>
     /// Block for assign_to_user.
@@ -185,7 +185,7 @@ public partial class AzurermMachineLearningComputeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AssignToUser block(s) allowed")]
     [TerraformProperty("assign_to_user")]
-    public TerraformList<TerraformBlock<AzurermMachineLearningComputeInstanceAssignToUserBlock>>? AssignToUser { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMachineLearningComputeInstanceAssignToUserBlock>>? AssignToUser { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -193,7 +193,7 @@ public partial class AzurermMachineLearningComputeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermMachineLearningComputeInstanceIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMachineLearningComputeInstanceIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for ssh.
@@ -201,13 +201,13 @@ public partial class AzurermMachineLearningComputeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ssh block(s) allowed")]
     [TerraformProperty("ssh")]
-    public TerraformList<TerraformBlock<AzurermMachineLearningComputeInstanceSshBlock>>? Ssh { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMachineLearningComputeInstanceSshBlock>>? Ssh { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMachineLearningComputeInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMachineLearningComputeInstanceTimeoutsBlock>? Timeouts { get; set; }
 
 }

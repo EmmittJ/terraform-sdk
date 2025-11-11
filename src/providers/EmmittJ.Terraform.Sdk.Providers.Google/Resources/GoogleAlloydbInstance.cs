@@ -13,7 +13,7 @@ public partial class GoogleAlloydbInstanceClientConnectionConfigBlock : Terrafor
     /// </summary>
     [TerraformProperty("require_connectors")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RequireConnectors { get; set; }
+    public partial TerraformValue<bool>? RequireConnectors { get; set; }
 
 }
 
@@ -28,7 +28,7 @@ public partial class GoogleAlloydbInstanceMachineConfigBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("cpu_count")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> CpuCount { get; set; }
+    public partial TerraformValue<double> CpuCount { get; set; }
 
     /// <summary>
     /// Machine type of the VM instance.
@@ -37,7 +37,7 @@ public partial class GoogleAlloydbInstanceMachineConfigBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("machine_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> MachineType { get; set; }
+    public partial TerraformValue<string> MachineType { get; set; }
 
 }
 
@@ -54,14 +54,14 @@ public partial class GoogleAlloydbInstanceNetworkConfigBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("allocated_ip_range_override")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AllocatedIpRangeOverride { get; set; }
+    public partial TerraformValue<string>? AllocatedIpRangeOverride { get; set; }
 
     /// <summary>
     /// Enabling outbound public ip for the instance.
     /// </summary>
     [TerraformProperty("enable_outbound_public_ip")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableOutboundPublicIp { get; set; }
+    public partial TerraformValue<bool>? EnableOutboundPublicIp { get; set; }
 
     /// <summary>
     /// Enabling public ip for the instance. If a user wishes to disable this,
@@ -70,7 +70,7 @@ public partial class GoogleAlloydbInstanceNetworkConfigBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("enable_public_ip")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnablePublicIp { get; set; }
+    public partial TerraformValue<bool>? EnablePublicIp { get; set; }
 
 }
 
@@ -86,7 +86,7 @@ public partial class GoogleAlloydbInstancePscInstanceConfigBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("allowed_consumer_projects")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AllowedConsumerProjects { get; set; }
+    public partial TerraformList<string>? AllowedConsumerProjects { get; set; }
 
 
 
@@ -103,28 +103,28 @@ public partial class GoogleAlloydbInstanceQueryInsightsConfigBlock : TerraformBl
     /// </summary>
     [TerraformProperty("query_plans_per_minute")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? QueryPlansPerMinute { get; set; }
+    public partial TerraformValue<double>? QueryPlansPerMinute { get; set; }
 
     /// <summary>
     /// Query string length. The default value is 1024. Any integer between 256 and 4500 is considered valid.
     /// </summary>
     [TerraformProperty("query_string_length")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? QueryStringLength { get; set; }
+    public partial TerraformValue<double>? QueryStringLength { get; set; }
 
     /// <summary>
     /// Record application tags for an instance. This flag is turned &amp;quot;on&amp;quot; by default.
     /// </summary>
     [TerraformProperty("record_application_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RecordApplicationTags { get; set; }
+    public partial TerraformValue<bool>? RecordApplicationTags { get; set; }
 
     /// <summary>
     /// Record client address for an instance. Client address is PII information. This flag is turned &amp;quot;on&amp;quot; by default.
     /// </summary>
     [TerraformProperty("record_client_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RecordClientAddress { get; set; }
+    public partial TerraformValue<bool>? RecordClientAddress { get; set; }
 
 }
 
@@ -139,7 +139,7 @@ public partial class GoogleAlloydbInstanceReadPoolConfigBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("node_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? NodeCount { get; set; }
+    public partial TerraformValue<double>? NodeCount { get; set; }
 
 }
 
@@ -154,21 +154,21 @@ public partial class GoogleAlloydbInstanceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -194,7 +194,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [TerraformProperty("activation_policy")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ActivationPolicy { get; set; }
+    public partial TerraformValue<string> ActivationPolicy { get; set; }
 
     /// <summary>
     /// Annotations to allow client tools to store small amount of arbitrary data. This is distinct from labels.
@@ -204,7 +204,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// &#39;Availability type of an Instance. Defaults to REGIONAL for both primary and read instances.
@@ -216,7 +216,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [TerraformProperty("availability_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AvailabilityType { get; set; }
+    public partial TerraformValue<string> AvailabilityType { get; set; }
 
     /// <summary>
     /// Identifies the alloydb cluster. Must be in the format
@@ -225,35 +225,35 @@ public partial class GoogleAlloydbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     [TerraformProperty("cluster")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Cluster { get; set; }
+    public required partial TerraformValue<string> Cluster { get; set; }
 
     /// <summary>
     /// Database flags. Set at instance level. * They are copied from primary instance on read instance creation. * Read instances can set new or override existing flags that are relevant for reads, e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not be present on primary.
     /// </summary>
     [TerraformProperty("database_flags")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> DatabaseFlags { get; set; }
+    public partial TerraformMap<string> DatabaseFlags { get; set; }
 
     /// <summary>
     /// User-settable and human-readable display name for the Instance.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The Compute Engine zone that the instance should serve from, per https://cloud.google.com/compute/docs/regions-zones This can ONLY be specified for ZONAL instances. If present for a REGIONAL instance, an error will be thrown. If this is absent for a ZONAL instance, instance is created in a random zone with available capacity.
     /// </summary>
     [TerraformProperty("gce_zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GceZone { get; set; }
+    public partial TerraformValue<string>? GceZone { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the alloydb instance.
@@ -261,7 +261,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     [TerraformProperty("instance_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InstanceId { get; set; }
+    public required partial TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
     /// The type of the instance.
@@ -275,7 +275,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     [TerraformProperty("instance_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InstanceType { get; set; }
+    public required partial TerraformValue<string> InstanceType { get; set; }
 
     /// <summary>
     /// User-defined labels for the alloydb instance.
@@ -285,7 +285,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Block for client_connection_config.
@@ -293,7 +293,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientConnectionConfig block(s) allowed")]
     [TerraformProperty("client_connection_config")]
-    public TerraformList<TerraformBlock<GoogleAlloydbInstanceClientConnectionConfigBlock>>? ClientConnectionConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAlloydbInstanceClientConnectionConfigBlock>>? ClientConnectionConfig { get; set; }
 
     /// <summary>
     /// Block for machine_config.
@@ -301,7 +301,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MachineConfig block(s) allowed")]
     [TerraformProperty("machine_config")]
-    public TerraformList<TerraformBlock<GoogleAlloydbInstanceMachineConfigBlock>>? MachineConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAlloydbInstanceMachineConfigBlock>>? MachineConfig { get; set; }
 
     /// <summary>
     /// Block for network_config.
@@ -309,7 +309,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public TerraformList<TerraformBlock<GoogleAlloydbInstanceNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAlloydbInstanceNetworkConfigBlock>>? NetworkConfig { get; set; }
 
     /// <summary>
     /// Block for psc_instance_config.
@@ -317,7 +317,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscInstanceConfig block(s) allowed")]
     [TerraformProperty("psc_instance_config")]
-    public TerraformList<TerraformBlock<GoogleAlloydbInstancePscInstanceConfigBlock>>? PscInstanceConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAlloydbInstancePscInstanceConfigBlock>>? PscInstanceConfig { get; set; }
 
     /// <summary>
     /// Block for query_insights_config.
@@ -325,7 +325,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueryInsightsConfig block(s) allowed")]
     [TerraformProperty("query_insights_config")]
-    public TerraformList<TerraformBlock<GoogleAlloydbInstanceQueryInsightsConfigBlock>>? QueryInsightsConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAlloydbInstanceQueryInsightsConfigBlock>>? QueryInsightsConfig { get; set; }
 
     /// <summary>
     /// Block for read_pool_config.
@@ -333,49 +333,49 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadPoolConfig block(s) allowed")]
     [TerraformProperty("read_pool_config")]
-    public TerraformList<TerraformBlock<GoogleAlloydbInstanceReadPoolConfigBlock>>? ReadPoolConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAlloydbInstanceReadPoolConfigBlock>>? ReadPoolConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleAlloydbInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleAlloydbInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the Instance was created in UTC.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The IP address for the Instance. This is the connection endpoint for an end-user application.
     /// </summary>
     [TerraformProperty("ip_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IpAddress { get; }
+    public partial TerraformValue<string> IpAddress { get; }
 
     /// <summary>
     /// The name of the instance resource.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The outbound public IP addresses for the instance. This is available ONLY when
@@ -384,7 +384,7 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [TerraformProperty("outbound_public_ip_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> OutboundPublicIpAddresses { get; }
+    public partial TerraformList<string> OutboundPublicIpAddresses { get; }
 
     /// <summary>
     /// The public IP addresses for the Instance. This is available ONLY when
@@ -393,21 +393,21 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [TerraformProperty("public_ip_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PublicIpAddress { get; }
+    public partial TerraformValue<string> PublicIpAddress { get; }
 
     /// <summary>
     /// Set to true if the current state of Instance does not match the user&#39;s intended state, and the service is actively updating the resource to reconcile them. This can happen due to user-triggered updates or system actions like failover or maintenance.
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// The current state of the alloydb instance.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -415,20 +415,20 @@ public partial class GoogleAlloydbInstance : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The system-generated UID of the resource.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Time the Instance was updated in UTC.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

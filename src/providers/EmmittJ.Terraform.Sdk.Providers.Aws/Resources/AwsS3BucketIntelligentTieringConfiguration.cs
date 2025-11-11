@@ -13,14 +13,14 @@ public partial class AwsS3BucketIntelligentTieringConfigurationFilterBlock : Ter
     /// </summary>
     [TerraformProperty("prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Prefix { get; set; }
+    public partial TerraformValue<string>? Prefix { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public partial class AwsS3BucketIntelligentTieringConfigurationTieringBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessTier is required")]
     [TerraformProperty("access_tier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccessTier { get; set; }
+    public required partial TerraformValue<string> AccessTier { get; set; }
 
     /// <summary>
     /// The days attribute.
@@ -44,7 +44,7 @@ public partial class AwsS3BucketIntelligentTieringConfigurationTieringBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Days is required")]
     [TerraformProperty("days")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Days { get; set; }
+    public required partial TerraformValue<double> Days { get; set; }
 
 }
 
@@ -64,14 +64,14 @@ public partial class AwsS3BucketIntelligentTieringConfiguration : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -79,21 +79,21 @@ public partial class AwsS3BucketIntelligentTieringConfiguration : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Status { get; set; }
+    public partial TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// Block for filter.
@@ -101,7 +101,7 @@ public partial class AwsS3BucketIntelligentTieringConfiguration : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public TerraformList<TerraformBlock<AwsS3BucketIntelligentTieringConfigurationFilterBlock>>? Filter { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3BucketIntelligentTieringConfigurationFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for tiering.
@@ -110,6 +110,6 @@ public partial class AwsS3BucketIntelligentTieringConfiguration : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tiering is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Tiering block(s) required")]
     [TerraformProperty("tiering")]
-    public TerraformSet<TerraformBlock<AwsS3BucketIntelligentTieringConfigurationTieringBlock>>? Tiering { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsS3BucketIntelligentTieringConfigurationTieringBlock>>? Tiering { get; set; }
 
 }

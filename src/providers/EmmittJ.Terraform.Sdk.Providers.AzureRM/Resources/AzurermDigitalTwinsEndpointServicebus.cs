@@ -13,28 +13,28 @@ public partial class AzurermDigitalTwinsEndpointServicebusTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermDigitalTwinsEndpointServicebus : TerraformResource
     /// </summary>
     [TerraformProperty("dead_letter_storage_secret")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeadLetterStorageSecret { get; set; }
+    public partial TerraformValue<string>? DeadLetterStorageSecret { get; set; }
 
     /// <summary>
     /// The digital_twins_id attribute.
@@ -60,14 +60,14 @@ public partial class AzurermDigitalTwinsEndpointServicebus : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
     [TerraformProperty("digital_twins_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DigitalTwinsId { get; set; }
+    public required partial TerraformValue<string> DigitalTwinsId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -75,7 +75,7 @@ public partial class AzurermDigitalTwinsEndpointServicebus : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The servicebus_primary_connection_string attribute.
@@ -83,7 +83,7 @@ public partial class AzurermDigitalTwinsEndpointServicebus : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicebusPrimaryConnectionString is required")]
     [TerraformProperty("servicebus_primary_connection_string")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServicebusPrimaryConnectionString { get; set; }
+    public required partial TerraformValue<string> ServicebusPrimaryConnectionString { get; set; }
 
     /// <summary>
     /// The servicebus_secondary_connection_string attribute.
@@ -91,13 +91,13 @@ public partial class AzurermDigitalTwinsEndpointServicebus : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicebusSecondaryConnectionString is required")]
     [TerraformProperty("servicebus_secondary_connection_string")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServicebusSecondaryConnectionString { get; set; }
+    public required partial TerraformValue<string> ServicebusSecondaryConnectionString { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDigitalTwinsEndpointServicebusTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDigitalTwinsEndpointServicebusTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,42 +13,42 @@ public partial class AzurermDataFactoryDatasetParquetAzureBlobFsLocationBlock : 
     /// </summary>
     [TerraformProperty("dynamic_file_system_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DynamicFileSystemEnabled { get; set; }
+    public partial TerraformValue<bool>? DynamicFileSystemEnabled { get; set; }
 
     /// <summary>
     /// The dynamic_filename_enabled attribute.
     /// </summary>
     [TerraformProperty("dynamic_filename_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DynamicFilenameEnabled { get; set; }
+    public partial TerraformValue<bool>? DynamicFilenameEnabled { get; set; }
 
     /// <summary>
     /// The dynamic_path_enabled attribute.
     /// </summary>
     [TerraformProperty("dynamic_path_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DynamicPathEnabled { get; set; }
+    public partial TerraformValue<bool>? DynamicPathEnabled { get; set; }
 
     /// <summary>
     /// The file_system attribute.
     /// </summary>
     [TerraformProperty("file_system")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FileSystem { get; set; }
+    public partial TerraformValue<string>? FileSystem { get; set; }
 
     /// <summary>
     /// The filename attribute.
     /// </summary>
     [TerraformProperty("filename")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Filename { get; set; }
+    public partial TerraformValue<string>? Filename { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [TerraformProperty("path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Path { get; set; }
+    public partial TerraformValue<string>? Path { get; set; }
 
 }
 
@@ -64,42 +64,42 @@ public partial class AzurermDataFactoryDatasetParquetAzureBlobStorageLocationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     [TerraformProperty("container")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Container { get; set; }
+    public required partial TerraformValue<string> Container { get; set; }
 
     /// <summary>
     /// The dynamic_container_enabled attribute.
     /// </summary>
     [TerraformProperty("dynamic_container_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DynamicContainerEnabled { get; set; }
+    public partial TerraformValue<bool>? DynamicContainerEnabled { get; set; }
 
     /// <summary>
     /// The dynamic_filename_enabled attribute.
     /// </summary>
     [TerraformProperty("dynamic_filename_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DynamicFilenameEnabled { get; set; }
+    public partial TerraformValue<bool>? DynamicFilenameEnabled { get; set; }
 
     /// <summary>
     /// The dynamic_path_enabled attribute.
     /// </summary>
     [TerraformProperty("dynamic_path_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DynamicPathEnabled { get; set; }
+    public partial TerraformValue<bool>? DynamicPathEnabled { get; set; }
 
     /// <summary>
     /// The filename attribute.
     /// </summary>
     [TerraformProperty("filename")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Filename { get; set; }
+    public partial TerraformValue<string>? Filename { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [TerraformProperty("path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Path { get; set; }
+    public partial TerraformValue<string>? Path { get; set; }
 
 }
 
@@ -114,14 +114,14 @@ public partial class AzurermDataFactoryDatasetParquetHttpServerLocationBlock : T
     /// </summary>
     [TerraformProperty("dynamic_filename_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DynamicFilenameEnabled { get; set; }
+    public partial TerraformValue<bool>? DynamicFilenameEnabled { get; set; }
 
     /// <summary>
     /// The dynamic_path_enabled attribute.
     /// </summary>
     [TerraformProperty("dynamic_path_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DynamicPathEnabled { get; set; }
+    public partial TerraformValue<bool>? DynamicPathEnabled { get; set; }
 
     /// <summary>
     /// The filename attribute.
@@ -129,14 +129,14 @@ public partial class AzurermDataFactoryDatasetParquetHttpServerLocationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
     [TerraformProperty("filename")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Filename { get; set; }
+    public required partial TerraformValue<string> Filename { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [TerraformProperty("path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Path { get; set; }
+    public partial TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The relative_url attribute.
@@ -144,7 +144,7 @@ public partial class AzurermDataFactoryDatasetParquetHttpServerLocationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeUrl is required")]
     [TerraformProperty("relative_url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RelativeUrl { get; set; }
+    public required partial TerraformValue<string> RelativeUrl { get; set; }
 
 }
 
@@ -159,7 +159,7 @@ public partial class AzurermDataFactoryDatasetParquetSchemaColumnBlock : Terrafo
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -167,14 +167,14 @@ public partial class AzurermDataFactoryDatasetParquetSchemaColumnBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -189,28 +189,28 @@ public partial class AzurermDataFactoryDatasetParquetTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -229,28 +229,28 @@ public partial class AzurermDataFactoryDatasetParquet : TerraformResource
     /// </summary>
     [TerraformProperty("additional_properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? AdditionalProperties { get; set; }
+    public partial TerraformMap<string>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Annotations { get; set; }
+    public partial TerraformList<string>? Annotations { get; set; }
 
     /// <summary>
     /// The compression_codec attribute.
     /// </summary>
     [TerraformProperty("compression_codec")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CompressionCodec { get; set; }
+    public partial TerraformValue<string>? CompressionCodec { get; set; }
 
     /// <summary>
     /// The compression_level attribute.
     /// </summary>
     [TerraformProperty("compression_level")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CompressionLevel { get; set; }
+    public partial TerraformValue<string>? CompressionLevel { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
@@ -258,28 +258,28 @@ public partial class AzurermDataFactoryDatasetParquet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformProperty("data_factory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataFactoryId { get; set; }
+    public required partial TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
     [TerraformProperty("folder")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Folder { get; set; }
+    public partial TerraformValue<string>? Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The linked_service_name attribute.
@@ -287,7 +287,7 @@ public partial class AzurermDataFactoryDatasetParquet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     [TerraformProperty("linked_service_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LinkedServiceName { get; set; }
+    public required partial TerraformValue<string> LinkedServiceName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -295,14 +295,14 @@ public partial class AzurermDataFactoryDatasetParquet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// Block for azure_blob_fs_location.
@@ -310,7 +310,7 @@ public partial class AzurermDataFactoryDatasetParquet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobFsLocation block(s) allowed")]
     [TerraformProperty("azure_blob_fs_location")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryDatasetParquetAzureBlobFsLocationBlock>>? AzureBlobFsLocation { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetParquetAzureBlobFsLocationBlock>>? AzureBlobFsLocation { get; set; }
 
     /// <summary>
     /// Block for azure_blob_storage_location.
@@ -318,7 +318,7 @@ public partial class AzurermDataFactoryDatasetParquet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobStorageLocation block(s) allowed")]
     [TerraformProperty("azure_blob_storage_location")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryDatasetParquetAzureBlobStorageLocationBlock>>? AzureBlobStorageLocation { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetParquetAzureBlobStorageLocationBlock>>? AzureBlobStorageLocation { get; set; }
 
     /// <summary>
     /// Block for http_server_location.
@@ -326,20 +326,20 @@ public partial class AzurermDataFactoryDatasetParquet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpServerLocation block(s) allowed")]
     [TerraformProperty("http_server_location")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryDatasetParquetHttpServerLocationBlock>>? HttpServerLocation { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetParquetHttpServerLocationBlock>>? HttpServerLocation { get; set; }
 
     /// <summary>
     /// Block for schema_column.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("schema_column")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryDatasetParquetSchemaColumnBlock>>? SchemaColumn { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetParquetSchemaColumnBlock>>? SchemaColumn { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataFactoryDatasetParquetTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataFactoryDatasetParquetTimeoutsBlock>? Timeouts { get; set; }
 
 }

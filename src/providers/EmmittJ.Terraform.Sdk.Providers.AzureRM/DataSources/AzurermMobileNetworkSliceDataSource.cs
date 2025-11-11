@@ -13,7 +13,7 @@ public partial class AzurermMobileNetworkSliceDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermMobileNetworkSliceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The mobile_network_id attribute.
@@ -39,7 +39,7 @@ public partial class AzurermMobileNetworkSliceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
     [TerraformProperty("mobile_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MobileNetworkId { get; set; }
+    public required partial TerraformValue<string> MobileNetworkId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,41 +47,41 @@ public partial class AzurermMobileNetworkSliceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMobileNetworkSliceDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMobileNetworkSliceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The single_network_slice_selection_assistance_information attribute.
     /// </summary>
     [TerraformProperty("single_network_slice_selection_assistance_information")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> SingleNetworkSliceSelectionAssistanceInformation { get; }
+    public partial TerraformList<object> SingleNetworkSliceSelectionAssistanceInformation { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
 }

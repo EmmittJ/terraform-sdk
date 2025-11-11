@@ -13,21 +13,21 @@ public partial class AzurermNatGatewayPublicIpPrefixAssociationTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermNatGatewayPublicIpPrefixAssociation : TerraformResou
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The nat_gateway_id attribute.
@@ -53,7 +53,7 @@ public partial class AzurermNatGatewayPublicIpPrefixAssociation : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatGatewayId is required")]
     [TerraformProperty("nat_gateway_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NatGatewayId { get; set; }
+    public required partial TerraformValue<string> NatGatewayId { get; set; }
 
     /// <summary>
     /// The public_ip_prefix_id attribute.
@@ -61,13 +61,13 @@ public partial class AzurermNatGatewayPublicIpPrefixAssociation : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpPrefixId is required")]
     [TerraformProperty("public_ip_prefix_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PublicIpPrefixId { get; set; }
+    public required partial TerraformValue<string> PublicIpPrefixId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNatGatewayPublicIpPrefixAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNatGatewayPublicIpPrefixAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

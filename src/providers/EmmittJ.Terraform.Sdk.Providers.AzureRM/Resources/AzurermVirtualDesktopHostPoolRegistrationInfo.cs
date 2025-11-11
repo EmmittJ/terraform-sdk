@@ -13,28 +13,28 @@ public partial class AzurermVirtualDesktopHostPoolRegistrationInfoTimeoutsBlock 
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermVirtualDesktopHostPoolRegistrationInfo : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpirationDate is required")]
     [TerraformProperty("expiration_date")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ExpirationDate { get; set; }
+    public required partial TerraformValue<string> ExpirationDate { get; set; }
 
     /// <summary>
     /// The hostpool_id attribute.
@@ -61,27 +61,27 @@ public partial class AzurermVirtualDesktopHostPoolRegistrationInfo : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostpoolId is required")]
     [TerraformProperty("hostpool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HostpoolId { get; set; }
+    public required partial TerraformValue<string> HostpoolId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVirtualDesktopHostPoolRegistrationInfoTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVirtualDesktopHostPoolRegistrationInfoTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The token attribute.
     /// </summary>
     [TerraformProperty("token")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Token { get; }
+    public partial TerraformValue<string> Token { get; }
 
 }

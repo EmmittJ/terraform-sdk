@@ -13,14 +13,14 @@ public partial class AwsFsxOntapVolumeAggregateConfigurationBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("aggregates")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> Aggregates { get; set; }
+    public partial TerraformList<string> Aggregates { get; set; }
 
     /// <summary>
     /// The constituents_per_aggregate attribute.
     /// </summary>
     [TerraformProperty("constituents_per_aggregate")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> ConstituentsPerAggregate { get; set; }
+    public partial TerraformValue<double> ConstituentsPerAggregate { get; set; }
 
 
 }
@@ -36,14 +36,14 @@ public partial class AwsFsxOntapVolumeSnaplockConfigurationBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("audit_log_volume")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AuditLogVolume { get; set; }
+    public partial TerraformValue<bool>? AuditLogVolume { get; set; }
 
     /// <summary>
     /// The privileged_delete attribute.
     /// </summary>
     [TerraformProperty("privileged_delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrivilegedDelete { get; set; }
+    public partial TerraformValue<string>? PrivilegedDelete { get; set; }
 
     /// <summary>
     /// The snaplock_type attribute.
@@ -51,14 +51,14 @@ public partial class AwsFsxOntapVolumeSnaplockConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnaplockType is required")]
     [TerraformProperty("snaplock_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SnaplockType { get; set; }
+    public required partial TerraformValue<string> SnaplockType { get; set; }
 
     /// <summary>
     /// The volume_append_mode_enabled attribute.
     /// </summary>
     [TerraformProperty("volume_append_mode_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? VolumeAppendModeEnabled { get; set; }
+    public partial TerraformValue<bool>? VolumeAppendModeEnabled { get; set; }
 
 }
 
@@ -73,14 +73,14 @@ public partial class AwsFsxOntapVolumeTieringPolicyBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("cooling_period")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> CoolingPeriod { get; set; }
+    public partial TerraformValue<double> CoolingPeriod { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -95,21 +95,21 @@ public partial class AwsFsxOntapVolumeTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -128,35 +128,35 @@ public partial class AwsFsxOntapVolume : TerraformResource
     /// </summary>
     [TerraformProperty("bypass_snaplock_enterprise_retention")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? BypassSnaplockEnterpriseRetention { get; set; }
+    public partial TerraformValue<bool>? BypassSnaplockEnterpriseRetention { get; set; }
 
     /// <summary>
     /// The copy_tags_to_backups attribute.
     /// </summary>
     [TerraformProperty("copy_tags_to_backups")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CopyTagsToBackups { get; set; }
+    public partial TerraformValue<bool>? CopyTagsToBackups { get; set; }
 
     /// <summary>
     /// The final_backup_tags attribute.
     /// </summary>
     [TerraformProperty("final_backup_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? FinalBackupTags { get; set; }
+    public partial TerraformMap<string>? FinalBackupTags { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The junction_path attribute.
     /// </summary>
     [TerraformProperty("junction_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? JunctionPath { get; set; }
+    public partial TerraformValue<string>? JunctionPath { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -164,63 +164,63 @@ public partial class AwsFsxOntapVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The ontap_volume_type attribute.
     /// </summary>
     [TerraformProperty("ontap_volume_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> OntapVolumeType { get; set; }
+    public partial TerraformValue<string> OntapVolumeType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_style attribute.
     /// </summary>
     [TerraformProperty("security_style")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SecurityStyle { get; set; }
+    public partial TerraformValue<string> SecurityStyle { get; set; }
 
     /// <summary>
     /// The size_in_bytes attribute.
     /// </summary>
     [TerraformProperty("size_in_bytes")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SizeInBytes { get; set; }
+    public partial TerraformValue<string> SizeInBytes { get; set; }
 
     /// <summary>
     /// The size_in_megabytes attribute.
     /// </summary>
     [TerraformProperty("size_in_megabytes")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> SizeInMegabytes { get; set; }
+    public partial TerraformValue<double> SizeInMegabytes { get; set; }
 
     /// <summary>
     /// The skip_final_backup attribute.
     /// </summary>
     [TerraformProperty("skip_final_backup")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SkipFinalBackup { get; set; }
+    public partial TerraformValue<bool>? SkipFinalBackup { get; set; }
 
     /// <summary>
     /// The snapshot_policy attribute.
     /// </summary>
     [TerraformProperty("snapshot_policy")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SnapshotPolicy { get; set; }
+    public partial TerraformValue<string> SnapshotPolicy { get; set; }
 
     /// <summary>
     /// The storage_efficiency_enabled attribute.
     /// </summary>
     [TerraformProperty("storage_efficiency_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? StorageEfficiencyEnabled { get; set; }
+    public partial TerraformValue<bool>? StorageEfficiencyEnabled { get; set; }
 
     /// <summary>
     /// The storage_virtual_machine_id attribute.
@@ -228,35 +228,35 @@ public partial class AwsFsxOntapVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageVirtualMachineId is required")]
     [TerraformProperty("storage_virtual_machine_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageVirtualMachineId { get; set; }
+    public required partial TerraformValue<string> StorageVirtualMachineId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The volume_style attribute.
     /// </summary>
     [TerraformProperty("volume_style")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VolumeStyle { get; set; }
+    public partial TerraformValue<string> VolumeStyle { get; set; }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
     [TerraformProperty("volume_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VolumeType { get; set; }
+    public partial TerraformValue<string>? VolumeType { get; set; }
 
     /// <summary>
     /// Block for aggregate_configuration.
@@ -264,7 +264,7 @@ public partial class AwsFsxOntapVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AggregateConfiguration block(s) allowed")]
     [TerraformProperty("aggregate_configuration")]
-    public TerraformList<TerraformBlock<AwsFsxOntapVolumeAggregateConfigurationBlock>>? AggregateConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsFsxOntapVolumeAggregateConfigurationBlock>>? AggregateConfiguration { get; set; }
 
     /// <summary>
     /// Block for snaplock_configuration.
@@ -272,7 +272,7 @@ public partial class AwsFsxOntapVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnaplockConfiguration block(s) allowed")]
     [TerraformProperty("snaplock_configuration")]
-    public TerraformList<TerraformBlock<AwsFsxOntapVolumeSnaplockConfigurationBlock>>? SnaplockConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsFsxOntapVolumeSnaplockConfigurationBlock>>? SnaplockConfiguration { get; set; }
 
     /// <summary>
     /// Block for tiering_policy.
@@ -280,41 +280,41 @@ public partial class AwsFsxOntapVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TieringPolicy block(s) allowed")]
     [TerraformProperty("tiering_policy")]
-    public TerraformList<TerraformBlock<AwsFsxOntapVolumeTieringPolicyBlock>>? TieringPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<AwsFsxOntapVolumeTieringPolicyBlock>>? TieringPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsFsxOntapVolumeTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsFsxOntapVolumeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
     [TerraformProperty("file_system_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> FileSystemId { get; }
+    public partial TerraformValue<string> FileSystemId { get; }
 
     /// <summary>
     /// The flexcache_endpoint_type attribute.
     /// </summary>
     [TerraformProperty("flexcache_endpoint_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> FlexcacheEndpointType { get; }
+    public partial TerraformValue<string> FlexcacheEndpointType { get; }
 
     /// <summary>
     /// The uuid attribute.
     /// </summary>
     [TerraformProperty("uuid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uuid { get; }
+    public partial TerraformValue<string> Uuid { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlo
     /// </summary>
     [TerraformProperty("authorization_expiration_time_in_utc")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthorizationExpirationTimeInUtc { get; set; }
+    public partial TerraformValue<string>? AuthorizationExpirationTimeInUtc { get; set; }
 
     /// <summary>
     /// The partner_name attribute.
@@ -21,7 +21,7 @@ public partial class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerName is required")]
     [TerraformProperty("partner_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PartnerName { get; set; }
+    public required partial TerraformValue<string> PartnerName { get; set; }
 
     /// <summary>
     /// The partner_registration_id attribute.
@@ -29,7 +29,7 @@ public partial class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerRegistrationId is required")]
     [TerraformProperty("partner_registration_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PartnerRegistrationId { get; set; }
+    public required partial TerraformValue<string> PartnerRegistrationId { get; set; }
 
 }
 
@@ -44,28 +44,28 @@ public partial class AzurermEventgridPartnerConfigurationTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -83,14 +83,14 @@ public partial class AzurermEventgridPartnerConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("default_maximum_expiration_time_in_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DefaultMaximumExpirationTimeInDays { get; set; }
+    public partial TerraformValue<double>? DefaultMaximumExpirationTimeInDays { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -98,27 +98,27 @@ public partial class AzurermEventgridPartnerConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for partner_authorization.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("partner_authorization")]
-    public TerraformList<TerraformBlock<AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock>>? PartnerAuthorization { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock>>? PartnerAuthorization { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermEventgridPartnerConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermEventgridPartnerConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
 }

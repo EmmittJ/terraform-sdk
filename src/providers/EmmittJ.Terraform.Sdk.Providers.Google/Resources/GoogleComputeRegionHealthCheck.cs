@@ -19,7 +19,7 @@ public partial class GoogleComputeRegionHealthCheckGrpcHealthCheckBlock : Terraf
     /// </summary>
     [TerraformProperty("grpc_service_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GrpcServiceName { get; set; }
+    public partial TerraformValue<string>? GrpcServiceName { get; set; }
 
     /// <summary>
     /// The port number for the health check request.
@@ -28,7 +28,7 @@ public partial class GoogleComputeRegionHealthCheckGrpcHealthCheckBlock : Terraf
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// Port name as defined in InstanceGroup#NamedPort#name. If both port and
@@ -36,7 +36,7 @@ public partial class GoogleComputeRegionHealthCheckGrpcHealthCheckBlock : Terraf
     /// </summary>
     [TerraformProperty("port_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortName { get; set; }
+    public partial TerraformValue<string>? PortName { get; set; }
 
     /// <summary>
     /// Specifies how port is selected for health checking, can be one of the
@@ -56,7 +56,7 @@ public partial class GoogleComputeRegionHealthCheckGrpcHealthCheckBlock : Terraf
     /// </summary>
     [TerraformProperty("port_specification")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortSpecification { get; set; }
+    public partial TerraformValue<string>? PortSpecification { get; set; }
 
 }
 
@@ -77,7 +77,7 @@ public partial class GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock : Ter
     /// </summary>
     [TerraformProperty("grpc_service_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GrpcServiceName { get; set; }
+    public partial TerraformValue<string>? GrpcServiceName { get; set; }
 
     /// <summary>
     /// The port number for the health check request.
@@ -85,7 +85,7 @@ public partial class GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock : Ter
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// Specifies how port is selected for health checking, can be one of the
@@ -104,7 +104,7 @@ public partial class GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock : Ter
     /// </summary>
     [TerraformProperty("port_specification")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortSpecification { get; set; }
+    public partial TerraformValue<string>? PortSpecification { get; set; }
 
 }
 
@@ -121,7 +121,7 @@ public partial class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : Terra
     /// </summary>
     [TerraformProperty("host")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Host { get; set; }
+    public partial TerraformValue<string>? Host { get; set; }
 
     /// <summary>
     /// The TCP port number for the HTTP2 health check request.
@@ -129,7 +129,7 @@ public partial class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : Terra
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// Port name as defined in InstanceGroup#NamedPort#name. If both port and
@@ -137,7 +137,7 @@ public partial class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : Terra
     /// </summary>
     [TerraformProperty("port_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortName { get; set; }
+    public partial TerraformValue<string>? PortName { get; set; }
 
     /// <summary>
     /// Specifies how port is selected for health checking, can be one of the
@@ -157,7 +157,7 @@ public partial class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : Terra
     /// </summary>
     [TerraformProperty("port_specification")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortSpecification { get; set; }
+    public partial TerraformValue<string>? PortSpecification { get; set; }
 
     /// <summary>
     /// Specifies the type of proxy header to append before sending data to the
@@ -165,7 +165,7 @@ public partial class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : Terra
     /// </summary>
     [TerraformProperty("proxy_header")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProxyHeader { get; set; }
+    public partial TerraformValue<string>? ProxyHeader { get; set; }
 
     /// <summary>
     /// The request path of the HTTP2 health check request.
@@ -173,7 +173,7 @@ public partial class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : Terra
     /// </summary>
     [TerraformProperty("request_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RequestPath { get; set; }
+    public partial TerraformValue<string>? RequestPath { get; set; }
 
     /// <summary>
     /// The bytes to match against the beginning of the response data. If left empty
@@ -182,7 +182,7 @@ public partial class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : Terra
     /// </summary>
     [TerraformProperty("response")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Response { get; set; }
+    public partial TerraformValue<string>? Response { get; set; }
 
 }
 
@@ -199,7 +199,7 @@ public partial class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : Terraf
     /// </summary>
     [TerraformProperty("host")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Host { get; set; }
+    public partial TerraformValue<string>? Host { get; set; }
 
     /// <summary>
     /// The TCP port number for the HTTP health check request.
@@ -207,7 +207,7 @@ public partial class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : Terraf
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// Port name as defined in InstanceGroup#NamedPort#name. If both port and
@@ -215,7 +215,7 @@ public partial class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : Terraf
     /// </summary>
     [TerraformProperty("port_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortName { get; set; }
+    public partial TerraformValue<string>? PortName { get; set; }
 
     /// <summary>
     /// Specifies how port is selected for health checking, can be one of the
@@ -235,7 +235,7 @@ public partial class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : Terraf
     /// </summary>
     [TerraformProperty("port_specification")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortSpecification { get; set; }
+    public partial TerraformValue<string>? PortSpecification { get; set; }
 
     /// <summary>
     /// Specifies the type of proxy header to append before sending data to the
@@ -243,7 +243,7 @@ public partial class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : Terraf
     /// </summary>
     [TerraformProperty("proxy_header")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProxyHeader { get; set; }
+    public partial TerraformValue<string>? ProxyHeader { get; set; }
 
     /// <summary>
     /// The request path of the HTTP health check request.
@@ -251,7 +251,7 @@ public partial class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : Terraf
     /// </summary>
     [TerraformProperty("request_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RequestPath { get; set; }
+    public partial TerraformValue<string>? RequestPath { get; set; }
 
     /// <summary>
     /// The bytes to match against the beginning of the response data. If left empty
@@ -260,7 +260,7 @@ public partial class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : Terraf
     /// </summary>
     [TerraformProperty("response")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Response { get; set; }
+    public partial TerraformValue<string>? Response { get; set; }
 
 }
 
@@ -277,7 +277,7 @@ public partial class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : Terra
     /// </summary>
     [TerraformProperty("host")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Host { get; set; }
+    public partial TerraformValue<string>? Host { get; set; }
 
     /// <summary>
     /// The TCP port number for the HTTPS health check request.
@@ -285,7 +285,7 @@ public partial class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : Terra
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// Port name as defined in InstanceGroup#NamedPort#name. If both port and
@@ -293,7 +293,7 @@ public partial class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : Terra
     /// </summary>
     [TerraformProperty("port_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortName { get; set; }
+    public partial TerraformValue<string>? PortName { get; set; }
 
     /// <summary>
     /// Specifies how port is selected for health checking, can be one of the
@@ -313,7 +313,7 @@ public partial class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : Terra
     /// </summary>
     [TerraformProperty("port_specification")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortSpecification { get; set; }
+    public partial TerraformValue<string>? PortSpecification { get; set; }
 
     /// <summary>
     /// Specifies the type of proxy header to append before sending data to the
@@ -321,7 +321,7 @@ public partial class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : Terra
     /// </summary>
     [TerraformProperty("proxy_header")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProxyHeader { get; set; }
+    public partial TerraformValue<string>? ProxyHeader { get; set; }
 
     /// <summary>
     /// The request path of the HTTPS health check request.
@@ -329,7 +329,7 @@ public partial class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : Terra
     /// </summary>
     [TerraformProperty("request_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RequestPath { get; set; }
+    public partial TerraformValue<string>? RequestPath { get; set; }
 
     /// <summary>
     /// The bytes to match against the beginning of the response data. If left empty
@@ -338,7 +338,7 @@ public partial class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : Terra
     /// </summary>
     [TerraformProperty("response")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Response { get; set; }
+    public partial TerraformValue<string>? Response { get; set; }
 
 }
 
@@ -354,7 +354,7 @@ public partial class GoogleComputeRegionHealthCheckLogConfigBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("enable")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enable { get; set; }
+    public partial TerraformValue<bool>? Enable { get; set; }
 
 }
 
@@ -370,7 +370,7 @@ public partial class GoogleComputeRegionHealthCheckSslHealthCheckBlock : Terrafo
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// Port name as defined in InstanceGroup#NamedPort#name. If both port and
@@ -378,7 +378,7 @@ public partial class GoogleComputeRegionHealthCheckSslHealthCheckBlock : Terrafo
     /// </summary>
     [TerraformProperty("port_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortName { get; set; }
+    public partial TerraformValue<string>? PortName { get; set; }
 
     /// <summary>
     /// Specifies how port is selected for health checking, can be one of the
@@ -398,7 +398,7 @@ public partial class GoogleComputeRegionHealthCheckSslHealthCheckBlock : Terrafo
     /// </summary>
     [TerraformProperty("port_specification")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortSpecification { get; set; }
+    public partial TerraformValue<string>? PortSpecification { get; set; }
 
     /// <summary>
     /// Specifies the type of proxy header to append before sending data to the
@@ -406,7 +406,7 @@ public partial class GoogleComputeRegionHealthCheckSslHealthCheckBlock : Terrafo
     /// </summary>
     [TerraformProperty("proxy_header")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProxyHeader { get; set; }
+    public partial TerraformValue<string>? ProxyHeader { get; set; }
 
     /// <summary>
     /// The application data to send once the SSL connection has been
@@ -416,7 +416,7 @@ public partial class GoogleComputeRegionHealthCheckSslHealthCheckBlock : Terrafo
     /// </summary>
     [TerraformProperty("request")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Request { get; set; }
+    public partial TerraformValue<string>? Request { get; set; }
 
     /// <summary>
     /// The bytes to match against the beginning of the response data. If left empty
@@ -425,7 +425,7 @@ public partial class GoogleComputeRegionHealthCheckSslHealthCheckBlock : Terrafo
     /// </summary>
     [TerraformProperty("response")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Response { get; set; }
+    public partial TerraformValue<string>? Response { get; set; }
 
 }
 
@@ -441,7 +441,7 @@ public partial class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : Terrafo
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// Port name as defined in InstanceGroup#NamedPort#name. If both port and
@@ -449,7 +449,7 @@ public partial class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : Terrafo
     /// </summary>
     [TerraformProperty("port_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortName { get; set; }
+    public partial TerraformValue<string>? PortName { get; set; }
 
     /// <summary>
     /// Specifies how port is selected for health checking, can be one of the
@@ -469,7 +469,7 @@ public partial class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : Terrafo
     /// </summary>
     [TerraformProperty("port_specification")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortSpecification { get; set; }
+    public partial TerraformValue<string>? PortSpecification { get; set; }
 
     /// <summary>
     /// Specifies the type of proxy header to append before sending data to the
@@ -477,7 +477,7 @@ public partial class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : Terrafo
     /// </summary>
     [TerraformProperty("proxy_header")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProxyHeader { get; set; }
+    public partial TerraformValue<string>? ProxyHeader { get; set; }
 
     /// <summary>
     /// The application data to send once the TCP connection has been
@@ -487,7 +487,7 @@ public partial class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : Terrafo
     /// </summary>
     [TerraformProperty("request")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Request { get; set; }
+    public partial TerraformValue<string>? Request { get; set; }
 
     /// <summary>
     /// The bytes to match against the beginning of the response data. If left empty
@@ -496,7 +496,7 @@ public partial class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : Terrafo
     /// </summary>
     [TerraformProperty("response")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Response { get; set; }
+    public partial TerraformValue<string>? Response { get; set; }
 
 }
 
@@ -511,21 +511,21 @@ public partial class GoogleComputeRegionHealthCheckTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -545,7 +545,7 @@ public partial class GoogleComputeRegionHealthCheck : TerraformResource
     /// </summary>
     [TerraformProperty("check_interval_sec")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? CheckIntervalSec { get; set; }
+    public partial TerraformValue<double>? CheckIntervalSec { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
@@ -553,7 +553,7 @@ public partial class GoogleComputeRegionHealthCheck : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A so-far unhealthy instance will be marked healthy after this many
@@ -561,14 +561,14 @@ public partial class GoogleComputeRegionHealthCheck : TerraformResource
     /// </summary>
     [TerraformProperty("healthy_threshold")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? HealthyThreshold { get; set; }
+    public partial TerraformValue<double>? HealthyThreshold { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -582,14 +582,14 @@ public partial class GoogleComputeRegionHealthCheck : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The Region in which the created health check should reside.
@@ -597,7 +597,7 @@ public partial class GoogleComputeRegionHealthCheck : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// How long (in seconds) to wait before claiming failure.
@@ -606,7 +606,7 @@ public partial class GoogleComputeRegionHealthCheck : TerraformResource
     /// </summary>
     [TerraformProperty("timeout_sec")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? TimeoutSec { get; set; }
+    public partial TerraformValue<double>? TimeoutSec { get; set; }
 
     /// <summary>
     /// A so-far healthy instance will be marked unhealthy after this many
@@ -614,7 +614,7 @@ public partial class GoogleComputeRegionHealthCheck : TerraformResource
     /// </summary>
     [TerraformProperty("unhealthy_threshold")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? UnhealthyThreshold { get; set; }
+    public partial TerraformValue<double>? UnhealthyThreshold { get; set; }
 
     /// <summary>
     /// Block for grpc_health_check.
@@ -622,7 +622,7 @@ public partial class GoogleComputeRegionHealthCheck : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrpcHealthCheck block(s) allowed")]
     [TerraformProperty("grpc_health_check")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckGrpcHealthCheckBlock>>? GrpcHealthCheck { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckGrpcHealthCheckBlock>>? GrpcHealthCheck { get; set; }
 
     /// <summary>
     /// Block for grpc_tls_health_check.
@@ -630,7 +630,7 @@ public partial class GoogleComputeRegionHealthCheck : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrpcTlsHealthCheck block(s) allowed")]
     [TerraformProperty("grpc_tls_health_check")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock>>? GrpcTlsHealthCheck { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock>>? GrpcTlsHealthCheck { get; set; }
 
     /// <summary>
     /// Block for http2_health_check.
@@ -638,7 +638,7 @@ public partial class GoogleComputeRegionHealthCheck : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Http2HealthCheck block(s) allowed")]
     [TerraformProperty("http2_health_check")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckHttp2HealthCheckBlock>>? Http2HealthCheck { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckHttp2HealthCheckBlock>>? Http2HealthCheck { get; set; }
 
     /// <summary>
     /// Block for http_health_check.
@@ -646,7 +646,7 @@ public partial class GoogleComputeRegionHealthCheck : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpHealthCheck block(s) allowed")]
     [TerraformProperty("http_health_check")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckHttpHealthCheckBlock>>? HttpHealthCheck { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckHttpHealthCheckBlock>>? HttpHealthCheck { get; set; }
 
     /// <summary>
     /// Block for https_health_check.
@@ -654,7 +654,7 @@ public partial class GoogleComputeRegionHealthCheck : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpsHealthCheck block(s) allowed")]
     [TerraformProperty("https_health_check")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckHttpsHealthCheckBlock>>? HttpsHealthCheck { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckHttpsHealthCheckBlock>>? HttpsHealthCheck { get; set; }
 
     /// <summary>
     /// Block for log_config.
@@ -662,7 +662,7 @@ public partial class GoogleComputeRegionHealthCheck : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformProperty("log_config")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckLogConfigBlock>>? LogConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckLogConfigBlock>>? LogConfig { get; set; }
 
     /// <summary>
     /// Block for ssl_health_check.
@@ -670,7 +670,7 @@ public partial class GoogleComputeRegionHealthCheck : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslHealthCheck block(s) allowed")]
     [TerraformProperty("ssl_health_check")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckSslHealthCheckBlock>>? SslHealthCheck { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckSslHealthCheckBlock>>? SslHealthCheck { get; set; }
 
     /// <summary>
     /// Block for tcp_health_check.
@@ -678,41 +678,41 @@ public partial class GoogleComputeRegionHealthCheck : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TcpHealthCheck block(s) allowed")]
     [TerraformProperty("tcp_health_check")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckTcpHealthCheckBlock>>? TcpHealthCheck { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckTcpHealthCheckBlock>>? TcpHealthCheck { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeRegionHealthCheckTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeRegionHealthCheckTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// The unique identifier number for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformProperty("health_check_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> HealthCheckId { get; }
+    public partial TerraformValue<double> HealthCheckId { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The type of the health check. One of HTTP, HTTP2, HTTPS, TCP, or SSL.
     /// </summary>
     [TerraformProperty("type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Type { get; }
+    public partial TerraformValue<string> Type { get; }
 
 }

@@ -16,20 +16,20 @@ public partial class AwsOrganizationsDelegatedAdministratorsDataSource : Terrafo
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The service_principal attribute.
     /// </summary>
     [TerraformProperty("service_principal")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServicePrincipal { get; set; }
+    public partial TerraformValue<string>? ServicePrincipal { get; set; }
 
     /// <summary>
     /// The delegated_administrators attribute.
     /// </summary>
     [TerraformProperty("delegated_administrators")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> DelegatedAdministrators { get; }
+    public partial TerraformSet<object> DelegatedAdministrators { get; }
 
 }

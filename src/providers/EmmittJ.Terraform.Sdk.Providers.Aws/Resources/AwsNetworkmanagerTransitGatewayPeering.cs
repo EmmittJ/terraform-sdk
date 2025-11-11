@@ -13,14 +13,14 @@ public partial class AwsNetworkmanagerTransitGatewayPeeringTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,28 +39,28 @@ public partial class AwsNetworkmanagerTransitGatewayPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     [TerraformProperty("core_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CoreNetworkId { get; set; }
+    public required partial TerraformValue<string> CoreNetworkId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The transit_gateway_arn attribute.
@@ -68,62 +68,62 @@ public partial class AwsNetworkmanagerTransitGatewayPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayArn is required")]
     [TerraformProperty("transit_gateway_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TransitGatewayArn { get; set; }
+    public required partial TerraformValue<string> TransitGatewayArn { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsNetworkmanagerTransitGatewayPeeringTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsNetworkmanagerTransitGatewayPeeringTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
     [TerraformProperty("core_network_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CoreNetworkArn { get; }
+    public partial TerraformValue<string> CoreNetworkArn { get; }
 
     /// <summary>
     /// The edge_location attribute.
     /// </summary>
     [TerraformProperty("edge_location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EdgeLocation { get; }
+    public partial TerraformValue<string> EdgeLocation { get; }
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     [TerraformProperty("owner_account_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OwnerAccountId { get; }
+    public partial TerraformValue<string> OwnerAccountId { get; }
 
     /// <summary>
     /// The peering_type attribute.
     /// </summary>
     [TerraformProperty("peering_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PeeringType { get; }
+    public partial TerraformValue<string> PeeringType { get; }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     [TerraformProperty("resource_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceArn { get; }
+    public partial TerraformValue<string> ResourceArn { get; }
 
     /// <summary>
     /// The transit_gateway_peering_attachment_id attribute.
     /// </summary>
     [TerraformProperty("transit_gateway_peering_attachment_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TransitGatewayPeeringAttachmentId { get; }
+    public partial TerraformValue<string> TransitGatewayPeeringAttachmentId { get; }
 
 }

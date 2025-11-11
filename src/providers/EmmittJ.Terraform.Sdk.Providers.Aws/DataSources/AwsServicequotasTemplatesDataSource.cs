@@ -16,7 +16,7 @@ public partial class AwsServicequotasTemplatesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("aws_region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AwsRegion { get; set; }
+    public partial TerraformValue<string>? AwsRegion { get; set; }
 
     /// <summary>
     /// The region attribute.
@@ -24,20 +24,20 @@ public partial class AwsServicequotasTemplatesDataSource : TerraformDataSource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The templates attribute.
     /// </summary>
     [TerraformProperty("templates")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Templates { get; }
+    public partial TerraformList<object> Templates { get; }
 
 }

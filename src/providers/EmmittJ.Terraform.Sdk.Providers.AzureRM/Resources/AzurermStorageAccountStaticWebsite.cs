@@ -13,28 +13,28 @@ public partial class AzurermStorageAccountStaticWebsiteTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,21 +52,21 @@ public partial class AzurermStorageAccountStaticWebsite : TerraformResource
     /// </summary>
     [TerraformProperty("error_404_document")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Error404Document { get; set; }
+    public partial TerraformValue<string>? Error404Document { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The index_document attribute.
     /// </summary>
     [TerraformProperty("index_document")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IndexDocument { get; set; }
+    public partial TerraformValue<string>? IndexDocument { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -74,13 +74,13 @@ public partial class AzurermStorageAccountStaticWebsite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformProperty("storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountId { get; set; }
+    public required partial TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageAccountStaticWebsiteTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageAccountStaticWebsiteTimeoutsBlock>? Timeouts { get; set; }
 
 }

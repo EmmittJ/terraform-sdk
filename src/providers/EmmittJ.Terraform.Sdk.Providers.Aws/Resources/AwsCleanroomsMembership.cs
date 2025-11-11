@@ -13,7 +13,7 @@ public partial class AwsCleanroomsMembershipDefaultResultConfigurationBlock : Te
     /// </summary>
     [TerraformProperty("role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RoleArn { get; set; }
+    public partial TerraformValue<string>? RoleArn { get; set; }
 
 }
 
@@ -40,7 +40,7 @@ public partial class AwsCleanroomsMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaborationId is required")]
     [TerraformProperty("collaboration_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CollaborationId { get; set; }
+    public required partial TerraformValue<string> CollaborationId { get; set; }
 
     /// <summary>
     /// The query_log_status attribute.
@@ -48,111 +48,111 @@ public partial class AwsCleanroomsMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryLogStatus is required")]
     [TerraformProperty("query_log_status")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> QueryLogStatus { get; set; }
+    public required partial TerraformValue<string> QueryLogStatus { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for default_result_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("default_result_configuration")]
-    public TerraformList<TerraformBlock<AwsCleanroomsMembershipDefaultResultConfigurationBlock>>? DefaultResultConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCleanroomsMembershipDefaultResultConfigurationBlock>>? DefaultResultConfiguration { get; set; }
 
     /// <summary>
     /// Block for payment_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("payment_configuration")]
-    public TerraformList<TerraformBlock<AwsCleanroomsMembershipPaymentConfigurationBlock>>? PaymentConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCleanroomsMembershipPaymentConfigurationBlock>>? PaymentConfiguration { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The collaboration_arn attribute.
     /// </summary>
     [TerraformProperty("collaboration_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CollaborationArn { get; }
+    public partial TerraformValue<string> CollaborationArn { get; }
 
     /// <summary>
     /// The collaboration_creator_account_id attribute.
     /// </summary>
     [TerraformProperty("collaboration_creator_account_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CollaborationCreatorAccountId { get; }
+    public partial TerraformValue<string> CollaborationCreatorAccountId { get; }
 
     /// <summary>
     /// The collaboration_creator_display_name attribute.
     /// </summary>
     [TerraformProperty("collaboration_creator_display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CollaborationCreatorDisplayName { get; }
+    public partial TerraformValue<string> CollaborationCreatorDisplayName { get; }
 
     /// <summary>
     /// The collaboration_name attribute.
     /// </summary>
     [TerraformProperty("collaboration_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CollaborationName { get; }
+    public partial TerraformValue<string> CollaborationName { get; }
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The member_abilities attribute.
     /// </summary>
     [TerraformProperty("member_abilities")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> MemberAbilities { get; }
+    public partial TerraformList<string> MemberAbilities { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

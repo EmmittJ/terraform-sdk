@@ -16,14 +16,14 @@ public partial class AwsCloudfrontKeyGroup : TerraformResource
     /// </summary>
     [TerraformProperty("comment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Comment { get; set; }
+    public partial TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The items attribute.
@@ -31,7 +31,7 @@ public partial class AwsCloudfrontKeyGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Items is required")]
     [TerraformProperty("items")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Items { get; set; }
+    public required partial TerraformSet<string> Items { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,13 +39,13 @@ public partial class AwsCloudfrontKeyGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
 }

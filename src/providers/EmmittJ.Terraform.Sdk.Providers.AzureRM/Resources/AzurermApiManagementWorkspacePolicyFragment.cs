@@ -13,28 +13,28 @@ public partial class AzurermApiManagementWorkspacePolicyFragmentTimeoutsBlock : 
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,21 +53,21 @@ public partial class AzurermApiManagementWorkspacePolicyFragment : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementWorkspaceId is required")]
     [TerraformProperty("api_management_workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiManagementWorkspaceId { get; set; }
+    public required partial TerraformValue<string> ApiManagementWorkspaceId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -75,7 +75,7 @@ public partial class AzurermApiManagementWorkspacePolicyFragment : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The xml_content attribute.
@@ -83,20 +83,20 @@ public partial class AzurermApiManagementWorkspacePolicyFragment : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "XmlContent is required")]
     [TerraformProperty("xml_content")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> XmlContent { get; set; }
+    public required partial TerraformValue<string> XmlContent { get; set; }
 
     /// <summary>
     /// The xml_format attribute.
     /// </summary>
     [TerraformProperty("xml_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? XmlFormat { get; set; }
+    public partial TerraformValue<string>? XmlFormat { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApiManagementWorkspacePolicyFragmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApiManagementWorkspacePolicyFragmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermKeyVaultSecretsDataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermKeyVaultSecretsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
@@ -39,27 +39,27 @@ public partial class AzurermKeyVaultSecretsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformProperty("key_vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultId { get; set; }
+    public required partial TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKeyVaultSecretsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKeyVaultSecretsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The names attribute.
     /// </summary>
     [TerraformProperty("names")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Names { get; }
+    public partial TerraformList<string> Names { get; }
 
     /// <summary>
     /// The secrets attribute.
     /// </summary>
     [TerraformProperty("secrets")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Secrets { get; }
+    public partial TerraformList<object> Secrets { get; }
 
 }

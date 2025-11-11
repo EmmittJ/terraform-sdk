@@ -14,21 +14,21 @@ public partial class GoogleDataprocClusterClusterConfigBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("cluster_tier")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ClusterTier { get; set; }
+    public partial TerraformValue<string> ClusterTier { get; set; }
 
     /// <summary>
     /// The Cloud Storage staging bucket used to stage files, such as Hadoop jars, between client machines and the cluster. Note: If you don&#39;t explicitly specify a staging_bucket then GCP will auto create / assign one for you. However, you are not guaranteed an auto generated bucket which is solely dedicated to your cluster; it may be shared with other clusters in the same region/zone also choosing to use the auto generation option.
     /// </summary>
     [TerraformProperty("staging_bucket")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StagingBucket { get; set; }
+    public partial TerraformValue<string>? StagingBucket { get; set; }
 
     /// <summary>
     /// The Cloud Storage temp bucket used to store ephemeral cluster and jobs data, such as Spark and MapReduce history files. Note: If you don&#39;t explicitly specify a temp_bucket then GCP will auto create / assign one for you.
     /// </summary>
     [TerraformProperty("temp_bucket")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TempBucket { get; set; }
+    public partial TerraformValue<string> TempBucket { get; set; }
 
 }
 
@@ -43,21 +43,21 @@ public partial class GoogleDataprocClusterTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -72,7 +72,7 @@ public partial class GoogleDataprocClusterVirtualClusterConfigBlock : TerraformB
     /// </summary>
     [TerraformProperty("staging_bucket")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StagingBucket { get; set; }
+    public partial TerraformValue<string>? StagingBucket { get; set; }
 
 }
 
@@ -91,14 +91,14 @@ public partial class GoogleDataprocCluster : TerraformResource
     /// </summary>
     [TerraformProperty("graceful_decommission_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GracefulDecommissionTimeout { get; set; }
+    public partial TerraformValue<string>? GracefulDecommissionTimeout { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The list of the labels (key/value pairs) configured on the resource and to be applied to instances in the cluster.
@@ -108,7 +108,7 @@ public partial class GoogleDataprocCluster : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The name of the cluster, unique within the project and zone.
@@ -116,21 +116,21 @@ public partial class GoogleDataprocCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The ID of the project in which the cluster will exist. If it is not provided, the provider project is used.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region in which the cluster and associated nodes will be created in. Defaults to global.
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// Block for cluster_config.
@@ -138,14 +138,14 @@ public partial class GoogleDataprocCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterConfig block(s) allowed")]
     [TerraformProperty("cluster_config")]
-    public TerraformList<TerraformBlock<GoogleDataprocClusterClusterConfigBlock>>? ClusterConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocClusterClusterConfigBlock>>? ClusterConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDataprocClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDataprocClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for virtual_cluster_config.
@@ -153,20 +153,20 @@ public partial class GoogleDataprocCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualClusterConfig block(s) allowed")]
     [TerraformProperty("virtual_cluster_config")]
-    public TerraformList<TerraformBlock<GoogleDataprocClusterVirtualClusterConfigBlock>>? VirtualClusterConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocClusterVirtualClusterConfigBlock>>? VirtualClusterConfig { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

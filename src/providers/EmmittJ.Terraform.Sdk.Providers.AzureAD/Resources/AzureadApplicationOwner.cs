@@ -13,21 +13,21 @@ public partial class AzureadApplicationOwnerTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzureadApplicationOwner : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     [TerraformProperty("application_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApplicationId { get; set; }
+    public required partial TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Object ID of the principal that will be granted ownership of the application
@@ -61,13 +61,13 @@ public partial class AzureadApplicationOwner : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerObjectId is required")]
     [TerraformProperty("owner_object_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OwnerObjectId { get; set; }
+    public required partial TerraformValue<string> OwnerObjectId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadApplicationOwnerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadApplicationOwnerTimeoutsBlock>? Timeouts { get; set; }
 
 }

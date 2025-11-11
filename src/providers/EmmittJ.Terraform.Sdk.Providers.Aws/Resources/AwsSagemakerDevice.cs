@@ -13,7 +13,7 @@ public partial class AwsSagemakerDeviceDeviceBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The device_name attribute.
@@ -21,14 +21,14 @@ public partial class AwsSagemakerDeviceDeviceBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     [TerraformProperty("device_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DeviceName { get; set; }
+    public required partial TerraformValue<string> DeviceName { get; set; }
 
     /// <summary>
     /// The iot_thing_name attribute.
     /// </summary>
     [TerraformProperty("iot_thing_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IotThingName { get; set; }
+    public partial TerraformValue<string>? IotThingName { get; set; }
 
 }
 
@@ -48,21 +48,21 @@ public partial class AwsSagemakerDevice : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceFleetName is required")]
     [TerraformProperty("device_fleet_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DeviceFleetName { get; set; }
+    public required partial TerraformValue<string> DeviceFleetName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for device.
@@ -72,20 +72,20 @@ public partial class AwsSagemakerDevice : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Device block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Device block(s) allowed")]
     [TerraformProperty("device")]
-    public TerraformList<TerraformBlock<AwsSagemakerDeviceDeviceBlock>>? Device { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerDeviceDeviceBlock>>? Device { get; set; }
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
     [TerraformProperty("agent_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AgentVersion { get; }
+    public partial TerraformValue<string> AgentVersion { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

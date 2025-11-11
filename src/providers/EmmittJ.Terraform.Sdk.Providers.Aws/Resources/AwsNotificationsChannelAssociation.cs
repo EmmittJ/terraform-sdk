@@ -17,7 +17,7 @@ public partial class AwsNotificationsChannelAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     [TerraformProperty("arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Arn { get; set; }
+    public required partial TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The notification_configuration_arn attribute.
@@ -25,6 +25,6 @@ public partial class AwsNotificationsChannelAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationConfigurationArn is required")]
     [TerraformProperty("notification_configuration_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NotificationConfigurationArn { get; set; }
+    public required partial TerraformValue<string> NotificationConfigurationArn { get; set; }
 
 }

@@ -13,14 +13,14 @@ public partial class GoogleStorageTransferJobEventStreamBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("event_stream_expiration_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EventStreamExpirationTime { get; set; }
+    public partial TerraformValue<string>? EventStreamExpirationTime { get; set; }
 
     /// <summary>
     /// Specifies the date and time that Storage Transfer Service starts listening for events from this stream. If no start time is specified or start time is in the past, Storage Transfer Service starts listening immediately
     /// </summary>
     [TerraformProperty("event_stream_start_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EventStreamStartTime { get; set; }
+    public partial TerraformValue<string>? EventStreamStartTime { get; set; }
 
     /// <summary>
     /// Specifies a unique name of the resource such as AWS SQS ARN in the form &#39;arn:aws:sqs:region:account_id:queue_name&#39;, or Pub/Sub subscription resource name in the form &#39;projects/{project}/subscriptions/{sub}&#39;
@@ -28,7 +28,7 @@ public partial class GoogleStorageTransferJobEventStreamBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -43,21 +43,21 @@ public partial class GoogleStorageTransferJobLoggingConfigBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("enable_on_prem_gcs_transfer_logs")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableOnPremGcsTransferLogs { get; set; }
+    public partial TerraformValue<bool>? EnableOnPremGcsTransferLogs { get; set; }
 
     /// <summary>
     /// States in which logActions are logged. Not supported for transfers with PosifxFilesystem data sources; use enable_on_prem_gcs_transfer_logs instead.
     /// </summary>
     [TerraformProperty("log_action_states")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? LogActionStates { get; set; }
+    public partial TerraformList<string>? LogActionStates { get; set; }
 
     /// <summary>
     /// Specifies the actions to be logged. Not supported for transfers with PosifxFilesystem data sources; use enable_on_prem_gcs_transfer_logs instead.
     /// </summary>
     [TerraformProperty("log_actions")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? LogActions { get; set; }
+    public partial TerraformList<string>? LogActions { get; set; }
 
 }
 
@@ -72,7 +72,7 @@ public partial class GoogleStorageTransferJobNotificationConfigBlock : Terraform
     /// </summary>
     [TerraformProperty("event_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? EventTypes { get; set; }
+    public partial TerraformSet<string>? EventTypes { get; set; }
 
     /// <summary>
     /// The desired format of the notification message payloads. One of &amp;quot;NONE&amp;quot; or &amp;quot;JSON&amp;quot;.
@@ -80,7 +80,7 @@ public partial class GoogleStorageTransferJobNotificationConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PayloadFormat is required")]
     [TerraformProperty("payload_format")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PayloadFormat { get; set; }
+    public required partial TerraformValue<string> PayloadFormat { get; set; }
 
     /// <summary>
     /// The Topic.name of the Pub/Sub topic to which to publish notifications.
@@ -88,7 +88,7 @@ public partial class GoogleStorageTransferJobNotificationConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     [TerraformProperty("pubsub_topic")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PubsubTopic { get; set; }
+    public required partial TerraformValue<string> PubsubTopic { get; set; }
 
 }
 
@@ -111,7 +111,7 @@ public partial class GoogleStorageTransferJobScheduleBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("repeat_interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RepeatInterval { get; set; }
+    public partial TerraformValue<string>? RepeatInterval { get; set; }
 
 }
 
@@ -126,14 +126,14 @@ public partial class GoogleStorageTransferJobTransferSpecBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("sink_agent_pool_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SinkAgentPoolName { get; set; }
+    public partial TerraformValue<string> SinkAgentPoolName { get; set; }
 
     /// <summary>
     /// Specifies the agent pool name associated with the posix data source. When unspecified, the default name is used.
     /// </summary>
     [TerraformProperty("source_agent_pool_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SourceAgentPoolName { get; set; }
+    public partial TerraformValue<string> SourceAgentPoolName { get; set; }
 
 }
 
@@ -153,42 +153,42 @@ public partial class GoogleStorageTransferJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     [TerraformProperty("description")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Description { get; set; }
+    public required partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the Transfer Job.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The user-managed service account to run the job. If this field is specified, the given service account is granted the necessary permissions to all applicable resources (e.g. GCS buckets) required by the job.
     /// </summary>
     [TerraformProperty("service_account")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServiceAccount { get; set; }
+    public partial TerraformValue<string>? ServiceAccount { get; set; }
 
     /// <summary>
     /// Status of the job. Default: ENABLED. NOTE: The effect of the new job status takes place during a subsequent job run. For example, if you change the job status from ENABLED to DISABLED, and an operation spawned by the transfer is running, the status change would not affect the current operation.
     /// </summary>
     [TerraformProperty("status")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Status { get; set; }
+    public partial TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// Block for event_stream.
@@ -196,7 +196,7 @@ public partial class GoogleStorageTransferJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventStream block(s) allowed")]
     [TerraformProperty("event_stream")]
-    public TerraformList<TerraformBlock<GoogleStorageTransferJobEventStreamBlock>>? EventStream { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageTransferJobEventStreamBlock>>? EventStream { get; set; }
 
     /// <summary>
     /// Block for logging_config.
@@ -204,7 +204,7 @@ public partial class GoogleStorageTransferJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformProperty("logging_config")]
-    public TerraformList<TerraformBlock<GoogleStorageTransferJobLoggingConfigBlock>>? LoggingConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageTransferJobLoggingConfigBlock>>? LoggingConfig { get; set; }
 
     /// <summary>
     /// Block for notification_config.
@@ -212,7 +212,7 @@ public partial class GoogleStorageTransferJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
     [TerraformProperty("notification_config")]
-    public TerraformList<TerraformBlock<GoogleStorageTransferJobNotificationConfigBlock>>? NotificationConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageTransferJobNotificationConfigBlock>>? NotificationConfig { get; set; }
 
     /// <summary>
     /// Block for replication_spec.
@@ -220,7 +220,7 @@ public partial class GoogleStorageTransferJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationSpec block(s) allowed")]
     [TerraformProperty("replication_spec")]
-    public TerraformList<TerraformBlock<GoogleStorageTransferJobReplicationSpecBlock>>? ReplicationSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageTransferJobReplicationSpecBlock>>? ReplicationSpec { get; set; }
 
     /// <summary>
     /// Block for schedule.
@@ -228,7 +228,7 @@ public partial class GoogleStorageTransferJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public TerraformList<TerraformBlock<GoogleStorageTransferJobScheduleBlock>>? Schedule { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageTransferJobScheduleBlock>>? Schedule { get; set; }
 
     /// <summary>
     /// Block for transfer_spec.
@@ -236,27 +236,27 @@ public partial class GoogleStorageTransferJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TransferSpec block(s) allowed")]
     [TerraformProperty("transfer_spec")]
-    public TerraformList<TerraformBlock<GoogleStorageTransferJobTransferSpecBlock>>? TransferSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageTransferJobTransferSpecBlock>>? TransferSpec { get; set; }
 
     /// <summary>
     /// When the Transfer Job was created.
     /// </summary>
     [TerraformProperty("creation_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTime { get; }
+    public partial TerraformValue<string> CreationTime { get; }
 
     /// <summary>
     /// When the Transfer Job was deleted.
     /// </summary>
     [TerraformProperty("deletion_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeletionTime { get; }
+    public partial TerraformValue<string> DeletionTime { get; }
 
     /// <summary>
     /// When the Transfer Job was last modified.
     /// </summary>
     [TerraformProperty("last_modification_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastModificationTime { get; }
+    public partial TerraformValue<string> LastModificationTime { get; }
 
 }

@@ -19,7 +19,7 @@ public partial class GoogleComputeFirewallAllowBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("ports")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Ports { get; set; }
+    public partial TerraformList<string>? Ports { get; set; }
 
     /// <summary>
     /// The IP protocol to which this rule applies. The protocol type is
@@ -30,7 +30,7 @@ public partial class GoogleComputeFirewallAllowBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformProperty("protocol")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Protocol { get; set; }
+    public required partial TerraformValue<string> Protocol { get; set; }
 
 }
 
@@ -51,7 +51,7 @@ public partial class GoogleComputeFirewallDenyBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("ports")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Ports { get; set; }
+    public partial TerraformList<string>? Ports { get; set; }
 
     /// <summary>
     /// The IP protocol to which this rule applies. The protocol type is
@@ -62,7 +62,7 @@ public partial class GoogleComputeFirewallDenyBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformProperty("protocol")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Protocol { get; set; }
+    public required partial TerraformValue<string> Protocol { get; set; }
 
 }
 
@@ -78,7 +78,7 @@ public partial class GoogleComputeFirewallLogConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Metadata is required")]
     [TerraformProperty("metadata")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Metadata { get; set; }
+    public required partial TerraformValue<string> Metadata { get; set; }
 
 }
 
@@ -98,7 +98,7 @@ public partial class GoogleComputeFirewallParamsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("resource_manager_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? ResourceManagerTags { get; set; }
+    public partial TerraformMap<string>? ResourceManagerTags { get; set; }
 
 }
 
@@ -113,21 +113,21 @@ public partial class GoogleComputeFirewallTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -147,7 +147,7 @@ public partial class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// If destination ranges are specified, the firewall will apply only to
@@ -156,7 +156,7 @@ public partial class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformProperty("destination_ranges")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> DestinationRanges { get; set; }
+    public partial TerraformSet<string> DestinationRanges { get; set; }
 
     /// <summary>
     /// Direction of traffic to which this firewall applies; default is
@@ -165,7 +165,7 @@ public partial class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformProperty("direction")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Direction { get; set; }
+    public partial TerraformValue<string> Direction { get; set; }
 
     /// <summary>
     /// Denotes whether the firewall rule is disabled, i.e not applied to the
@@ -175,7 +175,7 @@ public partial class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformProperty("disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Disabled { get; set; }
+    public partial TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// This field denotes whether to enable logging for a particular firewall rule. If logging is enabled, logs will be exported to Stackdriver.
@@ -183,14 +183,14 @@ public partial class GoogleComputeFirewall : TerraformResource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("enable_logging")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> EnableLogging { get; set; }
+    public partial TerraformValue<bool> EnableLogging { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -204,7 +204,7 @@ public partial class GoogleComputeFirewall : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name or self_link of the network to attach this firewall to.
@@ -212,7 +212,7 @@ public partial class GoogleComputeFirewall : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformProperty("network")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Network { get; set; }
+    public required partial TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// Priority for this rule. This is an integer between 0 and 65535, both
@@ -224,14 +224,14 @@ public partial class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformProperty("priority")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Priority { get; set; }
+    public partial TerraformValue<double>? Priority { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// If source ranges are specified, the firewall will apply only to
@@ -246,7 +246,7 @@ public partial class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformProperty("source_ranges")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? SourceRanges { get; set; }
+    public partial TerraformSet<string>? SourceRanges { get; set; }
 
     /// <summary>
     /// If source service accounts are specified, the firewall will apply only
@@ -264,7 +264,7 @@ public partial class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformProperty("source_service_accounts")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? SourceServiceAccounts { get; set; }
+    public partial TerraformSet<string>? SourceServiceAccounts { get; set; }
 
     /// <summary>
     /// If source tags are specified, the firewall will apply only to traffic
@@ -280,7 +280,7 @@ public partial class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformProperty("source_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? SourceTags { get; set; }
+    public partial TerraformSet<string>? SourceTags { get; set; }
 
     /// <summary>
     /// A list of service accounts indicating sets of instances located in the
@@ -292,7 +292,7 @@ public partial class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformProperty("target_service_accounts")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? TargetServiceAccounts { get; set; }
+    public partial TerraformSet<string>? TargetServiceAccounts { get; set; }
 
     /// <summary>
     /// A list of instance tags indicating sets of instances located in the
@@ -302,21 +302,21 @@ public partial class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [TerraformProperty("target_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? TargetTags { get; set; }
+    public partial TerraformSet<string>? TargetTags { get; set; }
 
     /// <summary>
     /// Block for allow.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("allow")]
-    public TerraformSet<TerraformBlock<GoogleComputeFirewallAllowBlock>>? Allow { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleComputeFirewallAllowBlock>>? Allow { get; set; }
 
     /// <summary>
     /// Block for deny.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("deny")]
-    public TerraformSet<TerraformBlock<GoogleComputeFirewallDenyBlock>>? Deny { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleComputeFirewallDenyBlock>>? Deny { get; set; }
 
     /// <summary>
     /// Block for log_config.
@@ -324,7 +324,7 @@ public partial class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformProperty("log_config")]
-    public TerraformList<TerraformBlock<GoogleComputeFirewallLogConfigBlock>>? LogConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeFirewallLogConfigBlock>>? LogConfig { get; set; }
 
     /// <summary>
     /// Block for params.
@@ -332,27 +332,27 @@ public partial class GoogleComputeFirewall : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformProperty("params")]
-    public TerraformList<TerraformBlock<GoogleComputeFirewallParamsBlock>>? Params { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeFirewallParamsBlock>>? Params { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeFirewallTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeFirewallTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
 }

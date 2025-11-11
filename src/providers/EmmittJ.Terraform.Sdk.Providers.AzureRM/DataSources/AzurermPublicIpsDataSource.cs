@@ -13,7 +13,7 @@ public partial class AzurermPublicIpsDataSourceTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,28 +31,28 @@ public partial class AzurermPublicIpsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("allocation_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AllocationType { get; set; }
+    public partial TerraformValue<string>? AllocationType { get; set; }
 
     /// <summary>
     /// The attachment_status attribute.
     /// </summary>
     [TerraformProperty("attachment_status")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AttachmentStatus { get; set; }
+    public partial TerraformValue<string>? AttachmentStatus { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformProperty("name_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NamePrefix { get; set; }
+    public partial TerraformValue<string>? NamePrefix { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -60,20 +60,20 @@ public partial class AzurermPublicIpsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPublicIpsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPublicIpsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The public_ips attribute.
     /// </summary>
     [TerraformProperty("public_ips")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PublicIps { get; }
+    public partial TerraformList<object> PublicIps { get; }
 
 }

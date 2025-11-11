@@ -13,14 +13,14 @@ public partial class GoogleBigqueryReservationAssignmentTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public partial class GoogleBigqueryReservationAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Assignee is required")]
     [TerraformProperty("assignee")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Assignee { get; set; }
+    public required partial TerraformValue<string> Assignee { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Types of job, which could be specified when using the reservation. Possible values: JOB_TYPE_UNSPECIFIED, PIPELINE, QUERY, CONTINUOUS
@@ -54,21 +54,21 @@ public partial class GoogleBigqueryReservationAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobType is required")]
     [TerraformProperty("job_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> JobType { get; set; }
+    public required partial TerraformValue<string> JobType { get; set; }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
     [TerraformProperty("location")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Location { get; set; }
+    public partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The reservation for the resource
@@ -76,21 +76,21 @@ public partial class GoogleBigqueryReservationAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reservation is required")]
     [TerraformProperty("reservation")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Reservation { get; set; }
+    public required partial TerraformValue<string> Reservation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBigqueryReservationAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBigqueryReservationAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The resource name of the assignment.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Assignment will remain in PENDING state if no active capacity commitment is present. It will become ACTIVE when some capacity commitment becomes active.
@@ -98,6 +98,6 @@ public partial class GoogleBigqueryReservationAssignment : TerraformResource
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

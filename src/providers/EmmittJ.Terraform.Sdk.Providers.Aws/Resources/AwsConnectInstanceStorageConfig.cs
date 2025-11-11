@@ -14,7 +14,7 @@ public partial class AwsConnectInstanceStorageConfigStorageConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
     [TerraformProperty("storage_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageType { get; set; }
+    public required partial TerraformValue<string> StorageType { get; set; }
 
 }
 
@@ -33,7 +33,7 @@ public partial class AwsConnectInstanceStorageConfig : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_id attribute.
@@ -41,14 +41,14 @@ public partial class AwsConnectInstanceStorageConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     [TerraformProperty("instance_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InstanceId { get; set; }
+    public required partial TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_type attribute.
@@ -56,7 +56,7 @@ public partial class AwsConnectInstanceStorageConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     [TerraformProperty("resource_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceType { get; set; }
+    public required partial TerraformValue<string> ResourceType { get; set; }
 
     /// <summary>
     /// Block for storage_config.
@@ -66,13 +66,13 @@ public partial class AwsConnectInstanceStorageConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageConfig block(s) allowed")]
     [TerraformProperty("storage_config")]
-    public TerraformList<TerraformBlock<AwsConnectInstanceStorageConfigStorageConfigBlock>>? StorageConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsConnectInstanceStorageConfigStorageConfigBlock>>? StorageConfig { get; set; }
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
     [TerraformProperty("association_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AssociationId { get; }
+    public partial TerraformValue<string> AssociationId { get; }
 
 }

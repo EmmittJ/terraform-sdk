@@ -16,7 +16,7 @@ public partial class GoogleDatastreamStaticIpsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -24,20 +24,20 @@ public partial class GoogleDatastreamStaticIpsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The static_ips attribute.
     /// </summary>
     [TerraformProperty("static_ips")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> StaticIps { get; }
+    public partial TerraformList<string> StaticIps { get; }
 
 }

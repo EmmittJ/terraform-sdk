@@ -13,7 +13,7 @@ public partial class AzurermLbOutboundRuleDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermLbOutboundRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The loadbalancer_id attribute.
@@ -39,7 +39,7 @@ public partial class AzurermLbOutboundRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     [TerraformProperty("loadbalancer_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LoadbalancerId { get; set; }
+    public required partial TerraformValue<string> LoadbalancerId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,62 +47,62 @@ public partial class AzurermLbOutboundRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLbOutboundRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLbOutboundRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The allocated_outbound_ports attribute.
     /// </summary>
     [TerraformProperty("allocated_outbound_ports")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> AllocatedOutboundPorts { get; }
+    public partial TerraformValue<double> AllocatedOutboundPorts { get; }
 
     /// <summary>
     /// The backend_address_pool_id attribute.
     /// </summary>
     [TerraformProperty("backend_address_pool_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BackendAddressPoolId { get; }
+    public partial TerraformValue<string> BackendAddressPoolId { get; }
 
     /// <summary>
     /// The enable_tcp_reset attribute.
     /// </summary>
     [TerraformProperty("enable_tcp_reset")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> EnableTcpReset { get; }
+    public partial TerraformValue<bool> EnableTcpReset { get; }
 
     /// <summary>
     /// The frontend_ip_configuration attribute.
     /// </summary>
     [TerraformProperty("frontend_ip_configuration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> FrontendIpConfiguration { get; }
+    public partial TerraformList<object> FrontendIpConfiguration { get; }
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
     [TerraformProperty("idle_timeout_in_minutes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> IdleTimeoutInMinutes { get; }
+    public partial TerraformValue<double> IdleTimeoutInMinutes { get; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [TerraformProperty("protocol")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Protocol { get; }
+    public partial TerraformValue<string> Protocol { get; }
 
     /// <summary>
     /// The tcp_reset_enabled attribute.
     /// </summary>
     [TerraformProperty("tcp_reset_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> TcpResetEnabled { get; }
+    public partial TerraformValue<bool> TcpResetEnabled { get; }
 
 }

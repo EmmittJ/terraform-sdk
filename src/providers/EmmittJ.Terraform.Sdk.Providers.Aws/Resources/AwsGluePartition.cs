@@ -13,63 +13,63 @@ public partial class AwsGluePartitionStorageDescriptorBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("additional_locations")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AdditionalLocations { get; set; }
+    public partial TerraformList<string>? AdditionalLocations { get; set; }
 
     /// <summary>
     /// The bucket_columns attribute.
     /// </summary>
     [TerraformProperty("bucket_columns")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? BucketColumns { get; set; }
+    public partial TerraformList<string>? BucketColumns { get; set; }
 
     /// <summary>
     /// The compressed attribute.
     /// </summary>
     [TerraformProperty("compressed")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Compressed { get; set; }
+    public partial TerraformValue<bool>? Compressed { get; set; }
 
     /// <summary>
     /// The input_format attribute.
     /// </summary>
     [TerraformProperty("input_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InputFormat { get; set; }
+    public partial TerraformValue<string>? InputFormat { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The number_of_buckets attribute.
     /// </summary>
     [TerraformProperty("number_of_buckets")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? NumberOfBuckets { get; set; }
+    public partial TerraformValue<double>? NumberOfBuckets { get; set; }
 
     /// <summary>
     /// The output_format attribute.
     /// </summary>
     [TerraformProperty("output_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OutputFormat { get; set; }
+    public partial TerraformValue<string>? OutputFormat { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// The stored_as_sub_directories attribute.
     /// </summary>
     [TerraformProperty("stored_as_sub_directories")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? StoredAsSubDirectories { get; set; }
+    public partial TerraformValue<bool>? StoredAsSubDirectories { get; set; }
 
 }
 
@@ -88,7 +88,7 @@ public partial class AwsGluePartition : TerraformResource
     /// </summary>
     [TerraformProperty("catalog_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CatalogId { get; set; }
+    public partial TerraformValue<string> CatalogId { get; set; }
 
     /// <summary>
     /// The database_name attribute.
@@ -96,21 +96,21 @@ public partial class AwsGluePartition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformProperty("database_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatabaseName { get; set; }
+    public required partial TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// The partition_values attribute.
@@ -118,14 +118,14 @@ public partial class AwsGluePartition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionValues is required")]
     [TerraformProperty("partition_values")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? PartitionValues { get; set; }
+    public partial TerraformList<string>? PartitionValues { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The table_name attribute.
@@ -133,7 +133,7 @@ public partial class AwsGluePartition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     [TerraformProperty("table_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TableName { get; set; }
+    public required partial TerraformValue<string> TableName { get; set; }
 
     /// <summary>
     /// Block for storage_descriptor.
@@ -141,27 +141,27 @@ public partial class AwsGluePartition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageDescriptor block(s) allowed")]
     [TerraformProperty("storage_descriptor")]
-    public TerraformList<TerraformBlock<AwsGluePartitionStorageDescriptorBlock>>? StorageDescriptor { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGluePartitionStorageDescriptorBlock>>? StorageDescriptor { get; set; }
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     [TerraformProperty("creation_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTime { get; }
+    public partial TerraformValue<string> CreationTime { get; }
 
     /// <summary>
     /// The last_accessed_time attribute.
     /// </summary>
     [TerraformProperty("last_accessed_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastAccessedTime { get; }
+    public partial TerraformValue<string> LastAccessedTime { get; }
 
     /// <summary>
     /// The last_analyzed_time attribute.
     /// </summary>
     [TerraformProperty("last_analyzed_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastAnalyzedTime { get; }
+    public partial TerraformValue<string> LastAnalyzedTime { get; }
 
 }

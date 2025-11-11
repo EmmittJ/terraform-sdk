@@ -16,34 +16,34 @@ public partial class AwsShieldProtectionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("protection_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ProtectionId { get; set; }
+    public partial TerraformValue<string> ProtectionId { get; set; }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     [TerraformProperty("resource_arn")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ResourceArn { get; set; }
+    public partial TerraformValue<string> ResourceArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The protection_arn attribute.
     /// </summary>
     [TerraformProperty("protection_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ProtectionArn { get; }
+    public partial TerraformValue<string> ProtectionArn { get; }
 
 }

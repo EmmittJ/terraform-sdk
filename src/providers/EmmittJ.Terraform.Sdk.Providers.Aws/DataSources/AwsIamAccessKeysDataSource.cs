@@ -16,7 +16,7 @@ public partial class AwsIamAccessKeysDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The user attribute.
@@ -24,13 +24,13 @@ public partial class AwsIamAccessKeysDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     [TerraformProperty("user")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> User { get; set; }
+    public required partial TerraformValue<string> User { get; set; }
 
     /// <summary>
     /// The access_keys attribute.
     /// </summary>
     [TerraformProperty("access_keys")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> AccessKeys { get; }
+    public partial TerraformSet<object> AccessKeys { get; }
 
 }

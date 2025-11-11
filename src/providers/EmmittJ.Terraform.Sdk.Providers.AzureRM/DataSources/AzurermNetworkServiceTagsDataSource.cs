@@ -13,7 +13,7 @@ public partial class AzurermNetworkServiceTagsDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermNetworkServiceTagsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -39,14 +39,14 @@ public partial class AzurermNetworkServiceTagsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The location_filter attribute.
     /// </summary>
     [TerraformProperty("location_filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LocationFilter { get; set; }
+    public partial TerraformValue<string>? LocationFilter { get; set; }
 
     /// <summary>
     /// The service attribute.
@@ -54,41 +54,41 @@ public partial class AzurermNetworkServiceTagsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformProperty("service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Service { get; set; }
+    public required partial TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetworkServiceTagsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetworkServiceTagsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The address_prefixes attribute.
     /// </summary>
     [TerraformProperty("address_prefixes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> AddressPrefixes { get; }
+    public partial TerraformList<string> AddressPrefixes { get; }
 
     /// <summary>
     /// The ipv4_cidrs attribute.
     /// </summary>
     [TerraformProperty("ipv4_cidrs")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Ipv4Cidrs { get; }
+    public partial TerraformList<string> Ipv4Cidrs { get; }
 
     /// <summary>
     /// The ipv6_cidrs attribute.
     /// </summary>
     [TerraformProperty("ipv6_cidrs")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Ipv6Cidrs { get; }
+    public partial TerraformList<string> Ipv6Cidrs { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

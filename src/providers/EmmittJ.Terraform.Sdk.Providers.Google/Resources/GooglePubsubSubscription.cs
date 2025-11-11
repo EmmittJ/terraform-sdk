@@ -15,7 +15,7 @@ public partial class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("drop_unknown_fields")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DropUnknownFields { get; set; }
+    public partial TerraformValue<bool>? DropUnknownFields { get; set; }
 
     /// <summary>
     /// The service account to use to write to BigQuery. If not specified, the Pub/Sub
@@ -24,7 +24,7 @@ public partial class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("service_account_email")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServiceAccountEmail { get; set; }
+    public partial TerraformValue<string>? ServiceAccountEmail { get; set; }
 
     /// <summary>
     /// The name of the table to which to write data, of the form {projectId}.{datasetId}.{tableId}
@@ -32,7 +32,7 @@ public partial class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     [TerraformProperty("table")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Table { get; set; }
+    public required partial TerraformValue<string> Table { get; set; }
 
     /// <summary>
     /// When true, use the BigQuery table&#39;s schema as the columns to write to in BigQuery. Messages
@@ -40,7 +40,7 @@ public partial class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("use_table_schema")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseTableSchema { get; set; }
+    public partial TerraformValue<bool>? UseTableSchema { get; set; }
 
     /// <summary>
     /// When true, use the topic&#39;s schema as the columns to write to in BigQuery, if it exists.
@@ -48,7 +48,7 @@ public partial class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("use_topic_schema")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseTopicSchema { get; set; }
+    public partial TerraformValue<bool>? UseTopicSchema { get; set; }
 
     /// <summary>
     /// When true, write the subscription name, messageId, publishTime, attributes, and orderingKey to additional columns in the table.
@@ -56,7 +56,7 @@ public partial class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("write_metadata")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? WriteMetadata { get; set; }
+    public partial TerraformValue<bool>? WriteMetadata { get; set; }
 
 }
 
@@ -72,28 +72,28 @@ public partial class GooglePubsubSubscriptionCloudStorageConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// User-provided format string specifying how to represent datetimes in Cloud Storage filenames.
     /// </summary>
     [TerraformProperty("filename_datetime_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FilenameDatetimeFormat { get; set; }
+    public partial TerraformValue<string>? FilenameDatetimeFormat { get; set; }
 
     /// <summary>
     /// User-provided prefix for Cloud Storage filename.
     /// </summary>
     [TerraformProperty("filename_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FilenamePrefix { get; set; }
+    public partial TerraformValue<string>? FilenamePrefix { get; set; }
 
     /// <summary>
     /// User-provided suffix for Cloud Storage filename. Must not end in &amp;quot;/&amp;quot;.
     /// </summary>
     [TerraformProperty("filename_suffix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FilenameSuffix { get; set; }
+    public partial TerraformValue<string>? FilenameSuffix { get; set; }
 
     /// <summary>
     /// The maximum bytes that can be written to a Cloud Storage file before a new file is created. Min 1 KB, max 10 GiB.
@@ -101,7 +101,7 @@ public partial class GooglePubsubSubscriptionCloudStorageConfigBlock : Terraform
     /// </summary>
     [TerraformProperty("max_bytes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxBytes { get; set; }
+    public partial TerraformValue<double>? MaxBytes { get; set; }
 
     /// <summary>
     /// The maximum duration that can elapse before a new Cloud Storage file is created. Min 1 minute, max 10 minutes, default 5 minutes.
@@ -110,14 +110,14 @@ public partial class GooglePubsubSubscriptionCloudStorageConfigBlock : Terraform
     /// </summary>
     [TerraformProperty("max_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MaxDuration { get; set; }
+    public partial TerraformValue<string>? MaxDuration { get; set; }
 
     /// <summary>
     /// The maximum messages that can be written to a Cloud Storage file before a new file is created. Min 1000 messages.
     /// </summary>
     [TerraformProperty("max_messages")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxMessages { get; set; }
+    public partial TerraformValue<double>? MaxMessages { get; set; }
 
     /// <summary>
     /// The service account to use to write to Cloud Storage. If not specified, the Pub/Sub
@@ -126,7 +126,7 @@ public partial class GooglePubsubSubscriptionCloudStorageConfigBlock : Terraform
     /// </summary>
     [TerraformProperty("service_account_email")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServiceAccountEmail { get; set; }
+    public partial TerraformValue<string>? ServiceAccountEmail { get; set; }
 
 
 }
@@ -152,7 +152,7 @@ public partial class GooglePubsubSubscriptionDeadLetterPolicyBlock : TerraformBl
     /// </summary>
     [TerraformProperty("dead_letter_topic")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeadLetterTopic { get; set; }
+    public partial TerraformValue<string>? DeadLetterTopic { get; set; }
 
     /// <summary>
     /// The maximum number of delivery attempts for any message. The value must be
@@ -170,7 +170,7 @@ public partial class GooglePubsubSubscriptionDeadLetterPolicyBlock : TerraformBl
     /// </summary>
     [TerraformProperty("max_delivery_attempts")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxDeliveryAttempts { get; set; }
+    public partial TerraformValue<double>? MaxDeliveryAttempts { get; set; }
 
 }
 
@@ -190,7 +190,7 @@ public partial class GooglePubsubSubscriptionExpirationPolicyBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     [TerraformProperty("ttl")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Ttl { get; set; }
+    public required partial TerraformValue<string> Ttl { get; set; }
 
 }
 
@@ -206,7 +206,7 @@ public partial class GooglePubsubSubscriptionMessageTransformsBlock : TerraformB
     /// </summary>
     [TerraformProperty("disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Disabled { get; set; }
+    public partial TerraformValue<bool>? Disabled { get; set; }
 
 }
 
@@ -243,7 +243,7 @@ public partial class GooglePubsubSubscriptionPushConfigBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("attributes")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Attributes { get; set; }
+    public partial TerraformMap<string>? Attributes { get; set; }
 
     /// <summary>
     /// A URL locating the endpoint to which messages should be pushed.
@@ -253,7 +253,7 @@ public partial class GooglePubsubSubscriptionPushConfigBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PushEndpoint is required")]
     [TerraformProperty("push_endpoint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PushEndpoint { get; set; }
+    public required partial TerraformValue<string> PushEndpoint { get; set; }
 
 }
 
@@ -269,7 +269,7 @@ public partial class GooglePubsubSubscriptionRetryPolicyBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("maximum_backoff")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> MaximumBackoff { get; set; }
+    public partial TerraformValue<string> MaximumBackoff { get; set; }
 
     /// <summary>
     /// The minimum delay between consecutive deliveries of a given message. Value should be between 0 and 600 seconds. Defaults to 10 seconds.
@@ -277,7 +277,7 @@ public partial class GooglePubsubSubscriptionRetryPolicyBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("minimum_backoff")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> MinimumBackoff { get; set; }
+    public partial TerraformValue<string> MinimumBackoff { get; set; }
 
 }
 
@@ -292,21 +292,21 @@ public partial class GooglePubsubSubscriptionTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -342,7 +342,7 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [TerraformProperty("ack_deadline_seconds")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> AckDeadlineSeconds { get; set; }
+    public partial TerraformValue<double> AckDeadlineSeconds { get; set; }
 
     /// <summary>
     /// If &#39;true&#39;, Pub/Sub provides the following guarantees for the delivery
@@ -357,7 +357,7 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [TerraformProperty("enable_exactly_once_delivery")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableExactlyOnceDelivery { get; set; }
+    public partial TerraformValue<bool>? EnableExactlyOnceDelivery { get; set; }
 
     /// <summary>
     /// If &#39;true&#39;, messages published with the same orderingKey in PubsubMessage will be delivered to
@@ -366,7 +366,7 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [TerraformProperty("enable_message_ordering")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableMessageOrdering { get; set; }
+    public partial TerraformValue<bool>? EnableMessageOrdering { get; set; }
 
     /// <summary>
     /// The subscription only delivers the messages that match the filter.
@@ -376,14 +376,14 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [TerraformProperty("filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Filter { get; set; }
+    public partial TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A set of key/value label pairs to assign to this Subscription.
@@ -394,7 +394,7 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// How long to retain unacknowledged messages in the subscription&#39;s
@@ -409,7 +409,7 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [TerraformProperty("message_retention_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MessageRetentionDuration { get; set; }
+    public partial TerraformValue<string>? MessageRetentionDuration { get; set; }
 
     /// <summary>
     /// Name of the subscription.
@@ -417,14 +417,14 @@ public partial class GooglePubsubSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Indicates whether to retain acknowledged messages. If &#39;true&#39;, then
@@ -434,7 +434,7 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [TerraformProperty("retain_acked_messages")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RetainAckedMessages { get; set; }
+    public partial TerraformValue<bool>? RetainAckedMessages { get; set; }
 
     /// <summary>
     /// Input only. Resource manager tags to be bound to the subscription. Tag
@@ -448,7 +448,7 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// A reference to a Topic resource, of the form projects/{project}/topics/{{name}}
@@ -458,7 +458,7 @@ public partial class GooglePubsubSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     [TerraformProperty("topic")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Topic { get; set; }
+    public required partial TerraformValue<string> Topic { get; set; }
 
     /// <summary>
     /// Block for bigquery_config.
@@ -466,7 +466,7 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigqueryConfig block(s) allowed")]
     [TerraformProperty("bigquery_config")]
-    public TerraformList<TerraformBlock<GooglePubsubSubscriptionBigqueryConfigBlock>>? BigqueryConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePubsubSubscriptionBigqueryConfigBlock>>? BigqueryConfig { get; set; }
 
     /// <summary>
     /// Block for cloud_storage_config.
@@ -474,7 +474,7 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudStorageConfig block(s) allowed")]
     [TerraformProperty("cloud_storage_config")]
-    public TerraformList<TerraformBlock<GooglePubsubSubscriptionCloudStorageConfigBlock>>? CloudStorageConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePubsubSubscriptionCloudStorageConfigBlock>>? CloudStorageConfig { get; set; }
 
     /// <summary>
     /// Block for dead_letter_policy.
@@ -482,7 +482,7 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterPolicy block(s) allowed")]
     [TerraformProperty("dead_letter_policy")]
-    public TerraformList<TerraformBlock<GooglePubsubSubscriptionDeadLetterPolicyBlock>>? DeadLetterPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePubsubSubscriptionDeadLetterPolicyBlock>>? DeadLetterPolicy { get; set; }
 
     /// <summary>
     /// Block for expiration_policy.
@@ -490,14 +490,14 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExpirationPolicy block(s) allowed")]
     [TerraformProperty("expiration_policy")]
-    public TerraformList<TerraformBlock<GooglePubsubSubscriptionExpirationPolicyBlock>>? ExpirationPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePubsubSubscriptionExpirationPolicyBlock>>? ExpirationPolicy { get; set; }
 
     /// <summary>
     /// Block for message_transforms.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("message_transforms")]
-    public TerraformList<TerraformBlock<GooglePubsubSubscriptionMessageTransformsBlock>>? MessageTransforms { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePubsubSubscriptionMessageTransformsBlock>>? MessageTransforms { get; set; }
 
     /// <summary>
     /// Block for push_config.
@@ -505,7 +505,7 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PushConfig block(s) allowed")]
     [TerraformProperty("push_config")]
-    public TerraformList<TerraformBlock<GooglePubsubSubscriptionPushConfigBlock>>? PushConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePubsubSubscriptionPushConfigBlock>>? PushConfig { get; set; }
 
     /// <summary>
     /// Block for retry_policy.
@@ -513,21 +513,21 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryPolicy block(s) allowed")]
     [TerraformProperty("retry_policy")]
-    public TerraformList<TerraformBlock<GooglePubsubSubscriptionRetryPolicyBlock>>? RetryPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePubsubSubscriptionRetryPolicyBlock>>? RetryPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GooglePubsubSubscriptionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GooglePubsubSubscriptionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -535,6 +535,6 @@ public partial class GooglePubsubSubscription : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

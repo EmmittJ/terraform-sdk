@@ -21,21 +21,21 @@ public partial class GoogleDnsResponsePolicyRuleTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -55,21 +55,21 @@ public partial class GoogleDnsResponsePolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsName is required")]
     [TerraformProperty("dns_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DnsName { get; set; }
+    public required partial TerraformValue<string> DnsName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Identifies the response policy addressed by this request.
@@ -77,7 +77,7 @@ public partial class GoogleDnsResponsePolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponsePolicy is required")]
     [TerraformProperty("response_policy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResponsePolicy { get; set; }
+    public required partial TerraformValue<string> ResponsePolicy { get; set; }
 
     /// <summary>
     /// An identifier for this rule. Must be unique with the ResponsePolicy.
@@ -85,7 +85,7 @@ public partial class GoogleDnsResponsePolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     [TerraformProperty("rule_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RuleName { get; set; }
+    public required partial TerraformValue<string> RuleName { get; set; }
 
     /// <summary>
     /// Block for local_data.
@@ -93,13 +93,13 @@ public partial class GoogleDnsResponsePolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalData block(s) allowed")]
     [TerraformProperty("local_data")]
-    public TerraformList<TerraformBlock<GoogleDnsResponsePolicyRuleLocalDataBlock>>? LocalData { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDnsResponsePolicyRuleLocalDataBlock>>? LocalData { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDnsResponsePolicyRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDnsResponsePolicyRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

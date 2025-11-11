@@ -14,7 +14,7 @@ public partial class AwsCustomerprofilesDomainMatchingBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
 }
 
@@ -30,28 +30,28 @@ public partial class AwsCustomerprofilesDomainRuleBasedMatchingBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The max_allowed_rule_level_for_matching attribute.
     /// </summary>
     [TerraformProperty("max_allowed_rule_level_for_matching")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxAllowedRuleLevelForMatching { get; set; }
+    public partial TerraformValue<double>? MaxAllowedRuleLevelForMatching { get; set; }
 
     /// <summary>
     /// The max_allowed_rule_level_for_merging attribute.
     /// </summary>
     [TerraformProperty("max_allowed_rule_level_for_merging")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxAllowedRuleLevelForMerging { get; set; }
+    public partial TerraformValue<double>? MaxAllowedRuleLevelForMerging { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Status { get; set; }
+    public partial TerraformValue<string> Status { get; set; }
 
 }
 
@@ -70,14 +70,14 @@ public partial class AwsCustomerprofilesDomain : TerraformResource
     /// </summary>
     [TerraformProperty("dead_letter_queue_url")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeadLetterQueueUrl { get; set; }
+    public partial TerraformValue<string>? DeadLetterQueueUrl { get; set; }
 
     /// <summary>
     /// The default_encryption_key attribute.
     /// </summary>
     [TerraformProperty("default_encryption_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultEncryptionKey { get; set; }
+    public partial TerraformValue<string>? DefaultEncryptionKey { get; set; }
 
     /// <summary>
     /// The default_expiration_days attribute.
@@ -85,7 +85,7 @@ public partial class AwsCustomerprofilesDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultExpirationDays is required")]
     [TerraformProperty("default_expiration_days")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> DefaultExpirationDays { get; set; }
+    public required partial TerraformValue<double> DefaultExpirationDays { get; set; }
 
     /// <summary>
     /// The domain_name attribute.
@@ -93,35 +93,35 @@ public partial class AwsCustomerprofilesDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformProperty("domain_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainName { get; set; }
+    public required partial TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for matching.
@@ -129,7 +129,7 @@ public partial class AwsCustomerprofilesDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Matching block(s) allowed")]
     [TerraformProperty("matching")]
-    public TerraformList<TerraformBlock<AwsCustomerprofilesDomainMatchingBlock>>? Matching { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCustomerprofilesDomainMatchingBlock>>? Matching { get; set; }
 
     /// <summary>
     /// Block for rule_based_matching.
@@ -137,13 +137,13 @@ public partial class AwsCustomerprofilesDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuleBasedMatching block(s) allowed")]
     [TerraformProperty("rule_based_matching")]
-    public TerraformList<TerraformBlock<AwsCustomerprofilesDomainRuleBasedMatchingBlock>>? RuleBasedMatching { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCustomerprofilesDomainRuleBasedMatchingBlock>>? RuleBasedMatching { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

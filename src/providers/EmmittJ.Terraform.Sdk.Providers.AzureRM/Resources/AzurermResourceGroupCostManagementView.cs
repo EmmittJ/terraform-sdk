@@ -14,7 +14,7 @@ public partial class AzurermResourceGroupCostManagementViewDatasetBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Granularity is required")]
     [TerraformProperty("granularity")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Granularity { get; set; }
+    public required partial TerraformValue<string> Granularity { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public partial class AzurermResourceGroupCostManagementViewKpiBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AzurermResourceGroupCostManagementViewPivotBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -54,7 +54,7 @@ public partial class AzurermResourceGroupCostManagementViewPivotBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -69,28 +69,28 @@ public partial class AzurermResourceGroupCostManagementViewTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -110,7 +110,7 @@ public partial class AzurermResourceGroupCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Accumulated is required")]
     [TerraformProperty("accumulated")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Accumulated { get; set; }
+    public required partial TerraformValue<bool> Accumulated { get; set; }
 
     /// <summary>
     /// The chart_type attribute.
@@ -118,7 +118,7 @@ public partial class AzurermResourceGroupCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChartType is required")]
     [TerraformProperty("chart_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ChartType { get; set; }
+    public required partial TerraformValue<string> ChartType { get; set; }
 
     /// <summary>
     /// The display_name attribute.
@@ -126,14 +126,14 @@ public partial class AzurermResourceGroupCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -141,7 +141,7 @@ public partial class AzurermResourceGroupCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The report_type attribute.
@@ -149,7 +149,7 @@ public partial class AzurermResourceGroupCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportType is required")]
     [TerraformProperty("report_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ReportType { get; set; }
+    public required partial TerraformValue<string> ReportType { get; set; }
 
     /// <summary>
     /// The resource_group_id attribute.
@@ -157,7 +157,7 @@ public partial class AzurermResourceGroupCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     [TerraformProperty("resource_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupId { get; set; }
+    public required partial TerraformValue<string> ResourceGroupId { get; set; }
 
     /// <summary>
     /// The timeframe attribute.
@@ -165,7 +165,7 @@ public partial class AzurermResourceGroupCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeframe is required")]
     [TerraformProperty("timeframe")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Timeframe { get; set; }
+    public required partial TerraformValue<string> Timeframe { get; set; }
 
     /// <summary>
     /// Block for dataset.
@@ -175,27 +175,27 @@ public partial class AzurermResourceGroupCostManagementView : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Dataset block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dataset block(s) allowed")]
     [TerraformProperty("dataset")]
-    public TerraformList<TerraformBlock<AzurermResourceGroupCostManagementViewDatasetBlock>>? Dataset { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermResourceGroupCostManagementViewDatasetBlock>>? Dataset { get; set; }
 
     /// <summary>
     /// Block for kpi.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("kpi")]
-    public TerraformList<TerraformBlock<AzurermResourceGroupCostManagementViewKpiBlock>>? Kpi { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermResourceGroupCostManagementViewKpiBlock>>? Kpi { get; set; }
 
     /// <summary>
     /// Block for pivot.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("pivot")]
-    public TerraformList<TerraformBlock<AzurermResourceGroupCostManagementViewPivotBlock>>? Pivot { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermResourceGroupCostManagementViewPivotBlock>>? Pivot { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermResourceGroupCostManagementViewTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermResourceGroupCostManagementViewTimeoutsBlock>? Timeouts { get; set; }
 
 }

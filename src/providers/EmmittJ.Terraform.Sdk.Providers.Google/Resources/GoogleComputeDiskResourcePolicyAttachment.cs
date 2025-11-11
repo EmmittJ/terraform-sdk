@@ -13,14 +13,14 @@ public partial class GoogleComputeDiskResourcePolicyAttachmentTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public partial class GoogleComputeDiskResourcePolicyAttachment : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     [TerraformProperty("disk")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Disk { get; set; }
+    public required partial TerraformValue<string> Disk { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource policy to be attached to the disk for scheduling snapshot
@@ -55,27 +55,27 @@ public partial class GoogleComputeDiskResourcePolicyAttachment : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// A reference to the zone where the disk resides.
     /// </summary>
     [TerraformProperty("zone")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Zone { get; set; }
+    public partial TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeDiskResourcePolicyAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeDiskResourcePolicyAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

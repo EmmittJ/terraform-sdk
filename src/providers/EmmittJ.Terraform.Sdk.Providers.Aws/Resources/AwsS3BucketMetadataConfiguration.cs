@@ -22,7 +22,7 @@ public partial class AwsS3BucketMetadataConfigurationTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -41,34 +41,34 @@ public partial class AwsS3BucketMetadataConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
     [TerraformProperty("expected_bucket_owner")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExpectedBucketOwner { get; set; }
+    public partial TerraformValue<string>? ExpectedBucketOwner { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for metadata_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("metadata_configuration")]
-    public TerraformList<TerraformBlock<AwsS3BucketMetadataConfigurationMetadataConfigurationBlock>>? MetadataConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3BucketMetadataConfigurationMetadataConfigurationBlock>>? MetadataConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsS3BucketMetadataConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsS3BucketMetadataConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
 }

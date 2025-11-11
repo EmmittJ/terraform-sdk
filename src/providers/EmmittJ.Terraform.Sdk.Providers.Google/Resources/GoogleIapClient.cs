@@ -13,14 +13,14 @@ public partial class GoogleIapClientTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -42,7 +42,7 @@ public partial class GoogleIapClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Brand is required")]
     [TerraformProperty("brand")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Brand { get; set; }
+    public required partial TerraformValue<string> Brand { get; set; }
 
     /// <summary>
     /// Human-friendly name given to the OAuth client.
@@ -50,34 +50,34 @@ public partial class GoogleIapClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleIapClientTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleIapClientTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Unique identifier of the OAuth client.
     /// </summary>
     [TerraformProperty("client_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ClientId { get; }
+    public partial TerraformValue<string> ClientId { get; }
 
     /// <summary>
     /// Output only. Client secret of the OAuth client.
     /// </summary>
     [TerraformProperty("secret")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Secret { get; }
+    public partial TerraformValue<string> Secret { get; }
 
 }

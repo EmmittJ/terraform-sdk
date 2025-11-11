@@ -14,7 +14,7 @@ public partial class AwsVpcIpamsDataSourceFilterBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
@@ -22,7 +22,7 @@ public partial class AwsVpcIpamsDataSourceFilterBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     [TerraformProperty("values")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Values { get; set; }
+    public required partial TerraformSet<string> Values { get; set; }
 
 }
 
@@ -40,27 +40,27 @@ public partial class AwsVpcIpamsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("ipam_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? IpamIds { get; set; }
+    public partial TerraformList<string>? IpamIds { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public TerraformSet<TerraformBlock<AwsVpcIpamsDataSourceFilterBlock>>? Filter { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsVpcIpamsDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// The ipams attribute.
     /// </summary>
     [TerraformProperty("ipams")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Ipams { get; }
+    public partial TerraformList<object> Ipams { get; }
 
 }

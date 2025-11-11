@@ -16,7 +16,7 @@ public partial class AwsOrganizationsResourceTagsDataSource : TerraformDataSourc
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
@@ -24,13 +24,13 @@ public partial class AwsOrganizationsResourceTagsDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     [TerraformProperty("resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceId { get; set; }
+    public required partial TerraformValue<string> ResourceId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Tags { get; set; }
+    public partial TerraformMap<string> Tags { get; set; }
 
 }

@@ -13,21 +13,21 @@ public partial class AwsRoute53RecordsExclusiveResourceRecordSetBlock : Terrafor
     /// </summary>
     [TerraformProperty("failover")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Failover { get; set; }
+    public partial TerraformValue<string>? Failover { get; set; }
 
     /// <summary>
     /// The health_check_id attribute.
     /// </summary>
     [TerraformProperty("health_check_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HealthCheckId { get; set; }
+    public partial TerraformValue<string>? HealthCheckId { get; set; }
 
     /// <summary>
     /// The multi_value_answer attribute.
     /// </summary>
     [TerraformProperty("multi_value_answer")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? MultiValueAnswer { get; set; }
+    public partial TerraformValue<bool>? MultiValueAnswer { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -35,49 +35,49 @@ public partial class AwsRoute53RecordsExclusiveResourceRecordSetBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The set_identifier attribute.
     /// </summary>
     [TerraformProperty("set_identifier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SetIdentifier { get; set; }
+    public partial TerraformValue<string>? SetIdentifier { get; set; }
 
     /// <summary>
     /// The traffic_policy_instance_id attribute.
     /// </summary>
     [TerraformProperty("traffic_policy_instance_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TrafficPolicyInstanceId { get; set; }
+    public partial TerraformValue<string>? TrafficPolicyInstanceId { get; set; }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
     [TerraformProperty("ttl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Ttl { get; set; }
+    public partial TerraformValue<double>? Ttl { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The weight attribute.
     /// </summary>
     [TerraformProperty("weight")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Weight { get; set; }
+    public partial TerraformValue<double>? Weight { get; set; }
 
 }
 
@@ -92,14 +92,14 @@ public partial class AwsRoute53RecordsExclusiveTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -118,20 +118,20 @@ public partial class AwsRoute53RecordsExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     [TerraformProperty("zone_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ZoneId { get; set; }
+    public required partial TerraformValue<string> ZoneId { get; set; }
 
     /// <summary>
     /// Block for resource_record_set.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("resource_record_set")]
-    public TerraformSet<TerraformBlock<AwsRoute53RecordsExclusiveResourceRecordSetBlock>>? ResourceRecordSet { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsRoute53RecordsExclusiveResourceRecordSetBlock>>? ResourceRecordSet { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsRoute53RecordsExclusiveTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsRoute53RecordsExclusiveTimeoutsBlock>? Timeouts { get; set; }
 
 }

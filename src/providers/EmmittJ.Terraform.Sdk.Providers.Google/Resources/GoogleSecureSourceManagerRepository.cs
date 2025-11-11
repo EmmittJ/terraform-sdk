@@ -13,7 +13,7 @@ public partial class GoogleSecureSourceManagerRepositoryInitialConfigBlock : Ter
     /// </summary>
     [TerraformProperty("default_branch")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultBranch { get; set; }
+    public partial TerraformValue<string>? DefaultBranch { get; set; }
 
     /// <summary>
     /// List of gitignore template names user can choose from.
@@ -21,7 +21,7 @@ public partial class GoogleSecureSourceManagerRepositoryInitialConfigBlock : Ter
     /// </summary>
     [TerraformProperty("gitignores")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Gitignores { get; set; }
+    public partial TerraformList<string>? Gitignores { get; set; }
 
     /// <summary>
     /// License template name user can choose from.
@@ -29,7 +29,7 @@ public partial class GoogleSecureSourceManagerRepositoryInitialConfigBlock : Ter
     /// </summary>
     [TerraformProperty("license")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? License { get; set; }
+    public partial TerraformValue<string>? License { get; set; }
 
     /// <summary>
     /// README template name.
@@ -37,7 +37,7 @@ public partial class GoogleSecureSourceManagerRepositoryInitialConfigBlock : Ter
     /// </summary>
     [TerraformProperty("readme")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Readme { get; set; }
+    public partial TerraformValue<string>? Readme { get; set; }
 
 }
 
@@ -52,21 +52,21 @@ public partial class GoogleSecureSourceManagerRepositoryTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -92,21 +92,21 @@ public partial class GoogleSecureSourceManagerRepository : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeletionPolicy { get; set; }
+    public partial TerraformValue<string>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// Description of the repository, which cannot exceed 500 characters.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the instance in which the repository is hosted.
@@ -114,7 +114,7 @@ public partial class GoogleSecureSourceManagerRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The location for the Repository.
@@ -122,14 +122,14 @@ public partial class GoogleSecureSourceManagerRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The ID for the Repository.
@@ -137,7 +137,7 @@ public partial class GoogleSecureSourceManagerRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     [TerraformProperty("repository_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepositoryId { get; set; }
+    public required partial TerraformValue<string> RepositoryId { get; set; }
 
     /// <summary>
     /// Block for initial_config.
@@ -145,48 +145,48 @@ public partial class GoogleSecureSourceManagerRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InitialConfig block(s) allowed")]
     [TerraformProperty("initial_config")]
-    public TerraformList<TerraformBlock<GoogleSecureSourceManagerRepositoryInitialConfigBlock>>? InitialConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleSecureSourceManagerRepositoryInitialConfigBlock>>? InitialConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleSecureSourceManagerRepositoryTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleSecureSourceManagerRepositoryTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the repository was created in UTC.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The resource name for the Repository.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Unique identifier of the repository.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Time the repository was updated in UTC.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// URIs for the repository.
     /// </summary>
     [TerraformProperty("uris")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Uris { get; }
+    public partial TerraformList<object> Uris { get; }
 
 }

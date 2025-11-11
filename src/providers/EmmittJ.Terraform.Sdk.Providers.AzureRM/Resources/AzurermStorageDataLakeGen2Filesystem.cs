@@ -13,7 +13,7 @@ public partial class AzurermStorageDataLakeGen2FilesystemAceBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Id { get; set; }
+    public partial TerraformValue<string>? Id { get; set; }
 
     /// <summary>
     /// The permissions attribute.
@@ -21,14 +21,14 @@ public partial class AzurermStorageDataLakeGen2FilesystemAceBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     [TerraformProperty("permissions")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Permissions { get; set; }
+    public required partial TerraformValue<string> Permissions { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [TerraformProperty("scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Scope { get; set; }
+    public partial TerraformValue<string>? Scope { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -36,7 +36,7 @@ public partial class AzurermStorageDataLakeGen2FilesystemAceBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -51,28 +51,28 @@ public partial class AzurermStorageDataLakeGen2FilesystemTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -90,21 +90,21 @@ public partial class AzurermStorageDataLakeGen2Filesystem : TerraformResource
     /// </summary>
     [TerraformProperty("default_encryption_scope")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DefaultEncryptionScope { get; set; }
+    public partial TerraformValue<string> DefaultEncryptionScope { get; set; }
 
     /// <summary>
     /// The group attribute.
     /// </summary>
     [TerraformProperty("group")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Group { get; set; }
+    public partial TerraformValue<string> Group { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -112,21 +112,21 @@ public partial class AzurermStorageDataLakeGen2Filesystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     [TerraformProperty("owner")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Owner { get; set; }
+    public partial TerraformValue<string> Owner { get; set; }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
     [TerraformProperty("properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Properties { get; set; }
+    public partial TerraformMap<string>? Properties { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -134,20 +134,20 @@ public partial class AzurermStorageDataLakeGen2Filesystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformProperty("storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountId { get; set; }
+    public required partial TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for ace.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ace")]
-    public TerraformSet<TerraformBlock<AzurermStorageDataLakeGen2FilesystemAceBlock>>? Ace { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermStorageDataLakeGen2FilesystemAceBlock>>? Ace { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageDataLakeGen2FilesystemTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageDataLakeGen2FilesystemTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -14,7 +14,7 @@ public partial class AzurermTrafficManagerNestedEndpointCustomHeaderBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -22,7 +22,7 @@ public partial class AzurermTrafficManagerNestedEndpointCustomHeaderBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
 }
 
@@ -38,21 +38,21 @@ public partial class AzurermTrafficManagerNestedEndpointSubnetBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "First is required")]
     [TerraformProperty("first")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> First { get; set; }
+    public required partial TerraformValue<string> First { get; set; }
 
     /// <summary>
     /// The last attribute.
     /// </summary>
     [TerraformProperty("last")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Last { get; set; }
+    public partial TerraformValue<string>? Last { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [TerraformProperty("scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Scope { get; set; }
+    public partial TerraformValue<double>? Scope { get; set; }
 
 }
 
@@ -67,28 +67,28 @@ public partial class AzurermTrafficManagerNestedEndpointTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -106,28 +106,28 @@ public partial class AzurermTrafficManagerNestedEndpoint : TerraformResource
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The endpoint_location attribute.
     /// </summary>
     [TerraformProperty("endpoint_location")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> EndpointLocation { get; set; }
+    public partial TerraformValue<string> EndpointLocation { get; set; }
 
     /// <summary>
     /// The geo_mappings attribute.
     /// </summary>
     [TerraformProperty("geo_mappings")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? GeoMappings { get; set; }
+    public partial TerraformList<string>? GeoMappings { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The minimum_child_endpoints attribute.
@@ -135,21 +135,21 @@ public partial class AzurermTrafficManagerNestedEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumChildEndpoints is required")]
     [TerraformProperty("minimum_child_endpoints")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MinimumChildEndpoints { get; set; }
+    public required partial TerraformValue<double> MinimumChildEndpoints { get; set; }
 
     /// <summary>
     /// The minimum_required_child_endpoints_ipv4 attribute.
     /// </summary>
     [TerraformProperty("minimum_required_child_endpoints_ipv4")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinimumRequiredChildEndpointsIpv4 { get; set; }
+    public partial TerraformValue<double>? MinimumRequiredChildEndpointsIpv4 { get; set; }
 
     /// <summary>
     /// The minimum_required_child_endpoints_ipv6 attribute.
     /// </summary>
     [TerraformProperty("minimum_required_child_endpoints_ipv6")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinimumRequiredChildEndpointsIpv6 { get; set; }
+    public partial TerraformValue<double>? MinimumRequiredChildEndpointsIpv6 { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -157,14 +157,14 @@ public partial class AzurermTrafficManagerNestedEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [TerraformProperty("priority")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Priority { get; set; }
+    public partial TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// The profile_id attribute.
@@ -172,7 +172,7 @@ public partial class AzurermTrafficManagerNestedEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileId is required")]
     [TerraformProperty("profile_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProfileId { get; set; }
+    public required partial TerraformValue<string> ProfileId { get; set; }
 
     /// <summary>
     /// The target_resource_id attribute.
@@ -180,34 +180,34 @@ public partial class AzurermTrafficManagerNestedEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     [TerraformProperty("target_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetResourceId { get; set; }
+    public required partial TerraformValue<string> TargetResourceId { get; set; }
 
     /// <summary>
     /// The weight attribute.
     /// </summary>
     [TerraformProperty("weight")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Weight { get; set; }
+    public partial TerraformValue<double>? Weight { get; set; }
 
     /// <summary>
     /// Block for custom_header.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("custom_header")]
-    public TerraformList<TerraformBlock<AzurermTrafficManagerNestedEndpointCustomHeaderBlock>>? CustomHeader { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermTrafficManagerNestedEndpointCustomHeaderBlock>>? CustomHeader { get; set; }
 
     /// <summary>
     /// Block for subnet.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("subnet")]
-    public TerraformList<TerraformBlock<AzurermTrafficManagerNestedEndpointSubnetBlock>>? Subnet { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermTrafficManagerNestedEndpointSubnetBlock>>? Subnet { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermTrafficManagerNestedEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermTrafficManagerNestedEndpointTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -21,14 +21,14 @@ public partial class AwsMskServerlessClusterTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -43,7 +43,7 @@ public partial class AwsMskServerlessClusterVpcConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("security_group_ids")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> SecurityGroupIds { get; set; }
+    public partial TerraformSet<string> SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
@@ -51,7 +51,7 @@ public partial class AwsMskServerlessClusterVpcConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     [TerraformProperty("subnet_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> SubnetIds { get; set; }
+    public required partial TerraformSet<string> SubnetIds { get; set; }
 
 }
 
@@ -71,35 +71,35 @@ public partial class AwsMskServerlessCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     [TerraformProperty("cluster_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterName { get; set; }
+    public required partial TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for client_authentication.
@@ -109,14 +109,14 @@ public partial class AwsMskServerlessCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ClientAuthentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientAuthentication block(s) allowed")]
     [TerraformProperty("client_authentication")]
-    public TerraformList<TerraformBlock<AwsMskServerlessClusterClientAuthenticationBlock>>? ClientAuthentication { get; set; }
+    public partial TerraformList<TerraformBlock<AwsMskServerlessClusterClientAuthenticationBlock>>? ClientAuthentication { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsMskServerlessClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsMskServerlessClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vpc_config.
@@ -125,27 +125,27 @@ public partial class AwsMskServerlessCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcConfig block(s) required")]
     [TerraformProperty("vpc_config")]
-    public TerraformList<TerraformBlock<AwsMskServerlessClusterVpcConfigBlock>>? VpcConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsMskServerlessClusterVpcConfigBlock>>? VpcConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The bootstrap_brokers_sasl_iam attribute.
     /// </summary>
     [TerraformProperty("bootstrap_brokers_sasl_iam")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BootstrapBrokersSaslIam { get; }
+    public partial TerraformValue<string> BootstrapBrokersSaslIam { get; }
 
     /// <summary>
     /// The cluster_uuid attribute.
     /// </summary>
     [TerraformProperty("cluster_uuid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ClusterUuid { get; }
+    public partial TerraformValue<string> ClusterUuid { get; }
 
 }

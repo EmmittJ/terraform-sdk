@@ -17,7 +17,7 @@ public partial class AwsIamGroupPolicyAttachmentsExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     [TerraformProperty("group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GroupName { get; set; }
+    public required partial TerraformValue<string> GroupName { get; set; }
 
     /// <summary>
     /// The policy_arns attribute.
@@ -25,6 +25,6 @@ public partial class AwsIamGroupPolicyAttachmentsExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArns is required")]
     [TerraformProperty("policy_arns")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> PolicyArns { get; set; }
+    public required partial TerraformSet<string> PolicyArns { get; set; }
 
 }

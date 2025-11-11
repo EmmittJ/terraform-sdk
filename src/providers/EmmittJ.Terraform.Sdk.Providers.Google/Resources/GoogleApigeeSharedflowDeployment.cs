@@ -13,21 +13,21 @@ public partial class GoogleApigeeSharedflowDeploymentTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class GoogleApigeeSharedflowDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     [TerraformProperty("environment")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Environment { get; set; }
+    public required partial TerraformValue<string> Environment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee instance
@@ -61,7 +61,7 @@ public partial class GoogleApigeeSharedflowDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformProperty("org_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OrgId { get; set; }
+    public required partial TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Revision of the Sharedflow to be deployed.
@@ -69,14 +69,14 @@ public partial class GoogleApigeeSharedflowDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     [TerraformProperty("revision")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Revision { get; set; }
+    public required partial TerraformValue<string> Revision { get; set; }
 
     /// <summary>
     /// The service account represents the identity of the deployed proxy, and determines what permissions it has. The format must be {ACCOUNT_ID}@{PROJECT}.iam.gserviceaccount.com.
     /// </summary>
     [TerraformProperty("service_account")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServiceAccount { get; set; }
+    public partial TerraformValue<string>? ServiceAccount { get; set; }
 
     /// <summary>
     /// Id of the Sharedflow to be deployed.
@@ -84,13 +84,13 @@ public partial class GoogleApigeeSharedflowDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedflowId is required")]
     [TerraformProperty("sharedflow_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SharedflowId { get; set; }
+    public required partial TerraformValue<string> SharedflowId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeSharedflowDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeSharedflowDeploymentTimeoutsBlock>? Timeouts { get; set; }
 
 }

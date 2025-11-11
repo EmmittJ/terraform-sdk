@@ -13,7 +13,7 @@ public partial class GoogleNetworkManagementConnectivityTestDestinationBlock : T
     /// </summary>
     [TerraformProperty("cloud_sql_instance")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CloudSqlInstance { get; set; }
+    public partial TerraformValue<string>? CloudSqlInstance { get; set; }
 
     /// <summary>
     /// Forwarding rule URI. Forwarding rules are frontends for load balancers,
@@ -21,7 +21,7 @@ public partial class GoogleNetworkManagementConnectivityTestDestinationBlock : T
     /// </summary>
     [TerraformProperty("forwarding_rule")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ForwardingRule { get; set; }
+    public partial TerraformValue<string>? ForwardingRule { get; set; }
 
     /// <summary>
     /// A DNS endpoint of Google Kubernetes Engine cluster control plane.
@@ -30,35 +30,35 @@ public partial class GoogleNetworkManagementConnectivityTestDestinationBlock : T
     /// </summary>
     [TerraformProperty("fqdn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Fqdn { get; set; }
+    public partial TerraformValue<string>? Fqdn { get; set; }
 
     /// <summary>
     /// A cluster URI for Google Kubernetes Engine cluster control plane.
     /// </summary>
     [TerraformProperty("gke_master_cluster")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GkeMasterCluster { get; set; }
+    public partial TerraformValue<string>? GkeMasterCluster { get; set; }
 
     /// <summary>
     /// A Compute Engine instance URI.
     /// </summary>
     [TerraformProperty("instance")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Instance { get; set; }
+    public partial TerraformValue<string>? Instance { get; set; }
 
     /// <summary>
     /// The IP address of the endpoint, which can be an external or internal IP.
     /// </summary>
     [TerraformProperty("ip_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpAddress { get; set; }
+    public partial TerraformValue<string>? IpAddress { get; set; }
 
     /// <summary>
     /// A VPC network URI.
     /// </summary>
     [TerraformProperty("network")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Network { get; set; }
+    public partial TerraformValue<string>? Network { get; set; }
 
     /// <summary>
     /// The IP protocol port of the endpoint. Only applicable when protocol is
@@ -66,7 +66,7 @@ public partial class GoogleNetworkManagementConnectivityTestDestinationBlock : T
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// Project ID where the endpoint is located.
@@ -81,21 +81,21 @@ public partial class GoogleNetworkManagementConnectivityTestDestinationBlock : T
     /// </summary>
     [TerraformProperty("project_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProjectId { get; set; }
+    public partial TerraformValue<string>? ProjectId { get; set; }
 
     /// <summary>
     /// A Redis Cluster URI.
     /// </summary>
     [TerraformProperty("redis_cluster")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RedisCluster { get; set; }
+    public partial TerraformValue<string>? RedisCluster { get; set; }
 
     /// <summary>
     /// A Redis Instance URI.
     /// </summary>
     [TerraformProperty("redis_instance")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RedisInstance { get; set; }
+    public partial TerraformValue<string>? RedisInstance { get; set; }
 
 }
 
@@ -110,42 +110,42 @@ public partial class GoogleNetworkManagementConnectivityTestSourceBlock : Terraf
     /// </summary>
     [TerraformProperty("cloud_sql_instance")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CloudSqlInstance { get; set; }
+    public partial TerraformValue<string>? CloudSqlInstance { get; set; }
 
     /// <summary>
     /// A cluster URI for Google Kubernetes Engine cluster control plane.
     /// </summary>
     [TerraformProperty("gke_master_cluster")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GkeMasterCluster { get; set; }
+    public partial TerraformValue<string>? GkeMasterCluster { get; set; }
 
     /// <summary>
     /// A Compute Engine instance URI.
     /// </summary>
     [TerraformProperty("instance")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Instance { get; set; }
+    public partial TerraformValue<string>? Instance { get; set; }
 
     /// <summary>
     /// The IP address of the endpoint, which can be an external or internal IP.
     /// </summary>
     [TerraformProperty("ip_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpAddress { get; set; }
+    public partial TerraformValue<string>? IpAddress { get; set; }
 
     /// <summary>
     /// A VPC network URI.
     /// </summary>
     [TerraformProperty("network")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Network { get; set; }
+    public partial TerraformValue<string>? Network { get; set; }
 
     /// <summary>
     /// Type of the network where the endpoint is located. Possible values: [&amp;quot;GCP_NETWORK&amp;quot;, &amp;quot;NON_GCP_NETWORK&amp;quot;]
     /// </summary>
     [TerraformProperty("network_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NetworkType { get; set; }
+    public partial TerraformValue<string>? NetworkType { get; set; }
 
     /// <summary>
     /// The IP protocol port of the endpoint. Only applicable when protocol is
@@ -153,7 +153,7 @@ public partial class GoogleNetworkManagementConnectivityTestSourceBlock : Terraf
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// Project ID where the endpoint is located.
@@ -168,7 +168,7 @@ public partial class GoogleNetworkManagementConnectivityTestSourceBlock : Terraf
     /// </summary>
     [TerraformProperty("project_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProjectId { get; set; }
+    public partial TerraformValue<string>? ProjectId { get; set; }
 
 }
 
@@ -183,21 +183,21 @@ public partial class GoogleNetworkManagementConnectivityTestTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -216,7 +216,7 @@ public partial class GoogleNetworkManagementConnectivityTest : TerraformResource
     /// </summary>
     [TerraformProperty("bypass_firewall_checks")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? BypassFirewallChecks { get; set; }
+    public partial TerraformValue<bool>? BypassFirewallChecks { get; set; }
 
     /// <summary>
     /// The user-supplied description of the Connectivity Test.
@@ -224,14 +224,14 @@ public partial class GoogleNetworkManagementConnectivityTest : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource labels to represent user-provided metadata.
@@ -242,7 +242,7 @@ public partial class GoogleNetworkManagementConnectivityTest : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Unique name for the connectivity test.
@@ -250,21 +250,21 @@ public partial class GoogleNetworkManagementConnectivityTest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// IP Protocol of the test. When not provided, &amp;quot;TCP&amp;quot; is assumed.
     /// </summary>
     [TerraformProperty("protocol")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Protocol { get; set; }
+    public partial TerraformValue<string>? Protocol { get; set; }
 
     /// <summary>
     /// Other projects that may be relevant for reachability analysis.
@@ -273,7 +273,7 @@ public partial class GoogleNetworkManagementConnectivityTest : TerraformResource
     /// </summary>
     [TerraformProperty("related_projects")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? RelatedProjects { get; set; }
+    public partial TerraformList<string>? RelatedProjects { get; set; }
 
     /// <summary>
     /// Whether run analysis for the return path from destination to source.
@@ -281,7 +281,7 @@ public partial class GoogleNetworkManagementConnectivityTest : TerraformResource
     /// </summary>
     [TerraformProperty("round_trip")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RoundTrip { get; set; }
+    public partial TerraformValue<bool>? RoundTrip { get; set; }
 
     /// <summary>
     /// Block for destination.
@@ -291,7 +291,7 @@ public partial class GoogleNetworkManagementConnectivityTest : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
     [TerraformProperty("destination")]
-    public TerraformList<TerraformBlock<GoogleNetworkManagementConnectivityTestDestinationBlock>>? Destination { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkManagementConnectivityTestDestinationBlock>>? Destination { get; set; }
 
     /// <summary>
     /// Block for source.
@@ -301,21 +301,21 @@ public partial class GoogleNetworkManagementConnectivityTest : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public TerraformList<TerraformBlock<GoogleNetworkManagementConnectivityTestSourceBlock>>? Source { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkManagementConnectivityTestSourceBlock>>? Source { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkManagementConnectivityTestTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkManagementConnectivityTestTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -323,6 +323,6 @@ public partial class GoogleNetworkManagementConnectivityTest : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

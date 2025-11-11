@@ -17,13 +17,13 @@ public partial class AwsBackupGlobalSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalSettings is required")]
     [TerraformProperty("global_settings")]
     // Required argument - source generator will implement get/set
-    public required TerraformMap<string> GlobalSettings { get; set; }
+    public required partial TerraformMap<string> GlobalSettings { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
 }

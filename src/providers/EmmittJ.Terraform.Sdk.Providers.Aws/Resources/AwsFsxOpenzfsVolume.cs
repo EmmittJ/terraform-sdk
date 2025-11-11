@@ -22,7 +22,7 @@ public partial class AwsFsxOpenzfsVolumeOriginSnapshotBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyStrategy is required")]
     [TerraformProperty("copy_strategy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CopyStrategy { get; set; }
+    public required partial TerraformValue<string> CopyStrategy { get; set; }
 
     /// <summary>
     /// The snapshot_arn attribute.
@@ -30,7 +30,7 @@ public partial class AwsFsxOpenzfsVolumeOriginSnapshotBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotArn is required")]
     [TerraformProperty("snapshot_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SnapshotArn { get; set; }
+    public required partial TerraformValue<string> SnapshotArn { get; set; }
 
 }
 
@@ -45,21 +45,21 @@ public partial class AwsFsxOpenzfsVolumeTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -75,7 +75,7 @@ public partial class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Id { get; set; }
+    public required partial TerraformValue<double> Id { get; set; }
 
     /// <summary>
     /// The storage_capacity_quota_gib attribute.
@@ -83,7 +83,7 @@ public partial class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacityQuotaGib is required")]
     [TerraformProperty("storage_capacity_quota_gib")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> StorageCapacityQuotaGib { get; set; }
+    public required partial TerraformValue<double> StorageCapacityQuotaGib { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -91,7 +91,7 @@ public partial class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -110,28 +110,28 @@ public partial class AwsFsxOpenzfsVolume : TerraformResource
     /// </summary>
     [TerraformProperty("copy_tags_to_snapshots")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CopyTagsToSnapshots { get; set; }
+    public partial TerraformValue<bool>? CopyTagsToSnapshots { get; set; }
 
     /// <summary>
     /// The data_compression_type attribute.
     /// </summary>
     [TerraformProperty("data_compression_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DataCompressionType { get; set; }
+    public partial TerraformValue<string>? DataCompressionType { get; set; }
 
     /// <summary>
     /// The delete_volume_options attribute.
     /// </summary>
     [TerraformProperty("delete_volume_options")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? DeleteVolumeOptions { get; set; }
+    public partial TerraformList<string>? DeleteVolumeOptions { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -139,7 +139,7 @@ public partial class AwsFsxOpenzfsVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parent_volume_id attribute.
@@ -147,63 +147,63 @@ public partial class AwsFsxOpenzfsVolume : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentVolumeId is required")]
     [TerraformProperty("parent_volume_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ParentVolumeId { get; set; }
+    public required partial TerraformValue<string> ParentVolumeId { get; set; }
 
     /// <summary>
     /// The read_only attribute.
     /// </summary>
     [TerraformProperty("read_only")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> ReadOnly { get; set; }
+    public partial TerraformValue<bool> ReadOnly { get; set; }
 
     /// <summary>
     /// The record_size_kib attribute.
     /// </summary>
     [TerraformProperty("record_size_kib")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RecordSizeKib { get; set; }
+    public partial TerraformValue<double>? RecordSizeKib { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The storage_capacity_quota_gib attribute.
     /// </summary>
     [TerraformProperty("storage_capacity_quota_gib")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> StorageCapacityQuotaGib { get; set; }
+    public partial TerraformValue<double> StorageCapacityQuotaGib { get; set; }
 
     /// <summary>
     /// The storage_capacity_reservation_gib attribute.
     /// </summary>
     [TerraformProperty("storage_capacity_reservation_gib")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> StorageCapacityReservationGib { get; set; }
+    public partial TerraformValue<double> StorageCapacityReservationGib { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
     [TerraformProperty("volume_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VolumeType { get; set; }
+    public partial TerraformValue<string>? VolumeType { get; set; }
 
     /// <summary>
     /// Block for nfs_exports.
@@ -211,7 +211,7 @@ public partial class AwsFsxOpenzfsVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NfsExports block(s) allowed")]
     [TerraformProperty("nfs_exports")]
-    public TerraformList<TerraformBlock<AwsFsxOpenzfsVolumeNfsExportsBlock>>? NfsExports { get; set; }
+    public partial TerraformList<TerraformBlock<AwsFsxOpenzfsVolumeNfsExportsBlock>>? NfsExports { get; set; }
 
     /// <summary>
     /// Block for origin_snapshot.
@@ -219,27 +219,27 @@ public partial class AwsFsxOpenzfsVolume : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OriginSnapshot block(s) allowed")]
     [TerraformProperty("origin_snapshot")]
-    public TerraformList<TerraformBlock<AwsFsxOpenzfsVolumeOriginSnapshotBlock>>? OriginSnapshot { get; set; }
+    public partial TerraformList<TerraformBlock<AwsFsxOpenzfsVolumeOriginSnapshotBlock>>? OriginSnapshot { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsFsxOpenzfsVolumeTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsFsxOpenzfsVolumeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for user_and_group_quotas.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("user_and_group_quotas")]
-    public TerraformSet<TerraformBlock<AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock>>? UserAndGroupQuotas { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock>>? UserAndGroupQuotas { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

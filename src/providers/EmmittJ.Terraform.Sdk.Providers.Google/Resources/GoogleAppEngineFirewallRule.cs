@@ -13,21 +13,21 @@ public partial class GoogleAppEngineFirewallRuleTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,21 +46,21 @@ public partial class GoogleAppEngineFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformProperty("action")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Action { get; set; }
+    public required partial TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// An optional string description of this rule.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A positive integer that defines the order of rule evaluation.
@@ -72,14 +72,14 @@ public partial class GoogleAppEngineFirewallRule : TerraformResource
     /// </summary>
     [TerraformProperty("priority")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Priority { get; set; }
+    public partial TerraformValue<double>? Priority { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// IP address or range, defined using CIDR notation, of requests that this rule applies to.
@@ -87,13 +87,13 @@ public partial class GoogleAppEngineFirewallRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRange is required")]
     [TerraformProperty("source_range")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceRange { get; set; }
+    public required partial TerraformValue<string> SourceRange { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleAppEngineFirewallRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleAppEngineFirewallRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,21 +13,21 @@ public partial class AwsPinpointAppCampaignHookBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("lambda_function_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LambdaFunctionName { get; set; }
+    public partial TerraformValue<string>? LambdaFunctionName { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [TerraformProperty("mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Mode { get; set; }
+    public partial TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The web_url attribute.
     /// </summary>
     [TerraformProperty("web_url")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WebUrl { get; set; }
+    public partial TerraformValue<string>? WebUrl { get; set; }
 
 }
 
@@ -42,28 +42,28 @@ public partial class AwsPinpointAppLimitsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("daily")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Daily { get; set; }
+    public partial TerraformValue<double>? Daily { get; set; }
 
     /// <summary>
     /// The maximum_duration attribute.
     /// </summary>
     [TerraformProperty("maximum_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaximumDuration { get; set; }
+    public partial TerraformValue<double>? MaximumDuration { get; set; }
 
     /// <summary>
     /// The messages_per_second attribute.
     /// </summary>
     [TerraformProperty("messages_per_second")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MessagesPerSecond { get; set; }
+    public partial TerraformValue<double>? MessagesPerSecond { get; set; }
 
     /// <summary>
     /// The total attribute.
     /// </summary>
     [TerraformProperty("total")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Total { get; set; }
+    public partial TerraformValue<double>? Total { get; set; }
 
 }
 
@@ -78,14 +78,14 @@ public partial class AwsPinpointAppQuietTimeBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("end")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? End { get; set; }
+    public partial TerraformValue<string>? End { get; set; }
 
     /// <summary>
     /// The start attribute.
     /// </summary>
     [TerraformProperty("start")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Start { get; set; }
+    public partial TerraformValue<string>? Start { get; set; }
 
 }
 
@@ -104,42 +104,42 @@ public partial class AwsPinpointApp : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformProperty("name_prefix")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NamePrefix { get; set; }
+    public partial TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for campaign_hook.
@@ -147,7 +147,7 @@ public partial class AwsPinpointApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CampaignHook block(s) allowed")]
     [TerraformProperty("campaign_hook")]
-    public TerraformList<TerraformBlock<AwsPinpointAppCampaignHookBlock>>? CampaignHook { get; set; }
+    public partial TerraformList<TerraformBlock<AwsPinpointAppCampaignHookBlock>>? CampaignHook { get; set; }
 
     /// <summary>
     /// Block for limits.
@@ -155,7 +155,7 @@ public partial class AwsPinpointApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Limits block(s) allowed")]
     [TerraformProperty("limits")]
-    public TerraformList<TerraformBlock<AwsPinpointAppLimitsBlock>>? Limits { get; set; }
+    public partial TerraformList<TerraformBlock<AwsPinpointAppLimitsBlock>>? Limits { get; set; }
 
     /// <summary>
     /// Block for quiet_time.
@@ -163,20 +163,20 @@ public partial class AwsPinpointApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QuietTime block(s) allowed")]
     [TerraformProperty("quiet_time")]
-    public TerraformList<TerraformBlock<AwsPinpointAppQuietTimeBlock>>? QuietTime { get; set; }
+    public partial TerraformList<TerraformBlock<AwsPinpointAppQuietTimeBlock>>? QuietTime { get; set; }
 
     /// <summary>
     /// The application_id attribute.
     /// </summary>
     [TerraformProperty("application_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ApplicationId { get; }
+    public partial TerraformValue<string> ApplicationId { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

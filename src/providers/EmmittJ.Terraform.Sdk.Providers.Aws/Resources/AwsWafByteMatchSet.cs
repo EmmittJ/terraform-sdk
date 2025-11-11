@@ -14,14 +14,14 @@ public partial class AwsWafByteMatchSetByteMatchTuplesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PositionalConstraint is required")]
     [TerraformProperty("positional_constraint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PositionalConstraint { get; set; }
+    public required partial TerraformValue<string> PositionalConstraint { get; set; }
 
     /// <summary>
     /// The target_string attribute.
     /// </summary>
     [TerraformProperty("target_string")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TargetString { get; set; }
+    public partial TerraformValue<string>? TargetString { get; set; }
 
     /// <summary>
     /// The text_transformation attribute.
@@ -29,7 +29,7 @@ public partial class AwsWafByteMatchSetByteMatchTuplesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     [TerraformProperty("text_transformation")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TextTransformation { get; set; }
+    public required partial TerraformValue<string> TextTransformation { get; set; }
 
 }
 
@@ -47,7 +47,7 @@ public partial class AwsWafByteMatchSet : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -55,20 +55,20 @@ public partial class AwsWafByteMatchSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for byte_match_tuples.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("byte_match_tuples")]
-    public TerraformSet<TerraformBlock<AwsWafByteMatchSetByteMatchTuplesBlock>>? ByteMatchTuples { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsWafByteMatchSetByteMatchTuplesBlock>>? ByteMatchTuples { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

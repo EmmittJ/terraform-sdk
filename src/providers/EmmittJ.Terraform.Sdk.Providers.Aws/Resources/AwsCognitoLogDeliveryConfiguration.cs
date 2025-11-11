@@ -14,7 +14,7 @@ public partial class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventSource is required")]
     [TerraformProperty("event_source")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EventSource { get; set; }
+    public required partial TerraformValue<string> EventSource { get; set; }
 
     /// <summary>
     /// The log_level attribute.
@@ -22,7 +22,7 @@ public partial class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogLevel is required")]
     [TerraformProperty("log_level")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LogLevel { get; set; }
+    public required partial TerraformValue<string> LogLevel { get; set; }
 
 }
 
@@ -40,7 +40,7 @@ public partial class AwsCognitoLogDeliveryConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The user_pool_id attribute.
@@ -48,13 +48,13 @@ public partial class AwsCognitoLogDeliveryConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     [TerraformProperty("user_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UserPoolId { get; set; }
+    public required partial TerraformValue<string> UserPoolId { get; set; }
 
     /// <summary>
     /// Block for log_configurations.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("log_configurations")]
-    public TerraformList<TerraformBlock<AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock>>? LogConfigurations { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock>>? LogConfigurations { get; set; }
 
 }

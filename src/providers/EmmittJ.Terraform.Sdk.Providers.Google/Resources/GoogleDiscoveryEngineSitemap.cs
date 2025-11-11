@@ -13,14 +13,14 @@ public partial class GoogleDiscoveryEngineSitemapTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public partial class GoogleDiscoveryEngineSitemap : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     [TerraformProperty("data_store_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataStoreId { get; set; }
+    public required partial TerraformValue<string> DataStoreId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
@@ -55,35 +55,35 @@ public partial class GoogleDiscoveryEngineSitemap : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Public URI for the sitemap, e.g. &amp;quot;www.example.com/sitemap.xml&amp;quot;.
     /// </summary>
     [TerraformProperty("uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Uri { get; set; }
+    public partial TerraformValue<string>? Uri { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDiscoveryEngineSitemapTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDiscoveryEngineSitemapTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Timestamp when the sitemap was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The unique full resource name of the sitemap. Values are of the format
@@ -93,13 +93,13 @@ public partial class GoogleDiscoveryEngineSitemap : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The unique id of the sitemap.
     /// </summary>
     [TerraformProperty("sitemap_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SitemapId { get; }
+    public partial TerraformValue<string> SitemapId { get; }
 
 }

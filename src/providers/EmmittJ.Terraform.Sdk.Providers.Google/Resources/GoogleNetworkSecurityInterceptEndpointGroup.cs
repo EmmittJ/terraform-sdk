@@ -13,21 +13,21 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupTimeoutsBlock : 
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroup : TerraformReso
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The deployment group that this endpoint group is connected to, for example:
@@ -63,7 +63,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroup : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterceptDeploymentGroup is required")]
     [TerraformProperty("intercept_deployment_group")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InterceptDeploymentGroup { get; set; }
+    public required partial TerraformValue<string> InterceptDeploymentGroup { get; set; }
 
     /// <summary>
     /// The ID to use for the endpoint group, which will become the final component
@@ -72,7 +72,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroup : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterceptEndpointGroupId is required")]
     [TerraformProperty("intercept_endpoint_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InterceptEndpointGroupId { get; set; }
+    public required partial TerraformValue<string> InterceptEndpointGroupId { get; set; }
 
     /// <summary>
     /// Labels are key/value pairs that help to organize and filter resources.
@@ -82,7 +82,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroup : TerraformReso
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The cloud location of the endpoint group, currently restricted to &#39;global&#39;.
@@ -90,35 +90,35 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroup : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkSecurityInterceptEndpointGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkSecurityInterceptEndpointGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// List of associations to this endpoint group.
     /// </summary>
     [TerraformProperty("associations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> Associations { get; }
+    public partial TerraformSet<object> Associations { get; }
 
     /// <summary>
     /// The endpoint group&#39;s view of a connected deployment group.
     /// </summary>
     [TerraformProperty("connected_deployment_group")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ConnectedDeploymentGroup { get; }
+    public partial TerraformList<object> ConnectedDeploymentGroup { get; }
 
     /// <summary>
     /// The timestamp when the resource was created.
@@ -126,14 +126,14 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroup : TerraformReso
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The resource name of this endpoint group, for example:
@@ -142,7 +142,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroup : TerraformReso
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The current state of the resource does not match the user&#39;s intended state,
@@ -152,7 +152,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroup : TerraformReso
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// The current state of the endpoint group.
@@ -168,7 +168,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroup : TerraformReso
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -176,7 +176,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroup : TerraformReso
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The timestamp when the resource was most recently updated.
@@ -184,6 +184,6 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroup : TerraformReso
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

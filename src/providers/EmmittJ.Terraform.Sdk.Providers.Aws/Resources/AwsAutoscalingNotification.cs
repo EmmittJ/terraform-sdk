@@ -17,14 +17,14 @@ public partial class AwsAutoscalingNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupNames is required")]
     [TerraformProperty("group_names")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> GroupNames { get; set; }
+    public required partial TerraformSet<string> GroupNames { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The notifications attribute.
@@ -32,14 +32,14 @@ public partial class AwsAutoscalingNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Notifications is required")]
     [TerraformProperty("notifications")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Notifications { get; set; }
+    public required partial TerraformSet<string> Notifications { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The topic_arn attribute.
@@ -47,6 +47,6 @@ public partial class AwsAutoscalingNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     [TerraformProperty("topic_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TopicArn { get; set; }
+    public required partial TerraformValue<string> TopicArn { get; set; }
 
 }

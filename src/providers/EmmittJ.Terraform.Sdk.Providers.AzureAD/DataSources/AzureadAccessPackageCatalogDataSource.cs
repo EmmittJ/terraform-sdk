@@ -13,7 +13,7 @@ public partial class AzureadAccessPackageCatalogDataSourceTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,48 +31,48 @@ public partial class AzureadAccessPackageCatalogDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DisplayName { get; set; }
+    public partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of this access package catalog
     /// </summary>
     [TerraformProperty("object_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ObjectId { get; set; }
+    public partial TerraformValue<string> ObjectId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadAccessPackageCatalogDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadAccessPackageCatalogDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The description of the access package catalog
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// Whether the access packages in this catalog can be requested by users outside the tenant
     /// </summary>
     [TerraformProperty("externally_visible")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> ExternallyVisible { get; }
+    public partial TerraformValue<bool> ExternallyVisible { get; }
 
     /// <summary>
     /// Whether the access packages in this catalog are available for management
     /// </summary>
     [TerraformProperty("published")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Published { get; }
+    public partial TerraformValue<bool> Published { get; }
 
 }

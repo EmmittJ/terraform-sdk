@@ -14,7 +14,7 @@ public partial class GoogleChronicleRetrohuntProcessIntervalBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndTime is required")]
     [TerraformProperty("end_time")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EndTime { get; set; }
+    public required partial TerraformValue<string> EndTime { get; set; }
 
     /// <summary>
     /// Inclusive start of the interval.
@@ -22,7 +22,7 @@ public partial class GoogleChronicleRetrohuntProcessIntervalBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     [TerraformProperty("start_time")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StartTime { get; set; }
+    public required partial TerraformValue<string> StartTime { get; set; }
 
 }
 
@@ -37,14 +37,14 @@ public partial class GoogleChronicleRetrohuntTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -63,7 +63,7 @@ public partial class GoogleChronicleRetrohunt : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
@@ -71,7 +71,7 @@ public partial class GoogleChronicleRetrohunt : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
@@ -79,21 +79,21 @@ public partial class GoogleChronicleRetrohunt : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The retrohunt ID of the Retrohunt. A retrohunt is an execution of a Rule over a time range in the past.
     /// </summary>
     [TerraformProperty("retrohunt")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Retrohunt { get; set; }
+    public partial TerraformValue<string> Retrohunt { get; set; }
 
     /// <summary>
     /// The Rule ID of the rule.
@@ -101,7 +101,7 @@ public partial class GoogleChronicleRetrohunt : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [TerraformProperty("rule")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Rule { get; set; }
+    public required partial TerraformValue<string> Rule { get; set; }
 
     /// <summary>
     /// Block for process_interval.
@@ -111,14 +111,14 @@ public partial class GoogleChronicleRetrohunt : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProcessInterval block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProcessInterval block(s) allowed")]
     [TerraformProperty("process_interval")]
-    public TerraformList<TerraformBlock<GoogleChronicleRetrohuntProcessIntervalBlock>>? ProcessInterval { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleChronicleRetrohuntProcessIntervalBlock>>? ProcessInterval { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleChronicleRetrohuntTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleChronicleRetrohuntTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Represents a time interval, encoded as a Timestamp start (inclusive) and a
@@ -130,7 +130,7 @@ public partial class GoogleChronicleRetrohunt : TerraformResource
     /// </summary>
     [TerraformProperty("execution_interval")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ExecutionInterval { get; }
+    public partial TerraformList<object> ExecutionInterval { get; }
 
     /// <summary>
     /// The resource name of the retrohunt.
@@ -141,14 +141,14 @@ public partial class GoogleChronicleRetrohunt : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. Percent progress of the retrohunt towards completion, from 0.00 to 100.00.
     /// </summary>
     [TerraformProperty("progress_percentage")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ProgressPercentage { get; }
+    public partial TerraformValue<double> ProgressPercentage { get; }
 
     /// <summary>
     /// Output only. The state of the retrohunt.
@@ -160,6 +160,6 @@ public partial class GoogleChronicleRetrohunt : TerraformResource
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

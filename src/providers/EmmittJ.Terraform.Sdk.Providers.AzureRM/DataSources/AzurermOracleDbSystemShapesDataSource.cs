@@ -13,7 +13,7 @@ public partial class AzurermOracleDbSystemShapesDataSourceTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermOracleDbSystemShapesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -39,27 +39,27 @@ public partial class AzurermOracleDbSystemShapesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Filter the versions by zone
     /// </summary>
     [TerraformProperty("zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Zone { get; set; }
+    public partial TerraformValue<string>? Zone { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermOracleDbSystemShapesDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermOracleDbSystemShapesDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The db_system_shapes attribute.
     /// </summary>
     [TerraformProperty("db_system_shapes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> DbSystemShapes { get; }
+    public partial TerraformList<object> DbSystemShapes { get; }
 
 }

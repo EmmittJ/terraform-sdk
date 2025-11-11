@@ -13,28 +13,28 @@ public partial class AzurermApiManagementOpenidConnectProviderTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermApiManagementOpenidConnectProvider : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     [TerraformProperty("api_management_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiManagementName { get; set; }
+    public required partial TerraformValue<string> ApiManagementName { get; set; }
 
     /// <summary>
     /// The client_id attribute.
@@ -61,7 +61,7 @@ public partial class AzurermApiManagementOpenidConnectProvider : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     [TerraformProperty("client_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientId { get; set; }
+    public required partial TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
@@ -69,14 +69,14 @@ public partial class AzurermApiManagementOpenidConnectProvider : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     [TerraformProperty("client_secret")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientSecret { get; set; }
+    public required partial TerraformValue<string> ClientSecret { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
@@ -84,14 +84,14 @@ public partial class AzurermApiManagementOpenidConnectProvider : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The metadata_endpoint attribute.
@@ -99,7 +99,7 @@ public partial class AzurermApiManagementOpenidConnectProvider : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetadataEndpoint is required")]
     [TerraformProperty("metadata_endpoint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MetadataEndpoint { get; set; }
+    public required partial TerraformValue<string> MetadataEndpoint { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -107,7 +107,7 @@ public partial class AzurermApiManagementOpenidConnectProvider : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -115,13 +115,13 @@ public partial class AzurermApiManagementOpenidConnectProvider : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApiManagementOpenidConnectProviderTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApiManagementOpenidConnectProviderTimeoutsBlock>? Timeouts { get; set; }
 
 }

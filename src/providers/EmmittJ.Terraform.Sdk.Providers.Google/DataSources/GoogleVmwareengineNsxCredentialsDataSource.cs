@@ -16,7 +16,7 @@ public partial class GoogleVmwareengineNsxCredentialsDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource name of the private cloud which contains NSX.
@@ -26,20 +26,20 @@ public partial class GoogleVmwareengineNsxCredentialsDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Initial password.
     /// </summary>
     [TerraformProperty("password")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Password { get; }
+    public partial TerraformValue<string> Password { get; }
 
     /// <summary>
     /// Initial username.
     /// </summary>
     [TerraformProperty("username")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Username { get; }
+    public partial TerraformValue<string> Username { get; }
 
 }

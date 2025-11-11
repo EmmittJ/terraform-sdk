@@ -13,28 +13,28 @@ public partial class AzurermPostgresqlFlexibleServerVirtualEndpointTimeoutsBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermPostgresqlFlexibleServerVirtualEndpoint : TerraformR
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the Virtual Endpoint
@@ -60,7 +60,7 @@ public partial class AzurermPostgresqlFlexibleServerVirtualEndpoint : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
@@ -68,7 +68,7 @@ public partial class AzurermPostgresqlFlexibleServerVirtualEndpoint : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicaServerId is required")]
     [TerraformProperty("replica_server_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ReplicaServerId { get; set; }
+    public required partial TerraformValue<string> ReplicaServerId { get; set; }
 
     /// <summary>
     /// The Resource ID of the *Source* Postgres Flexible Server this should be associated with
@@ -76,7 +76,7 @@ public partial class AzurermPostgresqlFlexibleServerVirtualEndpoint : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceServerId is required")]
     [TerraformProperty("source_server_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceServerId { get; set; }
+    public required partial TerraformValue<string> SourceServerId { get; set; }
 
     /// <summary>
     /// The type of Virtual Endpoint
@@ -84,13 +84,13 @@ public partial class AzurermPostgresqlFlexibleServerVirtualEndpoint : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPostgresqlFlexibleServerVirtualEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPostgresqlFlexibleServerVirtualEndpointTimeoutsBlock>? Timeouts { get; set; }
 
 }

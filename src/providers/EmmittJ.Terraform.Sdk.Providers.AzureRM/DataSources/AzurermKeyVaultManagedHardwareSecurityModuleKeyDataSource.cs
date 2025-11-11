@@ -13,7 +13,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSourceTi
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSource :
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The managed_hsm_id attribute.
@@ -39,7 +39,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSource :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
     [TerraformProperty("managed_hsm_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ManagedHsmId { get; set; }
+    public required partial TerraformValue<string> ManagedHsmId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,76 +47,76 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSource :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The curve attribute.
     /// </summary>
     [TerraformProperty("curve")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Curve { get; }
+    public partial TerraformValue<string> Curve { get; }
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     [TerraformProperty("expiration_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpirationDate { get; }
+    public partial TerraformValue<string> ExpirationDate { get; }
 
     /// <summary>
     /// The key_opts attribute.
     /// </summary>
     [TerraformProperty("key_opts")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> KeyOpts { get; }
+    public partial TerraformList<string> KeyOpts { get; }
 
     /// <summary>
     /// The key_size attribute.
     /// </summary>
     [TerraformProperty("key_size")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> KeySize { get; }
+    public partial TerraformValue<double> KeySize { get; }
 
     /// <summary>
     /// The key_type attribute.
     /// </summary>
     [TerraformProperty("key_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KeyType { get; }
+    public partial TerraformValue<string> KeyType { get; }
 
     /// <summary>
     /// The not_before_date attribute.
     /// </summary>
     [TerraformProperty("not_before_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NotBeforeDate { get; }
+    public partial TerraformValue<string> NotBeforeDate { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Version { get; }
+    public partial TerraformValue<string> Version { get; }
 
     /// <summary>
     /// The versioned_id attribute.
     /// </summary>
     [TerraformProperty("versioned_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VersionedId { get; }
+    public partial TerraformValue<string> VersionedId { get; }
 
 }

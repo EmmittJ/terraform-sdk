@@ -14,7 +14,7 @@ public partial class GoogleVertexAiIndexEncryptionSpecBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     [TerraformProperty("kms_key_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KmsKeyName { get; set; }
+    public required partial TerraformValue<string> KmsKeyName { get; set; }
 
 }
 
@@ -34,7 +34,7 @@ public partial class GoogleVertexAiIndexMetadataBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("contents_delta_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContentsDeltaUri { get; set; }
+    public partial TerraformValue<string>? ContentsDeltaUri { get; set; }
 
     /// <summary>
     /// If this field is set together with contentsDeltaUri when calling IndexService.UpdateIndex,
@@ -42,7 +42,7 @@ public partial class GoogleVertexAiIndexMetadataBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("is_complete_overwrite")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IsCompleteOverwrite { get; set; }
+    public partial TerraformValue<bool>? IsCompleteOverwrite { get; set; }
 
 }
 
@@ -57,21 +57,21 @@ public partial class GoogleVertexAiIndexTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -90,7 +90,7 @@ public partial class GoogleVertexAiIndex : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display name of the Index. The name can be up to 128 characters long and can consist of any UTF-8 characters.
@@ -98,14 +98,14 @@ public partial class GoogleVertexAiIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The update method to use with this Index. The value must be the followings. If not set, BATCH_UPDATE will be used by default.
@@ -114,7 +114,7 @@ public partial class GoogleVertexAiIndex : TerraformResource
     /// </summary>
     [TerraformProperty("index_update_method")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IndexUpdateMethod { get; set; }
+    public partial TerraformValue<string>? IndexUpdateMethod { get; set; }
 
     /// <summary>
     /// The labels with user-defined metadata to organize your Indexes.
@@ -124,21 +124,21 @@ public partial class GoogleVertexAiIndex : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region of the index. eg us-central1
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// Block for encryption_spec.
@@ -146,7 +146,7 @@ public partial class GoogleVertexAiIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public TerraformList<TerraformBlock<GoogleVertexAiIndexEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleVertexAiIndexEncryptionSpecBlock>>? EncryptionSpec { get; set; }
 
     /// <summary>
     /// Block for metadata.
@@ -156,63 +156,63 @@ public partial class GoogleVertexAiIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Metadata block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
     [TerraformProperty("metadata")]
-    public TerraformList<TerraformBlock<GoogleVertexAiIndexMetadataBlock>>? Metadata { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleVertexAiIndexMetadataBlock>>? Metadata { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleVertexAiIndexTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleVertexAiIndexTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp of when the Index was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The pointers to DeployedIndexes created from this Index. An Index can be only deleted if all its DeployedIndexes had been undeployed first.
     /// </summary>
     [TerraformProperty("deployed_indexes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> DeployedIndexes { get; }
+    public partial TerraformList<object> DeployedIndexes { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Used to perform consistent read-modify-write updates.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Stats of the index resource.
     /// </summary>
     [TerraformProperty("index_stats")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> IndexStats { get; }
+    public partial TerraformList<object> IndexStats { get; }
 
     /// <summary>
     /// Points to a YAML file stored on Google Cloud Storage describing additional information about the Index, that is specific to it. Unset if the Index does not have any additional information.
     /// </summary>
     [TerraformProperty("metadata_schema_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MetadataSchemaUri { get; }
+    public partial TerraformValue<string> MetadataSchemaUri { get; }
 
     /// <summary>
     /// The resource name of the Index.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -220,13 +220,13 @@ public partial class GoogleVertexAiIndex : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The timestamp of when the Index was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

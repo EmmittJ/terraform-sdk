@@ -14,7 +14,7 @@ public partial class AwsCloudwatchEventEndpointEventBusBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventBusArn is required")]
     [TerraformProperty("event_bus_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EventBusArn { get; set; }
+    public required partial TerraformValue<string> EventBusArn { get; set; }
 
 }
 
@@ -29,7 +29,7 @@ public partial class AwsCloudwatchEventEndpointReplicationConfigBlock : Terrafor
     /// </summary>
     [TerraformProperty("state")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? State { get; set; }
+    public partial TerraformValue<string>? State { get; set; }
 
 }
 
@@ -56,14 +56,14 @@ public partial class AwsCloudwatchEventEndpoint : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -71,21 +71,21 @@ public partial class AwsCloudwatchEventEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [TerraformProperty("role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RoleArn { get; set; }
+    public partial TerraformValue<string>? RoleArn { get; set; }
 
     /// <summary>
     /// Block for event_bus.
@@ -94,7 +94,7 @@ public partial class AwsCloudwatchEventEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 EventBus block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 EventBus block(s) allowed")]
     [TerraformProperty("event_bus")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventEndpointEventBusBlock>>? EventBus { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchEventEndpointEventBusBlock>>? EventBus { get; set; }
 
     /// <summary>
     /// Block for replication_config.
@@ -102,7 +102,7 @@ public partial class AwsCloudwatchEventEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationConfig block(s) allowed")]
     [TerraformProperty("replication_config")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventEndpointReplicationConfigBlock>>? ReplicationConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchEventEndpointReplicationConfigBlock>>? ReplicationConfig { get; set; }
 
     /// <summary>
     /// Block for routing_config.
@@ -112,20 +112,20 @@ public partial class AwsCloudwatchEventEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RoutingConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RoutingConfig block(s) allowed")]
     [TerraformProperty("routing_config")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventEndpointRoutingConfigBlock>>? RoutingConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchEventEndpointRoutingConfigBlock>>? RoutingConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The endpoint_url attribute.
     /// </summary>
     [TerraformProperty("endpoint_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EndpointUrl { get; }
+    public partial TerraformValue<string> EndpointUrl { get; }
 
 }

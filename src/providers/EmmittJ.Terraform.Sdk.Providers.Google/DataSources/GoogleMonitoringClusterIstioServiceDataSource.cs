@@ -18,14 +18,14 @@ public partial class GoogleMonitoringClusterIstioServiceDataSource : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     [TerraformProperty("cluster_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterName { get; set; }
+    public required partial TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the Kubernetes cluster in which this Istio service is defined. 
@@ -34,14 +34,14 @@ public partial class GoogleMonitoringClusterIstioServiceDataSource : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The name of the Istio service underlying this service. 
@@ -50,7 +50,7 @@ public partial class GoogleMonitoringClusterIstioServiceDataSource : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     [TerraformProperty("service_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceName { get; set; }
+    public required partial TerraformValue<string> ServiceName { get; set; }
 
     /// <summary>
     /// The namespace of the Istio service underlying this service. 
@@ -59,14 +59,14 @@ public partial class GoogleMonitoringClusterIstioServiceDataSource : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
     [TerraformProperty("service_namespace")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceNamespace { get; set; }
+    public required partial TerraformValue<string> ServiceNamespace { get; set; }
 
     /// <summary>
     /// Name used for UI elements listing this Service.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The full resource name for this service. The syntax is:
@@ -74,7 +74,7 @@ public partial class GoogleMonitoringClusterIstioServiceDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// An optional service ID to use. If not given, the server will generate a
@@ -82,14 +82,14 @@ public partial class GoogleMonitoringClusterIstioServiceDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("service_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServiceId { get; }
+    public partial TerraformValue<string> ServiceId { get; }
 
     /// <summary>
     /// Configuration for how to query telemetry on a Service.
     /// </summary>
     [TerraformProperty("telemetry")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Telemetry { get; }
+    public partial TerraformList<object> Telemetry { get; }
 
     /// <summary>
     /// Labels which have been used to annotate the service. Label keys must start
@@ -101,6 +101,6 @@ public partial class GoogleMonitoringClusterIstioServiceDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("user_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> UserLabels { get; }
+    public partial TerraformMap<string> UserLabels { get; }
 
 }

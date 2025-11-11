@@ -13,7 +13,7 @@ public partial class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSour
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSour
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The private_endpoint_id attribute.
@@ -39,7 +39,7 @@ public partial class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateEndpointId is required")]
     [TerraformProperty("private_endpoint_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrivateEndpointId { get; set; }
+    public required partial TerraformValue<string> PrivateEndpointId { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -47,20 +47,20 @@ public partial class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformProperty("workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceId { get; set; }
+    public required partial TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDatabricksWorkspacePrivateEndpointConnectionDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDatabricksWorkspacePrivateEndpointConnectionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The connections attribute.
     /// </summary>
     [TerraformProperty("connections")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Connections { get; }
+    public partial TerraformList<object> Connections { get; }
 
 }

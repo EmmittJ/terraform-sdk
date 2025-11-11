@@ -18,7 +18,7 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CanonicalService is required")]
     [TerraformProperty("canonical_service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CanonicalService { get; set; }
+    public required partial TerraformValue<string> CanonicalService { get; set; }
 
     /// <summary>
     /// The namespace of the canonical service underlying this service.
@@ -27,14 +27,14 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CanonicalServiceNamespace is required")]
     [TerraformProperty("canonical_service_namespace")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CanonicalServiceNamespace { get; set; }
+    public required partial TerraformValue<string> CanonicalServiceNamespace { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Identifier for the Istio mesh in which this canonical service is defined.
@@ -43,21 +43,21 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeshUid is required")]
     [TerraformProperty("mesh_uid")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MeshUid { get; set; }
+    public required partial TerraformValue<string> MeshUid { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Name used for UI elements listing this Service.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The full resource name for this service. The syntax is:
@@ -65,7 +65,7 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource : Terraform
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// An optional service ID to use. If not given, the server will generate a
@@ -73,14 +73,14 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource : Terraform
     /// </summary>
     [TerraformProperty("service_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServiceId { get; }
+    public partial TerraformValue<string> ServiceId { get; }
 
     /// <summary>
     /// Configuration for how to query telemetry on a Service.
     /// </summary>
     [TerraformProperty("telemetry")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Telemetry { get; }
+    public partial TerraformList<object> Telemetry { get; }
 
     /// <summary>
     /// Labels which have been used to annotate the service. Label keys must start
@@ -92,6 +92,6 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource : Terraform
     /// </summary>
     [TerraformProperty("user_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> UserLabels { get; }
+    public partial TerraformMap<string> UserLabels { get; }
 
 }

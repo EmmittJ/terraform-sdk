@@ -13,7 +13,7 @@ public partial class AzurermStorageBlobDataSourceTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,14 +31,14 @@ public partial class AzurermStorageBlobDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     [TerraformProperty("metadata")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Metadata { get; set; }
+    public partial TerraformMap<string> Metadata { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -46,7 +46,7 @@ public partial class AzurermStorageBlobDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
@@ -54,7 +54,7 @@ public partial class AzurermStorageBlobDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     [TerraformProperty("storage_account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountName { get; set; }
+    public required partial TerraformValue<string> StorageAccountName { get; set; }
 
     /// <summary>
     /// The storage_container_name attribute.
@@ -62,55 +62,55 @@ public partial class AzurermStorageBlobDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     [TerraformProperty("storage_container_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageContainerName { get; set; }
+    public required partial TerraformValue<string> StorageContainerName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageBlobDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageBlobDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The access_tier attribute.
     /// </summary>
     [TerraformProperty("access_tier")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AccessTier { get; }
+    public partial TerraformValue<string> AccessTier { get; }
 
     /// <summary>
     /// The content_md5 attribute.
     /// </summary>
     [TerraformProperty("content_md5")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ContentMd5 { get; }
+    public partial TerraformValue<string> ContentMd5 { get; }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
     [TerraformProperty("content_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ContentType { get; }
+    public partial TerraformValue<string> ContentType { get; }
 
     /// <summary>
     /// The encryption_scope attribute.
     /// </summary>
     [TerraformProperty("encryption_scope")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EncryptionScope { get; }
+    public partial TerraformValue<string> EncryptionScope { get; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Type { get; }
+    public partial TerraformValue<string> Type { get; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     [TerraformProperty("url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Url { get; }
+    public partial TerraformValue<string> Url { get; }
 
 }

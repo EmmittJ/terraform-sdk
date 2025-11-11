@@ -13,21 +13,21 @@ public partial class AzurermCommunicationServiceEmailDomainAssociationTimeoutsBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AzurermCommunicationServiceEmailDomainAssociation : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommunicationServiceId is required")]
     [TerraformProperty("communication_service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CommunicationServiceId { get; set; }
+    public required partial TerraformValue<string> CommunicationServiceId { get; set; }
 
     /// <summary>
     /// The email_service_domain_id attribute.
@@ -54,20 +54,20 @@ public partial class AzurermCommunicationServiceEmailDomainAssociation : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailServiceDomainId is required")]
     [TerraformProperty("email_service_domain_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EmailServiceDomainId { get; set; }
+    public required partial TerraformValue<string> EmailServiceDomainId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

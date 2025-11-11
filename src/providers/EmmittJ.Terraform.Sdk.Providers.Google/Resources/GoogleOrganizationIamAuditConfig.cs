@@ -13,7 +13,7 @@ public partial class GoogleOrganizationIamAuditConfigAuditLogConfigBlock : Terra
     /// </summary>
     [TerraformProperty("exempted_members")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ExemptedMembers { get; set; }
+    public partial TerraformSet<string>? ExemptedMembers { get; set; }
 
     /// <summary>
     /// Permission type for which logging is to be configured. Must be one of DATA_READ, DATA_WRITE, or ADMIN_READ.
@@ -21,7 +21,7 @@ public partial class GoogleOrganizationIamAuditConfigAuditLogConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     [TerraformProperty("log_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LogType { get; set; }
+    public required partial TerraformValue<string> LogType { get; set; }
 
 }
 
@@ -40,7 +40,7 @@ public partial class GoogleOrganizationIamAuditConfig : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The numeric ID of the organization in which you want to manage the audit logging config.
@@ -48,7 +48,7 @@ public partial class GoogleOrganizationIamAuditConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformProperty("org_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OrgId { get; set; }
+    public required partial TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Service which will be enabled for audit logging. The special value allServices covers all services.
@@ -56,7 +56,7 @@ public partial class GoogleOrganizationIamAuditConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformProperty("service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Service { get; set; }
+    public required partial TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// Block for audit_log_config.
@@ -65,13 +65,13 @@ public partial class GoogleOrganizationIamAuditConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuditLogConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuditLogConfig block(s) required")]
     [TerraformProperty("audit_log_config")]
-    public TerraformSet<TerraformBlock<GoogleOrganizationIamAuditConfigAuditLogConfigBlock>>? AuditLogConfig { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleOrganizationIamAuditConfigAuditLogConfigBlock>>? AuditLogConfig { get; set; }
 
     /// <summary>
     /// The etag of iam policy
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
 }

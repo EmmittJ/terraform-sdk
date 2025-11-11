@@ -13,7 +13,7 @@ public partial class AwsServicecatalogProvisioningArtifactsDataSourceTimeoutsBlo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,14 +31,14 @@ public partial class AwsServicecatalogProvisioningArtifactsDataSource : Terrafor
     /// </summary>
     [TerraformProperty("accept_language")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AcceptLanguage { get; set; }
+    public partial TerraformValue<string>? AcceptLanguage { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The product_id attribute.
@@ -46,27 +46,27 @@ public partial class AwsServicecatalogProvisioningArtifactsDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
     [TerraformProperty("product_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProductId { get; set; }
+    public required partial TerraformValue<string> ProductId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsServicecatalogProvisioningArtifactsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsServicecatalogProvisioningArtifactsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The provisioning_artifact_details attribute.
     /// </summary>
     [TerraformProperty("provisioning_artifact_details")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ProvisioningArtifactDetails { get; }
+    public partial TerraformList<object> ProvisioningArtifactDetails { get; }
 
 }

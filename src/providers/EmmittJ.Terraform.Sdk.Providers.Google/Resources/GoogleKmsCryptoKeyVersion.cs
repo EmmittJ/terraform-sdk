@@ -13,14 +13,14 @@ public partial class GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBloc
     /// </summary>
     [TerraformProperty("ekm_connection_key_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EkmConnectionKeyPath { get; set; }
+    public partial TerraformValue<string>? EkmConnectionKeyPath { get; set; }
 
     /// <summary>
     /// The URI for an external resource that this CryptoKeyVersion represents.
     /// </summary>
     [TerraformProperty("external_key_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExternalKeyUri { get; set; }
+    public partial TerraformValue<string>? ExternalKeyUri { get; set; }
 
 }
 
@@ -35,21 +35,21 @@ public partial class GoogleKmsCryptoKeyVersionTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -70,14 +70,14 @@ public partial class GoogleKmsCryptoKeyVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     [TerraformProperty("crypto_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CryptoKey { get; set; }
+    public required partial TerraformValue<string> CryptoKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The current state of the CryptoKeyVersion. Note: you can only specify this field to manually &#39;ENABLE&#39; or &#39;DISABLE&#39; the CryptoKeyVersion,
@@ -85,7 +85,7 @@ public partial class GoogleKmsCryptoKeyVersion : TerraformResource
     /// </summary>
     [TerraformProperty("state")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> State { get; set; }
+    public partial TerraformValue<string> State { get; set; }
 
     /// <summary>
     /// Block for external_protection_level_options.
@@ -93,21 +93,21 @@ public partial class GoogleKmsCryptoKeyVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalProtectionLevelOptions block(s) allowed")]
     [TerraformProperty("external_protection_level_options")]
-    public TerraformList<TerraformBlock<GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock>>? ExternalProtectionLevelOptions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock>>? ExternalProtectionLevelOptions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleKmsCryptoKeyVersionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleKmsCryptoKeyVersionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The CryptoKeyVersionAlgorithm that this CryptoKeyVersion supports.
     /// </summary>
     [TerraformProperty("algorithm")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Algorithm { get; }
+    public partial TerraformValue<string> Algorithm { get; }
 
     /// <summary>
     /// Statement that was generated and signed by the HSM at key creation time. Use this statement to verify attributes of the key as stored on the HSM, independently of Google.
@@ -115,27 +115,27 @@ public partial class GoogleKmsCryptoKeyVersion : TerraformResource
     /// </summary>
     [TerraformProperty("attestation")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Attestation { get; }
+    public partial TerraformList<object> Attestation { get; }
 
     /// <summary>
     /// The time this CryptoKeyVersion key material was generated
     /// </summary>
     [TerraformProperty("generate_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GenerateTime { get; }
+    public partial TerraformValue<string> GenerateTime { get; }
 
     /// <summary>
     /// The resource name for this CryptoKeyVersion.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The ProtectionLevel describing how crypto operations are performed with this CryptoKeyVersion.
     /// </summary>
     [TerraformProperty("protection_level")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ProtectionLevel { get; }
+    public partial TerraformValue<string> ProtectionLevel { get; }
 
 }

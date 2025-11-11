@@ -14,7 +14,7 @@ public partial class AzurermNetworkManagerRoutingRuleDestinationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     [TerraformProperty("address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Address { get; set; }
+    public required partial TerraformValue<string> Address { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public partial class AzurermNetworkManagerRoutingRuleDestinationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class AzurermNetworkManagerRoutingRuleNextHopBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Address { get; set; }
+    public partial TerraformValue<string>? Address { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -45,7 +45,7 @@ public partial class AzurermNetworkManagerRoutingRuleNextHopBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -60,28 +60,28 @@ public partial class AzurermNetworkManagerRoutingRuleTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -100,14 +100,14 @@ public partial class AzurermNetworkManagerRoutingRule : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -115,7 +115,7 @@ public partial class AzurermNetworkManagerRoutingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The rule_collection_id attribute.
@@ -123,7 +123,7 @@ public partial class AzurermNetworkManagerRoutingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleCollectionId is required")]
     [TerraformProperty("rule_collection_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RuleCollectionId { get; set; }
+    public required partial TerraformValue<string> RuleCollectionId { get; set; }
 
     /// <summary>
     /// Block for destination.
@@ -133,7 +133,7 @@ public partial class AzurermNetworkManagerRoutingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
     [TerraformProperty("destination")]
-    public TerraformList<TerraformBlock<AzurermNetworkManagerRoutingRuleDestinationBlock>>? Destination { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNetworkManagerRoutingRuleDestinationBlock>>? Destination { get; set; }
 
     /// <summary>
     /// Block for next_hop.
@@ -143,13 +143,13 @@ public partial class AzurermNetworkManagerRoutingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NextHop block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NextHop block(s) allowed")]
     [TerraformProperty("next_hop")]
-    public TerraformList<TerraformBlock<AzurermNetworkManagerRoutingRuleNextHopBlock>>? NextHop { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNetworkManagerRoutingRuleNextHopBlock>>? NextHop { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetworkManagerRoutingRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetworkManagerRoutingRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

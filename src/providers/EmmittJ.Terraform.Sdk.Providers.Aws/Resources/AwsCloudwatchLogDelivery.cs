@@ -17,7 +17,7 @@ public partial class AwsCloudwatchLogDelivery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryDestinationArn is required")]
     [TerraformProperty("delivery_destination_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DeliveryDestinationArn { get; set; }
+    public required partial TerraformValue<string> DeliveryDestinationArn { get; set; }
 
     /// <summary>
     /// The delivery_source_name attribute.
@@ -25,62 +25,62 @@ public partial class AwsCloudwatchLogDelivery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliverySourceName is required")]
     [TerraformProperty("delivery_source_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DeliverySourceName { get; set; }
+    public required partial TerraformValue<string> DeliverySourceName { get; set; }
 
     /// <summary>
     /// The field_delimiter attribute.
     /// </summary>
     [TerraformProperty("field_delimiter")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> FieldDelimiter { get; set; }
+    public partial TerraformValue<string> FieldDelimiter { get; set; }
 
     /// <summary>
     /// The record_fields attribute.
     /// </summary>
     [TerraformProperty("record_fields")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> RecordFields { get; set; }
+    public partial TerraformList<string> RecordFields { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The s3_delivery_configuration attribute.
     /// </summary>
     [TerraformProperty("s3_delivery_configuration")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<object> S3DeliveryConfiguration { get; set; }
+    public partial TerraformList<object> S3DeliveryConfiguration { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
 }

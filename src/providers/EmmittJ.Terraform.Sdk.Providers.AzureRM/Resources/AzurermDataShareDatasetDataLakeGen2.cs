@@ -13,21 +13,21 @@ public partial class AzurermDataShareDatasetDataLakeGen2TimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermDataShareDatasetDataLakeGen2 : TerraformResource
     /// </summary>
     [TerraformProperty("file_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FilePath { get; set; }
+    public partial TerraformValue<string>? FilePath { get; set; }
 
     /// <summary>
     /// The file_system_name attribute.
@@ -53,21 +53,21 @@ public partial class AzurermDataShareDatasetDataLakeGen2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemName is required")]
     [TerraformProperty("file_system_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FileSystemName { get; set; }
+    public required partial TerraformValue<string> FileSystemName { get; set; }
 
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
     [TerraformProperty("folder_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FolderPath { get; set; }
+    public partial TerraformValue<string>? FolderPath { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -75,7 +75,7 @@ public partial class AzurermDataShareDatasetDataLakeGen2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The share_id attribute.
@@ -83,7 +83,7 @@ public partial class AzurermDataShareDatasetDataLakeGen2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareId is required")]
     [TerraformProperty("share_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ShareId { get; set; }
+    public required partial TerraformValue<string> ShareId { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -91,20 +91,20 @@ public partial class AzurermDataShareDatasetDataLakeGen2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformProperty("storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountId { get; set; }
+    public required partial TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataShareDatasetDataLakeGen2TimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataShareDatasetDataLakeGen2TimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
 }

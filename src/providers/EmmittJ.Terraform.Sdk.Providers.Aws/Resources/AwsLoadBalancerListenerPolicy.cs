@@ -16,7 +16,7 @@ public partial class AwsLoadBalancerListenerPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The load_balancer_name attribute.
@@ -24,7 +24,7 @@ public partial class AwsLoadBalancerListenerPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerName is required")]
     [TerraformProperty("load_balancer_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LoadBalancerName { get; set; }
+    public required partial TerraformValue<string> LoadBalancerName { get; set; }
 
     /// <summary>
     /// The load_balancer_port attribute.
@@ -32,27 +32,27 @@ public partial class AwsLoadBalancerListenerPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerPort is required")]
     [TerraformProperty("load_balancer_port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> LoadBalancerPort { get; set; }
+    public required partial TerraformValue<double> LoadBalancerPort { get; set; }
 
     /// <summary>
     /// The policy_names attribute.
     /// </summary>
     [TerraformProperty("policy_names")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? PolicyNames { get; set; }
+    public partial TerraformSet<string>? PolicyNames { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
     [TerraformProperty("triggers")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Triggers { get; set; }
+    public partial TerraformMap<string>? Triggers { get; set; }
 
 }

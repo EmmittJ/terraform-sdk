@@ -16,13 +16,13 @@ public partial class AwsOdbCloudAutonomousVmClustersDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// List of Cloud Autonomous VM Clusters. The list going to contain basic information about the cloud autonomous VM clusters.
     /// </summary>
     [TerraformProperty("cloud_autonomous_vm_clusters")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CloudAutonomousVmClusters { get; }
+    public partial TerraformList<object> CloudAutonomousVmClusters { get; }
 
 }

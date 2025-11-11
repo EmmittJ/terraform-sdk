@@ -16,14 +16,14 @@ public partial class AwsKmsKeyPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("bypass_policy_lockout_safety_check")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? BypassPolicyLockoutSafetyCheck { get; set; }
+    public partial TerraformValue<bool>? BypassPolicyLockoutSafetyCheck { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_id attribute.
@@ -31,7 +31,7 @@ public partial class AwsKmsKeyPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     [TerraformProperty("key_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyId { get; set; }
+    public required partial TerraformValue<string> KeyId { get; set; }
 
     /// <summary>
     /// The policy attribute.
@@ -39,13 +39,13 @@ public partial class AwsKmsKeyPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     [TerraformProperty("policy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Policy { get; set; }
+    public required partial TerraformValue<string> Policy { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
 }

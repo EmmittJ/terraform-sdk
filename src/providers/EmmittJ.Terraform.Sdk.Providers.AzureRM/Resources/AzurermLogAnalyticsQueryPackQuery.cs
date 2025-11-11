@@ -13,28 +13,28 @@ public partial class AzurermLogAnalyticsQueryPackQueryTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermLogAnalyticsQueryPackQuery : TerraformResource
     /// </summary>
     [TerraformProperty("additional_settings_json")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AdditionalSettingsJson { get; set; }
+    public partial TerraformValue<string>? AdditionalSettingsJson { get; set; }
 
     /// <summary>
     /// The body attribute.
@@ -60,21 +60,21 @@ public partial class AzurermLogAnalyticsQueryPackQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     [TerraformProperty("body")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Body { get; set; }
+    public required partial TerraformValue<string> Body { get; set; }
 
     /// <summary>
     /// The categories attribute.
     /// </summary>
     [TerraformProperty("categories")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Categories { get; set; }
+    public partial TerraformList<string>? Categories { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
@@ -82,21 +82,21 @@ public partial class AzurermLogAnalyticsQueryPackQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The query_pack_id attribute.
@@ -104,34 +104,34 @@ public partial class AzurermLogAnalyticsQueryPackQuery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryPackId is required")]
     [TerraformProperty("query_pack_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> QueryPackId { get; set; }
+    public required partial TerraformValue<string> QueryPackId { get; set; }
 
     /// <summary>
     /// The resource_types attribute.
     /// </summary>
     [TerraformProperty("resource_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ResourceTypes { get; set; }
+    public partial TerraformList<string>? ResourceTypes { get; set; }
 
     /// <summary>
     /// The solutions attribute.
     /// </summary>
     [TerraformProperty("solutions")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Solutions { get; set; }
+    public partial TerraformList<string>? Solutions { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLogAnalyticsQueryPackQueryTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLogAnalyticsQueryPackQueryTimeoutsBlock>? Timeouts { get; set; }
 
 }

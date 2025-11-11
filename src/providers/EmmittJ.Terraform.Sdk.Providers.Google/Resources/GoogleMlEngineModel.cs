@@ -14,7 +14,7 @@ public partial class GoogleMlEngineModelDefaultVersionBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public partial class GoogleMlEngineModelTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -63,14 +63,14 @@ public partial class GoogleMlEngineModel : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// One or more labels that you can add, to organize your models.
@@ -80,7 +80,7 @@ public partial class GoogleMlEngineModel : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The name specified for the model.
@@ -88,28 +88,28 @@ public partial class GoogleMlEngineModel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// If true, online prediction nodes send stderr and stdout streams to Stackdriver Logging
     /// </summary>
     [TerraformProperty("online_prediction_console_logging")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? OnlinePredictionConsoleLogging { get; set; }
+    public partial TerraformValue<bool>? OnlinePredictionConsoleLogging { get; set; }
 
     /// <summary>
     /// If true, online prediction access logs are sent to StackDriver Logging.
     /// </summary>
     [TerraformProperty("online_prediction_logging")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? OnlinePredictionLogging { get; set; }
+    public partial TerraformValue<bool>? OnlinePredictionLogging { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The list of regions where the model is going to be deployed.
@@ -117,7 +117,7 @@ public partial class GoogleMlEngineModel : TerraformResource
     /// </summary>
     [TerraformProperty("regions")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Regions { get; set; }
+    public partial TerraformList<string>? Regions { get; set; }
 
     /// <summary>
     /// Block for default_version.
@@ -125,21 +125,21 @@ public partial class GoogleMlEngineModel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultVersion block(s) allowed")]
     [TerraformProperty("default_version")]
-    public TerraformList<TerraformBlock<GoogleMlEngineModelDefaultVersionBlock>>? DefaultVersion { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleMlEngineModelDefaultVersionBlock>>? DefaultVersion { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleMlEngineModelTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleMlEngineModelTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -147,6 +147,6 @@ public partial class GoogleMlEngineModel : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

@@ -13,14 +13,14 @@ public partial class GoogleAppEngineFlexibleAppVersionApiConfigBlock : Terraform
     /// </summary>
     [TerraformProperty("auth_fail_action")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthFailAction { get; set; }
+    public partial TerraformValue<string>? AuthFailAction { get; set; }
 
     /// <summary>
     /// Level of login required to access this resource. Default value: &amp;quot;LOGIN_OPTIONAL&amp;quot; Possible values: [&amp;quot;LOGIN_OPTIONAL&amp;quot;, &amp;quot;LOGIN_ADMIN&amp;quot;, &amp;quot;LOGIN_REQUIRED&amp;quot;]
     /// </summary>
     [TerraformProperty("login")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Login { get; set; }
+    public partial TerraformValue<string>? Login { get; set; }
 
     /// <summary>
     /// Path to the script from the application root directory.
@@ -28,21 +28,21 @@ public partial class GoogleAppEngineFlexibleAppVersionApiConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Script is required")]
     [TerraformProperty("script")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Script { get; set; }
+    public required partial TerraformValue<string> Script { get; set; }
 
     /// <summary>
     /// Security (HTTPS) enforcement for this URL. Possible values: [&amp;quot;SECURE_DEFAULT&amp;quot;, &amp;quot;SECURE_NEVER&amp;quot;, &amp;quot;SECURE_OPTIONAL&amp;quot;, &amp;quot;SECURE_ALWAYS&amp;quot;]
     /// </summary>
     [TerraformProperty("security_level")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecurityLevel { get; set; }
+    public partial TerraformValue<string>? SecurityLevel { get; set; }
 
     /// <summary>
     /// URL to serve the endpoint at.
     /// </summary>
     [TerraformProperty("url")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Url { get; set; }
+    public partial TerraformValue<string>? Url { get; set; }
 
 }
 
@@ -59,7 +59,7 @@ public partial class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : Te
     /// </summary>
     [TerraformProperty("cool_down_period")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CoolDownPeriod { get; set; }
+    public partial TerraformValue<string>? CoolDownPeriod { get; set; }
 
     /// <summary>
     /// Number of concurrent requests an automatic scaling instance can accept before the scheduler spawns a new instance.
@@ -68,49 +68,49 @@ public partial class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : Te
     /// </summary>
     [TerraformProperty("max_concurrent_requests")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxConcurrentRequests { get; set; }
+    public partial TerraformValue<double> MaxConcurrentRequests { get; set; }
 
     /// <summary>
     /// Maximum number of idle instances that should be maintained for this version.
     /// </summary>
     [TerraformProperty("max_idle_instances")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxIdleInstances { get; set; }
+    public partial TerraformValue<double>? MaxIdleInstances { get; set; }
 
     /// <summary>
     /// Maximum amount of time that a request should wait in the pending queue before starting a new instance to handle it.
     /// </summary>
     [TerraformProperty("max_pending_latency")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MaxPendingLatency { get; set; }
+    public partial TerraformValue<string>? MaxPendingLatency { get; set; }
 
     /// <summary>
     /// Maximum number of instances that should be started to handle requests for this version. Default: 20
     /// </summary>
     [TerraformProperty("max_total_instances")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxTotalInstances { get; set; }
+    public partial TerraformValue<double>? MaxTotalInstances { get; set; }
 
     /// <summary>
     /// Minimum number of idle instances that should be maintained for this version. Only applicable for the default version of a service.
     /// </summary>
     [TerraformProperty("min_idle_instances")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinIdleInstances { get; set; }
+    public partial TerraformValue<double>? MinIdleInstances { get; set; }
 
     /// <summary>
     /// Minimum amount of time a request should wait in the pending queue before starting a new instance to handle it.
     /// </summary>
     [TerraformProperty("min_pending_latency")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MinPendingLatency { get; set; }
+    public partial TerraformValue<string>? MinPendingLatency { get; set; }
 
     /// <summary>
     /// Minimum number of running instances that should be maintained for this version. Default: 2
     /// </summary>
     [TerraformProperty("min_total_instances")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinTotalInstances { get; set; }
+    public partial TerraformValue<double>? MinTotalInstances { get; set; }
 
 }
 
@@ -140,14 +140,14 @@ public partial class GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock :
     /// </summary>
     [TerraformProperty("config_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConfigId { get; set; }
+    public partial TerraformValue<string>? ConfigId { get; set; }
 
     /// <summary>
     /// Enable or disable trace sampling. By default, this is set to false for enabled.
     /// </summary>
     [TerraformProperty("disable_trace_sampling")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableTraceSampling { get; set; }
+    public partial TerraformValue<bool>? DisableTraceSampling { get; set; }
 
     /// <summary>
     /// Endpoints service name which is the name of the &amp;quot;service&amp;quot; resource in the Service Management API.
@@ -156,14 +156,14 @@ public partial class GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Endpoints rollout strategy. If FIXED, configId must be specified. If MANAGED, configId must be omitted. Default value: &amp;quot;FIXED&amp;quot; Possible values: [&amp;quot;FIXED&amp;quot;, &amp;quot;MANAGED&amp;quot;]
     /// </summary>
     [TerraformProperty("rollout_strategy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RolloutStrategy { get; set; }
+    public partial TerraformValue<string>? RolloutStrategy { get; set; }
 
 }
 
@@ -179,7 +179,7 @@ public partial class GoogleAppEngineFlexibleAppVersionEntrypointBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shell is required")]
     [TerraformProperty("shell")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Shell { get; set; }
+    public required partial TerraformValue<string> Shell { get; set; }
 
 }
 
@@ -194,14 +194,14 @@ public partial class GoogleAppEngineFlexibleAppVersionFlexibleRuntimeSettingsBlo
     /// </summary>
     [TerraformProperty("operating_system")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OperatingSystem { get; set; }
+    public partial TerraformValue<string>? OperatingSystem { get; set; }
 
     /// <summary>
     /// The runtime version of an App Engine flexible application.
     /// </summary>
     [TerraformProperty("runtime_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RuntimeVersion { get; set; }
+    public partial TerraformValue<string>? RuntimeVersion { get; set; }
 
 }
 
@@ -216,28 +216,28 @@ public partial class GoogleAppEngineFlexibleAppVersionHandlersBlock : TerraformB
     /// </summary>
     [TerraformProperty("auth_fail_action")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthFailAction { get; set; }
+    public partial TerraformValue<string>? AuthFailAction { get; set; }
 
     /// <summary>
     /// Methods to restrict access to a URL based on login status. Possible values: [&amp;quot;LOGIN_OPTIONAL&amp;quot;, &amp;quot;LOGIN_ADMIN&amp;quot;, &amp;quot;LOGIN_REQUIRED&amp;quot;]
     /// </summary>
     [TerraformProperty("login")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Login { get; set; }
+    public partial TerraformValue<string>? Login { get; set; }
 
     /// <summary>
     /// 30x code to use when performing redirects for the secure field. Possible values: [&amp;quot;REDIRECT_HTTP_RESPONSE_CODE_301&amp;quot;, &amp;quot;REDIRECT_HTTP_RESPONSE_CODE_302&amp;quot;, &amp;quot;REDIRECT_HTTP_RESPONSE_CODE_303&amp;quot;, &amp;quot;REDIRECT_HTTP_RESPONSE_CODE_307&amp;quot;]
     /// </summary>
     [TerraformProperty("redirect_http_response_code")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RedirectHttpResponseCode { get; set; }
+    public partial TerraformValue<string>? RedirectHttpResponseCode { get; set; }
 
     /// <summary>
     /// Security (HTTPS) enforcement for this URL. Possible values: [&amp;quot;SECURE_DEFAULT&amp;quot;, &amp;quot;SECURE_NEVER&amp;quot;, &amp;quot;SECURE_OPTIONAL&amp;quot;, &amp;quot;SECURE_ALWAYS&amp;quot;]
     /// </summary>
     [TerraformProperty("security_level")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecurityLevel { get; set; }
+    public partial TerraformValue<string>? SecurityLevel { get; set; }
 
     /// <summary>
     /// URL prefix. Uses regular expression syntax, which means regexp special characters must be escaped, but should not contain groupings.
@@ -245,7 +245,7 @@ public partial class GoogleAppEngineFlexibleAppVersionHandlersBlock : TerraformB
     /// </summary>
     [TerraformProperty("url_regex")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UrlRegex { get; set; }
+    public partial TerraformValue<string>? UrlRegex { get; set; }
 
 }
 
@@ -260,28 +260,28 @@ public partial class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock : Terra
     /// </summary>
     [TerraformProperty("check_interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CheckInterval { get; set; }
+    public partial TerraformValue<string>? CheckInterval { get; set; }
 
     /// <summary>
     /// Number of consecutive failed checks required before considering the VM unhealthy. Default: 4.
     /// </summary>
     [TerraformProperty("failure_threshold")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? FailureThreshold { get; set; }
+    public partial TerraformValue<double>? FailureThreshold { get; set; }
 
     /// <summary>
     /// Host header to send when performing a HTTP Readiness check. Example: &amp;quot;myapp.appspot.com&amp;quot;
     /// </summary>
     [TerraformProperty("host")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Host { get; set; }
+    public partial TerraformValue<string>? Host { get; set; }
 
     /// <summary>
     /// The initial delay before starting to execute the checks. Default: &amp;quot;300s&amp;quot;
     /// </summary>
     [TerraformProperty("initial_delay")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InitialDelay { get; set; }
+    public partial TerraformValue<string>? InitialDelay { get; set; }
 
     /// <summary>
     /// The request path.
@@ -289,21 +289,21 @@ public partial class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     [TerraformProperty("path")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Path { get; set; }
+    public required partial TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// Number of consecutive successful checks required before considering the VM healthy. Default: 2.
     /// </summary>
     [TerraformProperty("success_threshold")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SuccessThreshold { get; set; }
+    public partial TerraformValue<double>? SuccessThreshold { get; set; }
 
     /// <summary>
     /// Time before the check is considered failed. Default: &amp;quot;4s&amp;quot;
     /// </summary>
     [TerraformProperty("timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Timeout { get; set; }
+    public partial TerraformValue<string>? Timeout { get; set; }
 
 }
 
@@ -322,7 +322,7 @@ public partial class GoogleAppEngineFlexibleAppVersionManualScalingBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instances is required")]
     [TerraformProperty("instances")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Instances { get; set; }
+    public required partial TerraformValue<double> Instances { get; set; }
 
 }
 
@@ -337,14 +337,14 @@ public partial class GoogleAppEngineFlexibleAppVersionNetworkBlock : TerraformBl
     /// </summary>
     [TerraformProperty("forwarded_ports")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ForwardedPorts { get; set; }
+    public partial TerraformList<string>? ForwardedPorts { get; set; }
 
     /// <summary>
     /// Tag to apply to the instance during creation.
     /// </summary>
     [TerraformProperty("instance_tag")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InstanceTag { get; set; }
+    public partial TerraformValue<string>? InstanceTag { get; set; }
 
     /// <summary>
     /// Google Compute Engine network where the virtual machines are created. Specify the short name, not the resource path.
@@ -352,14 +352,14 @@ public partial class GoogleAppEngineFlexibleAppVersionNetworkBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Enable session affinity.
     /// </summary>
     [TerraformProperty("session_affinity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SessionAffinity { get; set; }
+    public partial TerraformValue<bool>? SessionAffinity { get; set; }
 
     /// <summary>
     /// Google Cloud Platform sub-network where the virtual machines are created. Specify the short name, not the resource path.
@@ -371,7 +371,7 @@ public partial class GoogleAppEngineFlexibleAppVersionNetworkBlock : TerraformBl
     /// </summary>
     [TerraformProperty("subnetwork")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Subnetwork { get; set; }
+    public partial TerraformValue<string>? Subnetwork { get; set; }
 
 }
 
@@ -387,28 +387,28 @@ public partial class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : Terr
     /// </summary>
     [TerraformProperty("app_start_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AppStartTimeout { get; set; }
+    public partial TerraformValue<string>? AppStartTimeout { get; set; }
 
     /// <summary>
     /// Interval between health checks.  Default: &amp;quot;5s&amp;quot;.
     /// </summary>
     [TerraformProperty("check_interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CheckInterval { get; set; }
+    public partial TerraformValue<string>? CheckInterval { get; set; }
 
     /// <summary>
     /// Number of consecutive failed checks required before removing traffic. Default: 2.
     /// </summary>
     [TerraformProperty("failure_threshold")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? FailureThreshold { get; set; }
+    public partial TerraformValue<double>? FailureThreshold { get; set; }
 
     /// <summary>
     /// Host header to send when performing a HTTP Readiness check. Example: &amp;quot;myapp.appspot.com&amp;quot;
     /// </summary>
     [TerraformProperty("host")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Host { get; set; }
+    public partial TerraformValue<string>? Host { get; set; }
 
     /// <summary>
     /// The request path.
@@ -416,21 +416,21 @@ public partial class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     [TerraformProperty("path")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Path { get; set; }
+    public required partial TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// Number of consecutive successful checks required before receiving traffic. Default: 2.
     /// </summary>
     [TerraformProperty("success_threshold")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SuccessThreshold { get; set; }
+    public partial TerraformValue<double>? SuccessThreshold { get; set; }
 
     /// <summary>
     /// Time before the check is considered failed. Default: &amp;quot;4s&amp;quot;
     /// </summary>
     [TerraformProperty("timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Timeout { get; set; }
+    public partial TerraformValue<string>? Timeout { get; set; }
 
 }
 
@@ -445,21 +445,21 @@ public partial class GoogleAppEngineFlexibleAppVersionResourcesBlock : Terraform
     /// </summary>
     [TerraformProperty("cpu")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Cpu { get; set; }
+    public partial TerraformValue<double>? Cpu { get; set; }
 
     /// <summary>
     /// Disk size (GB) needed.
     /// </summary>
     [TerraformProperty("disk_gb")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DiskGb { get; set; }
+    public partial TerraformValue<double>? DiskGb { get; set; }
 
     /// <summary>
     /// Memory (GB) needed.
     /// </summary>
     [TerraformProperty("memory_gb")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MemoryGb { get; set; }
+    public partial TerraformValue<double>? MemoryGb { get; set; }
 
 }
 
@@ -474,21 +474,21 @@ public partial class GoogleAppEngineFlexibleAppVersionTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -504,7 +504,7 @@ public partial class GoogleAppEngineFlexibleAppVersionVpcAccessConnectorBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -523,7 +523,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [TerraformProperty("beta_settings")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? BetaSettings { get; set; }
+    public partial TerraformMap<string>? BetaSettings { get; set; }
 
     /// <summary>
     /// Duration that static files should be cached by web proxies and browsers.
@@ -531,35 +531,35 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [TerraformProperty("default_expiration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultExpiration { get; set; }
+    public partial TerraformValue<string>? DefaultExpiration { get; set; }
 
     /// <summary>
     /// If set to &#39;true&#39;, the service will be deleted if it is the last version.
     /// </summary>
     [TerraformProperty("delete_service_on_destroy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeleteServiceOnDestroy { get; set; }
+    public partial TerraformValue<bool>? DeleteServiceOnDestroy { get; set; }
 
     /// <summary>
     /// Environment variables available to the application.  As these are not returned in the API request, Terraform will not detect any changes made outside of the Terraform config.
     /// </summary>
     [TerraformProperty("env_variables")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? EnvVariables { get; set; }
+    public partial TerraformMap<string>? EnvVariables { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A list of the types of messages that this application is able to receive. Possible values: [&amp;quot;INBOUND_SERVICE_MAIL&amp;quot;, &amp;quot;INBOUND_SERVICE_MAIL_BOUNCE&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_ERROR&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_MESSAGE&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_SUBSCRIBE&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_PRESENCE&amp;quot;, &amp;quot;INBOUND_SERVICE_CHANNEL_PRESENCE&amp;quot;, &amp;quot;INBOUND_SERVICE_WARMUP&amp;quot;]
     /// </summary>
     [TerraformProperty("inbound_services")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? InboundServices { get; set; }
+    public partial TerraformSet<string>? InboundServices { get; set; }
 
     /// <summary>
     /// Instance class that is used to run this version. Valid values are
@@ -569,28 +569,28 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [TerraformProperty("instance_class")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InstanceClass { get; set; }
+    public partial TerraformValue<string>? InstanceClass { get; set; }
 
     /// <summary>
     /// Files that match this pattern will not be built into this version. Only applicable for Go runtimes.
     /// </summary>
     [TerraformProperty("nobuild_files_regex")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NobuildFilesRegex { get; set; }
+    public partial TerraformValue<string>? NobuildFilesRegex { get; set; }
 
     /// <summary>
     /// If set to &#39;true&#39;, the application version will not be deleted.
     /// </summary>
     [TerraformProperty("noop_on_destroy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? NoopOnDestroy { get; set; }
+    public partial TerraformValue<bool>? NoopOnDestroy { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Desired runtime. Example python27.
@@ -598,7 +598,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
     [TerraformProperty("runtime")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Runtime { get; set; }
+    public required partial TerraformValue<string> Runtime { get; set; }
 
     /// <summary>
     /// The version of the API in the given runtime environment.
@@ -607,21 +607,21 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [TerraformProperty("runtime_api_version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> RuntimeApiVersion { get; set; }
+    public partial TerraformValue<string> RuntimeApiVersion { get; set; }
 
     /// <summary>
     /// The channel of the runtime to use. Only available for some runtimes.
     /// </summary>
     [TerraformProperty("runtime_channel")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RuntimeChannel { get; set; }
+    public partial TerraformValue<string>? RuntimeChannel { get; set; }
 
     /// <summary>
     /// The path or name of the app&#39;s main executable.
     /// </summary>
     [TerraformProperty("runtime_main_executable_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RuntimeMainExecutablePath { get; set; }
+    public partial TerraformValue<string>? RuntimeMainExecutablePath { get; set; }
 
     /// <summary>
     /// AppEngine service resource. Can contain numbers, letters, and hyphens.
@@ -629,7 +629,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformProperty("service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Service { get; set; }
+    public required partial TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// The identity that the deployed version will run as. Admin API will use the App Engine Appspot service account as
@@ -637,14 +637,14 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [TerraformProperty("service_account")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ServiceAccount { get; set; }
+    public partial TerraformValue<string> ServiceAccount { get; set; }
 
     /// <summary>
     /// Current serving status of this version. Only the versions with a SERVING status create instances and can be billed. Default value: &amp;quot;SERVING&amp;quot; Possible values: [&amp;quot;SERVING&amp;quot;, &amp;quot;STOPPED&amp;quot;]
     /// </summary>
     [TerraformProperty("serving_status")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServingStatus { get; set; }
+    public partial TerraformValue<string>? ServingStatus { get; set; }
 
     /// <summary>
     /// Relative name of the version within the service. For example, &#39;v1&#39;. Version names can contain only lowercase letters, numbers, or hyphens.
@@ -652,7 +652,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [TerraformProperty("version_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VersionId { get; set; }
+    public partial TerraformValue<string>? VersionId { get; set; }
 
     /// <summary>
     /// Block for api_config.
@@ -660,7 +660,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApiConfig block(s) allowed")]
     [TerraformProperty("api_config")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionApiConfigBlock>>? ApiConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionApiConfigBlock>>? ApiConfig { get; set; }
 
     /// <summary>
     /// Block for automatic_scaling.
@@ -668,7 +668,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticScaling block(s) allowed")]
     [TerraformProperty("automatic_scaling")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock>>? AutomaticScaling { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock>>? AutomaticScaling { get; set; }
 
     /// <summary>
     /// Block for deployment.
@@ -676,7 +676,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Deployment block(s) allowed")]
     [TerraformProperty("deployment")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionDeploymentBlock>>? Deployment { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionDeploymentBlock>>? Deployment { get; set; }
 
     /// <summary>
     /// Block for endpoints_api_service.
@@ -684,7 +684,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointsApiService block(s) allowed")]
     [TerraformProperty("endpoints_api_service")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock>>? EndpointsApiService { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock>>? EndpointsApiService { get; set; }
 
     /// <summary>
     /// Block for entrypoint.
@@ -692,7 +692,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Entrypoint block(s) allowed")]
     [TerraformProperty("entrypoint")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionEntrypointBlock>>? Entrypoint { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionEntrypointBlock>>? Entrypoint { get; set; }
 
     /// <summary>
     /// Block for flexible_runtime_settings.
@@ -700,14 +700,14 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FlexibleRuntimeSettings block(s) allowed")]
     [TerraformProperty("flexible_runtime_settings")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionFlexibleRuntimeSettingsBlock>>? FlexibleRuntimeSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionFlexibleRuntimeSettingsBlock>>? FlexibleRuntimeSettings { get; set; }
 
     /// <summary>
     /// Block for handlers.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("handlers")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionHandlersBlock>>? Handlers { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionHandlersBlock>>? Handlers { get; set; }
 
     /// <summary>
     /// Block for liveness_check.
@@ -717,7 +717,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LivenessCheck block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LivenessCheck block(s) allowed")]
     [TerraformProperty("liveness_check")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionLivenessCheckBlock>>? LivenessCheck { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionLivenessCheckBlock>>? LivenessCheck { get; set; }
 
     /// <summary>
     /// Block for manual_scaling.
@@ -725,7 +725,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManualScaling block(s) allowed")]
     [TerraformProperty("manual_scaling")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionManualScalingBlock>>? ManualScaling { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionManualScalingBlock>>? ManualScaling { get; set; }
 
     /// <summary>
     /// Block for network.
@@ -733,7 +733,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
     [TerraformProperty("network")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionNetworkBlock>>? Network { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionNetworkBlock>>? Network { get; set; }
 
     /// <summary>
     /// Block for readiness_check.
@@ -743,7 +743,7 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReadinessCheck block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadinessCheck block(s) allowed")]
     [TerraformProperty("readiness_check")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionReadinessCheckBlock>>? ReadinessCheck { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionReadinessCheckBlock>>? ReadinessCheck { get; set; }
 
     /// <summary>
     /// Block for resources.
@@ -751,14 +751,14 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Resources block(s) allowed")]
     [TerraformProperty("resources")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionResourcesBlock>>? Resources { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionResourcesBlock>>? Resources { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleAppEngineFlexibleAppVersionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleAppEngineFlexibleAppVersionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vpc_access_connector.
@@ -766,13 +766,13 @@ public partial class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcAccessConnector block(s) allowed")]
     [TerraformProperty("vpc_access_connector")]
-    public TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionVpcAccessConnectorBlock>>? VpcAccessConnector { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineFlexibleAppVersionVpcAccessConnectorBlock>>? VpcAccessConnector { get; set; }
 
     /// <summary>
     /// Full path to the Version resource in the API. Example, &amp;quot;v1&amp;quot;.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class GoogleColabNotebookExecutionDataformRepositorySourceBlock :
     /// </summary>
     [TerraformProperty("commit_sha")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CommitSha { get; set; }
+    public partial TerraformValue<string>? CommitSha { get; set; }
 
     /// <summary>
     /// The resource name of the Dataform Repository.
@@ -21,7 +21,7 @@ public partial class GoogleColabNotebookExecutionDataformRepositorySourceBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataformRepositoryResourceName is required")]
     [TerraformProperty("dataform_repository_resource_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataformRepositoryResourceName { get; set; }
+    public required partial TerraformValue<string> DataformRepositoryResourceName { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class GoogleColabNotebookExecutionDirectNotebookSourceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     [TerraformProperty("content")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Content { get; set; }
+    public required partial TerraformValue<string> Content { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class GoogleColabNotebookExecutionGcsNotebookSourceBlock : Terraf
     /// </summary>
     [TerraformProperty("generation")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Generation { get; set; }
+    public partial TerraformValue<string>? Generation { get; set; }
 
     /// <summary>
     /// The Cloud Storage uri pointing to the ipynb file.
@@ -60,7 +60,7 @@ public partial class GoogleColabNotebookExecutionGcsNotebookSourceBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     [TerraformProperty("uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Uri { get; set; }
+    public required partial TerraformValue<string> Uri { get; set; }
 
 }
 
@@ -75,14 +75,14 @@ public partial class GoogleColabNotebookExecutionTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -102,21 +102,21 @@ public partial class GoogleColabNotebookExecution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Max running time of the execution job in seconds (default 86400s / 24 hrs).
     /// </summary>
     [TerraformProperty("execution_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExecutionTimeout { get; set; }
+    public partial TerraformValue<string>? ExecutionTimeout { get; set; }
 
     /// <summary>
     /// The user email to run the execution as.
     /// </summary>
     [TerraformProperty("execution_user")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExecutionUser { get; set; }
+    public partial TerraformValue<string>? ExecutionUser { get; set; }
 
     /// <summary>
     /// The Cloud Storage location to upload the result to. Format:&#39;gs://bucket-name&#39;
@@ -124,14 +124,14 @@ public partial class GoogleColabNotebookExecution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcsOutputUri is required")]
     [TerraformProperty("gcs_output_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GcsOutputUri { get; set; }
+    public required partial TerraformValue<string> GcsOutputUri { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the resource: https://cloud.google.com/colab/docs/locations
@@ -139,35 +139,35 @@ public partial class GoogleColabNotebookExecution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// User specified ID for the Notebook Execution Job
     /// </summary>
     [TerraformProperty("notebook_execution_job_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NotebookExecutionJobId { get; set; }
+    public partial TerraformValue<string> NotebookExecutionJobId { get; set; }
 
     /// <summary>
     /// The NotebookRuntimeTemplate to source compute configuration from.
     /// </summary>
     [TerraformProperty("notebook_runtime_template_resource_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NotebookRuntimeTemplateResourceName { get; set; }
+    public partial TerraformValue<string>? NotebookRuntimeTemplateResourceName { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The service account to run the execution as.
     /// </summary>
     [TerraformProperty("service_account")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServiceAccount { get; set; }
+    public partial TerraformValue<string>? ServiceAccount { get; set; }
 
     /// <summary>
     /// Block for dataform_repository_source.
@@ -175,7 +175,7 @@ public partial class GoogleColabNotebookExecution : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataformRepositorySource block(s) allowed")]
     [TerraformProperty("dataform_repository_source")]
-    public TerraformList<TerraformBlock<GoogleColabNotebookExecutionDataformRepositorySourceBlock>>? DataformRepositorySource { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleColabNotebookExecutionDataformRepositorySourceBlock>>? DataformRepositorySource { get; set; }
 
     /// <summary>
     /// Block for direct_notebook_source.
@@ -183,7 +183,7 @@ public partial class GoogleColabNotebookExecution : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DirectNotebookSource block(s) allowed")]
     [TerraformProperty("direct_notebook_source")]
-    public TerraformList<TerraformBlock<GoogleColabNotebookExecutionDirectNotebookSourceBlock>>? DirectNotebookSource { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleColabNotebookExecutionDirectNotebookSourceBlock>>? DirectNotebookSource { get; set; }
 
     /// <summary>
     /// Block for gcs_notebook_source.
@@ -191,13 +191,13 @@ public partial class GoogleColabNotebookExecution : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcsNotebookSource block(s) allowed")]
     [TerraformProperty("gcs_notebook_source")]
-    public TerraformList<TerraformBlock<GoogleColabNotebookExecutionGcsNotebookSourceBlock>>? GcsNotebookSource { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleColabNotebookExecutionGcsNotebookSourceBlock>>? GcsNotebookSource { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleColabNotebookExecutionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleColabNotebookExecutionTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -16,7 +16,7 @@ public partial class AwsS3tablesTableBucketPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_policy attribute.
@@ -24,7 +24,7 @@ public partial class AwsS3tablesTableBucketPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourcePolicy is required")]
     [TerraformProperty("resource_policy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourcePolicy { get; set; }
+    public required partial TerraformValue<string> ResourcePolicy { get; set; }
 
     /// <summary>
     /// The table_bucket_arn attribute.
@@ -32,6 +32,6 @@ public partial class AwsS3tablesTableBucketPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableBucketArn is required")]
     [TerraformProperty("table_bucket_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TableBucketArn { get; set; }
+    public required partial TerraformValue<string> TableBucketArn { get; set; }
 
 }

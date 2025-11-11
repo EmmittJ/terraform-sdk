@@ -13,14 +13,14 @@ public partial class AwsEmrReleaseLabelsDataSourceFiltersBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("application")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Application { get; set; }
+    public partial TerraformValue<string>? Application { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
     [TerraformProperty("prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Prefix { get; set; }
+    public partial TerraformValue<string>? Prefix { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public partial class AwsEmrReleaseLabelsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for filters.
@@ -54,13 +54,13 @@ public partial class AwsEmrReleaseLabelsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filters block(s) allowed")]
     [TerraformProperty("filters")]
-    public TerraformList<TerraformBlock<AwsEmrReleaseLabelsDataSourceFiltersBlock>>? Filters { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEmrReleaseLabelsDataSourceFiltersBlock>>? Filters { get; set; }
 
     /// <summary>
     /// The release_labels attribute.
     /// </summary>
     [TerraformProperty("release_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ReleaseLabels { get; }
+    public partial TerraformList<string> ReleaseLabels { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class AwsInspector2EnablerTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,21 +46,21 @@ public partial class AwsInspector2Enabler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountIds is required")]
     [TerraformProperty("account_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> AccountIds { get; set; }
+    public required partial TerraformSet<string> AccountIds { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_types attribute.
@@ -68,13 +68,13 @@ public partial class AwsInspector2Enabler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypes is required")]
     [TerraformProperty("resource_types")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> ResourceTypes { get; set; }
+    public required partial TerraformSet<string> ResourceTypes { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsInspector2EnablerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsInspector2EnablerTimeoutsBlock>? Timeouts { get; set; }
 
 }

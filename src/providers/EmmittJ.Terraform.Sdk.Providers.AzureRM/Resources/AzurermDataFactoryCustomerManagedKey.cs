@@ -13,28 +13,28 @@ public partial class AzurermDataFactoryCustomerManagedKeyTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermDataFactoryCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerManagedKeyId is required")]
     [TerraformProperty("customer_managed_key_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CustomerManagedKeyId { get; set; }
+    public required partial TerraformValue<string> CustomerManagedKeyId { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
@@ -61,27 +61,27 @@ public partial class AzurermDataFactoryCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformProperty("data_factory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataFactoryId { get; set; }
+    public required partial TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
     [TerraformProperty("user_assigned_identity_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserAssignedIdentityId { get; set; }
+    public partial TerraformValue<string>? UserAssignedIdentityId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataFactoryCustomerManagedKeyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataFactoryCustomerManagedKeyTimeoutsBlock>? Timeouts { get; set; }
 
 }

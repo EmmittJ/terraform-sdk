@@ -14,7 +14,7 @@ public partial class GoogleCertificateManagerCertificateManagedBlock : Terraform
     /// </summary>
     [TerraformProperty("dns_authorizations")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? DnsAuthorizations { get; set; }
+    public partial TerraformList<string>? DnsAuthorizations { get; set; }
 
     /// <summary>
     /// The domains for which a managed SSL certificate will be generated.
@@ -22,7 +22,7 @@ public partial class GoogleCertificateManagerCertificateManagedBlock : Terraform
     /// </summary>
     [TerraformProperty("domains")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Domains { get; set; }
+    public partial TerraformList<string>? Domains { get; set; }
 
     /// <summary>
     /// The resource name for a CertificateIssuanceConfig used to configure private PKI certificates in the format projects/*/locations/*/certificateIssuanceConfigs/*.
@@ -31,7 +31,7 @@ public partial class GoogleCertificateManagerCertificateManagedBlock : Terraform
     /// </summary>
     [TerraformProperty("issuance_config")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IssuanceConfig { get; set; }
+    public partial TerraformValue<string>? IssuanceConfig { get; set; }
 
 
 
@@ -51,7 +51,7 @@ public partial class GoogleCertificateManagerCertificateSelfManagedBlock : Terra
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("certificate_pem")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CertificatePem { get; set; }
+    public partial TerraformValue<string>? CertificatePem { get; set; }
 
     /// <summary>
     /// The certificate chain in PEM-encoded form.
@@ -60,14 +60,14 @@ public partial class GoogleCertificateManagerCertificateSelfManagedBlock : Terra
     /// </summary>
     [TerraformProperty("pem_certificate")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PemCertificate { get; set; }
+    public partial TerraformValue<string>? PemCertificate { get; set; }
 
     /// <summary>
     /// The private key of the leaf certificate in PEM-encoded form.
     /// </summary>
     [TerraformProperty("pem_private_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PemPrivateKey { get; set; }
+    public partial TerraformValue<string>? PemPrivateKey { get; set; }
 
     /// <summary>
     /// The private key of the leaf certificate in PEM-encoded form.
@@ -75,7 +75,7 @@ public partial class GoogleCertificateManagerCertificateSelfManagedBlock : Terra
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("private_key_pem")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrivateKeyPem { get; set; }
+    public partial TerraformValue<string>? PrivateKeyPem { get; set; }
 
 }
 
@@ -90,21 +90,21 @@ public partial class GoogleCertificateManagerCertificateTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -123,14 +123,14 @@ public partial class GoogleCertificateManagerCertificate : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Set of label tags associated with the Certificate resource.
@@ -140,14 +140,14 @@ public partial class GoogleCertificateManagerCertificate : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The Certificate Manager location. If not specified, &amp;quot;global&amp;quot; is used.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// A user-defined name of the certificate. Certificate names must be unique
@@ -157,14 +157,14 @@ public partial class GoogleCertificateManagerCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The scope of the certificate.
@@ -183,7 +183,7 @@ public partial class GoogleCertificateManagerCertificate : TerraformResource
     /// </summary>
     [TerraformProperty("scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Scope { get; set; }
+    public partial TerraformValue<string>? Scope { get; set; }
 
     /// <summary>
     /// Block for managed.
@@ -191,7 +191,7 @@ public partial class GoogleCertificateManagerCertificate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Managed block(s) allowed")]
     [TerraformProperty("managed")]
-    public TerraformList<TerraformBlock<GoogleCertificateManagerCertificateManagedBlock>>? Managed { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCertificateManagerCertificateManagedBlock>>? Managed { get; set; }
 
     /// <summary>
     /// Block for self_managed.
@@ -199,28 +199,28 @@ public partial class GoogleCertificateManagerCertificate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SelfManaged block(s) allowed")]
     [TerraformProperty("self_managed")]
-    public TerraformList<TerraformBlock<GoogleCertificateManagerCertificateSelfManagedBlock>>? SelfManaged { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCertificateManagerCertificateSelfManagedBlock>>? SelfManaged { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleCertificateManagerCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleCertificateManagerCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The list of Subject Alternative Names of dnsName type defined in the certificate (see RFC 5280 4.2.1.6)
     /// </summary>
     [TerraformProperty("san_dnsnames")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> SanDnsnames { get; }
+    public partial TerraformList<string> SanDnsnames { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -228,6 +228,6 @@ public partial class GoogleCertificateManagerCertificate : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

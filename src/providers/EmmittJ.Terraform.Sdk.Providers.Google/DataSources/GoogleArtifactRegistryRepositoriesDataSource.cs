@@ -16,7 +16,7 @@ public partial class GoogleArtifactRegistryRepositoriesDataSource : TerraformDat
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -24,27 +24,27 @@ public partial class GoogleArtifactRegistryRepositoriesDataSource : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name_filter attribute.
     /// </summary>
     [TerraformProperty("name_filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NameFilter { get; set; }
+    public partial TerraformValue<string>? NameFilter { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The repositories attribute.
     /// </summary>
     [TerraformProperty("repositories")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Repositories { get; }
+    public partial TerraformList<object> Repositories { get; }
 
 }

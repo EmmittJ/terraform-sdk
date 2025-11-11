@@ -14,7 +14,7 @@ public partial class AwsWorkspaceswebTrustStoreCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     [TerraformProperty("body")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Body { get; set; }
+    public required partial TerraformValue<string> Body { get; set; }
 
 
 
@@ -37,41 +37,41 @@ public partial class AwsWorkspaceswebTrustStore : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for certificate.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("certificate")]
-    public TerraformSet<TerraformBlock<AwsWorkspaceswebTrustStoreCertificateBlock>>? Certificate { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsWorkspaceswebTrustStoreCertificateBlock>>? Certificate { get; set; }
 
     /// <summary>
     /// The associated_portal_arns attribute.
     /// </summary>
     [TerraformProperty("associated_portal_arns")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> AssociatedPortalArns { get; }
+    public partial TerraformList<string> AssociatedPortalArns { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
     /// <summary>
     /// The trust_store_arn attribute.
     /// </summary>
     [TerraformProperty("trust_store_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TrustStoreArn { get; }
+    public partial TerraformValue<string> TrustStoreArn { get; }
 
 }

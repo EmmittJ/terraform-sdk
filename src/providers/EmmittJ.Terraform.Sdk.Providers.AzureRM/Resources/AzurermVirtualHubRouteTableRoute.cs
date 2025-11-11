@@ -13,28 +13,28 @@ public partial class AzurermVirtualHubRouteTableRouteTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermVirtualHubRouteTableRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     [TerraformProperty("destinations")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Destinations { get; set; }
+    public required partial TerraformSet<string> Destinations { get; set; }
 
     /// <summary>
     /// The destinations_type attribute.
@@ -61,14 +61,14 @@ public partial class AzurermVirtualHubRouteTableRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationsType is required")]
     [TerraformProperty("destinations_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DestinationsType { get; set; }
+    public required partial TerraformValue<string> DestinationsType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -76,7 +76,7 @@ public partial class AzurermVirtualHubRouteTableRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The next_hop attribute.
@@ -84,14 +84,14 @@ public partial class AzurermVirtualHubRouteTableRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHop is required")]
     [TerraformProperty("next_hop")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NextHop { get; set; }
+    public required partial TerraformValue<string> NextHop { get; set; }
 
     /// <summary>
     /// The next_hop_type attribute.
     /// </summary>
     [TerraformProperty("next_hop_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NextHopType { get; set; }
+    public partial TerraformValue<string>? NextHopType { get; set; }
 
     /// <summary>
     /// The route_table_id attribute.
@@ -99,13 +99,13 @@ public partial class AzurermVirtualHubRouteTableRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableId is required")]
     [TerraformProperty("route_table_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RouteTableId { get; set; }
+    public required partial TerraformValue<string> RouteTableId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVirtualHubRouteTableRouteTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVirtualHubRouteTableRouteTimeoutsBlock>? Timeouts { get; set; }
 
 }

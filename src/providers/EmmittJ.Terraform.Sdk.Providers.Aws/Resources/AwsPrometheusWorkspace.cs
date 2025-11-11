@@ -14,7 +14,7 @@ public partial class AwsPrometheusWorkspaceLoggingConfigurationBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupArn is required")]
     [TerraformProperty("log_group_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LogGroupArn { get; set; }
+    public required partial TerraformValue<string> LogGroupArn { get; set; }
 
 }
 
@@ -33,42 +33,42 @@ public partial class AwsPrometheusWorkspace : TerraformResource
     /// </summary>
     [TerraformProperty("alias")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Alias { get; set; }
+    public partial TerraformValue<string>? Alias { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     [TerraformProperty("kms_key_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyArn { get; set; }
+    public partial TerraformValue<string>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for logging_configuration.
@@ -76,20 +76,20 @@ public partial class AwsPrometheusWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
     [TerraformProperty("logging_configuration")]
-    public TerraformList<TerraformBlock<AwsPrometheusWorkspaceLoggingConfigurationBlock>>? LoggingConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsPrometheusWorkspaceLoggingConfigurationBlock>>? LoggingConfiguration { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The prometheus_endpoint attribute.
     /// </summary>
     [TerraformProperty("prometheus_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrometheusEndpoint { get; }
+    public partial TerraformValue<string> PrometheusEndpoint { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermNetappBackupPolicyDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzurermNetappBackupPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     [TerraformProperty("account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccountName { get; set; }
+    public required partial TerraformValue<string> AccountName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,7 +47,7 @@ public partial class AzurermNetappBackupPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -55,55 +55,55 @@ public partial class AzurermNetappBackupPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetappBackupPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetappBackupPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The daily_backups_to_keep attribute.
     /// </summary>
     [TerraformProperty("daily_backups_to_keep")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> DailyBackupsToKeep { get; }
+    public partial TerraformValue<double> DailyBackupsToKeep { get; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Enabled { get; }
+    public partial TerraformValue<bool> Enabled { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The monthly_backups_to_keep attribute.
     /// </summary>
     [TerraformProperty("monthly_backups_to_keep")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> MonthlyBackupsToKeep { get; }
+    public partial TerraformValue<double> MonthlyBackupsToKeep { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The weekly_backups_to_keep attribute.
     /// </summary>
     [TerraformProperty("weekly_backups_to_keep")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> WeeklyBackupsToKeep { get; }
+    public partial TerraformValue<double> WeeklyBackupsToKeep { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AwsOpensearchPackagePackageSourceBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     [TerraformProperty("s3_bucket_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> S3BucketName { get; set; }
+    public required partial TerraformValue<string> S3BucketName { get; set; }
 
     /// <summary>
     /// The s3_key attribute.
@@ -22,7 +22,7 @@ public partial class AwsOpensearchPackagePackageSourceBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Key is required")]
     [TerraformProperty("s3_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> S3Key { get; set; }
+    public required partial TerraformValue<string> S3Key { get; set; }
 
 }
 
@@ -41,21 +41,21 @@ public partial class AwsOpensearchPackage : TerraformResource
     /// </summary>
     [TerraformProperty("engine_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EngineVersion { get; set; }
+    public partial TerraformValue<string>? EngineVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The package_description attribute.
     /// </summary>
     [TerraformProperty("package_description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PackageDescription { get; set; }
+    public partial TerraformValue<string>? PackageDescription { get; set; }
 
     /// <summary>
     /// The package_name attribute.
@@ -63,7 +63,7 @@ public partial class AwsOpensearchPackage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageName is required")]
     [TerraformProperty("package_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PackageName { get; set; }
+    public required partial TerraformValue<string> PackageName { get; set; }
 
     /// <summary>
     /// The package_type attribute.
@@ -71,14 +71,14 @@ public partial class AwsOpensearchPackage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageType is required")]
     [TerraformProperty("package_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PackageType { get; set; }
+    public required partial TerraformValue<string> PackageType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for package_source.
@@ -88,20 +88,20 @@ public partial class AwsOpensearchPackage : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PackageSource block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PackageSource block(s) allowed")]
     [TerraformProperty("package_source")]
-    public TerraformList<TerraformBlock<AwsOpensearchPackagePackageSourceBlock>>? PackageSource { get; set; }
+    public partial TerraformList<TerraformBlock<AwsOpensearchPackagePackageSourceBlock>>? PackageSource { get; set; }
 
     /// <summary>
     /// The available_package_version attribute.
     /// </summary>
     [TerraformProperty("available_package_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AvailablePackageVersion { get; }
+    public partial TerraformValue<string> AvailablePackageVersion { get; }
 
     /// <summary>
     /// The package_id attribute.
     /// </summary>
     [TerraformProperty("package_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PackageId { get; }
+    public partial TerraformValue<string> PackageId { get; }
 
 }

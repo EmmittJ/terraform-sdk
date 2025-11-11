@@ -14,7 +14,7 @@ public partial class AzureadSynchronizationJobProvisionOnDemandParameterBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleId is required")]
     [TerraformProperty("rule_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RuleId { get; set; }
+    public required partial TerraformValue<string> RuleId { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public partial class AzureadSynchronizationJobProvisionOnDemandTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -62,7 +62,7 @@ public partial class AzureadSynchronizationJobProvisionOnDemand : TerraformResou
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The object ID of the service principal for which this synchronization job should be provisioned
@@ -70,7 +70,7 @@ public partial class AzureadSynchronizationJobProvisionOnDemand : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     [TerraformProperty("service_principal_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServicePrincipalId { get; set; }
+    public required partial TerraformValue<string> ServicePrincipalId { get; set; }
 
     /// <summary>
     /// The identifier for the synchronization jop.
@@ -78,14 +78,14 @@ public partial class AzureadSynchronizationJobProvisionOnDemand : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynchronizationJobId is required")]
     [TerraformProperty("synchronization_job_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SynchronizationJobId { get; set; }
+    public required partial TerraformValue<string> SynchronizationJobId { get; set; }
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
     [TerraformProperty("triggers")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Triggers { get; set; }
+    public partial TerraformMap<string>? Triggers { get; set; }
 
     /// <summary>
     /// Block for parameter.
@@ -94,13 +94,13 @@ public partial class AzureadSynchronizationJobProvisionOnDemand : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Parameter block(s) required")]
     [TerraformProperty("parameter")]
-    public TerraformList<TerraformBlock<AzureadSynchronizationJobProvisionOnDemandParameterBlock>>? Parameter { get; set; }
+    public partial TerraformList<TerraformBlock<AzureadSynchronizationJobProvisionOnDemandParameterBlock>>? Parameter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadSynchronizationJobProvisionOnDemandTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadSynchronizationJobProvisionOnDemandTimeoutsBlock>? Timeouts { get; set; }
 
 }

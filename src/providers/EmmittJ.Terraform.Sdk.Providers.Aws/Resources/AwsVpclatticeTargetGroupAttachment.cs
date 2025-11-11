@@ -14,14 +14,14 @@ public partial class AwsVpclatticeTargetGroupAttachmentTargetBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     [TerraformProperty("port")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Port { get; set; }
+    public partial TerraformValue<double> Port { get; set; }
 
 }
 
@@ -36,14 +36,14 @@ public partial class AwsVpclatticeTargetGroupAttachmentTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -62,14 +62,14 @@ public partial class AwsVpclatticeTargetGroupAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The target_group_identifier attribute.
@@ -77,7 +77,7 @@ public partial class AwsVpclatticeTargetGroupAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetGroupIdentifier is required")]
     [TerraformProperty("target_group_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetGroupIdentifier { get; set; }
+    public required partial TerraformValue<string> TargetGroupIdentifier { get; set; }
 
     /// <summary>
     /// Block for target.
@@ -87,13 +87,13 @@ public partial class AwsVpclatticeTargetGroupAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     [TerraformProperty("target")]
-    public TerraformList<TerraformBlock<AwsVpclatticeTargetGroupAttachmentTargetBlock>>? Target { get; set; }
+    public partial TerraformList<TerraformBlock<AwsVpclatticeTargetGroupAttachmentTargetBlock>>? Target { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsVpclatticeTargetGroupAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsVpclatticeTargetGroupAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

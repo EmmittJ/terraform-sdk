@@ -14,7 +14,7 @@ public partial class GoogleProjectOrganizationPolicyBooleanPolicyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enforced is required")]
     [TerraformProperty("enforced")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enforced { get; set; }
+    public required partial TerraformValue<bool> Enforced { get; set; }
 
 }
 
@@ -29,14 +29,14 @@ public partial class GoogleProjectOrganizationPolicyListPolicyBlock : TerraformB
     /// </summary>
     [TerraformProperty("inherit_from_parent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? InheritFromParent { get; set; }
+    public partial TerraformValue<bool>? InheritFromParent { get; set; }
 
     /// <summary>
     /// The Google Cloud Console will try to default to a configuration that matches the value specified in this field.
     /// </summary>
     [TerraformProperty("suggested_value")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SuggestedValue { get; set; }
+    public partial TerraformValue<string> SuggestedValue { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class GoogleProjectOrganizationPolicyRestorePolicyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Default is required")]
     [TerraformProperty("default")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Default { get; set; }
+    public required partial TerraformValue<bool> Default { get; set; }
 
 }
 
@@ -67,28 +67,28 @@ public partial class GoogleProjectOrganizationPolicyTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -108,14 +108,14 @@ public partial class GoogleProjectOrganizationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Constraint is required")]
     [TerraformProperty("constraint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Constraint { get; set; }
+    public required partial TerraformValue<string> Constraint { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project ID.
@@ -123,14 +123,14 @@ public partial class GoogleProjectOrganizationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformProperty("project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Project { get; set; }
+    public required partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Version of the Policy. Default version is 0.
     /// </summary>
     [TerraformProperty("version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Version { get; set; }
+    public partial TerraformValue<double> Version { get; set; }
 
     /// <summary>
     /// Block for boolean_policy.
@@ -138,7 +138,7 @@ public partial class GoogleProjectOrganizationPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BooleanPolicy block(s) allowed")]
     [TerraformProperty("boolean_policy")]
-    public TerraformList<TerraformBlock<GoogleProjectOrganizationPolicyBooleanPolicyBlock>>? BooleanPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleProjectOrganizationPolicyBooleanPolicyBlock>>? BooleanPolicy { get; set; }
 
     /// <summary>
     /// Block for list_policy.
@@ -146,7 +146,7 @@ public partial class GoogleProjectOrganizationPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ListPolicy block(s) allowed")]
     [TerraformProperty("list_policy")]
-    public TerraformList<TerraformBlock<GoogleProjectOrganizationPolicyListPolicyBlock>>? ListPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleProjectOrganizationPolicyListPolicyBlock>>? ListPolicy { get; set; }
 
     /// <summary>
     /// Block for restore_policy.
@@ -154,27 +154,27 @@ public partial class GoogleProjectOrganizationPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestorePolicy block(s) allowed")]
     [TerraformProperty("restore_policy")]
-    public TerraformList<TerraformBlock<GoogleProjectOrganizationPolicyRestorePolicyBlock>>? RestorePolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleProjectOrganizationPolicyRestorePolicyBlock>>? RestorePolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleProjectOrganizationPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleProjectOrganizationPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The etag of the organization policy. etag is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds, representing when the variable was last updated. Example: &amp;quot;2016-10-09T12:33:37.578138407Z&amp;quot;.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

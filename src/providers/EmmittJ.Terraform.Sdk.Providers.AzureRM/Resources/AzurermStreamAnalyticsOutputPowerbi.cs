@@ -13,28 +13,28 @@ public partial class AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     [TerraformProperty("dataset")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Dataset { get; set; }
+    public required partial TerraformValue<string> Dataset { get; set; }
 
     /// <summary>
     /// The group_id attribute.
@@ -61,7 +61,7 @@ public partial class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     [TerraformProperty("group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GroupId { get; set; }
+    public required partial TerraformValue<string> GroupId { get; set; }
 
     /// <summary>
     /// The group_name attribute.
@@ -69,14 +69,14 @@ public partial class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     [TerraformProperty("group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GroupName { get; set; }
+    public required partial TerraformValue<string> GroupName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -84,7 +84,7 @@ public partial class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The stream_analytics_job_id attribute.
@@ -92,7 +92,7 @@ public partial class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     [TerraformProperty("stream_analytics_job_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StreamAnalyticsJobId { get; set; }
+    public required partial TerraformValue<string> StreamAnalyticsJobId { get; set; }
 
     /// <summary>
     /// The table attribute.
@@ -100,27 +100,27 @@ public partial class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     [TerraformProperty("table")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Table { get; set; }
+    public required partial TerraformValue<string> Table { get; set; }
 
     /// <summary>
     /// The token_user_display_name attribute.
     /// </summary>
     [TerraformProperty("token_user_display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TokenUserDisplayName { get; set; }
+    public partial TerraformValue<string>? TokenUserDisplayName { get; set; }
 
     /// <summary>
     /// The token_user_principal_name attribute.
     /// </summary>
     [TerraformProperty("token_user_principal_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TokenUserPrincipalName { get; set; }
+    public partial TerraformValue<string>? TokenUserPrincipalName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock>? Timeouts { get; set; }
 
 }

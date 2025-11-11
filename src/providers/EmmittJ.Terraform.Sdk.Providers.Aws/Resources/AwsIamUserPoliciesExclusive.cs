@@ -17,7 +17,7 @@ public partial class AwsIamUserPoliciesExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyNames is required")]
     [TerraformProperty("policy_names")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> PolicyNames { get; set; }
+    public required partial TerraformSet<string> PolicyNames { get; set; }
 
     /// <summary>
     /// The user_name attribute.
@@ -25,6 +25,6 @@ public partial class AwsIamUserPoliciesExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     [TerraformProperty("user_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UserName { get; set; }
+    public required partial TerraformValue<string> UserName { get; set; }
 
 }

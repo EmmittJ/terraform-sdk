@@ -16,7 +16,7 @@ public partial class GoogleIamRoleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -24,27 +24,27 @@ public partial class GoogleIamRoleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The included_permissions attribute.
     /// </summary>
     [TerraformProperty("included_permissions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> IncludedPermissions { get; }
+    public partial TerraformList<string> IncludedPermissions { get; }
 
     /// <summary>
     /// The stage attribute.
     /// </summary>
     [TerraformProperty("stage")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Stage { get; }
+    public partial TerraformValue<string> Stage { get; }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     [TerraformProperty("title")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Title { get; }
+    public partial TerraformValue<string> Title { get; }
 
 }

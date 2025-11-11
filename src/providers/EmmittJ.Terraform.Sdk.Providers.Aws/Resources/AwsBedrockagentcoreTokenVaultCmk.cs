@@ -14,14 +14,14 @@ public partial class AwsBedrockagentcoreTokenVaultCmkKmsConfigurationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
     [TerraformProperty("key_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyType { get; set; }
+    public required partial TerraformValue<string> KeyType { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     [TerraformProperty("kms_key_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyArn { get; set; }
+    public partial TerraformValue<string>? KmsKeyArn { get; set; }
 
 }
 
@@ -39,20 +39,20 @@ public partial class AwsBedrockagentcoreTokenVaultCmk : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The token_vault_id attribute.
     /// </summary>
     [TerraformProperty("token_vault_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TokenVaultId { get; set; }
+    public partial TerraformValue<string> TokenVaultId { get; set; }
 
     /// <summary>
     /// Block for kms_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("kms_configuration")]
-    public TerraformList<TerraformBlock<AwsBedrockagentcoreTokenVaultCmkKmsConfigurationBlock>>? KmsConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreTokenVaultCmkKmsConfigurationBlock>>? KmsConfiguration { get; set; }
 
 }

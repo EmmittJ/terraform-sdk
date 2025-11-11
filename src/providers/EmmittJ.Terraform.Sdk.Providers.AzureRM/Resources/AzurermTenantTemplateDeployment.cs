@@ -13,28 +13,28 @@ public partial class AzurermTenantTemplateDeploymentTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public partial class AzurermTenantTemplateDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("debug_level")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DebugLevel { get; set; }
+    public partial TerraformValue<string>? DebugLevel { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -67,7 +67,7 @@ public partial class AzurermTenantTemplateDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -75,48 +75,48 @@ public partial class AzurermTenantTemplateDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters_content attribute.
     /// </summary>
     [TerraformProperty("parameters_content")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ParametersContent { get; set; }
+    public partial TerraformValue<string> ParametersContent { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The template_content attribute.
     /// </summary>
     [TerraformProperty("template_content")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TemplateContent { get; set; }
+    public partial TerraformValue<string> TemplateContent { get; set; }
 
     /// <summary>
     /// The template_spec_version_id attribute.
     /// </summary>
     [TerraformProperty("template_spec_version_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TemplateSpecVersionId { get; set; }
+    public partial TerraformValue<string>? TemplateSpecVersionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermTenantTemplateDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermTenantTemplateDeploymentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The output_content attribute.
     /// </summary>
     [TerraformProperty("output_content")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OutputContent { get; }
+    public partial TerraformValue<string> OutputContent { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermExpressRouteCircuitDataSourceTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermExpressRouteCircuitDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermExpressRouteCircuitDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,55 +47,55 @@ public partial class AzurermExpressRouteCircuitDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermExpressRouteCircuitDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermExpressRouteCircuitDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The peerings attribute.
     /// </summary>
     [TerraformProperty("peerings")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Peerings { get; }
+    public partial TerraformList<object> Peerings { get; }
 
     /// <summary>
     /// The service_key attribute.
     /// </summary>
     [TerraformProperty("service_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServiceKey { get; }
+    public partial TerraformValue<string> ServiceKey { get; }
 
     /// <summary>
     /// The service_provider_properties attribute.
     /// </summary>
     [TerraformProperty("service_provider_properties")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ServiceProviderProperties { get; }
+    public partial TerraformList<object> ServiceProviderProperties { get; }
 
     /// <summary>
     /// The service_provider_provisioning_state attribute.
     /// </summary>
     [TerraformProperty("service_provider_provisioning_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServiceProviderProvisioningState { get; }
+    public partial TerraformValue<string> ServiceProviderProvisioningState { get; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [TerraformProperty("sku")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Sku { get; }
+    public partial TerraformList<object> Sku { get; }
 
 }

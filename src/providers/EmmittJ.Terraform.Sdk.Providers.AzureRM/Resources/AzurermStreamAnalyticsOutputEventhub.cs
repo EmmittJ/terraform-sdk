@@ -13,21 +13,21 @@ public partial class AzurermStreamAnalyticsOutputEventhubSerializationBlock : Te
     /// </summary>
     [TerraformProperty("encoding")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Encoding { get; set; }
+    public partial TerraformValue<string>? Encoding { get; set; }
 
     /// <summary>
     /// The field_delimiter attribute.
     /// </summary>
     [TerraformProperty("field_delimiter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FieldDelimiter { get; set; }
+    public partial TerraformValue<string>? FieldDelimiter { get; set; }
 
     /// <summary>
     /// The format attribute.
     /// </summary>
     [TerraformProperty("format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Format { get; set; }
+    public partial TerraformValue<string>? Format { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -35,7 +35,7 @@ public partial class AzurermStreamAnalyticsOutputEventhubSerializationBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -50,28 +50,28 @@ public partial class AzurermStreamAnalyticsOutputEventhubTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -90,7 +90,7 @@ public partial class AzurermStreamAnalyticsOutputEventhub : TerraformResource
     /// </summary>
     [TerraformProperty("authentication_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthenticationMode { get; set; }
+    public partial TerraformValue<string>? AuthenticationMode { get; set; }
 
     /// <summary>
     /// The eventhub_name attribute.
@@ -98,14 +98,14 @@ public partial class AzurermStreamAnalyticsOutputEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     [TerraformProperty("eventhub_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EventhubName { get; set; }
+    public required partial TerraformValue<string> EventhubName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -113,21 +113,21 @@ public partial class AzurermStreamAnalyticsOutputEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The partition_key attribute.
     /// </summary>
     [TerraformProperty("partition_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PartitionKey { get; set; }
+    public partial TerraformValue<string>? PartitionKey { get; set; }
 
     /// <summary>
     /// The property_columns attribute.
     /// </summary>
     [TerraformProperty("property_columns")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? PropertyColumns { get; set; }
+    public partial TerraformList<string>? PropertyColumns { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -135,7 +135,7 @@ public partial class AzurermStreamAnalyticsOutputEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The servicebus_namespace attribute.
@@ -143,21 +143,21 @@ public partial class AzurermStreamAnalyticsOutputEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicebusNamespace is required")]
     [TerraformProperty("servicebus_namespace")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServicebusNamespace { get; set; }
+    public required partial TerraformValue<string> ServicebusNamespace { get; set; }
 
     /// <summary>
     /// The shared_access_policy_key attribute.
     /// </summary>
     [TerraformProperty("shared_access_policy_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SharedAccessPolicyKey { get; set; }
+    public partial TerraformValue<string>? SharedAccessPolicyKey { get; set; }
 
     /// <summary>
     /// The shared_access_policy_name attribute.
     /// </summary>
     [TerraformProperty("shared_access_policy_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SharedAccessPolicyName { get; set; }
+    public partial TerraformValue<string>? SharedAccessPolicyName { get; set; }
 
     /// <summary>
     /// The stream_analytics_job_name attribute.
@@ -165,7 +165,7 @@ public partial class AzurermStreamAnalyticsOutputEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     [TerraformProperty("stream_analytics_job_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StreamAnalyticsJobName { get; set; }
+    public required partial TerraformValue<string> StreamAnalyticsJobName { get; set; }
 
     /// <summary>
     /// Block for serialization.
@@ -175,13 +175,13 @@ public partial class AzurermStreamAnalyticsOutputEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Serialization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serialization block(s) allowed")]
     [TerraformProperty("serialization")]
-    public TerraformList<TerraformBlock<AzurermStreamAnalyticsOutputEventhubSerializationBlock>>? Serialization { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermStreamAnalyticsOutputEventhubSerializationBlock>>? Serialization { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStreamAnalyticsOutputEventhubTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStreamAnalyticsOutputEventhubTimeoutsBlock>? Timeouts { get; set; }
 
 }

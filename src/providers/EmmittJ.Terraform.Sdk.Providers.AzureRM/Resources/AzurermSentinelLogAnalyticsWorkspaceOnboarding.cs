@@ -13,21 +13,21 @@ public partial class AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public partial class AzurermSentinelLogAnalyticsWorkspaceOnboarding : TerraformR
     /// </summary>
     [TerraformProperty("customer_managed_key_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CustomerManagedKeyEnabled { get; set; }
+    public partial TerraformValue<bool>? CustomerManagedKeyEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -60,13 +60,13 @@ public partial class AzurermSentinelLogAnalyticsWorkspaceOnboarding : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformProperty("workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceId { get; set; }
+    public required partial TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock>? Timeouts { get; set; }
 
 }

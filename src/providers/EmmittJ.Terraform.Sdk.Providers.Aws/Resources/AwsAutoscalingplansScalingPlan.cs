@@ -13,7 +13,7 @@ public partial class AwsAutoscalingplansScalingPlanApplicationSourceBlock : Terr
     /// </summary>
     [TerraformProperty("cloudformation_stack_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CloudformationStackArn { get; set; }
+    public partial TerraformValue<string>? CloudformationStackArn { get; set; }
 
 }
 
@@ -28,7 +28,7 @@ public partial class AwsAutoscalingplansScalingPlanScalingInstructionBlock : Ter
     /// </summary>
     [TerraformProperty("disable_dynamic_scaling")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableDynamicScaling { get; set; }
+    public partial TerraformValue<bool>? DisableDynamicScaling { get; set; }
 
     /// <summary>
     /// The max_capacity attribute.
@@ -36,7 +36,7 @@ public partial class AwsAutoscalingplansScalingPlanScalingInstructionBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     [TerraformProperty("max_capacity")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MaxCapacity { get; set; }
+    public required partial TerraformValue<double> MaxCapacity { get; set; }
 
     /// <summary>
     /// The min_capacity attribute.
@@ -44,28 +44,28 @@ public partial class AwsAutoscalingplansScalingPlanScalingInstructionBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     [TerraformProperty("min_capacity")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MinCapacity { get; set; }
+    public required partial TerraformValue<double> MinCapacity { get; set; }
 
     /// <summary>
     /// The predictive_scaling_max_capacity_behavior attribute.
     /// </summary>
     [TerraformProperty("predictive_scaling_max_capacity_behavior")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PredictiveScalingMaxCapacityBehavior { get; set; }
+    public partial TerraformValue<string>? PredictiveScalingMaxCapacityBehavior { get; set; }
 
     /// <summary>
     /// The predictive_scaling_max_capacity_buffer attribute.
     /// </summary>
     [TerraformProperty("predictive_scaling_max_capacity_buffer")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> PredictiveScalingMaxCapacityBuffer { get; set; }
+    public partial TerraformValue<double> PredictiveScalingMaxCapacityBuffer { get; set; }
 
     /// <summary>
     /// The predictive_scaling_mode attribute.
     /// </summary>
     [TerraformProperty("predictive_scaling_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PredictiveScalingMode { get; set; }
+    public partial TerraformValue<string>? PredictiveScalingMode { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
@@ -73,7 +73,7 @@ public partial class AwsAutoscalingplansScalingPlanScalingInstructionBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     [TerraformProperty("resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceId { get; set; }
+    public required partial TerraformValue<string> ResourceId { get; set; }
 
     /// <summary>
     /// The scalable_dimension attribute.
@@ -81,21 +81,21 @@ public partial class AwsAutoscalingplansScalingPlanScalingInstructionBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalableDimension is required")]
     [TerraformProperty("scalable_dimension")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ScalableDimension { get; set; }
+    public required partial TerraformValue<string> ScalableDimension { get; set; }
 
     /// <summary>
     /// The scaling_policy_update_behavior attribute.
     /// </summary>
     [TerraformProperty("scaling_policy_update_behavior")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ScalingPolicyUpdateBehavior { get; set; }
+    public partial TerraformValue<string>? ScalingPolicyUpdateBehavior { get; set; }
 
     /// <summary>
     /// The scheduled_action_buffer_time attribute.
     /// </summary>
     [TerraformProperty("scheduled_action_buffer_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ScheduledActionBufferTime { get; set; }
+    public partial TerraformValue<double>? ScheduledActionBufferTime { get; set; }
 
     /// <summary>
     /// The service_namespace attribute.
@@ -103,7 +103,7 @@ public partial class AwsAutoscalingplansScalingPlanScalingInstructionBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
     [TerraformProperty("service_namespace")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceNamespace { get; set; }
+    public required partial TerraformValue<string> ServiceNamespace { get; set; }
 
 }
 
@@ -122,7 +122,7 @@ public partial class AwsAutoscalingplansScalingPlan : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -130,14 +130,14 @@ public partial class AwsAutoscalingplansScalingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for application_source.
@@ -147,7 +147,7 @@ public partial class AwsAutoscalingplansScalingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ApplicationSource block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationSource block(s) allowed")]
     [TerraformProperty("application_source")]
-    public TerraformList<TerraformBlock<AwsAutoscalingplansScalingPlanApplicationSourceBlock>>? ApplicationSource { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAutoscalingplansScalingPlanApplicationSourceBlock>>? ApplicationSource { get; set; }
 
     /// <summary>
     /// Block for scaling_instruction.
@@ -156,13 +156,13 @@ public partial class AwsAutoscalingplansScalingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingInstruction is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScalingInstruction block(s) required")]
     [TerraformProperty("scaling_instruction")]
-    public TerraformSet<TerraformBlock<AwsAutoscalingplansScalingPlanScalingInstructionBlock>>? ScalingInstruction { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsAutoscalingplansScalingPlanScalingInstructionBlock>>? ScalingInstruction { get; set; }
 
     /// <summary>
     /// The scaling_plan_version attribute.
     /// </summary>
     [TerraformProperty("scaling_plan_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ScalingPlanVersion { get; }
+    public partial TerraformValue<double> ScalingPlanVersion { get; }
 
 }

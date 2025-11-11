@@ -14,7 +14,7 @@ public partial class AwsDatapipelinePipelineDefinitionParameterObjectBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public partial class AwsDatapipelinePipelineDefinitionParameterValueBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The string_value attribute.
@@ -38,7 +38,7 @@ public partial class AwsDatapipelinePipelineDefinitionParameterValueBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StringValue is required")]
     [TerraformProperty("string_value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StringValue { get; set; }
+    public required partial TerraformValue<string> StringValue { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public partial class AwsDatapipelinePipelineDefinitionPipelineObjectBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -62,7 +62,7 @@ public partial class AwsDatapipelinePipelineDefinitionPipelineObjectBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -81,7 +81,7 @@ public partial class AwsDatapipelinePipelineDefinition : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The pipeline_id attribute.
@@ -89,28 +89,28 @@ public partial class AwsDatapipelinePipelineDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
     [TerraformProperty("pipeline_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PipelineId { get; set; }
+    public required partial TerraformValue<string> PipelineId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for parameter_object.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("parameter_object")]
-    public TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionParameterObjectBlock>>? ParameterObject { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionParameterObjectBlock>>? ParameterObject { get; set; }
 
     /// <summary>
     /// Block for parameter_value.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("parameter_value")]
-    public TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionParameterValueBlock>>? ParameterValue { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionParameterValueBlock>>? ParameterValue { get; set; }
 
     /// <summary>
     /// Block for pipeline_object.
@@ -119,6 +119,6 @@ public partial class AwsDatapipelinePipelineDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineObject is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PipelineObject block(s) required")]
     [TerraformProperty("pipeline_object")]
-    public TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionPipelineObjectBlock>>? PipelineObject { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionPipelineObjectBlock>>? PipelineObject { get; set; }
 
 }

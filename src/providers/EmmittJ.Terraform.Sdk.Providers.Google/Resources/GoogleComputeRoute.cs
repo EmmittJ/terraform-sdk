@@ -18,7 +18,7 @@ public partial class GoogleComputeRouteParamsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("resource_manager_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? ResourceManagerTags { get; set; }
+    public partial TerraformMap<string>? ResourceManagerTags { get; set; }
 
 }
 
@@ -33,14 +33,14 @@ public partial class GoogleComputeRouteTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -60,7 +60,7 @@ public partial class GoogleComputeRoute : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The destination range of outgoing packets that this route applies to.
@@ -69,14 +69,14 @@ public partial class GoogleComputeRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestRange is required")]
     [TerraformProperty("dest_range")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DestRange { get; set; }
+    public required partial TerraformValue<string> DestRange { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -90,7 +90,7 @@ public partial class GoogleComputeRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network that this route applies to.
@@ -98,7 +98,7 @@ public partial class GoogleComputeRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformProperty("network")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Network { get; set; }
+    public required partial TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// URL to a gateway that should handle matching packets.
@@ -111,7 +111,7 @@ public partial class GoogleComputeRoute : TerraformResource
     /// </summary>
     [TerraformProperty("next_hop_gateway")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NextHopGateway { get; set; }
+    public partial TerraformValue<string>? NextHopGateway { get; set; }
 
     /// <summary>
     /// The IP address or URL to a forwarding rule of type
@@ -133,7 +133,7 @@ public partial class GoogleComputeRoute : TerraformResource
     /// </summary>
     [TerraformProperty("next_hop_ilb")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NextHopIlb { get; set; }
+    public partial TerraformValue<string>? NextHopIlb { get; set; }
 
     /// <summary>
     /// URL to an instance that should handle matching packets.
@@ -145,28 +145,28 @@ public partial class GoogleComputeRoute : TerraformResource
     /// </summary>
     [TerraformProperty("next_hop_instance")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NextHopInstance { get; set; }
+    public partial TerraformValue<string>? NextHopInstance { get; set; }
 
     /// <summary>
     /// The zone of the instance specified in next_hop_instance. Omit if next_hop_instance is specified as a URL.
     /// </summary>
     [TerraformProperty("next_hop_instance_zone")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NextHopInstanceZone { get; set; }
+    public partial TerraformValue<string> NextHopInstanceZone { get; set; }
 
     /// <summary>
     /// Network IP address of an instance that should handle matching packets.
     /// </summary>
     [TerraformProperty("next_hop_ip")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NextHopIp { get; set; }
+    public partial TerraformValue<string> NextHopIp { get; set; }
 
     /// <summary>
     /// URL to a VpnTunnel that should handle matching packets.
     /// </summary>
     [TerraformProperty("next_hop_vpn_tunnel")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NextHopVpnTunnel { get; set; }
+    public partial TerraformValue<string>? NextHopVpnTunnel { get; set; }
 
     /// <summary>
     /// The priority of this route. Priority is used to break ties in cases
@@ -179,21 +179,21 @@ public partial class GoogleComputeRoute : TerraformResource
     /// </summary>
     [TerraformProperty("priority")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Priority { get; set; }
+    public partial TerraformValue<double>? Priority { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// A list of instance tags to which this route applies.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Tags { get; set; }
+    public partial TerraformSet<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for params.
@@ -201,70 +201,70 @@ public partial class GoogleComputeRoute : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformProperty("params")]
-    public TerraformList<TerraformBlock<GoogleComputeRouteParamsBlock>>? Params { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRouteParamsBlock>>? Params { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeRouteTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeRouteTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The as_paths attribute.
     /// </summary>
     [TerraformProperty("as_paths")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> AsPaths { get; }
+    public partial TerraformList<object> AsPaths { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// The hub network that should handle matching packets, which should conform to RFC1035.
     /// </summary>
     [TerraformProperty("next_hop_hub")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NextHopHub { get; }
+    public partial TerraformValue<string> NextHopHub { get; }
 
     /// <summary>
     /// Internal fixed region-to-region cost that Google Cloud calculates based on factors such as network performance, distance, and available bandwidth between regions.
     /// </summary>
     [TerraformProperty("next_hop_inter_region_cost")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NextHopInterRegionCost { get; }
+    public partial TerraformValue<string> NextHopInterRegionCost { get; }
 
     /// <summary>
     /// Multi-Exit Discriminator, a BGP route metric that indicates the desirability of a particular route in a network.
     /// </summary>
     [TerraformProperty("next_hop_med")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NextHopMed { get; }
+    public partial TerraformValue<string> NextHopMed { get; }
 
     /// <summary>
     /// URL to a Network that should handle matching packets.
     /// </summary>
     [TerraformProperty("next_hop_network")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NextHopNetwork { get; }
+    public partial TerraformValue<string> NextHopNetwork { get; }
 
     /// <summary>
     /// Indicates the origin of the route. Can be IGP (Interior Gateway Protocol), EGP (Exterior Gateway Protocol), or INCOMPLETE.
     /// </summary>
     [TerraformProperty("next_hop_origin")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NextHopOrigin { get; }
+    public partial TerraformValue<string> NextHopOrigin { get; }
 
     /// <summary>
     /// The network peering name that should handle matching packets, which should conform to RFC1035.
     /// </summary>
     [TerraformProperty("next_hop_peering")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NextHopPeering { get; }
+    public partial TerraformValue<string> NextHopPeering { get; }
 
     /// <summary>
     /// The status of the route, which can be one of the following values:
@@ -273,7 +273,7 @@ public partial class GoogleComputeRoute : TerraformResource
     /// </summary>
     [TerraformProperty("route_status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RouteStatus { get; }
+    public partial TerraformValue<string> RouteStatus { get; }
 
     /// <summary>
     /// The type of this route, which can be one of the following values:
@@ -284,20 +284,20 @@ public partial class GoogleComputeRoute : TerraformResource
     /// </summary>
     [TerraformProperty("route_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RouteType { get; }
+    public partial TerraformValue<string> RouteType { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// If potential misconfigurations are detected for this route, this field will be populated with warning messages.
     /// </summary>
     [TerraformProperty("warnings")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Warnings { get; }
+    public partial TerraformList<object> Warnings { get; }
 
 }

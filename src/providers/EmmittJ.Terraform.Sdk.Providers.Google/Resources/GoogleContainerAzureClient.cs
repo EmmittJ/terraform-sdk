@@ -13,14 +13,14 @@ public partial class GoogleContainerAzureClientTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public partial class GoogleContainerAzureClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     [TerraformProperty("application_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApplicationId { get; set; }
+    public required partial TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the resource
@@ -54,7 +54,7 @@ public partial class GoogleContainerAzureClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of this resource.
@@ -62,14 +62,14 @@ public partial class GoogleContainerAzureClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The Azure Active Directory Tenant ID.
@@ -77,34 +77,34 @@ public partial class GoogleContainerAzureClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     [TerraformProperty("tenant_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TenantId { get; set; }
+    public required partial TerraformValue<string> TenantId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleContainerAzureClientTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleContainerAzureClientTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The PEM encoded x509 certificate.
     /// </summary>
     [TerraformProperty("certificate")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Certificate { get; }
+    public partial TerraformValue<string> Certificate { get; }
 
     /// <summary>
     /// Output only. The time at which this resource was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Output only. A globally unique identifier for the client.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class GoogleNetworkSecurityFirewallEndpointTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class GoogleNetworkSecurityFirewallEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingProjectId is required")]
     [TerraformProperty("billing_project_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BillingProjectId { get; set; }
+    public required partial TerraformValue<string> BillingProjectId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A map of key/value label pairs to assign to the resource.
@@ -64,7 +64,7 @@ public partial class GoogleNetworkSecurityFirewallEndpoint : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location (zone) of the firewall endpoint.
@@ -72,7 +72,7 @@ public partial class GoogleNetworkSecurityFirewallEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of the firewall endpoint resource.
@@ -80,7 +80,7 @@ public partial class GoogleNetworkSecurityFirewallEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name of the parent this firewall endpoint belongs to.
@@ -89,14 +89,14 @@ public partial class GoogleNetworkSecurityFirewallEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkSecurityFirewallEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkSecurityFirewallEndpointTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// List of networks that are associated with this endpoint in the local zone.
@@ -106,42 +106,42 @@ public partial class GoogleNetworkSecurityFirewallEndpoint : TerraformResource
     /// </summary>
     [TerraformProperty("associated_networks")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> AssociatedNetworks { get; }
+    public partial TerraformList<string> AssociatedNetworks { get; }
 
     /// <summary>
     /// Time the firewall endpoint was created in UTC.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Whether reconciling is in progress, recommended per https://google.aip.dev/128.
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// Server-defined URL of this resource.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The current state of the endpoint.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -149,13 +149,13 @@ public partial class GoogleNetworkSecurityFirewallEndpoint : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Time the firewall endpoint was updated in UTC.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

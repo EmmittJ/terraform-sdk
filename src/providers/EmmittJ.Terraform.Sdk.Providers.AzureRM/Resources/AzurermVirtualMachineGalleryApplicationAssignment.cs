@@ -13,28 +13,28 @@ public partial class AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermVirtualMachineGalleryApplicationAssignment : Terrafo
     /// </summary>
     [TerraformProperty("configuration_blob_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConfigurationBlobUri { get; set; }
+    public partial TerraformValue<string>? ConfigurationBlobUri { get; set; }
 
     /// <summary>
     /// The gallery_application_version_id attribute.
@@ -60,28 +60,28 @@ public partial class AzurermVirtualMachineGalleryApplicationAssignment : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryApplicationVersionId is required")]
     [TerraformProperty("gallery_application_version_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GalleryApplicationVersionId { get; set; }
+    public required partial TerraformValue<string> GalleryApplicationVersionId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
     [TerraformProperty("order")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Order { get; set; }
+    public partial TerraformValue<double>? Order { get; set; }
 
     /// <summary>
     /// The tag attribute.
     /// </summary>
     [TerraformProperty("tag")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Tag { get; set; }
+    public partial TerraformValue<string>? Tag { get; set; }
 
     /// <summary>
     /// The virtual_machine_id attribute.
@@ -89,13 +89,13 @@ public partial class AzurermVirtualMachineGalleryApplicationAssignment : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     [TerraformProperty("virtual_machine_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualMachineId { get; set; }
+    public required partial TerraformValue<string> VirtualMachineId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

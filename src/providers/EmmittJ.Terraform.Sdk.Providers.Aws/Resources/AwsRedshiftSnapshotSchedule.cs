@@ -17,69 +17,69 @@ public partial class AwsRedshiftSnapshotSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definitions is required")]
     [TerraformProperty("definitions")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Definitions { get; set; }
+    public required partial TerraformSet<string> Definitions { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
     [TerraformProperty("force_destroy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ForceDestroy { get; set; }
+    public partial TerraformValue<bool>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
     [TerraformProperty("identifier")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Identifier { get; set; }
+    public partial TerraformValue<string> Identifier { get; set; }
 
     /// <summary>
     /// The identifier_prefix attribute.
     /// </summary>
     [TerraformProperty("identifier_prefix")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> IdentifierPrefix { get; set; }
+    public partial TerraformValue<string> IdentifierPrefix { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

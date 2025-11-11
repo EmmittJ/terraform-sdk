@@ -13,28 +13,28 @@ public partial class AzurermSecurityCenterContactTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermSecurityCenterContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertNotifications is required")]
     [TerraformProperty("alert_notifications")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> AlertNotifications { get; set; }
+    public required partial TerraformValue<bool> AlertNotifications { get; set; }
 
     /// <summary>
     /// The alerts_to_admins attribute.
@@ -61,7 +61,7 @@ public partial class AzurermSecurityCenterContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertsToAdmins is required")]
     [TerraformProperty("alerts_to_admins")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> AlertsToAdmins { get; set; }
+    public required partial TerraformValue<bool> AlertsToAdmins { get; set; }
 
     /// <summary>
     /// The email attribute.
@@ -69,14 +69,14 @@ public partial class AzurermSecurityCenterContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     [TerraformProperty("email")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Email { get; set; }
+    public required partial TerraformValue<string> Email { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -84,20 +84,20 @@ public partial class AzurermSecurityCenterContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The phone attribute.
     /// </summary>
     [TerraformProperty("phone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Phone { get; set; }
+    public partial TerraformValue<string>? Phone { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSecurityCenterContactTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSecurityCenterContactTimeoutsBlock>? Timeouts { get; set; }
 
 }

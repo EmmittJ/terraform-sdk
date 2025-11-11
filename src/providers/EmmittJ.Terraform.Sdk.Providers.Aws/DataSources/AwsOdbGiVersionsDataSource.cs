@@ -16,20 +16,20 @@ public partial class AwsOdbGiVersionsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The system shape.
     /// </summary>
     [TerraformProperty("shape")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Shape { get; set; }
+    public partial TerraformValue<string>? Shape { get; set; }
 
     /// <summary>
     /// Information about a specific version of Oracle Grid Infrastructure (GI) software that can be installed on a VM cluster.
     /// </summary>
     [TerraformProperty("gi_versions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> GiVersions { get; }
+    public partial TerraformList<object> GiVersions { get; }
 
 }

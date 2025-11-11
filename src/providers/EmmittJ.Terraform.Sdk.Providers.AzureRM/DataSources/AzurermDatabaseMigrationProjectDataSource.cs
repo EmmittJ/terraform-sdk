@@ -13,7 +13,7 @@ public partial class AzurermDatabaseMigrationProjectDataSourceTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermDatabaseMigrationProjectDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermDatabaseMigrationProjectDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,7 +47,7 @@ public partial class AzurermDatabaseMigrationProjectDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The service_name attribute.
@@ -55,41 +55,41 @@ public partial class AzurermDatabaseMigrationProjectDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     [TerraformProperty("service_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceName { get; set; }
+    public required partial TerraformValue<string> ServiceName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDatabaseMigrationProjectDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDatabaseMigrationProjectDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The source_platform attribute.
     /// </summary>
     [TerraformProperty("source_platform")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SourcePlatform { get; }
+    public partial TerraformValue<string> SourcePlatform { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The target_platform attribute.
     /// </summary>
     [TerraformProperty("target_platform")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TargetPlatform { get; }
+    public partial TerraformValue<string> TargetPlatform { get; }
 
 }

@@ -13,28 +13,28 @@ public partial class AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,28 +52,28 @@ public partial class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     /// </summary>
     [TerraformProperty("allow_forwarded_traffic")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowForwardedTraffic { get; set; }
+    public partial TerraformValue<bool>? AllowForwardedTraffic { get; set; }
 
     /// <summary>
     /// The allow_gateway_transit attribute.
     /// </summary>
     [TerraformProperty("allow_gateway_transit")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowGatewayTransit { get; set; }
+    public partial TerraformValue<bool>? AllowGatewayTransit { get; set; }
 
     /// <summary>
     /// The allow_virtual_network_access attribute.
     /// </summary>
     [TerraformProperty("allow_virtual_network_access")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowVirtualNetworkAccess { get; set; }
+    public partial TerraformValue<bool>? AllowVirtualNetworkAccess { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -81,7 +81,7 @@ public partial class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The remote_address_space_prefixes attribute.
@@ -89,7 +89,7 @@ public partial class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteAddressSpacePrefixes is required")]
     [TerraformProperty("remote_address_space_prefixes")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? RemoteAddressSpacePrefixes { get; set; }
+    public partial TerraformList<string>? RemoteAddressSpacePrefixes { get; set; }
 
     /// <summary>
     /// The remote_virtual_network_id attribute.
@@ -97,7 +97,7 @@ public partial class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVirtualNetworkId is required")]
     [TerraformProperty("remote_virtual_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RemoteVirtualNetworkId { get; set; }
+    public required partial TerraformValue<string> RemoteVirtualNetworkId { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -105,14 +105,14 @@ public partial class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The use_remote_gateways attribute.
     /// </summary>
     [TerraformProperty("use_remote_gateways")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseRemoteGateways { get; set; }
+    public partial TerraformValue<bool>? UseRemoteGateways { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -120,27 +120,27 @@ public partial class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformProperty("workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceId { get; set; }
+    public required partial TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The address_space_prefixes attribute.
     /// </summary>
     [TerraformProperty("address_space_prefixes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> AddressSpacePrefixes { get; }
+    public partial TerraformList<string> AddressSpacePrefixes { get; }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
     [TerraformProperty("virtual_network_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VirtualNetworkId { get; }
+    public partial TerraformValue<string> VirtualNetworkId { get; }
 
 }

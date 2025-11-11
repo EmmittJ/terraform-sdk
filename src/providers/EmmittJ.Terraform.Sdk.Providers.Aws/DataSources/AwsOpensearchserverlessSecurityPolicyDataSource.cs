@@ -16,7 +16,7 @@ public partial class AwsOpensearchserverlessSecurityPolicyDataSource : Terraform
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the policy.
@@ -24,14 +24,14 @@ public partial class AwsOpensearchserverlessSecurityPolicyDataSource : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Type of security policy. One of `encryption` or `network`.
@@ -39,41 +39,41 @@ public partial class AwsOpensearchserverlessSecurityPolicyDataSource : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The date the security policy was created.
     /// </summary>
     [TerraformProperty("created_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedDate { get; }
+    public partial TerraformValue<string> CreatedDate { get; }
 
     /// <summary>
     /// Description of the security policy.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The date the security policy was last modified.
     /// </summary>
     [TerraformProperty("last_modified_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastModifiedDate { get; }
+    public partial TerraformValue<string> LastModifiedDate { get; }
 
     /// <summary>
     /// The JSON policy document without any whitespaces.
     /// </summary>
     [TerraformProperty("policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Policy { get; }
+    public partial TerraformValue<string> Policy { get; }
 
     /// <summary>
     /// Version of the policy.
     /// </summary>
     [TerraformProperty("policy_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PolicyVersion { get; }
+    public partial TerraformValue<string> PolicyVersion { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AzurermLogicAppIntegrationAccountPartnerBusinessIdentityBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Qualifier is required")]
     [TerraformProperty("qualifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Qualifier { get; set; }
+    public required partial TerraformValue<string> Qualifier { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -22,7 +22,7 @@ public partial class AzurermLogicAppIntegrationAccountPartnerBusinessIdentityBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
 }
 
@@ -37,28 +37,28 @@ public partial class AzurermLogicAppIntegrationAccountPartnerTimeoutsBlock : Ter
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -77,7 +77,7 @@ public partial class AzurermLogicAppIntegrationAccountPartner : TerraformResourc
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The integration_account_name attribute.
@@ -85,14 +85,14 @@ public partial class AzurermLogicAppIntegrationAccountPartner : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationAccountName is required")]
     [TerraformProperty("integration_account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IntegrationAccountName { get; set; }
+    public required partial TerraformValue<string> IntegrationAccountName { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     [TerraformProperty("metadata")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Metadata { get; set; }
+    public partial TerraformValue<string>? Metadata { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -100,7 +100,7 @@ public partial class AzurermLogicAppIntegrationAccountPartner : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -108,7 +108,7 @@ public partial class AzurermLogicAppIntegrationAccountPartner : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for business_identity.
@@ -117,13 +117,13 @@ public partial class AzurermLogicAppIntegrationAccountPartner : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BusinessIdentity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BusinessIdentity block(s) required")]
     [TerraformProperty("business_identity")]
-    public TerraformSet<TerraformBlock<AzurermLogicAppIntegrationAccountPartnerBusinessIdentityBlock>>? BusinessIdentity { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermLogicAppIntegrationAccountPartnerBusinessIdentityBlock>>? BusinessIdentity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLogicAppIntegrationAccountPartnerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLogicAppIntegrationAccountPartnerTimeoutsBlock>? Timeouts { get; set; }
 
 }

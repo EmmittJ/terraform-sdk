@@ -13,7 +13,7 @@ public partial class AzurermPrivateLinkServiceEndpointConnectionsDataSourceTimeo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermPrivateLinkServiceEndpointConnectionsDataSource : Te
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermPrivateLinkServiceEndpointConnectionsDataSource : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The service_id attribute.
@@ -47,34 +47,34 @@ public partial class AzurermPrivateLinkServiceEndpointConnectionsDataSource : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     [TerraformProperty("service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceId { get; set; }
+    public required partial TerraformValue<string> ServiceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPrivateLinkServiceEndpointConnectionsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPrivateLinkServiceEndpointConnectionsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The private_endpoint_connections attribute.
     /// </summary>
     [TerraformProperty("private_endpoint_connections")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PrivateEndpointConnections { get; }
+    public partial TerraformList<object> PrivateEndpointConnections { get; }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
     [TerraformProperty("service_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServiceName { get; }
+    public partial TerraformValue<string> ServiceName { get; }
 
 }

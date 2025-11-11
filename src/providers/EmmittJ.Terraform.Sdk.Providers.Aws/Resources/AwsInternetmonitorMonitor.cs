@@ -13,14 +13,14 @@ public partial class AwsInternetmonitorMonitorHealthEventsConfigBlock : Terrafor
     /// </summary>
     [TerraformProperty("availability_score_threshold")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AvailabilityScoreThreshold { get; set; }
+    public partial TerraformValue<double>? AvailabilityScoreThreshold { get; set; }
 
     /// <summary>
     /// The performance_score_threshold attribute.
     /// </summary>
     [TerraformProperty("performance_score_threshold")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? PerformanceScoreThreshold { get; set; }
+    public partial TerraformValue<double>? PerformanceScoreThreshold { get; set; }
 
 }
 
@@ -47,14 +47,14 @@ public partial class AwsInternetmonitorMonitor : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The max_city_networks_to_monitor attribute.
     /// </summary>
     [TerraformProperty("max_city_networks_to_monitor")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxCityNetworksToMonitor { get; set; }
+    public partial TerraformValue<double>? MaxCityNetworksToMonitor { get; set; }
 
     /// <summary>
     /// The monitor_name attribute.
@@ -62,49 +62,49 @@ public partial class AwsInternetmonitorMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorName is required")]
     [TerraformProperty("monitor_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MonitorName { get; set; }
+    public required partial TerraformValue<string> MonitorName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
     [TerraformProperty("resources")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Resources { get; set; }
+    public partial TerraformSet<string>? Resources { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Status { get; set; }
+    public partial TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The traffic_percentage_to_monitor attribute.
     /// </summary>
     [TerraformProperty("traffic_percentage_to_monitor")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? TrafficPercentageToMonitor { get; set; }
+    public partial TerraformValue<double>? TrafficPercentageToMonitor { get; set; }
 
     /// <summary>
     /// Block for health_events_config.
@@ -112,7 +112,7 @@ public partial class AwsInternetmonitorMonitor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthEventsConfig block(s) allowed")]
     [TerraformProperty("health_events_config")]
-    public TerraformList<TerraformBlock<AwsInternetmonitorMonitorHealthEventsConfigBlock>>? HealthEventsConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsInternetmonitorMonitorHealthEventsConfigBlock>>? HealthEventsConfig { get; set; }
 
     /// <summary>
     /// Block for internet_measurements_log_delivery.
@@ -120,13 +120,13 @@ public partial class AwsInternetmonitorMonitor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InternetMeasurementsLogDelivery block(s) allowed")]
     [TerraformProperty("internet_measurements_log_delivery")]
-    public TerraformList<TerraformBlock<AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlock>>? InternetMeasurementsLogDelivery { get; set; }
+    public partial TerraformList<TerraformBlock<AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlock>>? InternetMeasurementsLogDelivery { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

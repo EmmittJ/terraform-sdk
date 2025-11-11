@@ -13,7 +13,7 @@ public partial class AzurermSecurityCenterSubscriptionPricingExtensionBlock : Te
     /// </summary>
     [TerraformProperty("additional_extension_properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? AdditionalExtensionProperties { get; set; }
+    public partial TerraformMap<string>? AdditionalExtensionProperties { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -21,7 +21,7 @@ public partial class AzurermSecurityCenterSubscriptionPricingExtensionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -36,28 +36,28 @@ public partial class AzurermSecurityCenterSubscriptionPricingTimeoutsBlock : Ter
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -75,21 +75,21 @@ public partial class AzurermSecurityCenterSubscriptionPricing : TerraformResourc
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
     [TerraformProperty("resource_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResourceType { get; set; }
+    public partial TerraformValue<string>? ResourceType { get; set; }
 
     /// <summary>
     /// The subplan attribute.
     /// </summary>
     [TerraformProperty("subplan")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Subplan { get; set; }
+    public partial TerraformValue<string>? Subplan { get; set; }
 
     /// <summary>
     /// The tier attribute.
@@ -97,20 +97,20 @@ public partial class AzurermSecurityCenterSubscriptionPricing : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     [TerraformProperty("tier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Tier { get; set; }
+    public required partial TerraformValue<string> Tier { get; set; }
 
     /// <summary>
     /// Block for extension.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("extension")]
-    public TerraformSet<TerraformBlock<AzurermSecurityCenterSubscriptionPricingExtensionBlock>>? Extension { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermSecurityCenterSubscriptionPricingExtensionBlock>>? Extension { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSecurityCenterSubscriptionPricingTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSecurityCenterSubscriptionPricingTimeoutsBlock>? Timeouts { get; set; }
 
 }

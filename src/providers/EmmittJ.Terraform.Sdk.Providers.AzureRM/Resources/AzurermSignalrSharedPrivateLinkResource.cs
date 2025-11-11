@@ -13,28 +13,28 @@ public partial class AzurermSignalrSharedPrivateLinkResourceTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermSignalrSharedPrivateLinkResource : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -60,14 +60,14 @@ public partial class AzurermSignalrSharedPrivateLinkResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The request_message attribute.
     /// </summary>
     [TerraformProperty("request_message")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RequestMessage { get; set; }
+    public partial TerraformValue<string>? RequestMessage { get; set; }
 
     /// <summary>
     /// The signalr_service_id attribute.
@@ -75,7 +75,7 @@ public partial class AzurermSignalrSharedPrivateLinkResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrServiceId is required")]
     [TerraformProperty("signalr_service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SignalrServiceId { get; set; }
+    public required partial TerraformValue<string> SignalrServiceId { get; set; }
 
     /// <summary>
     /// The sub_resource_name attribute.
@@ -83,7 +83,7 @@ public partial class AzurermSignalrSharedPrivateLinkResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubResourceName is required")]
     [TerraformProperty("sub_resource_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubResourceName { get; set; }
+    public required partial TerraformValue<string> SubResourceName { get; set; }
 
     /// <summary>
     /// The target_resource_id attribute.
@@ -91,20 +91,20 @@ public partial class AzurermSignalrSharedPrivateLinkResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     [TerraformProperty("target_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetResourceId { get; set; }
+    public required partial TerraformValue<string> TargetResourceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSignalrSharedPrivateLinkResourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSignalrSharedPrivateLinkResourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
 }

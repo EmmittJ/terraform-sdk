@@ -13,21 +13,21 @@ public partial class AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,21 +45,21 @@ public partial class AzureadServicePrincipalTokenSigningCertificate : TerraformR
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DisplayName { get; set; }
+    public partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The end date until which the certificate is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Default is 3 years from current date.
     /// </summary>
     [TerraformProperty("end_date")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> EndDate { get; set; }
+    public partial TerraformValue<string> EndDate { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the service principal for which this certificate should be created
@@ -67,41 +67,41 @@ public partial class AzureadServicePrincipalTokenSigningCertificate : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     [TerraformProperty("service_principal_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServicePrincipalId { get; set; }
+    public required partial TerraformValue<string> ServicePrincipalId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// A UUID used to uniquely identify the verify certificate.
     /// </summary>
     [TerraformProperty("key_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KeyId { get; }
+    public partial TerraformValue<string> KeyId { get; }
 
     /// <summary>
     /// The start date from which the certificate is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
     /// </summary>
     [TerraformProperty("start_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StartDate { get; }
+    public partial TerraformValue<string> StartDate { get; }
 
     /// <summary>
     /// The thumbprint of the certificate.
     /// </summary>
     [TerraformProperty("thumbprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Thumbprint { get; }
+    public partial TerraformValue<string> Thumbprint { get; }
 
     /// <summary>
     /// The certificate data, which is PEM encoded but does not include the header/footer
     /// </summary>
     [TerraformProperty("value")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Value { get; }
+    public partial TerraformValue<string> Value { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AzurermManagedApplicationDefinitionAuthorizationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     [TerraformProperty("role_definition_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleDefinitionId { get; set; }
+    public required partial TerraformValue<string> RoleDefinitionId { get; set; }
 
     /// <summary>
     /// The service_principal_id attribute.
@@ -22,7 +22,7 @@ public partial class AzurermManagedApplicationDefinitionAuthorizationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     [TerraformProperty("service_principal_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServicePrincipalId { get; set; }
+    public required partial TerraformValue<string> ServicePrincipalId { get; set; }
 
 }
 
@@ -37,28 +37,28 @@ public partial class AzurermManagedApplicationDefinitionTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -76,14 +76,14 @@ public partial class AzurermManagedApplicationDefinition : TerraformResource
     /// </summary>
     [TerraformProperty("create_ui_definition")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CreateUiDefinition { get; set; }
+    public partial TerraformValue<string>? CreateUiDefinition { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
@@ -91,14 +91,14 @@ public partial class AzurermManagedApplicationDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -106,7 +106,7 @@ public partial class AzurermManagedApplicationDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The lock_level attribute.
@@ -114,14 +114,14 @@ public partial class AzurermManagedApplicationDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LockLevel is required")]
     [TerraformProperty("lock_level")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LockLevel { get; set; }
+    public required partial TerraformValue<string> LockLevel { get; set; }
 
     /// <summary>
     /// The main_template attribute.
     /// </summary>
     [TerraformProperty("main_template")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MainTemplate { get; set; }
+    public partial TerraformValue<string>? MainTemplate { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -129,21 +129,21 @@ public partial class AzurermManagedApplicationDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The package_enabled attribute.
     /// </summary>
     [TerraformProperty("package_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PackageEnabled { get; set; }
+    public partial TerraformValue<bool>? PackageEnabled { get; set; }
 
     /// <summary>
     /// The package_file_uri attribute.
     /// </summary>
     [TerraformProperty("package_file_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PackageFileUri { get; set; }
+    public partial TerraformValue<string>? PackageFileUri { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -151,27 +151,27 @@ public partial class AzurermManagedApplicationDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for authorization.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("authorization")]
-    public TerraformSet<TerraformBlock<AzurermManagedApplicationDefinitionAuthorizationBlock>>? Authorization { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermManagedApplicationDefinitionAuthorizationBlock>>? Authorization { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermManagedApplicationDefinitionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermManagedApplicationDefinitionTimeoutsBlock>? Timeouts { get; set; }
 
 }

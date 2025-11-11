@@ -16,7 +16,7 @@ public partial class GoogleBeyondcorpAppConnectionDataSource : TerraformDataSour
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// ID of the AppConnection.
@@ -24,56 +24,56 @@ public partial class GoogleBeyondcorpAppConnectionDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The region of the AppConnection.
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// Address of the remote application endpoint for the BeyondCorp AppConnection.
     /// </summary>
     [TerraformProperty("application_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ApplicationEndpoint { get; }
+    public partial TerraformList<object> ApplicationEndpoint { get; }
 
     /// <summary>
     /// List of AppConnectors that are authorised to be associated with this AppConnection
     /// </summary>
     [TerraformProperty("connectors")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Connectors { get; }
+    public partial TerraformList<string> Connectors { get; }
 
     /// <summary>
     /// An arbitrary user-provided name for the AppConnection.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Gateway used by the AppConnection.
     /// </summary>
     [TerraformProperty("gateway")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Gateway { get; }
+    public partial TerraformList<object> Gateway { get; }
 
     /// <summary>
     /// Resource labels to represent user provided metadata.
@@ -84,7 +84,7 @@ public partial class GoogleBeyondcorpAppConnectionDataSource : TerraformDataSour
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -92,7 +92,7 @@ public partial class GoogleBeyondcorpAppConnectionDataSource : TerraformDataSour
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The type of network connectivity used by the AppConnection. Refer
@@ -101,6 +101,6 @@ public partial class GoogleBeyondcorpAppConnectionDataSource : TerraformDataSour
     /// </summary>
     [TerraformProperty("type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Type { get; }
+    public partial TerraformValue<string> Type { get; }
 
 }

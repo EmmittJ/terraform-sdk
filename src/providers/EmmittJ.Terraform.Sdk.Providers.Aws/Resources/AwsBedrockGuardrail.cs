@@ -13,7 +13,7 @@ public partial class AwsBedrockGuardrailContentPolicyConfigBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("tier_config")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<object> TierConfig { get; set; }
+    public partial TerraformList<object> TierConfig { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class AwsBedrockGuardrailCrossRegionConfigBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuardrailProfileIdentifier is required")]
     [TerraformProperty("guardrail_profile_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GuardrailProfileIdentifier { get; set; }
+    public required partial TerraformValue<string> GuardrailProfileIdentifier { get; set; }
 
 }
 
@@ -60,21 +60,21 @@ public partial class AwsBedrockGuardrailTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -89,7 +89,7 @@ public partial class AwsBedrockGuardrailTopicPolicyConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("tier_config")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<object> TierConfig { get; set; }
+    public partial TerraformList<object> TierConfig { get; set; }
 
 }
 
@@ -116,7 +116,7 @@ public partial class AwsBedrockGuardrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockedInputMessaging is required")]
     [TerraformProperty("blocked_input_messaging")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BlockedInputMessaging { get; set; }
+    public required partial TerraformValue<string> BlockedInputMessaging { get; set; }
 
     /// <summary>
     /// The blocked_outputs_messaging attribute.
@@ -124,21 +124,21 @@ public partial class AwsBedrockGuardrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockedOutputsMessaging is required")]
     [TerraformProperty("blocked_outputs_messaging")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BlockedOutputsMessaging { get; set; }
+    public required partial TerraformValue<string> BlockedOutputsMessaging { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Description { get; set; }
+    public partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     [TerraformProperty("kms_key_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyArn { get; set; }
+    public partial TerraformValue<string>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -146,111 +146,111 @@ public partial class AwsBedrockGuardrail : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for content_policy_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("content_policy_config")]
-    public TerraformList<TerraformBlock<AwsBedrockGuardrailContentPolicyConfigBlock>>? ContentPolicyConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsBedrockGuardrailContentPolicyConfigBlock>>? ContentPolicyConfig { get; set; }
 
     /// <summary>
     /// Block for contextual_grounding_policy_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("contextual_grounding_policy_config")]
-    public TerraformList<TerraformBlock<AwsBedrockGuardrailContextualGroundingPolicyConfigBlock>>? ContextualGroundingPolicyConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsBedrockGuardrailContextualGroundingPolicyConfigBlock>>? ContextualGroundingPolicyConfig { get; set; }
 
     /// <summary>
     /// Block for cross_region_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("cross_region_config")]
-    public TerraformList<TerraformBlock<AwsBedrockGuardrailCrossRegionConfigBlock>>? CrossRegionConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsBedrockGuardrailCrossRegionConfigBlock>>? CrossRegionConfig { get; set; }
 
     /// <summary>
     /// Block for sensitive_information_policy_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("sensitive_information_policy_config")]
-    public TerraformList<TerraformBlock<AwsBedrockGuardrailSensitiveInformationPolicyConfigBlock>>? SensitiveInformationPolicyConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsBedrockGuardrailSensitiveInformationPolicyConfigBlock>>? SensitiveInformationPolicyConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsBedrockGuardrailTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsBedrockGuardrailTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for topic_policy_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("topic_policy_config")]
-    public TerraformList<TerraformBlock<AwsBedrockGuardrailTopicPolicyConfigBlock>>? TopicPolicyConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsBedrockGuardrailTopicPolicyConfigBlock>>? TopicPolicyConfig { get; set; }
 
     /// <summary>
     /// Block for word_policy_config.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("word_policy_config")]
-    public TerraformList<TerraformBlock<AwsBedrockGuardrailWordPolicyConfigBlock>>? WordPolicyConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsBedrockGuardrailWordPolicyConfigBlock>>? WordPolicyConfig { get; set; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformProperty("created_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedAt { get; }
+    public partial TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// The guardrail_arn attribute.
     /// </summary>
     [TerraformProperty("guardrail_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GuardrailArn { get; }
+    public partial TerraformValue<string> GuardrailArn { get; }
 
     /// <summary>
     /// The guardrail_id attribute.
     /// </summary>
     [TerraformProperty("guardrail_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GuardrailId { get; }
+    public partial TerraformValue<string> GuardrailId { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Version { get; }
+    public partial TerraformValue<string> Version { get; }
 
 }

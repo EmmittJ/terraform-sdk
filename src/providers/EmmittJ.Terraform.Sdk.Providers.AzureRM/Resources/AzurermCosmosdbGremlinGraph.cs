@@ -13,7 +13,7 @@ public partial class AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock : Terrafo
     /// </summary>
     [TerraformProperty("max_throughput")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxThroughput { get; set; }
+    public partial TerraformValue<double> MaxThroughput { get; set; }
 
 }
 
@@ -28,14 +28,14 @@ public partial class AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock : 
     /// </summary>
     [TerraformProperty("conflict_resolution_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConflictResolutionPath { get; set; }
+    public partial TerraformValue<string>? ConflictResolutionPath { get; set; }
 
     /// <summary>
     /// The conflict_resolution_procedure attribute.
     /// </summary>
     [TerraformProperty("conflict_resolution_procedure")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConflictResolutionProcedure { get; set; }
+    public partial TerraformValue<string>? ConflictResolutionProcedure { get; set; }
 
     /// <summary>
     /// The mode attribute.
@@ -43,7 +43,7 @@ public partial class AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     [TerraformProperty("mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Mode { get; set; }
+    public required partial TerraformValue<string> Mode { get; set; }
 
 }
 
@@ -58,21 +58,21 @@ public partial class AzurermCosmosdbGremlinGraphIndexPolicyBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("automatic")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Automatic { get; set; }
+    public partial TerraformValue<bool>? Automatic { get; set; }
 
     /// <summary>
     /// The excluded_paths attribute.
     /// </summary>
     [TerraformProperty("excluded_paths")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> ExcludedPaths { get; set; }
+    public partial TerraformSet<string> ExcludedPaths { get; set; }
 
     /// <summary>
     /// The included_paths attribute.
     /// </summary>
     [TerraformProperty("included_paths")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> IncludedPaths { get; set; }
+    public partial TerraformSet<string> IncludedPaths { get; set; }
 
     /// <summary>
     /// The indexing_mode attribute.
@@ -80,7 +80,7 @@ public partial class AzurermCosmosdbGremlinGraphIndexPolicyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexingMode is required")]
     [TerraformProperty("indexing_mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IndexingMode { get; set; }
+    public required partial TerraformValue<string> IndexingMode { get; set; }
 
 }
 
@@ -95,28 +95,28 @@ public partial class AzurermCosmosdbGremlinGraphTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -132,7 +132,7 @@ public partial class AzurermCosmosdbGremlinGraphUniqueKeyBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
     [TerraformProperty("paths")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Paths { get; set; }
+    public required partial TerraformSet<string> Paths { get; set; }
 
 }
 
@@ -152,14 +152,14 @@ public partial class AzurermCosmosdbGremlinGraph : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     [TerraformProperty("account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccountName { get; set; }
+    public required partial TerraformValue<string> AccountName { get; set; }
 
     /// <summary>
     /// The analytical_storage_ttl attribute.
     /// </summary>
     [TerraformProperty("analytical_storage_ttl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AnalyticalStorageTtl { get; set; }
+    public partial TerraformValue<double>? AnalyticalStorageTtl { get; set; }
 
     /// <summary>
     /// The database_name attribute.
@@ -167,21 +167,21 @@ public partial class AzurermCosmosdbGremlinGraph : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformProperty("database_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatabaseName { get; set; }
+    public required partial TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
     [TerraformProperty("default_ttl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DefaultTtl { get; set; }
+    public partial TerraformValue<double>? DefaultTtl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -189,7 +189,7 @@ public partial class AzurermCosmosdbGremlinGraph : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The partition_key_path attribute.
@@ -197,14 +197,14 @@ public partial class AzurermCosmosdbGremlinGraph : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKeyPath is required")]
     [TerraformProperty("partition_key_path")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PartitionKeyPath { get; set; }
+    public required partial TerraformValue<string> PartitionKeyPath { get; set; }
 
     /// <summary>
     /// The partition_key_version attribute.
     /// </summary>
     [TerraformProperty("partition_key_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? PartitionKeyVersion { get; set; }
+    public partial TerraformValue<double>? PartitionKeyVersion { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -212,14 +212,14 @@ public partial class AzurermCosmosdbGremlinGraph : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
     [TerraformProperty("throughput")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Throughput { get; set; }
+    public partial TerraformValue<double> Throughput { get; set; }
 
     /// <summary>
     /// Block for autoscale_settings.
@@ -227,7 +227,7 @@ public partial class AzurermCosmosdbGremlinGraph : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
     [TerraformProperty("autoscale_settings")]
-    public TerraformList<TerraformBlock<AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock>>? AutoscaleSettings { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock>>? AutoscaleSettings { get; set; }
 
     /// <summary>
     /// Block for conflict_resolution_policy.
@@ -235,7 +235,7 @@ public partial class AzurermCosmosdbGremlinGraph : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConflictResolutionPolicy block(s) allowed")]
     [TerraformProperty("conflict_resolution_policy")]
-    public TerraformList<TerraformBlock<AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock>>? ConflictResolutionPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock>>? ConflictResolutionPolicy { get; set; }
 
     /// <summary>
     /// Block for index_policy.
@@ -243,20 +243,20 @@ public partial class AzurermCosmosdbGremlinGraph : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexPolicy block(s) allowed")]
     [TerraformProperty("index_policy")]
-    public TerraformList<TerraformBlock<AzurermCosmosdbGremlinGraphIndexPolicyBlock>>? IndexPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermCosmosdbGremlinGraphIndexPolicyBlock>>? IndexPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCosmosdbGremlinGraphTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCosmosdbGremlinGraphTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for unique_key.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("unique_key")]
-    public TerraformSet<TerraformBlock<AzurermCosmosdbGremlinGraphUniqueKeyBlock>>? UniqueKey { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermCosmosdbGremlinGraphUniqueKeyBlock>>? UniqueKey { get; set; }
 
 }

@@ -23,7 +23,7 @@ public partial class AwsLakeformationOptInPrincipalBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataLakePrincipalIdentifier is required")]
     [TerraformProperty("data_lake_principal_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataLakePrincipalIdentifier { get; set; }
+    public required partial TerraformValue<string> DataLakePrincipalIdentifier { get; set; }
 
 }
 
@@ -49,41 +49,41 @@ public partial class AwsLakeformationOptIn : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for condition.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("condition")]
-    public TerraformList<TerraformBlock<AwsLakeformationOptInConditionBlock>>? Condition { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLakeformationOptInConditionBlock>>? Condition { get; set; }
 
     /// <summary>
     /// Block for principal.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("principal")]
-    public TerraformList<TerraformBlock<AwsLakeformationOptInPrincipalBlock>>? Principal { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLakeformationOptInPrincipalBlock>>? Principal { get; set; }
 
     /// <summary>
     /// Block for resource_data.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("resource_data")]
-    public TerraformList<TerraformBlock<AwsLakeformationOptInResourceDataBlock>>? ResourceData { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLakeformationOptInResourceDataBlock>>? ResourceData { get; set; }
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     [TerraformProperty("last_modified")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastModified { get; }
+    public partial TerraformValue<string> LastModified { get; }
 
     /// <summary>
     /// The last_updated_by attribute.
     /// </summary>
     [TerraformProperty("last_updated_by")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastUpdatedBy { get; }
+    public partial TerraformValue<string> LastUpdatedBy { get; }
 
 }

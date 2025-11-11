@@ -13,7 +13,7 @@ public partial class AzurermResourceGroupTemplateDeploymentDataSourceTimeoutsBlo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermResourceGroupTemplateDeploymentDataSource : Terrafor
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermResourceGroupTemplateDeploymentDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,20 +47,20 @@ public partial class AzurermResourceGroupTemplateDeploymentDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermResourceGroupTemplateDeploymentDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermResourceGroupTemplateDeploymentDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The output_content attribute.
     /// </summary>
     [TerraformProperty("output_content")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OutputContent { get; }
+    public partial TerraformValue<string> OutputContent { get; }
 
 }

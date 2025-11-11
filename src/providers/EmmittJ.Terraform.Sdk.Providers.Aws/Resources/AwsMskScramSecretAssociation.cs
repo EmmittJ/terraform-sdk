@@ -17,21 +17,21 @@ public partial class AwsMskScramSecretAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterArn is required")]
     [TerraformProperty("cluster_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterArn { get; set; }
+    public required partial TerraformValue<string> ClusterArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The secret_arn_list attribute.
@@ -39,6 +39,6 @@ public partial class AwsMskScramSecretAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretArnList is required")]
     [TerraformProperty("secret_arn_list")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> SecretArnList { get; set; }
+    public required partial TerraformSet<string> SecretArnList { get; set; }
 
 }

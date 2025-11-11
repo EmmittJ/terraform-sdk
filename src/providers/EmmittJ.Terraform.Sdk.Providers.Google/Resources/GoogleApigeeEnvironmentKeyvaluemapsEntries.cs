@@ -13,14 +13,14 @@ public partial class GoogleApigeeEnvironmentKeyvaluemapsEntriesTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -40,14 +40,14 @@ public partial class GoogleApigeeEnvironmentKeyvaluemapsEntries : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvKeyvaluemapId is required")]
     [TerraformProperty("env_keyvaluemap_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EnvKeyvaluemapId { get; set; }
+    public required partial TerraformValue<string> EnvKeyvaluemapId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Required. Resource URI that can be used to identify the scope of the key value map entries.
@@ -55,7 +55,7 @@ public partial class GoogleApigeeEnvironmentKeyvaluemapsEntries : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Required. Data or payload that is being retrieved and associated with the unique key.
@@ -63,13 +63,13 @@ public partial class GoogleApigeeEnvironmentKeyvaluemapsEntries : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeEnvironmentKeyvaluemapsEntriesTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeEnvironmentKeyvaluemapsEntriesTimeoutsBlock>? Timeouts { get; set; }
 
 }

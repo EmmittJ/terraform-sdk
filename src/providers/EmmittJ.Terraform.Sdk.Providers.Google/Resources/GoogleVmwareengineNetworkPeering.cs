@@ -13,21 +13,21 @@ public partial class GoogleVmwareengineNetworkPeeringTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,42 +45,42 @@ public partial class GoogleVmwareengineNetworkPeering : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// True if custom routes are exported to the peered network; false otherwise.
     /// </summary>
     [TerraformProperty("export_custom_routes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ExportCustomRoutes { get; set; }
+    public partial TerraformValue<bool>? ExportCustomRoutes { get; set; }
 
     /// <summary>
     /// True if all subnet routes with a public IP address range are exported; false otherwise.
     /// </summary>
     [TerraformProperty("export_custom_routes_with_public_ip")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ExportCustomRoutesWithPublicIp { get; set; }
+    public partial TerraformValue<bool>? ExportCustomRoutesWithPublicIp { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// True if custom routes are imported from the peered network; false otherwise.
     /// </summary>
     [TerraformProperty("import_custom_routes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ImportCustomRoutes { get; set; }
+    public partial TerraformValue<bool>? ImportCustomRoutes { get; set; }
 
     /// <summary>
     /// True if custom routes are imported from the peered network; false otherwise.
     /// </summary>
     [TerraformProperty("import_custom_routes_with_public_ip")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ImportCustomRoutesWithPublicIp { get; set; }
+    public partial TerraformValue<bool>? ImportCustomRoutesWithPublicIp { get; set; }
 
     /// <summary>
     /// The ID of the Network Peering.
@@ -88,7 +88,7 @@ public partial class GoogleVmwareengineNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The relative resource name of the network to peer with a standard VMware Engine network.
@@ -97,7 +97,7 @@ public partial class GoogleVmwareengineNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerNetwork is required")]
     [TerraformProperty("peer_network")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PeerNetwork { get; set; }
+    public required partial TerraformValue<string> PeerNetwork { get; set; }
 
     /// <summary>
     /// The type of the network to peer with the VMware Engine network. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;VMWARE_ENGINE_NETWORK&amp;quot;, &amp;quot;PRIVATE_SERVICES_ACCESS&amp;quot;, &amp;quot;NETAPP_CLOUD_VOLUMES&amp;quot;, &amp;quot;THIRD_PARTY_SERVICE&amp;quot;, &amp;quot;DELL_POWERSCALE&amp;quot;, &amp;quot;GOOGLE_CLOUD_NETAPP_VOLUMES&amp;quot;]
@@ -105,14 +105,14 @@ public partial class GoogleVmwareengineNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerNetworkType is required")]
     [TerraformProperty("peer_network_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PeerNetworkType { get; set; }
+    public required partial TerraformValue<string> PeerNetworkType { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The relative resource name of the VMware Engine network. Specify the name in the following form:
@@ -122,14 +122,14 @@ public partial class GoogleVmwareengineNetworkPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareEngineNetwork is required")]
     [TerraformProperty("vmware_engine_network")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VmwareEngineNetwork { get; set; }
+    public required partial TerraformValue<string> VmwareEngineNetwork { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleVmwareengineNetworkPeeringTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleVmwareengineNetworkPeeringTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation time of this resource.
@@ -138,7 +138,7 @@ public partial class GoogleVmwareengineNetworkPeering : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// State of the network peering.
@@ -147,21 +147,21 @@ public partial class GoogleVmwareengineNetworkPeering : TerraformResource
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Details about the current state of the network peering.
     /// </summary>
     [TerraformProperty("state_details")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StateDetails { get; }
+    public partial TerraformValue<string> StateDetails { get; }
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Last updated time of this resource.
@@ -170,7 +170,7 @@ public partial class GoogleVmwareengineNetworkPeering : TerraformResource
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// The canonical name of the VMware Engine network in the form:
@@ -178,6 +178,6 @@ public partial class GoogleVmwareengineNetworkPeering : TerraformResource
     /// </summary>
     [TerraformProperty("vmware_engine_network_canonical")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VmwareEngineNetworkCanonical { get; }
+    public partial TerraformValue<string> VmwareEngineNetworkCanonical { get; }
 
 }

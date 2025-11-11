@@ -21,21 +21,21 @@ public partial class GoogleFirestoreBackupScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -50,7 +50,7 @@ public partial class GoogleFirestoreBackupScheduleWeeklyRecurrenceBlock : Terraf
     /// </summary>
     [TerraformProperty("day")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Day { get; set; }
+    public partial TerraformValue<string>? Day { get; set; }
 
 }
 
@@ -69,21 +69,21 @@ public partial class GoogleFirestoreBackupSchedule : TerraformResource
     /// </summary>
     [TerraformProperty("database")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Database { get; set; }
+    public partial TerraformValue<string>? Database { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// At what relative time in the future, compared to its creation time, the backup should be deleted, e.g. keep backups for 7 days.
@@ -94,7 +94,7 @@ public partial class GoogleFirestoreBackupSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Retention is required")]
     [TerraformProperty("retention")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Retention { get; set; }
+    public required partial TerraformValue<string> Retention { get; set; }
 
     /// <summary>
     /// Block for daily_recurrence.
@@ -102,14 +102,14 @@ public partial class GoogleFirestoreBackupSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DailyRecurrence block(s) allowed")]
     [TerraformProperty("daily_recurrence")]
-    public TerraformList<TerraformBlock<GoogleFirestoreBackupScheduleDailyRecurrenceBlock>>? DailyRecurrence { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleFirestoreBackupScheduleDailyRecurrenceBlock>>? DailyRecurrence { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleFirestoreBackupScheduleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleFirestoreBackupScheduleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for weekly_recurrence.
@@ -117,7 +117,7 @@ public partial class GoogleFirestoreBackupSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WeeklyRecurrence block(s) allowed")]
     [TerraformProperty("weekly_recurrence")]
-    public TerraformList<TerraformBlock<GoogleFirestoreBackupScheduleWeeklyRecurrenceBlock>>? WeeklyRecurrence { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleFirestoreBackupScheduleWeeklyRecurrenceBlock>>? WeeklyRecurrence { get; set; }
 
     /// <summary>
     /// The unique backup schedule identifier across all locations and databases for the given project. Format:
@@ -125,6 +125,6 @@ public partial class GoogleFirestoreBackupSchedule : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

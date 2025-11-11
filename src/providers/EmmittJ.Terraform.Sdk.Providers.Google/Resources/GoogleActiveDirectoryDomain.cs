@@ -13,21 +13,21 @@ public partial class GoogleActiveDirectoryDomainTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class GoogleActiveDirectoryDomain : TerraformResource
     /// </summary>
     [TerraformProperty("admin")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Admin { get; set; }
+    public partial TerraformValue<string>? Admin { get; set; }
 
     /// <summary>
     /// The full names of the Google Compute Engine networks the domain instance is connected to. The domain is only available on networks listed in authorizedNetworks.
@@ -54,7 +54,7 @@ public partial class GoogleActiveDirectoryDomain : TerraformResource
     /// </summary>
     [TerraformProperty("authorized_networks")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AuthorizedNetworks { get; set; }
+    public partial TerraformSet<string>? AuthorizedNetworks { get; set; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the domain. Defaults to true.
@@ -66,7 +66,7 @@ public partial class GoogleActiveDirectoryDomain : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeletionProtection { get; set; }
+    public partial TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// The fully qualified domain name. e.g. mydomain.myorganization.com, with the restrictions
@@ -75,14 +75,14 @@ public partial class GoogleActiveDirectoryDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformProperty("domain_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainName { get; set; }
+    public required partial TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource labels that can contain user-provided metadata
@@ -92,7 +92,7 @@ public partial class GoogleActiveDirectoryDomain : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Locations where domain needs to be provisioned. [regions][compute/docs/regions-zones/]
@@ -101,14 +101,14 @@ public partial class GoogleActiveDirectoryDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locations is required")]
     [TerraformProperty("locations")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Locations { get; set; }
+    public partial TerraformList<string>? Locations { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The CIDR range of internal addresses that are reserved for this domain. Reserved networks must be /24 or larger.
@@ -117,21 +117,21 @@ public partial class GoogleActiveDirectoryDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservedIpRange is required")]
     [TerraformProperty("reserved_ip_range")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ReservedIpRange { get; set; }
+    public required partial TerraformValue<string> ReservedIpRange { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleActiveDirectoryDomainTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleActiveDirectoryDomainTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The fully-qualified domain name of the exposed domain used by clients to connect to the service.
@@ -139,14 +139,14 @@ public partial class GoogleActiveDirectoryDomain : TerraformResource
     /// </summary>
     [TerraformProperty("fqdn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Fqdn { get; }
+    public partial TerraformValue<string> Fqdn { get; }
 
     /// <summary>
     /// The unique name of the domain using the format: &#39;projects/{project}/locations/global/domains/{domainName}&#39;.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -154,6 +154,6 @@ public partial class GoogleActiveDirectoryDomain : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

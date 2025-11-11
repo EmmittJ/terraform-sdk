@@ -13,14 +13,14 @@ public partial class GoogleApigeeDeveloperAttributesBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Value of the attribute
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Value { get; set; }
+    public partial TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -35,21 +35,21 @@ public partial class GoogleApigeeDeveloperTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -68,7 +68,7 @@ public partial class GoogleApigeeDeveloper : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     [TerraformProperty("email")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Email { get; set; }
+    public required partial TerraformValue<string> Email { get; set; }
 
     /// <summary>
     /// First name of the developer.
@@ -76,14 +76,14 @@ public partial class GoogleApigeeDeveloper : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstName is required")]
     [TerraformProperty("first_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FirstName { get; set; }
+    public required partial TerraformValue<string> FirstName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Last name of the developer.
@@ -91,7 +91,7 @@ public partial class GoogleApigeeDeveloper : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LastName is required")]
     [TerraformProperty("last_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LastName { get; set; }
+    public required partial TerraformValue<string> LastName { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee instance,
@@ -100,7 +100,7 @@ public partial class GoogleApigeeDeveloper : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformProperty("org_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OrgId { get; set; }
+    public required partial TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// User name of the developer. Not used by Apigee hybrid.
@@ -108,48 +108,48 @@ public partial class GoogleApigeeDeveloper : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     [TerraformProperty("user_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UserName { get; set; }
+    public required partial TerraformValue<string> UserName { get; set; }
 
     /// <summary>
     /// Block for attributes.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("attributes")]
-    public TerraformList<TerraformBlock<GoogleApigeeDeveloperAttributesBlock>>? Attributes { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApigeeDeveloperAttributesBlock>>? Attributes { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeDeveloperTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeDeveloperTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time at which the developer was created in milliseconds since epoch.
     /// </summary>
     [TerraformProperty("created_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedAt { get; }
+    public partial TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// Time at which the developer was last modified in milliseconds since epoch.
     /// </summary>
     [TerraformProperty("last_modified_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastModifiedAt { get; }
+    public partial TerraformValue<string> LastModifiedAt { get; }
 
     /// <summary>
     /// Name of the Apigee organization in which the developer resides.
     /// </summary>
     [TerraformProperty("organizatio_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OrganizatioName { get; }
+    public partial TerraformValue<string> OrganizatioName { get; }
 
     /// <summary>
     /// Status of the developer. Valid values are active and inactive.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
 }

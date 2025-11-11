@@ -13,21 +13,21 @@ public partial class GoogleEdgenetworkInterconnectAttachmentTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public partial class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the underlying interconnect that this attachment&#39;s traffic will traverse through.
@@ -60,7 +60,7 @@ public partial class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interconnect is required")]
     [TerraformProperty("interconnect")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Interconnect { get; set; }
+    public required partial TerraformValue<string> Interconnect { get; set; }
 
     /// <summary>
     /// A unique ID that identifies this interconnect attachment.
@@ -68,7 +68,7 @@ public partial class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterconnectAttachmentId is required")]
     [TerraformProperty("interconnect_attachment_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InterconnectAttachmentId { get; set; }
+    public required partial TerraformValue<string> InterconnectAttachmentId { get; set; }
 
     /// <summary>
     /// Labels associated with this resource.
@@ -79,7 +79,7 @@ public partial class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The Google Cloud region to which the target Distributed Cloud Edge zone belongs.
@@ -87,14 +87,14 @@ public partial class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// IP (L3) MTU value of the virtual edge cloud. Default value is &#39;1500&#39;. Possible values are: &#39;1500&#39;, &#39;9000&#39;.
     /// </summary>
     [TerraformProperty("mtu")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Mtu { get; set; }
+    public partial TerraformValue<double>? Mtu { get; set; }
 
     /// <summary>
     /// The ID of the network to which this interconnect attachment belongs.
@@ -103,14 +103,14 @@ public partial class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformProperty("network")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Network { get; set; }
+    public required partial TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// VLAN ID provided by user. Must be site-wise unique.
@@ -118,7 +118,7 @@ public partial class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VlanId is required")]
     [TerraformProperty("vlan_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> VlanId { get; set; }
+    public required partial TerraformValue<double> VlanId { get; set; }
 
     /// <summary>
     /// The name of the target Distributed Cloud Edge zone.
@@ -126,14 +126,14 @@ public partial class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     [TerraformProperty("zone")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Zone { get; set; }
+    public required partial TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleEdgenetworkInterconnectAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleEdgenetworkInterconnectAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when the resource was created.
@@ -142,14 +142,14 @@ public partial class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The canonical name of this resource, with format
@@ -157,7 +157,7 @@ public partial class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -165,7 +165,7 @@ public partial class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The time when the resource was last updated.
@@ -174,6 +174,6 @@ public partial class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

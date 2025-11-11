@@ -13,21 +13,21 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeou
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicyAssociation : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HypervSiteId is required")]
     [TerraformProperty("hyperv_site_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HypervSiteId { get; set; }
+    public required partial TerraformValue<string> HypervSiteId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -61,7 +61,7 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicyAssociation : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The policy_id attribute.
@@ -69,13 +69,13 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicyAssociation : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     [TerraformProperty("policy_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyId { get; set; }
+    public required partial TerraformValue<string> PolicyId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

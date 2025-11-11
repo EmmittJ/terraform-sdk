@@ -15,10 +15,6 @@ namespace EmmittJ.Terraform.Sdk.SourceGenerators;
 public class TerraformPropertyGenerator : IIncrementalGenerator
 {
     private const string TerraformPropertyAttributeName = "TerraformPropertyAttribute";
-    private const string TerraformResourceBaseClassName = "TerraformResource";
-    private const string TerraformDataSourceBaseClassName = "TerraformDataSource";
-    private const string TerraformProviderBaseClassName = "TerraformProvider";
-    private const string TerraformBlockBaseClassName = "TerraformBlockBase";
 
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
@@ -48,23 +44,60 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
         if (classSymbol is null)
             return null;
 
-        // Check if class inherits from TerraformResource, TerraformDataSource, or TerraformProvider
-        var baseClassName = GetTerraformBaseClass(classSymbol);
-        if (baseClassName is null)
+        // Check if class has the required property infrastructure methods
+        if (!HasRequiredPropertyMethods(classSymbol))
             return null;
 
-        // Find all properties with [TerraformProperty] attribute
-        var properties = classSymbol.GetMembers()
-            .OfType<IPropertySymbol>()
-            .Where(p => HasTerraformPropertyAttribute(p))
-            .Select(p => new PropertyToGenerate(
-                Name: p.Name,
-                TerraformName: GetTerraformName(p),
-                TypeName: p.Type.ToDisplayString(),
-                IsRequired: p.IsRequired,
-                IsNullable: p.NullableAnnotation == NullableAnnotation.Annotated,
-                HasSet: p.SetMethod is not null))
-            .ToImmutableArray();
+        // Determine if this type returns references (has TerraformReference constructor)
+        bool shouldReturnReferences = ShouldReturnReferences(classSymbol);
+
+        // Find all properties with [TerraformProperty] attribute that are partial (need implementation)
+        var propertiesBuilder = ImmutableArray.CreateBuilder<PropertyToGenerate>();
+
+        foreach (var member in classSymbol.GetMembers().OfType<IPropertySymbol>())
+        {
+            if (!HasTerraformPropertyAttribute(member))
+                continue;
+
+            // Find the corresponding syntax node to check if it's a partial property
+            var propertySyntax = member.DeclaringSyntaxReferences
+                .Select(r => r.GetSyntax() as PropertyDeclarationSyntax)
+                .FirstOrDefault(p => p is not null);
+
+            if (propertySyntax is null)
+                continue;
+
+            // Only generate implementation for partial properties (declarations without implementation)
+            // C# 13 partial property declaration: "public partial int Foo { get; set; }" - accessors have NO bodies
+            // C# 13 partial property implementation: "public partial int Foo { get => ...; set => ...; }" - accessors HAVE bodies
+            // auto-property: "public int Foo { get; set; }" - no partial keyword
+            bool isPartial = propertySyntax.Modifiers.Any(m => m.IsKind(SyntaxKind.PartialKeyword));
+            if (!isPartial)
+                continue;
+
+            // Check if this is a declaration (no accessor bodies) or implementation (has accessor bodies)
+            // Declaration: { get; set; } - accessors have neither Body nor ExpressionBody
+            // Implementation: { get => ...; set => ...; } OR { get { ... } set { ... } } - accessors have Body or ExpressionBody
+            bool isDeclaration = propertySyntax.AccessorList?.Accessors
+                .All(a => a.Body == null && a.ExpressionBody == null) ?? false;
+
+            if (!isDeclaration)
+                continue; // Skip if already implemented
+
+            // Check if property has a setter
+            bool hasSet = propertySyntax.AccessorList?.Accessors
+                .Any(a => a.IsKind(SyntaxKind.SetAccessorDeclaration) || a.IsKind(SyntaxKind.InitAccessorDeclaration)) ?? false;
+
+            propertiesBuilder.Add(new PropertyToGenerate(
+                Name: member.Name,
+                TerraformName: GetTerraformName(member),
+                TypeName: member.Type.ToDisplayString(),
+                IsRequired: member.IsRequired,
+                IsNullable: member.NullableAnnotation == NullableAnnotation.Annotated,
+                HasSet: hasSet));
+        }
+
+        var properties = propertiesBuilder.ToImmutable();
 
         if (properties.IsEmpty)
             return null;
@@ -72,26 +105,68 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
         return new ClassToGenerate(
             NamespaceName: classSymbol.ContainingNamespace.ToDisplayString(),
             ClassName: classSymbol.Name,
-            BaseClassName: baseClassName,
+            ShouldReturnReferences: shouldReturnReferences,
             Properties: properties);
     }
 
-    private static string? GetTerraformBaseClass(INamedTypeSymbol classSymbol)
+    private static bool HasRequiredPropertyMethods(INamedTypeSymbol classSymbol)
     {
+        var allMembers = GetAllMembers(classSymbol);
+
+        // Check for GetPropertyValue, GetRequiredPropertyValue, and SetPropertyValue methods
+        bool hasGetPropertyValue = allMembers.Any(m =>
+            m is IMethodSymbol method &&
+            method.Name == "GetPropertyValue" &&
+            method.IsGenericMethod);
+
+        bool hasGetRequiredPropertyValue = allMembers.Any(m =>
+            m is IMethodSymbol method &&
+            method.Name == "GetRequiredPropertyValue" &&
+            method.IsGenericMethod);
+
+        bool hasSetPropertyValue = allMembers.Any(m =>
+            m is IMethodSymbol method &&
+            method.Name == "SetPropertyValue");
+
+        return hasGetPropertyValue && hasGetRequiredPropertyValue && hasSetPropertyValue;
+    }
+
+    private static bool ShouldReturnReferences(INamedTypeSymbol classSymbol)
+    {
+        // Check the inheritance chain
+        // Most Terraform constructs can be referenced except Providers
         var baseType = classSymbol.BaseType;
         while (baseType is not null)
         {
-            if (baseType.Name == TerraformResourceBaseClassName)
-                return TerraformResourceBaseClassName;
-            if (baseType.Name == TerraformDataSourceBaseClassName)
-                return TerraformDataSourceBaseClassName;
-            if (baseType.Name == TerraformProviderBaseClassName)
-                return TerraformProviderBaseClassName;
-            if (baseType.Name == TerraformBlockBaseClassName)
-                return TerraformBlockBaseClassName;
+            var name = baseType.Name;
+
+            // Only Providers don't return references
+            if (name == "TerraformProvider")
+                return false;
+
+            // Resources, DataSources, EphemeralResources, and Blocks all return references
+            if (name == "TerraformResource" ||
+                name == "TerraformDataSource" ||
+                name == "TerraformEphemeralResource" ||
+                name == "TerraformBlockBase")
+                return true;
+
             baseType = baseType.BaseType;
         }
-        return null;
+
+        // Default to returning references if we can't determine
+        return true;
+    }
+
+    private static IEnumerable<ISymbol> GetAllMembers(INamedTypeSymbol type)
+    {
+        var current = type;
+        while (current is not null)
+        {
+            foreach (var member in current.GetMembers())
+                yield return member;
+            current = current.BaseType;
+        }
     }
 
     private static bool HasTerraformPropertyAttribute(IPropertySymbol property)
@@ -155,7 +230,7 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
         // Generate each property
         foreach (var property in classInfo.Properties)
         {
-            GenerateProperty(sb, property, classInfo.BaseClassName);
+            GenerateProperty(sb, property, classInfo.ShouldReturnReferences);
         }
 
         sb.AppendLine("}");
@@ -163,18 +238,18 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
         return sb.ToString();
     }
 
-    private static void GenerateProperty(StringBuilder sb, PropertyToGenerate property, string baseClassName)
+    private static void GenerateProperty(StringBuilder sb, PropertyToGenerate property, bool shouldReturnReferences)
     {
         var requiredModifier = property.IsRequired ? "required " : "";
 
         sb.AppendLine($"    /// <summary>");
         sb.AppendLine($"    /// Terraform property: {property.TerraformName}");
         sb.AppendLine($"    /// </summary>");
-        sb.AppendLine($"    public {requiredModifier}{property.TypeName} {property.Name}");
+        sb.AppendLine($"    public {requiredModifier}partial {property.TypeName} {property.Name}");
         sb.AppendLine("    {");
 
         // Generate getter
-        GenerateGetter(sb, property, baseClassName);
+        GenerateGetter(sb, property, shouldReturnReferences);
 
         // Generate setter (if property has one)
         if (property.HasSet)
@@ -193,17 +268,13 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
         }
     }
 
-    private static void GenerateGetter(StringBuilder sb, PropertyToGenerate property, string baseClassName)
+    private static void GenerateGetter(StringBuilder sb, PropertyToGenerate property, bool shouldReturnReferences)
     {
-        // Determine if getter should return reference or stored value
-        var shouldReturnReference = baseClassName == TerraformResourceBaseClassName ||
-                                     baseClassName == TerraformDataSourceBaseClassName;
-
         var innerType = GetGenericTypeArgument(property.TypeName);
 
-        if (shouldReturnReference)
+        if (shouldReturnReferences)
         {
-            // Resources & Data Sources: Getter ALWAYS returns a reference
+            // Resources, Data Sources, Ephemeral Resources, Blocks: Getter ALWAYS returns a reference
             // This is the key to natural Terraform syntax
             // When you access rg.Name, you get azurerm_resource_group.rg.name (a reference)
             // The value that was SET is only used during serialization
@@ -211,10 +282,10 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
         }
         else
         {
-            // Providers & Blocks: Getter returns stored value
+            // Providers: Getter returns stored value
             // Providers are not referenced in HCL
-            // Blocks are used inline, not referenced
-            if (property.IsRequired)
+            // Use required getter if property is required or non-nullable
+            if (property.IsRequired || !property.IsNullable)
             {
                 sb.AppendLine($"        get => GetRequiredPropertyValue<{property.TypeName}>(\"{property.TerraformName}\");");
             }
@@ -242,7 +313,8 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
         sb.AppendLine($"    public {property.TypeName} {property.Name}Value");
         sb.AppendLine("    {");
 
-        if (property.IsRequired)
+        // Use required getter if property is required or non-nullable
+        if (property.IsRequired || !property.IsNullable)
         {
             sb.AppendLine($"        get => GetRequiredPropertyValue<{property.TypeName}>(\"{property.TerraformName}\");");
         }
@@ -272,7 +344,7 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
     private record ClassToGenerate(
         string NamespaceName,
         string ClassName,
-        string BaseClassName,
+        bool ShouldReturnReferences,
         ImmutableArray<PropertyToGenerate> Properties);
 
     private record PropertyToGenerate(

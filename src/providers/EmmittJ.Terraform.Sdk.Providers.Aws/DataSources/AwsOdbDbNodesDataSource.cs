@@ -17,20 +17,20 @@ public partial class AwsOdbDbNodesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
     [TerraformProperty("cloud_vm_cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CloudVmClusterId { get; set; }
+    public required partial TerraformValue<string> CloudVmClusterId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The list of DB nodes along with their properties.
     /// </summary>
     [TerraformProperty("db_nodes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> DbNodes { get; }
+    public partial TerraformList<object> DbNodes { get; }
 
 }

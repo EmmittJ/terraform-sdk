@@ -16,14 +16,14 @@ public partial class AwsElasticBeanstalkSolutionStackDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
     [TerraformProperty("most_recent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? MostRecent { get; set; }
+    public partial TerraformValue<bool>? MostRecent { get; set; }
 
     /// <summary>
     /// The name_regex attribute.
@@ -31,20 +31,20 @@ public partial class AwsElasticBeanstalkSolutionStackDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NameRegex is required")]
     [TerraformProperty("name_regex")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NameRegex { get; set; }
+    public required partial TerraformValue<string> NameRegex { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

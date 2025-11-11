@@ -13,7 +13,7 @@ public partial class AwsConnectBotAssociationDataSourceLexBotBlock : TerraformBl
     /// </summary>
     [TerraformProperty("lex_region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> LexRegion { get; set; }
+    public partial TerraformValue<string> LexRegion { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -21,7 +21,7 @@ public partial class AwsConnectBotAssociationDataSourceLexBotBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -40,7 +40,7 @@ public partial class AwsConnectBotAssociationDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_id attribute.
@@ -48,14 +48,14 @@ public partial class AwsConnectBotAssociationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     [TerraformProperty("instance_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InstanceId { get; set; }
+    public required partial TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for lex_bot.
@@ -65,6 +65,6 @@ public partial class AwsConnectBotAssociationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LexBot block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LexBot block(s) allowed")]
     [TerraformProperty("lex_bot")]
-    public TerraformList<TerraformBlock<AwsConnectBotAssociationDataSourceLexBotBlock>>? LexBot { get; set; }
+    public partial TerraformList<TerraformBlock<AwsConnectBotAssociationDataSourceLexBotBlock>>? LexBot { get; set; }
 
 }

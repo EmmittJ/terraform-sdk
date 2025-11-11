@@ -13,7 +13,7 @@ public partial class AzurermSentinelAlertRuleTemplateDataSourceTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,14 +31,14 @@ public partial class AzurermSentinelAlertRuleTemplateDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DisplayName { get; set; }
+    public partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
@@ -46,41 +46,41 @@ public partial class AzurermSentinelAlertRuleTemplateDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     [TerraformProperty("log_analytics_workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
+    public required partial TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSentinelAlertRuleTemplateDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSentinelAlertRuleTemplateDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The nrt_template attribute.
     /// </summary>
     [TerraformProperty("nrt_template")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> NrtTemplate { get; }
+    public partial TerraformList<object> NrtTemplate { get; }
 
     /// <summary>
     /// The scheduled_template attribute.
     /// </summary>
     [TerraformProperty("scheduled_template")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ScheduledTemplate { get; }
+    public partial TerraformList<object> ScheduledTemplate { get; }
 
     /// <summary>
     /// The security_incident_template attribute.
     /// </summary>
     [TerraformProperty("security_incident_template")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> SecurityIncidentTemplate { get; }
+    public partial TerraformList<object> SecurityIncidentTemplate { get; }
 
 }

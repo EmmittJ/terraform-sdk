@@ -13,21 +13,21 @@ public partial class AzurermNetworkManagerStaticMemberTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermNetworkManagerStaticMember : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -53,7 +53,7 @@ public partial class AzurermNetworkManagerStaticMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network_group_id attribute.
@@ -61,7 +61,7 @@ public partial class AzurermNetworkManagerStaticMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkGroupId is required")]
     [TerraformProperty("network_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NetworkGroupId { get; set; }
+    public required partial TerraformValue<string> NetworkGroupId { get; set; }
 
     /// <summary>
     /// The target_virtual_network_id attribute.
@@ -69,20 +69,20 @@ public partial class AzurermNetworkManagerStaticMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVirtualNetworkId is required")]
     [TerraformProperty("target_virtual_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetVirtualNetworkId { get; set; }
+    public required partial TerraformValue<string> TargetVirtualNetworkId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetworkManagerStaticMemberTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetworkManagerStaticMemberTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [TerraformProperty("region")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Region { get; }
+    public partial TerraformValue<string> Region { get; }
 
 }

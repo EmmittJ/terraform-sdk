@@ -13,7 +13,7 @@ public partial class AzurermPublicIpPrefixDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermPublicIpPrefixDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermPublicIpPrefixDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,62 +47,62 @@ public partial class AzurermPublicIpPrefixDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPublicIpPrefixDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPublicIpPrefixDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The ip_prefix attribute.
     /// </summary>
     [TerraformProperty("ip_prefix")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IpPrefix { get; }
+    public partial TerraformValue<string> IpPrefix { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The prefix_length attribute.
     /// </summary>
     [TerraformProperty("prefix_length")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> PrefixLength { get; }
+    public partial TerraformValue<double> PrefixLength { get; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [TerraformProperty("sku")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Sku { get; }
+    public partial TerraformValue<string> Sku { get; }
 
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
     [TerraformProperty("sku_tier")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SkuTier { get; }
+    public partial TerraformValue<string> SkuTier { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     [TerraformProperty("zones")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Zones { get; }
+    public partial TerraformList<string> Zones { get; }
 
 }

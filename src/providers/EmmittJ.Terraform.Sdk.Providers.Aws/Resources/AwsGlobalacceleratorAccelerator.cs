@@ -13,21 +13,21 @@ public partial class AwsGlobalacceleratorAcceleratorAttributesBlock : TerraformB
     /// </summary>
     [TerraformProperty("flow_logs_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? FlowLogsEnabled { get; set; }
+    public partial TerraformValue<bool>? FlowLogsEnabled { get; set; }
 
     /// <summary>
     /// The flow_logs_s3_bucket attribute.
     /// </summary>
     [TerraformProperty("flow_logs_s3_bucket")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FlowLogsS3Bucket { get; set; }
+    public partial TerraformValue<string>? FlowLogsS3Bucket { get; set; }
 
     /// <summary>
     /// The flow_logs_s3_prefix attribute.
     /// </summary>
     [TerraformProperty("flow_logs_s3_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FlowLogsS3Prefix { get; set; }
+    public partial TerraformValue<string>? FlowLogsS3Prefix { get; set; }
 
 }
 
@@ -42,14 +42,14 @@ public partial class AwsGlobalacceleratorAcceleratorTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -68,28 +68,28 @@ public partial class AwsGlobalacceleratorAccelerator : TerraformResource
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
     [TerraformProperty("ip_address_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpAddressType { get; set; }
+    public partial TerraformValue<string>? IpAddressType { get; set; }
 
     /// <summary>
     /// The ip_addresses attribute.
     /// </summary>
     [TerraformProperty("ip_addresses")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? IpAddresses { get; set; }
+    public partial TerraformList<string>? IpAddresses { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -97,21 +97,21 @@ public partial class AwsGlobalacceleratorAccelerator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for attributes.
@@ -119,48 +119,48 @@ public partial class AwsGlobalacceleratorAccelerator : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Attributes block(s) allowed")]
     [TerraformProperty("attributes")]
-    public TerraformList<TerraformBlock<AwsGlobalacceleratorAcceleratorAttributesBlock>>? Attributes { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGlobalacceleratorAcceleratorAttributesBlock>>? Attributes { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsGlobalacceleratorAcceleratorTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsGlobalacceleratorAcceleratorTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     [TerraformProperty("dns_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DnsName { get; }
+    public partial TerraformValue<string> DnsName { get; }
 
     /// <summary>
     /// The dual_stack_dns_name attribute.
     /// </summary>
     [TerraformProperty("dual_stack_dns_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DualStackDnsName { get; }
+    public partial TerraformValue<string> DualStackDnsName { get; }
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     [TerraformProperty("hosted_zone_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> HostedZoneId { get; }
+    public partial TerraformValue<string> HostedZoneId { get; }
 
     /// <summary>
     /// The ip_sets attribute.
     /// </summary>
     [TerraformProperty("ip_sets")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> IpSets { get; }
+    public partial TerraformList<object> IpSets { get; }
 
 }

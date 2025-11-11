@@ -13,7 +13,7 @@ public partial class AzurermPlatformImageDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermPlatformImageDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -39,7 +39,7 @@ public partial class AzurermPlatformImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The offer attribute.
@@ -47,7 +47,7 @@ public partial class AzurermPlatformImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     [TerraformProperty("offer")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Offer { get; set; }
+    public required partial TerraformValue<string> Offer { get; set; }
 
     /// <summary>
     /// The publisher attribute.
@@ -55,7 +55,7 @@ public partial class AzurermPlatformImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     [TerraformProperty("publisher")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Publisher { get; set; }
+    public required partial TerraformValue<string> Publisher { get; set; }
 
     /// <summary>
     /// The sku attribute.
@@ -63,20 +63,20 @@ public partial class AzurermPlatformImageDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [TerraformProperty("sku")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Sku { get; set; }
+    public required partial TerraformValue<string> Sku { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Version { get; set; }
+    public partial TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPlatformImageDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPlatformImageDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
 }

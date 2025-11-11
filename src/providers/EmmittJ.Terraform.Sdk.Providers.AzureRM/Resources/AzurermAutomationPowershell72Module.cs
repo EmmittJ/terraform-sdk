@@ -14,7 +14,7 @@ public partial class AzurermAutomationPowershell72ModuleModuleLinkBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     [TerraformProperty("uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Uri { get; set; }
+    public required partial TerraformValue<string> Uri { get; set; }
 
 }
 
@@ -29,28 +29,28 @@ public partial class AzurermAutomationPowershell72ModuleTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -70,14 +70,14 @@ public partial class AzurermAutomationPowershell72Module : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     [TerraformProperty("automation_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AutomationAccountId { get; set; }
+    public required partial TerraformValue<string> AutomationAccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -85,14 +85,14 @@ public partial class AzurermAutomationPowershell72Module : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for module_link.
@@ -102,13 +102,13 @@ public partial class AzurermAutomationPowershell72Module : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ModuleLink block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ModuleLink block(s) allowed")]
     [TerraformProperty("module_link")]
-    public TerraformList<TerraformBlock<AzurermAutomationPowershell72ModuleModuleLinkBlock>>? ModuleLink { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermAutomationPowershell72ModuleModuleLinkBlock>>? ModuleLink { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAutomationPowershell72ModuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAutomationPowershell72ModuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

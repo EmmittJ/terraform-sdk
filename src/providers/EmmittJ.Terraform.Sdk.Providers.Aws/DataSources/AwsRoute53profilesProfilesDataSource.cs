@@ -16,13 +16,13 @@ public partial class AwsRoute53profilesProfilesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The profiles attribute.
     /// </summary>
     [TerraformProperty("profiles")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Profiles { get; }
+    public partial TerraformList<object> Profiles { get; }
 
 }

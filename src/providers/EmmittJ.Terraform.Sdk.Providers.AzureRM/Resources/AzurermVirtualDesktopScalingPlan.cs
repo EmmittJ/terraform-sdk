@@ -14,7 +14,7 @@ public partial class AzurermVirtualDesktopScalingPlanHostPoolBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostpoolId is required")]
     [TerraformProperty("hostpool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HostpoolId { get; set; }
+    public required partial TerraformValue<string> HostpoolId { get; set; }
 
     /// <summary>
     /// The scaling_plan_enabled attribute.
@@ -22,7 +22,7 @@ public partial class AzurermVirtualDesktopScalingPlanHostPoolBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingPlanEnabled is required")]
     [TerraformProperty("scaling_plan_enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> ScalingPlanEnabled { get; set; }
+    public required partial TerraformValue<bool> ScalingPlanEnabled { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DaysOfWeek is required")]
     [TerraformProperty("days_of_week")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> DaysOfWeek { get; set; }
+    public required partial TerraformSet<string> DaysOfWeek { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -46,7 +46,7 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The off_peak_load_balancing_algorithm attribute.
@@ -54,7 +54,7 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OffPeakLoadBalancingAlgorithm is required")]
     [TerraformProperty("off_peak_load_balancing_algorithm")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OffPeakLoadBalancingAlgorithm { get; set; }
+    public required partial TerraformValue<string> OffPeakLoadBalancingAlgorithm { get; set; }
 
     /// <summary>
     /// The off_peak_start_time attribute.
@@ -62,7 +62,7 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OffPeakStartTime is required")]
     [TerraformProperty("off_peak_start_time")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OffPeakStartTime { get; set; }
+    public required partial TerraformValue<string> OffPeakStartTime { get; set; }
 
     /// <summary>
     /// The peak_load_balancing_algorithm attribute.
@@ -70,7 +70,7 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeakLoadBalancingAlgorithm is required")]
     [TerraformProperty("peak_load_balancing_algorithm")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PeakLoadBalancingAlgorithm { get; set; }
+    public required partial TerraformValue<string> PeakLoadBalancingAlgorithm { get; set; }
 
     /// <summary>
     /// The peak_start_time attribute.
@@ -78,7 +78,7 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeakStartTime is required")]
     [TerraformProperty("peak_start_time")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PeakStartTime { get; set; }
+    public required partial TerraformValue<string> PeakStartTime { get; set; }
 
     /// <summary>
     /// The ramp_down_capacity_threshold_percent attribute.
@@ -86,7 +86,7 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampDownCapacityThresholdPercent is required")]
     [TerraformProperty("ramp_down_capacity_threshold_percent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> RampDownCapacityThresholdPercent { get; set; }
+    public required partial TerraformValue<double> RampDownCapacityThresholdPercent { get; set; }
 
     /// <summary>
     /// The ramp_down_force_logoff_users attribute.
@@ -94,7 +94,7 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampDownForceLogoffUsers is required")]
     [TerraformProperty("ramp_down_force_logoff_users")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> RampDownForceLogoffUsers { get; set; }
+    public required partial TerraformValue<bool> RampDownForceLogoffUsers { get; set; }
 
     /// <summary>
     /// The ramp_down_load_balancing_algorithm attribute.
@@ -102,7 +102,7 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampDownLoadBalancingAlgorithm is required")]
     [TerraformProperty("ramp_down_load_balancing_algorithm")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RampDownLoadBalancingAlgorithm { get; set; }
+    public required partial TerraformValue<string> RampDownLoadBalancingAlgorithm { get; set; }
 
     /// <summary>
     /// The ramp_down_minimum_hosts_percent attribute.
@@ -110,7 +110,7 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampDownMinimumHostsPercent is required")]
     [TerraformProperty("ramp_down_minimum_hosts_percent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> RampDownMinimumHostsPercent { get; set; }
+    public required partial TerraformValue<double> RampDownMinimumHostsPercent { get; set; }
 
     /// <summary>
     /// The ramp_down_notification_message attribute.
@@ -118,7 +118,7 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampDownNotificationMessage is required")]
     [TerraformProperty("ramp_down_notification_message")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RampDownNotificationMessage { get; set; }
+    public required partial TerraformValue<string> RampDownNotificationMessage { get; set; }
 
     /// <summary>
     /// The ramp_down_start_time attribute.
@@ -126,7 +126,7 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampDownStartTime is required")]
     [TerraformProperty("ramp_down_start_time")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RampDownStartTime { get; set; }
+    public required partial TerraformValue<string> RampDownStartTime { get; set; }
 
     /// <summary>
     /// The ramp_down_stop_hosts_when attribute.
@@ -134,7 +134,7 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampDownStopHostsWhen is required")]
     [TerraformProperty("ramp_down_stop_hosts_when")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RampDownStopHostsWhen { get; set; }
+    public required partial TerraformValue<string> RampDownStopHostsWhen { get; set; }
 
     /// <summary>
     /// The ramp_down_wait_time_minutes attribute.
@@ -142,14 +142,14 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampDownWaitTimeMinutes is required")]
     [TerraformProperty("ramp_down_wait_time_minutes")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> RampDownWaitTimeMinutes { get; set; }
+    public required partial TerraformValue<double> RampDownWaitTimeMinutes { get; set; }
 
     /// <summary>
     /// The ramp_up_capacity_threshold_percent attribute.
     /// </summary>
     [TerraformProperty("ramp_up_capacity_threshold_percent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RampUpCapacityThresholdPercent { get; set; }
+    public partial TerraformValue<double>? RampUpCapacityThresholdPercent { get; set; }
 
     /// <summary>
     /// The ramp_up_load_balancing_algorithm attribute.
@@ -157,14 +157,14 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampUpLoadBalancingAlgorithm is required")]
     [TerraformProperty("ramp_up_load_balancing_algorithm")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RampUpLoadBalancingAlgorithm { get; set; }
+    public required partial TerraformValue<string> RampUpLoadBalancingAlgorithm { get; set; }
 
     /// <summary>
     /// The ramp_up_minimum_hosts_percent attribute.
     /// </summary>
     [TerraformProperty("ramp_up_minimum_hosts_percent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RampUpMinimumHostsPercent { get; set; }
+    public partial TerraformValue<double>? RampUpMinimumHostsPercent { get; set; }
 
     /// <summary>
     /// The ramp_up_start_time attribute.
@@ -172,7 +172,7 @@ public partial class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RampUpStartTime is required")]
     [TerraformProperty("ramp_up_start_time")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RampUpStartTime { get; set; }
+    public required partial TerraformValue<string> RampUpStartTime { get; set; }
 
 }
 
@@ -187,28 +187,28 @@ public partial class AzurermVirtualDesktopScalingPlanTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -227,28 +227,28 @@ public partial class AzurermVirtualDesktopScalingPlan : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The exclusion_tag attribute.
     /// </summary>
     [TerraformProperty("exclusion_tag")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExclusionTag { get; set; }
+    public partial TerraformValue<string>? ExclusionTag { get; set; }
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
     [TerraformProperty("friendly_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FriendlyName { get; set; }
+    public partial TerraformValue<string>? FriendlyName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -256,7 +256,7 @@ public partial class AzurermVirtualDesktopScalingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -264,7 +264,7 @@ public partial class AzurermVirtualDesktopScalingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -272,14 +272,14 @@ public partial class AzurermVirtualDesktopScalingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
@@ -287,14 +287,14 @@ public partial class AzurermVirtualDesktopScalingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     [TerraformProperty("time_zone")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TimeZone { get; set; }
+    public required partial TerraformValue<string> TimeZone { get; set; }
 
     /// <summary>
     /// Block for host_pool.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("host_pool")]
-    public TerraformList<TerraformBlock<AzurermVirtualDesktopScalingPlanHostPoolBlock>>? HostPool { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermVirtualDesktopScalingPlanHostPoolBlock>>? HostPool { get; set; }
 
     /// <summary>
     /// Block for schedule.
@@ -303,13 +303,13 @@ public partial class AzurermVirtualDesktopScalingPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [TerraformProperty("schedule")]
-    public TerraformList<TerraformBlock<AzurermVirtualDesktopScalingPlanScheduleBlock>>? Schedule { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermVirtualDesktopScalingPlanScheduleBlock>>? Schedule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVirtualDesktopScalingPlanTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVirtualDesktopScalingPlanTimeoutsBlock>? Timeouts { get; set; }
 
 }

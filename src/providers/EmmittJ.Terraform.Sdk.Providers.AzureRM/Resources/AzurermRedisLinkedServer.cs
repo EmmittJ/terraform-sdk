@@ -13,21 +13,21 @@ public partial class AzurermRedisLinkedServerTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermRedisLinkedServer : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The linked_redis_cache_id attribute.
@@ -53,7 +53,7 @@ public partial class AzurermRedisLinkedServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedRedisCacheId is required")]
     [TerraformProperty("linked_redis_cache_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LinkedRedisCacheId { get; set; }
+    public required partial TerraformValue<string> LinkedRedisCacheId { get; set; }
 
     /// <summary>
     /// The linked_redis_cache_location attribute.
@@ -61,7 +61,7 @@ public partial class AzurermRedisLinkedServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedRedisCacheLocation is required")]
     [TerraformProperty("linked_redis_cache_location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LinkedRedisCacheLocation { get; set; }
+    public required partial TerraformValue<string> LinkedRedisCacheLocation { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -69,7 +69,7 @@ public partial class AzurermRedisLinkedServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The server_role attribute.
@@ -77,7 +77,7 @@ public partial class AzurermRedisLinkedServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerRole is required")]
     [TerraformProperty("server_role")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServerRole { get; set; }
+    public required partial TerraformValue<string> ServerRole { get; set; }
 
     /// <summary>
     /// The target_redis_cache_name attribute.
@@ -85,27 +85,27 @@ public partial class AzurermRedisLinkedServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRedisCacheName is required")]
     [TerraformProperty("target_redis_cache_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetRedisCacheName { get; set; }
+    public required partial TerraformValue<string> TargetRedisCacheName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermRedisLinkedServerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermRedisLinkedServerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The geo_replicated_primary_host_name attribute.
     /// </summary>
     [TerraformProperty("geo_replicated_primary_host_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GeoReplicatedPrimaryHostName { get; }
+    public partial TerraformValue<string> GeoReplicatedPrimaryHostName { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

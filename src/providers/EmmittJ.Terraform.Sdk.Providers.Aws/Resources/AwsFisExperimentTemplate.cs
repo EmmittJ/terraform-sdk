@@ -14,14 +14,14 @@ public partial class AwsFisExperimentTemplateActionBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionId is required")]
     [TerraformProperty("action_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ActionId { get; set; }
+    public required partial TerraformValue<string> ActionId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -29,14 +29,14 @@ public partial class AwsFisExperimentTemplateActionBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The start_after attribute.
     /// </summary>
     [TerraformProperty("start_after")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? StartAfter { get; set; }
+    public partial TerraformSet<string>? StartAfter { get; set; }
 
 }
 
@@ -51,14 +51,14 @@ public partial class AwsFisExperimentTemplateExperimentOptionsBlock : TerraformB
     /// </summary>
     [TerraformProperty("account_targeting")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AccountTargeting { get; set; }
+    public partial TerraformValue<string>? AccountTargeting { get; set; }
 
     /// <summary>
     /// The empty_target_resolution_mode attribute.
     /// </summary>
     [TerraformProperty("empty_target_resolution_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EmptyTargetResolutionMode { get; set; }
+    public partial TerraformValue<string>? EmptyTargetResolutionMode { get; set; }
 
 }
 
@@ -73,14 +73,14 @@ public partial class AwsFisExperimentTemplateExperimentReportConfigurationBlock 
     /// </summary>
     [TerraformProperty("post_experiment_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PostExperimentDuration { get; set; }
+    public partial TerraformValue<string>? PostExperimentDuration { get; set; }
 
     /// <summary>
     /// The pre_experiment_duration attribute.
     /// </summary>
     [TerraformProperty("pre_experiment_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PreExperimentDuration { get; set; }
+    public partial TerraformValue<string>? PreExperimentDuration { get; set; }
 
 }
 
@@ -96,7 +96,7 @@ public partial class AwsFisExperimentTemplateLogConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogSchemaVersion is required")]
     [TerraformProperty("log_schema_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> LogSchemaVersion { get; set; }
+    public required partial TerraformValue<double> LogSchemaVersion { get; set; }
 
 }
 
@@ -112,14 +112,14 @@ public partial class AwsFisExperimentTemplateStopConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [TerraformProperty("source")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Source { get; set; }
+    public required partial TerraformValue<string> Source { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Value { get; set; }
+    public partial TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -135,21 +135,21 @@ public partial class AwsFisExperimentTemplateTargetBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// The resource_arns attribute.
     /// </summary>
     [TerraformProperty("resource_arns")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ResourceArns { get; set; }
+    public partial TerraformSet<string>? ResourceArns { get; set; }
 
     /// <summary>
     /// The resource_type attribute.
@@ -157,7 +157,7 @@ public partial class AwsFisExperimentTemplateTargetBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     [TerraformProperty("resource_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceType { get; set; }
+    public required partial TerraformValue<string> ResourceType { get; set; }
 
     /// <summary>
     /// The selection_mode attribute.
@@ -165,7 +165,7 @@ public partial class AwsFisExperimentTemplateTargetBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SelectionMode is required")]
     [TerraformProperty("selection_mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SelectionMode { get; set; }
+    public required partial TerraformValue<string> SelectionMode { get; set; }
 
 }
 
@@ -180,21 +180,21 @@ public partial class AwsFisExperimentTemplateTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -214,21 +214,21 @@ public partial class AwsFisExperimentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     [TerraformProperty("description")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Description { get; set; }
+    public required partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -236,21 +236,21 @@ public partial class AwsFisExperimentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for action.
@@ -259,7 +259,7 @@ public partial class AwsFisExperimentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Action block(s) required")]
     [TerraformProperty("action")]
-    public TerraformSet<TerraformBlock<AwsFisExperimentTemplateActionBlock>>? Action { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsFisExperimentTemplateActionBlock>>? Action { get; set; }
 
     /// <summary>
     /// Block for experiment_options.
@@ -267,7 +267,7 @@ public partial class AwsFisExperimentTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExperimentOptions block(s) allowed")]
     [TerraformProperty("experiment_options")]
-    public TerraformList<TerraformBlock<AwsFisExperimentTemplateExperimentOptionsBlock>>? ExperimentOptions { get; set; }
+    public partial TerraformList<TerraformBlock<AwsFisExperimentTemplateExperimentOptionsBlock>>? ExperimentOptions { get; set; }
 
     /// <summary>
     /// Block for experiment_report_configuration.
@@ -275,7 +275,7 @@ public partial class AwsFisExperimentTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExperimentReportConfiguration block(s) allowed")]
     [TerraformProperty("experiment_report_configuration")]
-    public TerraformList<TerraformBlock<AwsFisExperimentTemplateExperimentReportConfigurationBlock>>? ExperimentReportConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsFisExperimentTemplateExperimentReportConfigurationBlock>>? ExperimentReportConfiguration { get; set; }
 
     /// <summary>
     /// Block for log_configuration.
@@ -283,7 +283,7 @@ public partial class AwsFisExperimentTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfiguration block(s) allowed")]
     [TerraformProperty("log_configuration")]
-    public TerraformList<TerraformBlock<AwsFisExperimentTemplateLogConfigurationBlock>>? LogConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsFisExperimentTemplateLogConfigurationBlock>>? LogConfiguration { get; set; }
 
     /// <summary>
     /// Block for stop_condition.
@@ -292,20 +292,20 @@ public partial class AwsFisExperimentTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StopCondition is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StopCondition block(s) required")]
     [TerraformProperty("stop_condition")]
-    public TerraformSet<TerraformBlock<AwsFisExperimentTemplateStopConditionBlock>>? StopCondition { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsFisExperimentTemplateStopConditionBlock>>? StopCondition { get; set; }
 
     /// <summary>
     /// Block for target.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("target")]
-    public TerraformSet<TerraformBlock<AwsFisExperimentTemplateTargetBlock>>? Target { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsFisExperimentTemplateTargetBlock>>? Target { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsFisExperimentTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsFisExperimentTemplateTimeoutsBlock>? Timeouts { get; set; }
 
 }

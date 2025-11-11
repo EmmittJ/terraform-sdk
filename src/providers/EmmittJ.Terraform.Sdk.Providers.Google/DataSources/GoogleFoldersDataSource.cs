@@ -16,7 +16,7 @@ public partial class GoogleFoldersDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The parent_id attribute.
@@ -24,13 +24,13 @@ public partial class GoogleFoldersDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
     [TerraformProperty("parent_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ParentId { get; set; }
+    public required partial TerraformValue<string> ParentId { get; set; }
 
     /// <summary>
     /// The folders attribute.
     /// </summary>
     [TerraformProperty("folders")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Folders { get; }
+    public partial TerraformList<object> Folders { get; }
 
 }

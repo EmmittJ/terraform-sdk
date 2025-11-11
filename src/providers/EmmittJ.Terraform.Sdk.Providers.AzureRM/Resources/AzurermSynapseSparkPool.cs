@@ -14,7 +14,7 @@ public partial class AzurermSynapseSparkPoolAutoPauseBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelayInMinutes is required")]
     [TerraformProperty("delay_in_minutes")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> DelayInMinutes { get; set; }
+    public required partial TerraformValue<double> DelayInMinutes { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public partial class AzurermSynapseSparkPoolAutoScaleBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
     [TerraformProperty("max_node_count")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MaxNodeCount { get; set; }
+    public required partial TerraformValue<double> MaxNodeCount { get; set; }
 
     /// <summary>
     /// The min_node_count attribute.
@@ -38,7 +38,7 @@ public partial class AzurermSynapseSparkPoolAutoScaleBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
     [TerraformProperty("min_node_count")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MinNodeCount { get; set; }
+    public required partial TerraformValue<double> MinNodeCount { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public partial class AzurermSynapseSparkPoolLibraryRequirementBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     [TerraformProperty("content")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Content { get; set; }
+    public required partial TerraformValue<string> Content { get; set; }
 
     /// <summary>
     /// The filename attribute.
@@ -62,7 +62,7 @@ public partial class AzurermSynapseSparkPoolLibraryRequirementBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
     [TerraformProperty("filename")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Filename { get; set; }
+    public required partial TerraformValue<string> Filename { get; set; }
 
 }
 
@@ -78,7 +78,7 @@ public partial class AzurermSynapseSparkPoolSparkConfigBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     [TerraformProperty("content")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Content { get; set; }
+    public required partial TerraformValue<string> Content { get; set; }
 
     /// <summary>
     /// The filename attribute.
@@ -86,7 +86,7 @@ public partial class AzurermSynapseSparkPoolSparkConfigBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
     [TerraformProperty("filename")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Filename { get; set; }
+    public required partial TerraformValue<string> Filename { get; set; }
 
 }
 
@@ -101,28 +101,28 @@ public partial class AzurermSynapseSparkPoolTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -141,42 +141,42 @@ public partial class AzurermSynapseSparkPool : TerraformResource
     /// </summary>
     [TerraformProperty("cache_size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? CacheSize { get; set; }
+    public partial TerraformValue<double>? CacheSize { get; set; }
 
     /// <summary>
     /// The compute_isolation_enabled attribute.
     /// </summary>
     [TerraformProperty("compute_isolation_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ComputeIsolationEnabled { get; set; }
+    public partial TerraformValue<bool>? ComputeIsolationEnabled { get; set; }
 
     /// <summary>
     /// The dynamic_executor_allocation_enabled attribute.
     /// </summary>
     [TerraformProperty("dynamic_executor_allocation_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DynamicExecutorAllocationEnabled { get; set; }
+    public partial TerraformValue<bool>? DynamicExecutorAllocationEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The max_executors attribute.
     /// </summary>
     [TerraformProperty("max_executors")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxExecutors { get; set; }
+    public partial TerraformValue<double>? MaxExecutors { get; set; }
 
     /// <summary>
     /// The min_executors attribute.
     /// </summary>
     [TerraformProperty("min_executors")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinExecutors { get; set; }
+    public partial TerraformValue<double>? MinExecutors { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -184,14 +184,14 @@ public partial class AzurermSynapseSparkPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The node_count attribute.
     /// </summary>
     [TerraformProperty("node_count")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> NodeCount { get; set; }
+    public partial TerraformValue<double> NodeCount { get; set; }
 
     /// <summary>
     /// The node_size attribute.
@@ -199,7 +199,7 @@ public partial class AzurermSynapseSparkPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeSize is required")]
     [TerraformProperty("node_size")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NodeSize { get; set; }
+    public required partial TerraformValue<string> NodeSize { get; set; }
 
     /// <summary>
     /// The node_size_family attribute.
@@ -207,28 +207,28 @@ public partial class AzurermSynapseSparkPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeSizeFamily is required")]
     [TerraformProperty("node_size_family")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NodeSizeFamily { get; set; }
+    public required partial TerraformValue<string> NodeSizeFamily { get; set; }
 
     /// <summary>
     /// The session_level_packages_enabled attribute.
     /// </summary>
     [TerraformProperty("session_level_packages_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SessionLevelPackagesEnabled { get; set; }
+    public partial TerraformValue<bool>? SessionLevelPackagesEnabled { get; set; }
 
     /// <summary>
     /// The spark_events_folder attribute.
     /// </summary>
     [TerraformProperty("spark_events_folder")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SparkEventsFolder { get; set; }
+    public partial TerraformValue<string>? SparkEventsFolder { get; set; }
 
     /// <summary>
     /// The spark_log_folder attribute.
     /// </summary>
     [TerraformProperty("spark_log_folder")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SparkLogFolder { get; set; }
+    public partial TerraformValue<string>? SparkLogFolder { get; set; }
 
     /// <summary>
     /// The spark_version attribute.
@@ -236,7 +236,7 @@ public partial class AzurermSynapseSparkPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SparkVersion is required")]
     [TerraformProperty("spark_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SparkVersion { get; set; }
+    public required partial TerraformValue<string> SparkVersion { get; set; }
 
     /// <summary>
     /// The synapse_workspace_id attribute.
@@ -244,14 +244,14 @@ public partial class AzurermSynapseSparkPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     [TerraformProperty("synapse_workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SynapseWorkspaceId { get; set; }
+    public required partial TerraformValue<string> SynapseWorkspaceId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for auto_pause.
@@ -259,7 +259,7 @@ public partial class AzurermSynapseSparkPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoPause block(s) allowed")]
     [TerraformProperty("auto_pause")]
-    public TerraformList<TerraformBlock<AzurermSynapseSparkPoolAutoPauseBlock>>? AutoPause { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSynapseSparkPoolAutoPauseBlock>>? AutoPause { get; set; }
 
     /// <summary>
     /// Block for auto_scale.
@@ -267,7 +267,7 @@ public partial class AzurermSynapseSparkPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScale block(s) allowed")]
     [TerraformProperty("auto_scale")]
-    public TerraformList<TerraformBlock<AzurermSynapseSparkPoolAutoScaleBlock>>? AutoScale { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSynapseSparkPoolAutoScaleBlock>>? AutoScale { get; set; }
 
     /// <summary>
     /// Block for library_requirement.
@@ -275,7 +275,7 @@ public partial class AzurermSynapseSparkPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LibraryRequirement block(s) allowed")]
     [TerraformProperty("library_requirement")]
-    public TerraformList<TerraformBlock<AzurermSynapseSparkPoolLibraryRequirementBlock>>? LibraryRequirement { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSynapseSparkPoolLibraryRequirementBlock>>? LibraryRequirement { get; set; }
 
     /// <summary>
     /// Block for spark_config.
@@ -283,13 +283,13 @@ public partial class AzurermSynapseSparkPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkConfig block(s) allowed")]
     [TerraformProperty("spark_config")]
-    public TerraformList<TerraformBlock<AzurermSynapseSparkPoolSparkConfigBlock>>? SparkConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSynapseSparkPoolSparkConfigBlock>>? SparkConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSynapseSparkPoolTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSynapseSparkPoolTimeoutsBlock>? Timeouts { get; set; }
 
 }

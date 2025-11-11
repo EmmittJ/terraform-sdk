@@ -13,28 +13,28 @@ public partial class AzurermFederatedIdentityCredentialTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,14 +53,14 @@ public partial class AzurermFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Audience is required")]
     [TerraformProperty("audience")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Audience { get; set; }
+    public partial TerraformList<string>? Audience { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The issuer attribute.
@@ -68,7 +68,7 @@ public partial class AzurermFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     [TerraformProperty("issuer")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Issuer { get; set; }
+    public required partial TerraformValue<string> Issuer { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -76,7 +76,7 @@ public partial class AzurermFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parent_id attribute.
@@ -84,7 +84,7 @@ public partial class AzurermFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
     [TerraformProperty("parent_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ParentId { get; set; }
+    public required partial TerraformValue<string> ParentId { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -92,7 +92,7 @@ public partial class AzurermFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The subject attribute.
@@ -100,13 +100,13 @@ public partial class AzurermFederatedIdentityCredential : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     [TerraformProperty("subject")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Subject { get; set; }
+    public required partial TerraformValue<string> Subject { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermFederatedIdentityCredentialTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermFederatedIdentityCredentialTimeoutsBlock>? Timeouts { get; set; }
 
 }

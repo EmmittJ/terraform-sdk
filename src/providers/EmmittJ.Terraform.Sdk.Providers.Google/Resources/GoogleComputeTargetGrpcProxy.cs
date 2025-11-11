@@ -13,21 +13,21 @@ public partial class GoogleComputeTargetGrpcProxyTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public partial class GoogleComputeTargetGrpcProxy : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource
@@ -66,14 +66,14 @@ public partial class GoogleComputeTargetGrpcProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// URL to the UrlMap resource that defines the mapping from URL to
@@ -82,7 +82,7 @@ public partial class GoogleComputeTargetGrpcProxy : TerraformResource
     /// </summary>
     [TerraformProperty("url_map")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UrlMap { get; set; }
+    public partial TerraformValue<string>? UrlMap { get; set; }
 
     /// <summary>
     /// If true, indicates that the BackendServices referenced by
@@ -98,21 +98,21 @@ public partial class GoogleComputeTargetGrpcProxy : TerraformResource
     /// </summary>
     [TerraformProperty("validate_for_proxyless")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ValidateForProxyless { get; set; }
+    public partial TerraformValue<bool>? ValidateForProxyless { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeTargetGrpcProxyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeTargetGrpcProxyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in
@@ -125,20 +125,20 @@ public partial class GoogleComputeTargetGrpcProxy : TerraformResource
     /// </summary>
     [TerraformProperty("fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Fingerprint { get; }
+    public partial TerraformValue<string> Fingerprint { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// Server-defined URL with id for the resource.
     /// </summary>
     [TerraformProperty("self_link_with_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLinkWithId { get; }
+    public partial TerraformValue<string> SelfLinkWithId { get; }
 
 }

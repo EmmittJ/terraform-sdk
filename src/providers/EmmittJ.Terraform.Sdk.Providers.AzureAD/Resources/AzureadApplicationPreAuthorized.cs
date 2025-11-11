@@ -13,28 +13,28 @@ public partial class AzureadApplicationPreAuthorizedTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzureadApplicationPreAuthorized : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     [TerraformProperty("application_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApplicationId { get; set; }
+    public required partial TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// The client ID of the pre-authorized application
@@ -61,14 +61,14 @@ public partial class AzureadApplicationPreAuthorized : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizedClientId is required")]
     [TerraformProperty("authorized_client_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AuthorizedClientId { get; set; }
+    public required partial TerraformValue<string> AuthorizedClientId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The IDs of the permission scopes required by the pre-authorized application
@@ -76,13 +76,13 @@ public partial class AzureadApplicationPreAuthorized : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionIds is required")]
     [TerraformProperty("permission_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> PermissionIds { get; set; }
+    public required partial TerraformSet<string> PermissionIds { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadApplicationPreAuthorizedTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadApplicationPreAuthorizedTimeoutsBlock>? Timeouts { get; set; }
 
 }

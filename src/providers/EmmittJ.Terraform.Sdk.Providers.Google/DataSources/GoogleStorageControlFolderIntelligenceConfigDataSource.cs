@@ -16,7 +16,7 @@ public partial class GoogleStorageControlFolderIntelligenceConfigDataSource : Te
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Identifier of the GCP Folder. For GCP Folder, this field can be folder number.
@@ -24,41 +24,41 @@ public partial class GoogleStorageControlFolderIntelligenceConfigDataSource : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Edition configuration of the Storage Intelligence resource. Valid values are INHERIT, TRIAL, DISABLED and STANDARD.
     /// </summary>
     [TerraformProperty("edition_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EditionConfig { get; }
+    public partial TerraformValue<string> EditionConfig { get; }
 
     /// <summary>
     /// The Intelligence config that is effective for the resource.
     /// </summary>
     [TerraformProperty("effective_intelligence_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> EffectiveIntelligenceConfig { get; }
+    public partial TerraformList<object> EffectiveIntelligenceConfig { get; }
 
     /// <summary>
     /// Filter over location and bucket using include or exclude semantics. Resources that match the include or exclude filter are exclusively included or excluded from the Storage Intelligence plan.
     /// </summary>
     [TerraformProperty("filter")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Filter { get; }
+    public partial TerraformList<object> Filter { get; }
 
     /// <summary>
     /// The trial configuration of the Storage Intelligence resource.
     /// </summary>
     [TerraformProperty("trial_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> TrialConfig { get; }
+    public partial TerraformList<object> TrialConfig { get; }
 
     /// <summary>
     /// The time at which the Storage Intelligence Config resource is last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -13,14 +13,14 @@ public partial class GoogleDialogflowCxGeneratorLlmModelSettingsBlock : Terrafor
     /// </summary>
     [TerraformProperty("model")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Model { get; set; }
+    public partial TerraformValue<string>? Model { get; set; }
 
     /// <summary>
     /// The custom prompt to use.
     /// </summary>
     [TerraformProperty("prompt_text")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PromptText { get; set; }
+    public partial TerraformValue<string>? PromptText { get; set; }
 
 }
 
@@ -35,7 +35,7 @@ public partial class GoogleDialogflowCxGeneratorModelParameterBlock : TerraformB
     /// </summary>
     [TerraformProperty("max_decode_steps")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxDecodeSteps { get; set; }
+    public partial TerraformValue<double>? MaxDecodeSteps { get; set; }
 
     /// <summary>
     /// The temperature used for sampling. Temperature sampling occurs after both topP and topK have been applied.
@@ -43,7 +43,7 @@ public partial class GoogleDialogflowCxGeneratorModelParameterBlock : TerraformB
     /// </summary>
     [TerraformProperty("temperature")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Temperature { get; set; }
+    public partial TerraformValue<double>? Temperature { get; set; }
 
     /// <summary>
     /// If set, the sampling process in each step is limited to the topK tokens with highest probabilities.
@@ -51,7 +51,7 @@ public partial class GoogleDialogflowCxGeneratorModelParameterBlock : TerraformB
     /// </summary>
     [TerraformProperty("top_k")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? TopK { get; set; }
+    public partial TerraformValue<double>? TopK { get; set; }
 
     /// <summary>
     /// If set, only the tokens comprising the top topP probability mass are considered.
@@ -60,7 +60,7 @@ public partial class GoogleDialogflowCxGeneratorModelParameterBlock : TerraformB
     /// </summary>
     [TerraformProperty("top_p")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? TopP { get; set; }
+    public partial TerraformValue<double>? TopP { get; set; }
 
 }
 
@@ -75,14 +75,14 @@ public partial class GoogleDialogflowCxGeneratorPlaceholdersBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Id { get; set; }
+    public partial TerraformValue<string>? Id { get; set; }
 
     /// <summary>
     /// Custom placeholder value in the prompt text.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
 }
 
@@ -97,7 +97,7 @@ public partial class GoogleDialogflowCxGeneratorPromptTextBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("text")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Text { get; set; }
+    public partial TerraformValue<string>? Text { get; set; }
 
 }
 
@@ -112,21 +112,21 @@ public partial class GoogleDialogflowCxGeneratorTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -146,14 +146,14 @@ public partial class GoogleDialogflowCxGenerator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The language to create generators for the following fields:
@@ -162,7 +162,7 @@ public partial class GoogleDialogflowCxGenerator : TerraformResource
     /// </summary>
     [TerraformProperty("language_code")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LanguageCode { get; set; }
+    public partial TerraformValue<string>? LanguageCode { get; set; }
 
     /// <summary>
     /// The agent to create a Generator for.
@@ -170,7 +170,7 @@ public partial class GoogleDialogflowCxGenerator : TerraformResource
     /// </summary>
     [TerraformProperty("parent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Parent { get; set; }
+    public partial TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// Block for llm_model_settings.
@@ -178,7 +178,7 @@ public partial class GoogleDialogflowCxGenerator : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LlmModelSettings block(s) allowed")]
     [TerraformProperty("llm_model_settings")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxGeneratorLlmModelSettingsBlock>>? LlmModelSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxGeneratorLlmModelSettingsBlock>>? LlmModelSettings { get; set; }
 
     /// <summary>
     /// Block for model_parameter.
@@ -186,14 +186,14 @@ public partial class GoogleDialogflowCxGenerator : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ModelParameter block(s) allowed")]
     [TerraformProperty("model_parameter")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxGeneratorModelParameterBlock>>? ModelParameter { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxGeneratorModelParameterBlock>>? ModelParameter { get; set; }
 
     /// <summary>
     /// Block for placeholders.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("placeholders")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxGeneratorPlaceholdersBlock>>? Placeholders { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxGeneratorPlaceholdersBlock>>? Placeholders { get; set; }
 
     /// <summary>
     /// Block for prompt_text.
@@ -203,14 +203,14 @@ public partial class GoogleDialogflowCxGenerator : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PromptText block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PromptText block(s) allowed")]
     [TerraformProperty("prompt_text")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxGeneratorPromptTextBlock>>? PromptText { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxGeneratorPromptTextBlock>>? PromptText { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDialogflowCxGeneratorTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDialogflowCxGeneratorTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique identifier of the Generator.
@@ -218,6 +218,6 @@ public partial class GoogleDialogflowCxGenerator : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

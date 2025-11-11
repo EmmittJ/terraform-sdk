@@ -13,28 +13,28 @@ public partial class AzurermNetworkManagerRoutingRuleCollectionTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,21 +52,21 @@ public partial class AzurermNetworkManagerRoutingRuleCollection : TerraformResou
     /// </summary>
     [TerraformProperty("bgp_route_propagation_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? BgpRoutePropagationEnabled { get; set; }
+    public partial TerraformValue<bool>? BgpRoutePropagationEnabled { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -74,7 +74,7 @@ public partial class AzurermNetworkManagerRoutingRuleCollection : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network_group_ids attribute.
@@ -82,7 +82,7 @@ public partial class AzurermNetworkManagerRoutingRuleCollection : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkGroupIds is required")]
     [TerraformProperty("network_group_ids")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? NetworkGroupIds { get; set; }
+    public partial TerraformList<string>? NetworkGroupIds { get; set; }
 
     /// <summary>
     /// The routing_configuration_id attribute.
@@ -90,13 +90,13 @@ public partial class AzurermNetworkManagerRoutingRuleCollection : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingConfigurationId is required")]
     [TerraformProperty("routing_configuration_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoutingConfigurationId { get; set; }
+    public required partial TerraformValue<string> RoutingConfigurationId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetworkManagerRoutingRuleCollectionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetworkManagerRoutingRuleCollectionTimeoutsBlock>? Timeouts { get; set; }
 
 }

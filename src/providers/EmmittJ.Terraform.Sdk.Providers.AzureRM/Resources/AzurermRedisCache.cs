@@ -13,7 +13,7 @@ public partial class AzurermRedisCacheIdentityBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -23,7 +23,7 @@ public partial class AzurermRedisCacheIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -39,21 +39,21 @@ public partial class AzurermRedisCachePatchScheduleBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     [TerraformProperty("day_of_week")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DayOfWeek { get; set; }
+    public required partial TerraformValue<string> DayOfWeek { get; set; }
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
     [TerraformProperty("maintenance_window")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MaintenanceWindow { get; set; }
+    public partial TerraformValue<string>? MaintenanceWindow { get; set; }
 
     /// <summary>
     /// The start_hour_utc attribute.
     /// </summary>
     [TerraformProperty("start_hour_utc")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? StartHourUtc { get; set; }
+    public partial TerraformValue<double>? StartHourUtc { get; set; }
 
 }
 
@@ -68,42 +68,42 @@ public partial class AzurermRedisCacheRedisConfigurationBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("active_directory_authentication_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ActiveDirectoryAuthenticationEnabled { get; set; }
+    public partial TerraformValue<bool>? ActiveDirectoryAuthenticationEnabled { get; set; }
 
     /// <summary>
     /// The aof_backup_enabled attribute.
     /// </summary>
     [TerraformProperty("aof_backup_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AofBackupEnabled { get; set; }
+    public partial TerraformValue<bool>? AofBackupEnabled { get; set; }
 
     /// <summary>
     /// The aof_storage_connection_string_0 attribute.
     /// </summary>
     [TerraformProperty("aof_storage_connection_string_0")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AofStorageConnectionString0 { get; set; }
+    public partial TerraformValue<string>? AofStorageConnectionString0 { get; set; }
 
     /// <summary>
     /// The aof_storage_connection_string_1 attribute.
     /// </summary>
     [TerraformProperty("aof_storage_connection_string_1")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AofStorageConnectionString1 { get; set; }
+    public partial TerraformValue<string>? AofStorageConnectionString1 { get; set; }
 
     /// <summary>
     /// The authentication_enabled attribute.
     /// </summary>
     [TerraformProperty("authentication_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AuthenticationEnabled { get; set; }
+    public partial TerraformValue<bool>? AuthenticationEnabled { get; set; }
 
     /// <summary>
     /// The data_persistence_authentication_method attribute.
     /// </summary>
     [TerraformProperty("data_persistence_authentication_method")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DataPersistenceAuthenticationMethod { get; set; }
+    public partial TerraformValue<string>? DataPersistenceAuthenticationMethod { get; set; }
 
 
     /// <summary>
@@ -111,70 +111,70 @@ public partial class AzurermRedisCacheRedisConfigurationBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("maxfragmentationmemory_reserved")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxfragmentationmemoryReserved { get; set; }
+    public partial TerraformValue<double> MaxfragmentationmemoryReserved { get; set; }
 
     /// <summary>
     /// The maxmemory_delta attribute.
     /// </summary>
     [TerraformProperty("maxmemory_delta")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxmemoryDelta { get; set; }
+    public partial TerraformValue<double> MaxmemoryDelta { get; set; }
 
     /// <summary>
     /// The maxmemory_policy attribute.
     /// </summary>
     [TerraformProperty("maxmemory_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MaxmemoryPolicy { get; set; }
+    public partial TerraformValue<string>? MaxmemoryPolicy { get; set; }
 
     /// <summary>
     /// The maxmemory_reserved attribute.
     /// </summary>
     [TerraformProperty("maxmemory_reserved")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxmemoryReserved { get; set; }
+    public partial TerraformValue<double> MaxmemoryReserved { get; set; }
 
     /// <summary>
     /// The notify_keyspace_events attribute.
     /// </summary>
     [TerraformProperty("notify_keyspace_events")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NotifyKeyspaceEvents { get; set; }
+    public partial TerraformValue<string>? NotifyKeyspaceEvents { get; set; }
 
     /// <summary>
     /// The rdb_backup_enabled attribute.
     /// </summary>
     [TerraformProperty("rdb_backup_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RdbBackupEnabled { get; set; }
+    public partial TerraformValue<bool>? RdbBackupEnabled { get; set; }
 
     /// <summary>
     /// The rdb_backup_frequency attribute.
     /// </summary>
     [TerraformProperty("rdb_backup_frequency")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RdbBackupFrequency { get; set; }
+    public partial TerraformValue<double>? RdbBackupFrequency { get; set; }
 
     /// <summary>
     /// The rdb_backup_max_snapshot_count attribute.
     /// </summary>
     [TerraformProperty("rdb_backup_max_snapshot_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RdbBackupMaxSnapshotCount { get; set; }
+    public partial TerraformValue<double>? RdbBackupMaxSnapshotCount { get; set; }
 
     /// <summary>
     /// The rdb_storage_connection_string attribute.
     /// </summary>
     [TerraformProperty("rdb_storage_connection_string")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RdbStorageConnectionString { get; set; }
+    public partial TerraformValue<string>? RdbStorageConnectionString { get; set; }
 
     /// <summary>
     /// The storage_account_subscription_id attribute.
     /// </summary>
     [TerraformProperty("storage_account_subscription_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountSubscriptionId { get; set; }
+    public partial TerraformValue<string>? StorageAccountSubscriptionId { get; set; }
 
 }
 
@@ -189,28 +189,28 @@ public partial class AzurermRedisCacheTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -229,7 +229,7 @@ public partial class AzurermRedisCache : TerraformResource
     /// </summary>
     [TerraformProperty("access_keys_authentication_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AccessKeysAuthenticationEnabled { get; set; }
+    public partial TerraformValue<bool>? AccessKeysAuthenticationEnabled { get; set; }
 
     /// <summary>
     /// The capacity attribute.
@@ -237,7 +237,7 @@ public partial class AzurermRedisCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     [TerraformProperty("capacity")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Capacity { get; set; }
+    public required partial TerraformValue<double> Capacity { get; set; }
 
     /// <summary>
     /// The family attribute.
@@ -245,14 +245,14 @@ public partial class AzurermRedisCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     [TerraformProperty("family")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Family { get; set; }
+    public required partial TerraformValue<string> Family { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -260,14 +260,14 @@ public partial class AzurermRedisCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The minimum_tls_version attribute.
     /// </summary>
     [TerraformProperty("minimum_tls_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MinimumTlsVersion { get; set; }
+    public partial TerraformValue<string>? MinimumTlsVersion { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -275,49 +275,49 @@ public partial class AzurermRedisCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The non_ssl_port_enabled attribute.
     /// </summary>
     [TerraformProperty("non_ssl_port_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? NonSslPortEnabled { get; set; }
+    public partial TerraformValue<bool>? NonSslPortEnabled { get; set; }
 
     /// <summary>
     /// The private_static_ip_address attribute.
     /// </summary>
     [TerraformProperty("private_static_ip_address")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PrivateStaticIpAddress { get; set; }
+    public partial TerraformValue<string> PrivateStaticIpAddress { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformProperty("public_network_access_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
+    public partial TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The redis_version attribute.
     /// </summary>
     [TerraformProperty("redis_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RedisVersion { get; set; }
+    public partial TerraformValue<string>? RedisVersion { get; set; }
 
     /// <summary>
     /// The replicas_per_master attribute.
     /// </summary>
     [TerraformProperty("replicas_per_master")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> ReplicasPerMaster { get; set; }
+    public partial TerraformValue<double> ReplicasPerMaster { get; set; }
 
     /// <summary>
     /// The replicas_per_primary attribute.
     /// </summary>
     [TerraformProperty("replicas_per_primary")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> ReplicasPerPrimary { get; set; }
+    public partial TerraformValue<double> ReplicasPerPrimary { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -325,14 +325,14 @@ public partial class AzurermRedisCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The shard_count attribute.
     /// </summary>
     [TerraformProperty("shard_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ShardCount { get; set; }
+    public partial TerraformValue<double>? ShardCount { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
@@ -340,35 +340,35 @@ public partial class AzurermRedisCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     [TerraformProperty("sku_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SkuName { get; set; }
+    public required partial TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [TerraformProperty("subnet_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SubnetId { get; set; }
+    public partial TerraformValue<string>? SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tenant_settings attribute.
     /// </summary>
     [TerraformProperty("tenant_settings")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? TenantSettings { get; set; }
+    public partial TerraformMap<string>? TenantSettings { get; set; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     [TerraformProperty("zones")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Zones { get; set; }
+    public partial TerraformSet<string>? Zones { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -376,14 +376,14 @@ public partial class AzurermRedisCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermRedisCacheIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermRedisCacheIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for patch_schedule.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("patch_schedule")]
-    public TerraformList<TerraformBlock<AzurermRedisCachePatchScheduleBlock>>? PatchSchedule { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermRedisCachePatchScheduleBlock>>? PatchSchedule { get; set; }
 
     /// <summary>
     /// Block for redis_configuration.
@@ -391,62 +391,62 @@ public partial class AzurermRedisCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedisConfiguration block(s) allowed")]
     [TerraformProperty("redis_configuration")]
-    public TerraformList<TerraformBlock<AzurermRedisCacheRedisConfigurationBlock>>? RedisConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermRedisCacheRedisConfigurationBlock>>? RedisConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermRedisCacheTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermRedisCacheTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
     [TerraformProperty("hostname")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Hostname { get; }
+    public partial TerraformValue<string> Hostname { get; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     [TerraformProperty("port")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> Port { get; }
+    public partial TerraformValue<double> Port { get; }
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     [TerraformProperty("primary_access_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryAccessKey { get; }
+    public partial TerraformValue<string> PrimaryAccessKey { get; }
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
     [TerraformProperty("primary_connection_string")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryConnectionString { get; }
+    public partial TerraformValue<string> PrimaryConnectionString { get; }
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     [TerraformProperty("secondary_access_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecondaryAccessKey { get; }
+    public partial TerraformValue<string> SecondaryAccessKey { get; }
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     [TerraformProperty("secondary_connection_string")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecondaryConnectionString { get; }
+    public partial TerraformValue<string> SecondaryConnectionString { get; }
 
     /// <summary>
     /// The ssl_port attribute.
     /// </summary>
     [TerraformProperty("ssl_port")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> SslPort { get; }
+    public partial TerraformValue<double> SslPort { get; }
 
 }

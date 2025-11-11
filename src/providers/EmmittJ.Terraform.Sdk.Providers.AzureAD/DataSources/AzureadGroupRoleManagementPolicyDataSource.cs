@@ -13,7 +13,7 @@ public partial class AzureadGroupRoleManagementPolicyDataSourceTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzureadGroupRoleManagementPolicyDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     [TerraformProperty("group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GroupId { get; set; }
+    public required partial TerraformValue<string> GroupId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the role of this policy to the group
@@ -47,27 +47,27 @@ public partial class AzureadGroupRoleManagementPolicyDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     [TerraformProperty("role_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleId { get; set; }
+    public required partial TerraformValue<string> RoleId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadGroupRoleManagementPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadGroupRoleManagementPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Description of the policy
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The display name of the policy
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
 }

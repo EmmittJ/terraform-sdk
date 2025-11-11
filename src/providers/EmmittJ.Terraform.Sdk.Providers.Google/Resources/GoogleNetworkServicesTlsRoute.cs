@@ -21,21 +21,21 @@ public partial class GoogleNetworkServicesTlsRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public partial class GoogleNetworkServicesTlsRoute : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Gateways defines a list of gateways this TlsRoute is attached to, as one of the routing rules to route the requests served by the gateway.
@@ -62,14 +62,14 @@ public partial class GoogleNetworkServicesTlsRoute : TerraformResource
     /// </summary>
     [TerraformProperty("gateways")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Gateways { get; set; }
+    public partial TerraformList<string>? Gateways { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Meshes defines a list of meshes this TlsRoute is attached to, as one of the routing rules to route the requests served by the mesh.
@@ -78,7 +78,7 @@ public partial class GoogleNetworkServicesTlsRoute : TerraformResource
     /// </summary>
     [TerraformProperty("meshes")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Meshes { get; set; }
+    public partial TerraformList<string>? Meshes { get; set; }
 
     /// <summary>
     /// Name of the TlsRoute resource.
@@ -86,14 +86,14 @@ public partial class GoogleNetworkServicesTlsRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for rules.
@@ -102,34 +102,34 @@ public partial class GoogleNetworkServicesTlsRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
     [TerraformProperty("rules")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesTlsRouteRulesBlock>>? Rules { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkServicesTlsRouteRulesBlock>>? Rules { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkServicesTlsRouteTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkServicesTlsRouteTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the TlsRoute was created in UTC.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Server-defined URL of this resource.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// Time the TlsRoute was updated in UTC.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

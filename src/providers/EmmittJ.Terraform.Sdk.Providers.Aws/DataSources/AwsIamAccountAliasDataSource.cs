@@ -16,13 +16,13 @@ public partial class AwsIamAccountAliasDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The account_alias attribute.
     /// </summary>
     [TerraformProperty("account_alias")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AccountAlias { get; }
+    public partial TerraformValue<string> AccountAlias { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermSpringCloudBuilderBuildPackGroupBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("build_pack_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? BuildPackIds { get; set; }
+    public partial TerraformList<string>? BuildPackIds { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -21,7 +21,7 @@ public partial class AzurermSpringCloudBuilderBuildPackGroupBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class AzurermSpringCloudBuilderStackBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The version attribute.
@@ -45,7 +45,7 @@ public partial class AzurermSpringCloudBuilderStackBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformProperty("version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Version { get; set; }
+    public required partial TerraformValue<string> Version { get; set; }
 
 }
 
@@ -60,28 +60,28 @@ public partial class AzurermSpringCloudBuilderTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -100,7 +100,7 @@ public partial class AzurermSpringCloudBuilder : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -108,7 +108,7 @@ public partial class AzurermSpringCloudBuilder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
@@ -116,7 +116,7 @@ public partial class AzurermSpringCloudBuilder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     [TerraformProperty("spring_cloud_service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SpringCloudServiceId { get; set; }
+    public required partial TerraformValue<string> SpringCloudServiceId { get; set; }
 
     /// <summary>
     /// Block for build_pack_group.
@@ -125,7 +125,7 @@ public partial class AzurermSpringCloudBuilder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuildPackGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BuildPackGroup block(s) required")]
     [TerraformProperty("build_pack_group")]
-    public TerraformSet<TerraformBlock<AzurermSpringCloudBuilderBuildPackGroupBlock>>? BuildPackGroup { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermSpringCloudBuilderBuildPackGroupBlock>>? BuildPackGroup { get; set; }
 
     /// <summary>
     /// Block for stack.
@@ -135,13 +135,13 @@ public partial class AzurermSpringCloudBuilder : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Stack block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Stack block(s) allowed")]
     [TerraformProperty("stack")]
-    public TerraformList<TerraformBlock<AzurermSpringCloudBuilderStackBlock>>? Stack { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSpringCloudBuilderStackBlock>>? Stack { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSpringCloudBuilderTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSpringCloudBuilderTimeoutsBlock>? Timeouts { get; set; }
 
 }

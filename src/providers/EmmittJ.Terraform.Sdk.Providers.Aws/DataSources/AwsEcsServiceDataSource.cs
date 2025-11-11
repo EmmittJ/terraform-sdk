@@ -17,21 +17,21 @@ public partial class AwsEcsServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterArn is required")]
     [TerraformProperty("cluster_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterArn { get; set; }
+    public required partial TerraformValue<string> ClusterArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The service_name attribute.
@@ -39,62 +39,62 @@ public partial class AwsEcsServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     [TerraformProperty("service_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceName { get; set; }
+    public required partial TerraformValue<string> ServiceName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Tags { get; set; }
+    public partial TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The availability_zone_rebalancing attribute.
     /// </summary>
     [TerraformProperty("availability_zone_rebalancing")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AvailabilityZoneRebalancing { get; }
+    public partial TerraformValue<string> AvailabilityZoneRebalancing { get; }
 
     /// <summary>
     /// The desired_count attribute.
     /// </summary>
     [TerraformProperty("desired_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> DesiredCount { get; }
+    public partial TerraformValue<double> DesiredCount { get; }
 
     /// <summary>
     /// The launch_type attribute.
     /// </summary>
     [TerraformProperty("launch_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LaunchType { get; }
+    public partial TerraformValue<string> LaunchType { get; }
 
     /// <summary>
     /// The load_balancer attribute.
     /// </summary>
     [TerraformProperty("load_balancer")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> LoadBalancer { get; }
+    public partial TerraformSet<object> LoadBalancer { get; }
 
     /// <summary>
     /// The scheduling_strategy attribute.
     /// </summary>
     [TerraformProperty("scheduling_strategy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SchedulingStrategy { get; }
+    public partial TerraformValue<string> SchedulingStrategy { get; }
 
     /// <summary>
     /// The task_definition attribute.
     /// </summary>
     [TerraformProperty("task_definition")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TaskDefinition { get; }
+    public partial TerraformValue<string> TaskDefinition { get; }
 
 }

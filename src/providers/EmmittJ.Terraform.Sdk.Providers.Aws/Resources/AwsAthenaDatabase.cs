@@ -14,7 +14,7 @@ public partial class AwsAthenaDatabaseAclConfigurationBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3AclOption is required")]
     [TerraformProperty("s3_acl_option")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> S3AclOption { get; set; }
+    public required partial TerraformValue<string> S3AclOption { get; set; }
 
 }
 
@@ -30,14 +30,14 @@ public partial class AwsAthenaDatabaseEncryptionConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionOption is required")]
     [TerraformProperty("encryption_option")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EncryptionOption { get; set; }
+    public required partial TerraformValue<string> EncryptionOption { get; set; }
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
     [TerraformProperty("kms_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKey { get; set; }
+    public partial TerraformValue<string>? KmsKey { get; set; }
 
 }
 
@@ -56,35 +56,35 @@ public partial class AwsAthenaDatabase : TerraformResource
     /// </summary>
     [TerraformProperty("bucket")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Bucket { get; set; }
+    public partial TerraformValue<string>? Bucket { get; set; }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     [TerraformProperty("comment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Comment { get; set; }
+    public partial TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
     [TerraformProperty("expected_bucket_owner")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExpectedBucketOwner { get; set; }
+    public partial TerraformValue<string>? ExpectedBucketOwner { get; set; }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
     [TerraformProperty("force_destroy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ForceDestroy { get; set; }
+    public partial TerraformValue<bool>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -92,28 +92,28 @@ public partial class AwsAthenaDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
     [TerraformProperty("properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Properties { get; set; }
+    public partial TerraformMap<string>? Properties { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The workgroup attribute.
     /// </summary>
     [TerraformProperty("workgroup")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Workgroup { get; set; }
+    public partial TerraformValue<string>? Workgroup { get; set; }
 
     /// <summary>
     /// Block for acl_configuration.
@@ -121,7 +121,7 @@ public partial class AwsAthenaDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AclConfiguration block(s) allowed")]
     [TerraformProperty("acl_configuration")]
-    public TerraformList<TerraformBlock<AwsAthenaDatabaseAclConfigurationBlock>>? AclConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAthenaDatabaseAclConfigurationBlock>>? AclConfiguration { get; set; }
 
     /// <summary>
     /// Block for encryption_configuration.
@@ -129,6 +129,6 @@ public partial class AwsAthenaDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
     [TerraformProperty("encryption_configuration")]
-    public TerraformList<TerraformBlock<AwsAthenaDatabaseEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAthenaDatabaseEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
 
 }

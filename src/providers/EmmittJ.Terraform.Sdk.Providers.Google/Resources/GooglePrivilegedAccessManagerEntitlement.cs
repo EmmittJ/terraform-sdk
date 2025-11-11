@@ -13,14 +13,14 @@ public partial class GooglePrivilegedAccessManagerEntitlementAdditionalNotificat
     /// </summary>
     [TerraformProperty("admin_email_recipients")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AdminEmailRecipients { get; set; }
+    public partial TerraformSet<string>? AdminEmailRecipients { get; set; }
 
     /// <summary>
     /// Optional. Additional email address to be notified about an eligible entitlement.
     /// </summary>
     [TerraformProperty("requester_email_recipients")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? RequesterEmailRecipients { get; set; }
+    public partial TerraformSet<string>? RequesterEmailRecipients { get; set; }
 
 }
 
@@ -44,7 +44,7 @@ public partial class GooglePrivilegedAccessManagerEntitlementEligibleUsersBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principals is required")]
     [TerraformProperty("principals")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Principals { get; set; }
+    public required partial TerraformSet<string> Principals { get; set; }
 
 }
 
@@ -75,21 +75,21 @@ public partial class GooglePrivilegedAccessManagerEntitlementTimeoutsBlock : Ter
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -111,14 +111,14 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntitlementId is required")]
     [TerraformProperty("entitlement_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EntitlementId { get; set; }
+    public required partial TerraformValue<string> EntitlementId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The region of the Entitlement resource.
@@ -126,7 +126,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The maximum amount of time for which access would be granted for a request.
@@ -136,7 +136,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRequestDuration is required")]
     [TerraformProperty("max_request_duration")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MaxRequestDuration { get; set; }
+    public required partial TerraformValue<string> MaxRequestDuration { get; set; }
 
     /// <summary>
     /// Format: projects/{project-id|project-number} or organizations/{organization-number} or folders/{folder-number}
@@ -144,7 +144,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Block for additional_notification_targets.
@@ -152,7 +152,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalNotificationTargets block(s) allowed")]
     [TerraformProperty("additional_notification_targets")]
-    public TerraformList<TerraformBlock<GooglePrivilegedAccessManagerEntitlementAdditionalNotificationTargetsBlock>>? AdditionalNotificationTargets { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePrivilegedAccessManagerEntitlementAdditionalNotificationTargetsBlock>>? AdditionalNotificationTargets { get; set; }
 
     /// <summary>
     /// Block for approval_workflow.
@@ -160,7 +160,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApprovalWorkflow block(s) allowed")]
     [TerraformProperty("approval_workflow")]
-    public TerraformList<TerraformBlock<GooglePrivilegedAccessManagerEntitlementApprovalWorkflowBlock>>? ApprovalWorkflow { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePrivilegedAccessManagerEntitlementApprovalWorkflowBlock>>? ApprovalWorkflow { get; set; }
 
     /// <summary>
     /// Block for eligible_users.
@@ -169,7 +169,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EligibleUsers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EligibleUsers block(s) required")]
     [TerraformProperty("eligible_users")]
-    public TerraformList<TerraformBlock<GooglePrivilegedAccessManagerEntitlementEligibleUsersBlock>>? EligibleUsers { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePrivilegedAccessManagerEntitlementEligibleUsersBlock>>? EligibleUsers { get; set; }
 
     /// <summary>
     /// Block for privileged_access.
@@ -179,7 +179,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PrivilegedAccess block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivilegedAccess block(s) allowed")]
     [TerraformProperty("privileged_access")]
-    public TerraformList<TerraformBlock<GooglePrivilegedAccessManagerEntitlementPrivilegedAccessBlock>>? PrivilegedAccess { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePrivilegedAccessManagerEntitlementPrivilegedAccessBlock>>? PrivilegedAccess { get; set; }
 
     /// <summary>
     /// Block for requester_justification_config.
@@ -189,14 +189,14 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RequesterJustificationConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RequesterJustificationConfig block(s) allowed")]
     [TerraformProperty("requester_justification_config")]
-    public TerraformList<TerraformBlock<GooglePrivilegedAccessManagerEntitlementRequesterJustificationConfigBlock>>? RequesterJustificationConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePrivilegedAccessManagerEntitlementRequesterJustificationConfigBlock>>? RequesterJustificationConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GooglePrivilegedAccessManagerEntitlementTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GooglePrivilegedAccessManagerEntitlementTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Create time stamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
@@ -204,14 +204,14 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Output Only. The entitlement&#39;s name follows a hierarchical structure, comprising the organization, folder, or project, alongside the region and a unique entitlement ID.
@@ -219,14 +219,14 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. The current state of the Entitlement.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Output only. Update time stamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
@@ -234,6 +234,6 @@ public partial class GooglePrivilegedAccessManagerEntitlement : TerraformResourc
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

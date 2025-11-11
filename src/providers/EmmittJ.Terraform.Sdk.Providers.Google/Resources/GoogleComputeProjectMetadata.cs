@@ -13,14 +13,14 @@ public partial class GoogleComputeProjectMetadataTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleComputeProjectMetadata : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A series of key value pairs.
@@ -46,20 +46,20 @@ public partial class GoogleComputeProjectMetadata : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Metadata is required")]
     [TerraformProperty("metadata")]
     // Required argument - source generator will implement get/set
-    public required TerraformMap<string> Metadata { get; set; }
+    public required partial TerraformMap<string> Metadata { get; set; }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeProjectMetadataTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeProjectMetadataTimeoutsBlock>? Timeouts { get; set; }
 
 }

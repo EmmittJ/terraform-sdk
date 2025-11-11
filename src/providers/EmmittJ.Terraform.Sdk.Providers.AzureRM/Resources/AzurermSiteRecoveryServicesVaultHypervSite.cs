@@ -13,21 +13,21 @@ public partial class AzurermSiteRecoveryServicesVaultHypervSiteTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermSiteRecoveryServicesVaultHypervSite : TerraformResou
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -53,7 +53,7 @@ public partial class AzurermSiteRecoveryServicesVaultHypervSite : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recovery_vault_id attribute.
@@ -61,13 +61,13 @@ public partial class AzurermSiteRecoveryServicesVaultHypervSite : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     [TerraformProperty("recovery_vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecoveryVaultId { get; set; }
+    public required partial TerraformValue<string> RecoveryVaultId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSiteRecoveryServicesVaultHypervSiteTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSiteRecoveryServicesVaultHypervSiteTimeoutsBlock>? Timeouts { get; set; }
 
 }

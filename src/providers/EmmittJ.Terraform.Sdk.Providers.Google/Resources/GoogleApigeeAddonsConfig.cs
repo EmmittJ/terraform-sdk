@@ -21,21 +21,21 @@ public partial class GoogleApigeeAddonsConfigTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public partial class GoogleApigeeAddonsConfig : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the Apigee organization.
@@ -62,7 +62,7 @@ public partial class GoogleApigeeAddonsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Org is required")]
     [TerraformProperty("org")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Org { get; set; }
+    public required partial TerraformValue<string> Org { get; set; }
 
     /// <summary>
     /// Block for addons_config.
@@ -70,13 +70,13 @@ public partial class GoogleApigeeAddonsConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AddonsConfig block(s) allowed")]
     [TerraformProperty("addons_config")]
-    public TerraformList<TerraformBlock<GoogleApigeeAddonsConfigAddonsConfigBlock>>? AddonsConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApigeeAddonsConfigAddonsConfigBlock>>? AddonsConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeAddonsConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeAddonsConfigTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -16,7 +16,7 @@ public partial class GoogleCloudIdentityGroupsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource name of the entity under which this Group resides in the
@@ -28,13 +28,13 @@ public partial class GoogleCloudIdentityGroupsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// List of Cloud Identity groups.
     /// </summary>
     [TerraformProperty("groups")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Groups { get; }
+    public partial TerraformList<object> Groups { get; }
 
 }

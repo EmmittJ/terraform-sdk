@@ -16,7 +16,7 @@ public partial class GoogleSccV2OrganizationSourceIamPolicyDataSource : Terrafor
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The organization attribute.
@@ -24,7 +24,7 @@ public partial class GoogleSccV2OrganizationSourceIamPolicyDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     [TerraformProperty("organization")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Organization { get; set; }
+    public required partial TerraformValue<string> Organization { get; set; }
 
     /// <summary>
     /// The source attribute.
@@ -32,20 +32,20 @@ public partial class GoogleSccV2OrganizationSourceIamPolicyDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [TerraformProperty("source")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Source { get; set; }
+    public required partial TerraformValue<string> Source { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     [TerraformProperty("policy_data")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PolicyData { get; }
+    public partial TerraformValue<string> PolicyData { get; }
 
 }

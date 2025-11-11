@@ -14,7 +14,7 @@ public partial class AwsS3BucketWebsiteConfigurationErrorDocumentBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public partial class AwsS3BucketWebsiteConfigurationIndexDocumentBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Suffix is required")]
     [TerraformProperty("suffix")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Suffix { get; set; }
+    public required partial TerraformValue<string> Suffix { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     [TerraformProperty("host_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HostName { get; set; }
+    public required partial TerraformValue<string> HostName { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [TerraformProperty("protocol")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Protocol { get; set; }
+    public partial TerraformValue<string>? Protocol { get; set; }
 
 }
 
@@ -81,35 +81,35 @@ public partial class AwsS3BucketWebsiteConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
     [TerraformProperty("expected_bucket_owner")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExpectedBucketOwner { get; set; }
+    public partial TerraformValue<string>? ExpectedBucketOwner { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The routing_rules attribute.
     /// </summary>
     [TerraformProperty("routing_rules")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> RoutingRules { get; set; }
+    public partial TerraformValue<string> RoutingRules { get; set; }
 
     /// <summary>
     /// Block for error_document.
@@ -117,7 +117,7 @@ public partial class AwsS3BucketWebsiteConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ErrorDocument block(s) allowed")]
     [TerraformProperty("error_document")]
-    public TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationErrorDocumentBlock>>? ErrorDocument { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationErrorDocumentBlock>>? ErrorDocument { get; set; }
 
     /// <summary>
     /// Block for index_document.
@@ -125,7 +125,7 @@ public partial class AwsS3BucketWebsiteConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexDocument block(s) allowed")]
     [TerraformProperty("index_document")]
-    public TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationIndexDocumentBlock>>? IndexDocument { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationIndexDocumentBlock>>? IndexDocument { get; set; }
 
     /// <summary>
     /// Block for redirect_all_requests_to.
@@ -133,27 +133,27 @@ public partial class AwsS3BucketWebsiteConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedirectAllRequestsTo block(s) allowed")]
     [TerraformProperty("redirect_all_requests_to")]
-    public TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock>>? RedirectAllRequestsTo { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock>>? RedirectAllRequestsTo { get; set; }
 
     /// <summary>
     /// Block for routing_rule.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("routing_rule")]
-    public TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationRoutingRuleBlock>>? RoutingRule { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationRoutingRuleBlock>>? RoutingRule { get; set; }
 
     /// <summary>
     /// The website_domain attribute.
     /// </summary>
     [TerraformProperty("website_domain")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> WebsiteDomain { get; }
+    public partial TerraformValue<string> WebsiteDomain { get; }
 
     /// <summary>
     /// The website_endpoint attribute.
     /// </summary>
     [TerraformProperty("website_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> WebsiteEndpoint { get; }
+    public partial TerraformValue<string> WebsiteEndpoint { get; }
 
 }

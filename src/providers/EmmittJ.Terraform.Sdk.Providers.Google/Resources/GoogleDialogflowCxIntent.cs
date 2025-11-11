@@ -15,7 +15,7 @@ public partial class GoogleDialogflowCxIntentParametersBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityType is required")]
     [TerraformProperty("entity_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EntityType { get; set; }
+    public required partial TerraformValue<string> EntityType { get; set; }
 
     /// <summary>
     /// The unique identifier of the parameter. This field is used by training phrases to annotate their parts.
@@ -23,14 +23,14 @@ public partial class GoogleDialogflowCxIntentParametersBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Indicates whether the parameter represents a list of values.
     /// </summary>
     [TerraformProperty("is_list")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IsList { get; set; }
+    public partial TerraformValue<bool>? IsList { get; set; }
 
     /// <summary>
     /// Indicates whether the parameter content should be redacted in log. If redaction is enabled, the parameter content will be replaced by parameter name during logging.
@@ -38,7 +38,7 @@ public partial class GoogleDialogflowCxIntentParametersBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("redact")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Redact { get; set; }
+    public partial TerraformValue<bool>? Redact { get; set; }
 
 }
 
@@ -53,21 +53,21 @@ public partial class GoogleDialogflowCxIntentTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -83,7 +83,7 @@ public partial class GoogleDialogflowCxIntentTrainingPhrasesBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("repeat_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RepeatCount { get; set; }
+    public partial TerraformValue<double>? RepeatCount { get; set; }
 
 }
 
@@ -101,7 +101,7 @@ public partial class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The human-readable name of the intent, unique within the agent.
@@ -109,14 +109,14 @@ public partial class GoogleDialogflowCxIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Marks this as the [Default Negative Intent](https://cloud.google.com/dialogflow/cx/docs/concept/intent#negative) for an agent. When you create an agent, a Default Negative Intent is created automatically.
@@ -126,7 +126,7 @@ public partial class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformProperty("is_default_negative_intent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IsDefaultNegativeIntent { get; set; }
+    public partial TerraformValue<bool>? IsDefaultNegativeIntent { get; set; }
 
     /// <summary>
     /// Marks this as the [Default Welcome Intent](https://cloud.google.com/dialogflow/cx/docs/concept/intent#welcome) for an agent. When you create an agent, a Default Welcome Intent is created automatically.
@@ -136,7 +136,7 @@ public partial class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformProperty("is_default_welcome_intent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IsDefaultWelcomeIntent { get; set; }
+    public partial TerraformValue<bool>? IsDefaultWelcomeIntent { get; set; }
 
     /// <summary>
     /// Indicates whether this is a fallback intent. Currently only default fallback intent is allowed in the agent, which is added upon agent creation.
@@ -145,7 +145,7 @@ public partial class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformProperty("is_fallback")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IsFallback { get; set; }
+    public partial TerraformValue<bool>? IsFallback { get; set; }
 
     /// <summary>
     /// The key/value metadata to label an intent. Labels can contain lowercase letters, digits and the symbols &#39;-&#39; and &#39;_&#39;. International characters are allowed, including letters from unicase alphabets. Keys must start with a letter. Keys and values can be no longer than 63 characters and no more than 128 bytes.
@@ -158,7 +158,7 @@ public partial class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The language of the following fields in intent:
@@ -167,7 +167,7 @@ public partial class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformProperty("language_code")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LanguageCode { get; set; }
+    public partial TerraformValue<string>? LanguageCode { get; set; }
 
     /// <summary>
     /// The agent to create an intent for.
@@ -175,7 +175,7 @@ public partial class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformProperty("parent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Parent { get; set; }
+    public partial TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// The priority of this intent. Higher numbers represent higher priorities.
@@ -184,35 +184,35 @@ public partial class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformProperty("priority")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Priority { get; set; }
+    public partial TerraformValue<double>? Priority { get; set; }
 
     /// <summary>
     /// Block for parameters.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("parameters")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxIntentParametersBlock>>? Parameters { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxIntentParametersBlock>>? Parameters { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDialogflowCxIntentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDialogflowCxIntentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for training_phrases.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("training_phrases")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxIntentTrainingPhrasesBlock>>? TrainingPhrases { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxIntentTrainingPhrasesBlock>>? TrainingPhrases { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The unique identifier of the intent.
@@ -220,7 +220,7 @@ public partial class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -228,6 +228,6 @@ public partial class GoogleDialogflowCxIntent : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

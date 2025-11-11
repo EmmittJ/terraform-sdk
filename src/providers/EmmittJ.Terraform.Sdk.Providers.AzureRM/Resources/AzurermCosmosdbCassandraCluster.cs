@@ -16,7 +16,7 @@ public partial class AzurermCosmosdbCassandraClusterIdentityBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -31,28 +31,28 @@ public partial class AzurermCosmosdbCassandraClusterTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -71,14 +71,14 @@ public partial class AzurermCosmosdbCassandraCluster : TerraformResource
     /// </summary>
     [TerraformProperty("authentication_method")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthenticationMethod { get; set; }
+    public partial TerraformValue<string>? AuthenticationMethod { get; set; }
 
     /// <summary>
     /// The client_certificate_pems attribute.
     /// </summary>
     [TerraformProperty("client_certificate_pems")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ClientCertificatePems { get; set; }
+    public partial TerraformList<string>? ClientCertificatePems { get; set; }
 
     /// <summary>
     /// The default_admin_password attribute.
@@ -86,7 +86,7 @@ public partial class AzurermCosmosdbCassandraCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAdminPassword is required")]
     [TerraformProperty("default_admin_password")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DefaultAdminPassword { get; set; }
+    public required partial TerraformValue<string> DefaultAdminPassword { get; set; }
 
     /// <summary>
     /// The delegated_management_subnet_id attribute.
@@ -94,35 +94,35 @@ public partial class AzurermCosmosdbCassandraCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelegatedManagementSubnetId is required")]
     [TerraformProperty("delegated_management_subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DelegatedManagementSubnetId { get; set; }
+    public required partial TerraformValue<string> DelegatedManagementSubnetId { get; set; }
 
     /// <summary>
     /// The external_gossip_certificate_pems attribute.
     /// </summary>
     [TerraformProperty("external_gossip_certificate_pems")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ExternalGossipCertificatePems { get; set; }
+    public partial TerraformList<string>? ExternalGossipCertificatePems { get; set; }
 
     /// <summary>
     /// The external_seed_node_ip_addresses attribute.
     /// </summary>
     [TerraformProperty("external_seed_node_ip_addresses")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ExternalSeedNodeIpAddresses { get; set; }
+    public partial TerraformList<string>? ExternalSeedNodeIpAddresses { get; set; }
 
     /// <summary>
     /// The hours_between_backups attribute.
     /// </summary>
     [TerraformProperty("hours_between_backups")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? HoursBetweenBackups { get; set; }
+    public partial TerraformValue<double>? HoursBetweenBackups { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -130,7 +130,7 @@ public partial class AzurermCosmosdbCassandraCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -138,14 +138,14 @@ public partial class AzurermCosmosdbCassandraCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The repair_enabled attribute.
     /// </summary>
     [TerraformProperty("repair_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RepairEnabled { get; set; }
+    public partial TerraformValue<bool>? RepairEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -153,21 +153,21 @@ public partial class AzurermCosmosdbCassandraCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Version { get; set; }
+    public partial TerraformValue<string>? Version { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -175,13 +175,13 @@ public partial class AzurermCosmosdbCassandraCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermCosmosdbCassandraClusterIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermCosmosdbCassandraClusterIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCosmosdbCassandraClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCosmosdbCassandraClusterTimeoutsBlock>? Timeouts { get; set; }
 
 }

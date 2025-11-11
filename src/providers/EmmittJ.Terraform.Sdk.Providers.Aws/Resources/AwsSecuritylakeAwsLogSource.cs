@@ -13,7 +13,7 @@ public partial class AwsSecuritylakeAwsLogSourceSourceBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("accounts")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> Accounts { get; set; }
+    public partial TerraformSet<string> Accounts { get; set; }
 
     /// <summary>
     /// The regions attribute.
@@ -21,7 +21,7 @@ public partial class AwsSecuritylakeAwsLogSourceSourceBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Regions is required")]
     [TerraformProperty("regions")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Regions { get; set; }
+    public required partial TerraformSet<string> Regions { get; set; }
 
     /// <summary>
     /// The source_name attribute.
@@ -29,14 +29,14 @@ public partial class AwsSecuritylakeAwsLogSourceSourceBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
     [TerraformProperty("source_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceName { get; set; }
+    public required partial TerraformValue<string> SourceName { get; set; }
 
     /// <summary>
     /// The source_version attribute.
     /// </summary>
     [TerraformProperty("source_version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SourceVersion { get; set; }
+    public partial TerraformValue<string> SourceVersion { get; set; }
 
 }
 
@@ -54,20 +54,20 @@ public partial class AwsSecuritylakeAwsLogSource : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("source")]
-    public TerraformList<TerraformBlock<AwsSecuritylakeAwsLogSourceSourceBlock>>? Source { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSecuritylakeAwsLogSourceSourceBlock>>? Source { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

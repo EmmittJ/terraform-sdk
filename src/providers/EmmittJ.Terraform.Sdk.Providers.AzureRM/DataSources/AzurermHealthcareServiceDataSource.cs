@@ -13,7 +13,7 @@ public partial class AzurermHealthcareServiceDataSourceTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermHealthcareServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -39,7 +39,7 @@ public partial class AzurermHealthcareServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,7 +47,7 @@ public partial class AzurermHealthcareServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -55,62 +55,62 @@ public partial class AzurermHealthcareServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermHealthcareServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermHealthcareServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The access_policy_object_ids attribute.
     /// </summary>
     [TerraformProperty("access_policy_object_ids")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> AccessPolicyObjectIds { get; }
+    public partial TerraformSet<string> AccessPolicyObjectIds { get; }
 
     /// <summary>
     /// The authentication_configuration attribute.
     /// </summary>
     [TerraformProperty("authentication_configuration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> AuthenticationConfiguration { get; }
+    public partial TerraformList<object> AuthenticationConfiguration { get; }
 
     /// <summary>
     /// The cors_configuration attribute.
     /// </summary>
     [TerraformProperty("cors_configuration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CorsConfiguration { get; }
+    public partial TerraformList<object> CorsConfiguration { get; }
 
     /// <summary>
     /// The cosmosdb_key_vault_key_versionless_id attribute.
     /// </summary>
     [TerraformProperty("cosmosdb_key_vault_key_versionless_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CosmosdbKeyVaultKeyVersionlessId { get; }
+    public partial TerraformValue<string> CosmosdbKeyVaultKeyVersionlessId { get; }
 
     /// <summary>
     /// The cosmosdb_throughput attribute.
     /// </summary>
     [TerraformProperty("cosmosdb_throughput")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> CosmosdbThroughput { get; }
+    public partial TerraformValue<double> CosmosdbThroughput { get; }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     [TerraformProperty("kind")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Kind { get; }
+    public partial TerraformValue<string> Kind { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
 }

@@ -29,55 +29,55 @@ public partial class AwsOpensearchserverlessSecurityConfigDataSource : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for saml_options.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("saml_options")]
-    public TerraformList<TerraformBlock<AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock>>? SamlOptions { get; set; }
+    public partial TerraformList<TerraformBlock<AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock>>? SamlOptions { get; set; }
 
     /// <summary>
     /// The version of the security configuration.
     /// </summary>
     [TerraformProperty("config_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ConfigVersion { get; }
+    public partial TerraformValue<string> ConfigVersion { get; }
 
     /// <summary>
     /// The date the configuration was created.
     /// </summary>
     [TerraformProperty("created_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedDate { get; }
+    public partial TerraformValue<string> CreatedDate { get; }
 
     /// <summary>
     /// The description of the security configuration.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The date the configuration was last modified.
     /// </summary>
     [TerraformProperty("last_modified_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastModifiedDate { get; }
+    public partial TerraformValue<string> LastModifiedDate { get; }
 
     /// <summary>
     /// The type of security configuration.
     /// </summary>
     [TerraformProperty("type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Type { get; }
+    public partial TerraformValue<string> Type { get; }
 
 }

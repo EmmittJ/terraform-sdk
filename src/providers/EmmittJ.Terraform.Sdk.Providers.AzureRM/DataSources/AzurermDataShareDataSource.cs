@@ -13,7 +13,7 @@ public partial class AzurermDataShareDataSourceTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzurermDataShareDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     [TerraformProperty("account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccountId { get; set; }
+    public required partial TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,41 +47,41 @@ public partial class AzurermDataShareDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataShareDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataShareDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     [TerraformProperty("kind")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Kind { get; }
+    public partial TerraformValue<string> Kind { get; }
 
     /// <summary>
     /// The snapshot_schedule attribute.
     /// </summary>
     [TerraformProperty("snapshot_schedule")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> SnapshotSchedule { get; }
+    public partial TerraformList<object> SnapshotSchedule { get; }
 
     /// <summary>
     /// The terms attribute.
     /// </summary>
     [TerraformProperty("terms")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Terms { get; }
+    public partial TerraformValue<string> Terms { get; }
 
 }

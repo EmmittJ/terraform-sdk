@@ -14,7 +14,7 @@ public partial class GoogleAccessContextManagerAccessLevelConditionDevicePolicyB
     /// </summary>
     [TerraformProperty("allowed_device_management_levels")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AllowedDeviceManagementLevels { get; set; }
+    public partial TerraformList<string>? AllowedDeviceManagementLevels { get; set; }
 
     /// <summary>
     /// A list of allowed encryptions statuses.
@@ -22,21 +22,21 @@ public partial class GoogleAccessContextManagerAccessLevelConditionDevicePolicyB
     /// </summary>
     [TerraformProperty("allowed_encryption_statuses")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AllowedEncryptionStatuses { get; set; }
+    public partial TerraformList<string>? AllowedEncryptionStatuses { get; set; }
 
     /// <summary>
     /// Whether the device needs to be approved by the customer admin.
     /// </summary>
     [TerraformProperty("require_admin_approval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RequireAdminApproval { get; set; }
+    public partial TerraformValue<bool>? RequireAdminApproval { get; set; }
 
     /// <summary>
     /// Whether the device needs to be corp owned.
     /// </summary>
     [TerraformProperty("require_corp_owned")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RequireCorpOwned { get; set; }
+    public partial TerraformValue<bool>? RequireCorpOwned { get; set; }
 
     /// <summary>
     /// Whether or not screenlock is required for the DevicePolicy
@@ -44,7 +44,7 @@ public partial class GoogleAccessContextManagerAccessLevelConditionDevicePolicyB
     /// </summary>
     [TerraformProperty("require_screen_lock")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RequireScreenLock { get; set; }
+    public partial TerraformValue<bool>? RequireScreenLock { get; set; }
 
 }
 
@@ -59,14 +59,14 @@ public partial class GoogleAccessContextManagerAccessLevelConditionTimeoutsBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -94,14 +94,14 @@ public partial class GoogleAccessContextManagerAccessLevelCondition : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessLevel is required")]
     [TerraformProperty("access_level")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccessLevel { get; set; }
+    public required partial TerraformValue<string> AccessLevel { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A list of CIDR block IP subnetwork specification. May be IPv4
@@ -117,7 +117,7 @@ public partial class GoogleAccessContextManagerAccessLevelCondition : TerraformR
     /// </summary>
     [TerraformProperty("ip_subnetworks")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? IpSubnetworks { get; set; }
+    public partial TerraformList<string>? IpSubnetworks { get; set; }
 
     /// <summary>
     /// An allowed list of members (users, service accounts).
@@ -131,7 +131,7 @@ public partial class GoogleAccessContextManagerAccessLevelCondition : TerraformR
     /// </summary>
     [TerraformProperty("members")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Members { get; set; }
+    public partial TerraformList<string>? Members { get; set; }
 
     /// <summary>
     /// Whether to negate the Condition. If true, the Condition becomes
@@ -140,7 +140,7 @@ public partial class GoogleAccessContextManagerAccessLevelCondition : TerraformR
     /// </summary>
     [TerraformProperty("negate")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Negate { get; set; }
+    public partial TerraformValue<bool>? Negate { get; set; }
 
     /// <summary>
     /// The request must originate from one of the provided
@@ -149,7 +149,7 @@ public partial class GoogleAccessContextManagerAccessLevelCondition : TerraformR
     /// </summary>
     [TerraformProperty("regions")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Regions { get; set; }
+    public partial TerraformList<string>? Regions { get; set; }
 
     /// <summary>
     /// A list of other access levels defined in the same Policy,
@@ -160,7 +160,7 @@ public partial class GoogleAccessContextManagerAccessLevelCondition : TerraformR
     /// </summary>
     [TerraformProperty("required_access_levels")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? RequiredAccessLevels { get; set; }
+    public partial TerraformList<string>? RequiredAccessLevels { get; set; }
 
     /// <summary>
     /// Block for device_policy.
@@ -168,27 +168,27 @@ public partial class GoogleAccessContextManagerAccessLevelCondition : TerraformR
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DevicePolicy block(s) allowed")]
     [TerraformProperty("device_policy")]
-    public TerraformList<TerraformBlock<GoogleAccessContextManagerAccessLevelConditionDevicePolicyBlock>>? DevicePolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerAccessLevelConditionDevicePolicyBlock>>? DevicePolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleAccessContextManagerAccessLevelConditionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleAccessContextManagerAccessLevelConditionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vpc_network_sources.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("vpc_network_sources")]
-    public TerraformList<TerraformBlock<GoogleAccessContextManagerAccessLevelConditionVpcNetworkSourcesBlock>>? VpcNetworkSources { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerAccessLevelConditionVpcNetworkSourcesBlock>>? VpcNetworkSources { get; set; }
 
     /// <summary>
     /// The name of the Access Policy this resource belongs to.
     /// </summary>
     [TerraformProperty("access_policy_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AccessPolicyId { get; }
+    public partial TerraformValue<string> AccessPolicyId { get; }
 
 }

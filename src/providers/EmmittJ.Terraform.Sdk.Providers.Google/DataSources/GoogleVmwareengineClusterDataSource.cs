@@ -16,7 +16,7 @@ public partial class GoogleVmwareengineClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the Cluster.
@@ -24,7 +24,7 @@ public partial class GoogleVmwareengineClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource name of the private cloud to create a new cluster in.
@@ -34,14 +34,14 @@ public partial class GoogleVmwareengineClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Configuration of the autoscaling applied to this cluster
     /// </summary>
     [TerraformProperty("autoscaling_settings")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> AutoscalingSettings { get; }
+    public partial TerraformList<object> AutoscalingSettings { get; }
 
     /// <summary>
     /// Creation time of this resource.
@@ -50,7 +50,7 @@ public partial class GoogleVmwareengineClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// True if the cluster is a management cluster; false otherwise.
@@ -58,7 +58,7 @@ public partial class GoogleVmwareengineClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("management")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Management { get; }
+    public partial TerraformValue<bool> Management { get; }
 
     /// <summary>
     /// The map of cluster node types in this cluster,
@@ -66,21 +66,21 @@ public partial class GoogleVmwareengineClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("node_type_configs")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> NodeTypeConfigs { get; }
+    public partial TerraformSet<object> NodeTypeConfigs { get; }
 
     /// <summary>
     /// State of the Cluster.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Last updated time of this resource.
@@ -89,6 +89,6 @@ public partial class GoogleVmwareengineClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

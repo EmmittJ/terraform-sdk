@@ -13,7 +13,7 @@ public partial class GoogleWorkbenchInstanceGceSetupBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("disable_public_ip")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> DisablePublicIp { get; set; }
+    public partial TerraformValue<bool> DisablePublicIp { get; set; }
 
     /// <summary>
     /// Optional. Flag to enable ip forwarding or not, default false/off.
@@ -21,21 +21,21 @@ public partial class GoogleWorkbenchInstanceGceSetupBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("enable_ip_forwarding")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableIpForwarding { get; set; }
+    public partial TerraformValue<bool>? EnableIpForwarding { get; set; }
 
     /// <summary>
     /// Optional. The machine type of the VM instance. https://cloud.google.com/compute/docs/machine-resource
     /// </summary>
     [TerraformProperty("machine_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> MachineType { get; set; }
+    public partial TerraformValue<string> MachineType { get; set; }
 
     /// <summary>
     /// Optional. Custom metadata to apply to this instance.
     /// </summary>
     [TerraformProperty("metadata")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Metadata { get; set; }
+    public partial TerraformMap<string> Metadata { get; set; }
 
     /// <summary>
     /// Optional. The Compute Engine tags to add to instance (see [Tagging
@@ -43,7 +43,7 @@ public partial class GoogleWorkbenchInstanceGceSetupBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("tags")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> Tags { get; set; }
+    public partial TerraformList<string> Tags { get; set; }
 
 }
 
@@ -58,21 +58,21 @@ public partial class GoogleWorkbenchInstanceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -91,21 +91,21 @@ public partial class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [TerraformProperty("desired_state")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DesiredState { get; set; }
+    public partial TerraformValue<string>? DesiredState { get; set; }
 
     /// <summary>
     /// Optional. If true, the workbench instance will not register with the proxy.
     /// </summary>
     [TerraformProperty("disable_proxy_access")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableProxyAccess { get; set; }
+    public partial TerraformValue<bool>? DisableProxyAccess { get; set; }
 
     /// <summary>
     /// Flag to enable managed end user credentials for the instance.
     /// </summary>
     [TerraformProperty("enable_managed_euc")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableManagedEuc { get; set; }
+    public partial TerraformValue<bool>? EnableManagedEuc { get; set; }
 
     /// <summary>
     /// Flag that specifies that a notebook can be accessed with third party
@@ -113,21 +113,21 @@ public partial class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [TerraformProperty("enable_third_party_identity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableThirdPartyIdentity { get; set; }
+    public partial TerraformValue<bool>? EnableThirdPartyIdentity { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Required. User-defined unique ID of this instance.
     /// </summary>
     [TerraformProperty("instance_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InstanceId { get; set; }
+    public partial TerraformValue<string>? InstanceId { get; set; }
 
     /// <summary>
     /// &#39;Optional. Input only. The owner of this instance after creation. Format:
@@ -138,7 +138,7 @@ public partial class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [TerraformProperty("instance_owners")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? InstanceOwners { get; set; }
+    public partial TerraformList<string>? InstanceOwners { get; set; }
 
     /// <summary>
     /// Optional. Labels to apply to this instance. These can be later modified
@@ -150,7 +150,7 @@ public partial class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Part of &#39;parent&#39;. See documentation of &#39;projectsId&#39;.
@@ -158,7 +158,7 @@ public partial class GoogleWorkbenchInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of this workbench instance. Format: &#39;projects/{project_id}/locations/{location}/instances/{instance_id}&#39;
@@ -166,14 +166,14 @@ public partial class GoogleWorkbenchInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for gce_setup.
@@ -181,14 +181,14 @@ public partial class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GceSetup block(s) allowed")]
     [TerraformProperty("gce_setup")]
-    public TerraformList<TerraformBlock<GoogleWorkbenchInstanceGceSetupBlock>>? GceSetup { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleWorkbenchInstanceGceSetupBlock>>? GceSetup { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleWorkbenchInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleWorkbenchInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// An RFC3339 timestamp in UTC time. This in the format of yyyy-MM-ddTHH:mm:ss.SSSZ.
@@ -196,21 +196,21 @@ public partial class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Output only. Email address of entity that sent original CreateInstance request.
     /// </summary>
     [TerraformProperty("creator")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Creator { get; }
+    public partial TerraformValue<string> Creator { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// &#39;Output only. Additional information about instance health. Example:
@@ -219,28 +219,28 @@ public partial class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [TerraformProperty("health_info")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> HealthInfo { get; }
+    public partial TerraformList<object> HealthInfo { get; }
 
     /// <summary>
     /// Output only. Instance health_state.
     /// </summary>
     [TerraformProperty("health_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> HealthState { get; }
+    public partial TerraformValue<string> HealthState { get; }
 
     /// <summary>
     /// Output only. The proxy endpoint that is used to access the Jupyter notebook.
     /// </summary>
     [TerraformProperty("proxy_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ProxyUri { get; }
+    public partial TerraformValue<string> ProxyUri { get; }
 
     /// <summary>
     /// Output only. The state of this instance.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -248,7 +248,7 @@ public partial class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// An RFC3339 timestamp in UTC time. This in the format of yyyy-MM-ddTHH:mm:ss.SSSZ.
@@ -256,13 +256,13 @@ public partial class GoogleWorkbenchInstance : TerraformResource
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// Output only. The upgrade history of this instance.
     /// </summary>
     [TerraformProperty("upgrade_history")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> UpgradeHistory { get; }
+    public partial TerraformList<object> UpgradeHistory { get; }
 
 }

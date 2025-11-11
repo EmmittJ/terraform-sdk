@@ -13,7 +13,7 @@ public partial class AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock : 
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermLogAnalyticsWorkspaceTableDataSource : TerraformData
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermLogAnalyticsWorkspaceTableDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -47,34 +47,34 @@ public partial class AzurermLogAnalyticsWorkspaceTableDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformProperty("workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceId { get; set; }
+    public required partial TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The plan attribute.
     /// </summary>
     [TerraformProperty("plan")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Plan { get; }
+    public partial TerraformValue<string> Plan { get; }
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
     [TerraformProperty("retention_in_days")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> RetentionInDays { get; }
+    public partial TerraformValue<double> RetentionInDays { get; }
 
     /// <summary>
     /// The total_retention_in_days attribute.
     /// </summary>
     [TerraformProperty("total_retention_in_days")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> TotalRetentionInDays { get; }
+    public partial TerraformValue<double> TotalRetentionInDays { get; }
 
 }

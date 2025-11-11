@@ -38,7 +38,7 @@ public partial class GoogleSccProjectNotificationConfigStreamingConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [TerraformProperty("filter")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Filter { get; set; }
+    public required partial TerraformValue<string> Filter { get; set; }
 
 }
 
@@ -53,21 +53,21 @@ public partial class GoogleSccProjectNotificationConfigTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -87,28 +87,28 @@ public partial class GoogleSccProjectNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
     [TerraformProperty("config_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConfigId { get; set; }
+    public required partial TerraformValue<string> ConfigId { get; set; }
 
     /// <summary>
     /// The description of the notification config (max of 1024 characters).
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The Pub/Sub topic to send notifications to. Its format is
@@ -117,7 +117,7 @@ public partial class GoogleSccProjectNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     [TerraformProperty("pubsub_topic")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PubsubTopic { get; set; }
+    public required partial TerraformValue<string> PubsubTopic { get; set; }
 
     /// <summary>
     /// Block for streaming_config.
@@ -127,14 +127,14 @@ public partial class GoogleSccProjectNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StreamingConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StreamingConfig block(s) allowed")]
     [TerraformProperty("streaming_config")]
-    public TerraformList<TerraformBlock<GoogleSccProjectNotificationConfigStreamingConfigBlock>>? StreamingConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleSccProjectNotificationConfigStreamingConfigBlock>>? StreamingConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleSccProjectNotificationConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleSccProjectNotificationConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The resource name of this notification config, in the format
@@ -142,7 +142,7 @@ public partial class GoogleSccProjectNotificationConfig : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The service account that needs &amp;quot;pubsub.topics.publish&amp;quot; permission to
@@ -150,6 +150,6 @@ public partial class GoogleSccProjectNotificationConfig : TerraformResource
     /// </summary>
     [TerraformProperty("service_account")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServiceAccount { get; }
+    public partial TerraformValue<string> ServiceAccount { get; }
 
 }

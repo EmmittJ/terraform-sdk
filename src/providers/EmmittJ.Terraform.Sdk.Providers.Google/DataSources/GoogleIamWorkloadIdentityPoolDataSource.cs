@@ -16,14 +16,14 @@ public partial class GoogleIamWorkloadIdentityPoolDataSource : TerraformDataSour
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The ID to use for the pool, which becomes the final component of the resource name. This
@@ -33,14 +33,14 @@ public partial class GoogleIamWorkloadIdentityPoolDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolId is required")]
     [TerraformProperty("workload_identity_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkloadIdentityPoolId { get; set; }
+    public required partial TerraformValue<string> WorkloadIdentityPoolId { get; set; }
 
     /// <summary>
     /// A description of the pool. Cannot exceed 256 characters.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// Whether the pool is disabled. You cannot use a disabled pool to exchange tokens, or use
@@ -49,14 +49,14 @@ public partial class GoogleIamWorkloadIdentityPoolDataSource : TerraformDataSour
     /// </summary>
     [TerraformProperty("disabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Disabled { get; }
+    public partial TerraformValue<bool> Disabled { get; }
 
     /// <summary>
     /// A display name for the pool. Cannot exceed 32 characters.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The resource name of the pool as
@@ -64,7 +64,7 @@ public partial class GoogleIamWorkloadIdentityPoolDataSource : TerraformDataSour
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The state of the pool.
@@ -79,6 +79,6 @@ public partial class GoogleIamWorkloadIdentityPoolDataSource : TerraformDataSour
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

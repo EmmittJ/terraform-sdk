@@ -17,13 +17,13 @@ public partial class AwsIamAccountAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountAlias is required")]
     [TerraformProperty("account_alias")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccountAlias { get; set; }
+    public required partial TerraformValue<string> AccountAlias { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
 }

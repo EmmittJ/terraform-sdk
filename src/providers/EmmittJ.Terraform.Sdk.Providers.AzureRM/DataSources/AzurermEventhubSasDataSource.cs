@@ -13,7 +13,7 @@ public partial class AzurermEventhubSasDataSourceTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,7 +32,7 @@ public partial class AzurermEventhubSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     [TerraformProperty("connection_string")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConnectionString { get; set; }
+    public required partial TerraformValue<string> ConnectionString { get; set; }
 
     /// <summary>
     /// The expiry attribute.
@@ -40,27 +40,27 @@ public partial class AzurermEventhubSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiry is required")]
     [TerraformProperty("expiry")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Expiry { get; set; }
+    public required partial TerraformValue<string> Expiry { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermEventhubSasDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermEventhubSasDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The sas attribute.
     /// </summary>
     [TerraformProperty("sas")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Sas { get; }
+    public partial TerraformValue<string> Sas { get; }
 
 }

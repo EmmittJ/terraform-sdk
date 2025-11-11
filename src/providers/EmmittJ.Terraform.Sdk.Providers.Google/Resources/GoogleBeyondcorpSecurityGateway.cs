@@ -14,7 +14,7 @@ public partial class GoogleBeyondcorpSecurityGatewayHubsBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     [TerraformProperty("region")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Region { get; set; }
+    public required partial TerraformValue<string> Region { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public partial class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock : T
     /// </summary>
     [TerraformProperty("allowed_client_headers")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AllowedClientHeaders { get; set; }
+    public partial TerraformList<string>? AllowedClientHeaders { get; set; }
 
     /// <summary>
     /// Client IP configuration. The client IP address is included if true.
     /// </summary>
     [TerraformProperty("client_ip")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ClientIp { get; set; }
+    public partial TerraformValue<bool>? ClientIp { get; set; }
 
     /// <summary>
     /// Gateway identity configuration. Possible values: [&amp;quot;RESOURCE_NAME&amp;quot;]
     /// </summary>
     [TerraformProperty("gateway_identity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GatewayIdentity { get; set; }
+    public partial TerraformValue<string>? GatewayIdentity { get; set; }
 
     /// <summary>
     /// Custom resource specific headers along with the values.
@@ -54,7 +54,7 @@ public partial class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock : T
     /// </summary>
     [TerraformProperty("metadata_headers")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? MetadataHeaders { get; set; }
+    public partial TerraformMap<string>? MetadataHeaders { get; set; }
 
 }
 
@@ -77,21 +77,21 @@ public partial class GoogleBeyondcorpSecurityGatewayTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -111,14 +111,14 @@ public partial class GoogleBeyondcorpSecurityGateway : TerraformResource
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122. Must be omitted or set to &#39;global&#39;.
@@ -126,14 +126,14 @@ public partial class GoogleBeyondcorpSecurityGateway : TerraformResource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Optional. User-settable SecurityGateway resource ID.
@@ -144,14 +144,14 @@ public partial class GoogleBeyondcorpSecurityGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
     [TerraformProperty("security_gateway_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SecurityGatewayId { get; set; }
+    public required partial TerraformValue<string> SecurityGatewayId { get; set; }
 
     /// <summary>
     /// Block for hubs.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("hubs")]
-    public TerraformSet<TerraformBlock<GoogleBeyondcorpSecurityGatewayHubsBlock>>? Hubs { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleBeyondcorpSecurityGatewayHubsBlock>>? Hubs { get; set; }
 
     /// <summary>
     /// Block for proxy_protocol_config.
@@ -159,7 +159,7 @@ public partial class GoogleBeyondcorpSecurityGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProxyProtocolConfig block(s) allowed")]
     [TerraformProperty("proxy_protocol_config")]
-    public TerraformList<TerraformBlock<GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock>>? ProxyProtocolConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock>>? ProxyProtocolConfig { get; set; }
 
     /// <summary>
     /// Block for service_discovery.
@@ -167,28 +167,28 @@ public partial class GoogleBeyondcorpSecurityGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceDiscovery block(s) allowed")]
     [TerraformProperty("service_discovery")]
-    public TerraformList<TerraformBlock<GoogleBeyondcorpSecurityGatewayServiceDiscoveryBlock>>? ServiceDiscovery { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBeyondcorpSecurityGatewayServiceDiscoveryBlock>>? ServiceDiscovery { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBeyondcorpSecurityGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBeyondcorpSecurityGatewayTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Timestamp when the resource was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Service account used for operations that involve resources in consumer projects.
     /// </summary>
     [TerraformProperty("delegating_service_account")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DelegatingServiceAccount { get; }
+    public partial TerraformValue<string> DelegatingServiceAccount { get; }
 
     /// <summary>
     /// Output only. IP addresses that will be used for establishing
@@ -196,14 +196,14 @@ public partial class GoogleBeyondcorpSecurityGateway : TerraformResource
     /// </summary>
     [TerraformProperty("external_ips")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ExternalIps { get; }
+    public partial TerraformList<string> ExternalIps { get; }
 
     /// <summary>
     /// Identifier. Name of the resource.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. The operational state of the SecurityGateway.
@@ -218,13 +218,13 @@ public partial class GoogleBeyondcorpSecurityGateway : TerraformResource
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Output only. Timestamp when the resource was last modified.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

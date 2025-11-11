@@ -17,28 +17,28 @@ public partial class AwsAppstreamUserStackAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     [TerraformProperty("authentication_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AuthenticationType { get; set; }
+    public required partial TerraformValue<string> AuthenticationType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The send_email_notification attribute.
     /// </summary>
     [TerraformProperty("send_email_notification")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SendEmailNotification { get; set; }
+    public partial TerraformValue<bool>? SendEmailNotification { get; set; }
 
     /// <summary>
     /// The stack_name attribute.
@@ -46,7 +46,7 @@ public partial class AwsAppstreamUserStackAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackName is required")]
     [TerraformProperty("stack_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StackName { get; set; }
+    public required partial TerraformValue<string> StackName { get; set; }
 
     /// <summary>
     /// The user_name attribute.
@@ -54,6 +54,6 @@ public partial class AwsAppstreamUserStackAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     [TerraformProperty("user_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UserName { get; set; }
+    public required partial TerraformValue<string> UserName { get; set; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermConsumptionBudgetSubscriptionDataSource : TerraformD
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermConsumptionBudgetSubscriptionDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
@@ -47,48 +47,48 @@ public partial class AzurermConsumptionBudgetSubscriptionDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     [TerraformProperty("subscription_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubscriptionId { get; set; }
+    public required partial TerraformValue<string> SubscriptionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The amount attribute.
     /// </summary>
     [TerraformProperty("amount")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> Amount { get; }
+    public partial TerraformValue<double> Amount { get; }
 
     /// <summary>
     /// The filter attribute.
     /// </summary>
     [TerraformProperty("filter")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Filter { get; }
+    public partial TerraformList<object> Filter { get; }
 
     /// <summary>
     /// The notification attribute.
     /// </summary>
     [TerraformProperty("notification")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Notification { get; }
+    public partial TerraformList<object> Notification { get; }
 
     /// <summary>
     /// The time_grain attribute.
     /// </summary>
     [TerraformProperty("time_grain")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TimeGrain { get; }
+    public partial TerraformValue<string> TimeGrain { get; }
 
     /// <summary>
     /// The time_period attribute.
     /// </summary>
     [TerraformProperty("time_period")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> TimePeriod { get; }
+    public partial TerraformList<object> TimePeriod { get; }
 
 }

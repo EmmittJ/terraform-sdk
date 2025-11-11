@@ -21,21 +21,21 @@ public partial class GoogleChronicleWatchlistTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -50,7 +50,7 @@ public partial class GoogleChronicleWatchlistWatchlistUserPreferencesBlock : Ter
     /// </summary>
     [TerraformProperty("pinned")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Pinned { get; set; }
+    public partial TerraformValue<bool>? Pinned { get; set; }
 
 }
 
@@ -69,7 +69,7 @@ public partial class GoogleChronicleWatchlist : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Required. Display name of the watchlist.
@@ -79,14 +79,14 @@ public partial class GoogleChronicleWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
@@ -94,7 +94,7 @@ public partial class GoogleChronicleWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
@@ -102,7 +102,7 @@ public partial class GoogleChronicleWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Optional. Weight applied to the risk score for entities
@@ -111,14 +111,14 @@ public partial class GoogleChronicleWatchlist : TerraformResource
     /// </summary>
     [TerraformProperty("multiplying_factor")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MultiplyingFactor { get; set; }
+    public partial TerraformValue<double>? MultiplyingFactor { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Optional. The ID to use for the watchlist,
@@ -128,7 +128,7 @@ public partial class GoogleChronicleWatchlist : TerraformResource
     /// </summary>
     [TerraformProperty("watchlist_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> WatchlistId { get; set; }
+    public partial TerraformValue<string> WatchlistId { get; set; }
 
     /// <summary>
     /// Block for entity_population_mechanism.
@@ -138,14 +138,14 @@ public partial class GoogleChronicleWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EntityPopulationMechanism block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EntityPopulationMechanism block(s) allowed")]
     [TerraformProperty("entity_population_mechanism")]
-    public TerraformList<TerraformBlock<GoogleChronicleWatchlistEntityPopulationMechanismBlock>>? EntityPopulationMechanism { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleChronicleWatchlistEntityPopulationMechanismBlock>>? EntityPopulationMechanism { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleChronicleWatchlistTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleChronicleWatchlistTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for watchlist_user_preferences.
@@ -153,21 +153,21 @@ public partial class GoogleChronicleWatchlist : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WatchlistUserPreferences block(s) allowed")]
     [TerraformProperty("watchlist_user_preferences")]
-    public TerraformList<TerraformBlock<GoogleChronicleWatchlistWatchlistUserPreferencesBlock>>? WatchlistUserPreferences { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleChronicleWatchlistWatchlistUserPreferencesBlock>>? WatchlistUserPreferences { get; set; }
 
     /// <summary>
     /// Output only. Time the watchlist was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Count of different types of entities in the watchlist.
     /// </summary>
     [TerraformProperty("entity_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> EntityCount { get; }
+    public partial TerraformList<object> EntityCount { get; }
 
     /// <summary>
     /// Identifier. Resource name of the watchlist. This unique identifier is generated using values provided for the URL parameters.
@@ -176,13 +176,13 @@ public partial class GoogleChronicleWatchlist : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. Time the watchlist was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

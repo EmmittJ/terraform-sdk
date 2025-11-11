@@ -13,7 +13,7 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignmentDataSourc
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignmentDataSourc
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignmentDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,7 +47,7 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignmentDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The virtual_machine_name attribute.
@@ -55,55 +55,55 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignmentDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineName is required")]
     [TerraformProperty("virtual_machine_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualMachineName { get; set; }
+    public required partial TerraformValue<string> VirtualMachineName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPolicyVirtualMachineConfigurationAssignmentDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPolicyVirtualMachineConfigurationAssignmentDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The assignment_hash attribute.
     /// </summary>
     [TerraformProperty("assignment_hash")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AssignmentHash { get; }
+    public partial TerraformValue<string> AssignmentHash { get; }
 
     /// <summary>
     /// The compliance_status attribute.
     /// </summary>
     [TerraformProperty("compliance_status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ComplianceStatus { get; }
+    public partial TerraformValue<string> ComplianceStatus { get; }
 
     /// <summary>
     /// The content_hash attribute.
     /// </summary>
     [TerraformProperty("content_hash")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ContentHash { get; }
+    public partial TerraformValue<string> ContentHash { get; }
 
     /// <summary>
     /// The content_uri attribute.
     /// </summary>
     [TerraformProperty("content_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ContentUri { get; }
+    public partial TerraformValue<string> ContentUri { get; }
 
     /// <summary>
     /// The last_compliance_status_checked attribute.
     /// </summary>
     [TerraformProperty("last_compliance_status_checked")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastComplianceStatusChecked { get; }
+    public partial TerraformValue<string> LastComplianceStatusChecked { get; }
 
     /// <summary>
     /// The latest_report_id attribute.
     /// </summary>
     [TerraformProperty("latest_report_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LatestReportId { get; }
+    public partial TerraformValue<string> LatestReportId { get; }
 
 }

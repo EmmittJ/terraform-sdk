@@ -14,7 +14,7 @@ public partial class GoogleBigqueryAnalyticsHubListingBigqueryDatasetBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     [TerraformProperty("dataset")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Dataset { get; set; }
+    public required partial TerraformValue<string> Dataset { get; set; }
 
 }
 
@@ -30,14 +30,14 @@ public partial class GoogleBigqueryAnalyticsHubListingDataProviderBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Email or URL of the data provider.
     /// </summary>
     [TerraformProperty("primary_contact")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrimaryContact { get; set; }
+    public partial TerraformValue<string>? PrimaryContact { get; set; }
 
 }
 
@@ -53,14 +53,14 @@ public partial class GoogleBigqueryAnalyticsHubListingPublisherBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Email or URL of the listing publisher.
     /// </summary>
     [TerraformProperty("primary_contact")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrimaryContact { get; set; }
+    public partial TerraformValue<string>? PrimaryContact { get; set; }
 
 }
 
@@ -76,7 +76,7 @@ public partial class GoogleBigqueryAnalyticsHubListingPubsubTopicBlock : Terrafo
     /// </summary>
     [TerraformProperty("data_affinity_regions")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? DataAffinityRegions { get; set; }
+    public partial TerraformSet<string>? DataAffinityRegions { get; set; }
 
     /// <summary>
     /// Resource name of the Pub/Sub topic source for this listing. e.g. projects/myproject/topics/topicId
@@ -84,7 +84,7 @@ public partial class GoogleBigqueryAnalyticsHubListingPubsubTopicBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     [TerraformProperty("topic")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Topic { get; set; }
+    public required partial TerraformValue<string> Topic { get; set; }
 
 }
 
@@ -99,7 +99,7 @@ public partial class GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBloc
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
 
     /// <summary>
@@ -107,7 +107,7 @@ public partial class GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBloc
     /// </summary>
     [TerraformProperty("restrict_query_result")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RestrictQueryResult { get; set; }
+    public partial TerraformValue<bool>? RestrictQueryResult { get; set; }
 
 }
 
@@ -122,21 +122,21 @@ public partial class GoogleBigqueryAnalyticsHubListingTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -155,14 +155,14 @@ public partial class GoogleBigqueryAnalyticsHubListing : TerraformResource
     /// </summary>
     [TerraformProperty("allow_only_metadata_sharing")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowOnlyMetadataSharing { get; set; }
+    public partial TerraformValue<bool>? AllowOnlyMetadataSharing { get; set; }
 
     /// <summary>
     /// Categories of the listing. Up to two categories are allowed.
     /// </summary>
     [TerraformProperty("categories")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Categories { get; set; }
+    public partial TerraformList<string>? Categories { get; set; }
 
     /// <summary>
     /// The ID of the data exchange. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
@@ -170,28 +170,28 @@ public partial class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
     [TerraformProperty("data_exchange_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataExchangeId { get; set; }
+    public required partial TerraformValue<string> DataExchangeId { get; set; }
 
     /// <summary>
     /// If the listing is commercial then this field must be set to true, otherwise a failure is thrown. This acts as a safety guard to avoid deleting commercial listings accidentally.
     /// </summary>
     [TerraformProperty("delete_commercial")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeleteCommercial { get; set; }
+    public partial TerraformValue<bool>? DeleteCommercial { get; set; }
 
     /// <summary>
     /// Short description of the listing. The description must not contain Unicode non-characters and C0 and C1 control codes except tabs (HT), new lines (LF), carriage returns (CR), and page breaks (FF).
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Specifies the type of discovery on the discovery page. Cannot be set for a restricted listing. Note that this does not control the visibility of the exchange/listing which is defined by IAM permission. Possible values: [&amp;quot;DISCOVERY_TYPE_PRIVATE&amp;quot;, &amp;quot;DISCOVERY_TYPE_PUBLIC&amp;quot;]
     /// </summary>
     [TerraformProperty("discovery_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DiscoveryType { get; set; }
+    public partial TerraformValue<string> DiscoveryType { get; set; }
 
     /// <summary>
     /// Human-readable display name of the listing. The display name must contain only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces ( ), ampersands (&amp;amp;) and can&#39;t start or end with spaces.
@@ -199,28 +199,28 @@ public partial class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Documentation describing the listing.
     /// </summary>
     [TerraformProperty("documentation")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Documentation { get; set; }
+    public partial TerraformValue<string>? Documentation { get; set; }
 
     /// <summary>
     /// Base64 encoded image representing the listing.
     /// </summary>
     [TerraformProperty("icon")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Icon { get; set; }
+    public partial TerraformValue<string>? Icon { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the listing. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
@@ -228,7 +228,7 @@ public partial class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListingId is required")]
     [TerraformProperty("listing_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ListingId { get; set; }
+    public required partial TerraformValue<string> ListingId { get; set; }
 
     /// <summary>
     /// The name of the location this data exchange listing.
@@ -236,35 +236,35 @@ public partial class GoogleBigqueryAnalyticsHubListing : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// If true, subscriber email logging is enabled and all queries on the linked dataset will log the email address of the querying user. Once enabled, this setting cannot be turned off.
     /// </summary>
     [TerraformProperty("log_linked_dataset_query_user_email")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LogLinkedDatasetQueryUserEmail { get; set; }
+    public partial TerraformValue<bool>? LogLinkedDatasetQueryUserEmail { get; set; }
 
     /// <summary>
     /// Email or URL of the primary point of contact of the listing.
     /// </summary>
     [TerraformProperty("primary_contact")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrimaryContact { get; set; }
+    public partial TerraformValue<string>? PrimaryContact { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Email or URL of the request access of the listing. Subscribers can use this reference to request access.
     /// </summary>
     [TerraformProperty("request_access")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RequestAccess { get; set; }
+    public partial TerraformValue<string>? RequestAccess { get; set; }
 
     /// <summary>
     /// Block for bigquery_dataset.
@@ -272,7 +272,7 @@ public partial class GoogleBigqueryAnalyticsHubListing : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigqueryDataset block(s) allowed")]
     [TerraformProperty("bigquery_dataset")]
-    public TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingBigqueryDatasetBlock>>? BigqueryDataset { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingBigqueryDatasetBlock>>? BigqueryDataset { get; set; }
 
     /// <summary>
     /// Block for data_provider.
@@ -280,7 +280,7 @@ public partial class GoogleBigqueryAnalyticsHubListing : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProvider block(s) allowed")]
     [TerraformProperty("data_provider")]
-    public TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingDataProviderBlock>>? DataProvider { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingDataProviderBlock>>? DataProvider { get; set; }
 
     /// <summary>
     /// Block for publisher.
@@ -288,7 +288,7 @@ public partial class GoogleBigqueryAnalyticsHubListing : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Publisher block(s) allowed")]
     [TerraformProperty("publisher")]
-    public TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingPublisherBlock>>? Publisher { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingPublisherBlock>>? Publisher { get; set; }
 
     /// <summary>
     /// Block for pubsub_topic.
@@ -296,7 +296,7 @@ public partial class GoogleBigqueryAnalyticsHubListing : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PubsubTopic block(s) allowed")]
     [TerraformProperty("pubsub_topic")]
-    public TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingPubsubTopicBlock>>? PubsubTopic { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingPubsubTopicBlock>>? PubsubTopic { get; set; }
 
     /// <summary>
     /// Block for restricted_export_config.
@@ -304,34 +304,34 @@ public partial class GoogleBigqueryAnalyticsHubListing : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestrictedExportConfig block(s) allowed")]
     [TerraformProperty("restricted_export_config")]
-    public TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBlock>>? RestrictedExportConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBlock>>? RestrictedExportConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBigqueryAnalyticsHubListingTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBigqueryAnalyticsHubListingTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Commercial info contains the information about the commercial data products associated with the listing.
     /// </summary>
     [TerraformProperty("commercial_info")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CommercialInfo { get; }
+    public partial TerraformList<object> CommercialInfo { get; }
 
     /// <summary>
     /// The resource name of the listing. e.g. &amp;quot;projects/myproject/locations/US/dataExchanges/123/listings/456&amp;quot;
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Current state of the listing.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

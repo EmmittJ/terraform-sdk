@@ -13,7 +13,7 @@ public partial class AwsSagemakerHubS3StorageConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("s3_output_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? S3OutputPath { get; set; }
+    public partial TerraformValue<string>? S3OutputPath { get; set; }
 
 }
 
@@ -33,14 +33,14 @@ public partial class AwsSagemakerHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HubDescription is required")]
     [TerraformProperty("hub_description")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HubDescription { get; set; }
+    public required partial TerraformValue<string> HubDescription { get; set; }
 
     /// <summary>
     /// The hub_display_name attribute.
     /// </summary>
     [TerraformProperty("hub_display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HubDisplayName { get; set; }
+    public partial TerraformValue<string>? HubDisplayName { get; set; }
 
     /// <summary>
     /// The hub_name attribute.
@@ -48,42 +48,42 @@ public partial class AwsSagemakerHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HubName is required")]
     [TerraformProperty("hub_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HubName { get; set; }
+    public required partial TerraformValue<string> HubName { get; set; }
 
     /// <summary>
     /// The hub_search_keywords attribute.
     /// </summary>
     [TerraformProperty("hub_search_keywords")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? HubSearchKeywords { get; set; }
+    public partial TerraformSet<string>? HubSearchKeywords { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for s3_storage_config.
@@ -91,13 +91,13 @@ public partial class AwsSagemakerHub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3StorageConfig block(s) allowed")]
     [TerraformProperty("s3_storage_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerHubS3StorageConfigBlock>>? S3StorageConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerHubS3StorageConfigBlock>>? S3StorageConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

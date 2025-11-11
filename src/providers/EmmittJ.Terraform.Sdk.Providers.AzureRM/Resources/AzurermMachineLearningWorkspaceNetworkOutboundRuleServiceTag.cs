@@ -13,28 +13,28 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTa
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -60,7 +60,7 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The port_ranges attribute.
@@ -68,7 +68,7 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortRanges is required")]
     [TerraformProperty("port_ranges")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PortRanges { get; set; }
+    public required partial TerraformValue<string> PortRanges { get; set; }
 
     /// <summary>
     /// The protocol attribute.
@@ -76,7 +76,7 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformProperty("protocol")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Protocol { get; set; }
+    public required partial TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// The service_tag attribute.
@@ -84,7 +84,7 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceTag is required")]
     [TerraformProperty("service_tag")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceTag { get; set; }
+    public required partial TerraformValue<string> ServiceTag { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -92,13 +92,13 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformProperty("workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceId { get; set; }
+    public required partial TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeoutsBlock>? Timeouts { get; set; }
 
 }

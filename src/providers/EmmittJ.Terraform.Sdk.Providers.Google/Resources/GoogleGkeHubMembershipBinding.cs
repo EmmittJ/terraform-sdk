@@ -13,21 +13,21 @@ public partial class GoogleGkeHubMembershipBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class GoogleGkeHubMembershipBinding : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels for this Membership binding.
@@ -56,7 +56,7 @@ public partial class GoogleGkeHubMembershipBinding : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Location of the membership
@@ -64,7 +64,7 @@ public partial class GoogleGkeHubMembershipBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The client-provided identifier of the membership binding.
@@ -72,7 +72,7 @@ public partial class GoogleGkeHubMembershipBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipBindingId is required")]
     [TerraformProperty("membership_binding_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MembershipBindingId { get; set; }
+    public required partial TerraformValue<string> MembershipBindingId { get; set; }
 
     /// <summary>
     /// Id of the membership
@@ -80,14 +80,14 @@ public partial class GoogleGkeHubMembershipBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipId is required")]
     [TerraformProperty("membership_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MembershipId { get; set; }
+    public required partial TerraformValue<string> MembershipId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// A Workspace resource name in the format
@@ -96,49 +96,49 @@ public partial class GoogleGkeHubMembershipBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     [TerraformProperty("scope")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Scope { get; set; }
+    public required partial TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleGkeHubMembershipBindingTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleGkeHubMembershipBindingTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the MembershipBinding was created in UTC.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Time the MembershipBinding was deleted in UTC.
     /// </summary>
     [TerraformProperty("delete_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeleteTime { get; }
+    public partial TerraformValue<string> DeleteTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The resource name for the membershipbinding itself
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// State of the membership binding resource.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> State { get; }
+    public partial TerraformList<object> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -146,20 +146,20 @@ public partial class GoogleGkeHubMembershipBinding : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Google-generated UUID for this resource.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Time the MembershipBinding was updated in UTC.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

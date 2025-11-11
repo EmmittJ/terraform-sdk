@@ -13,7 +13,7 @@ public partial class AwsDsqlClusterPeeringTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -32,7 +32,7 @@ public partial class AwsDsqlClusterPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Clusters is required")]
     [TerraformProperty("clusters")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Clusters { get; set; }
+    public required partial TerraformSet<string> Clusters { get; set; }
 
     /// <summary>
     /// The identifier attribute.
@@ -40,14 +40,14 @@ public partial class AwsDsqlClusterPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     [TerraformProperty("identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Identifier { get; set; }
+    public required partial TerraformValue<string> Identifier { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The witness_region attribute.
@@ -55,13 +55,13 @@ public partial class AwsDsqlClusterPeering : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WitnessRegion is required")]
     [TerraformProperty("witness_region")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WitnessRegion { get; set; }
+    public required partial TerraformValue<string> WitnessRegion { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsDsqlClusterPeeringTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsDsqlClusterPeeringTimeoutsBlock>? Timeouts { get; set; }
 
 }

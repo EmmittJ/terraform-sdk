@@ -16,7 +16,7 @@ public partial class AwsCeCostAllocationTag : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The status attribute.
@@ -24,7 +24,7 @@ public partial class AwsCeCostAllocationTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     [TerraformProperty("status")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Status { get; set; }
+    public required partial TerraformValue<string> Status { get; set; }
 
     /// <summary>
     /// The tag_key attribute.
@@ -32,13 +32,13 @@ public partial class AwsCeCostAllocationTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagKey is required")]
     [TerraformProperty("tag_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TagKey { get; set; }
+    public required partial TerraformValue<string> TagKey { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Type { get; }
+    public partial TerraformValue<string> Type { get; }
 
 }

@@ -17,27 +17,27 @@ public partial class AwsRoute53DelegationSetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
     [TerraformProperty("caller_reference")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CallerReference { get; }
+    public partial TerraformValue<string> CallerReference { get; }
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
     [TerraformProperty("name_servers")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> NameServers { get; }
+    public partial TerraformList<string> NameServers { get; }
 
 }

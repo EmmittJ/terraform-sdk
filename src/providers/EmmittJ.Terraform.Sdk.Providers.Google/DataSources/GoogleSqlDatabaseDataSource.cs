@@ -16,7 +16,7 @@ public partial class GoogleSqlDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the Cloud SQL instance. This does not include the project
@@ -25,7 +25,7 @@ public partial class GoogleSqlDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The name of the database in the Cloud SQL instance.
@@ -34,14 +34,14 @@ public partial class GoogleSqlDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The charset value. See MySQL&#39;s
@@ -52,7 +52,7 @@ public partial class GoogleSqlDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("charset")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Charset { get; }
+    public partial TerraformValue<string> Charset { get; }
 
     /// <summary>
     /// The collation value. See MySQL&#39;s
@@ -63,7 +63,7 @@ public partial class GoogleSqlDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("collation")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Collation { get; }
+    public partial TerraformValue<string> Collation { get; }
 
     /// <summary>
     /// The deletion policy for the database. Setting ABANDON allows the resource
@@ -73,13 +73,13 @@ public partial class GoogleSqlDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("deletion_policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeletionPolicy { get; }
+    public partial TerraformValue<string> DeletionPolicy { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
 }

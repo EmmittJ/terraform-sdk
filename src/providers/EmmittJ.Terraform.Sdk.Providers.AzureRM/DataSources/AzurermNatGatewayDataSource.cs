@@ -13,7 +13,7 @@ public partial class AzurermNatGatewayDataSourceTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermNatGatewayDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,21 +39,21 @@ public partial class AzurermNatGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_ip_address_ids attribute.
     /// </summary>
     [TerraformProperty("public_ip_address_ids")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> PublicIpAddressIds { get; set; }
+    public partial TerraformList<string> PublicIpAddressIds { get; set; }
 
     /// <summary>
     /// The public_ip_prefix_ids attribute.
     /// </summary>
     [TerraformProperty("public_ip_prefix_ids")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> PublicIpPrefixIds { get; set; }
+    public partial TerraformList<string> PublicIpPrefixIds { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -61,55 +61,55 @@ public partial class AzurermNatGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNatGatewayDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNatGatewayDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
     [TerraformProperty("idle_timeout_in_minutes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> IdleTimeoutInMinutes { get; }
+    public partial TerraformValue<double> IdleTimeoutInMinutes { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The resource_guid attribute.
     /// </summary>
     [TerraformProperty("resource_guid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceGuid { get; }
+    public partial TerraformValue<string> ResourceGuid { get; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [TerraformProperty("sku_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SkuName { get; }
+    public partial TerraformValue<string> SkuName { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     [TerraformProperty("zones")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Zones { get; }
+    public partial TerraformList<string> Zones { get; }
 
 }

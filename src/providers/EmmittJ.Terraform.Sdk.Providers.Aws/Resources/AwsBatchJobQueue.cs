@@ -14,7 +14,7 @@ public partial class AwsBatchJobQueueComputeEnvironmentOrderBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeEnvironment is required")]
     [TerraformProperty("compute_environment")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ComputeEnvironment { get; set; }
+    public required partial TerraformValue<string> ComputeEnvironment { get; set; }
 
     /// <summary>
     /// The order attribute.
@@ -22,7 +22,7 @@ public partial class AwsBatchJobQueueComputeEnvironmentOrderBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     [TerraformProperty("order")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Order { get; set; }
+    public required partial TerraformValue<double> Order { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformProperty("action")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Action { get; set; }
+    public required partial TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The max_time_seconds attribute.
@@ -46,7 +46,7 @@ public partial class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxTimeSeconds is required")]
     [TerraformProperty("max_time_seconds")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MaxTimeSeconds { get; set; }
+    public required partial TerraformValue<double> MaxTimeSeconds { get; set; }
 
     /// <summary>
     /// The reason attribute.
@@ -54,7 +54,7 @@ public partial class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reason is required")]
     [TerraformProperty("reason")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Reason { get; set; }
+    public required partial TerraformValue<string> Reason { get; set; }
 
     /// <summary>
     /// The state attribute.
@@ -62,7 +62,7 @@ public partial class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     [TerraformProperty("state")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> State { get; set; }
+    public required partial TerraformValue<string> State { get; set; }
 
 }
 
@@ -77,21 +77,21 @@ public partial class AwsBatchJobQueueTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -110,7 +110,7 @@ public partial class AwsBatchJobQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
@@ -118,21 +118,21 @@ public partial class AwsBatchJobQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformProperty("priority")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Priority { get; set; }
+    public required partial TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The scheduling_policy_arn attribute.
     /// </summary>
     [TerraformProperty("scheduling_policy_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SchedulingPolicyArn { get; set; }
+    public partial TerraformValue<string>? SchedulingPolicyArn { get; set; }
 
     /// <summary>
     /// The state attribute.
@@ -140,55 +140,55 @@ public partial class AwsBatchJobQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     [TerraformProperty("state")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> State { get; set; }
+    public required partial TerraformValue<string> State { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for compute_environment_order.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("compute_environment_order")]
-    public TerraformList<TerraformBlock<AwsBatchJobQueueComputeEnvironmentOrderBlock>>? ComputeEnvironmentOrder { get; set; }
+    public partial TerraformList<TerraformBlock<AwsBatchJobQueueComputeEnvironmentOrderBlock>>? ComputeEnvironmentOrder { get; set; }
 
     /// <summary>
     /// Block for job_state_time_limit_action.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("job_state_time_limit_action")]
-    public TerraformList<TerraformBlock<AwsBatchJobQueueJobStateTimeLimitActionBlock>>? JobStateTimeLimitAction { get; set; }
+    public partial TerraformList<TerraformBlock<AwsBatchJobQueueJobStateTimeLimitActionBlock>>? JobStateTimeLimitAction { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsBatchJobQueueTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsBatchJobQueueTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
 }

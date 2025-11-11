@@ -16,20 +16,20 @@ public partial class AwsBedrockCustomModelsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The model_summaries attribute.
     /// </summary>
     [TerraformProperty("model_summaries")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ModelSummaries { get; }
+    public partial TerraformList<object> ModelSummaries { get; }
 
 }

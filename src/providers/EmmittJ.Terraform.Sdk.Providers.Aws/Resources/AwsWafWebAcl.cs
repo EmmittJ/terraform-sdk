@@ -14,7 +14,7 @@ public partial class AwsWafWebAclDefaultActionBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public partial class AwsWafWebAclLoggingConfigurationBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogDestination is required")]
     [TerraformProperty("log_destination")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LogDestination { get; set; }
+    public required partial TerraformValue<string> LogDestination { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AwsWafWebAclRulesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformProperty("priority")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Priority { get; set; }
+    public required partial TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// The rule_id attribute.
@@ -54,14 +54,14 @@ public partial class AwsWafWebAclRulesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleId is required")]
     [TerraformProperty("rule_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RuleId { get; set; }
+    public required partial TerraformValue<string> RuleId { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -80,7 +80,7 @@ public partial class AwsWafWebAcl : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The metric_name attribute.
@@ -88,7 +88,7 @@ public partial class AwsWafWebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     [TerraformProperty("metric_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MetricName { get; set; }
+    public required partial TerraformValue<string> MetricName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -96,21 +96,21 @@ public partial class AwsWafWebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for default_action.
@@ -120,7 +120,7 @@ public partial class AwsWafWebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultAction block(s) allowed")]
     [TerraformProperty("default_action")]
-    public TerraformList<TerraformBlock<AwsWafWebAclDefaultActionBlock>>? DefaultAction { get; set; }
+    public partial TerraformList<TerraformBlock<AwsWafWebAclDefaultActionBlock>>? DefaultAction { get; set; }
 
     /// <summary>
     /// Block for logging_configuration.
@@ -128,20 +128,20 @@ public partial class AwsWafWebAcl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
     [TerraformProperty("logging_configuration")]
-    public TerraformList<TerraformBlock<AwsWafWebAclLoggingConfigurationBlock>>? LoggingConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsWafWebAclLoggingConfigurationBlock>>? LoggingConfiguration { get; set; }
 
     /// <summary>
     /// Block for rules.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("rules")]
-    public TerraformSet<TerraformBlock<AwsWafWebAclRulesBlock>>? Rules { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsWafWebAclRulesBlock>>? Rules { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

@@ -16,13 +16,13 @@ public partial class AwsBillingViewsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("billing_view_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? BillingViewTypes { get; set; }
+    public partial TerraformList<string>? BillingViewTypes { get; set; }
 
     /// <summary>
     /// The billing_view attribute.
     /// </summary>
     [TerraformProperty("billing_view")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> BillingView { get; }
+    public partial TerraformList<object> BillingView { get; }
 
 }

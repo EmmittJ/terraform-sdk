@@ -13,14 +13,14 @@ public partial class AwsS3controlObjectLambdaAccessPointConfigurationBlock : Ter
     /// </summary>
     [TerraformProperty("allowed_features")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AllowedFeatures { get; set; }
+    public partial TerraformSet<string>? AllowedFeatures { get; set; }
 
     /// <summary>
     /// The cloud_watch_metrics_enabled attribute.
     /// </summary>
     [TerraformProperty("cloud_watch_metrics_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CloudWatchMetricsEnabled { get; set; }
+    public partial TerraformValue<bool>? CloudWatchMetricsEnabled { get; set; }
 
     /// <summary>
     /// The supporting_access_point attribute.
@@ -28,7 +28,7 @@ public partial class AwsS3controlObjectLambdaAccessPointConfigurationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportingAccessPoint is required")]
     [TerraformProperty("supporting_access_point")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SupportingAccessPoint { get; set; }
+    public required partial TerraformValue<string> SupportingAccessPoint { get; set; }
 
 }
 
@@ -47,14 +47,14 @@ public partial class AwsS3controlObjectLambdaAccessPoint : TerraformResource
     /// </summary>
     [TerraformProperty("account_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AccountId { get; set; }
+    public partial TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -62,14 +62,14 @@ public partial class AwsS3controlObjectLambdaAccessPoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for configuration.
@@ -79,20 +79,20 @@ public partial class AwsS3controlObjectLambdaAccessPoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Configuration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformProperty("configuration")]
-    public TerraformList<TerraformBlock<AwsS3controlObjectLambdaAccessPointConfigurationBlock>>? Configuration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3controlObjectLambdaAccessPointConfigurationBlock>>? Configuration { get; set; }
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
     [TerraformProperty("alias")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Alias { get; }
+    public partial TerraformValue<string> Alias { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

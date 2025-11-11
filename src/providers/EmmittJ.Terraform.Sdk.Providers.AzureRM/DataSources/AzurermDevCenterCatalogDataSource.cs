@@ -13,7 +13,7 @@ public partial class AzurermDevCenterCatalogDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzurermDevCenterCatalogDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
     [TerraformProperty("dev_center_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DevCenterId { get; set; }
+    public required partial TerraformValue<string> DevCenterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,27 +47,27 @@ public partial class AzurermDevCenterCatalogDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDevCenterCatalogDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDevCenterCatalogDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The catalog_adogit attribute.
     /// </summary>
     [TerraformProperty("catalog_adogit")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CatalogAdogit { get; }
+    public partial TerraformList<object> CatalogAdogit { get; }
 
     /// <summary>
     /// The catalog_github attribute.
     /// </summary>
     [TerraformProperty("catalog_github")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CatalogGithub { get; }
+    public partial TerraformList<object> CatalogGithub { get; }
 
 }

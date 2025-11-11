@@ -13,14 +13,14 @@ public partial class AwsDatazoneEnvironmentProfileUserParametersBlock : Terrafor
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Value { get; set; }
+    public partial TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class AwsDatazoneEnvironmentProfile : TerraformResource
     /// </summary>
     [TerraformProperty("aws_account_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AwsAccountId { get; set; }
+    public partial TerraformValue<string> AwsAccountId { get; set; }
 
     /// <summary>
     /// The aws_account_region attribute.
@@ -46,14 +46,14 @@ public partial class AwsDatazoneEnvironmentProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsAccountRegion is required")]
     [TerraformProperty("aws_account_region")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AwsAccountRegion { get; set; }
+    public required partial TerraformValue<string> AwsAccountRegion { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Description { get; set; }
+    public partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The domain_identifier attribute.
@@ -61,7 +61,7 @@ public partial class AwsDatazoneEnvironmentProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     [TerraformProperty("domain_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainIdentifier { get; set; }
+    public required partial TerraformValue<string> DomainIdentifier { get; set; }
 
     /// <summary>
     /// The environment_blueprint_identifier attribute.
@@ -69,7 +69,7 @@ public partial class AwsDatazoneEnvironmentProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentBlueprintIdentifier is required")]
     [TerraformProperty("environment_blueprint_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EnvironmentBlueprintIdentifier { get; set; }
+    public required partial TerraformValue<string> EnvironmentBlueprintIdentifier { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -77,7 +77,7 @@ public partial class AwsDatazoneEnvironmentProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project_identifier attribute.
@@ -85,48 +85,48 @@ public partial class AwsDatazoneEnvironmentProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectIdentifier is required")]
     [TerraformProperty("project_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProjectIdentifier { get; set; }
+    public required partial TerraformValue<string> ProjectIdentifier { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for user_parameters.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("user_parameters")]
-    public TerraformList<TerraformBlock<AwsDatazoneEnvironmentProfileUserParametersBlock>>? UserParameters { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDatazoneEnvironmentProfileUserParametersBlock>>? UserParameters { get; set; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformProperty("created_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedAt { get; }
+    public partial TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     [TerraformProperty("created_by")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedBy { get; }
+    public partial TerraformValue<string> CreatedBy { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     [TerraformProperty("updated_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdatedAt { get; }
+    public partial TerraformValue<string> UpdatedAt { get; }
 
 }

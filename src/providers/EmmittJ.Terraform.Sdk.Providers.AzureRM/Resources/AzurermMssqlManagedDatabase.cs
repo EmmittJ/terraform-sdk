@@ -13,35 +13,35 @@ public partial class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : T
     /// </summary>
     [TerraformProperty("immutable_backups_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ImmutableBackupsEnabled { get; set; }
+    public partial TerraformValue<bool>? ImmutableBackupsEnabled { get; set; }
 
     /// <summary>
     /// The monthly_retention attribute.
     /// </summary>
     [TerraformProperty("monthly_retention")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> MonthlyRetention { get; set; }
+    public partial TerraformValue<string> MonthlyRetention { get; set; }
 
     /// <summary>
     /// The week_of_year attribute.
     /// </summary>
     [TerraformProperty("week_of_year")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> WeekOfYear { get; set; }
+    public partial TerraformValue<double> WeekOfYear { get; set; }
 
     /// <summary>
     /// The weekly_retention attribute.
     /// </summary>
     [TerraformProperty("weekly_retention")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> WeeklyRetention { get; set; }
+    public partial TerraformValue<string> WeeklyRetention { get; set; }
 
     /// <summary>
     /// The yearly_retention attribute.
     /// </summary>
     [TerraformProperty("yearly_retention")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> YearlyRetention { get; set; }
+    public partial TerraformValue<string> YearlyRetention { get; set; }
 
 }
 
@@ -57,7 +57,7 @@ public partial class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestorePointInTime is required")]
     [TerraformProperty("restore_point_in_time")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RestorePointInTime { get; set; }
+    public required partial TerraformValue<string> RestorePointInTime { get; set; }
 
     /// <summary>
     /// The source_database_id attribute.
@@ -65,7 +65,7 @@ public partial class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDatabaseId is required")]
     [TerraformProperty("source_database_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceDatabaseId { get; set; }
+    public required partial TerraformValue<string> SourceDatabaseId { get; set; }
 
 }
 
@@ -80,28 +80,28 @@ public partial class AzurermMssqlManagedDatabaseTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -120,7 +120,7 @@ public partial class AzurermMssqlManagedDatabase : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The managed_instance_id attribute.
@@ -128,7 +128,7 @@ public partial class AzurermMssqlManagedDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     [TerraformProperty("managed_instance_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ManagedInstanceId { get; set; }
+    public required partial TerraformValue<string> ManagedInstanceId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -136,21 +136,21 @@ public partial class AzurermMssqlManagedDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The short_term_retention_days attribute.
     /// </summary>
     [TerraformProperty("short_term_retention_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ShortTermRetentionDays { get; set; }
+    public partial TerraformValue<double>? ShortTermRetentionDays { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for long_term_retention_policy.
@@ -158,7 +158,7 @@ public partial class AzurermMssqlManagedDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LongTermRetentionPolicy block(s) allowed")]
     [TerraformProperty("long_term_retention_policy")]
-    public TerraformList<TerraformBlock<AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock>>? LongTermRetentionPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock>>? LongTermRetentionPolicy { get; set; }
 
     /// <summary>
     /// Block for point_in_time_restore.
@@ -166,13 +166,13 @@ public partial class AzurermMssqlManagedDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PointInTimeRestore block(s) allowed")]
     [TerraformProperty("point_in_time_restore")]
-    public TerraformList<TerraformBlock<AzurermMssqlManagedDatabasePointInTimeRestoreBlock>>? PointInTimeRestore { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlManagedDatabasePointInTimeRestoreBlock>>? PointInTimeRestore { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMssqlManagedDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMssqlManagedDatabaseTimeoutsBlock>? Timeouts { get; set; }
 
 }

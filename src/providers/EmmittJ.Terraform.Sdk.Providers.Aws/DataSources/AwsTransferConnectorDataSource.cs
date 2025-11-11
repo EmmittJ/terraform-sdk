@@ -17,76 +17,76 @@ public partial class AwsTransferConnectorDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The access_role attribute.
     /// </summary>
     [TerraformProperty("access_role")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AccessRole { get; }
+    public partial TerraformValue<string> AccessRole { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The as2_config attribute.
     /// </summary>
     [TerraformProperty("as2_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> As2Config { get; }
+    public partial TerraformList<object> As2Config { get; }
 
     /// <summary>
     /// The logging_role attribute.
     /// </summary>
     [TerraformProperty("logging_role")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LoggingRole { get; }
+    public partial TerraformValue<string> LoggingRole { get; }
 
     /// <summary>
     /// The security_policy_name attribute.
     /// </summary>
     [TerraformProperty("security_policy_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecurityPolicyName { get; }
+    public partial TerraformValue<string> SecurityPolicyName { get; }
 
     /// <summary>
     /// The service_managed_egress_ip_addresses attribute.
     /// </summary>
     [TerraformProperty("service_managed_egress_ip_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ServiceManagedEgressIpAddresses { get; }
+    public partial TerraformList<string> ServiceManagedEgressIpAddresses { get; }
 
     /// <summary>
     /// The sftp_config attribute.
     /// </summary>
     [TerraformProperty("sftp_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> SftpConfig { get; }
+    public partial TerraformList<object> SftpConfig { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     [TerraformProperty("url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Url { get; }
+    public partial TerraformValue<string> Url { get; }
 
 }

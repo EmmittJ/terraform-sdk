@@ -17,7 +17,7 @@ public partial class GoogleComputeInterconnectMacsecBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("fail_open")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? FailOpen { get; set; }
+    public partial TerraformValue<bool>? FailOpen { get; set; }
 
 }
 
@@ -32,21 +32,21 @@ public partial class GoogleComputeInterconnectTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -67,7 +67,7 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformProperty("admin_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AdminEnabled { get; set; }
+    public partial TerraformValue<bool>? AdminEnabled { get; set; }
 
     /// <summary>
     /// Customer name, to put in the Letter of Authorization as the party authorized to request a
@@ -76,21 +76,21 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformProperty("customer_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CustomerName { get; set; }
+    public partial TerraformValue<string>? CustomerName { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Type of interconnect. Note that a value IT_PRIVATE has been deprecated in favor of DEDICATED.
@@ -101,7 +101,7 @@ public partial class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterconnectType is required")]
     [TerraformProperty("interconnect_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InterconnectType { get; set; }
+    public required partial TerraformValue<string> InterconnectType { get; set; }
 
     /// <summary>
     /// Labels for this resource. These can only be added or modified by the setLabels
@@ -113,7 +113,7 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Type of link requested. Note that this field indicates the speed of each of the links in the
@@ -125,7 +125,7 @@ public partial class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkType is required")]
     [TerraformProperty("link_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LinkType { get; set; }
+    public required partial TerraformValue<string> LinkType { get; set; }
 
     /// <summary>
     /// URL of the InterconnectLocation object that represents where this connection is to be provisioned.
@@ -134,7 +134,7 @@ public partial class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Enable or disable MACsec on this Interconnect connection.
@@ -142,7 +142,7 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformProperty("macsec_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? MacsecEnabled { get; set; }
+    public partial TerraformValue<bool>? MacsecEnabled { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is created. The name must be
@@ -154,7 +154,7 @@ public partial class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Email address to contact the customer NOC for operations and maintenance notifications
@@ -165,14 +165,14 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformProperty("noc_contact_email")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NocContactEmail { get; set; }
+    public partial TerraformValue<string>? NocContactEmail { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Indicates that this is a Cross-Cloud Interconnect. This field specifies the location outside
@@ -180,7 +180,7 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformProperty("remote_location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RemoteLocation { get; set; }
+    public partial TerraformValue<string>? RemoteLocation { get; set; }
 
     /// <summary>
     /// interconnects.list of features requested for this Interconnect connection. Options: IF_MACSEC (
@@ -191,7 +191,7 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformProperty("requested_features")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? RequestedFeatures { get; set; }
+    public partial TerraformList<string>? RequestedFeatures { get; set; }
 
     /// <summary>
     /// Target number of physical links in the link bundle, as requested by the customer.
@@ -199,7 +199,7 @@ public partial class GoogleComputeInterconnect : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestedLinkCount is required")]
     [TerraformProperty("requested_link_count")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> RequestedLinkCount { get; set; }
+    public required partial TerraformValue<double> RequestedLinkCount { get; set; }
 
     /// <summary>
     /// Block for macsec.
@@ -207,14 +207,14 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Macsec block(s) allowed")]
     [TerraformProperty("macsec")]
-    public TerraformList<TerraformBlock<GoogleComputeInterconnectMacsecBlock>>? Macsec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeInterconnectMacsecBlock>>? Macsec { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeInterconnectTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeInterconnectTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// interconnects.list of features available for this Interconnect connection. Can take the value:
@@ -224,35 +224,35 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformProperty("available_features")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> AvailableFeatures { get; }
+    public partial TerraformList<string> AvailableFeatures { get; }
 
     /// <summary>
     /// A list of CircuitInfo objects, that describe the individual circuits in this LAG.
     /// </summary>
     [TerraformProperty("circuit_infos")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CircuitInfos { get; }
+    public partial TerraformList<object> CircuitInfos { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// A list of outages expected for this Interconnect.
     /// </summary>
     [TerraformProperty("expected_outages")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ExpectedOutages { get; }
+    public partial TerraformList<object> ExpectedOutages { get; }
 
     /// <summary>
     /// IP address configured on the Google side of the Interconnect link.
@@ -260,7 +260,7 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformProperty("google_ip_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GoogleIpAddress { get; }
+    public partial TerraformValue<string> GoogleIpAddress { get; }
 
     /// <summary>
     /// Google reference ID to be used when raising support tickets with Google or otherwise to debug
@@ -268,14 +268,14 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformProperty("google_reference_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GoogleReferenceId { get; }
+    public partial TerraformValue<string> GoogleReferenceId { get; }
 
     /// <summary>
     /// A list of the URLs of all InterconnectAttachments configured to use this Interconnect.
     /// </summary>
     [TerraformProperty("interconnect_attachments")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> InterconnectAttachments { get; }
+    public partial TerraformList<string> InterconnectAttachments { get; }
 
     /// <summary>
     /// URLs of InterconnectGroups that include this Interconnect.
@@ -283,7 +283,7 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformProperty("interconnect_groups")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> InterconnectGroups { get; }
+    public partial TerraformSet<string> InterconnectGroups { get; }
 
     /// <summary>
     /// A fingerprint for the labels being applied to this Interconnect, which is essentially a hash
@@ -294,7 +294,7 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformProperty("label_fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LabelFingerprint { get; }
+    public partial TerraformValue<string> LabelFingerprint { get; }
 
     /// <summary>
     /// The current status of this Interconnect&#39;s functionality, which can take one of the following:
@@ -307,7 +307,7 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformProperty("operational_status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OperationalStatus { get; }
+    public partial TerraformValue<string> OperationalStatus { get; }
 
     /// <summary>
     /// IP address configured on the customer side of the Interconnect link.
@@ -316,21 +316,21 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformProperty("peer_ip_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PeerIpAddress { get; }
+    public partial TerraformValue<string> PeerIpAddress { get; }
 
     /// <summary>
     /// Number of links actually provisioned in this interconnect.
     /// </summary>
     [TerraformProperty("provisioned_link_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ProvisionedLinkCount { get; }
+    public partial TerraformValue<double> ProvisionedLinkCount { get; }
 
     /// <summary>
     /// Reserved for future use.
     /// </summary>
     [TerraformProperty("satisfies_pzs")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> SatisfiesPzs { get; }
+    public partial TerraformValue<bool> SatisfiesPzs { get; }
 
     /// <summary>
     /// The current state of Interconnect functionality, which can take one of the following values:
@@ -343,7 +343,7 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -351,6 +351,6 @@ public partial class GoogleComputeInterconnect : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

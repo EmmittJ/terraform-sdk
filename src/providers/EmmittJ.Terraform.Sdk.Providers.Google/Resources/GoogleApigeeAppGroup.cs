@@ -13,14 +13,14 @@ public partial class GoogleApigeeAppGroupAttributesBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Value of the attribute
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Value { get; set; }
+    public partial TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -35,21 +35,21 @@ public partial class GoogleApigeeAppGroupTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -67,28 +67,28 @@ public partial class GoogleApigeeAppGroup : TerraformResource
     /// </summary>
     [TerraformProperty("channel_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ChannelId { get; set; }
+    public partial TerraformValue<string>? ChannelId { get; set; }
 
     /// <summary>
     /// A reference to the associated storefront/marketplace.
     /// </summary>
     [TerraformProperty("channel_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ChannelUri { get; set; }
+    public partial TerraformValue<string>? ChannelUri { get; set; }
 
     /// <summary>
     /// App group name displayed in the UI
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the AppGroup. Characters you can use in the name are restricted to: A-Z0-9._-$ %.
@@ -96,7 +96,7 @@ public partial class GoogleApigeeAppGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee app group,
@@ -105,55 +105,55 @@ public partial class GoogleApigeeAppGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformProperty("org_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OrgId { get; set; }
+    public required partial TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Valid values are active or inactive. Note that the status of the AppGroup should be updated via UpdateAppGroupRequest by setting the action as active or inactive. Possible values: [&amp;quot;active&amp;quot;, &amp;quot;inactive&amp;quot;]
     /// </summary>
     [TerraformProperty("status")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Status { get; set; }
+    public partial TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// Block for attributes.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("attributes")]
-    public TerraformList<TerraformBlock<GoogleApigeeAppGroupAttributesBlock>>? Attributes { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApigeeAppGroupAttributesBlock>>? Attributes { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeAppGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeAppGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Internal identifier that cannot be edited
     /// </summary>
     [TerraformProperty("app_group_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AppGroupId { get; }
+    public partial TerraformValue<string> AppGroupId { get; }
 
     /// <summary>
     /// Created time as milliseconds since epoch.
     /// </summary>
     [TerraformProperty("created_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedAt { get; }
+    public partial TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// Modified time as milliseconds since epoch.
     /// </summary>
     [TerraformProperty("last_modified_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastModifiedAt { get; }
+    public partial TerraformValue<string> LastModifiedAt { get; }
 
     /// <summary>
     /// App group name displayed in the UI
     /// </summary>
     [TerraformProperty("organization")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Organization { get; }
+    public partial TerraformValue<string> Organization { get; }
 
 }

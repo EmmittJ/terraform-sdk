@@ -13,28 +13,28 @@ public partial class AzurermAadb2cDirectoryTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermAadb2cDirectory : TerraformResource
     /// </summary>
     [TerraformProperty("country_code")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CountryCode { get; set; }
+    public partial TerraformValue<string> CountryCode { get; set; }
 
     /// <summary>
     /// Location in which the B2C tenant is hosted and data resides. See https://aka.ms/B2CDataResidency for more information.
@@ -60,14 +60,14 @@ public partial class AzurermAadb2cDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataResidencyLocation is required")]
     [TerraformProperty("data_residency_location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataResidencyLocation { get; set; }
+    public required partial TerraformValue<string> DataResidencyLocation { get; set; }
 
     /// <summary>
     /// The initial display name of the B2C tenant.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DisplayName { get; set; }
+    public partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Domain name of the B2C tenant, including onmicrosoft.com suffix.
@@ -75,14 +75,14 @@ public partial class AzurermAadb2cDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformProperty("domain_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainName { get; set; }
+    public required partial TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -90,7 +90,7 @@ public partial class AzurermAadb2cDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Billing SKU for the B2C tenant. See https://aka.ms/b2cBilling for more information.
@@ -98,41 +98,41 @@ public partial class AzurermAadb2cDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     [TerraformProperty("sku_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SkuName { get; set; }
+    public required partial TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAadb2cDirectoryTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAadb2cDirectoryTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The type of billing for the B2C tenant. Possible values include: `MAU` or `Auths`.
     /// </summary>
     [TerraformProperty("billing_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BillingType { get; }
+    public partial TerraformValue<string> BillingType { get; }
 
     /// <summary>
     /// The date from which the billing type took effect. May not be populated until after the first billing cycle.
     /// </summary>
     [TerraformProperty("effective_start_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EffectiveStartDate { get; }
+    public partial TerraformValue<string> EffectiveStartDate { get; }
 
     /// <summary>
     /// The Tenant ID for the B2C tenant.
     /// </summary>
     [TerraformProperty("tenant_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TenantId { get; }
+    public partial TerraformValue<string> TenantId { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : Terr
     /// </summary>
     [TerraformProperty("channel")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Channel { get; set; }
+    public partial TerraformValue<string> Channel { get; set; }
 
 
     /// <summary>
@@ -21,21 +21,21 @@ public partial class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : Terr
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> Enabled { get; set; }
+    public partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The event attribute.
     /// </summary>
     [TerraformProperty("event")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Event { get; set; }
+    public partial TerraformValue<string> Event { get; set; }
 
     /// <summary>
     /// The threshold attribute.
     /// </summary>
     [TerraformProperty("threshold")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Threshold { get; set; }
+    public partial TerraformValue<double> Threshold { get; set; }
 
 }
 
@@ -51,7 +51,7 @@ public partial class AwsRolesanywhereTrustAnchorSourceBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     [TerraformProperty("source_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceType { get; set; }
+    public required partial TerraformValue<string> SourceType { get; set; }
 
 }
 
@@ -70,14 +70,14 @@ public partial class AwsRolesanywhereTrustAnchor : TerraformResource
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> Enabled { get; set; }
+    public partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -85,21 +85,21 @@ public partial class AwsRolesanywhereTrustAnchor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for notification_settings.
@@ -107,7 +107,7 @@ public partial class AwsRolesanywhereTrustAnchor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 NotificationSettings block(s) allowed")]
     [TerraformProperty("notification_settings")]
-    public TerraformSet<TerraformBlock<AwsRolesanywhereTrustAnchorNotificationSettingsBlock>>? NotificationSettings { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsRolesanywhereTrustAnchorNotificationSettingsBlock>>? NotificationSettings { get; set; }
 
     /// <summary>
     /// Block for source.
@@ -117,13 +117,13 @@ public partial class AwsRolesanywhereTrustAnchor : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public TerraformList<TerraformBlock<AwsRolesanywhereTrustAnchorSourceBlock>>? Source { get; set; }
+    public partial TerraformList<TerraformBlock<AwsRolesanywhereTrustAnchorSourceBlock>>? Source { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

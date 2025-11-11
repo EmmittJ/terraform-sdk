@@ -13,21 +13,21 @@ public partial class AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdat
     /// </summary>
     [TerraformProperty("authentication_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthenticationType { get; set; }
+    public partial TerraformValue<string>? AuthenticationType { get; set; }
 
     /// <summary>
     /// The automation_account_id attribute.
     /// </summary>
     [TerraformProperty("automation_account_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AutomationAccountId { get; set; }
+    public partial TerraformValue<string>? AutomationAccountId { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
 }
 
@@ -42,28 +42,28 @@ public partial class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock 
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -82,7 +82,7 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping : TerraformRe
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -90,7 +90,7 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recovery_fabric_name attribute.
@@ -98,7 +98,7 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryFabricName is required")]
     [TerraformProperty("recovery_fabric_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecoveryFabricName { get; set; }
+    public required partial TerraformValue<string> RecoveryFabricName { get; set; }
 
     /// <summary>
     /// The recovery_replication_policy_id attribute.
@@ -106,7 +106,7 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryReplicationPolicyId is required")]
     [TerraformProperty("recovery_replication_policy_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecoveryReplicationPolicyId { get; set; }
+    public required partial TerraformValue<string> RecoveryReplicationPolicyId { get; set; }
 
     /// <summary>
     /// The recovery_source_protection_container_name attribute.
@@ -114,7 +114,7 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoverySourceProtectionContainerName is required")]
     [TerraformProperty("recovery_source_protection_container_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecoverySourceProtectionContainerName { get; set; }
+    public required partial TerraformValue<string> RecoverySourceProtectionContainerName { get; set; }
 
     /// <summary>
     /// The recovery_target_protection_container_id attribute.
@@ -122,7 +122,7 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryTargetProtectionContainerId is required")]
     [TerraformProperty("recovery_target_protection_container_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecoveryTargetProtectionContainerId { get; set; }
+    public required partial TerraformValue<string> RecoveryTargetProtectionContainerId { get; set; }
 
     /// <summary>
     /// The recovery_vault_name attribute.
@@ -130,7 +130,7 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     [TerraformProperty("recovery_vault_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecoveryVaultName { get; set; }
+    public required partial TerraformValue<string> RecoveryVaultName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -138,7 +138,7 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for automatic_update.
@@ -146,13 +146,13 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticUpdate block(s) allowed")]
     [TerraformProperty("automatic_update")]
-    public TerraformList<TerraformBlock<AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock>>? AutomaticUpdate { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock>>? AutomaticUpdate { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock>? Timeouts { get; set; }
 
 }

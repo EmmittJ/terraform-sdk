@@ -13,28 +13,28 @@ public partial class AzurermMssqlManagedInstanceActiveDirectoryAdministratorTime
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public partial class AzurermMssqlManagedInstanceActiveDirectoryAdministrator : T
     /// </summary>
     [TerraformProperty("azuread_authentication_only")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AzureadAuthenticationOnly { get; set; }
+    public partial TerraformValue<bool>? AzureadAuthenticationOnly { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The login_username attribute.
@@ -67,7 +67,7 @@ public partial class AzurermMssqlManagedInstanceActiveDirectoryAdministrator : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginUsername is required")]
     [TerraformProperty("login_username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LoginUsername { get; set; }
+    public required partial TerraformValue<string> LoginUsername { get; set; }
 
     /// <summary>
     /// The managed_instance_id attribute.
@@ -75,7 +75,7 @@ public partial class AzurermMssqlManagedInstanceActiveDirectoryAdministrator : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     [TerraformProperty("managed_instance_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ManagedInstanceId { get; set; }
+    public required partial TerraformValue<string> ManagedInstanceId { get; set; }
 
     /// <summary>
     /// The object_id attribute.
@@ -83,7 +83,7 @@ public partial class AzurermMssqlManagedInstanceActiveDirectoryAdministrator : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     [TerraformProperty("object_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ObjectId { get; set; }
+    public required partial TerraformValue<string> ObjectId { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
@@ -91,13 +91,13 @@ public partial class AzurermMssqlManagedInstanceActiveDirectoryAdministrator : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     [TerraformProperty("tenant_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TenantId { get; set; }
+    public required partial TerraformValue<string> TenantId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMssqlManagedInstanceActiveDirectoryAdministratorTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMssqlManagedInstanceActiveDirectoryAdministratorTimeoutsBlock>? Timeouts { get; set; }
 
 }

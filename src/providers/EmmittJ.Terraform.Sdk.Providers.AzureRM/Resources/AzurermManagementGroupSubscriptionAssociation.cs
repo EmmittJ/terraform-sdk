@@ -13,21 +13,21 @@ public partial class AzurermManagementGroupSubscriptionAssociationTimeoutsBlock 
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermManagementGroupSubscriptionAssociation : TerraformRe
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The management_group_id attribute.
@@ -53,7 +53,7 @@ public partial class AzurermManagementGroupSubscriptionAssociation : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     [TerraformProperty("management_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ManagementGroupId { get; set; }
+    public required partial TerraformValue<string> ManagementGroupId { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
@@ -61,13 +61,13 @@ public partial class AzurermManagementGroupSubscriptionAssociation : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     [TerraformProperty("subscription_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubscriptionId { get; set; }
+    public required partial TerraformValue<string> SubscriptionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermManagementGroupSubscriptionAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermManagementGroupSubscriptionAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

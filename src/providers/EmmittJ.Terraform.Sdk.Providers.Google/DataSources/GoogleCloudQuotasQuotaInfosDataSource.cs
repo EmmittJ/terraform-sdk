@@ -16,7 +16,7 @@ public partial class GoogleCloudQuotasQuotaInfosDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The parent attribute.
@@ -24,7 +24,7 @@ public partial class GoogleCloudQuotasQuotaInfosDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// The service attribute.
@@ -32,13 +32,13 @@ public partial class GoogleCloudQuotasQuotaInfosDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformProperty("service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Service { get; set; }
+    public required partial TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// The quota_infos attribute.
     /// </summary>
     [TerraformProperty("quota_infos")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> QuotaInfos { get; }
+    public partial TerraformList<object> QuotaInfos { get; }
 
 }

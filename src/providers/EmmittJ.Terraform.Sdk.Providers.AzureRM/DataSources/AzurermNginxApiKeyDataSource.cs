@@ -13,7 +13,7 @@ public partial class AzurermNginxApiKeyDataSourceTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermNginxApiKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermNginxApiKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The nginx_deployment_id attribute.
@@ -47,27 +47,27 @@ public partial class AzurermNginxApiKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     [TerraformProperty("nginx_deployment_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NginxDeploymentId { get; set; }
+    public required partial TerraformValue<string> NginxDeploymentId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNginxApiKeyDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNginxApiKeyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The end_date_time attribute.
     /// </summary>
     [TerraformProperty("end_date_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EndDateTime { get; }
+    public partial TerraformValue<string> EndDateTime { get; }
 
     /// <summary>
     /// The hint attribute.
     /// </summary>
     [TerraformProperty("hint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Hint { get; }
+    public partial TerraformValue<string> Hint { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class AzurermArcKubernetesProvisionedClusterAzureActiveDirectoryB
     /// </summary>
     [TerraformProperty("admin_group_object_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AdminGroupObjectIds { get; set; }
+    public partial TerraformList<string>? AdminGroupObjectIds { get; set; }
 
     /// <summary>
     /// The azure_rbac_enabled attribute.
     /// </summary>
     [TerraformProperty("azure_rbac_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AzureRbacEnabled { get; set; }
+    public partial TerraformValue<bool>? AzureRbacEnabled { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [TerraformProperty("tenant_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TenantId { get; set; }
+    public partial TerraformValue<string>? TenantId { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermArcKubernetesProvisionedClusterIdentityBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -60,28 +60,28 @@ public partial class AzurermArcKubernetesProvisionedClusterTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -100,21 +100,21 @@ public partial class AzurermArcKubernetesProvisionedCluster : TerraformResource
     /// </summary>
     [TerraformProperty("arc_agent_auto_upgrade_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ArcAgentAutoUpgradeEnabled { get; set; }
+    public partial TerraformValue<bool>? ArcAgentAutoUpgradeEnabled { get; set; }
 
     /// <summary>
     /// The arc_agent_desired_version attribute.
     /// </summary>
     [TerraformProperty("arc_agent_desired_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ArcAgentDesiredVersion { get; set; }
+    public partial TerraformValue<string>? ArcAgentDesiredVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -122,7 +122,7 @@ public partial class AzurermArcKubernetesProvisionedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -130,7 +130,7 @@ public partial class AzurermArcKubernetesProvisionedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -138,14 +138,14 @@ public partial class AzurermArcKubernetesProvisionedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for azure_active_directory.
@@ -153,7 +153,7 @@ public partial class AzurermArcKubernetesProvisionedCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectory block(s) allowed")]
     [TerraformProperty("azure_active_directory")]
-    public TerraformList<TerraformBlock<AzurermArcKubernetesProvisionedClusterAzureActiveDirectoryBlock>>? AzureActiveDirectory { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermArcKubernetesProvisionedClusterAzureActiveDirectoryBlock>>? AzureActiveDirectory { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -163,62 +163,62 @@ public partial class AzurermArcKubernetesProvisionedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermArcKubernetesProvisionedClusterIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermArcKubernetesProvisionedClusterIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermArcKubernetesProvisionedClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermArcKubernetesProvisionedClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
     [TerraformProperty("agent_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AgentVersion { get; }
+    public partial TerraformValue<string> AgentVersion { get; }
 
     /// <summary>
     /// The distribution attribute.
     /// </summary>
     [TerraformProperty("distribution")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Distribution { get; }
+    public partial TerraformValue<string> Distribution { get; }
 
     /// <summary>
     /// The infrastructure attribute.
     /// </summary>
     [TerraformProperty("infrastructure")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Infrastructure { get; }
+    public partial TerraformValue<string> Infrastructure { get; }
 
     /// <summary>
     /// The kubernetes_version attribute.
     /// </summary>
     [TerraformProperty("kubernetes_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KubernetesVersion { get; }
+    public partial TerraformValue<string> KubernetesVersion { get; }
 
     /// <summary>
     /// The offering attribute.
     /// </summary>
     [TerraformProperty("offering")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Offering { get; }
+    public partial TerraformValue<string> Offering { get; }
 
     /// <summary>
     /// The total_core_count attribute.
     /// </summary>
     [TerraformProperty("total_core_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> TotalCoreCount { get; }
+    public partial TerraformValue<double> TotalCoreCount { get; }
 
     /// <summary>
     /// The total_node_count attribute.
     /// </summary>
     [TerraformProperty("total_node_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> TotalNodeCount { get; }
+    public partial TerraformValue<double> TotalNodeCount { get; }
 
 }

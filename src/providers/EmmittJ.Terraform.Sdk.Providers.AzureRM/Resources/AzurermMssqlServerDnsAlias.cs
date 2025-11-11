@@ -13,21 +13,21 @@ public partial class AzurermMssqlServerDnsAliasTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermMssqlServerDnsAlias : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The mssql_server_id attribute.
@@ -53,7 +53,7 @@ public partial class AzurermMssqlServerDnsAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MssqlServerId is required")]
     [TerraformProperty("mssql_server_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MssqlServerId { get; set; }
+    public required partial TerraformValue<string> MssqlServerId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -61,20 +61,20 @@ public partial class AzurermMssqlServerDnsAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMssqlServerDnsAliasTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMssqlServerDnsAliasTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The dns_record attribute.
     /// </summary>
     [TerraformProperty("dns_record")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DnsRecord { get; }
+    public partial TerraformValue<string> DnsRecord { get; }
 
 }

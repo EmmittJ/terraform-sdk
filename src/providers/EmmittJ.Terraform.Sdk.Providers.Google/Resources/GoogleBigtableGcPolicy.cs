@@ -14,14 +14,14 @@ public partial class GoogleBigtableGcPolicyMaxAgeBlock : TerraformBlockBase
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("days")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Days { get; set; }
+    public partial TerraformValue<double> Days { get; set; }
 
     /// <summary>
     /// Duration before applying GC policy
     /// </summary>
     [TerraformProperty("duration")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Duration { get; set; }
+    public partial TerraformValue<string> Duration { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class GoogleBigtableGcPolicyMaxVersionBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Number is required")]
     [TerraformProperty("number")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Number { get; set; }
+    public required partial TerraformValue<double> Number { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public partial class GoogleBigtableGcPolicyTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -79,7 +79,7 @@ public partial class GoogleBigtableGcPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnFamily is required")]
     [TerraformProperty("column_family")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ColumnFamily { get; set; }
+    public required partial TerraformValue<string> ColumnFamily { get; set; }
 
     /// <summary>
     /// The deletion policy for the GC policy. Setting ABANDON allows the resource
@@ -88,21 +88,21 @@ public partial class GoogleBigtableGcPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeletionPolicy { get; set; }
+    public partial TerraformValue<string>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// Serialized JSON string for garbage collection policy. Conflicts with &amp;quot;mode&amp;quot;, &amp;quot;max_age&amp;quot; and &amp;quot;max_version&amp;quot;.
     /// </summary>
     [TerraformProperty("gc_rules")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GcRules { get; set; }
+    public partial TerraformValue<string>? GcRules { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Allows ignoring warnings when updating the GC policy. This can be used
@@ -112,7 +112,7 @@ public partial class GoogleBigtableGcPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("ignore_warnings")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IgnoreWarnings { get; set; }
+    public partial TerraformValue<bool>? IgnoreWarnings { get; set; }
 
     /// <summary>
     /// The name of the Bigtable instance.
@@ -120,21 +120,21 @@ public partial class GoogleBigtableGcPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     [TerraformProperty("instance_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InstanceName { get; set; }
+    public required partial TerraformValue<string> InstanceName { get; set; }
 
     /// <summary>
     /// NOTE: &#39;gc_rules&#39; is more flexible, and should be preferred over this field for new resources. This field may be deprecated in the future. If multiple policies are set, you should choose between UNION OR INTERSECTION.
     /// </summary>
     [TerraformProperty("mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Mode { get; set; }
+    public partial TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The name of the table.
@@ -142,7 +142,7 @@ public partial class GoogleBigtableGcPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     [TerraformProperty("table")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Table { get; set; }
+    public required partial TerraformValue<string> Table { get; set; }
 
     /// <summary>
     /// Block for max_age.
@@ -150,20 +150,20 @@ public partial class GoogleBigtableGcPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaxAge block(s) allowed")]
     [TerraformProperty("max_age")]
-    public TerraformList<TerraformBlock<GoogleBigtableGcPolicyMaxAgeBlock>>? MaxAge { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigtableGcPolicyMaxAgeBlock>>? MaxAge { get; set; }
 
     /// <summary>
     /// Block for max_version.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("max_version")]
-    public TerraformList<TerraformBlock<GoogleBigtableGcPolicyMaxVersionBlock>>? MaxVersion { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigtableGcPolicyMaxVersionBlock>>? MaxVersion { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBigtableGcPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBigtableGcPolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

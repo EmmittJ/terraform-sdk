@@ -16,7 +16,7 @@ public partial class AwsCognitoUserGroupsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The user_pool_id attribute.
@@ -24,20 +24,20 @@ public partial class AwsCognitoUserGroupsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     [TerraformProperty("user_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UserPoolId { get; set; }
+    public required partial TerraformValue<string> UserPoolId { get; set; }
 
     /// <summary>
     /// The groups attribute.
     /// </summary>
     [TerraformProperty("groups")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Groups { get; }
+    public partial TerraformList<object> Groups { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

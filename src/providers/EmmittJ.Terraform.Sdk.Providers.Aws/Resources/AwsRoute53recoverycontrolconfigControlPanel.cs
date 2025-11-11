@@ -17,14 +17,14 @@ public partial class AwsRoute53recoverycontrolconfigControlPanel : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterArn is required")]
     [TerraformProperty("cluster_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterArn { get; set; }
+    public required partial TerraformValue<string> ClusterArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -32,48 +32,48 @@ public partial class AwsRoute53recoverycontrolconfigControlPanel : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The default_control_panel attribute.
     /// </summary>
     [TerraformProperty("default_control_panel")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> DefaultControlPanel { get; }
+    public partial TerraformValue<bool> DefaultControlPanel { get; }
 
     /// <summary>
     /// The routing_control_count attribute.
     /// </summary>
     [TerraformProperty("routing_control_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> RoutingControlCount { get; }
+    public partial TerraformValue<double> RoutingControlCount { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
 }

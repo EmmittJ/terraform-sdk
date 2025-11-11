@@ -16,7 +16,7 @@ public partial class AzurermStackHciClusterIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -31,28 +31,28 @@ public partial class AzurermStackHciClusterTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -71,21 +71,21 @@ public partial class AzurermStackHciCluster : TerraformResource
     /// </summary>
     [TerraformProperty("automanage_configuration_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AutomanageConfigurationId { get; set; }
+    public partial TerraformValue<string>? AutomanageConfigurationId { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [TerraformProperty("client_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientId { get; set; }
+    public partial TerraformValue<string>? ClientId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -93,7 +93,7 @@ public partial class AzurermStackHciCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -101,7 +101,7 @@ public partial class AzurermStackHciCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -109,21 +109,21 @@ public partial class AzurermStackHciCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [TerraformProperty("tenant_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TenantId { get; set; }
+    public partial TerraformValue<string> TenantId { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -131,34 +131,34 @@ public partial class AzurermStackHciCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermStackHciClusterIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermStackHciClusterIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStackHciClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStackHciClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The cloud_id attribute.
     /// </summary>
     [TerraformProperty("cloud_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CloudId { get; }
+    public partial TerraformValue<string> CloudId { get; }
 
     /// <summary>
     /// The resource_provider_object_id attribute.
     /// </summary>
     [TerraformProperty("resource_provider_object_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceProviderObjectId { get; }
+    public partial TerraformValue<string> ResourceProviderObjectId { get; }
 
     /// <summary>
     /// The service_endpoint attribute.
     /// </summary>
     [TerraformProperty("service_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServiceEndpoint { get; }
+    public partial TerraformValue<string> ServiceEndpoint { get; }
 
 }

@@ -16,13 +16,13 @@ public partial class AwsRoute53ZonesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The ids attribute.
     /// </summary>
     [TerraformProperty("ids")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Ids { get; }
+    public partial TerraformList<string> Ids { get; }
 
 }

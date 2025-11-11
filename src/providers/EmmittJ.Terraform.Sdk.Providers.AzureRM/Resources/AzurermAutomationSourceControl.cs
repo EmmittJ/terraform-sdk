@@ -13,7 +13,7 @@ public partial class AzurermAutomationSourceControlSecurityBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("refresh_token")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RefreshToken { get; set; }
+    public partial TerraformValue<string>? RefreshToken { get; set; }
 
     /// <summary>
     /// The token attribute.
@@ -21,7 +21,7 @@ public partial class AzurermAutomationSourceControlSecurityBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     [TerraformProperty("token")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Token { get; set; }
+    public required partial TerraformValue<string> Token { get; set; }
 
     /// <summary>
     /// The token_type attribute.
@@ -29,7 +29,7 @@ public partial class AzurermAutomationSourceControlSecurityBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenType is required")]
     [TerraformProperty("token_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TokenType { get; set; }
+    public required partial TerraformValue<string> TokenType { get; set; }
 
 }
 
@@ -44,28 +44,28 @@ public partial class AzurermAutomationSourceControlTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -84,7 +84,7 @@ public partial class AzurermAutomationSourceControl : TerraformResource
     /// </summary>
     [TerraformProperty("automatic_sync")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutomaticSync { get; set; }
+    public partial TerraformValue<bool>? AutomaticSync { get; set; }
 
     /// <summary>
     /// The automation_account_id attribute.
@@ -92,21 +92,21 @@ public partial class AzurermAutomationSourceControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     [TerraformProperty("automation_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AutomationAccountId { get; set; }
+    public required partial TerraformValue<string> AutomationAccountId { get; set; }
 
     /// <summary>
     /// The branch attribute.
     /// </summary>
     [TerraformProperty("branch")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Branch { get; set; }
+    public partial TerraformValue<string>? Branch { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The folder_path attribute.
@@ -114,14 +114,14 @@ public partial class AzurermAutomationSourceControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderPath is required")]
     [TerraformProperty("folder_path")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FolderPath { get; set; }
+    public required partial TerraformValue<string> FolderPath { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -129,14 +129,14 @@ public partial class AzurermAutomationSourceControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The publish_runbook_enabled attribute.
     /// </summary>
     [TerraformProperty("publish_runbook_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PublishRunbookEnabled { get; set; }
+    public partial TerraformValue<bool>? PublishRunbookEnabled { get; set; }
 
     /// <summary>
     /// The repository_url attribute.
@@ -144,7 +144,7 @@ public partial class AzurermAutomationSourceControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     [TerraformProperty("repository_url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepositoryUrl { get; set; }
+    public required partial TerraformValue<string> RepositoryUrl { get; set; }
 
     /// <summary>
     /// The source_control_type attribute.
@@ -152,7 +152,7 @@ public partial class AzurermAutomationSourceControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceControlType is required")]
     [TerraformProperty("source_control_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceControlType { get; set; }
+    public required partial TerraformValue<string> SourceControlType { get; set; }
 
     /// <summary>
     /// Block for security.
@@ -162,13 +162,13 @@ public partial class AzurermAutomationSourceControl : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Security block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Security block(s) allowed")]
     [TerraformProperty("security")]
-    public TerraformList<TerraformBlock<AzurermAutomationSourceControlSecurityBlock>>? Security { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermAutomationSourceControlSecurityBlock>>? Security { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAutomationSourceControlTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAutomationSourceControlTimeoutsBlock>? Timeouts { get; set; }
 
 }

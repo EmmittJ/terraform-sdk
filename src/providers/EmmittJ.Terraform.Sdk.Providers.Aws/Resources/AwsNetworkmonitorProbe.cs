@@ -17,14 +17,14 @@ public partial class AwsNetworkmonitorProbe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [TerraformProperty("destination")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Destination { get; set; }
+    public required partial TerraformValue<string> Destination { get; set; }
 
     /// <summary>
     /// The destination_port attribute.
     /// </summary>
     [TerraformProperty("destination_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DestinationPort { get; set; }
+    public partial TerraformValue<double>? DestinationPort { get; set; }
 
     /// <summary>
     /// The monitor_name attribute.
@@ -32,14 +32,14 @@ public partial class AwsNetworkmonitorProbe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorName is required")]
     [TerraformProperty("monitor_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MonitorName { get; set; }
+    public required partial TerraformValue<string> MonitorName { get; set; }
 
     /// <summary>
     /// The packet_size attribute.
     /// </summary>
     [TerraformProperty("packet_size")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> PacketSize { get; set; }
+    public partial TerraformValue<double> PacketSize { get; set; }
 
     /// <summary>
     /// The protocol attribute.
@@ -47,14 +47,14 @@ public partial class AwsNetworkmonitorProbe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformProperty("protocol")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Protocol { get; set; }
+    public required partial TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The source_arn attribute.
@@ -62,55 +62,55 @@ public partial class AwsNetworkmonitorProbe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceArn is required")]
     [TerraformProperty("source_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceArn { get; set; }
+    public required partial TerraformValue<string> SourceArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The address_family attribute.
     /// </summary>
     [TerraformProperty("address_family")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AddressFamily { get; }
+    public partial TerraformValue<string> AddressFamily { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The probe_id attribute.
     /// </summary>
     [TerraformProperty("probe_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ProbeId { get; }
+    public partial TerraformValue<string> ProbeId { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [TerraformProperty("vpc_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VpcId { get; }
+    public partial TerraformValue<string> VpcId { get; }
 
 }

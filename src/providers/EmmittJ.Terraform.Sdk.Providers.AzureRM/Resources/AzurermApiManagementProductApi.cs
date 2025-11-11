@@ -13,21 +13,21 @@ public partial class AzurermApiManagementProductApiTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AzurermApiManagementProductApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     [TerraformProperty("api_management_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiManagementName { get; set; }
+    public required partial TerraformValue<string> ApiManagementName { get; set; }
 
     /// <summary>
     /// The api_name attribute.
@@ -54,14 +54,14 @@ public partial class AzurermApiManagementProductApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiName is required")]
     [TerraformProperty("api_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiName { get; set; }
+    public required partial TerraformValue<string> ApiName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The product_id attribute.
@@ -69,7 +69,7 @@ public partial class AzurermApiManagementProductApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
     [TerraformProperty("product_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProductId { get; set; }
+    public required partial TerraformValue<string> ProductId { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -77,13 +77,13 @@ public partial class AzurermApiManagementProductApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApiManagementProductApiTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApiManagementProductApiTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermKeyVaultDataSourceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermKeyVaultDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermKeyVaultDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,111 +47,111 @@ public partial class AzurermKeyVaultDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKeyVaultDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKeyVaultDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The access_policy attribute.
     /// </summary>
     [TerraformProperty("access_policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> AccessPolicy { get; }
+    public partial TerraformList<object> AccessPolicy { get; }
 
     /// <summary>
     /// The enable_rbac_authorization attribute.
     /// </summary>
     [TerraformProperty("enable_rbac_authorization")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> EnableRbacAuthorization { get; }
+    public partial TerraformValue<bool> EnableRbacAuthorization { get; }
 
     /// <summary>
     /// The enabled_for_deployment attribute.
     /// </summary>
     [TerraformProperty("enabled_for_deployment")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> EnabledForDeployment { get; }
+    public partial TerraformValue<bool> EnabledForDeployment { get; }
 
     /// <summary>
     /// The enabled_for_disk_encryption attribute.
     /// </summary>
     [TerraformProperty("enabled_for_disk_encryption")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> EnabledForDiskEncryption { get; }
+    public partial TerraformValue<bool> EnabledForDiskEncryption { get; }
 
     /// <summary>
     /// The enabled_for_template_deployment attribute.
     /// </summary>
     [TerraformProperty("enabled_for_template_deployment")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> EnabledForTemplateDeployment { get; }
+    public partial TerraformValue<bool> EnabledForTemplateDeployment { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The network_acls attribute.
     /// </summary>
     [TerraformProperty("network_acls")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> NetworkAcls { get; }
+    public partial TerraformList<object> NetworkAcls { get; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformProperty("public_network_access_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> PublicNetworkAccessEnabled { get; }
+    public partial TerraformValue<bool> PublicNetworkAccessEnabled { get; }
 
     /// <summary>
     /// The purge_protection_enabled attribute.
     /// </summary>
     [TerraformProperty("purge_protection_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> PurgeProtectionEnabled { get; }
+    public partial TerraformValue<bool> PurgeProtectionEnabled { get; }
 
     /// <summary>
     /// The rbac_authorization_enabled attribute.
     /// </summary>
     [TerraformProperty("rbac_authorization_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> RbacAuthorizationEnabled { get; }
+    public partial TerraformValue<bool> RbacAuthorizationEnabled { get; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [TerraformProperty("sku_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SkuName { get; }
+    public partial TerraformValue<string> SkuName { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [TerraformProperty("tenant_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TenantId { get; }
+    public partial TerraformValue<string> TenantId { get; }
 
     /// <summary>
     /// The vault_uri attribute.
     /// </summary>
     [TerraformProperty("vault_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VaultUri { get; }
+    public partial TerraformValue<string> VaultUri { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermAutomationVariableDatetimeDataSourceTimeoutsBlock : 
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzurermAutomationVariableDatetimeDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     [TerraformProperty("automation_account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AutomationAccountName { get; set; }
+    public required partial TerraformValue<string> AutomationAccountName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,7 +47,7 @@ public partial class AzurermAutomationVariableDatetimeDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -55,34 +55,34 @@ public partial class AzurermAutomationVariableDatetimeDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAutomationVariableDatetimeDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAutomationVariableDatetimeDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     [TerraformProperty("encrypted")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Encrypted { get; }
+    public partial TerraformValue<bool> Encrypted { get; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [TerraformProperty("value")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Value { get; }
+    public partial TerraformValue<string> Value { get; }
 
 }

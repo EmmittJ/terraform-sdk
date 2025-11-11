@@ -14,7 +14,7 @@ public partial class GoogleDiscoveryEngineControlBoostActionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
     [TerraformProperty("data_store")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataStore { get; set; }
+    public required partial TerraformValue<string> DataStore { get; set; }
 
     /// <summary>
     /// The filter to apply to the search results.
@@ -22,14 +22,14 @@ public partial class GoogleDiscoveryEngineControlBoostActionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [TerraformProperty("filter")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Filter { get; set; }
+    public required partial TerraformValue<string> Filter { get; set; }
 
     /// <summary>
     /// The fixed boost value to apply to the search results. Positive values will increase the relevance of the results, while negative values will decrease the relevance. The value must be between -100 and 100.
     /// </summary>
     [TerraformProperty("fixed_boost")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? FixedBoost { get; set; }
+    public partial TerraformValue<double>? FixedBoost { get; set; }
 
 }
 
@@ -44,7 +44,7 @@ public partial class GoogleDiscoveryEngineControlConditionsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("query_regex")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? QueryRegex { get; set; }
+    public partial TerraformValue<string>? QueryRegex { get; set; }
 
 }
 
@@ -60,7 +60,7 @@ public partial class GoogleDiscoveryEngineControlFilterActionBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
     [TerraformProperty("data_store")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataStore { get; set; }
+    public required partial TerraformValue<string> DataStore { get; set; }
 
     /// <summary>
     /// The filter to apply to the search results.
@@ -68,7 +68,7 @@ public partial class GoogleDiscoveryEngineControlFilterActionBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [TerraformProperty("filter")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Filter { get; set; }
+    public required partial TerraformValue<string> Filter { get; set; }
 
 }
 
@@ -84,7 +84,7 @@ public partial class GoogleDiscoveryEngineControlPromoteActionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
     [TerraformProperty("data_store")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataStore { get; set; }
+    public required partial TerraformValue<string> DataStore { get; set; }
 
 }
 
@@ -100,7 +100,7 @@ public partial class GoogleDiscoveryEngineControlRedirectActionBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUri is required")]
     [TerraformProperty("redirect_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RedirectUri { get; set; }
+    public required partial TerraformValue<string> RedirectUri { get; set; }
 
 }
 
@@ -115,7 +115,7 @@ public partial class GoogleDiscoveryEngineControlSynonymsActionBlock : Terraform
     /// </summary>
     [TerraformProperty("synonyms")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Synonyms { get; set; }
+    public partial TerraformList<string>? Synonyms { get; set; }
 
 }
 
@@ -130,21 +130,21 @@ public partial class GoogleDiscoveryEngineControlTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -163,7 +163,7 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     /// </summary>
     [TerraformProperty("collection_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CollectionId { get; set; }
+    public partial TerraformValue<string>? CollectionId { get; set; }
 
     /// <summary>
     /// The unique id of the control.
@@ -171,7 +171,7 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlId is required")]
     [TerraformProperty("control_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ControlId { get; set; }
+    public required partial TerraformValue<string> ControlId { get; set; }
 
     /// <summary>
     /// The display name of the control. This field must be a UTF-8 encoded
@@ -180,7 +180,7 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The engine to add the control to.
@@ -188,14 +188,14 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     [TerraformProperty("engine_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EngineId { get; set; }
+    public required partial TerraformValue<string> EngineId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
@@ -204,14 +204,14 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The solution type that the control belongs to. Possible values: [&amp;quot;SOLUTION_TYPE_RECOMMENDATION&amp;quot;, &amp;quot;SOLUTION_TYPE_SEARCH&amp;quot;, &amp;quot;SOLUTION_TYPE_CHAT&amp;quot;, &amp;quot;SOLUTION_TYPE_GENERATIVE_CHAT&amp;quot;]
@@ -219,14 +219,14 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SolutionType is required")]
     [TerraformProperty("solution_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SolutionType { get; set; }
+    public required partial TerraformValue<string> SolutionType { get; set; }
 
     /// <summary>
     /// The use cases that the control is used for. Possible values: [&amp;quot;SEARCH_USE_CASE_SEARCH&amp;quot;, &amp;quot;SEARCH_USE_CASE_BROWSE&amp;quot;]
     /// </summary>
     [TerraformProperty("use_cases")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? UseCases { get; set; }
+    public partial TerraformList<string>? UseCases { get; set; }
 
     /// <summary>
     /// Block for boost_action.
@@ -234,14 +234,14 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BoostAction block(s) allowed")]
     [TerraformProperty("boost_action")]
-    public TerraformList<TerraformBlock<GoogleDiscoveryEngineControlBoostActionBlock>>? BoostAction { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineControlBoostActionBlock>>? BoostAction { get; set; }
 
     /// <summary>
     /// Block for conditions.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("conditions")]
-    public TerraformList<TerraformBlock<GoogleDiscoveryEngineControlConditionsBlock>>? Conditions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineControlConditionsBlock>>? Conditions { get; set; }
 
     /// <summary>
     /// Block for filter_action.
@@ -249,7 +249,7 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterAction block(s) allowed")]
     [TerraformProperty("filter_action")]
-    public TerraformList<TerraformBlock<GoogleDiscoveryEngineControlFilterActionBlock>>? FilterAction { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineControlFilterActionBlock>>? FilterAction { get; set; }
 
     /// <summary>
     /// Block for promote_action.
@@ -257,7 +257,7 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PromoteAction block(s) allowed")]
     [TerraformProperty("promote_action")]
-    public TerraformList<TerraformBlock<GoogleDiscoveryEngineControlPromoteActionBlock>>? PromoteAction { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineControlPromoteActionBlock>>? PromoteAction { get; set; }
 
     /// <summary>
     /// Block for redirect_action.
@@ -265,7 +265,7 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedirectAction block(s) allowed")]
     [TerraformProperty("redirect_action")]
-    public TerraformList<TerraformBlock<GoogleDiscoveryEngineControlRedirectActionBlock>>? RedirectAction { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineControlRedirectActionBlock>>? RedirectAction { get; set; }
 
     /// <summary>
     /// Block for synonyms_action.
@@ -273,14 +273,14 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SynonymsAction block(s) allowed")]
     [TerraformProperty("synonyms_action")]
-    public TerraformList<TerraformBlock<GoogleDiscoveryEngineControlSynonymsActionBlock>>? SynonymsAction { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineControlSynonymsActionBlock>>? SynonymsAction { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDiscoveryEngineControlTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDiscoveryEngineControlTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique full resource name of the control. Values are of the format
@@ -290,6 +290,6 @@ public partial class GoogleDiscoveryEngineControl : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

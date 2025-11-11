@@ -13,14 +13,14 @@ public partial class AwsQuicksightIamPolicyAssignmentIdentitiesBlock : Terraform
     /// </summary>
     [TerraformProperty("group")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Group { get; set; }
+    public partial TerraformSet<string>? Group { get; set; }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
     [TerraformProperty("user")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? User { get; set; }
+    public partial TerraformSet<string>? User { get; set; }
 
 }
 
@@ -39,7 +39,7 @@ public partial class AwsQuicksightIamPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentName is required")]
     [TerraformProperty("assignment_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AssignmentName { get; set; }
+    public required partial TerraformValue<string> AssignmentName { get; set; }
 
     /// <summary>
     /// The assignment_status attribute.
@@ -47,55 +47,55 @@ public partial class AwsQuicksightIamPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentStatus is required")]
     [TerraformProperty("assignment_status")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AssignmentStatus { get; set; }
+    public required partial TerraformValue<string> AssignmentStatus { get; set; }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
     [TerraformProperty("aws_account_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AwsAccountId { get; set; }
+    public partial TerraformValue<string> AwsAccountId { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
     [TerraformProperty("namespace")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Namespace { get; set; }
+    public partial TerraformValue<string> Namespace { get; set; }
 
     /// <summary>
     /// The policy_arn attribute.
     /// </summary>
     [TerraformProperty("policy_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PolicyArn { get; set; }
+    public partial TerraformValue<string>? PolicyArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for identities.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("identities")]
-    public TerraformList<TerraformBlock<AwsQuicksightIamPolicyAssignmentIdentitiesBlock>>? Identities { get; set; }
+    public partial TerraformList<TerraformBlock<AwsQuicksightIamPolicyAssignmentIdentitiesBlock>>? Identities { get; set; }
 
     /// <summary>
     /// The assignment_id attribute.
     /// </summary>
     [TerraformProperty("assignment_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AssignmentId { get; }
+    public partial TerraformValue<string> AssignmentId { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AwsGuarddutyDetectorFeatureAdditionalConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The status attribute.
@@ -22,7 +22,7 @@ public partial class AwsGuarddutyDetectorFeatureAdditionalConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     [TerraformProperty("status")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Status { get; set; }
+    public required partial TerraformValue<string> Status { get; set; }
 
 }
 
@@ -41,14 +41,14 @@ public partial class AwsGuarddutyDetectorFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     [TerraformProperty("detector_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DetectorId { get; set; }
+    public required partial TerraformValue<string> DetectorId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -56,14 +56,14 @@ public partial class AwsGuarddutyDetectorFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The status attribute.
@@ -71,13 +71,13 @@ public partial class AwsGuarddutyDetectorFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     [TerraformProperty("status")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Status { get; set; }
+    public required partial TerraformValue<string> Status { get; set; }
 
     /// <summary>
     /// Block for additional_configuration.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("additional_configuration")]
-    public TerraformSet<TerraformBlock<AwsGuarddutyDetectorFeatureAdditionalConfigurationBlock>>? AdditionalConfiguration { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsGuarddutyDetectorFeatureAdditionalConfigurationBlock>>? AdditionalConfiguration { get; set; }
 
 }

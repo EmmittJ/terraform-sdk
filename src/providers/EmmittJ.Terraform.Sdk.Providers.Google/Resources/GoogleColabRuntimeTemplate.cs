@@ -13,14 +13,14 @@ public partial class GoogleColabRuntimeTemplateDataPersistentDiskSpecBlock : Ter
     /// </summary>
     [TerraformProperty("disk_size_gb")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DiskSizeGb { get; set; }
+    public partial TerraformValue<string> DiskSizeGb { get; set; }
 
     /// <summary>
     /// The type of the persistent disk.
     /// </summary>
     [TerraformProperty("disk_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DiskType { get; set; }
+    public partial TerraformValue<string> DiskType { get; set; }
 
 }
 
@@ -35,7 +35,7 @@ public partial class GoogleColabRuntimeTemplateEncryptionSpecBlock : TerraformBl
     /// </summary>
     [TerraformProperty("kms_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyName { get; set; }
+    public partial TerraformValue<string>? KmsKeyName { get; set; }
 
 }
 
@@ -50,7 +50,7 @@ public partial class GoogleColabRuntimeTemplateEucConfigBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("euc_disabled")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> EucDisabled { get; set; }
+    public partial TerraformValue<bool> EucDisabled { get; set; }
 
 }
 
@@ -65,7 +65,7 @@ public partial class GoogleColabRuntimeTemplateIdleShutdownConfigBlock : Terrafo
     /// </summary>
     [TerraformProperty("idle_timeout")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> IdleTimeout { get; set; }
+    public partial TerraformValue<string> IdleTimeout { get; set; }
 
 }
 
@@ -80,21 +80,21 @@ public partial class GoogleColabRuntimeTemplateMachineSpecBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("accelerator_count")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> AcceleratorCount { get; set; }
+    public partial TerraformValue<double> AcceleratorCount { get; set; }
 
     /// <summary>
     /// The type of hardware accelerator used by the runtime. If specified, acceleratorCount must also be specified.
     /// </summary>
     [TerraformProperty("accelerator_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AcceleratorType { get; set; }
+    public partial TerraformValue<string>? AcceleratorType { get; set; }
 
     /// <summary>
     /// The Compute Engine machine type selected for the runtime.
     /// </summary>
     [TerraformProperty("machine_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> MachineType { get; set; }
+    public partial TerraformValue<string> MachineType { get; set; }
 
 }
 
@@ -109,21 +109,21 @@ public partial class GoogleColabRuntimeTemplateNetworkSpecBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("enable_internet_access")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableInternetAccess { get; set; }
+    public partial TerraformValue<bool>? EnableInternetAccess { get; set; }
 
     /// <summary>
     /// The name of the VPC that this runtime is in.
     /// </summary>
     [TerraformProperty("network")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Network { get; set; }
+    public partial TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The name of the subnetwork that this runtime is in.
     /// </summary>
     [TerraformProperty("subnetwork")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Subnetwork { get; set; }
+    public partial TerraformValue<string>? Subnetwork { get; set; }
 
 }
 
@@ -138,7 +138,7 @@ public partial class GoogleColabRuntimeTemplateShieldedVmConfigBlock : Terraform
     /// </summary>
     [TerraformProperty("enable_secure_boot")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> EnableSecureBoot { get; set; }
+    public partial TerraformValue<bool> EnableSecureBoot { get; set; }
 
 }
 
@@ -161,21 +161,21 @@ public partial class GoogleColabRuntimeTemplateTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -194,7 +194,7 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Required. The display name of the Runtime Template.
@@ -202,14 +202,14 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels to identify and group the runtime template.
@@ -219,7 +219,7 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Labels { get; set; }
+    public partial TerraformMap<string> Labels { get; set; }
 
     /// <summary>
     /// The location for the resource: https://cloud.google.com/colab/docs/locations
@@ -227,28 +227,28 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource name of the Runtime Template
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Applies the given Compute Engine tags to the runtime.
     /// </summary>
     [TerraformProperty("network_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? NetworkTags { get; set; }
+    public partial TerraformList<string>? NetworkTags { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for data_persistent_disk_spec.
@@ -256,7 +256,7 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataPersistentDiskSpec block(s) allowed")]
     [TerraformProperty("data_persistent_disk_spec")]
-    public TerraformList<TerraformBlock<GoogleColabRuntimeTemplateDataPersistentDiskSpecBlock>>? DataPersistentDiskSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleColabRuntimeTemplateDataPersistentDiskSpecBlock>>? DataPersistentDiskSpec { get; set; }
 
     /// <summary>
     /// Block for encryption_spec.
@@ -264,7 +264,7 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public TerraformList<TerraformBlock<GoogleColabRuntimeTemplateEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleColabRuntimeTemplateEncryptionSpecBlock>>? EncryptionSpec { get; set; }
 
     /// <summary>
     /// Block for euc_config.
@@ -272,7 +272,7 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EucConfig block(s) allowed")]
     [TerraformProperty("euc_config")]
-    public TerraformList<TerraformBlock<GoogleColabRuntimeTemplateEucConfigBlock>>? EucConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleColabRuntimeTemplateEucConfigBlock>>? EucConfig { get; set; }
 
     /// <summary>
     /// Block for idle_shutdown_config.
@@ -280,7 +280,7 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdleShutdownConfig block(s) allowed")]
     [TerraformProperty("idle_shutdown_config")]
-    public TerraformList<TerraformBlock<GoogleColabRuntimeTemplateIdleShutdownConfigBlock>>? IdleShutdownConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleColabRuntimeTemplateIdleShutdownConfigBlock>>? IdleShutdownConfig { get; set; }
 
     /// <summary>
     /// Block for machine_spec.
@@ -288,7 +288,7 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MachineSpec block(s) allowed")]
     [TerraformProperty("machine_spec")]
-    public TerraformList<TerraformBlock<GoogleColabRuntimeTemplateMachineSpecBlock>>? MachineSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleColabRuntimeTemplateMachineSpecBlock>>? MachineSpec { get; set; }
 
     /// <summary>
     /// Block for network_spec.
@@ -296,7 +296,7 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkSpec block(s) allowed")]
     [TerraformProperty("network_spec")]
-    public TerraformList<TerraformBlock<GoogleColabRuntimeTemplateNetworkSpecBlock>>? NetworkSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleColabRuntimeTemplateNetworkSpecBlock>>? NetworkSpec { get; set; }
 
     /// <summary>
     /// Block for shielded_vm_config.
@@ -304,7 +304,7 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShieldedVmConfig block(s) allowed")]
     [TerraformProperty("shielded_vm_config")]
-    public TerraformList<TerraformBlock<GoogleColabRuntimeTemplateShieldedVmConfigBlock>>? ShieldedVmConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleColabRuntimeTemplateShieldedVmConfigBlock>>? ShieldedVmConfig { get; set; }
 
     /// <summary>
     /// Block for software_config.
@@ -312,21 +312,21 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoftwareConfig block(s) allowed")]
     [TerraformProperty("software_config")]
-    public TerraformList<TerraformBlock<GoogleColabRuntimeTemplateSoftwareConfigBlock>>? SoftwareConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleColabRuntimeTemplateSoftwareConfigBlock>>? SoftwareConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleColabRuntimeTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleColabRuntimeTemplateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -334,6 +334,6 @@ public partial class GoogleColabRuntimeTemplate : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class GoogleApigeeEnvironmentAddonsConfigTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class GoogleApigeeEnvironmentAddonsConfig : TerraformResource
     /// </summary>
     [TerraformProperty("analytics_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AnalyticsEnabled { get; set; }
+    public partial TerraformValue<bool>? AnalyticsEnabled { get; set; }
 
     /// <summary>
     /// The Apigee environment group associated with the Apigee environment,
@@ -54,20 +54,20 @@ public partial class GoogleApigeeEnvironmentAddonsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     [TerraformProperty("env_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EnvId { get; set; }
+    public required partial TerraformValue<string> EnvId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeEnvironmentAddonsConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeEnvironmentAddonsConfigTimeoutsBlock>? Timeouts { get; set; }
 
 }

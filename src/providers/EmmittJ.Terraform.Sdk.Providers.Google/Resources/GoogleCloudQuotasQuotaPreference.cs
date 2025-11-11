@@ -15,7 +15,7 @@ public partial class GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock : Terrafor
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
 
     /// <summary>
@@ -24,7 +24,7 @@ public partial class GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferredValue is required")]
     [TerraformProperty("preferred_value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PreferredValue { get; set; }
+    public required partial TerraformValue<string> PreferredValue { get; set; }
 
 
 
@@ -42,21 +42,21 @@ public partial class GoogleCloudQuotasQuotaPreferenceTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -77,7 +77,7 @@ public partial class GoogleCloudQuotasQuotaPreference : TerraformResource
     /// </summary>
     [TerraformProperty("contact_email")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContactEmail { get; set; }
+    public partial TerraformValue<string>? ContactEmail { get; set; }
 
     /// <summary>
     /// The dimensions that this quota preference applies to. The key of the map entry is the name of a dimension, such as &amp;quot;region&amp;quot;, &amp;quot;zone&amp;quot;, &amp;quot;network_id&amp;quot;, and the value of the map entry is the dimension value. If a dimension is missing from the map of dimensions, the quota preference applies to all the dimension values except for those that have other quota preferences configured for the specific value.
@@ -88,42 +88,42 @@ public partial class GoogleCloudQuotasQuotaPreference : TerraformResource
     /// </summary>
     [TerraformProperty("dimensions")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Dimensions { get; set; }
+    public partial TerraformMap<string> Dimensions { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The list of quota safety checks to be ignored. Default value: &amp;quot;QUOTA_SAFETY_CHECK_UNSPECIFIED&amp;quot; Possible values: [&amp;quot;QUOTA_SAFETY_CHECK_UNSPECIFIED&amp;quot;, &amp;quot;QUOTA_DECREASE_BELOW_USAGE&amp;quot;, &amp;quot;QUOTA_DECREASE_PERCENTAGE_TOO_HIGH&amp;quot;]
     /// </summary>
     [TerraformProperty("ignore_safety_checks")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IgnoreSafetyChecks { get; set; }
+    public partial TerraformValue<string>? IgnoreSafetyChecks { get; set; }
 
     /// <summary>
     /// The reason / justification for this quota preference.
     /// </summary>
     [TerraformProperty("justification")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Justification { get; set; }
+    public partial TerraformValue<string>? Justification { get; set; }
 
     /// <summary>
     /// The resource name of the quota preference. Required except in the CREATE requests.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parent of the quota preference. Allowed parents are &amp;quot;projects/[project-id / number]&amp;quot; or &amp;quot;folders/[folder-id / number]&amp;quot; or &amp;quot;organizations/[org-id / number]&amp;quot;.
     /// </summary>
     [TerraformProperty("parent")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Parent { get; set; }
+    public partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// The id of the quota to which the quota preference is applied. A quota id is unique in the service.
@@ -131,14 +131,14 @@ public partial class GoogleCloudQuotasQuotaPreference : TerraformResource
     /// </summary>
     [TerraformProperty("quota_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> QuotaId { get; set; }
+    public partial TerraformValue<string> QuotaId { get; set; }
 
     /// <summary>
     /// The name of the service to which the quota preference is applied.
     /// </summary>
     [TerraformProperty("service")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Service { get; set; }
+    public partial TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// Block for quota_config.
@@ -148,14 +148,14 @@ public partial class GoogleCloudQuotasQuotaPreference : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 QuotaConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QuotaConfig block(s) allowed")]
     [TerraformProperty("quota_config")]
-    public TerraformList<TerraformBlock<GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock>>? QuotaConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock>>? QuotaConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleCloudQuotasQuotaPreferenceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleCloudQuotasQuotaPreferenceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Create time stamp.
@@ -163,21 +163,21 @@ public partial class GoogleCloudQuotasQuotaPreference : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The current etag of the quota preference. If an etag is provided on update and does not match the current server&#39;s etag of the quota preference, the request will be blocked and an ABORTED error will be returned. See https://google.aip.dev/134#etags for more details on etags.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Is the quota preference pending Google Cloud approval and fulfillment.
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// Update time stamp.
@@ -185,6 +185,6 @@ public partial class GoogleCloudQuotasQuotaPreference : TerraformResource
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

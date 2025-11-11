@@ -13,21 +13,21 @@ public partial class AzurermDataFactoryManagedPrivateEndpointTimeoutsBlock : Ter
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,21 +46,21 @@ public partial class AzurermDataFactoryManagedPrivateEndpoint : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformProperty("data_factory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataFactoryId { get; set; }
+    public required partial TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The fqdns attribute.
     /// </summary>
     [TerraformProperty("fqdns")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> Fqdns { get; set; }
+    public partial TerraformList<string> Fqdns { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -68,14 +68,14 @@ public partial class AzurermDataFactoryManagedPrivateEndpoint : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The subresource_name attribute.
     /// </summary>
     [TerraformProperty("subresource_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SubresourceName { get; set; }
+    public partial TerraformValue<string>? SubresourceName { get; set; }
 
     /// <summary>
     /// The target_resource_id attribute.
@@ -83,13 +83,13 @@ public partial class AzurermDataFactoryManagedPrivateEndpoint : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     [TerraformProperty("target_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetResourceId { get; set; }
+    public required partial TerraformValue<string> TargetResourceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataFactoryManagedPrivateEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataFactoryManagedPrivateEndpointTimeoutsBlock>? Timeouts { get; set; }
 
 }

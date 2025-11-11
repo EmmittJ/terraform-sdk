@@ -13,28 +13,28 @@ public partial class AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermVoiceServicesCommunicationsGatewayTestLine : Terrafo
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -60,7 +60,7 @@ public partial class AzurermVoiceServicesCommunicationsGatewayTestLine : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -68,7 +68,7 @@ public partial class AzurermVoiceServicesCommunicationsGatewayTestLine : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The phone_number attribute.
@@ -76,7 +76,7 @@ public partial class AzurermVoiceServicesCommunicationsGatewayTestLine : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     [TerraformProperty("phone_number")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PhoneNumber { get; set; }
+    public required partial TerraformValue<string> PhoneNumber { get; set; }
 
     /// <summary>
     /// The purpose attribute.
@@ -84,14 +84,14 @@ public partial class AzurermVoiceServicesCommunicationsGatewayTestLine : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Purpose is required")]
     [TerraformProperty("purpose")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Purpose { get; set; }
+    public required partial TerraformValue<string> Purpose { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The voice_services_communications_gateway_id attribute.
@@ -99,13 +99,13 @@ public partial class AzurermVoiceServicesCommunicationsGatewayTestLine : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceServicesCommunicationsGatewayId is required")]
     [TerraformProperty("voice_services_communications_gateway_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VoiceServicesCommunicationsGatewayId { get; set; }
+    public required partial TerraformValue<string> VoiceServicesCommunicationsGatewayId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBlock>? Timeouts { get; set; }
 
 }

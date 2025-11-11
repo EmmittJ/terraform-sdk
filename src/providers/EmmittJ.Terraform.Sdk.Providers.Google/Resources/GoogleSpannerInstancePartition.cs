@@ -13,21 +13,21 @@ public partial class GoogleSpannerInstancePartitionTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -47,7 +47,7 @@ public partial class GoogleSpannerInstancePartition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     [TerraformProperty("config")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Config { get; set; }
+    public required partial TerraformValue<string> Config { get; set; }
 
     /// <summary>
     /// The descriptive name for this instance partition as it appears in UIs.
@@ -56,14 +56,14 @@ public partial class GoogleSpannerInstancePartition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance to create the instance partition in.
@@ -71,7 +71,7 @@ public partial class GoogleSpannerInstancePartition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// A unique identifier for the instance partition, which cannot be changed after
@@ -81,7 +81,7 @@ public partial class GoogleSpannerInstancePartition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The number of nodes allocated to this instance partition. One node equals
@@ -90,7 +90,7 @@ public partial class GoogleSpannerInstancePartition : TerraformResource
     /// </summary>
     [TerraformProperty("node_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? NodeCount { get; set; }
+    public partial TerraformValue<double>? NodeCount { get; set; }
 
     /// <summary>
     /// The number of processing units allocated to this instance partition.
@@ -98,21 +98,21 @@ public partial class GoogleSpannerInstancePartition : TerraformResource
     /// </summary>
     [TerraformProperty("processing_units")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ProcessingUnits { get; set; }
+    public partial TerraformValue<double>? ProcessingUnits { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleSpannerInstancePartitionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleSpannerInstancePartitionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The current instance partition state. Possible values are:
@@ -122,6 +122,6 @@ public partial class GoogleSpannerInstancePartition : TerraformResource
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

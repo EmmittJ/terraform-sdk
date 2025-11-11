@@ -16,7 +16,7 @@ public partial class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// Each version of a key contains key material used for encryption or signing.
@@ -26,7 +26,7 @@ public partial class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("key_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyVersion { get; set; }
+    public partial TerraformValue<string>? KeyVersion { get; set; }
 
     /// <summary>
     /// Location name of the key ring, e.g. &amp;quot;us-west1&amp;quot;.
@@ -34,7 +34,7 @@ public partial class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsLocation is required")]
     [TerraformProperty("kms_location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KmsLocation { get; set; }
+    public required partial TerraformValue<string> KmsLocation { get; set; }
 
     /// <summary>
     /// The Google Cloud project id of the project where the kms key stored. If empty,
@@ -44,7 +44,7 @@ public partial class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("kms_project_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsProjectId { get; set; }
+    public partial TerraformValue<string>? KmsProjectId { get; set; }
 
     /// <summary>
     /// A key ring organizes keys in a specific Google Cloud location and allows you to
@@ -54,7 +54,7 @@ public partial class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsRing is required")]
     [TerraformProperty("kms_ring")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KmsRing { get; set; }
+    public required partial TerraformValue<string> KmsRing { get; set; }
 
 }
 
@@ -69,14 +69,14 @@ public partial class GoogleIntegrationsClientTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -95,14 +95,14 @@ public partial class GoogleIntegrationsClient : TerraformResource
     /// </summary>
     [TerraformProperty("create_sample_integrations")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CreateSampleIntegrations { get; set; }
+    public partial TerraformValue<bool>? CreateSampleIntegrations { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Location in which client needs to be provisioned.
@@ -110,14 +110,14 @@ public partial class GoogleIntegrationsClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// User input run-as service account, if empty, will bring up a new default service account.
@@ -125,7 +125,7 @@ public partial class GoogleIntegrationsClient : TerraformResource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("run_as_service_account")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RunAsServiceAccount { get; set; }
+    public partial TerraformValue<string>? RunAsServiceAccount { get; set; }
 
     /// <summary>
     /// Block for cloud_kms_config.
@@ -133,13 +133,13 @@ public partial class GoogleIntegrationsClient : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudKmsConfig block(s) allowed")]
     [TerraformProperty("cloud_kms_config")]
-    public TerraformList<TerraformBlock<GoogleIntegrationsClientCloudKmsConfigBlock>>? CloudKmsConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIntegrationsClientCloudKmsConfigBlock>>? CloudKmsConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleIntegrationsClientTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleIntegrationsClientTimeoutsBlock>? Timeouts { get; set; }
 
 }

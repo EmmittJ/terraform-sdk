@@ -13,14 +13,14 @@ public partial class GoogleDocumentAiWarehouseLocationTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,7 +39,7 @@ public partial class GoogleDocumentAiWarehouseLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessControlMode is required")]
     [TerraformProperty("access_control_mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccessControlMode { get; set; }
+    public required partial TerraformValue<string> AccessControlMode { get; set; }
 
     /// <summary>
     /// The type of database used to store customer data. Possible values: [&amp;quot;DB_INFRA_SPANNER&amp;quot;, &amp;quot;DB_CLOUD_SQL_POSTGRES&amp;quot;]
@@ -47,21 +47,21 @@ public partial class GoogleDocumentAiWarehouseLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseType is required")]
     [TerraformProperty("database_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatabaseType { get; set; }
+    public required partial TerraformValue<string> DatabaseType { get; set; }
 
     /// <summary>
     /// The default role for the person who create a document. Possible values: [&amp;quot;DOCUMENT_ADMIN&amp;quot;, &amp;quot;DOCUMENT_EDITOR&amp;quot;, &amp;quot;DOCUMENT_VIEWER&amp;quot;]
     /// </summary>
     [TerraformProperty("document_creator_default_role")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DocumentCreatorDefaultRole { get; set; }
+    public partial TerraformValue<string>? DocumentCreatorDefaultRole { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The KMS key used for CMEK encryption. It is required that
@@ -72,7 +72,7 @@ public partial class GoogleDocumentAiWarehouseLocation : TerraformResource
     /// </summary>
     [TerraformProperty("kms_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKey { get; set; }
+    public partial TerraformValue<string>? KmsKey { get; set; }
 
     /// <summary>
     /// The location in which the instance is to be provisioned. It takes the form projects/{projectNumber}/locations/{location}.
@@ -80,7 +80,7 @@ public partial class GoogleDocumentAiWarehouseLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The unique identifier of the project.
@@ -88,13 +88,13 @@ public partial class GoogleDocumentAiWarehouseLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectNumber is required")]
     [TerraformProperty("project_number")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProjectNumber { get; set; }
+    public required partial TerraformValue<string> ProjectNumber { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDocumentAiWarehouseLocationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDocumentAiWarehouseLocationTimeoutsBlock>? Timeouts { get; set; }
 
 }

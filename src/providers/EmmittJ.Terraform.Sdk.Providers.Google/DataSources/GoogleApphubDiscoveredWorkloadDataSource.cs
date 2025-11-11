@@ -16,7 +16,7 @@ public partial class GoogleApphubDiscoveredWorkloadDataSource : TerraformDataSou
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -24,14 +24,14 @@ public partial class GoogleApphubDiscoveredWorkloadDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The workload_uri attribute.
@@ -39,27 +39,27 @@ public partial class GoogleApphubDiscoveredWorkloadDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadUri is required")]
     [TerraformProperty("workload_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkloadUri { get; set; }
+    public required partial TerraformValue<string> WorkloadUri { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The workload_properties attribute.
     /// </summary>
     [TerraformProperty("workload_properties")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> WorkloadProperties { get; }
+    public partial TerraformList<object> WorkloadProperties { get; }
 
     /// <summary>
     /// The workload_reference attribute.
     /// </summary>
     [TerraformProperty("workload_reference")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> WorkloadReference { get; }
+    public partial TerraformList<object> WorkloadReference { get; }
 
 }

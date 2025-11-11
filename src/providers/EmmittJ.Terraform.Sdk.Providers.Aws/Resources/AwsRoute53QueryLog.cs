@@ -17,14 +17,14 @@ public partial class AwsRoute53QueryLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchLogGroupArn is required")]
     [TerraformProperty("cloudwatch_log_group_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CloudwatchLogGroupArn { get; set; }
+    public required partial TerraformValue<string> CloudwatchLogGroupArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The zone_id attribute.
@@ -32,13 +32,13 @@ public partial class AwsRoute53QueryLog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     [TerraformProperty("zone_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ZoneId { get; set; }
+    public required partial TerraformValue<string> ZoneId { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

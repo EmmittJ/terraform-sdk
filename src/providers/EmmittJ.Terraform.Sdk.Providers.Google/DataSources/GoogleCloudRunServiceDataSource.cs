@@ -16,7 +16,7 @@ public partial class GoogleCloudRunServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the cloud run instance. eg us-central1
@@ -24,7 +24,7 @@ public partial class GoogleCloudRunServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Name must be unique within a Google Cloud project and region.
@@ -35,14 +35,14 @@ public partial class GoogleCloudRunServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// If set to &#39;true&#39;, the revision name (template.metadata.name) will be omitted and
@@ -53,7 +53,7 @@ public partial class GoogleCloudRunServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("autogenerate_revision_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> AutogenerateRevisionName { get; }
+    public partial TerraformValue<bool> AutogenerateRevisionName { get; }
 
     /// <summary>
     /// Metadata associated with this Service, including name, namespace, labels,
@@ -61,14 +61,14 @@ public partial class GoogleCloudRunServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("metadata")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Metadata { get; }
+    public partial TerraformList<object> Metadata { get; }
 
     /// <summary>
     /// The current status of the Service.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Status { get; }
+    public partial TerraformList<object> Status { get; }
 
     /// <summary>
     /// template holds the latest specification for the Revision to
@@ -84,7 +84,7 @@ public partial class GoogleCloudRunServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("template")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Template { get; }
+    public partial TerraformList<object> Template { get; }
 
     /// <summary>
     /// Traffic specifies how to distribute traffic over a collection of Knative Revisions
@@ -92,6 +92,6 @@ public partial class GoogleCloudRunServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("traffic")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Traffic { get; }
+    public partial TerraformList<object> Traffic { get; }
 
 }

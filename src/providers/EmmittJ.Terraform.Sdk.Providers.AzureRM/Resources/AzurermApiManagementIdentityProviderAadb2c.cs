@@ -13,28 +13,28 @@ public partial class AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermApiManagementIdentityProviderAadb2c : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedTenant is required")]
     [TerraformProperty("allowed_tenant")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AllowedTenant { get; set; }
+    public required partial TerraformValue<string> AllowedTenant { get; set; }
 
     /// <summary>
     /// The api_management_name attribute.
@@ -61,7 +61,7 @@ public partial class AzurermApiManagementIdentityProviderAadb2c : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     [TerraformProperty("api_management_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiManagementName { get; set; }
+    public required partial TerraformValue<string> ApiManagementName { get; set; }
 
     /// <summary>
     /// The authority attribute.
@@ -69,7 +69,7 @@ public partial class AzurermApiManagementIdentityProviderAadb2c : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authority is required")]
     [TerraformProperty("authority")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Authority { get; set; }
+    public required partial TerraformValue<string> Authority { get; set; }
 
     /// <summary>
     /// The client_id attribute.
@@ -77,14 +77,14 @@ public partial class AzurermApiManagementIdentityProviderAadb2c : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     [TerraformProperty("client_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientId { get; set; }
+    public required partial TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The client_library attribute.
     /// </summary>
     [TerraformProperty("client_library")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientLibrary { get; set; }
+    public partial TerraformValue<string>? ClientLibrary { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
@@ -92,28 +92,28 @@ public partial class AzurermApiManagementIdentityProviderAadb2c : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     [TerraformProperty("client_secret")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientSecret { get; set; }
+    public required partial TerraformValue<string> ClientSecret { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The password_reset_policy attribute.
     /// </summary>
     [TerraformProperty("password_reset_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PasswordResetPolicy { get; set; }
+    public partial TerraformValue<string>? PasswordResetPolicy { get; set; }
 
     /// <summary>
     /// The profile_editing_policy attribute.
     /// </summary>
     [TerraformProperty("profile_editing_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProfileEditingPolicy { get; set; }
+    public partial TerraformValue<string>? ProfileEditingPolicy { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -121,7 +121,7 @@ public partial class AzurermApiManagementIdentityProviderAadb2c : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The signin_policy attribute.
@@ -129,7 +129,7 @@ public partial class AzurermApiManagementIdentityProviderAadb2c : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigninPolicy is required")]
     [TerraformProperty("signin_policy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SigninPolicy { get; set; }
+    public required partial TerraformValue<string> SigninPolicy { get; set; }
 
     /// <summary>
     /// The signin_tenant attribute.
@@ -137,7 +137,7 @@ public partial class AzurermApiManagementIdentityProviderAadb2c : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigninTenant is required")]
     [TerraformProperty("signin_tenant")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SigninTenant { get; set; }
+    public required partial TerraformValue<string> SigninTenant { get; set; }
 
     /// <summary>
     /// The signup_policy attribute.
@@ -145,13 +145,13 @@ public partial class AzurermApiManagementIdentityProviderAadb2c : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignupPolicy is required")]
     [TerraformProperty("signup_policy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SignupPolicy { get; set; }
+    public required partial TerraformValue<string> SignupPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock>? Timeouts { get; set; }
 
 }

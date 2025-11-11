@@ -13,28 +13,28 @@ public partial class AzurermLogAnalyticsStorageInsightsTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public partial class AzurermLogAnalyticsStorageInsights : TerraformResource
     /// </summary>
     [TerraformProperty("blob_container_names")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? BlobContainerNames { get; set; }
+    public partial TerraformSet<string>? BlobContainerNames { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -67,7 +67,7 @@ public partial class AzurermLogAnalyticsStorageInsights : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -75,7 +75,7 @@ public partial class AzurermLogAnalyticsStorageInsights : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -83,7 +83,7 @@ public partial class AzurermLogAnalyticsStorageInsights : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformProperty("storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountId { get; set; }
+    public required partial TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// The storage_account_key attribute.
@@ -91,14 +91,14 @@ public partial class AzurermLogAnalyticsStorageInsights : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     [TerraformProperty("storage_account_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountKey { get; set; }
+    public required partial TerraformValue<string> StorageAccountKey { get; set; }
 
     /// <summary>
     /// The table_names attribute.
     /// </summary>
     [TerraformProperty("table_names")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? TableNames { get; set; }
+    public partial TerraformSet<string>? TableNames { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -106,13 +106,13 @@ public partial class AzurermLogAnalyticsStorageInsights : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformProperty("workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceId { get; set; }
+    public required partial TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLogAnalyticsStorageInsightsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLogAnalyticsStorageInsightsTimeoutsBlock>? Timeouts { get; set; }
 
 }

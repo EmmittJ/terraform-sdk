@@ -17,14 +17,14 @@ public partial class GoogleStorageObjectAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The object attribute.
@@ -32,20 +32,20 @@ public partial class GoogleStorageObjectAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Object is required")]
     [TerraformProperty("object")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Object { get; set; }
+    public required partial TerraformValue<string> Object { get; set; }
 
     /// <summary>
     /// The predefined_acl attribute.
     /// </summary>
     [TerraformProperty("predefined_acl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PredefinedAcl { get; set; }
+    public partial TerraformValue<string>? PredefinedAcl { get; set; }
 
     /// <summary>
     /// The role_entity attribute.
     /// </summary>
     [TerraformProperty("role_entity")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> RoleEntity { get; set; }
+    public partial TerraformSet<string> RoleEntity { get; set; }
 
 }

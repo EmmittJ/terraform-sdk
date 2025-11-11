@@ -17,7 +17,7 @@ public partial class GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -32,21 +32,21 @@ public partial class GoogleNetworkServicesLbTrafficExtensionTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -65,7 +65,7 @@ public partial class GoogleNetworkServicesLbTrafficExtension : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A list of references to the forwarding rules to which this service extension is attached to.
@@ -74,14 +74,14 @@ public partial class GoogleNetworkServicesLbTrafficExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardingRules is required")]
     [TerraformProperty("forwarding_rules")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? ForwardingRules { get; set; }
+    public partial TerraformList<string>? ForwardingRules { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Set of labels associated with the LbTrafficExtension resource.
@@ -91,7 +91,7 @@ public partial class GoogleNetworkServicesLbTrafficExtension : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// All backend services and forwarding rules referenced by this extension must share the same load balancing scheme.
@@ -101,7 +101,7 @@ public partial class GoogleNetworkServicesLbTrafficExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingScheme is required")]
     [TerraformProperty("load_balancing_scheme")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LoadBalancingScheme { get; set; }
+    public required partial TerraformValue<string> LoadBalancingScheme { get; set; }
 
     /// <summary>
     /// The location of the traffic extension
@@ -109,7 +109,7 @@ public partial class GoogleNetworkServicesLbTrafficExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Name of the LbTrafficExtension resource in the following format: projects/{project}/locations/{location}/lbTrafficExtensions/{lbTrafficExtension}.
@@ -117,14 +117,14 @@ public partial class GoogleNetworkServicesLbTrafficExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for extension_chains.
@@ -133,21 +133,21 @@ public partial class GoogleNetworkServicesLbTrafficExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExtensionChains is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExtensionChains block(s) required")]
     [TerraformProperty("extension_chains")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlock>>? ExtensionChains { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlock>>? ExtensionChains { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkServicesLbTrafficExtensionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkServicesLbTrafficExtensionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -155,6 +155,6 @@ public partial class GoogleNetworkServicesLbTrafficExtension : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

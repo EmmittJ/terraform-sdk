@@ -13,35 +13,35 @@ public partial class AzurermVirtualHubConnectionRoutingBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("associated_route_table_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AssociatedRouteTableId { get; set; }
+    public partial TerraformValue<string> AssociatedRouteTableId { get; set; }
 
     /// <summary>
     /// The inbound_route_map_id attribute.
     /// </summary>
     [TerraformProperty("inbound_route_map_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InboundRouteMapId { get; set; }
+    public partial TerraformValue<string>? InboundRouteMapId { get; set; }
 
     /// <summary>
     /// The outbound_route_map_id attribute.
     /// </summary>
     [TerraformProperty("outbound_route_map_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OutboundRouteMapId { get; set; }
+    public partial TerraformValue<string>? OutboundRouteMapId { get; set; }
 
     /// <summary>
     /// The static_vnet_local_route_override_criteria attribute.
     /// </summary>
     [TerraformProperty("static_vnet_local_route_override_criteria")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StaticVnetLocalRouteOverrideCriteria { get; set; }
+    public partial TerraformValue<string>? StaticVnetLocalRouteOverrideCriteria { get; set; }
 
     /// <summary>
     /// The static_vnet_propagate_static_routes_enabled attribute.
     /// </summary>
     [TerraformProperty("static_vnet_propagate_static_routes_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? StaticVnetPropagateStaticRoutesEnabled { get; set; }
+    public partial TerraformValue<bool>? StaticVnetPropagateStaticRoutesEnabled { get; set; }
 
 }
 
@@ -56,28 +56,28 @@ public partial class AzurermVirtualHubConnectionTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -96,14 +96,14 @@ public partial class AzurermVirtualHubConnection : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The internet_security_enabled attribute.
     /// </summary>
     [TerraformProperty("internet_security_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? InternetSecurityEnabled { get; set; }
+    public partial TerraformValue<bool>? InternetSecurityEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -111,7 +111,7 @@ public partial class AzurermVirtualHubConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The remote_virtual_network_id attribute.
@@ -119,7 +119,7 @@ public partial class AzurermVirtualHubConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVirtualNetworkId is required")]
     [TerraformProperty("remote_virtual_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RemoteVirtualNetworkId { get; set; }
+    public required partial TerraformValue<string> RemoteVirtualNetworkId { get; set; }
 
     /// <summary>
     /// The virtual_hub_id attribute.
@@ -127,7 +127,7 @@ public partial class AzurermVirtualHubConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     [TerraformProperty("virtual_hub_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualHubId { get; set; }
+    public required partial TerraformValue<string> VirtualHubId { get; set; }
 
     /// <summary>
     /// Block for routing.
@@ -135,13 +135,13 @@ public partial class AzurermVirtualHubConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
     [TerraformProperty("routing")]
-    public TerraformList<TerraformBlock<AzurermVirtualHubConnectionRoutingBlock>>? Routing { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermVirtualHubConnectionRoutingBlock>>? Routing { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVirtualHubConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVirtualHubConnectionTimeoutsBlock>? Timeouts { get; set; }
 
 }

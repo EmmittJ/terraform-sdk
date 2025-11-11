@@ -13,7 +13,7 @@ public partial class AzurermCognitiveAccountDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermCognitiveAccountDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermCognitiveAccountDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,83 +47,83 @@ public partial class AzurermCognitiveAccountDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCognitiveAccountDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCognitiveAccountDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     [TerraformProperty("endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Endpoint { get; }
+    public partial TerraformValue<string> Endpoint { get; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [TerraformProperty("identity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Identity { get; }
+    public partial TerraformList<object> Identity { get; }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     [TerraformProperty("kind")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Kind { get; }
+    public partial TerraformValue<string> Kind { get; }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
     [TerraformProperty("local_auth_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> LocalAuthEnabled { get; }
+    public partial TerraformValue<bool> LocalAuthEnabled { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     [TerraformProperty("primary_access_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryAccessKey { get; }
+    public partial TerraformValue<string> PrimaryAccessKey { get; }
 
     /// <summary>
     /// The qna_runtime_endpoint attribute.
     /// </summary>
     [TerraformProperty("qna_runtime_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> QnaRuntimeEndpoint { get; }
+    public partial TerraformValue<string> QnaRuntimeEndpoint { get; }
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     [TerraformProperty("secondary_access_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecondaryAccessKey { get; }
+    public partial TerraformValue<string> SecondaryAccessKey { get; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [TerraformProperty("sku_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SkuName { get; }
+    public partial TerraformValue<string> SkuName { get; }
 
 }

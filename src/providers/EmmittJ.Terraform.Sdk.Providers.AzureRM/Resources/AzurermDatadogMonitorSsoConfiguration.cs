@@ -13,28 +13,28 @@ public partial class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatadogMonitorId is required")]
     [TerraformProperty("datadog_monitor_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatadogMonitorId { get; set; }
+    public required partial TerraformValue<string> DatadogMonitorId { get; set; }
 
     /// <summary>
     /// The enterprise_application_id attribute.
@@ -61,28 +61,28 @@ public partial class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnterpriseApplicationId is required")]
     [TerraformProperty("enterprise_application_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EnterpriseApplicationId { get; set; }
+    public required partial TerraformValue<string> EnterpriseApplicationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The single_sign_on attribute.
     /// </summary>
     [TerraformProperty("single_sign_on")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SingleSignOn { get; set; }
+    public partial TerraformValue<string> SingleSignOn { get; set; }
 
     /// <summary>
     /// The single_sign_on_enabled attribute.
@@ -90,20 +90,20 @@ public partial class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("single_sign_on_enabled")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SingleSignOnEnabled { get; set; }
+    public partial TerraformValue<string> SingleSignOnEnabled { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDatadogMonitorSsoConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDatadogMonitorSsoConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The login_url attribute.
     /// </summary>
     [TerraformProperty("login_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LoginUrl { get; }
+    public partial TerraformValue<string> LoginUrl { get; }
 
 }

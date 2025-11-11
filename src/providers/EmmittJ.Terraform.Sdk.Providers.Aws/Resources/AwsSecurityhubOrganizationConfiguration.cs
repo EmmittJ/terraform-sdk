@@ -14,7 +14,7 @@ public partial class AwsSecurityhubOrganizationConfigurationOrganizationConfigur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationType is required")]
     [TerraformProperty("configuration_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConfigurationType { get; set; }
+    public required partial TerraformValue<string> ConfigurationType { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public partial class AwsSecurityhubOrganizationConfigurationTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -63,28 +63,28 @@ public partial class AwsSecurityhubOrganizationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnable is required")]
     [TerraformProperty("auto_enable")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> AutoEnable { get; set; }
+    public required partial TerraformValue<bool> AutoEnable { get; set; }
 
     /// <summary>
     /// The auto_enable_standards attribute.
     /// </summary>
     [TerraformProperty("auto_enable_standards")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AutoEnableStandards { get; set; }
+    public partial TerraformValue<string> AutoEnableStandards { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for organization_configuration.
@@ -92,13 +92,13 @@ public partial class AwsSecurityhubOrganizationConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrganizationConfiguration block(s) allowed")]
     [TerraformProperty("organization_configuration")]
-    public TerraformList<TerraformBlock<AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlock>>? OrganizationConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlock>>? OrganizationConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsSecurityhubOrganizationConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsSecurityhubOrganizationConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
 }

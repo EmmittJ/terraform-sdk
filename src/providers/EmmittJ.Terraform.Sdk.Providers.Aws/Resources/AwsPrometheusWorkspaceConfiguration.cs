@@ -14,7 +14,7 @@ public partial class AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabelSet is required")]
     [TerraformProperty("label_set")]
     // Required argument - source generator will implement get/set
-    public required TerraformMap<string> LabelSet { get; set; }
+    public required partial TerraformMap<string> LabelSet { get; set; }
 
 }
 
@@ -29,14 +29,14 @@ public partial class AwsPrometheusWorkspaceConfigurationTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -54,14 +54,14 @@ public partial class AwsPrometheusWorkspaceConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The retention_period_in_days attribute.
     /// </summary>
     [TerraformProperty("retention_period_in_days")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> RetentionPeriodInDays { get; set; }
+    public partial TerraformValue<double> RetentionPeriodInDays { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -69,20 +69,20 @@ public partial class AwsPrometheusWorkspaceConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformProperty("workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceId { get; set; }
+    public required partial TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for limits_per_label_set.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("limits_per_label_set")]
-    public TerraformList<TerraformBlock<AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock>>? LimitsPerLabelSet { get; set; }
+    public partial TerraformList<TerraformBlock<AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock>>? LimitsPerLabelSet { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsPrometheusWorkspaceConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsPrometheusWorkspaceConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,21 +13,21 @@ public partial class GoogleMonitoringGroupTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -47,7 +47,7 @@ public partial class GoogleMonitoringGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The filter used to determine which monitored resources
@@ -56,14 +56,14 @@ public partial class GoogleMonitoringGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [TerraformProperty("filter")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Filter { get; set; }
+    public required partial TerraformValue<string> Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// If true, the members of this group are considered to be a
@@ -72,7 +72,7 @@ public partial class GoogleMonitoringGroup : TerraformResource
     /// </summary>
     [TerraformProperty("is_cluster")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IsCluster { get; set; }
+    public partial TerraformValue<bool>? IsCluster { get; set; }
 
     /// <summary>
     /// The name of the group&#39;s parent, if it has one. The format is
@@ -81,21 +81,21 @@ public partial class GoogleMonitoringGroup : TerraformResource
     /// </summary>
     [TerraformProperty("parent_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ParentName { get; set; }
+    public partial TerraformValue<string>? ParentName { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleMonitoringGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleMonitoringGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// A unique identifier for this group. The format is
@@ -103,6 +103,6 @@ public partial class GoogleMonitoringGroup : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

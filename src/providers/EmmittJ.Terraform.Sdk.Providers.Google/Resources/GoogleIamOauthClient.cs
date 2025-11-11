@@ -13,21 +13,21 @@ public partial class GoogleIamOauthClientTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class GoogleIamOauthClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedGrantTypes is required")]
     [TerraformProperty("allowed_grant_types")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? AllowedGrantTypes { get; set; }
+    public partial TerraformList<string>? AllowedGrantTypes { get; set; }
 
     /// <summary>
     /// Required. The list of redirect uris that is allowed to redirect back
@@ -55,7 +55,7 @@ public partial class GoogleIamOauthClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedRedirectUris is required")]
     [TerraformProperty("allowed_redirect_uris")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? AllowedRedirectUris { get; set; }
+    public partial TerraformList<string>? AllowedRedirectUris { get; set; }
 
     /// <summary>
     /// Required. The list of scopes that the OauthClient is allowed to request during
@@ -74,7 +74,7 @@ public partial class GoogleIamOauthClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedScopes is required")]
     [TerraformProperty("allowed_scopes")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? AllowedScopes { get; set; }
+    public partial TerraformList<string>? AllowedScopes { get; set; }
 
     /// <summary>
     /// Immutable. The type of OauthClient. Either public or private.
@@ -87,7 +87,7 @@ public partial class GoogleIamOauthClient : TerraformResource
     /// </summary>
     [TerraformProperty("client_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientType { get; set; }
+    public partial TerraformValue<string>? ClientType { get; set; }
 
     /// <summary>
     /// A user-specified description of the OauthClient.
@@ -96,7 +96,7 @@ public partial class GoogleIamOauthClient : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Whether the OauthClient is disabled. You cannot use a disabled OAuth
@@ -104,7 +104,7 @@ public partial class GoogleIamOauthClient : TerraformResource
     /// </summary>
     [TerraformProperty("disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Disabled { get; set; }
+    public partial TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// A user-specified display name of the OauthClient.
@@ -113,14 +113,14 @@ public partial class GoogleIamOauthClient : TerraformResource
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -128,7 +128,7 @@ public partial class GoogleIamOauthClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Required. The ID to use for the OauthClient, which becomes the final component of
@@ -140,28 +140,28 @@ public partial class GoogleIamOauthClient : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthClientId is required")]
     [TerraformProperty("oauth_client_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OauthClientId { get; set; }
+    public required partial TerraformValue<string> OauthClientId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleIamOauthClientTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleIamOauthClientTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The system-generated OauthClient id.
     /// </summary>
     [TerraformProperty("client_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ClientId { get; }
+    public partial TerraformValue<string> ClientId { get; }
 
     /// <summary>
     /// Time after which the OauthClient will be permanently purged and cannot
@@ -169,7 +169,7 @@ public partial class GoogleIamOauthClient : TerraformResource
     /// </summary>
     [TerraformProperty("expire_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpireTime { get; }
+    public partial TerraformValue<string> ExpireTime { get; }
 
     /// <summary>
     /// Immutable. Identifier. The resource name of the OauthClient.
@@ -178,7 +178,7 @@ public partial class GoogleIamOauthClient : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The state of the OauthClient.
@@ -189,6 +189,6 @@ public partial class GoogleIamOauthClient : TerraformResource
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

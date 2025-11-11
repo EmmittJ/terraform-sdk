@@ -13,28 +13,28 @@ public partial class AzurermNetappAccountEncryptionTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermNetappAccountEncryption : TerraformResource
     /// </summary>
     [TerraformProperty("cross_tenant_key_vault_resource_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CrossTenantKeyVaultResourceId { get; set; }
+    public partial TerraformValue<string>? CrossTenantKeyVaultResourceId { get; set; }
 
     /// <summary>
     /// The versionless encryption key url.
@@ -60,21 +60,21 @@ public partial class AzurermNetappAccountEncryption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionKey is required")]
     [TerraformProperty("encryption_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EncryptionKey { get; set; }
+    public required partial TerraformValue<string> EncryptionKey { get; set; }
 
     /// <summary>
     /// The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults.
     /// </summary>
     [TerraformProperty("federated_client_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FederatedClientId { get; set; }
+    public partial TerraformValue<string>? FederatedClientId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the NetApp Account where encryption will be set.
@@ -82,27 +82,27 @@ public partial class AzurermNetappAccountEncryption : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappAccountId is required")]
     [TerraformProperty("netapp_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NetappAccountId { get; set; }
+    public required partial TerraformValue<string> NetappAccountId { get; set; }
 
     /// <summary>
     /// The Principal ID of the System Assigned Identity to use for encryption.
     /// </summary>
     [TerraformProperty("system_assigned_identity_principal_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SystemAssignedIdentityPrincipalId { get; set; }
+    public partial TerraformValue<string>? SystemAssignedIdentityPrincipalId { get; set; }
 
     /// <summary>
     /// The resource ID of the User Assigned Identity to use for encryption.
     /// </summary>
     [TerraformProperty("user_assigned_identity_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserAssignedIdentityId { get; set; }
+    public partial TerraformValue<string>? UserAssignedIdentityId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetappAccountEncryptionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetappAccountEncryptionTimeoutsBlock>? Timeouts { get; set; }
 
 }

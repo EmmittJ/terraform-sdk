@@ -13,7 +13,7 @@ public partial class AzurermAppConfigurationKeyDataSourceTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzurermAppConfigurationKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
     [TerraformProperty("configuration_store_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConfigurationStoreId { get; set; }
+    public required partial TerraformValue<string> ConfigurationStoreId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key attribute.
@@ -47,69 +47,69 @@ public partial class AzurermAppConfigurationKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
     [TerraformProperty("label")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Label { get; set; }
+    public partial TerraformValue<string>? Label { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAppConfigurationKeyDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAppConfigurationKeyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
     [TerraformProperty("content_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ContentType { get; }
+    public partial TerraformValue<string> ContentType { get; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The locked attribute.
     /// </summary>
     [TerraformProperty("locked")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Locked { get; }
+    public partial TerraformValue<bool> Locked { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Type { get; }
+    public partial TerraformValue<string> Type { get; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [TerraformProperty("value")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Value { get; }
+    public partial TerraformValue<string> Value { get; }
 
     /// <summary>
     /// The vault_key_reference attribute.
     /// </summary>
     [TerraformProperty("vault_key_reference")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VaultKeyReference { get; }
+    public partial TerraformValue<string> VaultKeyReference { get; }
 
 }

@@ -15,14 +15,14 @@ public partial class GoogleBiglakeTableHiveOptionsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// Hive table type. For example, MANAGED_TABLE, EXTERNAL_TABLE.
     /// </summary>
     [TerraformProperty("table_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TableType { get; set; }
+    public partial TerraformValue<string>? TableType { get; set; }
 
 }
 
@@ -37,21 +37,21 @@ public partial class GoogleBiglakeTableTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -70,14 +70,14 @@ public partial class GoogleBiglakeTable : TerraformResource
     /// </summary>
     [TerraformProperty("database")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Database { get; set; }
+    public partial TerraformValue<string>? Database { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Output only. The name of the Table. Format:
@@ -86,14 +86,14 @@ public partial class GoogleBiglakeTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The database type. Possible values: [&amp;quot;HIVE&amp;quot;]
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// Block for hive_options.
@@ -101,14 +101,14 @@ public partial class GoogleBiglakeTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HiveOptions block(s) allowed")]
     [TerraformProperty("hive_options")]
-    public TerraformList<TerraformBlock<GoogleBiglakeTableHiveOptionsBlock>>? HiveOptions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBiglakeTableHiveOptionsBlock>>? HiveOptions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBiglakeTableTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBiglakeTableTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The creation time of the table. A timestamp in RFC3339 UTC
@@ -118,7 +118,7 @@ public partial class GoogleBiglakeTable : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Output only. The deletion time of the table. Only set after the
@@ -128,7 +128,7 @@ public partial class GoogleBiglakeTable : TerraformResource
     /// </summary>
     [TerraformProperty("delete_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeleteTime { get; }
+    public partial TerraformValue<string> DeleteTime { get; }
 
     /// <summary>
     /// The checksum of a table object computed by the server based on the value
@@ -138,7 +138,7 @@ public partial class GoogleBiglakeTable : TerraformResource
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Output only. The time when this table is considered expired. Only set
@@ -148,7 +148,7 @@ public partial class GoogleBiglakeTable : TerraformResource
     /// </summary>
     [TerraformProperty("expire_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpireTime { get; }
+    public partial TerraformValue<string> ExpireTime { get; }
 
     /// <summary>
     /// Output only. The last modification time of the table. A timestamp in
@@ -158,6 +158,6 @@ public partial class GoogleBiglakeTable : TerraformResource
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

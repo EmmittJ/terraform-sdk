@@ -17,7 +17,7 @@ public partial class AwsSsoadminApplicationAssignmentConfiguration : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationArn is required")]
     [TerraformProperty("application_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApplicationArn { get; set; }
+    public required partial TerraformValue<string> ApplicationArn { get; set; }
 
     /// <summary>
     /// The assignment_required attribute.
@@ -25,20 +25,20 @@ public partial class AwsSsoadminApplicationAssignmentConfiguration : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentRequired is required")]
     [TerraformProperty("assignment_required")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> AssignmentRequired { get; set; }
+    public required partial TerraformValue<bool> AssignmentRequired { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

@@ -16,13 +16,13 @@ public partial class AwsOdbNetworksDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// List of odb networks returns basic information about odb networks.
     /// </summary>
     [TerraformProperty("odb_networks")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> OdbNetworks { get; }
+    public partial TerraformList<object> OdbNetworks { get; }
 
 }

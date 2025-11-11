@@ -22,28 +22,28 @@ public partial class AwsConfigRemediationConfigurationParameterBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_value attribute.
     /// </summary>
     [TerraformProperty("resource_value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResourceValue { get; set; }
+    public partial TerraformValue<string>? ResourceValue { get; set; }
 
     /// <summary>
     /// The static_value attribute.
     /// </summary>
     [TerraformProperty("static_value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StaticValue { get; set; }
+    public partial TerraformValue<string>? StaticValue { get; set; }
 
     /// <summary>
     /// The static_values attribute.
     /// </summary>
     [TerraformProperty("static_values")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> StaticValues { get; set; }
+    public partial TerraformList<string> StaticValues { get; set; }
 
 }
 
@@ -62,7 +62,7 @@ public partial class AwsConfigRemediationConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("automatic")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Automatic { get; set; }
+    public partial TerraformValue<bool>? Automatic { get; set; }
 
     /// <summary>
     /// The config_rule_name attribute.
@@ -70,42 +70,42 @@ public partial class AwsConfigRemediationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigRuleName is required")]
     [TerraformProperty("config_rule_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConfigRuleName { get; set; }
+    public required partial TerraformValue<string> ConfigRuleName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The maximum_automatic_attempts attribute.
     /// </summary>
     [TerraformProperty("maximum_automatic_attempts")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaximumAutomaticAttempts { get; set; }
+    public partial TerraformValue<double>? MaximumAutomaticAttempts { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
     [TerraformProperty("resource_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResourceType { get; set; }
+    public partial TerraformValue<string>? ResourceType { get; set; }
 
     /// <summary>
     /// The retry_attempt_seconds attribute.
     /// </summary>
     [TerraformProperty("retry_attempt_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetryAttemptSeconds { get; set; }
+    public partial TerraformValue<double>? RetryAttemptSeconds { get; set; }
 
     /// <summary>
     /// The target_id attribute.
@@ -113,7 +113,7 @@ public partial class AwsConfigRemediationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     [TerraformProperty("target_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetId { get; set; }
+    public required partial TerraformValue<string> TargetId { get; set; }
 
     /// <summary>
     /// The target_type attribute.
@@ -121,14 +121,14 @@ public partial class AwsConfigRemediationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetType is required")]
     [TerraformProperty("target_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetType { get; set; }
+    public required partial TerraformValue<string> TargetType { get; set; }
 
     /// <summary>
     /// The target_version attribute.
     /// </summary>
     [TerraformProperty("target_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TargetVersion { get; set; }
+    public partial TerraformValue<string>? TargetVersion { get; set; }
 
     /// <summary>
     /// Block for execution_controls.
@@ -136,7 +136,7 @@ public partial class AwsConfigRemediationConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExecutionControls block(s) allowed")]
     [TerraformProperty("execution_controls")]
-    public TerraformList<TerraformBlock<AwsConfigRemediationConfigurationExecutionControlsBlock>>? ExecutionControls { get; set; }
+    public partial TerraformList<TerraformBlock<AwsConfigRemediationConfigurationExecutionControlsBlock>>? ExecutionControls { get; set; }
 
     /// <summary>
     /// Block for parameter.
@@ -144,13 +144,13 @@ public partial class AwsConfigRemediationConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(25, ErrorMessage = "Maximum 25 Parameter block(s) allowed")]
     [TerraformProperty("parameter")]
-    public TerraformList<TerraformBlock<AwsConfigRemediationConfigurationParameterBlock>>? Parameter { get; set; }
+    public partial TerraformList<TerraformBlock<AwsConfigRemediationConfigurationParameterBlock>>? Parameter { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

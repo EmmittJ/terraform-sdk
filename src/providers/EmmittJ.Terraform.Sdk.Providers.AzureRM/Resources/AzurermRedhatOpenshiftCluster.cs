@@ -16,7 +16,7 @@ public partial class AzurermRedhatOpenshiftClusterApiServerProfileBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Visibility is required")]
     [TerraformProperty("visibility")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Visibility { get; set; }
+    public required partial TerraformValue<string> Visibility { get; set; }
 
 }
 
@@ -32,28 +32,28 @@ public partial class AzurermRedhatOpenshiftClusterClusterProfileBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     [TerraformProperty("domain")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Domain { get; set; }
+    public required partial TerraformValue<string> Domain { get; set; }
 
     /// <summary>
     /// The fips_enabled attribute.
     /// </summary>
     [TerraformProperty("fips_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? FipsEnabled { get; set; }
+    public partial TerraformValue<bool>? FipsEnabled { get; set; }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
     [TerraformProperty("managed_resource_group_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ManagedResourceGroupName { get; set; }
+    public partial TerraformValue<string>? ManagedResourceGroupName { get; set; }
 
     /// <summary>
     /// The pull_secret attribute.
     /// </summary>
     [TerraformProperty("pull_secret")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PullSecret { get; set; }
+    public partial TerraformValue<string>? PullSecret { get; set; }
 
 
     /// <summary>
@@ -62,7 +62,7 @@ public partial class AzurermRedhatOpenshiftClusterClusterProfileBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformProperty("version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Version { get; set; }
+    public required partial TerraformValue<string> Version { get; set; }
 
 }
 
@@ -80,7 +80,7 @@ public partial class AzurermRedhatOpenshiftClusterIngressProfileBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Visibility is required")]
     [TerraformProperty("visibility")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Visibility { get; set; }
+    public required partial TerraformValue<string> Visibility { get; set; }
 
 }
 
@@ -95,14 +95,14 @@ public partial class AzurermRedhatOpenshiftClusterMainProfileBlock : TerraformBl
     /// </summary>
     [TerraformProperty("disk_encryption_set_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DiskEncryptionSetId { get; set; }
+    public partial TerraformValue<string>? DiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The encryption_at_host_enabled attribute.
     /// </summary>
     [TerraformProperty("encryption_at_host_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EncryptionAtHostEnabled { get; set; }
+    public partial TerraformValue<bool>? EncryptionAtHostEnabled { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -110,7 +110,7 @@ public partial class AzurermRedhatOpenshiftClusterMainProfileBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
     /// <summary>
     /// The vm_size attribute.
@@ -118,7 +118,7 @@ public partial class AzurermRedhatOpenshiftClusterMainProfileBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
     [TerraformProperty("vm_size")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VmSize { get; set; }
+    public required partial TerraformValue<string> VmSize { get; set; }
 
 }
 
@@ -133,7 +133,7 @@ public partial class AzurermRedhatOpenshiftClusterNetworkProfileBlock : Terrafor
     /// </summary>
     [TerraformProperty("outbound_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OutboundType { get; set; }
+    public partial TerraformValue<string>? OutboundType { get; set; }
 
     /// <summary>
     /// The pod_cidr attribute.
@@ -141,14 +141,14 @@ public partial class AzurermRedhatOpenshiftClusterNetworkProfileBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PodCidr is required")]
     [TerraformProperty("pod_cidr")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PodCidr { get; set; }
+    public required partial TerraformValue<string> PodCidr { get; set; }
 
     /// <summary>
     /// The preconfigured_network_security_group_enabled attribute.
     /// </summary>
     [TerraformProperty("preconfigured_network_security_group_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PreconfiguredNetworkSecurityGroupEnabled { get; set; }
+    public partial TerraformValue<bool>? PreconfiguredNetworkSecurityGroupEnabled { get; set; }
 
     /// <summary>
     /// The service_cidr attribute.
@@ -156,7 +156,7 @@ public partial class AzurermRedhatOpenshiftClusterNetworkProfileBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCidr is required")]
     [TerraformProperty("service_cidr")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceCidr { get; set; }
+    public required partial TerraformValue<string> ServiceCidr { get; set; }
 
 }
 
@@ -172,7 +172,7 @@ public partial class AzurermRedhatOpenshiftClusterServicePrincipalBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     [TerraformProperty("client_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientId { get; set; }
+    public required partial TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
@@ -180,7 +180,7 @@ public partial class AzurermRedhatOpenshiftClusterServicePrincipalBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     [TerraformProperty("client_secret")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientSecret { get; set; }
+    public required partial TerraformValue<string> ClientSecret { get; set; }
 
 }
 
@@ -195,28 +195,28 @@ public partial class AzurermRedhatOpenshiftClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -231,7 +231,7 @@ public partial class AzurermRedhatOpenshiftClusterWorkerProfileBlock : Terraform
     /// </summary>
     [TerraformProperty("disk_encryption_set_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DiskEncryptionSetId { get; set; }
+    public partial TerraformValue<string>? DiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The disk_size_gb attribute.
@@ -239,14 +239,14 @@ public partial class AzurermRedhatOpenshiftClusterWorkerProfileBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeGb is required")]
     [TerraformProperty("disk_size_gb")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> DiskSizeGb { get; set; }
+    public required partial TerraformValue<double> DiskSizeGb { get; set; }
 
     /// <summary>
     /// The encryption_at_host_enabled attribute.
     /// </summary>
     [TerraformProperty("encryption_at_host_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EncryptionAtHostEnabled { get; set; }
+    public partial TerraformValue<bool>? EncryptionAtHostEnabled { get; set; }
 
     /// <summary>
     /// The node_count attribute.
@@ -254,7 +254,7 @@ public partial class AzurermRedhatOpenshiftClusterWorkerProfileBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     [TerraformProperty("node_count")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> NodeCount { get; set; }
+    public required partial TerraformValue<double> NodeCount { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -262,7 +262,7 @@ public partial class AzurermRedhatOpenshiftClusterWorkerProfileBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
     /// <summary>
     /// The vm_size attribute.
@@ -270,7 +270,7 @@ public partial class AzurermRedhatOpenshiftClusterWorkerProfileBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
     [TerraformProperty("vm_size")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VmSize { get; set; }
+    public required partial TerraformValue<string> VmSize { get; set; }
 
 }
 
@@ -289,7 +289,7 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -297,7 +297,7 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -305,7 +305,7 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -313,14 +313,14 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for api_server_profile.
@@ -330,7 +330,7 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ApiServerProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApiServerProfile block(s) allowed")]
     [TerraformProperty("api_server_profile")]
-    public TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterApiServerProfileBlock>>? ApiServerProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterApiServerProfileBlock>>? ApiServerProfile { get; set; }
 
     /// <summary>
     /// Block for cluster_profile.
@@ -340,7 +340,7 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ClusterProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterProfile block(s) allowed")]
     [TerraformProperty("cluster_profile")]
-    public TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterClusterProfileBlock>>? ClusterProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterClusterProfileBlock>>? ClusterProfile { get; set; }
 
     /// <summary>
     /// Block for ingress_profile.
@@ -350,7 +350,7 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IngressProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressProfile block(s) allowed")]
     [TerraformProperty("ingress_profile")]
-    public TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterIngressProfileBlock>>? IngressProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterIngressProfileBlock>>? IngressProfile { get; set; }
 
     /// <summary>
     /// Block for main_profile.
@@ -360,7 +360,7 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MainProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MainProfile block(s) allowed")]
     [TerraformProperty("main_profile")]
-    public TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterMainProfileBlock>>? MainProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterMainProfileBlock>>? MainProfile { get; set; }
 
     /// <summary>
     /// Block for network_profile.
@@ -370,7 +370,7 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
     [TerraformProperty("network_profile")]
-    public TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterNetworkProfileBlock>>? NetworkProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterNetworkProfileBlock>>? NetworkProfile { get; set; }
 
     /// <summary>
     /// Block for service_principal.
@@ -380,14 +380,14 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServicePrincipal block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipal block(s) allowed")]
     [TerraformProperty("service_principal")]
-    public TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterServicePrincipalBlock>>? ServicePrincipal { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterServicePrincipalBlock>>? ServicePrincipal { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermRedhatOpenshiftClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermRedhatOpenshiftClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for worker_profile.
@@ -397,13 +397,13 @@ public partial class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 WorkerProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerProfile block(s) allowed")]
     [TerraformProperty("worker_profile")]
-    public TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterWorkerProfileBlock>>? WorkerProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterWorkerProfileBlock>>? WorkerProfile { get; set; }
 
     /// <summary>
     /// The console_url attribute.
     /// </summary>
     [TerraformProperty("console_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ConsoleUrl { get; }
+    public partial TerraformValue<string> ConsoleUrl { get; }
 
 }

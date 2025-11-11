@@ -16,7 +16,7 @@ public partial class AwsCloudwatchContributorInsightRule : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The rule_definition attribute.
@@ -24,7 +24,7 @@ public partial class AwsCloudwatchContributorInsightRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleDefinition is required")]
     [TerraformProperty("rule_definition")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RuleDefinition { get; set; }
+    public required partial TerraformValue<string> RuleDefinition { get; set; }
 
     /// <summary>
     /// The rule_name attribute.
@@ -32,34 +32,34 @@ public partial class AwsCloudwatchContributorInsightRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     [TerraformProperty("rule_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RuleName { get; set; }
+    public required partial TerraformValue<string> RuleName { get; set; }
 
     /// <summary>
     /// The rule_state attribute.
     /// </summary>
     [TerraformProperty("rule_state")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RuleState { get; set; }
+    public partial TerraformValue<string>? RuleState { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     [TerraformProperty("resource_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceArn { get; }
+    public partial TerraformValue<string> ResourceArn { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
 }

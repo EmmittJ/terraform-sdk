@@ -13,28 +13,28 @@ public partial class AzurermSecurityCenterStorageDefenderTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,42 +52,42 @@ public partial class AzurermSecurityCenterStorageDefender : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The malware_scanning_on_upload_cap_gb_per_month attribute.
     /// </summary>
     [TerraformProperty("malware_scanning_on_upload_cap_gb_per_month")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MalwareScanningOnUploadCapGbPerMonth { get; set; }
+    public partial TerraformValue<double>? MalwareScanningOnUploadCapGbPerMonth { get; set; }
 
     /// <summary>
     /// The malware_scanning_on_upload_enabled attribute.
     /// </summary>
     [TerraformProperty("malware_scanning_on_upload_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? MalwareScanningOnUploadEnabled { get; set; }
+    public partial TerraformValue<bool>? MalwareScanningOnUploadEnabled { get; set; }
 
     /// <summary>
     /// The override_subscription_settings_enabled attribute.
     /// </summary>
     [TerraformProperty("override_subscription_settings_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? OverrideSubscriptionSettingsEnabled { get; set; }
+    public partial TerraformValue<bool>? OverrideSubscriptionSettingsEnabled { get; set; }
 
     /// <summary>
     /// The scan_results_event_grid_topic_id attribute.
     /// </summary>
     [TerraformProperty("scan_results_event_grid_topic_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ScanResultsEventGridTopicId { get; set; }
+    public partial TerraformValue<string>? ScanResultsEventGridTopicId { get; set; }
 
     /// <summary>
     /// The sensitive_data_discovery_enabled attribute.
     /// </summary>
     [TerraformProperty("sensitive_data_discovery_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SensitiveDataDiscoveryEnabled { get; set; }
+    public partial TerraformValue<bool>? SensitiveDataDiscoveryEnabled { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -95,13 +95,13 @@ public partial class AzurermSecurityCenterStorageDefender : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformProperty("storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountId { get; set; }
+    public required partial TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSecurityCenterStorageDefenderTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSecurityCenterStorageDefenderTimeoutsBlock>? Timeouts { get; set; }
 
 }

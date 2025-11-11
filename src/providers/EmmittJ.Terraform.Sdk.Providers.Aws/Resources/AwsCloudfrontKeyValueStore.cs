@@ -13,7 +13,7 @@ public partial class AwsCloudfrontKeyValueStoreTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AwsCloudfrontKeyValueStore : TerraformResource
     /// </summary>
     [TerraformProperty("comment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Comment { get; set; }
+    public partial TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,41 +39,41 @@ public partial class AwsCloudfrontKeyValueStore : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsCloudfrontKeyValueStoreTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsCloudfrontKeyValueStoreTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
     [TerraformProperty("last_modified_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastModifiedTime { get; }
+    public partial TerraformValue<string> LastModifiedTime { get; }
 
 }

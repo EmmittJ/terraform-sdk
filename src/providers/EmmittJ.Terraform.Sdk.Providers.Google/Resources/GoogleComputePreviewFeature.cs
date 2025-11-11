@@ -21,21 +21,21 @@ public partial class GoogleComputePreviewFeatureTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -55,14 +55,14 @@ public partial class GoogleComputePreviewFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActivationStatus is required")]
     [TerraformProperty("activation_status")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ActivationStatus { get; set; }
+    public required partial TerraformValue<string> ActivationStatus { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the preview feature.
@@ -70,14 +70,14 @@ public partial class GoogleComputePreviewFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for rollout_operation.
@@ -85,13 +85,13 @@ public partial class GoogleComputePreviewFeature : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RolloutOperation block(s) allowed")]
     [TerraformProperty("rollout_operation")]
-    public TerraformList<TerraformBlock<GoogleComputePreviewFeatureRolloutOperationBlock>>? RolloutOperation { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputePreviewFeatureRolloutOperationBlock>>? RolloutOperation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputePreviewFeatureTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputePreviewFeatureTimeoutsBlock>? Timeouts { get; set; }
 
 }

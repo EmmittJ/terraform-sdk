@@ -22,7 +22,7 @@ public partial class GoogleComputeAutoscalerAutoscalingPolicyBlock : TerraformBl
     /// </summary>
     [TerraformProperty("cooldown_period")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? CooldownPeriod { get; set; }
+    public partial TerraformValue<double>? CooldownPeriod { get; set; }
 
     /// <summary>
     /// The maximum number of instances that the autoscaler can scale up
@@ -33,7 +33,7 @@ public partial class GoogleComputeAutoscalerAutoscalingPolicyBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxReplicas is required")]
     [TerraformProperty("max_replicas")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MaxReplicas { get; set; }
+    public required partial TerraformValue<double> MaxReplicas { get; set; }
 
     /// <summary>
     /// The minimum number of replicas that the autoscaler can scale down
@@ -44,14 +44,14 @@ public partial class GoogleComputeAutoscalerAutoscalingPolicyBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicas is required")]
     [TerraformProperty("min_replicas")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MinReplicas { get; set; }
+    public required partial TerraformValue<double> MinReplicas { get; set; }
 
     /// <summary>
     /// Defines operating mode for this policy.
     /// </summary>
     [TerraformProperty("mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Mode { get; set; }
+    public partial TerraformValue<string>? Mode { get; set; }
 
 }
 
@@ -66,21 +66,21 @@ public partial class GoogleComputeAutoscalerTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -99,14 +99,14 @@ public partial class GoogleComputeAutoscaler : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. The name must be 1-63 characters long and match
@@ -118,14 +118,14 @@ public partial class GoogleComputeAutoscaler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// URL of the managed instance group that this autoscaler will scale.
@@ -133,14 +133,14 @@ public partial class GoogleComputeAutoscaler : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     [TerraformProperty("target")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Target { get; set; }
+    public required partial TerraformValue<string> Target { get; set; }
 
     /// <summary>
     /// URL of the zone where the instance group resides.
     /// </summary>
     [TerraformProperty("zone")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Zone { get; set; }
+    public partial TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Block for autoscaling_policy.
@@ -150,27 +150,27 @@ public partial class GoogleComputeAutoscaler : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AutoscalingPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscalingPolicy block(s) allowed")]
     [TerraformProperty("autoscaling_policy")]
-    public TerraformList<TerraformBlock<GoogleComputeAutoscalerAutoscalingPolicyBlock>>? AutoscalingPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeAutoscalerAutoscalingPolicyBlock>>? AutoscalingPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeAutoscalerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeAutoscalerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class GoogleApigeeSharedflowTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,21 +46,21 @@ public partial class GoogleApigeeSharedflow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigBundle is required")]
     [TerraformProperty("config_bundle")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConfigBundle { get; set; }
+    public required partial TerraformValue<string> ConfigBundle { get; set; }
 
     /// <summary>
     /// A hash of local config bundle in string, user needs to use a Terraform Hash function of their choice. A change in hash will trigger an update.
     /// </summary>
     [TerraformProperty("detect_md5hash")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DetectMd5hash { get; set; }
+    public partial TerraformValue<string>? DetectMd5hash { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the shared flow.
@@ -68,7 +68,7 @@ public partial class GoogleApigeeSharedflow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The Apigee Organization name associated with the Apigee instance.
@@ -76,41 +76,41 @@ public partial class GoogleApigeeSharedflow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformProperty("org_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OrgId { get; set; }
+    public required partial TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeSharedflowTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeSharedflowTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The id of the most recently created revision for this shared flow.
     /// </summary>
     [TerraformProperty("latest_revision_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LatestRevisionId { get; }
+    public partial TerraformValue<string> LatestRevisionId { get; }
 
     /// <summary>
     /// Base 64 MD5 hash of the uploaded config bundle.
     /// </summary>
     [TerraformProperty("md5hash")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Md5hash { get; }
+    public partial TerraformValue<string> Md5hash { get; }
 
     /// <summary>
     /// Metadata describing the shared flow.
     /// </summary>
     [TerraformProperty("meta_data")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MetaData { get; }
+    public partial TerraformList<object> MetaData { get; }
 
     /// <summary>
     /// A list of revisions of this shared flow.
     /// </summary>
     [TerraformProperty("revision")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Revision { get; }
+    public partial TerraformList<string> Revision { get; }
 
 }

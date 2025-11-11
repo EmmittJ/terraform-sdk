@@ -13,21 +13,21 @@ public partial class AzurermContainerAppCustomDomainTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public partial class AzurermContainerAppCustomDomain : TerraformResource
     /// </summary>
     [TerraformProperty("certificate_binding_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CertificateBindingType { get; set; }
+    public partial TerraformValue<string>? CertificateBindingType { get; set; }
 
     /// <summary>
     /// The container_app_environment_certificate_id attribute.
     /// </summary>
     [TerraformProperty("container_app_environment_certificate_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContainerAppEnvironmentCertificateId { get; set; }
+    public partial TerraformValue<string>? ContainerAppEnvironmentCertificateId { get; set; }
 
     /// <summary>
     /// The container_app_id attribute.
@@ -60,14 +60,14 @@ public partial class AzurermContainerAppCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppId is required")]
     [TerraformProperty("container_app_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerAppId { get; set; }
+    public required partial TerraformValue<string> ContainerAppId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
@@ -75,20 +75,20 @@ public partial class AzurermContainerAppCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermContainerAppCustomDomainTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermContainerAppCustomDomainTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The container_app_environment_managed_certificate_id attribute.
     /// </summary>
     [TerraformProperty("container_app_environment_managed_certificate_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ContainerAppEnvironmentManagedCertificateId { get; }
+    public partial TerraformValue<string> ContainerAppEnvironmentManagedCertificateId { get; }
 
 }

@@ -13,14 +13,14 @@ public partial class GoogleApphubServiceProjectAttachmentTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,14 +38,14 @@ public partial class GoogleApphubServiceProjectAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// &amp;quot;Immutable. Service project name in the format: \&amp;quot;projects/abc\&amp;quot;
@@ -54,7 +54,7 @@ public partial class GoogleApphubServiceProjectAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("service_project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServiceProject { get; set; }
+    public partial TerraformValue<string>? ServiceProject { get; set; }
 
     /// <summary>
     /// Required. The service project attachment identifier must contain the project_id of the service project specified in the service_project_attachment.service_project field. Hint: &amp;quot;projects/{project_id}&amp;quot;
@@ -62,41 +62,41 @@ public partial class GoogleApphubServiceProjectAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceProjectAttachmentId is required")]
     [TerraformProperty("service_project_attachment_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceProjectAttachmentId { get; set; }
+    public required partial TerraformValue<string> ServiceProjectAttachmentId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApphubServiceProjectAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApphubServiceProjectAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Create time.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// &amp;quot;Identifier. The resource name of a ServiceProjectAttachment. Format:\&amp;quot;projects/{host-project-id}/locations/global/serviceProjectAttachments/{service-project-id}.\&amp;quot;&amp;quot;
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// ServiceProjectAttachment state.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Output only. A globally unique identifier (in UUID4 format) for the &#39;ServiceProjectAttachment&#39;.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
 }

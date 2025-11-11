@@ -14,7 +14,7 @@ public partial class AzurermLocalNetworkGatewayBgpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
     [TerraformProperty("asn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Asn { get; set; }
+    public required partial TerraformValue<double> Asn { get; set; }
 
     /// <summary>
     /// The bgp_peering_address attribute.
@@ -22,14 +22,14 @@ public partial class AzurermLocalNetworkGatewayBgpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BgpPeeringAddress is required")]
     [TerraformProperty("bgp_peering_address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BgpPeeringAddress { get; set; }
+    public required partial TerraformValue<string> BgpPeeringAddress { get; set; }
 
     /// <summary>
     /// The peer_weight attribute.
     /// </summary>
     [TerraformProperty("peer_weight")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? PeerWeight { get; set; }
+    public partial TerraformValue<double>? PeerWeight { get; set; }
 
 }
 
@@ -44,28 +44,28 @@ public partial class AzurermLocalNetworkGatewayTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -84,28 +84,28 @@ public partial class AzurermLocalNetworkGateway : TerraformResource
     /// </summary>
     [TerraformProperty("address_space")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AddressSpace { get; set; }
+    public partial TerraformList<string>? AddressSpace { get; set; }
 
     /// <summary>
     /// The gateway_address attribute.
     /// </summary>
     [TerraformProperty("gateway_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GatewayAddress { get; set; }
+    public partial TerraformValue<string>? GatewayAddress { get; set; }
 
     /// <summary>
     /// The gateway_fqdn attribute.
     /// </summary>
     [TerraformProperty("gateway_fqdn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GatewayFqdn { get; set; }
+    public partial TerraformValue<string>? GatewayFqdn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -113,7 +113,7 @@ public partial class AzurermLocalNetworkGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -121,7 +121,7 @@ public partial class AzurermLocalNetworkGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -129,14 +129,14 @@ public partial class AzurermLocalNetworkGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for bgp_settings.
@@ -144,13 +144,13 @@ public partial class AzurermLocalNetworkGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpSettings block(s) allowed")]
     [TerraformProperty("bgp_settings")]
-    public TerraformList<TerraformBlock<AzurermLocalNetworkGatewayBgpSettingsBlock>>? BgpSettings { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermLocalNetworkGatewayBgpSettingsBlock>>? BgpSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLocalNetworkGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLocalNetworkGatewayTimeoutsBlock>? Timeouts { get; set; }
 
 }

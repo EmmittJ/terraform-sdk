@@ -13,28 +13,28 @@ public partial class AzureadApplicationKnownClientsTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,14 +53,14 @@ public partial class AzureadApplicationKnownClients : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     [TerraformProperty("application_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApplicationId { get; set; }
+    public required partial TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A list of known client IDs, used for bundling consent if you have a solution that includes an API and a client application
@@ -68,13 +68,13 @@ public partial class AzureadApplicationKnownClients : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KnownClientIds is required")]
     [TerraformProperty("known_client_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> KnownClientIds { get; set; }
+    public required partial TerraformSet<string> KnownClientIds { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadApplicationKnownClientsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadApplicationKnownClientsTimeoutsBlock>? Timeouts { get; set; }
 
 }

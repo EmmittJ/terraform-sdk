@@ -13,28 +13,28 @@ public partial class AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,21 +52,21 @@ public partial class AzurermPaloAltoLocalRulestackPrefixList : TerraformResource
     /// </summary>
     [TerraformProperty("audit_comment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuditComment { get; set; }
+    public partial TerraformValue<string>? AuditComment { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -74,7 +74,7 @@ public partial class AzurermPaloAltoLocalRulestackPrefixList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The prefix_list attribute.
@@ -82,7 +82,7 @@ public partial class AzurermPaloAltoLocalRulestackPrefixList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrefixList is required")]
     [TerraformProperty("prefix_list")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? PrefixList { get; set; }
+    public partial TerraformList<string>? PrefixList { get; set; }
 
     /// <summary>
     /// The rulestack_id attribute.
@@ -90,13 +90,13 @@ public partial class AzurermPaloAltoLocalRulestackPrefixList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
     [TerraformProperty("rulestack_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RulestackId { get; set; }
+    public required partial TerraformValue<string> RulestackId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPaloAltoLocalRulestackPrefixListTimeoutsBlock>? Timeouts { get; set; }
 
 }

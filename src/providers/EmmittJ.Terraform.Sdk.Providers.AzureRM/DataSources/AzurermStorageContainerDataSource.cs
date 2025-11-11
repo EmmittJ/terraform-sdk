@@ -13,7 +13,7 @@ public partial class AzurermStorageContainerDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,14 +31,14 @@ public partial class AzurermStorageContainerDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     [TerraformProperty("metadata")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Metadata { get; set; }
+    public partial TerraformMap<string> Metadata { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -46,69 +46,69 @@ public partial class AzurermStorageContainerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [TerraformProperty("storage_account_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountId { get; set; }
+    public partial TerraformValue<string>? StorageAccountId { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
     [TerraformProperty("storage_account_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountName { get; set; }
+    public partial TerraformValue<string>? StorageAccountName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageContainerDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageContainerDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The container_access_type attribute.
     /// </summary>
     [TerraformProperty("container_access_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ContainerAccessType { get; }
+    public partial TerraformValue<string> ContainerAccessType { get; }
 
     /// <summary>
     /// The default_encryption_scope attribute.
     /// </summary>
     [TerraformProperty("default_encryption_scope")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DefaultEncryptionScope { get; }
+    public partial TerraformValue<string> DefaultEncryptionScope { get; }
 
     /// <summary>
     /// The encryption_scope_override_enabled attribute.
     /// </summary>
     [TerraformProperty("encryption_scope_override_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> EncryptionScopeOverrideEnabled { get; }
+    public partial TerraformValue<bool> EncryptionScopeOverrideEnabled { get; }
 
     /// <summary>
     /// The has_immutability_policy attribute.
     /// </summary>
     [TerraformProperty("has_immutability_policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> HasImmutabilityPolicy { get; }
+    public partial TerraformValue<bool> HasImmutabilityPolicy { get; }
 
     /// <summary>
     /// The has_legal_hold attribute.
     /// </summary>
     [TerraformProperty("has_legal_hold")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> HasLegalHold { get; }
+    public partial TerraformValue<bool> HasLegalHold { get; }
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     [TerraformProperty("resource_manager_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceManagerId { get; }
+    public partial TerraformValue<string> ResourceManagerId { get; }
 
 }

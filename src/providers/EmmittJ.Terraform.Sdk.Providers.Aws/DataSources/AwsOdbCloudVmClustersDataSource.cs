@@ -16,13 +16,13 @@ public partial class AwsOdbCloudVmClustersDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// List of Cloud VM Clusters. It returns only basic information about the cloud VM clusters.
     /// </summary>
     [TerraformProperty("cloud_vm_clusters")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CloudVmClusters { get; }
+    public partial TerraformList<object> CloudVmClusters { get; }
 
 }

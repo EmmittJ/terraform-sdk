@@ -13,7 +13,7 @@ public partial class AzurermStaticWebAppDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermStaticWebAppDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermStaticWebAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,111 +47,111 @@ public partial class AzurermStaticWebAppDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStaticWebAppDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStaticWebAppDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The api_key attribute.
     /// </summary>
     [TerraformProperty("api_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ApiKey { get; }
+    public partial TerraformValue<string> ApiKey { get; }
 
     /// <summary>
     /// The app_settings attribute.
     /// </summary>
     [TerraformProperty("app_settings")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> AppSettings { get; }
+    public partial TerraformMap<string> AppSettings { get; }
 
     /// <summary>
     /// The basic_auth attribute.
     /// </summary>
     [TerraformProperty("basic_auth")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> BasicAuth { get; }
+    public partial TerraformList<object> BasicAuth { get; }
 
     /// <summary>
     /// The configuration_file_changes_enabled attribute.
     /// </summary>
     [TerraformProperty("configuration_file_changes_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> ConfigurationFileChangesEnabled { get; }
+    public partial TerraformValue<bool> ConfigurationFileChangesEnabled { get; }
 
     /// <summary>
     /// The default_host_name attribute.
     /// </summary>
     [TerraformProperty("default_host_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DefaultHostName { get; }
+    public partial TerraformValue<string> DefaultHostName { get; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [TerraformProperty("identity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Identity { get; }
+    public partial TerraformList<object> Identity { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The preview_environments_enabled attribute.
     /// </summary>
     [TerraformProperty("preview_environments_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> PreviewEnvironmentsEnabled { get; }
+    public partial TerraformValue<bool> PreviewEnvironmentsEnabled { get; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformProperty("public_network_access_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> PublicNetworkAccessEnabled { get; }
+    public partial TerraformValue<bool> PublicNetworkAccessEnabled { get; }
 
     /// <summary>
     /// The repository_branch attribute.
     /// </summary>
     [TerraformProperty("repository_branch")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RepositoryBranch { get; }
+    public partial TerraformValue<string> RepositoryBranch { get; }
 
     /// <summary>
     /// The repository_url attribute.
     /// </summary>
     [TerraformProperty("repository_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RepositoryUrl { get; }
+    public partial TerraformValue<string> RepositoryUrl { get; }
 
     /// <summary>
     /// The sku_size attribute.
     /// </summary>
     [TerraformProperty("sku_size")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SkuSize { get; }
+    public partial TerraformValue<string> SkuSize { get; }
 
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
     [TerraformProperty("sku_tier")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SkuTier { get; }
+    public partial TerraformValue<string> SkuTier { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
 }

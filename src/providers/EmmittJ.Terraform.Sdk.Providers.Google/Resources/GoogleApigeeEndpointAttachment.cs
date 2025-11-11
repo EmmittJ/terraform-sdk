@@ -13,14 +13,14 @@ public partial class GoogleApigeeEndpointAttachmentTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public partial class GoogleApigeeEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointAttachmentId is required")]
     [TerraformProperty("endpoint_attachment_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EndpointAttachmentId { get; set; }
+    public required partial TerraformValue<string> EndpointAttachmentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Location of the endpoint attachment.
@@ -54,7 +54,7 @@ public partial class GoogleApigeeEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee instance,
@@ -63,7 +63,7 @@ public partial class GoogleApigeeEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformProperty("org_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OrgId { get; set; }
+    public required partial TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Format: projects/*/regions/*/serviceAttachments/*
@@ -71,28 +71,28 @@ public partial class GoogleApigeeEndpointAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAttachment is required")]
     [TerraformProperty("service_attachment")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceAttachment { get; set; }
+    public required partial TerraformValue<string> ServiceAttachment { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeEndpointAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeEndpointAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// State of the endpoint attachment connection to the service attachment.
     /// </summary>
     [TerraformProperty("connection_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ConnectionState { get; }
+    public partial TerraformValue<string> ConnectionState { get; }
 
     /// <summary>
     /// Host that can be used in either HTTP Target Endpoint directly, or as the host in Target Server.
     /// </summary>
     [TerraformProperty("host")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Host { get; }
+    public partial TerraformValue<string> Host { get; }
 
     /// <summary>
     /// Name of the Endpoint Attachment in the following format:
@@ -100,6 +100,6 @@ public partial class GoogleApigeeEndpointAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

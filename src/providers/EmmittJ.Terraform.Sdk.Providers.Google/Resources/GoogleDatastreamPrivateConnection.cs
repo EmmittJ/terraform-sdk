@@ -20,7 +20,7 @@ public partial class GoogleDatastreamPrivateConnectionPscInterfaceConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkAttachment is required")]
     [TerraformProperty("network_attachment")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NetworkAttachment { get; set; }
+    public required partial TerraformValue<string> NetworkAttachment { get; set; }
 
 }
 
@@ -35,21 +35,21 @@ public partial class GoogleDatastreamPrivateConnectionTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -65,7 +65,7 @@ public partial class GoogleDatastreamPrivateConnectionVpcPeeringConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnet is required")]
     [TerraformProperty("subnet")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Subnet { get; set; }
+    public required partial TerraformValue<string> Subnet { get; set; }
 
     /// <summary>
     /// Fully qualified name of the VPC that Datastream will peer to.
@@ -74,7 +74,7 @@ public partial class GoogleDatastreamPrivateConnectionVpcPeeringConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vpc is required")]
     [TerraformProperty("vpc")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Vpc { get; set; }
+    public required partial TerraformValue<string> Vpc { get; set; }
 
 }
 
@@ -93,7 +93,7 @@ public partial class GoogleDatastreamPrivateConnection : TerraformResource
     /// </summary>
     [TerraformProperty("create_without_validation")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CreateWithoutValidation { get; set; }
+    public partial TerraformValue<bool>? CreateWithoutValidation { get; set; }
 
     /// <summary>
     /// Display name.
@@ -101,14 +101,14 @@ public partial class GoogleDatastreamPrivateConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels.
@@ -118,7 +118,7 @@ public partial class GoogleDatastreamPrivateConnection : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The name of the location this private connection is located in.
@@ -126,7 +126,7 @@ public partial class GoogleDatastreamPrivateConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The private connectivity identifier.
@@ -134,14 +134,14 @@ public partial class GoogleDatastreamPrivateConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateConnectionId is required")]
     [TerraformProperty("private_connection_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrivateConnectionId { get; set; }
+    public required partial TerraformValue<string> PrivateConnectionId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for psc_interface_config.
@@ -149,14 +149,14 @@ public partial class GoogleDatastreamPrivateConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscInterfaceConfig block(s) allowed")]
     [TerraformProperty("psc_interface_config")]
-    public TerraformList<TerraformBlock<GoogleDatastreamPrivateConnectionPscInterfaceConfigBlock>>? PscInterfaceConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDatastreamPrivateConnectionPscInterfaceConfigBlock>>? PscInterfaceConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDatastreamPrivateConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDatastreamPrivateConnectionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vpc_peering_config.
@@ -164,35 +164,35 @@ public partial class GoogleDatastreamPrivateConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcPeeringConfig block(s) allowed")]
     [TerraformProperty("vpc_peering_config")]
-    public TerraformList<TerraformBlock<GoogleDatastreamPrivateConnectionVpcPeeringConfigBlock>>? VpcPeeringConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDatastreamPrivateConnectionVpcPeeringConfigBlock>>? VpcPeeringConfig { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The PrivateConnection error in case of failure.
     /// </summary>
     [TerraformProperty("error")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Error { get; }
+    public partial TerraformList<object> Error { get; }
 
     /// <summary>
     /// The resource&#39;s name.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// State of the PrivateConnection.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -200,6 +200,6 @@ public partial class GoogleDatastreamPrivateConnection : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

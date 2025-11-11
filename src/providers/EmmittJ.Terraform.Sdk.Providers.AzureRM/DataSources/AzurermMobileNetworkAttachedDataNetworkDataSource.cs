@@ -13,7 +13,7 @@ public partial class AzurermMobileNetworkAttachedDataNetworkDataSourceTimeoutsBl
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermMobileNetworkAttachedDataNetworkDataSource : Terrafo
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The mobile_network_data_network_name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermMobileNetworkAttachedDataNetworkDataSource : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkDataNetworkName is required")]
     [TerraformProperty("mobile_network_data_network_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MobileNetworkDataNetworkName { get; set; }
+    public required partial TerraformValue<string> MobileNetworkDataNetworkName { get; set; }
 
     /// <summary>
     /// The mobile_network_packet_core_data_plane_id attribute.
@@ -47,83 +47,83 @@ public partial class AzurermMobileNetworkAttachedDataNetworkDataSource : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkPacketCoreDataPlaneId is required")]
     [TerraformProperty("mobile_network_packet_core_data_plane_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MobileNetworkPacketCoreDataPlaneId { get; set; }
+    public required partial TerraformValue<string> MobileNetworkPacketCoreDataPlaneId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMobileNetworkAttachedDataNetworkDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMobileNetworkAttachedDataNetworkDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The dns_addresses attribute.
     /// </summary>
     [TerraformProperty("dns_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> DnsAddresses { get; }
+    public partial TerraformList<string> DnsAddresses { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The network_address_port_translation attribute.
     /// </summary>
     [TerraformProperty("network_address_port_translation")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> NetworkAddressPortTranslation { get; }
+    public partial TerraformList<object> NetworkAddressPortTranslation { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The user_equipment_address_pool_prefixes attribute.
     /// </summary>
     [TerraformProperty("user_equipment_address_pool_prefixes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> UserEquipmentAddressPoolPrefixes { get; }
+    public partial TerraformList<string> UserEquipmentAddressPoolPrefixes { get; }
 
     /// <summary>
     /// The user_equipment_static_address_pool_prefixes attribute.
     /// </summary>
     [TerraformProperty("user_equipment_static_address_pool_prefixes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> UserEquipmentStaticAddressPoolPrefixes { get; }
+    public partial TerraformList<string> UserEquipmentStaticAddressPoolPrefixes { get; }
 
     /// <summary>
     /// The user_plane_access_ipv4_address attribute.
     /// </summary>
     [TerraformProperty("user_plane_access_ipv4_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UserPlaneAccessIpv4Address { get; }
+    public partial TerraformValue<string> UserPlaneAccessIpv4Address { get; }
 
     /// <summary>
     /// The user_plane_access_ipv4_gateway attribute.
     /// </summary>
     [TerraformProperty("user_plane_access_ipv4_gateway")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UserPlaneAccessIpv4Gateway { get; }
+    public partial TerraformValue<string> UserPlaneAccessIpv4Gateway { get; }
 
     /// <summary>
     /// The user_plane_access_ipv4_subnet attribute.
     /// </summary>
     [TerraformProperty("user_plane_access_ipv4_subnet")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UserPlaneAccessIpv4Subnet { get; }
+    public partial TerraformValue<string> UserPlaneAccessIpv4Subnet { get; }
 
     /// <summary>
     /// The user_plane_access_name attribute.
     /// </summary>
     [TerraformProperty("user_plane_access_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UserPlaneAccessName { get; }
+    public partial TerraformValue<string> UserPlaneAccessName { get; }
 
 }

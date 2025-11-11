@@ -13,14 +13,14 @@ public partial class GoogleComputePublicAdvertisedPrefixTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleComputePublicAdvertisedPrefix : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The IPv4 address to be used for reverse DNS verification.
@@ -46,14 +46,14 @@ public partial class GoogleComputePublicAdvertisedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsVerificationIp is required")]
     [TerraformProperty("dns_verification_ip")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DnsVerificationIp { get; set; }
+    public required partial TerraformValue<string> DnsVerificationIp { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The address range, in CIDR format, represented by this public advertised prefix.
@@ -61,7 +61,7 @@ public partial class GoogleComputePublicAdvertisedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
     [TerraformProperty("ip_cidr_range")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IpCidrRange { get; set; }
+    public required partial TerraformValue<string> IpCidrRange { get; set; }
 
     /// <summary>
     /// Name of the resource. The name must be 1-63 characters long, and
@@ -74,7 +74,7 @@ public partial class GoogleComputePublicAdvertisedPrefix : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Specifies how child public delegated prefix will be scoped. pdpScope
@@ -86,34 +86,34 @@ public partial class GoogleComputePublicAdvertisedPrefix : TerraformResource
     /// </summary>
     [TerraformProperty("pdp_scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PdpScope { get; set; }
+    public partial TerraformValue<string>? PdpScope { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputePublicAdvertisedPrefixTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputePublicAdvertisedPrefixTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// Output Only. The shared secret to be used for reverse DNS verification.
     /// </summary>
     [TerraformProperty("shared_secret")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SharedSecret { get; }
+    public partial TerraformValue<string> SharedSecret { get; }
 
 }

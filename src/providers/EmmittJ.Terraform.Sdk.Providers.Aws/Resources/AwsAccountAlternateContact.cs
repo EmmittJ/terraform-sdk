@@ -13,21 +13,21 @@ public partial class AwsAccountAlternateContactTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AwsAccountAlternateContact : TerraformResource
     /// </summary>
     [TerraformProperty("account_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AccountId { get; set; }
+    public partial TerraformValue<string>? AccountId { get; set; }
 
     /// <summary>
     /// The alternate_contact_type attribute.
@@ -53,7 +53,7 @@ public partial class AwsAccountAlternateContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlternateContactType is required")]
     [TerraformProperty("alternate_contact_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AlternateContactType { get; set; }
+    public required partial TerraformValue<string> AlternateContactType { get; set; }
 
     /// <summary>
     /// The email_address attribute.
@@ -61,14 +61,14 @@ public partial class AwsAccountAlternateContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     [TerraformProperty("email_address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EmailAddress { get; set; }
+    public required partial TerraformValue<string> EmailAddress { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -76,7 +76,7 @@ public partial class AwsAccountAlternateContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The phone_number attribute.
@@ -84,7 +84,7 @@ public partial class AwsAccountAlternateContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     [TerraformProperty("phone_number")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PhoneNumber { get; set; }
+    public required partial TerraformValue<string> PhoneNumber { get; set; }
 
     /// <summary>
     /// The title attribute.
@@ -92,13 +92,13 @@ public partial class AwsAccountAlternateContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     [TerraformProperty("title")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Title { get; set; }
+    public required partial TerraformValue<string> Title { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsAccountAlternateContactTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsAccountAlternateContactTimeoutsBlock>? Timeouts { get; set; }
 
 }

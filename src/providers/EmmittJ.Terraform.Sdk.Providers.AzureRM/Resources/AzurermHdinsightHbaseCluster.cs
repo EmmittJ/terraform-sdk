@@ -14,7 +14,7 @@ public partial class AzurermHdinsightHbaseClusterComponentVersionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hbase is required")]
     [TerraformProperty("hbase")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Hbase { get; set; }
+    public required partial TerraformValue<string> Hbase { get; set; }
 
 }
 
@@ -29,14 +29,14 @@ public partial class AzurermHdinsightHbaseClusterComputeIsolationBlock : Terrafo
     /// </summary>
     [TerraformProperty("compute_isolation_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ComputeIsolationEnabled { get; set; }
+    public partial TerraformValue<bool>? ComputeIsolationEnabled { get; set; }
 
     /// <summary>
     /// The host_sku attribute.
     /// </summary>
     [TerraformProperty("host_sku")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HostSku { get; set; }
+    public partial TerraformValue<string>? HostSku { get; set; }
 
 }
 
@@ -51,28 +51,28 @@ public partial class AzurermHdinsightHbaseClusterDiskEncryptionBlock : Terraform
     /// </summary>
     [TerraformProperty("encryption_algorithm")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EncryptionAlgorithm { get; set; }
+    public partial TerraformValue<string>? EncryptionAlgorithm { get; set; }
 
     /// <summary>
     /// The encryption_at_host_enabled attribute.
     /// </summary>
     [TerraformProperty("encryption_at_host_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EncryptionAtHostEnabled { get; set; }
+    public partial TerraformValue<bool>? EncryptionAtHostEnabled { get; set; }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
     [TerraformProperty("key_vault_key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyVaultKeyId { get; set; }
+    public partial TerraformValue<string>? KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The key_vault_managed_identity_id attribute.
     /// </summary>
     [TerraformProperty("key_vault_managed_identity_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyVaultManagedIdentityId { get; set; }
+    public partial TerraformValue<string>? KeyVaultManagedIdentityId { get; set; }
 
 }
 
@@ -88,7 +88,7 @@ public partial class AzurermHdinsightHbaseClusterExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     [TerraformProperty("log_analytics_workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
+    public required partial TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The primary_key attribute.
@@ -96,7 +96,7 @@ public partial class AzurermHdinsightHbaseClusterExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKey is required")]
     [TerraformProperty("primary_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrimaryKey { get; set; }
+    public required partial TerraformValue<string> PrimaryKey { get; set; }
 
 }
 
@@ -112,7 +112,7 @@ public partial class AzurermHdinsightHbaseClusterGatewayBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     [TerraformProperty("password")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Password { get; set; }
+    public required partial TerraformValue<string> Password { get; set; }
 
     /// <summary>
     /// The username attribute.
@@ -120,7 +120,7 @@ public partial class AzurermHdinsightHbaseClusterGatewayBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformProperty("username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Username { get; set; }
+    public required partial TerraformValue<string> Username { get; set; }
 
 }
 
@@ -144,7 +144,7 @@ public partial class AzurermHdinsightHbaseClusterMonitorBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     [TerraformProperty("log_analytics_workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
+    public required partial TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The primary_key attribute.
@@ -152,7 +152,7 @@ public partial class AzurermHdinsightHbaseClusterMonitorBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKey is required")]
     [TerraformProperty("primary_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrimaryKey { get; set; }
+    public required partial TerraformValue<string> PrimaryKey { get; set; }
 
 }
 
@@ -167,14 +167,14 @@ public partial class AzurermHdinsightHbaseClusterNetworkBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("connection_direction")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConnectionDirection { get; set; }
+    public partial TerraformValue<string>? ConnectionDirection { get; set; }
 
     /// <summary>
     /// The private_link_enabled attribute.
     /// </summary>
     [TerraformProperty("private_link_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PrivateLinkEnabled { get; set; }
+    public partial TerraformValue<bool>? PrivateLinkEnabled { get; set; }
 
 }
 
@@ -190,7 +190,7 @@ public partial class AzurermHdinsightHbaseClusterPrivateLinkConfigurationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     [TerraformProperty("group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GroupId { get; set; }
+    public required partial TerraformValue<string> GroupId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -198,7 +198,7 @@ public partial class AzurermHdinsightHbaseClusterPrivateLinkConfigurationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -222,14 +222,14 @@ public partial class AzurermHdinsightHbaseClusterSecurityProfileBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AaddsResourceId is required")]
     [TerraformProperty("aadds_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AaddsResourceId { get; set; }
+    public required partial TerraformValue<string> AaddsResourceId { get; set; }
 
     /// <summary>
     /// The cluster_users_group_dns attribute.
     /// </summary>
     [TerraformProperty("cluster_users_group_dns")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ClusterUsersGroupDns { get; set; }
+    public partial TerraformSet<string>? ClusterUsersGroupDns { get; set; }
 
     /// <summary>
     /// The domain_name attribute.
@@ -237,7 +237,7 @@ public partial class AzurermHdinsightHbaseClusterSecurityProfileBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformProperty("domain_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainName { get; set; }
+    public required partial TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The domain_user_password attribute.
@@ -245,7 +245,7 @@ public partial class AzurermHdinsightHbaseClusterSecurityProfileBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainUserPassword is required")]
     [TerraformProperty("domain_user_password")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainUserPassword { get; set; }
+    public required partial TerraformValue<string> DomainUserPassword { get; set; }
 
     /// <summary>
     /// The domain_username attribute.
@@ -253,7 +253,7 @@ public partial class AzurermHdinsightHbaseClusterSecurityProfileBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainUsername is required")]
     [TerraformProperty("domain_username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainUsername { get; set; }
+    public required partial TerraformValue<string> DomainUsername { get; set; }
 
     /// <summary>
     /// The ldaps_urls attribute.
@@ -261,7 +261,7 @@ public partial class AzurermHdinsightHbaseClusterSecurityProfileBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LdapsUrls is required")]
     [TerraformProperty("ldaps_urls")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> LdapsUrls { get; set; }
+    public required partial TerraformSet<string> LdapsUrls { get; set; }
 
     /// <summary>
     /// The msi_resource_id attribute.
@@ -269,7 +269,7 @@ public partial class AzurermHdinsightHbaseClusterSecurityProfileBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MsiResourceId is required")]
     [TerraformProperty("msi_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MsiResourceId { get; set; }
+    public required partial TerraformValue<string> MsiResourceId { get; set; }
 
 }
 
@@ -285,7 +285,7 @@ public partial class AzurermHdinsightHbaseClusterStorageAccountBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDefault is required")]
     [TerraformProperty("is_default")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> IsDefault { get; set; }
+    public required partial TerraformValue<bool> IsDefault { get; set; }
 
     /// <summary>
     /// The storage_account_key attribute.
@@ -293,7 +293,7 @@ public partial class AzurermHdinsightHbaseClusterStorageAccountBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     [TerraformProperty("storage_account_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountKey { get; set; }
+    public required partial TerraformValue<string> StorageAccountKey { get; set; }
 
     /// <summary>
     /// The storage_container_id attribute.
@@ -301,14 +301,14 @@ public partial class AzurermHdinsightHbaseClusterStorageAccountBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
     [TerraformProperty("storage_container_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageContainerId { get; set; }
+    public required partial TerraformValue<string> StorageContainerId { get; set; }
 
     /// <summary>
     /// The storage_resource_id attribute.
     /// </summary>
     [TerraformProperty("storage_resource_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageResourceId { get; set; }
+    public partial TerraformValue<string>? StorageResourceId { get; set; }
 
 }
 
@@ -324,7 +324,7 @@ public partial class AzurermHdinsightHbaseClusterStorageAccountGen2Block : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilesystemId is required")]
     [TerraformProperty("filesystem_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FilesystemId { get; set; }
+    public required partial TerraformValue<string> FilesystemId { get; set; }
 
     /// <summary>
     /// The is_default attribute.
@@ -332,7 +332,7 @@ public partial class AzurermHdinsightHbaseClusterStorageAccountGen2Block : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDefault is required")]
     [TerraformProperty("is_default")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> IsDefault { get; set; }
+    public required partial TerraformValue<bool> IsDefault { get; set; }
 
     /// <summary>
     /// The managed_identity_resource_id attribute.
@@ -340,7 +340,7 @@ public partial class AzurermHdinsightHbaseClusterStorageAccountGen2Block : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedIdentityResourceId is required")]
     [TerraformProperty("managed_identity_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ManagedIdentityResourceId { get; set; }
+    public required partial TerraformValue<string> ManagedIdentityResourceId { get; set; }
 
     /// <summary>
     /// The storage_resource_id attribute.
@@ -348,7 +348,7 @@ public partial class AzurermHdinsightHbaseClusterStorageAccountGen2Block : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageResourceId is required")]
     [TerraformProperty("storage_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageResourceId { get; set; }
+    public required partial TerraformValue<string> StorageResourceId { get; set; }
 
 }
 
@@ -363,28 +363,28 @@ public partial class AzurermHdinsightHbaseClusterTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -404,14 +404,14 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterVersion is required")]
     [TerraformProperty("cluster_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterVersion { get; set; }
+    public required partial TerraformValue<string> ClusterVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -419,7 +419,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -427,7 +427,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -435,14 +435,14 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tier attribute.
@@ -450,14 +450,14 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     [TerraformProperty("tier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Tier { get; set; }
+    public required partial TerraformValue<string> Tier { get; set; }
 
     /// <summary>
     /// The tls_min_version attribute.
     /// </summary>
     [TerraformProperty("tls_min_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TlsMinVersion { get; set; }
+    public partial TerraformValue<string>? TlsMinVersion { get; set; }
 
     /// <summary>
     /// Block for component_version.
@@ -467,7 +467,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComponentVersion block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComponentVersion block(s) allowed")]
     [TerraformProperty("component_version")]
-    public TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterComponentVersionBlock>>? ComponentVersion { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterComponentVersionBlock>>? ComponentVersion { get; set; }
 
     /// <summary>
     /// Block for compute_isolation.
@@ -475,14 +475,14 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeIsolation block(s) allowed")]
     [TerraformProperty("compute_isolation")]
-    public TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterComputeIsolationBlock>>? ComputeIsolation { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterComputeIsolationBlock>>? ComputeIsolation { get; set; }
 
     /// <summary>
     /// Block for disk_encryption.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("disk_encryption")]
-    public TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterDiskEncryptionBlock>>? DiskEncryption { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterDiskEncryptionBlock>>? DiskEncryption { get; set; }
 
     /// <summary>
     /// Block for extension.
@@ -490,7 +490,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Extension block(s) allowed")]
     [TerraformProperty("extension")]
-    public TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterExtensionBlock>>? Extension { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterExtensionBlock>>? Extension { get; set; }
 
     /// <summary>
     /// Block for gateway.
@@ -500,7 +500,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Gateway block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gateway block(s) allowed")]
     [TerraformProperty("gateway")]
-    public TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterGatewayBlock>>? Gateway { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterGatewayBlock>>? Gateway { get; set; }
 
     /// <summary>
     /// Block for metastores.
@@ -508,7 +508,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metastores block(s) allowed")]
     [TerraformProperty("metastores")]
-    public TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterMetastoresBlock>>? Metastores { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterMetastoresBlock>>? Metastores { get; set; }
 
     /// <summary>
     /// Block for monitor.
@@ -516,7 +516,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitor block(s) allowed")]
     [TerraformProperty("monitor")]
-    public TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterMonitorBlock>>? Monitor { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterMonitorBlock>>? Monitor { get; set; }
 
     /// <summary>
     /// Block for network.
@@ -524,7 +524,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
     [TerraformProperty("network")]
-    public TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterNetworkBlock>>? Network { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterNetworkBlock>>? Network { get; set; }
 
     /// <summary>
     /// Block for private_link_configuration.
@@ -532,7 +532,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateLinkConfiguration block(s) allowed")]
     [TerraformProperty("private_link_configuration")]
-    public TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterPrivateLinkConfigurationBlock>>? PrivateLinkConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterPrivateLinkConfigurationBlock>>? PrivateLinkConfiguration { get; set; }
 
     /// <summary>
     /// Block for roles.
@@ -542,7 +542,7 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Roles block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Roles block(s) allowed")]
     [TerraformProperty("roles")]
-    public TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterRolesBlock>>? Roles { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterRolesBlock>>? Roles { get; set; }
 
     /// <summary>
     /// Block for security_profile.
@@ -550,14 +550,14 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityProfile block(s) allowed")]
     [TerraformProperty("security_profile")]
-    public TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterSecurityProfileBlock>>? SecurityProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterSecurityProfileBlock>>? SecurityProfile { get; set; }
 
     /// <summary>
     /// Block for storage_account.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("storage_account")]
-    public TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterStorageAccountBlock>>? StorageAccount { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterStorageAccountBlock>>? StorageAccount { get; set; }
 
     /// <summary>
     /// Block for storage_account_gen2.
@@ -565,27 +565,27 @@ public partial class AzurermHdinsightHbaseCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccountGen2 block(s) allowed")]
     [TerraformProperty("storage_account_gen2")]
-    public TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterStorageAccountGen2Block>>? StorageAccountGen2 { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHdinsightHbaseClusterStorageAccountGen2Block>>? StorageAccountGen2 { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermHdinsightHbaseClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermHdinsightHbaseClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The https_endpoint attribute.
     /// </summary>
     [TerraformProperty("https_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> HttpsEndpoint { get; }
+    public partial TerraformValue<string> HttpsEndpoint { get; }
 
     /// <summary>
     /// The ssh_endpoint attribute.
     /// </summary>
     [TerraformProperty("ssh_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SshEndpoint { get; }
+    public partial TerraformValue<string> SshEndpoint { get; }
 
 }

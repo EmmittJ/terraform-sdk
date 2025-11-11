@@ -13,7 +13,7 @@ public partial class AzurermSourceControlTokenDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermSourceControlTokenDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -39,27 +39,27 @@ public partial class AzurermSourceControlTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSourceControlTokenDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSourceControlTokenDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The token attribute.
     /// </summary>
     [TerraformProperty("token")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Token { get; }
+    public partial TerraformValue<string> Token { get; }
 
     /// <summary>
     /// The token_secret attribute.
     /// </summary>
     [TerraformProperty("token_secret")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TokenSecret { get; }
+    public partial TerraformValue<string> TokenSecret { get; }
 
 }

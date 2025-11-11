@@ -14,7 +14,7 @@ public partial class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     [TerraformProperty("offer")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Offer { get; set; }
+    public required partial TerraformValue<string> Offer { get; set; }
 
     /// <summary>
     /// The publisher attribute.
@@ -22,7 +22,7 @@ public partial class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     [TerraformProperty("publisher")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Publisher { get; set; }
+    public required partial TerraformValue<string> Publisher { get; set; }
 
     /// <summary>
     /// The sku attribute.
@@ -30,7 +30,7 @@ public partial class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [TerraformProperty("sku")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Sku { get; set; }
+    public required partial TerraformValue<string> Sku { get; set; }
 
 }
 
@@ -45,28 +45,28 @@ public partial class AzurermStackHciMarketplaceGalleryImageTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -86,7 +86,7 @@ public partial class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
     [TerraformProperty("custom_location_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CustomLocationId { get; set; }
+    public required partial TerraformValue<string> CustomLocationId { get; set; }
 
     /// <summary>
     /// The hyperv_generation attribute.
@@ -94,14 +94,14 @@ public partial class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HypervGeneration is required")]
     [TerraformProperty("hyperv_generation")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HypervGeneration { get; set; }
+    public required partial TerraformValue<string> HypervGeneration { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -109,7 +109,7 @@ public partial class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -117,7 +117,7 @@ public partial class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The os_type attribute.
@@ -125,7 +125,7 @@ public partial class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     [TerraformProperty("os_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OsType { get; set; }
+    public required partial TerraformValue<string> OsType { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -133,21 +133,21 @@ public partial class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The storage_path_id attribute.
     /// </summary>
     [TerraformProperty("storage_path_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StoragePathId { get; set; }
+    public partial TerraformValue<string>? StoragePathId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The version attribute.
@@ -155,7 +155,7 @@ public partial class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformProperty("version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Version { get; set; }
+    public required partial TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// Block for identifier.
@@ -165,13 +165,13 @@ public partial class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identifier block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identifier block(s) allowed")]
     [TerraformProperty("identifier")]
-    public TerraformList<TerraformBlock<AzurermStackHciMarketplaceGalleryImageIdentifierBlock>>? Identifier { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermStackHciMarketplaceGalleryImageIdentifierBlock>>? Identifier { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStackHciMarketplaceGalleryImageTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStackHciMarketplaceGalleryImageTimeoutsBlock>? Timeouts { get; set; }
 
 }

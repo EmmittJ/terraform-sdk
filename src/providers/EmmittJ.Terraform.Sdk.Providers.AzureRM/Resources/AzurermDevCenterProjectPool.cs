@@ -13,28 +13,28 @@ public partial class AzurermDevCenterProjectPoolTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermDevCenterProjectPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevBoxDefinitionName is required")]
     [TerraformProperty("dev_box_definition_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DevBoxDefinitionName { get; set; }
+    public required partial TerraformValue<string> DevBoxDefinitionName { get; set; }
 
     /// <summary>
     /// The dev_center_attached_network_name attribute.
@@ -61,7 +61,7 @@ public partial class AzurermDevCenterProjectPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterAttachedNetworkName is required")]
     [TerraformProperty("dev_center_attached_network_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DevCenterAttachedNetworkName { get; set; }
+    public required partial TerraformValue<string> DevCenterAttachedNetworkName { get; set; }
 
     /// <summary>
     /// The dev_center_project_id attribute.
@@ -69,14 +69,14 @@ public partial class AzurermDevCenterProjectPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
     [TerraformProperty("dev_center_project_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DevCenterProjectId { get; set; }
+    public required partial TerraformValue<string> DevCenterProjectId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The local_administrator_enabled attribute.
@@ -84,7 +84,7 @@ public partial class AzurermDevCenterProjectPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalAdministratorEnabled is required")]
     [TerraformProperty("local_administrator_enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> LocalAdministratorEnabled { get; set; }
+    public required partial TerraformValue<bool> LocalAdministratorEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -92,14 +92,14 @@ public partial class AzurermDevCenterProjectPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The managed_virtual_network_regions attribute.
     /// </summary>
     [TerraformProperty("managed_virtual_network_regions")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ManagedVirtualNetworkRegions { get; set; }
+    public partial TerraformList<string>? ManagedVirtualNetworkRegions { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -107,34 +107,34 @@ public partial class AzurermDevCenterProjectPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The single_sign_on_enabled attribute.
     /// </summary>
     [TerraformProperty("single_sign_on_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SingleSignOnEnabled { get; set; }
+    public partial TerraformValue<bool>? SingleSignOnEnabled { get; set; }
 
     /// <summary>
     /// The stop_on_disconnect_grace_period_minutes attribute.
     /// </summary>
     [TerraformProperty("stop_on_disconnect_grace_period_minutes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? StopOnDisconnectGracePeriodMinutes { get; set; }
+    public partial TerraformValue<double>? StopOnDisconnectGracePeriodMinutes { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDevCenterProjectPoolTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDevCenterProjectPoolTimeoutsBlock>? Timeouts { get; set; }
 
 }

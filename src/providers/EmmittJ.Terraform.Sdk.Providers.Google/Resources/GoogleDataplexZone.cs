@@ -14,28 +14,28 @@ public partial class GoogleDataplexZoneDiscoverySpecBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// Optional. The list of patterns to apply for selecting data to exclude during discovery. For Cloud Storage bucket assets, these are interpreted as glob patterns used to match object names. For BigQuery dataset assets, these are interpreted as patterns to match table names.
     /// </summary>
     [TerraformProperty("exclude_patterns")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ExcludePatterns { get; set; }
+    public partial TerraformList<string>? ExcludePatterns { get; set; }
 
     /// <summary>
     /// Optional. The list of patterns to apply for selecting data to include during discovery if only a subset of the data should considered. For Cloud Storage bucket assets, these are interpreted as glob patterns used to match object names. For BigQuery dataset assets, these are interpreted as patterns to match table names.
     /// </summary>
     [TerraformProperty("include_patterns")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? IncludePatterns { get; set; }
+    public partial TerraformList<string>? IncludePatterns { get; set; }
 
     /// <summary>
     /// Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running discovery periodically. Successive discovery runs must be scheduled at least 60 minutes apart. The default value is to run discovery every 60 minutes. To explicitly set a timezone to the cron tab, apply a prefix in the cron tab: &amp;quot;CRON_TZ=${IANA_TIME_ZONE}&amp;quot; or TZ=${IANA_TIME_ZONE}&amp;quot;. The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone database. For example, &amp;quot;CRON_TZ=America/New_York 1 * * * *&amp;quot;, or &amp;quot;TZ=America/New_York 1 * * * *&amp;quot;.
     /// </summary>
     [TerraformProperty("schedule")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Schedule { get; set; }
+    public partial TerraformValue<string> Schedule { get; set; }
 
 }
 
@@ -51,7 +51,7 @@ public partial class GoogleDataplexZoneResourceSpecBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationType is required")]
     [TerraformProperty("location_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LocationType { get; set; }
+    public required partial TerraformValue<string> LocationType { get; set; }
 
 }
 
@@ -66,21 +66,21 @@ public partial class GoogleDataplexZoneTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -99,21 +99,21 @@ public partial class GoogleDataplexZone : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Optional. User friendly display name.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Optional. User defined labels for the zone.
@@ -123,7 +123,7 @@ public partial class GoogleDataplexZone : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The lake for the resource
@@ -131,7 +131,7 @@ public partial class GoogleDataplexZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lake is required")]
     [TerraformProperty("lake")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Lake { get; set; }
+    public required partial TerraformValue<string> Lake { get; set; }
 
     /// <summary>
     /// The location for the resource
@@ -139,7 +139,7 @@ public partial class GoogleDataplexZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of the zone.
@@ -147,14 +147,14 @@ public partial class GoogleDataplexZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Required. Immutable. The type of the zone. Possible values: TYPE_UNSPECIFIED, RAW, CURATED
@@ -162,7 +162,7 @@ public partial class GoogleDataplexZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for discovery_spec.
@@ -172,7 +172,7 @@ public partial class GoogleDataplexZone : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DiscoverySpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiscoverySpec block(s) allowed")]
     [TerraformProperty("discovery_spec")]
-    public TerraformList<TerraformBlock<GoogleDataplexZoneDiscoverySpecBlock>>? DiscoverySpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataplexZoneDiscoverySpecBlock>>? DiscoverySpec { get; set; }
 
     /// <summary>
     /// Block for resource_spec.
@@ -182,62 +182,62 @@ public partial class GoogleDataplexZone : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ResourceSpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceSpec block(s) allowed")]
     [TerraformProperty("resource_spec")]
-    public TerraformList<TerraformBlock<GoogleDataplexZoneResourceSpecBlock>>? ResourceSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataplexZoneResourceSpecBlock>>? ResourceSpec { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDataplexZoneTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDataplexZoneTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Aggregated status of the underlying assets of the zone.
     /// </summary>
     [TerraformProperty("asset_status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> AssetStatus { get; }
+    public partial TerraformList<object> AssetStatus { get; }
 
     /// <summary>
     /// Output only. The time when the zone was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Output only. Current state of the zone. Possible values: STATE_UNSPECIFIED, ACTIVE, CREATING, DELETING, ACTION_REQUIRED
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Output only. System generated globally unique ID for the zone. This ID will be different if the zone is deleted and re-created with the same name.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Output only. The time when the zone was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

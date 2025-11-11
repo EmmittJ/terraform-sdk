@@ -13,21 +13,21 @@ public partial class AzurermPrivateEndpointApplicationSecurityGroupAssociationTi
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzurermPrivateEndpointApplicationSecurityGroupAssociation :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationSecurityGroupId is required")]
     [TerraformProperty("application_security_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApplicationSecurityGroupId { get; set; }
+    public required partial TerraformValue<string> ApplicationSecurityGroupId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The private_endpoint_id attribute.
@@ -61,13 +61,13 @@ public partial class AzurermPrivateEndpointApplicationSecurityGroupAssociation :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateEndpointId is required")]
     [TerraformProperty("private_endpoint_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrivateEndpointId { get; set; }
+    public required partial TerraformValue<string> PrivateEndpointId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPrivateEndpointApplicationSecurityGroupAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPrivateEndpointApplicationSecurityGroupAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

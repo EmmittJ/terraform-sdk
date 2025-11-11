@@ -226,6 +226,11 @@ db.PublishAsTerraform((stack, resource) =>
         Value = database.Name
     };
     stack.Add(dbNameOutput);
+
+    var timeoutes = new TerraformOutput("postgres_timeouts")
+    {
+        Value = database.Timeouts?.Value?.Read
+    };
 });
 
 // ============================================================================

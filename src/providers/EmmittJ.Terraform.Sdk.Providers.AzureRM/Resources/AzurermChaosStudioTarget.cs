@@ -13,21 +13,21 @@ public partial class AzurermChaosStudioTargetTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermChaosStudioTarget : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -53,7 +53,7 @@ public partial class AzurermChaosStudioTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The target_resource_id attribute.
@@ -61,7 +61,7 @@ public partial class AzurermChaosStudioTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     [TerraformProperty("target_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetResourceId { get; set; }
+    public required partial TerraformValue<string> TargetResourceId { get; set; }
 
     /// <summary>
     /// The target_type attribute.
@@ -69,13 +69,13 @@ public partial class AzurermChaosStudioTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetType is required")]
     [TerraformProperty("target_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetType { get; set; }
+    public required partial TerraformValue<string> TargetType { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermChaosStudioTargetTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermChaosStudioTargetTimeoutsBlock>? Timeouts { get; set; }
 
 }

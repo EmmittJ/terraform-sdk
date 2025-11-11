@@ -14,7 +14,7 @@ public partial class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     [TerraformProperty("connection_string")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConnectionString { get; set; }
+    public required partial TerraformValue<string> ConnectionString { get; set; }
 
     /// <summary>
     /// The id attribute.
@@ -22,7 +22,7 @@ public partial class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
 }
 
@@ -37,28 +37,28 @@ public partial class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -78,21 +78,21 @@ public partial class AzurermIothubDeviceUpdateInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceUpdateAccountId is required")]
     [TerraformProperty("device_update_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DeviceUpdateAccountId { get; set; }
+    public required partial TerraformValue<string> DeviceUpdateAccountId { get; set; }
 
     /// <summary>
     /// The diagnostic_enabled attribute.
     /// </summary>
     [TerraformProperty("diagnostic_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DiagnosticEnabled { get; set; }
+    public partial TerraformValue<bool>? DiagnosticEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The iothub_id attribute.
@@ -100,7 +100,7 @@ public partial class AzurermIothubDeviceUpdateInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     [TerraformProperty("iothub_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IothubId { get; set; }
+    public required partial TerraformValue<string> IothubId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -108,14 +108,14 @@ public partial class AzurermIothubDeviceUpdateInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for diagnostic_storage_account.
@@ -123,13 +123,13 @@ public partial class AzurermIothubDeviceUpdateInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiagnosticStorageAccount block(s) allowed")]
     [TerraformProperty("diagnostic_storage_account")]
-    public TerraformList<TerraformBlock<AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock>>? DiagnosticStorageAccount { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock>>? DiagnosticStorageAccount { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermIothubDeviceUpdateInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermIothubDeviceUpdateInstanceTimeoutsBlock>? Timeouts { get; set; }
 
 }

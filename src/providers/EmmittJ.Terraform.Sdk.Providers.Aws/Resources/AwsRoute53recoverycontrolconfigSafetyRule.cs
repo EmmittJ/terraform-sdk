@@ -14,7 +14,7 @@ public partial class AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Inverted is required")]
     [TerraformProperty("inverted")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Inverted { get; set; }
+    public required partial TerraformValue<bool> Inverted { get; set; }
 
     /// <summary>
     /// The threshold attribute.
@@ -22,7 +22,7 @@ public partial class AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     [TerraformProperty("threshold")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Threshold { get; set; }
+    public required partial TerraformValue<double> Threshold { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -30,7 +30,7 @@ public partial class AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -49,7 +49,7 @@ public partial class AwsRoute53recoverycontrolconfigSafetyRule : TerraformResour
     /// </summary>
     [TerraformProperty("asserted_controls")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AssertedControls { get; set; }
+    public partial TerraformList<string>? AssertedControls { get; set; }
 
     /// <summary>
     /// The control_panel_arn attribute.
@@ -57,21 +57,21 @@ public partial class AwsRoute53recoverycontrolconfigSafetyRule : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlPanelArn is required")]
     [TerraformProperty("control_panel_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ControlPanelArn { get; set; }
+    public required partial TerraformValue<string> ControlPanelArn { get; set; }
 
     /// <summary>
     /// The gating_controls attribute.
     /// </summary>
     [TerraformProperty("gating_controls")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? GatingControls { get; set; }
+    public partial TerraformList<string>? GatingControls { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -79,28 +79,28 @@ public partial class AwsRoute53recoverycontrolconfigSafetyRule : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The target_controls attribute.
     /// </summary>
     [TerraformProperty("target_controls")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? TargetControls { get; set; }
+    public partial TerraformList<string>? TargetControls { get; set; }
 
     /// <summary>
     /// The wait_period_ms attribute.
@@ -108,7 +108,7 @@ public partial class AwsRoute53recoverycontrolconfigSafetyRule : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WaitPeriodMs is required")]
     [TerraformProperty("wait_period_ms")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> WaitPeriodMs { get; set; }
+    public required partial TerraformValue<double> WaitPeriodMs { get; set; }
 
     /// <summary>
     /// Block for rule_config.
@@ -118,20 +118,20 @@ public partial class AwsRoute53recoverycontrolconfigSafetyRule : TerraformResour
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RuleConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuleConfig block(s) allowed")]
     [TerraformProperty("rule_config")]
-    public TerraformList<TerraformBlock<AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock>>? RuleConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock>>? RuleConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
 }

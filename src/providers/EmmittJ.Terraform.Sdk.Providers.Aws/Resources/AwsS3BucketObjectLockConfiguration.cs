@@ -26,42 +26,42 @@ public partial class AwsS3BucketObjectLockConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
     [TerraformProperty("expected_bucket_owner")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExpectedBucketOwner { get; set; }
+    public partial TerraformValue<string>? ExpectedBucketOwner { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The object_lock_enabled attribute.
     /// </summary>
     [TerraformProperty("object_lock_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ObjectLockEnabled { get; set; }
+    public partial TerraformValue<string>? ObjectLockEnabled { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The token attribute.
     /// </summary>
     [TerraformProperty("token")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Token { get; set; }
+    public partial TerraformValue<string>? Token { get; set; }
 
     /// <summary>
     /// Block for rule.
@@ -69,6 +69,6 @@ public partial class AwsS3BucketObjectLockConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rule block(s) allowed")]
     [TerraformProperty("rule")]
-    public TerraformList<TerraformBlock<AwsS3BucketObjectLockConfigurationRuleBlock>>? Rule { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3BucketObjectLockConfigurationRuleBlock>>? Rule { get; set; }
 
 }

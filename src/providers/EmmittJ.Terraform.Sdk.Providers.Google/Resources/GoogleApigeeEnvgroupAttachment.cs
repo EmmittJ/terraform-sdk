@@ -13,14 +13,14 @@ public partial class GoogleApigeeEnvgroupAttachmentTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -40,7 +40,7 @@ public partial class GoogleApigeeEnvgroupAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvgroupId is required")]
     [TerraformProperty("envgroup_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EnvgroupId { get; set; }
+    public required partial TerraformValue<string> EnvgroupId { get; set; }
 
     /// <summary>
     /// The resource ID of the environment.
@@ -48,27 +48,27 @@ public partial class GoogleApigeeEnvgroupAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     [TerraformProperty("environment")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Environment { get; set; }
+    public required partial TerraformValue<string> Environment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeEnvgroupAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeEnvgroupAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The name of the newly created  attachment (output parameter).
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

@@ -13,28 +13,28 @@ public partial class AzurermCdnFrontdoorCustomDomainTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -49,14 +49,14 @@ public partial class AzurermCdnFrontdoorCustomDomainTlsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("cdn_frontdoor_secret_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CdnFrontdoorSecretId { get; set; }
+    public partial TerraformValue<string> CdnFrontdoorSecretId { get; set; }
 
     /// <summary>
     /// The certificate_type attribute.
     /// </summary>
     [TerraformProperty("certificate_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CertificateType { get; set; }
+    public partial TerraformValue<string>? CertificateType { get; set; }
 
     /// <summary>
     /// The minimum_tls_version attribute.
@@ -64,7 +64,7 @@ public partial class AzurermCdnFrontdoorCustomDomainTlsBlock : TerraformBlockBas
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("minimum_tls_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MinimumTlsVersion { get; set; }
+    public partial TerraformValue<string>? MinimumTlsVersion { get; set; }
 
 }
 
@@ -84,14 +84,14 @@ public partial class AzurermCdnFrontdoorCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
     [TerraformProperty("cdn_frontdoor_profile_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CdnFrontdoorProfileId { get; set; }
+    public required partial TerraformValue<string> CdnFrontdoorProfileId { get; set; }
 
     /// <summary>
     /// The dns_zone_id attribute.
     /// </summary>
     [TerraformProperty("dns_zone_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DnsZoneId { get; set; }
+    public partial TerraformValue<string>? DnsZoneId { get; set; }
 
     /// <summary>
     /// The host_name attribute.
@@ -99,14 +99,14 @@ public partial class AzurermCdnFrontdoorCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     [TerraformProperty("host_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HostName { get; set; }
+    public required partial TerraformValue<string> HostName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -114,14 +114,14 @@ public partial class AzurermCdnFrontdoorCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCdnFrontdoorCustomDomainTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCdnFrontdoorCustomDomainTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for tls.
@@ -131,20 +131,20 @@ public partial class AzurermCdnFrontdoorCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Tls block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tls block(s) allowed")]
     [TerraformProperty("tls")]
-    public TerraformList<TerraformBlock<AzurermCdnFrontdoorCustomDomainTlsBlock>>? Tls { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorCustomDomainTlsBlock>>? Tls { get; set; }
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     [TerraformProperty("expiration_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpirationDate { get; }
+    public partial TerraformValue<string> ExpirationDate { get; }
 
     /// <summary>
     /// The validation_token attribute.
     /// </summary>
     [TerraformProperty("validation_token")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ValidationToken { get; }
+    public partial TerraformValue<string> ValidationToken { get; }
 
 }

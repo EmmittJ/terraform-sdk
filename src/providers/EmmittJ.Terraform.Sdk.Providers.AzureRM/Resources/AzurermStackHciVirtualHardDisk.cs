@@ -13,28 +13,28 @@ public partial class AzurermStackHciVirtualHardDiskTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermStackHciVirtualHardDisk : TerraformResource
     /// </summary>
     [TerraformProperty("block_size_in_bytes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BlockSizeInBytes { get; set; }
+    public partial TerraformValue<double>? BlockSizeInBytes { get; set; }
 
     /// <summary>
     /// The custom_location_id attribute.
@@ -60,14 +60,14 @@ public partial class AzurermStackHciVirtualHardDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
     [TerraformProperty("custom_location_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CustomLocationId { get; set; }
+    public required partial TerraformValue<string> CustomLocationId { get; set; }
 
     /// <summary>
     /// The disk_file_format attribute.
     /// </summary>
     [TerraformProperty("disk_file_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DiskFileFormat { get; set; }
+    public partial TerraformValue<string>? DiskFileFormat { get; set; }
 
     /// <summary>
     /// The disk_size_in_gb attribute.
@@ -75,28 +75,28 @@ public partial class AzurermStackHciVirtualHardDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeInGb is required")]
     [TerraformProperty("disk_size_in_gb")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> DiskSizeInGb { get; set; }
+    public required partial TerraformValue<double> DiskSizeInGb { get; set; }
 
     /// <summary>
     /// The dynamic_enabled attribute.
     /// </summary>
     [TerraformProperty("dynamic_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DynamicEnabled { get; set; }
+    public partial TerraformValue<bool>? DynamicEnabled { get; set; }
 
     /// <summary>
     /// The hyperv_generation attribute.
     /// </summary>
     [TerraformProperty("hyperv_generation")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HypervGeneration { get; set; }
+    public partial TerraformValue<string>? HypervGeneration { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -104,14 +104,14 @@ public partial class AzurermStackHciVirtualHardDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The logical_sector_in_bytes attribute.
     /// </summary>
     [TerraformProperty("logical_sector_in_bytes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? LogicalSectorInBytes { get; set; }
+    public partial TerraformValue<double>? LogicalSectorInBytes { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -119,14 +119,14 @@ public partial class AzurermStackHciVirtualHardDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The physical_sector_in_bytes attribute.
     /// </summary>
     [TerraformProperty("physical_sector_in_bytes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? PhysicalSectorInBytes { get; set; }
+    public partial TerraformValue<double>? PhysicalSectorInBytes { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -134,27 +134,27 @@ public partial class AzurermStackHciVirtualHardDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The storage_path_id attribute.
     /// </summary>
     [TerraformProperty("storage_path_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StoragePathId { get; set; }
+    public partial TerraformValue<string>? StoragePathId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStackHciVirtualHardDiskTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStackHciVirtualHardDiskTimeoutsBlock>? Timeouts { get; set; }
 
 }

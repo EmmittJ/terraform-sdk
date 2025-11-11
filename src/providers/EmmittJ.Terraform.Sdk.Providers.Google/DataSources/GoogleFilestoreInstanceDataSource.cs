@@ -16,14 +16,14 @@ public partial class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the location of the instance. This can be a region for ENTERPRISE tier instances.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The resource name of the instance.
@@ -31,56 +31,56 @@ public partial class GoogleFilestoreInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Indicates whether the instance is protected against deletion.
     /// </summary>
     [TerraformProperty("deletion_protection_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> DeletionProtectionEnabled { get; }
+    public partial TerraformValue<bool> DeletionProtectionEnabled { get; }
 
     /// <summary>
     /// The reason for enabling deletion protection.
     /// </summary>
     [TerraformProperty("deletion_protection_reason")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeletionProtectionReason { get; }
+    public partial TerraformValue<string> DeletionProtectionReason { get; }
 
     /// <summary>
     /// A description of the instance.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Output only fields for replication configuration.
     /// </summary>
     [TerraformProperty("effective_replication")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> EffectiveReplication { get; }
+    public partial TerraformList<object> EffectiveReplication { get; }
 
     /// <summary>
     /// Server-specified ETag for the instance resource to prevent
@@ -88,7 +88,7 @@ public partial class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// File system shares on the instance. For this version, only a
@@ -96,7 +96,7 @@ public partial class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("file_shares")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> FileShares { get; }
+    public partial TerraformList<object> FileShares { get; }
 
     /// <summary>
     /// Replication configuration, once set, this cannot be updated.
@@ -104,14 +104,14 @@ public partial class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("initial_replication")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> InitialReplication { get; }
+    public partial TerraformList<object> InitialReplication { get; }
 
     /// <summary>
     /// KMS key name used for data encryption.
     /// </summary>
     [TerraformProperty("kms_key_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KmsKeyName { get; }
+    public partial TerraformValue<string> KmsKeyName { get; }
 
     /// <summary>
     /// Resource labels to represent user-provided metadata.
@@ -122,7 +122,7 @@ public partial class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// VPC networks to which the instance is connected. For this version,
@@ -130,7 +130,7 @@ public partial class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("networks")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Networks { get; }
+    public partial TerraformList<object> Networks { get; }
 
     /// <summary>
     /// Performance configuration for the instance. If not provided,
@@ -138,7 +138,7 @@ public partial class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("performance_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PerformanceConfig { get; }
+    public partial TerraformList<object> PerformanceConfig { get; }
 
     /// <summary>
     /// Either NFSv3, for using NFS version 3 as file sharing protocol,
@@ -148,7 +148,7 @@ public partial class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("protocol")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Protocol { get; }
+    public partial TerraformValue<string> Protocol { get; }
 
     /// <summary>
     /// A map of resource manager tags. Resource manager tag keys
@@ -163,7 +163,7 @@ public partial class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -171,7 +171,7 @@ public partial class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The service tier of the instance.
@@ -179,13 +179,13 @@ public partial class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("tier")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Tier { get; }
+    public partial TerraformValue<string> Tier { get; }
 
     /// <summary>
     /// The name of the Filestore zone of the instance.
     /// </summary>
     [TerraformProperty("zone")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Zone { get; }
+    public partial TerraformValue<string> Zone { get; }
 
 }

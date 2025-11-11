@@ -13,7 +13,7 @@ public partial class GoogleComputeSnapshotSnapshotEncryptionKeyBlock : Terraform
     /// </summary>
     [TerraformProperty("kms_key_self_link")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeySelfLink { get; set; }
+    public partial TerraformValue<string>? KmsKeySelfLink { get; set; }
 
     /// <summary>
     /// The service account used for the encryption request for the given KMS key.
@@ -21,7 +21,7 @@ public partial class GoogleComputeSnapshotSnapshotEncryptionKeyBlock : Terraform
     /// </summary>
     [TerraformProperty("kms_key_service_account")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyServiceAccount { get; set; }
+    public partial TerraformValue<string>? KmsKeyServiceAccount { get; set; }
 
     /// <summary>
     /// Specifies a 256-bit customer-supplied encryption key, encoded in
@@ -29,7 +29,7 @@ public partial class GoogleComputeSnapshotSnapshotEncryptionKeyBlock : Terraform
     /// </summary>
     [TerraformProperty("raw_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RawKey { get; set; }
+    public partial TerraformValue<string>? RawKey { get; set; }
 
     /// <summary>
     /// Specifies an encryption key stored in Google Cloud KMS, encoded in
@@ -37,7 +37,7 @@ public partial class GoogleComputeSnapshotSnapshotEncryptionKeyBlock : Terraform
     /// </summary>
     [TerraformProperty("rsa_encrypted_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RsaEncryptedKey { get; set; }
+    public partial TerraformValue<string>? RsaEncryptedKey { get; set; }
 
 
 }
@@ -53,7 +53,7 @@ public partial class GoogleComputeSnapshotSourceDiskEncryptionKeyBlock : Terrafo
     /// </summary>
     [TerraformProperty("kms_key_self_link")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeySelfLink { get; set; }
+    public partial TerraformValue<string>? KmsKeySelfLink { get; set; }
 
     /// <summary>
     /// The service account used for the encryption request for the given KMS key.
@@ -61,7 +61,7 @@ public partial class GoogleComputeSnapshotSourceDiskEncryptionKeyBlock : Terrafo
     /// </summary>
     [TerraformProperty("kms_key_service_account")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyServiceAccount { get; set; }
+    public partial TerraformValue<string>? KmsKeyServiceAccount { get; set; }
 
     /// <summary>
     /// Specifies a 256-bit customer-supplied encryption key, encoded in
@@ -69,7 +69,7 @@ public partial class GoogleComputeSnapshotSourceDiskEncryptionKeyBlock : Terrafo
     /// </summary>
     [TerraformProperty("raw_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RawKey { get; set; }
+    public partial TerraformValue<string>? RawKey { get; set; }
 
     /// <summary>
     /// Specifies an encryption key stored in Google Cloud KMS, encoded in
@@ -77,7 +77,7 @@ public partial class GoogleComputeSnapshotSourceDiskEncryptionKeyBlock : Terrafo
     /// </summary>
     [TerraformProperty("rsa_encrypted_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RsaEncryptedKey { get; set; }
+    public partial TerraformValue<string>? RsaEncryptedKey { get; set; }
 
 }
 
@@ -92,21 +92,21 @@ public partial class GoogleComputeSnapshotTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -130,21 +130,21 @@ public partial class GoogleComputeSnapshot : TerraformResource
     /// </summary>
     [TerraformProperty("chain_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ChainName { get; set; }
+    public partial TerraformValue<string>? ChainName { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels to apply to this Snapshot.
@@ -154,7 +154,7 @@ public partial class GoogleComputeSnapshot : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is
@@ -168,14 +168,14 @@ public partial class GoogleComputeSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// A reference to the disk used to create this snapshot.
@@ -183,21 +183,21 @@ public partial class GoogleComputeSnapshot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDisk is required")]
     [TerraformProperty("source_disk")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceDisk { get; set; }
+    public required partial TerraformValue<string> SourceDisk { get; set; }
 
     /// <summary>
     /// Cloud Storage bucket storage location of the snapshot (regional or multi-regional).
     /// </summary>
     [TerraformProperty("storage_locations")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> StorageLocations { get; set; }
+    public partial TerraformList<string> StorageLocations { get; set; }
 
     /// <summary>
     /// A reference to the zone where the disk is hosted.
     /// </summary>
     [TerraformProperty("zone")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Zone { get; set; }
+    public partial TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Block for snapshot_encryption_key.
@@ -205,7 +205,7 @@ public partial class GoogleComputeSnapshot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotEncryptionKey block(s) allowed")]
     [TerraformProperty("snapshot_encryption_key")]
-    public TerraformList<TerraformBlock<GoogleComputeSnapshotSnapshotEncryptionKeyBlock>>? SnapshotEncryptionKey { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeSnapshotSnapshotEncryptionKeyBlock>>? SnapshotEncryptionKey { get; set; }
 
     /// <summary>
     /// Block for source_disk_encryption_key.
@@ -213,35 +213,35 @@ public partial class GoogleComputeSnapshot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceDiskEncryptionKey block(s) allowed")]
     [TerraformProperty("source_disk_encryption_key")]
-    public TerraformList<TerraformBlock<GoogleComputeSnapshotSourceDiskEncryptionKeyBlock>>? SourceDiskEncryptionKey { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeSnapshotSourceDiskEncryptionKeyBlock>>? SourceDiskEncryptionKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeSnapshotTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeSnapshotTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// Size of the snapshot, specified in GB.
     /// </summary>
     [TerraformProperty("disk_size_gb")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> DiskSizeGb { get; }
+    public partial TerraformValue<double> DiskSizeGb { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource. Used
@@ -249,7 +249,7 @@ public partial class GoogleComputeSnapshot : TerraformResource
     /// </summary>
     [TerraformProperty("label_fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LabelFingerprint { get; }
+    public partial TerraformValue<string> LabelFingerprint { get; }
 
     /// <summary>
     /// A list of public visible licenses that apply to this snapshot. This
@@ -259,21 +259,21 @@ public partial class GoogleComputeSnapshot : TerraformResource
     /// </summary>
     [TerraformProperty("licenses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Licenses { get; }
+    public partial TerraformList<string> Licenses { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     [TerraformProperty("snapshot_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> SnapshotId { get; }
+    public partial TerraformValue<double> SnapshotId { get; }
 
     /// <summary>
     /// A size of the storage used by the snapshot. As snapshots share
@@ -282,7 +282,7 @@ public partial class GoogleComputeSnapshot : TerraformResource
     /// </summary>
     [TerraformProperty("storage_bytes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> StorageBytes { get; }
+    public partial TerraformValue<double> StorageBytes { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -290,6 +290,6 @@ public partial class GoogleComputeSnapshot : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

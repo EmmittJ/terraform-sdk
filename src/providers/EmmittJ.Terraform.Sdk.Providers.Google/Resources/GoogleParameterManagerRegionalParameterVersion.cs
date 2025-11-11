@@ -13,21 +13,21 @@ public partial class GoogleParameterManagerRegionalParameterVersionTimeoutsBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public partial class GoogleParameterManagerRegionalParameterVersion : TerraformR
     /// </summary>
     [TerraformProperty("disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Disabled { get; set; }
+    public partial TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Parameter Manager Regional Parameter resource.
@@ -60,7 +60,7 @@ public partial class GoogleParameterManagerRegionalParameterVersion : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
     [TerraformProperty("parameter")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parameter { get; set; }
+    public required partial TerraformValue<string> Parameter { get; set; }
 
     /// <summary>
     /// The Regional Parameter data.
@@ -68,7 +68,7 @@ public partial class GoogleParameterManagerRegionalParameterVersion : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterData is required")]
     [TerraformProperty("parameter_data")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ParameterData { get; set; }
+    public required partial TerraformValue<string> ParameterData { get; set; }
 
     /// <summary>
     /// Version ID of the Regional Parameter Version Resource. This must be unique within the Regional Parameter.
@@ -76,21 +76,21 @@ public partial class GoogleParameterManagerRegionalParameterVersion : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterVersionId is required")]
     [TerraformProperty("parameter_version_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ParameterVersionId { get; set; }
+    public required partial TerraformValue<string> ParameterVersionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleParameterManagerRegionalParameterVersionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleParameterManagerRegionalParameterVersionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time at which the Regional Parameter Version was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The resource name of the Cloud KMS CryptoKeyVersion used to decrypt regional parameter version payload. Format
@@ -98,14 +98,14 @@ public partial class GoogleParameterManagerRegionalParameterVersion : TerraformR
     /// </summary>
     [TerraformProperty("kms_key_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KmsKeyVersion { get; }
+    public partial TerraformValue<string> KmsKeyVersion { get; }
 
     /// <summary>
     /// Location of Parameter Manager Regional parameter resource.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The resource name of the Regional Parameter Version. Format:
@@ -113,13 +113,13 @@ public partial class GoogleParameterManagerRegionalParameterVersion : TerraformR
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The time at which the Regional Parameter Version was updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class GoogleBigtableMaterializedViewTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,21 +45,21 @@ public partial class GoogleBigtableMaterializedView : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeletionProtection { get; set; }
+    public partial TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the instance to create the materialized view within.
     /// </summary>
     [TerraformProperty("instance")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Instance { get; set; }
+    public partial TerraformValue<string>? Instance { get; set; }
 
     /// <summary>
     /// The unique name of the materialized view in the form &#39;[_a-zA-Z0-9][-_.a-zA-Z0-9]*&#39;.
@@ -67,14 +67,14 @@ public partial class GoogleBigtableMaterializedView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaterializedViewId is required")]
     [TerraformProperty("materialized_view_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MaterializedViewId { get; set; }
+    public required partial TerraformValue<string> MaterializedViewId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The materialized view&#39;s select query.
@@ -82,20 +82,20 @@ public partial class GoogleBigtableMaterializedView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     [TerraformProperty("query")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Query { get; set; }
+    public required partial TerraformValue<string> Query { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBigtableMaterializedViewTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBigtableMaterializedViewTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique name of the requested materialized view. Values are of the form &#39;projects/&amp;lt;project&amp;gt;/instances/&amp;lt;instance&amp;gt;/materializedViews/&amp;lt;materializedViewId&amp;gt;&#39;.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

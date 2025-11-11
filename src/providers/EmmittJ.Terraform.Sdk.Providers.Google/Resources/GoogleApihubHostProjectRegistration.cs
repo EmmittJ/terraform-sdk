@@ -13,14 +13,14 @@ public partial class GoogleApihubHostProjectRegistrationTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -41,7 +41,7 @@ public partial class GoogleApihubHostProjectRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcpProject is required")]
     [TerraformProperty("gcp_project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GcpProject { get; set; }
+    public required partial TerraformValue<string> GcpProject { get; set; }
 
     /// <summary>
     /// Required. The ID to use for the Host Project Registration, which will become the
@@ -52,14 +52,14 @@ public partial class GoogleApihubHostProjectRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostProjectRegistrationId is required")]
     [TerraformProperty("host_project_registration_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HostProjectRegistrationId { get; set; }
+    public required partial TerraformValue<string> HostProjectRegistrationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Part of &#39;parent&#39;. See documentation of &#39;projectsId&#39;.
@@ -67,28 +67,28 @@ public partial class GoogleApihubHostProjectRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApihubHostProjectRegistrationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApihubHostProjectRegistrationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time at which the host project registration was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Identifier. The name of the host project registration.
@@ -97,6 +97,6 @@ public partial class GoogleApihubHostProjectRegistration : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

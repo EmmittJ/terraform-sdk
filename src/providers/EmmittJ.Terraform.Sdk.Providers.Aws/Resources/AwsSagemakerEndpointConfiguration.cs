@@ -22,14 +22,14 @@ public partial class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationS3Uri is required")]
     [TerraformProperty("destination_s3_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DestinationS3Uri { get; set; }
+    public required partial TerraformValue<string> DestinationS3Uri { get; set; }
 
     /// <summary>
     /// The enable_capture attribute.
     /// </summary>
     [TerraformProperty("enable_capture")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableCapture { get; set; }
+    public partial TerraformValue<bool>? EnableCapture { get; set; }
 
     /// <summary>
     /// The initial_sampling_percentage attribute.
@@ -37,14 +37,14 @@ public partial class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialSamplingPercentage is required")]
     [TerraformProperty("initial_sampling_percentage")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> InitialSamplingPercentage { get; set; }
+    public required partial TerraformValue<double> InitialSamplingPercentage { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [TerraformProperty("kms_key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyId { get; set; }
+    public partial TerraformValue<string>? KmsKeyId { get; set; }
 
 }
 
@@ -59,56 +59,56 @@ public partial class AwsSagemakerEndpointConfigurationProductionVariantsBlock : 
     /// </summary>
     [TerraformProperty("accelerator_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AcceleratorType { get; set; }
+    public partial TerraformValue<string>? AcceleratorType { get; set; }
 
     /// <summary>
     /// The container_startup_health_check_timeout_in_seconds attribute.
     /// </summary>
     [TerraformProperty("container_startup_health_check_timeout_in_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ContainerStartupHealthCheckTimeoutInSeconds { get; set; }
+    public partial TerraformValue<double>? ContainerStartupHealthCheckTimeoutInSeconds { get; set; }
 
     /// <summary>
     /// The enable_ssm_access attribute.
     /// </summary>
     [TerraformProperty("enable_ssm_access")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableSsmAccess { get; set; }
+    public partial TerraformValue<bool>? EnableSsmAccess { get; set; }
 
     /// <summary>
     /// The inference_ami_version attribute.
     /// </summary>
     [TerraformProperty("inference_ami_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InferenceAmiVersion { get; set; }
+    public partial TerraformValue<string>? InferenceAmiVersion { get; set; }
 
     /// <summary>
     /// The initial_instance_count attribute.
     /// </summary>
     [TerraformProperty("initial_instance_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? InitialInstanceCount { get; set; }
+    public partial TerraformValue<double>? InitialInstanceCount { get; set; }
 
     /// <summary>
     /// The initial_variant_weight attribute.
     /// </summary>
     [TerraformProperty("initial_variant_weight")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? InitialVariantWeight { get; set; }
+    public partial TerraformValue<double>? InitialVariantWeight { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [TerraformProperty("instance_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InstanceType { get; set; }
+    public partial TerraformValue<string>? InstanceType { get; set; }
 
     /// <summary>
     /// The model_data_download_timeout_in_seconds attribute.
     /// </summary>
     [TerraformProperty("model_data_download_timeout_in_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ModelDataDownloadTimeoutInSeconds { get; set; }
+    public partial TerraformValue<double>? ModelDataDownloadTimeoutInSeconds { get; set; }
 
     /// <summary>
     /// The model_name attribute.
@@ -116,21 +116,21 @@ public partial class AwsSagemakerEndpointConfigurationProductionVariantsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelName is required")]
     [TerraformProperty("model_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ModelName { get; set; }
+    public required partial TerraformValue<string> ModelName { get; set; }
 
     /// <summary>
     /// The variant_name attribute.
     /// </summary>
     [TerraformProperty("variant_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VariantName { get; set; }
+    public partial TerraformValue<string> VariantName { get; set; }
 
     /// <summary>
     /// The volume_size_in_gb attribute.
     /// </summary>
     [TerraformProperty("volume_size_in_gb")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> VolumeSizeInGb { get; set; }
+    public partial TerraformValue<double> VolumeSizeInGb { get; set; }
 
 }
 
@@ -145,56 +145,56 @@ public partial class AwsSagemakerEndpointConfigurationShadowProductionVariantsBl
     /// </summary>
     [TerraformProperty("accelerator_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AcceleratorType { get; set; }
+    public partial TerraformValue<string>? AcceleratorType { get; set; }
 
     /// <summary>
     /// The container_startup_health_check_timeout_in_seconds attribute.
     /// </summary>
     [TerraformProperty("container_startup_health_check_timeout_in_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ContainerStartupHealthCheckTimeoutInSeconds { get; set; }
+    public partial TerraformValue<double>? ContainerStartupHealthCheckTimeoutInSeconds { get; set; }
 
     /// <summary>
     /// The enable_ssm_access attribute.
     /// </summary>
     [TerraformProperty("enable_ssm_access")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableSsmAccess { get; set; }
+    public partial TerraformValue<bool>? EnableSsmAccess { get; set; }
 
     /// <summary>
     /// The inference_ami_version attribute.
     /// </summary>
     [TerraformProperty("inference_ami_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InferenceAmiVersion { get; set; }
+    public partial TerraformValue<string>? InferenceAmiVersion { get; set; }
 
     /// <summary>
     /// The initial_instance_count attribute.
     /// </summary>
     [TerraformProperty("initial_instance_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? InitialInstanceCount { get; set; }
+    public partial TerraformValue<double>? InitialInstanceCount { get; set; }
 
     /// <summary>
     /// The initial_variant_weight attribute.
     /// </summary>
     [TerraformProperty("initial_variant_weight")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? InitialVariantWeight { get; set; }
+    public partial TerraformValue<double>? InitialVariantWeight { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [TerraformProperty("instance_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InstanceType { get; set; }
+    public partial TerraformValue<string>? InstanceType { get; set; }
 
     /// <summary>
     /// The model_data_download_timeout_in_seconds attribute.
     /// </summary>
     [TerraformProperty("model_data_download_timeout_in_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ModelDataDownloadTimeoutInSeconds { get; set; }
+    public partial TerraformValue<double>? ModelDataDownloadTimeoutInSeconds { get; set; }
 
     /// <summary>
     /// The model_name attribute.
@@ -202,21 +202,21 @@ public partial class AwsSagemakerEndpointConfigurationShadowProductionVariantsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelName is required")]
     [TerraformProperty("model_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ModelName { get; set; }
+    public required partial TerraformValue<string> ModelName { get; set; }
 
     /// <summary>
     /// The variant_name attribute.
     /// </summary>
     [TerraformProperty("variant_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VariantName { get; set; }
+    public partial TerraformValue<string> VariantName { get; set; }
 
     /// <summary>
     /// The volume_size_in_gb attribute.
     /// </summary>
     [TerraformProperty("volume_size_in_gb")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? VolumeSizeInGb { get; set; }
+    public partial TerraformValue<double>? VolumeSizeInGb { get; set; }
 
 }
 
@@ -235,49 +235,49 @@ public partial class AwsSagemakerEndpointConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     [TerraformProperty("kms_key_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyArn { get; set; }
+    public partial TerraformValue<string>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformProperty("name_prefix")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NamePrefix { get; set; }
+    public partial TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for async_inference_config.
@@ -285,7 +285,7 @@ public partial class AwsSagemakerEndpointConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AsyncInferenceConfig block(s) allowed")]
     [TerraformProperty("async_inference_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlock>>? AsyncInferenceConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlock>>? AsyncInferenceConfig { get; set; }
 
     /// <summary>
     /// Block for data_capture_config.
@@ -293,7 +293,7 @@ public partial class AwsSagemakerEndpointConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataCaptureConfig block(s) allowed")]
     [TerraformProperty("data_capture_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerEndpointConfigurationDataCaptureConfigBlock>>? DataCaptureConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerEndpointConfigurationDataCaptureConfigBlock>>? DataCaptureConfig { get; set; }
 
     /// <summary>
     /// Block for production_variants.
@@ -303,7 +303,7 @@ public partial class AwsSagemakerEndpointConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProductionVariants block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 ProductionVariants block(s) allowed")]
     [TerraformProperty("production_variants")]
-    public TerraformList<TerraformBlock<AwsSagemakerEndpointConfigurationProductionVariantsBlock>>? ProductionVariants { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerEndpointConfigurationProductionVariantsBlock>>? ProductionVariants { get; set; }
 
     /// <summary>
     /// Block for shadow_production_variants.
@@ -311,13 +311,13 @@ public partial class AwsSagemakerEndpointConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 ShadowProductionVariants block(s) allowed")]
     [TerraformProperty("shadow_production_variants")]
-    public TerraformList<TerraformBlock<AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock>>? ShadowProductionVariants { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock>>? ShadowProductionVariants { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

@@ -16,27 +16,27 @@ public partial class GoogleStorageBucketsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
     [TerraformProperty("prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Prefix { get; set; }
+    public partial TerraformValue<string>? Prefix { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The buckets attribute.
     /// </summary>
     [TerraformProperty("buckets")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Buckets { get; }
+    public partial TerraformList<object> Buckets { get; }
 
 }

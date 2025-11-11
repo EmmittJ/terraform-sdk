@@ -16,14 +16,14 @@ public partial class AwsConnectHoursOfOperationDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("hours_of_operation_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> HoursOfOperationId { get; set; }
+    public partial TerraformValue<string> HoursOfOperationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_id attribute.
@@ -31,55 +31,55 @@ public partial class AwsConnectHoursOfOperationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     [TerraformProperty("instance_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InstanceId { get; set; }
+    public required partial TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Tags { get; set; }
+    public partial TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The config attribute.
     /// </summary>
     [TerraformProperty("config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> Config { get; }
+    public partial TerraformSet<object> Config { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
     [TerraformProperty("time_zone")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TimeZone { get; }
+    public partial TerraformValue<string> TimeZone { get; }
 
 }

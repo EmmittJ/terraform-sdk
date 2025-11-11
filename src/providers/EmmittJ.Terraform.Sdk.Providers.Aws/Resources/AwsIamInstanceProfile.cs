@@ -16,69 +16,69 @@ public partial class AwsIamInstanceProfile : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformProperty("name_prefix")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NamePrefix { get; set; }
+    public partial TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [TerraformProperty("path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Path { get; set; }
+    public partial TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
     [TerraformProperty("role")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Role { get; set; }
+    public partial TerraformValue<string>? Role { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
     [TerraformProperty("create_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateDate { get; }
+    public partial TerraformValue<string> CreateDate { get; }
 
     /// <summary>
     /// The unique_id attribute.
     /// </summary>
     [TerraformProperty("unique_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UniqueId { get; }
+    public partial TerraformValue<string> UniqueId { get; }
 
 }

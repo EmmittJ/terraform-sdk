@@ -14,35 +14,35 @@ public partial class GoogleNetappBackupVaultBackupRetentionPolicyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupMinimumEnforcedRetentionDays is required")]
     [TerraformProperty("backup_minimum_enforced_retention_days")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> BackupMinimumEnforcedRetentionDays { get; set; }
+    public required partial TerraformValue<double> BackupMinimumEnforcedRetentionDays { get; set; }
 
     /// <summary>
     /// Indicates if the daily backups are immutable. At least one of daily_backup_immutable, weekly_backup_immutable, monthly_backup_immutable and manual_backup_immutable must be true.
     /// </summary>
     [TerraformProperty("daily_backup_immutable")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DailyBackupImmutable { get; set; }
+    public partial TerraformValue<bool>? DailyBackupImmutable { get; set; }
 
     /// <summary>
     /// Indicates if the manual backups are immutable. At least one of daily_backup_immutable, weekly_backup_immutable, monthly_backup_immutable and manual_backup_immutable must be true.
     /// </summary>
     [TerraformProperty("manual_backup_immutable")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ManualBackupImmutable { get; set; }
+    public partial TerraformValue<bool>? ManualBackupImmutable { get; set; }
 
     /// <summary>
     /// Indicates if the monthly backups are immutable. At least one of daily_backup_immutable, weekly_backup_immutable, monthly_backup_immutable and manual_backup_immutable must be true.
     /// </summary>
     [TerraformProperty("monthly_backup_immutable")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? MonthlyBackupImmutable { get; set; }
+    public partial TerraformValue<bool>? MonthlyBackupImmutable { get; set; }
 
     /// <summary>
     /// Indicates if the weekly backups are immutable. At least one of daily_backup_immutable, weekly_backup_immutable, monthly_backup_immutable and manual_backup_immutable must be true.
     /// </summary>
     [TerraformProperty("weekly_backup_immutable")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? WeeklyBackupImmutable { get; set; }
+    public partial TerraformValue<bool>? WeeklyBackupImmutable { get; set; }
 
 }
 
@@ -57,21 +57,21 @@ public partial class GoogleNetappBackupVaultTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -90,28 +90,28 @@ public partial class GoogleNetappBackupVault : TerraformResource
     /// </summary>
     [TerraformProperty("backup_region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BackupRegion { get; set; }
+    public partial TerraformValue<string>? BackupRegion { get; set; }
 
     /// <summary>
     /// Type of the backup vault to be created. Default is IN_REGION. Possible values: [&amp;quot;BACKUP_VAULT_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;IN_REGION&amp;quot;, &amp;quot;CROSS_REGION&amp;quot;]
     /// </summary>
     [TerraformProperty("backup_vault_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> BackupVaultType { get; set; }
+    public partial TerraformValue<string> BackupVaultType { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels as key value pairs. Example: &#39;{ &amp;quot;owner&amp;quot;: &amp;quot;Bob&amp;quot;, &amp;quot;department&amp;quot;: &amp;quot;finance&amp;quot;, &amp;quot;purpose&amp;quot;: &amp;quot;testing&amp;quot; }&#39;.
@@ -122,7 +122,7 @@ public partial class GoogleNetappBackupVault : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Location (region) of the backup vault.
@@ -130,7 +130,7 @@ public partial class GoogleNetappBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource name of the backup vault. Needs to be unique per location.
@@ -138,14 +138,14 @@ public partial class GoogleNetappBackupVault : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for backup_retention_policy.
@@ -153,56 +153,56 @@ public partial class GoogleNetappBackupVault : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupRetentionPolicy block(s) allowed")]
     [TerraformProperty("backup_retention_policy")]
-    public TerraformList<TerraformBlock<GoogleNetappBackupVaultBackupRetentionPolicyBlock>>? BackupRetentionPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetappBackupVaultBackupRetentionPolicyBlock>>? BackupRetentionPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetappBackupVaultTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetappBackupVaultTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Create time of the backup vault. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Name of the Backup vault created in backup region.
     /// </summary>
     [TerraformProperty("destination_backup_vault")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DestinationBackupVault { get; }
+    public partial TerraformValue<string> DestinationBackupVault { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Name of the Backup vault created in source region.
     /// </summary>
     [TerraformProperty("source_backup_vault")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SourceBackupVault { get; }
+    public partial TerraformValue<string> SourceBackupVault { get; }
 
     /// <summary>
     /// Region in which the backup vault is created.
     /// </summary>
     [TerraformProperty("source_region")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SourceRegion { get; }
+    public partial TerraformValue<string> SourceRegion { get; }
 
     /// <summary>
     /// The state of the Backup Vault.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -210,6 +210,6 @@ public partial class GoogleNetappBackupVault : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

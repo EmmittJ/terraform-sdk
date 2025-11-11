@@ -13,7 +13,7 @@ public partial class AzurermStorageDataLakeGen2PathAceBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Id { get; set; }
+    public partial TerraformValue<string>? Id { get; set; }
 
     /// <summary>
     /// The permissions attribute.
@@ -21,14 +21,14 @@ public partial class AzurermStorageDataLakeGen2PathAceBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     [TerraformProperty("permissions")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Permissions { get; set; }
+    public required partial TerraformValue<string> Permissions { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [TerraformProperty("scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Scope { get; set; }
+    public partial TerraformValue<string>? Scope { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -36,7 +36,7 @@ public partial class AzurermStorageDataLakeGen2PathAceBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -51,28 +51,28 @@ public partial class AzurermStorageDataLakeGen2PathTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -91,28 +91,28 @@ public partial class AzurermStorageDataLakeGen2Path : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilesystemName is required")]
     [TerraformProperty("filesystem_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FilesystemName { get; set; }
+    public required partial TerraformValue<string> FilesystemName { get; set; }
 
     /// <summary>
     /// The group attribute.
     /// </summary>
     [TerraformProperty("group")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Group { get; set; }
+    public partial TerraformValue<string> Group { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     [TerraformProperty("owner")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Owner { get; set; }
+    public partial TerraformValue<string> Owner { get; set; }
 
     /// <summary>
     /// The path attribute.
@@ -120,7 +120,7 @@ public partial class AzurermStorageDataLakeGen2Path : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     [TerraformProperty("path")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Path { get; set; }
+    public required partial TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// The resource attribute.
@@ -128,7 +128,7 @@ public partial class AzurermStorageDataLakeGen2Path : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     [TerraformProperty("resource")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Resource { get; set; }
+    public required partial TerraformValue<string> Resource { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -136,20 +136,20 @@ public partial class AzurermStorageDataLakeGen2Path : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformProperty("storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountId { get; set; }
+    public required partial TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for ace.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ace")]
-    public TerraformSet<TerraformBlock<AzurermStorageDataLakeGen2PathAceBlock>>? Ace { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermStorageDataLakeGen2PathAceBlock>>? Ace { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageDataLakeGen2PathTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageDataLakeGen2PathTimeoutsBlock>? Timeouts { get; set; }
 
 }

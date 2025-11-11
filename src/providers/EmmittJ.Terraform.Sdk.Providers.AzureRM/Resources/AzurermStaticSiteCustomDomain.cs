@@ -13,21 +13,21 @@ public partial class AzurermStaticSiteCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -47,14 +47,14 @@ public partial class AzurermStaticSiteCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformProperty("domain_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainName { get; set; }
+    public required partial TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The static_site_id attribute.
@@ -62,27 +62,27 @@ public partial class AzurermStaticSiteCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticSiteId is required")]
     [TerraformProperty("static_site_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StaticSiteId { get; set; }
+    public required partial TerraformValue<string> StaticSiteId { get; set; }
 
     /// <summary>
     /// The validation_type attribute.
     /// </summary>
     [TerraformProperty("validation_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ValidationType { get; set; }
+    public partial TerraformValue<string>? ValidationType { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStaticSiteCustomDomainTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStaticSiteCustomDomainTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The validation_token attribute.
     /// </summary>
     [TerraformProperty("validation_token")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ValidationToken { get; }
+    public partial TerraformValue<string> ValidationToken { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock 
     /// </summary>
     [TerraformProperty("company_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CompanyName { get; set; }
+    public partial TerraformValue<string>? CompanyName { get; set; }
 
 }
 
@@ -34,7 +34,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngineMediaRecommendatio
     /// </summary>
     [TerraformProperty("optimization_objective")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OptimizationObjective { get; set; }
+    public partial TerraformValue<string>? OptimizationObjective { get; set; }
 
     /// <summary>
     /// The training state that the engine is in (e.g. &#39;TRAINING&#39; or &#39;PAUSED&#39;).
@@ -46,7 +46,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngineMediaRecommendatio
     /// </summary>
     [TerraformProperty("training_state")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TrainingState { get; set; }
+    public partial TerraformValue<string>? TrainingState { get; set; }
 
     /// <summary>
     /// The type of engine. e.g., &#39;recommended-for-you&#39;.
@@ -57,7 +57,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngineMediaRecommendatio
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -72,21 +72,21 @@ public partial class GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -106,7 +106,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngine : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreIds is required")]
     [TerraformProperty("data_store_ids")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? DataStoreIds { get; set; }
+    public partial TerraformList<string>? DataStoreIds { get; set; }
 
     /// <summary>
     /// Required. The display name of the engine. Should be human readable. UTF-8 encoded string with limit of 1024 characters.
@@ -114,7 +114,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngine : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Unique ID to use for Recommendation Engine.
@@ -122,21 +122,21 @@ public partial class GoogleDiscoveryEngineRecommendationEngine : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     [TerraformProperty("engine_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EngineId { get; set; }
+    public required partial TerraformValue<string> EngineId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The industry vertical that the engine registers. The restriction of the Engine industry vertical is based on DataStore: If unspecified, default to GENERIC. Vertical on Engine has to match vertical of the DataStore liniked to the engine. Default value: &amp;quot;GENERIC&amp;quot; Possible values: [&amp;quot;GENERIC&amp;quot;, &amp;quot;MEDIA&amp;quot;]
     /// </summary>
     [TerraformProperty("industry_vertical")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IndustryVertical { get; set; }
+    public partial TerraformValue<string>? IndustryVertical { get; set; }
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
@@ -145,14 +145,14 @@ public partial class GoogleDiscoveryEngineRecommendationEngine : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for common_config.
@@ -160,7 +160,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngine : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CommonConfig block(s) allowed")]
     [TerraformProperty("common_config")]
-    public TerraformList<TerraformBlock<GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock>>? CommonConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock>>? CommonConfig { get; set; }
 
     /// <summary>
     /// Block for media_recommendation_engine_config.
@@ -168,21 +168,21 @@ public partial class GoogleDiscoveryEngineRecommendationEngine : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MediaRecommendationEngineConfig block(s) allowed")]
     [TerraformProperty("media_recommendation_engine_config")]
-    public TerraformList<TerraformBlock<GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineConfigBlock>>? MediaRecommendationEngineConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineConfigBlock>>? MediaRecommendationEngineConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Timestamp the Engine was created at.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The unique full resource name of the recommendation engine. Values are of the format
@@ -191,13 +191,13 @@ public partial class GoogleDiscoveryEngineRecommendationEngine : TerraformResour
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Timestamp the Engine was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

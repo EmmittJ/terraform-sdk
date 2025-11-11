@@ -15,7 +15,7 @@ public partial class AzurermLbOutboundRuleFrontendIpConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -30,28 +30,28 @@ public partial class AzurermLbOutboundRuleTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -69,7 +69,7 @@ public partial class AzurermLbOutboundRule : TerraformResource
     /// </summary>
     [TerraformProperty("allocated_outbound_ports")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AllocatedOutboundPorts { get; set; }
+    public partial TerraformValue<double>? AllocatedOutboundPorts { get; set; }
 
     /// <summary>
     /// The backend_address_pool_id attribute.
@@ -77,7 +77,7 @@ public partial class AzurermLbOutboundRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
     [TerraformProperty("backend_address_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackendAddressPoolId { get; set; }
+    public required partial TerraformValue<string> BackendAddressPoolId { get; set; }
 
     /// <summary>
     /// The enable_tcp_reset attribute.
@@ -85,21 +85,21 @@ public partial class AzurermLbOutboundRule : TerraformResource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("enable_tcp_reset")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> EnableTcpReset { get; set; }
+    public partial TerraformValue<bool> EnableTcpReset { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
     [TerraformProperty("idle_timeout_in_minutes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? IdleTimeoutInMinutes { get; set; }
+    public partial TerraformValue<double>? IdleTimeoutInMinutes { get; set; }
 
     /// <summary>
     /// The loadbalancer_id attribute.
@@ -107,7 +107,7 @@ public partial class AzurermLbOutboundRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     [TerraformProperty("loadbalancer_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LoadbalancerId { get; set; }
+    public required partial TerraformValue<string> LoadbalancerId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -115,7 +115,7 @@ public partial class AzurermLbOutboundRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The protocol attribute.
@@ -123,27 +123,27 @@ public partial class AzurermLbOutboundRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformProperty("protocol")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Protocol { get; set; }
+    public required partial TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// The tcp_reset_enabled attribute.
     /// </summary>
     [TerraformProperty("tcp_reset_enabled")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> TcpResetEnabled { get; set; }
+    public partial TerraformValue<bool> TcpResetEnabled { get; set; }
 
     /// <summary>
     /// Block for frontend_ip_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("frontend_ip_configuration")]
-    public TerraformList<TerraformBlock<AzurermLbOutboundRuleFrontendIpConfigurationBlock>>? FrontendIpConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermLbOutboundRuleFrontendIpConfigurationBlock>>? FrontendIpConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLbOutboundRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLbOutboundRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

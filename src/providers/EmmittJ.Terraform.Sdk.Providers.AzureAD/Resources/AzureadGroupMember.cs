@@ -13,21 +13,21 @@ public partial class AzureadGroupMemberTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzureadGroupMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupObjectId is required")]
     [TerraformProperty("group_object_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GroupObjectId { get; set; }
+    public required partial TerraformValue<string> GroupObjectId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The object ID of the principal you want to add as a member to the group. Supported object types are Users, Groups or Service Principals
@@ -61,13 +61,13 @@ public partial class AzureadGroupMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberObjectId is required")]
     [TerraformProperty("member_object_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MemberObjectId { get; set; }
+    public required partial TerraformValue<string> MemberObjectId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadGroupMemberTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadGroupMemberTimeoutsBlock>? Timeouts { get; set; }
 
 }

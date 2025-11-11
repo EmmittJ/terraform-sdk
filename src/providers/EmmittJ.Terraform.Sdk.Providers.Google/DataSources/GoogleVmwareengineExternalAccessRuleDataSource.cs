@@ -16,7 +16,7 @@ public partial class GoogleVmwareengineExternalAccessRuleDataSource : TerraformD
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the external access rule.
@@ -24,7 +24,7 @@ public partial class GoogleVmwareengineExternalAccessRuleDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource name of the network policy.
@@ -34,14 +34,14 @@ public partial class GoogleVmwareengineExternalAccessRuleDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// The action that the external access rule performs. Possible values: [&amp;quot;ALLOW&amp;quot;, &amp;quot;DENY&amp;quot;]
     /// </summary>
     [TerraformProperty("action")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Action { get; }
+    public partial TerraformValue<string> Action { get; }
 
     /// <summary>
     /// Creation time of this resource.
@@ -50,14 +50,14 @@ public partial class GoogleVmwareengineExternalAccessRuleDataSource : TerraformD
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// User-provided description for the external access rule.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// If destination ranges are specified, the external access rule applies only to
@@ -65,28 +65,28 @@ public partial class GoogleVmwareengineExternalAccessRuleDataSource : TerraformD
     /// </summary>
     [TerraformProperty("destination_ip_ranges")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> DestinationIpRanges { get; }
+    public partial TerraformList<object> DestinationIpRanges { get; }
 
     /// <summary>
     /// A list of destination ports to which the external access rule applies.
     /// </summary>
     [TerraformProperty("destination_ports")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> DestinationPorts { get; }
+    public partial TerraformList<string> DestinationPorts { get; }
 
     /// <summary>
     /// The IP protocol to which the external access rule applies.
     /// </summary>
     [TerraformProperty("ip_protocol")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IpProtocol { get; }
+    public partial TerraformValue<string> IpProtocol { get; }
 
     /// <summary>
     /// External access rule priority, which determines the external access rule to use when multiple rules apply.
     /// </summary>
     [TerraformProperty("priority")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> Priority { get; }
+    public partial TerraformValue<double> Priority { get; }
 
     /// <summary>
     /// If source ranges are specified, the external access rule applies only to
@@ -94,28 +94,28 @@ public partial class GoogleVmwareengineExternalAccessRuleDataSource : TerraformD
     /// </summary>
     [TerraformProperty("source_ip_ranges")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> SourceIpRanges { get; }
+    public partial TerraformList<object> SourceIpRanges { get; }
 
     /// <summary>
     /// A list of source ports to which the external access rule applies.
     /// </summary>
     [TerraformProperty("source_ports")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> SourcePorts { get; }
+    public partial TerraformList<string> SourcePorts { get; }
 
     /// <summary>
     /// State of the Cluster.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Last updated time of this resource.
@@ -124,6 +124,6 @@ public partial class GoogleVmwareengineExternalAccessRuleDataSource : TerraformD
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

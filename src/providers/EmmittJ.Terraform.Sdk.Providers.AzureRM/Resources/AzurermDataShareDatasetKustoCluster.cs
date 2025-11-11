@@ -13,21 +13,21 @@ public partial class AzurermDataShareDatasetKustoClusterTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermDataShareDatasetKustoCluster : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kusto_cluster_id attribute.
@@ -53,7 +53,7 @@ public partial class AzurermDataShareDatasetKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoClusterId is required")]
     [TerraformProperty("kusto_cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KustoClusterId { get; set; }
+    public required partial TerraformValue<string> KustoClusterId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -61,7 +61,7 @@ public partial class AzurermDataShareDatasetKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The share_id attribute.
@@ -69,27 +69,27 @@ public partial class AzurermDataShareDatasetKustoCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareId is required")]
     [TerraformProperty("share_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ShareId { get; set; }
+    public required partial TerraformValue<string> ShareId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataShareDatasetKustoClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataShareDatasetKustoClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The kusto_cluster_location attribute.
     /// </summary>
     [TerraformProperty("kusto_cluster_location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KustoClusterLocation { get; }
+    public partial TerraformValue<string> KustoClusterLocation { get; }
 
 }

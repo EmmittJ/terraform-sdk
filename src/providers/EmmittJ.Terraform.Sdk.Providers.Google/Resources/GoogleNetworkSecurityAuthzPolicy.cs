@@ -21,7 +21,7 @@ public partial class GoogleNetworkSecurityAuthzPolicyHttpRulesBlock : TerraformB
     /// </summary>
     [TerraformProperty("when")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? When { get; set; }
+    public partial TerraformValue<string>? When { get; set; }
 
 }
 
@@ -38,14 +38,14 @@ public partial class GoogleNetworkSecurityAuthzPolicyTargetBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingScheme is required")]
     [TerraformProperty("load_balancing_scheme")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LoadBalancingScheme { get; set; }
+    public required partial TerraformValue<string> LoadBalancingScheme { get; set; }
 
     /// <summary>
     /// A list of references to the Forwarding Rules on which this policy will be applied.
     /// </summary>
     [TerraformProperty("resources")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Resources { get; set; }
+    public partial TerraformList<string>? Resources { get; set; }
 
 }
 
@@ -60,21 +60,21 @@ public partial class GoogleNetworkSecurityAuthzPolicyTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -102,21 +102,21 @@ public partial class GoogleNetworkSecurityAuthzPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformProperty("action")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Action { get; set; }
+    public required partial TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// A human-readable description of the resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Set of labels associated with the AuthzExtension resource.
@@ -127,7 +127,7 @@ public partial class GoogleNetworkSecurityAuthzPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the resource.
@@ -135,7 +135,7 @@ public partial class GoogleNetworkSecurityAuthzPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Identifier. Name of the AuthzPolicy resource.
@@ -143,14 +143,14 @@ public partial class GoogleNetworkSecurityAuthzPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for custom_provider.
@@ -158,14 +158,14 @@ public partial class GoogleNetworkSecurityAuthzPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomProvider block(s) allowed")]
     [TerraformProperty("custom_provider")]
-    public TerraformList<TerraformBlock<GoogleNetworkSecurityAuthzPolicyCustomProviderBlock>>? CustomProvider { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkSecurityAuthzPolicyCustomProviderBlock>>? CustomProvider { get; set; }
 
     /// <summary>
     /// Block for http_rules.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("http_rules")]
-    public TerraformList<TerraformBlock<GoogleNetworkSecurityAuthzPolicyHttpRulesBlock>>? HttpRules { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkSecurityAuthzPolicyHttpRulesBlock>>? HttpRules { get; set; }
 
     /// <summary>
     /// Block for target.
@@ -175,28 +175,28 @@ public partial class GoogleNetworkSecurityAuthzPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     [TerraformProperty("target")]
-    public TerraformList<TerraformBlock<GoogleNetworkSecurityAuthzPolicyTargetBlock>>? Target { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkSecurityAuthzPolicyTargetBlock>>? Target { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkSecurityAuthzPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkSecurityAuthzPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp when the resource was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -204,13 +204,13 @@ public partial class GoogleNetworkSecurityAuthzPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The timestamp when the resource was updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

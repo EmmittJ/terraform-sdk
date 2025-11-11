@@ -13,28 +13,28 @@ public partial class AzurermContainerAppEnvironmentStorageTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermContainerAppEnvironmentStorage : TerraformResource
     /// </summary>
     [TerraformProperty("access_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AccessKey { get; set; }
+    public partial TerraformValue<string>? AccessKey { get; set; }
 
     /// <summary>
     /// The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`.
@@ -60,14 +60,14 @@ public partial class AzurermContainerAppEnvironmentStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessMode is required")]
     [TerraformProperty("access_mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccessMode { get; set; }
+    public required partial TerraformValue<string> AccessMode { get; set; }
 
     /// <summary>
     /// The Azure Storage Account in which the Share to be used is located.
     /// </summary>
     [TerraformProperty("account_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AccountName { get; set; }
+    public partial TerraformValue<string>? AccountName { get; set; }
 
     /// <summary>
     /// The ID of the Container App Environment to which this storage belongs.
@@ -75,14 +75,14 @@ public partial class AzurermContainerAppEnvironmentStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     [TerraformProperty("container_app_environment_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerAppEnvironmentId { get; set; }
+    public required partial TerraformValue<string> ContainerAppEnvironmentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name for this Storage.
@@ -90,14 +90,14 @@ public partial class AzurermContainerAppEnvironmentStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The nfs_server_url attribute.
     /// </summary>
     [TerraformProperty("nfs_server_url")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NfsServerUrl { get; set; }
+    public partial TerraformValue<string>? NfsServerUrl { get; set; }
 
     /// <summary>
     /// The name of the Azure Storage Share to use.
@@ -105,13 +105,13 @@ public partial class AzurermContainerAppEnvironmentStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareName is required")]
     [TerraformProperty("share_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ShareName { get; set; }
+    public required partial TerraformValue<string> ShareName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermContainerAppEnvironmentStorageTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermContainerAppEnvironmentStorageTimeoutsBlock>? Timeouts { get; set; }
 
 }

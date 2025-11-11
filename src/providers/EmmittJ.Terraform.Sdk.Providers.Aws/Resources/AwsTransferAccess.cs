@@ -14,7 +14,7 @@ public partial class AwsTransferAccessHomeDirectoryMappingsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entry is required")]
     [TerraformProperty("entry")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Entry { get; set; }
+    public required partial TerraformValue<string> Entry { get; set; }
 
     /// <summary>
     /// The target attribute.
@@ -22,7 +22,7 @@ public partial class AwsTransferAccessHomeDirectoryMappingsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     [TerraformProperty("target")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Target { get; set; }
+    public required partial TerraformValue<string> Target { get; set; }
 
 }
 
@@ -38,14 +38,14 @@ public partial class AwsTransferAccessPosixProfileBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
     [TerraformProperty("gid")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Gid { get; set; }
+    public required partial TerraformValue<double> Gid { get; set; }
 
     /// <summary>
     /// The secondary_gids attribute.
     /// </summary>
     [TerraformProperty("secondary_gids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<double>? SecondaryGids { get; set; }
+    public partial TerraformSet<double>? SecondaryGids { get; set; }
 
     /// <summary>
     /// The uid attribute.
@@ -53,7 +53,7 @@ public partial class AwsTransferAccessPosixProfileBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
     [TerraformProperty("uid")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Uid { get; set; }
+    public required partial TerraformValue<double> Uid { get; set; }
 
 }
 
@@ -73,49 +73,49 @@ public partial class AwsTransferAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalId is required")]
     [TerraformProperty("external_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ExternalId { get; set; }
+    public required partial TerraformValue<string> ExternalId { get; set; }
 
     /// <summary>
     /// The home_directory attribute.
     /// </summary>
     [TerraformProperty("home_directory")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HomeDirectory { get; set; }
+    public partial TerraformValue<string>? HomeDirectory { get; set; }
 
     /// <summary>
     /// The home_directory_type attribute.
     /// </summary>
     [TerraformProperty("home_directory_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HomeDirectoryType { get; set; }
+    public partial TerraformValue<string>? HomeDirectoryType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     [TerraformProperty("policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Policy { get; set; }
+    public partial TerraformValue<string>? Policy { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
     [TerraformProperty("role")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Role { get; set; }
+    public partial TerraformValue<string>? Role { get; set; }
 
     /// <summary>
     /// The server_id attribute.
@@ -123,7 +123,7 @@ public partial class AwsTransferAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     [TerraformProperty("server_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServerId { get; set; }
+    public required partial TerraformValue<string> ServerId { get; set; }
 
     /// <summary>
     /// Block for home_directory_mappings.
@@ -131,7 +131,7 @@ public partial class AwsTransferAccess : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 HomeDirectoryMappings block(s) allowed")]
     [TerraformProperty("home_directory_mappings")]
-    public TerraformList<TerraformBlock<AwsTransferAccessHomeDirectoryMappingsBlock>>? HomeDirectoryMappings { get; set; }
+    public partial TerraformList<TerraformBlock<AwsTransferAccessHomeDirectoryMappingsBlock>>? HomeDirectoryMappings { get; set; }
 
     /// <summary>
     /// Block for posix_profile.
@@ -139,6 +139,6 @@ public partial class AwsTransferAccess : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PosixProfile block(s) allowed")]
     [TerraformProperty("posix_profile")]
-    public TerraformList<TerraformBlock<AwsTransferAccessPosixProfileBlock>>? PosixProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AwsTransferAccessPosixProfileBlock>>? PosixProfile { get; set; }
 
 }

@@ -17,14 +17,14 @@ public partial class GoogleContainerRegistryImageDataSource : TerraformDataSourc
     /// </summary>
     [TerraformProperty("digest")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Digest { get; set; }
+    public partial TerraformValue<string>? Digest { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -32,34 +32,34 @@ public partial class GoogleContainerRegistryImageDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The tag attribute.
     /// </summary>
     [TerraformProperty("tag")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Tag { get; set; }
+    public partial TerraformValue<string>? Tag { get; set; }
 
     /// <summary>
     /// The image_url attribute.
     /// </summary>
     [TerraformProperty("image_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ImageUrl { get; }
+    public partial TerraformValue<string> ImageUrl { get; }
 
 }

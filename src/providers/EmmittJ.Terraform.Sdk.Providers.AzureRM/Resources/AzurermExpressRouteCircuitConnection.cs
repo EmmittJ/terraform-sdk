@@ -13,28 +13,28 @@ public partial class AzurermExpressRouteCircuitConnectionTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,28 +53,28 @@ public partial class AzurermExpressRouteCircuitConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixIpv4 is required")]
     [TerraformProperty("address_prefix_ipv4")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AddressPrefixIpv4 { get; set; }
+    public required partial TerraformValue<string> AddressPrefixIpv4 { get; set; }
 
     /// <summary>
     /// The address_prefix_ipv6 attribute.
     /// </summary>
     [TerraformProperty("address_prefix_ipv6")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AddressPrefixIpv6 { get; set; }
+    public partial TerraformValue<string>? AddressPrefixIpv6 { get; set; }
 
     /// <summary>
     /// The authorization_key attribute.
     /// </summary>
     [TerraformProperty("authorization_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthorizationKey { get; set; }
+    public partial TerraformValue<string>? AuthorizationKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -82,7 +82,7 @@ public partial class AzurermExpressRouteCircuitConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The peer_peering_id attribute.
@@ -90,7 +90,7 @@ public partial class AzurermExpressRouteCircuitConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerPeeringId is required")]
     [TerraformProperty("peer_peering_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PeerPeeringId { get; set; }
+    public required partial TerraformValue<string> PeerPeeringId { get; set; }
 
     /// <summary>
     /// The peering_id attribute.
@@ -98,13 +98,13 @@ public partial class AzurermExpressRouteCircuitConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringId is required")]
     [TerraformProperty("peering_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PeeringId { get; set; }
+    public required partial TerraformValue<string> PeeringId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermExpressRouteCircuitConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermExpressRouteCircuitConnectionTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -14,7 +14,7 @@ public partial class AwsEbsVolumeDataSourceFilterBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
@@ -22,7 +22,7 @@ public partial class AwsEbsVolumeDataSourceFilterBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     [TerraformProperty("values")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Values { get; set; }
+    public required partial TerraformSet<string> Values { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class AwsEbsVolumeDataSourceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -55,139 +55,139 @@ public partial class AwsEbsVolumeDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
     [TerraformProperty("most_recent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? MostRecent { get; set; }
+    public partial TerraformValue<bool>? MostRecent { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Tags { get; set; }
+    public partial TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public TerraformSet<TerraformBlock<AwsEbsVolumeDataSourceFilterBlock>>? Filter { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsEbsVolumeDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsEbsVolumeDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsEbsVolumeDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     [TerraformProperty("availability_zone")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AvailabilityZone { get; }
+    public partial TerraformValue<string> AvailabilityZone { get; }
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     [TerraformProperty("encrypted")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Encrypted { get; }
+    public partial TerraformValue<bool> Encrypted { get; }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
     [TerraformProperty("iops")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> Iops { get; }
+    public partial TerraformValue<double> Iops { get; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [TerraformProperty("kms_key_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KmsKeyId { get; }
+    public partial TerraformValue<string> KmsKeyId { get; }
 
     /// <summary>
     /// The multi_attach_enabled attribute.
     /// </summary>
     [TerraformProperty("multi_attach_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> MultiAttachEnabled { get; }
+    public partial TerraformValue<bool> MultiAttachEnabled { get; }
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
     [TerraformProperty("outpost_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OutpostArn { get; }
+    public partial TerraformValue<string> OutpostArn { get; }
 
     /// <summary>
     /// The size attribute.
     /// </summary>
     [TerraformProperty("size")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> Size { get; }
+    public partial TerraformValue<double> Size { get; }
 
     /// <summary>
     /// The snapshot_id attribute.
     /// </summary>
     [TerraformProperty("snapshot_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SnapshotId { get; }
+    public partial TerraformValue<string> SnapshotId { get; }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
     [TerraformProperty("throughput")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> Throughput { get; }
+    public partial TerraformValue<double> Throughput { get; }
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
     [TerraformProperty("volume_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VolumeId { get; }
+    public partial TerraformValue<string> VolumeId { get; }
 
     /// <summary>
     /// The volume_initialization_rate attribute.
     /// </summary>
     [TerraformProperty("volume_initialization_rate")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> VolumeInitializationRate { get; }
+    public partial TerraformValue<double> VolumeInitializationRate { get; }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
     [TerraformProperty("volume_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VolumeType { get; }
+    public partial TerraformValue<string> VolumeType { get; }
 
 }

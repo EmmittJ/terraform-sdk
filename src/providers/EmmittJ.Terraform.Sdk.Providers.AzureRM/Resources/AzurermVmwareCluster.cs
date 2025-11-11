@@ -13,28 +13,28 @@ public partial class AzurermVmwareClusterTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,14 +53,14 @@ public partial class AzurermVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterNodeCount is required")]
     [TerraformProperty("cluster_node_count")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ClusterNodeCount { get; set; }
+    public required partial TerraformValue<double> ClusterNodeCount { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -68,7 +68,7 @@ public partial class AzurermVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
@@ -76,7 +76,7 @@ public partial class AzurermVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     [TerraformProperty("sku_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SkuName { get; set; }
+    public required partial TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The vmware_cloud_id attribute.
@@ -84,27 +84,27 @@ public partial class AzurermVmwareCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareCloudId is required")]
     [TerraformProperty("vmware_cloud_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VmwareCloudId { get; set; }
+    public required partial TerraformValue<string> VmwareCloudId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVmwareClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVmwareClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The cluster_number attribute.
     /// </summary>
     [TerraformProperty("cluster_number")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ClusterNumber { get; }
+    public partial TerraformValue<double> ClusterNumber { get; }
 
     /// <summary>
     /// The hosts attribute.
     /// </summary>
     [TerraformProperty("hosts")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Hosts { get; }
+    public partial TerraformList<string> Hosts { get; }
 
 }

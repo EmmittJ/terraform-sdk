@@ -21,21 +21,21 @@ public partial class GoogleApigeeSecurityMonitoringConditionTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -55,14 +55,14 @@ public partial class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConditionId is required")]
     [TerraformProperty("condition_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConditionId { get; set; }
+    public required partial TerraformValue<string> ConditionId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee Security Monitoring Condition,
@@ -71,7 +71,7 @@ public partial class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformProperty("org_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OrgId { get; set; }
+    public required partial TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// ID of security profile of the security monitoring condition.
@@ -79,7 +79,7 @@ public partial class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Profile is required")]
     [TerraformProperty("profile")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Profile { get; set; }
+    public required partial TerraformValue<string> Profile { get; set; }
 
     /// <summary>
     /// ID of security profile of the security monitoring condition.
@@ -87,7 +87,7 @@ public partial class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     [TerraformProperty("scope")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Scope { get; set; }
+    public required partial TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// Block for include_all_resources.
@@ -95,21 +95,21 @@ public partial class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncludeAllResources block(s) allowed")]
     [TerraformProperty("include_all_resources")]
-    public TerraformList<TerraformBlock<GoogleApigeeSecurityMonitoringConditionIncludeAllResourcesBlock>>? IncludeAllResources { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApigeeSecurityMonitoringConditionIncludeAllResourcesBlock>>? IncludeAllResources { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeSecurityMonitoringConditionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeSecurityMonitoringConditionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp at which this profile was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Name of the security monitoring condition resource,
@@ -117,27 +117,27 @@ public partial class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Total number of deployed resources within scope.
     /// </summary>
     [TerraformProperty("total_deployed_resources")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> TotalDeployedResources { get; }
+    public partial TerraformValue<double> TotalDeployedResources { get; }
 
     /// <summary>
     /// Total number of monitored resources within this condition.
     /// </summary>
     [TerraformProperty("total_monitored_resources")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> TotalMonitoredResources { get; }
+    public partial TerraformValue<double> TotalMonitoredResources { get; }
 
     /// <summary>
     /// The timestamp at which this profile was most recently updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -16,21 +16,21 @@ public partial class AwsCeAnomalyMonitor : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The monitor_dimension attribute.
     /// </summary>
     [TerraformProperty("monitor_dimension")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MonitorDimension { get; set; }
+    public partial TerraformValue<string>? MonitorDimension { get; set; }
 
     /// <summary>
     /// The monitor_specification attribute.
     /// </summary>
     [TerraformProperty("monitor_specification")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MonitorSpecification { get; set; }
+    public partial TerraformValue<string>? MonitorSpecification { get; set; }
 
     /// <summary>
     /// The monitor_type attribute.
@@ -38,7 +38,7 @@ public partial class AwsCeAnomalyMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorType is required")]
     [TerraformProperty("monitor_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MonitorType { get; set; }
+    public required partial TerraformValue<string> MonitorType { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -46,27 +46,27 @@ public partial class AwsCeAnomalyMonitor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

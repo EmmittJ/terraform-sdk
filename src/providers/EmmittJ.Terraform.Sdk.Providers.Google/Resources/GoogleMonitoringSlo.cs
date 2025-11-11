@@ -18,7 +18,7 @@ public partial class GoogleMonitoringSloBasicSliBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Location { get; set; }
+    public partial TerraformSet<string>? Location { get; set; }
 
     /// <summary>
     /// An optional set of RPCs to which this SLI is relevant.
@@ -30,7 +30,7 @@ public partial class GoogleMonitoringSloBasicSliBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("method")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Method { get; set; }
+    public partial TerraformSet<string>? Method { get; set; }
 
     /// <summary>
     /// The set of API versions to which this SLI is relevant.
@@ -42,7 +42,7 @@ public partial class GoogleMonitoringSloBasicSliBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("version")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Version { get; set; }
+    public partial TerraformSet<string>? Version { get; set; }
 
 }
 
@@ -65,21 +65,21 @@ public partial class GoogleMonitoringSloTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -98,7 +98,7 @@ public partial class GoogleMonitoringSloWindowsBasedSliBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("good_bad_metric_filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GoodBadMetricFilter { get; set; }
+    public partial TerraformValue<string>? GoodBadMetricFilter { get; set; }
 
     /// <summary>
     /// Duration over which window quality is evaluated, given as a
@@ -107,7 +107,7 @@ public partial class GoogleMonitoringSloWindowsBasedSliBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("window_period")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WindowPeriod { get; set; }
+    public partial TerraformValue<string>? WindowPeriod { get; set; }
 
 }
 
@@ -127,14 +127,14 @@ public partial class GoogleMonitoringSlo : TerraformResource
     /// </summary>
     [TerraformProperty("calendar_period")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CalendarPeriod { get; set; }
+    public partial TerraformValue<string>? CalendarPeriod { get; set; }
 
     /// <summary>
     /// Name used for UI elements listing this SLO.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The fraction of service that must be good in order for this objective
@@ -143,21 +143,21 @@ public partial class GoogleMonitoringSlo : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Goal is required")]
     [TerraformProperty("goal")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Goal { get; set; }
+    public required partial TerraformValue<double> Goal { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// A rolling time period, semantically &amp;quot;in the past X days&amp;quot;.
@@ -165,7 +165,7 @@ public partial class GoogleMonitoringSlo : TerraformResource
     /// </summary>
     [TerraformProperty("rolling_period_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RollingPeriodDays { get; set; }
+    public partial TerraformValue<double>? RollingPeriodDays { get; set; }
 
     /// <summary>
     /// ID of the service to which this SLO belongs.
@@ -173,14 +173,14 @@ public partial class GoogleMonitoringSlo : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformProperty("service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Service { get; set; }
+    public required partial TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// The id to use for this ServiceLevelObjective. If omitted, an id will be generated instead.
     /// </summary>
     [TerraformProperty("slo_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SloId { get; set; }
+    public partial TerraformValue<string> SloId { get; set; }
 
     /// <summary>
     /// This field is intended to be used for organizing and identifying the AlertPolicy
@@ -191,7 +191,7 @@ public partial class GoogleMonitoringSlo : TerraformResource
     /// </summary>
     [TerraformProperty("user_labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? UserLabels { get; set; }
+    public partial TerraformMap<string>? UserLabels { get; set; }
 
     /// <summary>
     /// Block for basic_sli.
@@ -199,7 +199,7 @@ public partial class GoogleMonitoringSlo : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicSli block(s) allowed")]
     [TerraformProperty("basic_sli")]
-    public TerraformList<TerraformBlock<GoogleMonitoringSloBasicSliBlock>>? BasicSli { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleMonitoringSloBasicSliBlock>>? BasicSli { get; set; }
 
     /// <summary>
     /// Block for request_based_sli.
@@ -207,14 +207,14 @@ public partial class GoogleMonitoringSlo : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RequestBasedSli block(s) allowed")]
     [TerraformProperty("request_based_sli")]
-    public TerraformList<TerraformBlock<GoogleMonitoringSloRequestBasedSliBlock>>? RequestBasedSli { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleMonitoringSloRequestBasedSliBlock>>? RequestBasedSli { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleMonitoringSloTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleMonitoringSloTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for windows_based_sli.
@@ -222,7 +222,7 @@ public partial class GoogleMonitoringSlo : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WindowsBasedSli block(s) allowed")]
     [TerraformProperty("windows_based_sli")]
-    public TerraformList<TerraformBlock<GoogleMonitoringSloWindowsBasedSliBlock>>? WindowsBasedSli { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleMonitoringSloWindowsBasedSliBlock>>? WindowsBasedSli { get; set; }
 
     /// <summary>
     /// The full resource name for this service. The syntax is:
@@ -230,6 +230,6 @@ public partial class GoogleMonitoringSlo : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

@@ -32,7 +32,7 @@ public partial class GoogleEdgecontainerClusterControlPlaneEncryptionBlock : Ter
     /// </summary>
     [TerraformProperty("kms_key")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> KmsKey { get; set; }
+    public partial TerraformValue<string> KmsKey { get; set; }
 
 
 
@@ -54,7 +54,7 @@ public partial class GoogleEdgecontainerClusterFleetBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformProperty("project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Project { get; set; }
+    public required partial TerraformValue<string> Project { get; set; }
 
 }
 
@@ -80,7 +80,7 @@ public partial class GoogleEdgecontainerClusterNetworkingBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIpv4CidrBlocks is required")]
     [TerraformProperty("cluster_ipv4_cidr_blocks")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? ClusterIpv4CidrBlocks { get; set; }
+    public partial TerraformList<string>? ClusterIpv4CidrBlocks { get; set; }
 
     /// <summary>
     /// If specified, dual stack mode is enabled and all pods in the cluster are
@@ -90,7 +90,7 @@ public partial class GoogleEdgecontainerClusterNetworkingBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("cluster_ipv6_cidr_blocks")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ClusterIpv6CidrBlocks { get; set; }
+    public partial TerraformList<string>? ClusterIpv6CidrBlocks { get; set; }
 
 
     /// <summary>
@@ -101,7 +101,7 @@ public partial class GoogleEdgecontainerClusterNetworkingBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicesIpv4CidrBlocks is required")]
     [TerraformProperty("services_ipv4_cidr_blocks")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? ServicesIpv4CidrBlocks { get; set; }
+    public partial TerraformList<string>? ServicesIpv4CidrBlocks { get; set; }
 
     /// <summary>
     /// If specified, dual stack mode is enabled and all services in the cluster are
@@ -111,7 +111,7 @@ public partial class GoogleEdgecontainerClusterNetworkingBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("services_ipv6_cidr_blocks")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ServicesIpv6CidrBlocks { get; set; }
+    public partial TerraformList<string>? ServicesIpv6CidrBlocks { get; set; }
 
 }
 
@@ -134,21 +134,21 @@ public partial class GoogleEdgecontainerClusterTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -169,21 +169,21 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [TerraformProperty("default_max_pods_per_node")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> DefaultMaxPodsPerNode { get; set; }
+    public partial TerraformValue<double> DefaultMaxPodsPerNode { get; set; }
 
     /// <summary>
     /// Address pools for cluster data plane external load balancing.
     /// </summary>
     [TerraformProperty("external_load_balancer_ipv4_address_pools")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> ExternalLoadBalancerIpv4AddressPools { get; set; }
+    public partial TerraformList<string> ExternalLoadBalancerIpv4AddressPools { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// User-defined labels for the edgecloud cluster.
@@ -193,7 +193,7 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the resource.
@@ -201,7 +201,7 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The GDCE cluster name.
@@ -209,28 +209,28 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The release channel a cluster is subscribed to. Possible values: [&amp;quot;RELEASE_CHANNEL_UNSPECIFIED&amp;quot;, &amp;quot;NONE&amp;quot;, &amp;quot;REGULAR&amp;quot;]
     /// </summary>
     [TerraformProperty("release_channel")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ReleaseChannel { get; set; }
+    public partial TerraformValue<string> ReleaseChannel { get; set; }
 
     /// <summary>
     /// The target cluster version. For example: &amp;quot;1.5.0&amp;quot;.
     /// </summary>
     [TerraformProperty("target_version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TargetVersion { get; set; }
+    public partial TerraformValue<string> TargetVersion { get; set; }
 
     /// <summary>
     /// Block for authorization.
@@ -240,7 +240,7 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authorization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
     [TerraformProperty("authorization")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterAuthorizationBlock>>? Authorization { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleEdgecontainerClusterAuthorizationBlock>>? Authorization { get; set; }
 
     /// <summary>
     /// Block for control_plane.
@@ -248,7 +248,7 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlane block(s) allowed")]
     [TerraformProperty("control_plane")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterControlPlaneBlock>>? ControlPlane { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleEdgecontainerClusterControlPlaneBlock>>? ControlPlane { get; set; }
 
     /// <summary>
     /// Block for control_plane_encryption.
@@ -256,7 +256,7 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlaneEncryption block(s) allowed")]
     [TerraformProperty("control_plane_encryption")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterControlPlaneEncryptionBlock>>? ControlPlaneEncryption { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleEdgecontainerClusterControlPlaneEncryptionBlock>>? ControlPlaneEncryption { get; set; }
 
     /// <summary>
     /// Block for fleet.
@@ -266,7 +266,7 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fleet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Fleet block(s) allowed")]
     [TerraformProperty("fleet")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterFleetBlock>>? Fleet { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleEdgecontainerClusterFleetBlock>>? Fleet { get; set; }
 
     /// <summary>
     /// Block for maintenance_policy.
@@ -274,7 +274,7 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     [TerraformProperty("maintenance_policy")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleEdgecontainerClusterMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
 
     /// <summary>
     /// Block for networking.
@@ -284,7 +284,7 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Networking block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Networking block(s) allowed")]
     [TerraformProperty("networking")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterNetworkingBlock>>? Networking { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleEdgecontainerClusterNetworkingBlock>>? Networking { get; set; }
 
     /// <summary>
     /// Block for system_addons_config.
@@ -292,49 +292,49 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SystemAddonsConfig block(s) allowed")]
     [TerraformProperty("system_addons_config")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerClusterSystemAddonsConfigBlock>>? SystemAddonsConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleEdgecontainerClusterSystemAddonsConfigBlock>>? SystemAddonsConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleEdgecontainerClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleEdgecontainerClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The PEM-encoded public certificate of the cluster&#39;s CA.
     /// </summary>
     [TerraformProperty("cluster_ca_certificate")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ClusterCaCertificate { get; }
+    public partial TerraformValue<string> ClusterCaCertificate { get; }
 
     /// <summary>
     /// The control plane release version.
     /// </summary>
     [TerraformProperty("control_plane_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ControlPlaneVersion { get; }
+    public partial TerraformValue<string> ControlPlaneVersion { get; }
 
     /// <summary>
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The IP address of the Kubernetes API server.
     /// </summary>
     [TerraformProperty("endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Endpoint { get; }
+    public partial TerraformValue<string> Endpoint { get; }
 
     /// <summary>
     /// All the maintenance events scheduled for the cluster, including the ones
@@ -342,7 +342,7 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [TerraformProperty("maintenance_events")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MaintenanceEvents { get; }
+    public partial TerraformList<object> MaintenanceEvents { get; }
 
     /// <summary>
     /// The lowest release version among all worker nodes. This field can be empty
@@ -350,21 +350,21 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [TerraformProperty("node_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NodeVersion { get; }
+    public partial TerraformValue<string> NodeVersion { get; }
 
     /// <summary>
     /// The port number of the Kubernetes API server.
     /// </summary>
     [TerraformProperty("port")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> Port { get; }
+    public partial TerraformValue<double> Port { get; }
 
     /// <summary>
     /// Indicates the status of the cluster.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -372,13 +372,13 @@ public partial class GoogleEdgecontainerCluster : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

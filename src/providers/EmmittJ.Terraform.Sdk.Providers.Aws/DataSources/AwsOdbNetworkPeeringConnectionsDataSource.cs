@@ -24,13 +24,13 @@ public partial class AwsOdbNetworkPeeringConnectionsDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for odb_peering_connections.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("odb_peering_connections")]
-    public TerraformList<TerraformBlock<AwsOdbNetworkPeeringConnectionsDataSourceOdbPeeringConnectionsBlock>>? OdbPeeringConnections { get; set; }
+    public partial TerraformList<TerraformBlock<AwsOdbNetworkPeeringConnectionsDataSourceOdbPeeringConnectionsBlock>>? OdbPeeringConnections { get; set; }
 
 }

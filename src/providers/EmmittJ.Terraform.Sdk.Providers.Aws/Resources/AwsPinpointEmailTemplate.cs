@@ -13,42 +13,42 @@ public partial class AwsPinpointEmailTemplateEmailTemplateBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("default_substitutions")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultSubstitutions { get; set; }
+    public partial TerraformValue<string>? DefaultSubstitutions { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The html_part attribute.
     /// </summary>
     [TerraformProperty("html_part")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HtmlPart { get; set; }
+    public partial TerraformValue<string>? HtmlPart { get; set; }
 
     /// <summary>
     /// The recommender_id attribute.
     /// </summary>
     [TerraformProperty("recommender_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RecommenderId { get; set; }
+    public partial TerraformValue<string>? RecommenderId { get; set; }
 
     /// <summary>
     /// The subject attribute.
     /// </summary>
     [TerraformProperty("subject")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Subject { get; set; }
+    public partial TerraformValue<string>? Subject { get; set; }
 
     /// <summary>
     /// The text_part attribute.
     /// </summary>
     [TerraformProperty("text_part")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TextPart { get; set; }
+    public partial TerraformValue<string>? TextPart { get; set; }
 
 }
 
@@ -66,14 +66,14 @@ public partial class AwsPinpointEmailTemplate : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The template_name attribute.
@@ -81,27 +81,27 @@ public partial class AwsPinpointEmailTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateName is required")]
     [TerraformProperty("template_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TemplateName { get; set; }
+    public required partial TerraformValue<string> TemplateName { get; set; }
 
     /// <summary>
     /// Block for email_template.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("email_template")]
-    public TerraformList<TerraformBlock<AwsPinpointEmailTemplateEmailTemplateBlock>>? EmailTemplate { get; set; }
+    public partial TerraformList<TerraformBlock<AwsPinpointEmailTemplateEmailTemplateBlock>>? EmailTemplate { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
 }

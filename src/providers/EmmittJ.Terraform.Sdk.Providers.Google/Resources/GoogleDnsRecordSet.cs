@@ -13,14 +13,14 @@ public partial class GoogleDnsRecordSetRoutingPolicyBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("enable_geo_fencing")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableGeoFencing { get; set; }
+    public partial TerraformValue<bool>? EnableGeoFencing { get; set; }
 
     /// <summary>
     /// Specifies the health check.
     /// </summary>
     [TerraformProperty("health_check")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HealthCheck { get; set; }
+    public partial TerraformValue<string>? HealthCheck { get; set; }
 
 }
 
@@ -39,7 +39,7 @@ public partial class GoogleDnsRecordSet : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the zone in which this record set will reside.
@@ -47,7 +47,7 @@ public partial class GoogleDnsRecordSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedZone is required")]
     [TerraformProperty("managed_zone")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ManagedZone { get; set; }
+    public required partial TerraformValue<string> ManagedZone { get; set; }
 
     /// <summary>
     /// The DNS name this record set will apply to.
@@ -55,28 +55,28 @@ public partial class GoogleDnsRecordSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The string data for the records in this record set whose meaning depends on the DNS type. For TXT record, if the string data contains spaces, add surrounding \&amp;quot; if you don&#39;t want your string to get split on spaces. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add \&amp;quot;\&amp;quot; inside the Terraform configuration string (e.g. &amp;quot;first255characters\&amp;quot;\&amp;quot;morecharacters&amp;quot;).
     /// </summary>
     [TerraformProperty("rrdatas")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Rrdatas { get; set; }
+    public partial TerraformList<string>? Rrdatas { get; set; }
 
     /// <summary>
     /// The time-to-live of this record set (seconds).
     /// </summary>
     [TerraformProperty("ttl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Ttl { get; set; }
+    public partial TerraformValue<double>? Ttl { get; set; }
 
     /// <summary>
     /// The DNS record set type.
@@ -84,7 +84,7 @@ public partial class GoogleDnsRecordSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for routing_policy.
@@ -92,6 +92,6 @@ public partial class GoogleDnsRecordSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RoutingPolicy block(s) allowed")]
     [TerraformProperty("routing_policy")]
-    public TerraformList<TerraformBlock<GoogleDnsRecordSetRoutingPolicyBlock>>? RoutingPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDnsRecordSetRoutingPolicyBlock>>? RoutingPolicy { get; set; }
 
 }

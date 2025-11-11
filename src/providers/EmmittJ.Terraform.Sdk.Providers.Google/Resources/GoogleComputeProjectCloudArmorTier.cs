@@ -13,21 +13,21 @@ public partial class GoogleComputeProjectCloudArmorTierTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,27 +46,27 @@ public partial class GoogleComputeProjectCloudArmorTier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudArmorTier is required")]
     [TerraformProperty("cloud_armor_tier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CloudArmorTier { get; set; }
+    public required partial TerraformValue<string> CloudArmorTier { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeProjectCloudArmorTierTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeProjectCloudArmorTierTimeoutsBlock>? Timeouts { get; set; }
 
 }

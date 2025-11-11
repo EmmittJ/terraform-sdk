@@ -14,7 +14,7 @@ public partial class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     [TerraformProperty("format")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Format { get; set; }
+    public required partial TerraformValue<string> Format { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -22,7 +22,7 @@ public partial class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The schedule attribute.
@@ -30,7 +30,7 @@ public partial class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [TerraformProperty("schedule")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Schedule { get; set; }
+    public required partial TerraformValue<string> Schedule { get; set; }
 
     /// <summary>
     /// The schema_fields attribute.
@@ -38,7 +38,7 @@ public partial class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaFields is required")]
     [TerraformProperty("schema_fields")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? SchemaFields { get; set; }
+    public partial TerraformList<string>? SchemaFields { get; set; }
 
     /// <summary>
     /// The scope attribute.
@@ -46,7 +46,7 @@ public partial class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     [TerraformProperty("scope")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Scope { get; set; }
+    public required partial TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// The storage_container_name attribute.
@@ -54,7 +54,7 @@ public partial class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     [TerraformProperty("storage_container_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageContainerName { get; set; }
+    public required partial TerraformValue<string> StorageContainerName { get; set; }
 
 }
 
@@ -69,28 +69,28 @@ public partial class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -109,7 +109,7 @@ public partial class AzurermStorageBlobInventoryPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -117,7 +117,7 @@ public partial class AzurermStorageBlobInventoryPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformProperty("storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountId { get; set; }
+    public required partial TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for rules.
@@ -126,13 +126,13 @@ public partial class AzurermStorageBlobInventoryPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
     [TerraformProperty("rules")]
-    public TerraformSet<TerraformBlock<AzurermStorageBlobInventoryPolicyRulesBlock>>? Rules { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermStorageBlobInventoryPolicyRulesBlock>>? Rules { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageBlobInventoryPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageBlobInventoryPolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

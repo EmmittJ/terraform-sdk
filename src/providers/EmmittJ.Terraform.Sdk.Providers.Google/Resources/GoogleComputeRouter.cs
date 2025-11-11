@@ -13,7 +13,7 @@ public partial class GoogleComputeRouterBgpBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("advertise_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AdvertiseMode { get; set; }
+    public partial TerraformValue<string>? AdvertiseMode { get; set; }
 
     /// <summary>
     /// User-specified list of prefix groups to advertise in custom mode.
@@ -26,7 +26,7 @@ public partial class GoogleComputeRouterBgpBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("advertised_groups")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AdvertisedGroups { get; set; }
+    public partial TerraformList<string>? AdvertisedGroups { get; set; }
 
     /// <summary>
     /// Local BGP Autonomous System Number (ASN). Must be an RFC6996
@@ -37,7 +37,7 @@ public partial class GoogleComputeRouterBgpBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
     [TerraformProperty("asn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Asn { get; set; }
+    public required partial TerraformValue<double> Asn { get; set; }
 
     /// <summary>
     /// Explicitly specifies a range of valid BGP Identifiers for this Router.
@@ -48,7 +48,7 @@ public partial class GoogleComputeRouterBgpBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identifier_range")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> IdentifierRange { get; set; }
+    public partial TerraformValue<string> IdentifierRange { get; set; }
 
     /// <summary>
     /// The interval in seconds between BGP keepalive messages that are sent
@@ -64,7 +64,7 @@ public partial class GoogleComputeRouterBgpBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("keepalive_interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? KeepaliveInterval { get; set; }
+    public partial TerraformValue<double>? KeepaliveInterval { get; set; }
 
 }
 
@@ -80,7 +80,7 @@ public partial class GoogleComputeRouterMd5AuthenticationKeysBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// Name used to identify the key. Must be unique within a router.
@@ -89,7 +89,7 @@ public partial class GoogleComputeRouterMd5AuthenticationKeysBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -106,7 +106,7 @@ public partial class GoogleComputeRouterParamsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("resource_manager_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? ResourceManagerTags { get; set; }
+    public partial TerraformMap<string>? ResourceManagerTags { get; set; }
 
 }
 
@@ -121,21 +121,21 @@ public partial class GoogleComputeRouterTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -154,7 +154,7 @@ public partial class GoogleComputeRouter : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Indicates if a router is dedicated for use with encrypted VLAN
@@ -162,14 +162,14 @@ public partial class GoogleComputeRouter : TerraformResource
     /// </summary>
     [TerraformProperty("encrypted_interconnect_router")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EncryptedInterconnectRouter { get; set; }
+    public partial TerraformValue<bool>? EncryptedInterconnectRouter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. The name must be 1-63 characters long, and
@@ -182,28 +182,28 @@ public partial class GoogleComputeRouter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// A reference to the network to which this router belongs.
     /// </summary>
     [TerraformProperty("network")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Network { get; set; }
+    public partial TerraformValue<string>? Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Region where the router resides.
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for bgp.
@@ -211,7 +211,7 @@ public partial class GoogleComputeRouter : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bgp block(s) allowed")]
     [TerraformProperty("bgp")]
-    public TerraformList<TerraformBlock<GoogleComputeRouterBgpBlock>>? Bgp { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRouterBgpBlock>>? Bgp { get; set; }
 
     /// <summary>
     /// Block for md5_authentication_keys.
@@ -219,7 +219,7 @@ public partial class GoogleComputeRouter : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Md5AuthenticationKeys block(s) allowed")]
     [TerraformProperty("md5_authentication_keys")]
-    public TerraformList<TerraformBlock<GoogleComputeRouterMd5AuthenticationKeysBlock>>? Md5AuthenticationKeys { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRouterMd5AuthenticationKeysBlock>>? Md5AuthenticationKeys { get; set; }
 
     /// <summary>
     /// Block for params.
@@ -227,27 +227,27 @@ public partial class GoogleComputeRouter : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformProperty("params")]
-    public TerraformList<TerraformBlock<GoogleComputeRouterParamsBlock>>? Params { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRouterParamsBlock>>? Params { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeRouterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeRouterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
 }

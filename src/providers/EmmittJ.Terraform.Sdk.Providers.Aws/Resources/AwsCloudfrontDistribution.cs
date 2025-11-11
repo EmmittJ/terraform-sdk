@@ -13,7 +13,7 @@ public partial class AwsCloudfrontDistributionCustomErrorResponseBlock : Terrafo
     /// </summary>
     [TerraformProperty("error_caching_min_ttl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ErrorCachingMinTtl { get; set; }
+    public partial TerraformValue<double>? ErrorCachingMinTtl { get; set; }
 
     /// <summary>
     /// The error_code attribute.
@@ -21,21 +21,21 @@ public partial class AwsCloudfrontDistributionCustomErrorResponseBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ErrorCode is required")]
     [TerraformProperty("error_code")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ErrorCode { get; set; }
+    public required partial TerraformValue<double> ErrorCode { get; set; }
 
     /// <summary>
     /// The response_code attribute.
     /// </summary>
     [TerraformProperty("response_code")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ResponseCode { get; set; }
+    public partial TerraformValue<double>? ResponseCode { get; set; }
 
     /// <summary>
     /// The response_page_path attribute.
     /// </summary>
     [TerraformProperty("response_page_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResponsePagePath { get; set; }
+    public partial TerraformValue<string>? ResponsePagePath { get; set; }
 
 }
 
@@ -51,14 +51,14 @@ public partial class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
     [TerraformProperty("allowed_methods")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> AllowedMethods { get; set; }
+    public required partial TerraformSet<string> AllowedMethods { get; set; }
 
     /// <summary>
     /// The cache_policy_id attribute.
     /// </summary>
     [TerraformProperty("cache_policy_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CachePolicyId { get; set; }
+    public partial TerraformValue<string>? CachePolicyId { get; set; }
 
     /// <summary>
     /// The cached_methods attribute.
@@ -66,70 +66,70 @@ public partial class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CachedMethods is required")]
     [TerraformProperty("cached_methods")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> CachedMethods { get; set; }
+    public required partial TerraformSet<string> CachedMethods { get; set; }
 
     /// <summary>
     /// The compress attribute.
     /// </summary>
     [TerraformProperty("compress")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Compress { get; set; }
+    public partial TerraformValue<bool>? Compress { get; set; }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
     [TerraformProperty("default_ttl")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> DefaultTtl { get; set; }
+    public partial TerraformValue<double> DefaultTtl { get; set; }
 
     /// <summary>
     /// The field_level_encryption_id attribute.
     /// </summary>
     [TerraformProperty("field_level_encryption_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FieldLevelEncryptionId { get; set; }
+    public partial TerraformValue<string>? FieldLevelEncryptionId { get; set; }
 
     /// <summary>
     /// The max_ttl attribute.
     /// </summary>
     [TerraformProperty("max_ttl")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxTtl { get; set; }
+    public partial TerraformValue<double> MaxTtl { get; set; }
 
     /// <summary>
     /// The min_ttl attribute.
     /// </summary>
     [TerraformProperty("min_ttl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinTtl { get; set; }
+    public partial TerraformValue<double>? MinTtl { get; set; }
 
     /// <summary>
     /// The origin_request_policy_id attribute.
     /// </summary>
     [TerraformProperty("origin_request_policy_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OriginRequestPolicyId { get; set; }
+    public partial TerraformValue<string>? OriginRequestPolicyId { get; set; }
 
     /// <summary>
     /// The realtime_log_config_arn attribute.
     /// </summary>
     [TerraformProperty("realtime_log_config_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RealtimeLogConfigArn { get; set; }
+    public partial TerraformValue<string>? RealtimeLogConfigArn { get; set; }
 
     /// <summary>
     /// The response_headers_policy_id attribute.
     /// </summary>
     [TerraformProperty("response_headers_policy_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResponseHeadersPolicyId { get; set; }
+    public partial TerraformValue<string>? ResponseHeadersPolicyId { get; set; }
 
     /// <summary>
     /// The smooth_streaming attribute.
     /// </summary>
     [TerraformProperty("smooth_streaming")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SmoothStreaming { get; set; }
+    public partial TerraformValue<bool>? SmoothStreaming { get; set; }
 
     /// <summary>
     /// The target_origin_id attribute.
@@ -137,21 +137,21 @@ public partial class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetOriginId is required")]
     [TerraformProperty("target_origin_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetOriginId { get; set; }
+    public required partial TerraformValue<string> TargetOriginId { get; set; }
 
     /// <summary>
     /// The trusted_key_groups attribute.
     /// </summary>
     [TerraformProperty("trusted_key_groups")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> TrustedKeyGroups { get; set; }
+    public partial TerraformList<string> TrustedKeyGroups { get; set; }
 
     /// <summary>
     /// The trusted_signers attribute.
     /// </summary>
     [TerraformProperty("trusted_signers")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> TrustedSigners { get; set; }
+    public partial TerraformList<string> TrustedSigners { get; set; }
 
     /// <summary>
     /// The viewer_protocol_policy attribute.
@@ -159,7 +159,7 @@ public partial class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ViewerProtocolPolicy is required")]
     [TerraformProperty("viewer_protocol_policy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ViewerProtocolPolicy { get; set; }
+    public required partial TerraformValue<string> ViewerProtocolPolicy { get; set; }
 
 }
 
@@ -175,21 +175,21 @@ public partial class AwsCloudfrontDistributionLoggingConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The include_cookies attribute.
     /// </summary>
     [TerraformProperty("include_cookies")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IncludeCookies { get; set; }
+    public partial TerraformValue<bool>? IncludeCookies { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
     [TerraformProperty("prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Prefix { get; set; }
+    public partial TerraformValue<string>? Prefix { get; set; }
 
 }
 
@@ -205,14 +205,14 @@ public partial class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
     [TerraformProperty("allowed_methods")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> AllowedMethods { get; set; }
+    public required partial TerraformSet<string> AllowedMethods { get; set; }
 
     /// <summary>
     /// The cache_policy_id attribute.
     /// </summary>
     [TerraformProperty("cache_policy_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CachePolicyId { get; set; }
+    public partial TerraformValue<string>? CachePolicyId { get; set; }
 
     /// <summary>
     /// The cached_methods attribute.
@@ -220,49 +220,49 @@ public partial class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CachedMethods is required")]
     [TerraformProperty("cached_methods")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> CachedMethods { get; set; }
+    public required partial TerraformSet<string> CachedMethods { get; set; }
 
     /// <summary>
     /// The compress attribute.
     /// </summary>
     [TerraformProperty("compress")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Compress { get; set; }
+    public partial TerraformValue<bool>? Compress { get; set; }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
     [TerraformProperty("default_ttl")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> DefaultTtl { get; set; }
+    public partial TerraformValue<double> DefaultTtl { get; set; }
 
     /// <summary>
     /// The field_level_encryption_id attribute.
     /// </summary>
     [TerraformProperty("field_level_encryption_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FieldLevelEncryptionId { get; set; }
+    public partial TerraformValue<string>? FieldLevelEncryptionId { get; set; }
 
     /// <summary>
     /// The max_ttl attribute.
     /// </summary>
     [TerraformProperty("max_ttl")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxTtl { get; set; }
+    public partial TerraformValue<double> MaxTtl { get; set; }
 
     /// <summary>
     /// The min_ttl attribute.
     /// </summary>
     [TerraformProperty("min_ttl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinTtl { get; set; }
+    public partial TerraformValue<double>? MinTtl { get; set; }
 
     /// <summary>
     /// The origin_request_policy_id attribute.
     /// </summary>
     [TerraformProperty("origin_request_policy_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OriginRequestPolicyId { get; set; }
+    public partial TerraformValue<string>? OriginRequestPolicyId { get; set; }
 
     /// <summary>
     /// The path_pattern attribute.
@@ -270,28 +270,28 @@ public partial class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathPattern is required")]
     [TerraformProperty("path_pattern")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PathPattern { get; set; }
+    public required partial TerraformValue<string> PathPattern { get; set; }
 
     /// <summary>
     /// The realtime_log_config_arn attribute.
     /// </summary>
     [TerraformProperty("realtime_log_config_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RealtimeLogConfigArn { get; set; }
+    public partial TerraformValue<string>? RealtimeLogConfigArn { get; set; }
 
     /// <summary>
     /// The response_headers_policy_id attribute.
     /// </summary>
     [TerraformProperty("response_headers_policy_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResponseHeadersPolicyId { get; set; }
+    public partial TerraformValue<string>? ResponseHeadersPolicyId { get; set; }
 
     /// <summary>
     /// The smooth_streaming attribute.
     /// </summary>
     [TerraformProperty("smooth_streaming")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SmoothStreaming { get; set; }
+    public partial TerraformValue<bool>? SmoothStreaming { get; set; }
 
     /// <summary>
     /// The target_origin_id attribute.
@@ -299,21 +299,21 @@ public partial class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetOriginId is required")]
     [TerraformProperty("target_origin_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetOriginId { get; set; }
+    public required partial TerraformValue<string> TargetOriginId { get; set; }
 
     /// <summary>
     /// The trusted_key_groups attribute.
     /// </summary>
     [TerraformProperty("trusted_key_groups")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? TrustedKeyGroups { get; set; }
+    public partial TerraformList<string>? TrustedKeyGroups { get; set; }
 
     /// <summary>
     /// The trusted_signers attribute.
     /// </summary>
     [TerraformProperty("trusted_signers")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? TrustedSigners { get; set; }
+    public partial TerraformList<string>? TrustedSigners { get; set; }
 
     /// <summary>
     /// The viewer_protocol_policy attribute.
@@ -321,7 +321,7 @@ public partial class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ViewerProtocolPolicy is required")]
     [TerraformProperty("viewer_protocol_policy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ViewerProtocolPolicy { get; set; }
+    public required partial TerraformValue<string> ViewerProtocolPolicy { get; set; }
 
 }
 
@@ -336,14 +336,14 @@ public partial class AwsCloudfrontDistributionOriginBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("connection_attempts")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ConnectionAttempts { get; set; }
+    public partial TerraformValue<double>? ConnectionAttempts { get; set; }
 
     /// <summary>
     /// The connection_timeout attribute.
     /// </summary>
     [TerraformProperty("connection_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ConnectionTimeout { get; set; }
+    public partial TerraformValue<double>? ConnectionTimeout { get; set; }
 
     /// <summary>
     /// The domain_name attribute.
@@ -351,14 +351,14 @@ public partial class AwsCloudfrontDistributionOriginBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformProperty("domain_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainName { get; set; }
+    public required partial TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The origin_access_control_id attribute.
     /// </summary>
     [TerraformProperty("origin_access_control_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OriginAccessControlId { get; set; }
+    public partial TerraformValue<string>? OriginAccessControlId { get; set; }
 
     /// <summary>
     /// The origin_id attribute.
@@ -366,21 +366,21 @@ public partial class AwsCloudfrontDistributionOriginBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginId is required")]
     [TerraformProperty("origin_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OriginId { get; set; }
+    public required partial TerraformValue<string> OriginId { get; set; }
 
     /// <summary>
     /// The origin_path attribute.
     /// </summary>
     [TerraformProperty("origin_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OriginPath { get; set; }
+    public partial TerraformValue<string>? OriginPath { get; set; }
 
     /// <summary>
     /// The response_completion_timeout attribute.
     /// </summary>
     [TerraformProperty("response_completion_timeout")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> ResponseCompletionTimeout { get; set; }
+    public partial TerraformValue<double> ResponseCompletionTimeout { get; set; }
 
 }
 
@@ -396,7 +396,7 @@ public partial class AwsCloudfrontDistributionOriginGroupBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginId is required")]
     [TerraformProperty("origin_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OriginId { get; set; }
+    public required partial TerraformValue<string> OriginId { get; set; }
 
 }
 
@@ -419,35 +419,35 @@ public partial class AwsCloudfrontDistributionViewerCertificateBlock : Terraform
     /// </summary>
     [TerraformProperty("acm_certificate_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AcmCertificateArn { get; set; }
+    public partial TerraformValue<string>? AcmCertificateArn { get; set; }
 
     /// <summary>
     /// The cloudfront_default_certificate attribute.
     /// </summary>
     [TerraformProperty("cloudfront_default_certificate")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CloudfrontDefaultCertificate { get; set; }
+    public partial TerraformValue<bool>? CloudfrontDefaultCertificate { get; set; }
 
     /// <summary>
     /// The iam_certificate_id attribute.
     /// </summary>
     [TerraformProperty("iam_certificate_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IamCertificateId { get; set; }
+    public partial TerraformValue<string>? IamCertificateId { get; set; }
 
     /// <summary>
     /// The minimum_protocol_version attribute.
     /// </summary>
     [TerraformProperty("minimum_protocol_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MinimumProtocolVersion { get; set; }
+    public partial TerraformValue<string>? MinimumProtocolVersion { get; set; }
 
     /// <summary>
     /// The ssl_support_method attribute.
     /// </summary>
     [TerraformProperty("ssl_support_method")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SslSupportMethod { get; set; }
+    public partial TerraformValue<string>? SslSupportMethod { get; set; }
 
 }
 
@@ -466,35 +466,35 @@ public partial class AwsCloudfrontDistribution : TerraformResource
     /// </summary>
     [TerraformProperty("aliases")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Aliases { get; set; }
+    public partial TerraformSet<string>? Aliases { get; set; }
 
     /// <summary>
     /// The anycast_ip_list_id attribute.
     /// </summary>
     [TerraformProperty("anycast_ip_list_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AnycastIpListId { get; set; }
+    public partial TerraformValue<string>? AnycastIpListId { get; set; }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     [TerraformProperty("comment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Comment { get; set; }
+    public partial TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The continuous_deployment_policy_id attribute.
     /// </summary>
     [TerraformProperty("continuous_deployment_policy_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ContinuousDeploymentPolicyId { get; set; }
+    public partial TerraformValue<string> ContinuousDeploymentPolicyId { get; set; }
 
     /// <summary>
     /// The default_root_object attribute.
     /// </summary>
     [TerraformProperty("default_root_object")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultRootObject { get; set; }
+    public partial TerraformValue<string>? DefaultRootObject { get; set; }
 
     /// <summary>
     /// The enabled attribute.
@@ -502,84 +502,84 @@ public partial class AwsCloudfrontDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The http_version attribute.
     /// </summary>
     [TerraformProperty("http_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HttpVersion { get; set; }
+    public partial TerraformValue<string>? HttpVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The is_ipv6_enabled attribute.
     /// </summary>
     [TerraformProperty("is_ipv6_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IsIpv6Enabled { get; set; }
+    public partial TerraformValue<bool>? IsIpv6Enabled { get; set; }
 
     /// <summary>
     /// The price_class attribute.
     /// </summary>
     [TerraformProperty("price_class")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PriceClass { get; set; }
+    public partial TerraformValue<string>? PriceClass { get; set; }
 
     /// <summary>
     /// The retain_on_delete attribute.
     /// </summary>
     [TerraformProperty("retain_on_delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RetainOnDelete { get; set; }
+    public partial TerraformValue<bool>? RetainOnDelete { get; set; }
 
     /// <summary>
     /// The staging attribute.
     /// </summary>
     [TerraformProperty("staging")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Staging { get; set; }
+    public partial TerraformValue<bool>? Staging { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The wait_for_deployment attribute.
     /// </summary>
     [TerraformProperty("wait_for_deployment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? WaitForDeployment { get; set; }
+    public partial TerraformValue<bool>? WaitForDeployment { get; set; }
 
     /// <summary>
     /// The web_acl_id attribute.
     /// </summary>
     [TerraformProperty("web_acl_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WebAclId { get; set; }
+    public partial TerraformValue<string>? WebAclId { get; set; }
 
     /// <summary>
     /// Block for custom_error_response.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("custom_error_response")]
-    public TerraformSet<TerraformBlock<AwsCloudfrontDistributionCustomErrorResponseBlock>>? CustomErrorResponse { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsCloudfrontDistributionCustomErrorResponseBlock>>? CustomErrorResponse { get; set; }
 
     /// <summary>
     /// Block for default_cache_behavior.
@@ -589,7 +589,7 @@ public partial class AwsCloudfrontDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultCacheBehavior block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultCacheBehavior block(s) allowed")]
     [TerraformProperty("default_cache_behavior")]
-    public TerraformList<TerraformBlock<AwsCloudfrontDistributionDefaultCacheBehaviorBlock>>? DefaultCacheBehavior { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudfrontDistributionDefaultCacheBehaviorBlock>>? DefaultCacheBehavior { get; set; }
 
     /// <summary>
     /// Block for logging_config.
@@ -597,14 +597,14 @@ public partial class AwsCloudfrontDistribution : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformProperty("logging_config")]
-    public TerraformList<TerraformBlock<AwsCloudfrontDistributionLoggingConfigBlock>>? LoggingConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudfrontDistributionLoggingConfigBlock>>? LoggingConfig { get; set; }
 
     /// <summary>
     /// Block for ordered_cache_behavior.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("ordered_cache_behavior")]
-    public TerraformList<TerraformBlock<AwsCloudfrontDistributionOrderedCacheBehaviorBlock>>? OrderedCacheBehavior { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudfrontDistributionOrderedCacheBehaviorBlock>>? OrderedCacheBehavior { get; set; }
 
     /// <summary>
     /// Block for origin.
@@ -613,14 +613,14 @@ public partial class AwsCloudfrontDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Origin is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Origin block(s) required")]
     [TerraformProperty("origin")]
-    public TerraformSet<TerraformBlock<AwsCloudfrontDistributionOriginBlock>>? Origin { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsCloudfrontDistributionOriginBlock>>? Origin { get; set; }
 
     /// <summary>
     /// Block for origin_group.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("origin_group")]
-    public TerraformSet<TerraformBlock<AwsCloudfrontDistributionOriginGroupBlock>>? OriginGroup { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsCloudfrontDistributionOriginGroupBlock>>? OriginGroup { get; set; }
 
     /// <summary>
     /// Block for restrictions.
@@ -630,7 +630,7 @@ public partial class AwsCloudfrontDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Restrictions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Restrictions block(s) allowed")]
     [TerraformProperty("restrictions")]
-    public TerraformList<TerraformBlock<AwsCloudfrontDistributionRestrictionsBlock>>? Restrictions { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudfrontDistributionRestrictionsBlock>>? Restrictions { get; set; }
 
     /// <summary>
     /// Block for viewer_certificate.
@@ -640,76 +640,76 @@ public partial class AwsCloudfrontDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ViewerCertificate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ViewerCertificate block(s) allowed")]
     [TerraformProperty("viewer_certificate")]
-    public TerraformList<TerraformBlock<AwsCloudfrontDistributionViewerCertificateBlock>>? ViewerCertificate { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudfrontDistributionViewerCertificateBlock>>? ViewerCertificate { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
     [TerraformProperty("caller_reference")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CallerReference { get; }
+    public partial TerraformValue<string> CallerReference { get; }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [TerraformProperty("domain_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DomainName { get; }
+    public partial TerraformValue<string> DomainName { get; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     [TerraformProperty("hosted_zone_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> HostedZoneId { get; }
+    public partial TerraformValue<string> HostedZoneId { get; }
 
     /// <summary>
     /// The in_progress_validation_batches attribute.
     /// </summary>
     [TerraformProperty("in_progress_validation_batches")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> InProgressValidationBatches { get; }
+    public partial TerraformValue<double> InProgressValidationBatches { get; }
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
     [TerraformProperty("last_modified_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastModifiedTime { get; }
+    public partial TerraformValue<string> LastModifiedTime { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The trusted_key_groups attribute.
     /// </summary>
     [TerraformProperty("trusted_key_groups")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> TrustedKeyGroups { get; }
+    public partial TerraformList<object> TrustedKeyGroups { get; }
 
     /// <summary>
     /// The trusted_signers attribute.
     /// </summary>
     [TerraformProperty("trusted_signers")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> TrustedSigners { get; }
+    public partial TerraformList<object> TrustedSigners { get; }
 
 }

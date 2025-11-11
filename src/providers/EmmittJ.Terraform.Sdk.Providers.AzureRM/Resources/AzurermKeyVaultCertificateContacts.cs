@@ -14,21 +14,21 @@ public partial class AzurermKeyVaultCertificateContactsContactBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     [TerraformProperty("email")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Email { get; set; }
+    public required partial TerraformValue<string> Email { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The phone attribute.
     /// </summary>
     [TerraformProperty("phone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Phone { get; set; }
+    public partial TerraformValue<string>? Phone { get; set; }
 
 }
 
@@ -43,28 +43,28 @@ public partial class AzurermKeyVaultCertificateContactsTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -82,7 +82,7 @@ public partial class AzurermKeyVaultCertificateContacts : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
@@ -90,20 +90,20 @@ public partial class AzurermKeyVaultCertificateContacts : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformProperty("key_vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultId { get; set; }
+    public required partial TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// Block for contact.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("contact")]
-    public TerraformSet<TerraformBlock<AzurermKeyVaultCertificateContactsContactBlock>>? Contact { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermKeyVaultCertificateContactsContactBlock>>? Contact { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKeyVaultCertificateContactsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKeyVaultCertificateContactsTimeoutsBlock>? Timeouts { get; set; }
 
 }

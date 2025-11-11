@@ -13,7 +13,7 @@ public partial class AzurermApiManagementApiVersionSetDataSourceTimeoutsBlock : 
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzurermApiManagementApiVersionSetDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     [TerraformProperty("api_management_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiManagementName { get; set; }
+    public required partial TerraformValue<string> ApiManagementName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,7 +47,7 @@ public partial class AzurermApiManagementApiVersionSetDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -55,48 +55,48 @@ public partial class AzurermApiManagementApiVersionSetDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApiManagementApiVersionSetDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApiManagementApiVersionSetDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The version_header_name attribute.
     /// </summary>
     [TerraformProperty("version_header_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VersionHeaderName { get; }
+    public partial TerraformValue<string> VersionHeaderName { get; }
 
     /// <summary>
     /// The version_query_name attribute.
     /// </summary>
     [TerraformProperty("version_query_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VersionQueryName { get; }
+    public partial TerraformValue<string> VersionQueryName { get; }
 
     /// <summary>
     /// The versioning_scheme attribute.
     /// </summary>
     [TerraformProperty("versioning_scheme")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VersioningScheme { get; }
+    public partial TerraformValue<string> VersioningScheme { get; }
 
 }

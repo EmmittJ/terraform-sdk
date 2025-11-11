@@ -13,7 +13,7 @@ public partial class GoogleStorageBucketIamMemberConditionBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The expression attribute.
@@ -21,7 +21,7 @@ public partial class GoogleStorageBucketIamMemberConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     [TerraformProperty("expression")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Expression { get; set; }
+    public required partial TerraformValue<string> Expression { get; set; }
 
     /// <summary>
     /// The title attribute.
@@ -29,7 +29,7 @@ public partial class GoogleStorageBucketIamMemberConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     [TerraformProperty("title")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Title { get; set; }
+    public required partial TerraformValue<string> Title { get; set; }
 
 }
 
@@ -44,7 +44,7 @@ public partial class GoogleStorageBucketIamMemberTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -64,14 +64,14 @@ public partial class GoogleStorageBucketIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The member attribute.
@@ -79,7 +79,7 @@ public partial class GoogleStorageBucketIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
     [TerraformProperty("member")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Member { get; set; }
+    public required partial TerraformValue<string> Member { get; set; }
 
     /// <summary>
     /// The role attribute.
@@ -87,7 +87,7 @@ public partial class GoogleStorageBucketIamMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     [TerraformProperty("role")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Role { get; set; }
+    public required partial TerraformValue<string> Role { get; set; }
 
     /// <summary>
     /// Block for condition.
@@ -95,20 +95,20 @@ public partial class GoogleStorageBucketIamMember : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public TerraformList<TerraformBlock<GoogleStorageBucketIamMemberConditionBlock>>? Condition { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageBucketIamMemberConditionBlock>>? Condition { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleStorageBucketIamMemberTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleStorageBucketIamMemberTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
 }

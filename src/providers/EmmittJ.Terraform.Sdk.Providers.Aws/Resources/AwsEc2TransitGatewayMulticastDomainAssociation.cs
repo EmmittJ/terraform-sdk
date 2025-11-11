@@ -13,14 +13,14 @@ public partial class AwsEc2TransitGatewayMulticastDomainAssociationTimeoutsBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,14 +38,14 @@ public partial class AwsEc2TransitGatewayMulticastDomainAssociation : TerraformR
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -53,7 +53,7 @@ public partial class AwsEc2TransitGatewayMulticastDomainAssociation : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
     /// <summary>
     /// The transit_gateway_attachment_id attribute.
@@ -61,7 +61,7 @@ public partial class AwsEc2TransitGatewayMulticastDomainAssociation : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayAttachmentId is required")]
     [TerraformProperty("transit_gateway_attachment_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TransitGatewayAttachmentId { get; set; }
+    public required partial TerraformValue<string> TransitGatewayAttachmentId { get; set; }
 
     /// <summary>
     /// The transit_gateway_multicast_domain_id attribute.
@@ -69,13 +69,13 @@ public partial class AwsEc2TransitGatewayMulticastDomainAssociation : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayMulticastDomainId is required")]
     [TerraformProperty("transit_gateway_multicast_domain_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TransitGatewayMulticastDomainId { get; set; }
+    public required partial TerraformValue<string> TransitGatewayMulticastDomainId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsEc2TransitGatewayMulticastDomainAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsEc2TransitGatewayMulticastDomainAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

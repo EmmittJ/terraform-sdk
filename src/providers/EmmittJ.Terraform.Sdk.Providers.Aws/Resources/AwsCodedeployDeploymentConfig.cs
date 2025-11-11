@@ -13,14 +13,14 @@ public partial class AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock : Ter
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Value { get; set; }
+    public partial TerraformValue<double>? Value { get; set; }
 
 }
 
@@ -35,7 +35,7 @@ public partial class AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock : Te
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -50,14 +50,14 @@ public partial class AwsCodedeployDeploymentConfigZonalConfigBlock : TerraformBl
     /// </summary>
     [TerraformProperty("first_zone_monitor_duration_in_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? FirstZoneMonitorDurationInSeconds { get; set; }
+    public partial TerraformValue<double>? FirstZoneMonitorDurationInSeconds { get; set; }
 
     /// <summary>
     /// The monitor_duration_in_seconds attribute.
     /// </summary>
     [TerraformProperty("monitor_duration_in_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MonitorDurationInSeconds { get; set; }
+    public partial TerraformValue<double>? MonitorDurationInSeconds { get; set; }
 
 }
 
@@ -76,7 +76,7 @@ public partial class AwsCodedeployDeploymentConfig : TerraformResource
     /// </summary>
     [TerraformProperty("compute_platform")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ComputePlatform { get; set; }
+    public partial TerraformValue<string>? ComputePlatform { get; set; }
 
     /// <summary>
     /// The deployment_config_name attribute.
@@ -84,21 +84,21 @@ public partial class AwsCodedeployDeploymentConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentConfigName is required")]
     [TerraformProperty("deployment_config_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DeploymentConfigName { get; set; }
+    public required partial TerraformValue<string> DeploymentConfigName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for minimum_healthy_hosts.
@@ -106,7 +106,7 @@ public partial class AwsCodedeployDeploymentConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MinimumHealthyHosts block(s) allowed")]
     [TerraformProperty("minimum_healthy_hosts")]
-    public TerraformList<TerraformBlock<AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock>>? MinimumHealthyHosts { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock>>? MinimumHealthyHosts { get; set; }
 
     /// <summary>
     /// Block for traffic_routing_config.
@@ -114,7 +114,7 @@ public partial class AwsCodedeployDeploymentConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficRoutingConfig block(s) allowed")]
     [TerraformProperty("traffic_routing_config")]
-    public TerraformList<TerraformBlock<AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock>>? TrafficRoutingConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock>>? TrafficRoutingConfig { get; set; }
 
     /// <summary>
     /// Block for zonal_config.
@@ -122,20 +122,20 @@ public partial class AwsCodedeployDeploymentConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ZonalConfig block(s) allowed")]
     [TerraformProperty("zonal_config")]
-    public TerraformList<TerraformBlock<AwsCodedeployDeploymentConfigZonalConfigBlock>>? ZonalConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCodedeployDeploymentConfigZonalConfigBlock>>? ZonalConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The deployment_config_id attribute.
     /// </summary>
     [TerraformProperty("deployment_config_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeploymentConfigId { get; }
+    public partial TerraformValue<string> DeploymentConfigId { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class GoogleBeyondcorpAppConnectionApplicationEndpointBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     [TerraformProperty("host")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Host { get; set; }
+    public required partial TerraformValue<string> Host { get; set; }
 
     /// <summary>
     /// Port of the remote application endpoint.
@@ -22,7 +22,7 @@ public partial class GoogleBeyondcorpAppConnectionApplicationEndpointBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     [TerraformProperty("port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Port { get; set; }
+    public required partial TerraformValue<double> Port { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleBeyondcorpAppConnectionGatewayBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppGateway is required")]
     [TerraformProperty("app_gateway")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AppGateway { get; set; }
+    public required partial TerraformValue<string> AppGateway { get; set; }
 
 
     /// <summary>
@@ -48,7 +48,7 @@ public partial class GoogleBeyondcorpAppConnectionGatewayBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
 
 }
@@ -64,21 +64,21 @@ public partial class GoogleBeyondcorpAppConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -97,21 +97,21 @@ public partial class GoogleBeyondcorpAppConnection : TerraformResource
     /// </summary>
     [TerraformProperty("connectors")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Connectors { get; set; }
+    public partial TerraformList<string>? Connectors { get; set; }
 
     /// <summary>
     /// An arbitrary user-provided name for the AppConnection.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource labels to represent user provided metadata.
@@ -122,7 +122,7 @@ public partial class GoogleBeyondcorpAppConnection : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// ID of the AppConnection.
@@ -130,21 +130,21 @@ public partial class GoogleBeyondcorpAppConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region of the AppConnection.
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The type of network connectivity used by the AppConnection. Refer
@@ -153,7 +153,7 @@ public partial class GoogleBeyondcorpAppConnection : TerraformResource
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// Block for application_endpoint.
@@ -163,7 +163,7 @@ public partial class GoogleBeyondcorpAppConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ApplicationEndpoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationEndpoint block(s) allowed")]
     [TerraformProperty("application_endpoint")]
-    public TerraformList<TerraformBlock<GoogleBeyondcorpAppConnectionApplicationEndpointBlock>>? ApplicationEndpoint { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBeyondcorpAppConnectionApplicationEndpointBlock>>? ApplicationEndpoint { get; set; }
 
     /// <summary>
     /// Block for gateway.
@@ -171,21 +171,21 @@ public partial class GoogleBeyondcorpAppConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gateway block(s) allowed")]
     [TerraformProperty("gateway")]
-    public TerraformList<TerraformBlock<GoogleBeyondcorpAppConnectionGatewayBlock>>? Gateway { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBeyondcorpAppConnectionGatewayBlock>>? Gateway { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBeyondcorpAppConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBeyondcorpAppConnectionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -193,6 +193,6 @@ public partial class GoogleBeyondcorpAppConnection : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

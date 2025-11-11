@@ -16,7 +16,7 @@ public partial class AwsCloudfrontRealtimeLogConfigDataSource : TerraformDataSou
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -24,34 +24,34 @@ public partial class AwsCloudfrontRealtimeLogConfigDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     [TerraformProperty("endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Endpoint { get; }
+    public partial TerraformList<object> Endpoint { get; }
 
     /// <summary>
     /// The fields attribute.
     /// </summary>
     [TerraformProperty("fields")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> Fields { get; }
+    public partial TerraformSet<string> Fields { get; }
 
     /// <summary>
     /// The sampling_rate attribute.
     /// </summary>
     [TerraformProperty("sampling_rate")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> SamplingRate { get; }
+    public partial TerraformValue<double> SamplingRate { get; }
 
 }

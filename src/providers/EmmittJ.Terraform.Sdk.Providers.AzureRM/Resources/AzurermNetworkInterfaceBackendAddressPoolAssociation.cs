@@ -13,21 +13,21 @@ public partial class AzurermNetworkInterfaceBackendAddressPoolAssociationTimeout
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzurermNetworkInterfaceBackendAddressPoolAssociation : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
     [TerraformProperty("backend_address_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackendAddressPoolId { get; set; }
+    public required partial TerraformValue<string> BackendAddressPoolId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ip_configuration_name attribute.
@@ -61,7 +61,7 @@ public partial class AzurermNetworkInterfaceBackendAddressPoolAssociation : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfigurationName is required")]
     [TerraformProperty("ip_configuration_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IpConfigurationName { get; set; }
+    public required partial TerraformValue<string> IpConfigurationName { get; set; }
 
     /// <summary>
     /// The network_interface_id attribute.
@@ -69,13 +69,13 @@ public partial class AzurermNetworkInterfaceBackendAddressPoolAssociation : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     [TerraformProperty("network_interface_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NetworkInterfaceId { get; set; }
+    public required partial TerraformValue<string> NetworkInterfaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetworkInterfaceBackendAddressPoolAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetworkInterfaceBackendAddressPoolAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

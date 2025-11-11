@@ -16,7 +16,7 @@ public partial class GoogleComputeHaVpnGatewayDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -30,42 +30,42 @@ public partial class GoogleComputeHaVpnGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The region this gateway should sit in.
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The IP family of the gateway IPs for the HA-VPN gateway interfaces. If not specified, IPV4 will be used. Default value: &amp;quot;IPV4&amp;quot; Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
     [TerraformProperty("gateway_ip_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GatewayIpVersion { get; }
+    public partial TerraformValue<string> GatewayIpVersion { get; }
 
     /// <summary>
     /// A fingerprint for the labels being applied to this VpnGateway, which is essentially a hash
@@ -76,7 +76,7 @@ public partial class GoogleComputeHaVpnGatewayDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("label_fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LabelFingerprint { get; }
+    public partial TerraformValue<string> LabelFingerprint { get; }
 
     /// <summary>
     /// Labels for this resource. These can only be added or modified by the setLabels method.
@@ -88,21 +88,21 @@ public partial class GoogleComputeHaVpnGatewayDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// The network this VPN gateway is accepting traffic for.
     /// </summary>
     [TerraformProperty("network")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Network { get; }
+    public partial TerraformValue<string> Network { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The stack type for this VPN gateway to identify the IP protocols that are enabled.
@@ -110,7 +110,7 @@ public partial class GoogleComputeHaVpnGatewayDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("stack_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StackType { get; }
+    public partial TerraformValue<string> StackType { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -118,13 +118,13 @@ public partial class GoogleComputeHaVpnGatewayDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// A list of interfaces on this VPN gateway.
     /// </summary>
     [TerraformProperty("vpn_interfaces")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> VpnInterfaces { get; }
+    public partial TerraformList<object> VpnInterfaces { get; }
 
 }

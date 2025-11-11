@@ -13,7 +13,7 @@ public partial class AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock 
     /// </summary>
     [TerraformProperty("base")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Base { get; set; }
+    public partial TerraformValue<double>? Base { get; set; }
 
     /// <summary>
     /// The capacity_provider attribute.
@@ -21,14 +21,14 @@ public partial class AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     [TerraformProperty("capacity_provider")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CapacityProvider { get; set; }
+    public required partial TerraformValue<string> CapacityProvider { get; set; }
 
     /// <summary>
     /// The weight attribute.
     /// </summary>
     [TerraformProperty("weight")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Weight { get; set; }
+    public partial TerraformValue<double>? Weight { get; set; }
 
 }
 
@@ -43,14 +43,14 @@ public partial class AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock : Te
     /// </summary>
     [TerraformProperty("assign_public_ip")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AssignPublicIp { get; set; }
+    public partial TerraformValue<bool>? AssignPublicIp { get; set; }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
     [TerraformProperty("security_groups")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? SecurityGroups { get; set; }
+    public partial TerraformSet<string>? SecurityGroups { get; set; }
 
     /// <summary>
     /// The subnets attribute.
@@ -58,7 +58,7 @@ public partial class AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     [TerraformProperty("subnets")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Subnets { get; set; }
+    public required partial TerraformSet<string> Subnets { get; set; }
 
 }
 
@@ -73,28 +73,28 @@ public partial class AwsEcsTaskExecutionDataSourceOverridesBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("cpu")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Cpu { get; set; }
+    public partial TerraformValue<string>? Cpu { get; set; }
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
     [TerraformProperty("execution_role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExecutionRoleArn { get; set; }
+    public partial TerraformValue<string>? ExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
     [TerraformProperty("memory")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Memory { get; set; }
+    public partial TerraformValue<string>? Memory { get; set; }
 
     /// <summary>
     /// The task_role_arn attribute.
     /// </summary>
     [TerraformProperty("task_role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TaskRoleArn { get; set; }
+    public partial TerraformValue<string>? TaskRoleArn { get; set; }
 
 }
 
@@ -109,7 +109,7 @@ public partial class AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock : Te
     /// </summary>
     [TerraformProperty("expression")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Expression { get; set; }
+    public partial TerraformValue<string>? Expression { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -117,7 +117,7 @@ public partial class AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -132,7 +132,7 @@ public partial class AwsEcsTaskExecutionDataSourcePlacementStrategyBlock : Terra
     /// </summary>
     [TerraformProperty("field")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Field { get; set; }
+    public partial TerraformValue<string>? Field { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -140,7 +140,7 @@ public partial class AwsEcsTaskExecutionDataSourcePlacementStrategyBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -159,7 +159,7 @@ public partial class AwsEcsTaskExecutionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("client_token")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientToken { get; set; }
+    public partial TerraformValue<string>? ClientToken { get; set; }
 
     /// <summary>
     /// The cluster attribute.
@@ -167,91 +167,91 @@ public partial class AwsEcsTaskExecutionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     [TerraformProperty("cluster")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Cluster { get; set; }
+    public required partial TerraformValue<string> Cluster { get; set; }
 
     /// <summary>
     /// The desired_count attribute.
     /// </summary>
     [TerraformProperty("desired_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DesiredCount { get; set; }
+    public partial TerraformValue<double>? DesiredCount { get; set; }
 
     /// <summary>
     /// The enable_ecs_managed_tags attribute.
     /// </summary>
     [TerraformProperty("enable_ecs_managed_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableEcsManagedTags { get; set; }
+    public partial TerraformValue<bool>? EnableEcsManagedTags { get; set; }
 
     /// <summary>
     /// The enable_execute_command attribute.
     /// </summary>
     [TerraformProperty("enable_execute_command")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableExecuteCommand { get; set; }
+    public partial TerraformValue<bool>? EnableExecuteCommand { get; set; }
 
     /// <summary>
     /// The group attribute.
     /// </summary>
     [TerraformProperty("group")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Group { get; set; }
+    public partial TerraformValue<string>? Group { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The launch_type attribute.
     /// </summary>
     [TerraformProperty("launch_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LaunchType { get; set; }
+    public partial TerraformValue<string>? LaunchType { get; set; }
 
     /// <summary>
     /// The platform_version attribute.
     /// </summary>
     [TerraformProperty("platform_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PlatformVersion { get; set; }
+    public partial TerraformValue<string>? PlatformVersion { get; set; }
 
     /// <summary>
     /// The propagate_tags attribute.
     /// </summary>
     [TerraformProperty("propagate_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PropagateTags { get; set; }
+    public partial TerraformValue<string>? PropagateTags { get; set; }
 
     /// <summary>
     /// The reference_id attribute.
     /// </summary>
     [TerraformProperty("reference_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ReferenceId { get; set; }
+    public partial TerraformValue<string>? ReferenceId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The started_by attribute.
     /// </summary>
     [TerraformProperty("started_by")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StartedBy { get; set; }
+    public partial TerraformValue<string>? StartedBy { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The task_definition attribute.
@@ -259,14 +259,14 @@ public partial class AwsEcsTaskExecutionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinition is required")]
     [TerraformProperty("task_definition")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TaskDefinition { get; set; }
+    public required partial TerraformValue<string> TaskDefinition { get; set; }
 
     /// <summary>
     /// Block for capacity_provider_strategy.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("capacity_provider_strategy")]
-    public TerraformSet<TerraformBlock<AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock>>? CapacityProviderStrategy { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock>>? CapacityProviderStrategy { get; set; }
 
     /// <summary>
     /// Block for network_configuration.
@@ -274,7 +274,7 @@ public partial class AwsEcsTaskExecutionDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
     [TerraformProperty("network_configuration")]
-    public TerraformList<TerraformBlock<AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
 
     /// <summary>
     /// Block for overrides.
@@ -282,7 +282,7 @@ public partial class AwsEcsTaskExecutionDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Overrides block(s) allowed")]
     [TerraformProperty("overrides")]
-    public TerraformList<TerraformBlock<AwsEcsTaskExecutionDataSourceOverridesBlock>>? Overrides { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcsTaskExecutionDataSourceOverridesBlock>>? Overrides { get; set; }
 
     /// <summary>
     /// Block for placement_constraints.
@@ -290,7 +290,7 @@ public partial class AwsEcsTaskExecutionDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PlacementConstraints block(s) allowed")]
     [TerraformProperty("placement_constraints")]
-    public TerraformSet<TerraformBlock<AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock>>? PlacementConstraints { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock>>? PlacementConstraints { get; set; }
 
     /// <summary>
     /// Block for placement_strategy.
@@ -298,13 +298,13 @@ public partial class AwsEcsTaskExecutionDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 PlacementStrategy block(s) allowed")]
     [TerraformProperty("placement_strategy")]
-    public TerraformList<TerraformBlock<AwsEcsTaskExecutionDataSourcePlacementStrategyBlock>>? PlacementStrategy { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcsTaskExecutionDataSourcePlacementStrategyBlock>>? PlacementStrategy { get; set; }
 
     /// <summary>
     /// The task_arns attribute.
     /// </summary>
     [TerraformProperty("task_arns")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> TaskArns { get; }
+    public partial TerraformList<string> TaskArns { get; }
 
 }

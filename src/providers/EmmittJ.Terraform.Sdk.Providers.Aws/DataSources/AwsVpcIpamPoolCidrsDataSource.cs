@@ -14,7 +14,7 @@ public partial class AwsVpcIpamPoolCidrsDataSourceFilterBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
@@ -22,7 +22,7 @@ public partial class AwsVpcIpamPoolCidrsDataSourceFilterBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     [TerraformProperty("values")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Values { get; set; }
+    public required partial TerraformSet<string> Values { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class AwsVpcIpamPoolCidrsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -55,7 +55,7 @@ public partial class AwsVpcIpamPoolCidrsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ipam_pool_id attribute.
@@ -63,34 +63,34 @@ public partial class AwsVpcIpamPoolCidrsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamPoolId is required")]
     [TerraformProperty("ipam_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IpamPoolId { get; set; }
+    public required partial TerraformValue<string> IpamPoolId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public TerraformSet<TerraformBlock<AwsVpcIpamPoolCidrsDataSourceFilterBlock>>? Filter { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsVpcIpamPoolCidrsDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsVpcIpamPoolCidrsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsVpcIpamPoolCidrsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The ipam_pool_cidrs attribute.
     /// </summary>
     [TerraformProperty("ipam_pool_cidrs")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> IpamPoolCidrs { get; }
+    public partial TerraformSet<object> IpamPoolCidrs { get; }
 
 }

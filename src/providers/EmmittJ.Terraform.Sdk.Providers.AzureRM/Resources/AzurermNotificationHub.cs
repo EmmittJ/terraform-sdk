@@ -14,7 +14,7 @@ public partial class AzurermNotificationHubApnsCredentialBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationMode is required")]
     [TerraformProperty("application_mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApplicationMode { get; set; }
+    public required partial TerraformValue<string> ApplicationMode { get; set; }
 
     /// <summary>
     /// The bundle_id attribute.
@@ -22,7 +22,7 @@ public partial class AzurermNotificationHubApnsCredentialBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
     [TerraformProperty("bundle_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BundleId { get; set; }
+    public required partial TerraformValue<string> BundleId { get; set; }
 
     /// <summary>
     /// The key_id attribute.
@@ -30,7 +30,7 @@ public partial class AzurermNotificationHubApnsCredentialBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     [TerraformProperty("key_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyId { get; set; }
+    public required partial TerraformValue<string> KeyId { get; set; }
 
     /// <summary>
     /// The team_id attribute.
@@ -38,7 +38,7 @@ public partial class AzurermNotificationHubApnsCredentialBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TeamId is required")]
     [TerraformProperty("team_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TeamId { get; set; }
+    public required partial TerraformValue<string> TeamId { get; set; }
 
     /// <summary>
     /// The token attribute.
@@ -46,7 +46,7 @@ public partial class AzurermNotificationHubApnsCredentialBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     [TerraformProperty("token")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Token { get; set; }
+    public required partial TerraformValue<string> Token { get; set; }
 
 }
 
@@ -62,7 +62,7 @@ public partial class AzurermNotificationHubBrowserCredentialBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     [TerraformProperty("subject")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Subject { get; set; }
+    public required partial TerraformValue<string> Subject { get; set; }
 
     /// <summary>
     /// The vapid_private_key attribute.
@@ -70,7 +70,7 @@ public partial class AzurermNotificationHubBrowserCredentialBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VapidPrivateKey is required")]
     [TerraformProperty("vapid_private_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VapidPrivateKey { get; set; }
+    public required partial TerraformValue<string> VapidPrivateKey { get; set; }
 
     /// <summary>
     /// The vapid_public_key attribute.
@@ -78,7 +78,7 @@ public partial class AzurermNotificationHubBrowserCredentialBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VapidPublicKey is required")]
     [TerraformProperty("vapid_public_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VapidPublicKey { get; set; }
+    public required partial TerraformValue<string> VapidPublicKey { get; set; }
 
 }
 
@@ -94,7 +94,7 @@ public partial class AzurermNotificationHubGcmCredentialBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     [TerraformProperty("api_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiKey { get; set; }
+    public required partial TerraformValue<string> ApiKey { get; set; }
 
 }
 
@@ -109,28 +109,28 @@ public partial class AzurermNotificationHubTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -149,7 +149,7 @@ public partial class AzurermNotificationHub : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -157,7 +157,7 @@ public partial class AzurermNotificationHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -165,7 +165,7 @@ public partial class AzurermNotificationHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The namespace_name attribute.
@@ -173,7 +173,7 @@ public partial class AzurermNotificationHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     [TerraformProperty("namespace_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NamespaceName { get; set; }
+    public required partial TerraformValue<string> NamespaceName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -181,14 +181,14 @@ public partial class AzurermNotificationHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for apns_credential.
@@ -196,7 +196,7 @@ public partial class AzurermNotificationHub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApnsCredential block(s) allowed")]
     [TerraformProperty("apns_credential")]
-    public TerraformList<TerraformBlock<AzurermNotificationHubApnsCredentialBlock>>? ApnsCredential { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNotificationHubApnsCredentialBlock>>? ApnsCredential { get; set; }
 
     /// <summary>
     /// Block for browser_credential.
@@ -204,7 +204,7 @@ public partial class AzurermNotificationHub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BrowserCredential block(s) allowed")]
     [TerraformProperty("browser_credential")]
-    public TerraformList<TerraformBlock<AzurermNotificationHubBrowserCredentialBlock>>? BrowserCredential { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNotificationHubBrowserCredentialBlock>>? BrowserCredential { get; set; }
 
     /// <summary>
     /// Block for gcm_credential.
@@ -212,13 +212,13 @@ public partial class AzurermNotificationHub : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcmCredential block(s) allowed")]
     [TerraformProperty("gcm_credential")]
-    public TerraformList<TerraformBlock<AzurermNotificationHubGcmCredentialBlock>>? GcmCredential { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNotificationHubGcmCredentialBlock>>? GcmCredential { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNotificationHubTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNotificationHubTimeoutsBlock>? Timeouts { get; set; }
 
 }

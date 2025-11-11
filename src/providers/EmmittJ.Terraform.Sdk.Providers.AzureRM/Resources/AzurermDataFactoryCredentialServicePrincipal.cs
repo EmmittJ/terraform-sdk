@@ -14,7 +14,7 @@ public partial class AzurermDataFactoryCredentialServicePrincipalServicePrincipa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     [TerraformProperty("linked_service_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LinkedServiceName { get; set; }
+    public required partial TerraformValue<string> LinkedServiceName { get; set; }
 
     /// <summary>
     /// The secret_name attribute.
@@ -22,14 +22,14 @@ public partial class AzurermDataFactoryCredentialServicePrincipalServicePrincipa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     [TerraformProperty("secret_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SecretName { get; set; }
+    public required partial TerraformValue<string> SecretName { get; set; }
 
     /// <summary>
     /// The secret_version attribute.
     /// </summary>
     [TerraformProperty("secret_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecretVersion { get; set; }
+    public partial TerraformValue<string>? SecretVersion { get; set; }
 
 }
 
@@ -44,28 +44,28 @@ public partial class AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock :
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -84,7 +84,7 @@ public partial class AzurermDataFactoryCredentialServicePrincipal : TerraformRes
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Annotations { get; set; }
+    public partial TerraformList<string>? Annotations { get; set; }
 
     /// <summary>
     /// The resource ID of the parent Data Factory
@@ -92,21 +92,21 @@ public partial class AzurermDataFactoryCredentialServicePrincipal : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformProperty("data_factory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataFactoryId { get; set; }
+    public required partial TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// (Optional) Short text description
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The desired name of the credential resource
@@ -114,7 +114,7 @@ public partial class AzurermDataFactoryCredentialServicePrincipal : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The Client ID of the Service Principal
@@ -122,7 +122,7 @@ public partial class AzurermDataFactoryCredentialServicePrincipal : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     [TerraformProperty("service_principal_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServicePrincipalId { get; set; }
+    public required partial TerraformValue<string> ServicePrincipalId { get; set; }
 
     /// <summary>
     /// The Tenant ID of the Service Principal
@@ -130,7 +130,7 @@ public partial class AzurermDataFactoryCredentialServicePrincipal : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     [TerraformProperty("tenant_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TenantId { get; set; }
+    public required partial TerraformValue<string> TenantId { get; set; }
 
     /// <summary>
     /// Block for service_principal_key.
@@ -138,13 +138,13 @@ public partial class AzurermDataFactoryCredentialServicePrincipal : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipalKey block(s) allowed")]
     [TerraformProperty("service_principal_key")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock>>? ServicePrincipalKey { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock>>? ServicePrincipalKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,28 +13,28 @@ public partial class AwsComprehendDocumentClassifierInputDataConfigBlock : Terra
     /// </summary>
     [TerraformProperty("data_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DataFormat { get; set; }
+    public partial TerraformValue<string>? DataFormat { get; set; }
 
     /// <summary>
     /// The label_delimiter attribute.
     /// </summary>
     [TerraformProperty("label_delimiter")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> LabelDelimiter { get; set; }
+    public partial TerraformValue<string> LabelDelimiter { get; set; }
 
     /// <summary>
     /// The s3_uri attribute.
     /// </summary>
     [TerraformProperty("s3_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? S3Uri { get; set; }
+    public partial TerraformValue<string>? S3Uri { get; set; }
 
     /// <summary>
     /// The test_s3_uri attribute.
     /// </summary>
     [TerraformProperty("test_s3_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TestS3Uri { get; set; }
+    public partial TerraformValue<string>? TestS3Uri { get; set; }
 
 }
 
@@ -49,7 +49,7 @@ public partial class AwsComprehendDocumentClassifierOutputDataConfigBlock : Terr
     /// </summary>
     [TerraformProperty("kms_key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyId { get; set; }
+    public partial TerraformValue<string>? KmsKeyId { get; set; }
 
 
     /// <summary>
@@ -58,7 +58,7 @@ public partial class AwsComprehendDocumentClassifierOutputDataConfigBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     [TerraformProperty("s3_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> S3Uri { get; set; }
+    public required partial TerraformValue<string> S3Uri { get; set; }
 
 }
 
@@ -73,21 +73,21 @@ public partial class AwsComprehendDocumentClassifierTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -103,7 +103,7 @@ public partial class AwsComprehendDocumentClassifierVpcConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     [TerraformProperty("security_group_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> SecurityGroupIds { get; set; }
+    public required partial TerraformSet<string> SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnets attribute.
@@ -111,7 +111,7 @@ public partial class AwsComprehendDocumentClassifierVpcConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     [TerraformProperty("subnets")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Subnets { get; set; }
+    public required partial TerraformSet<string> Subnets { get; set; }
 
 }
 
@@ -131,14 +131,14 @@ public partial class AwsComprehendDocumentClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessRoleArn is required")]
     [TerraformProperty("data_access_role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataAccessRoleArn { get; set; }
+    public required partial TerraformValue<string> DataAccessRoleArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The language_code attribute.
@@ -146,21 +146,21 @@ public partial class AwsComprehendDocumentClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     [TerraformProperty("language_code")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LanguageCode { get; set; }
+    public required partial TerraformValue<string> LanguageCode { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [TerraformProperty("mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Mode { get; set; }
+    public partial TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The model_kms_key_id attribute.
     /// </summary>
     [TerraformProperty("model_kms_key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ModelKmsKeyId { get; set; }
+    public partial TerraformValue<string>? ModelKmsKeyId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -168,49 +168,49 @@ public partial class AwsComprehendDocumentClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The version_name attribute.
     /// </summary>
     [TerraformProperty("version_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VersionName { get; set; }
+    public partial TerraformValue<string> VersionName { get; set; }
 
     /// <summary>
     /// The version_name_prefix attribute.
     /// </summary>
     [TerraformProperty("version_name_prefix")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VersionNamePrefix { get; set; }
+    public partial TerraformValue<string> VersionNamePrefix { get; set; }
 
     /// <summary>
     /// The volume_kms_key_id attribute.
     /// </summary>
     [TerraformProperty("volume_kms_key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VolumeKmsKeyId { get; set; }
+    public partial TerraformValue<string>? VolumeKmsKeyId { get; set; }
 
     /// <summary>
     /// Block for input_data_config.
@@ -220,7 +220,7 @@ public partial class AwsComprehendDocumentClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InputDataConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputDataConfig block(s) allowed")]
     [TerraformProperty("input_data_config")]
-    public TerraformList<TerraformBlock<AwsComprehendDocumentClassifierInputDataConfigBlock>>? InputDataConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsComprehendDocumentClassifierInputDataConfigBlock>>? InputDataConfig { get; set; }
 
     /// <summary>
     /// Block for output_data_config.
@@ -228,14 +228,14 @@ public partial class AwsComprehendDocumentClassifier : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputDataConfig block(s) allowed")]
     [TerraformProperty("output_data_config")]
-    public TerraformList<TerraformBlock<AwsComprehendDocumentClassifierOutputDataConfigBlock>>? OutputDataConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsComprehendDocumentClassifierOutputDataConfigBlock>>? OutputDataConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsComprehendDocumentClassifierTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsComprehendDocumentClassifierTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vpc_config.
@@ -243,13 +243,13 @@ public partial class AwsComprehendDocumentClassifier : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
     [TerraformProperty("vpc_config")]
-    public TerraformList<TerraformBlock<AwsComprehendDocumentClassifierVpcConfigBlock>>? VpcConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsComprehendDocumentClassifierVpcConfigBlock>>? VpcConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

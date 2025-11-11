@@ -14,7 +14,7 @@ public partial class AzurermNginxDeploymentAutoScaleProfileBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     [TerraformProperty("max_capacity")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MaxCapacity { get; set; }
+    public required partial TerraformValue<double> MaxCapacity { get; set; }
 
     /// <summary>
     /// The min_capacity attribute.
@@ -22,7 +22,7 @@ public partial class AzurermNginxDeploymentAutoScaleProfileBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     [TerraformProperty("min_capacity")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MinCapacity { get; set; }
+    public required partial TerraformValue<double> MinCapacity { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermNginxDeploymentAutoScaleProfileBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AzurermNginxDeploymentFrontendPrivateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationMethod is required")]
     [TerraformProperty("allocation_method")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AllocationMethod { get; set; }
+    public required partial TerraformValue<string> AllocationMethod { get; set; }
 
     /// <summary>
     /// The ip_address attribute.
@@ -54,7 +54,7 @@ public partial class AzurermNginxDeploymentFrontendPrivateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     [TerraformProperty("ip_address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IpAddress { get; set; }
+    public required partial TerraformValue<string> IpAddress { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -62,7 +62,7 @@ public partial class AzurermNginxDeploymentFrontendPrivateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
 }
 
@@ -77,7 +77,7 @@ public partial class AzurermNginxDeploymentFrontendPublicBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("ip_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? IpAddress { get; set; }
+    public partial TerraformList<string>? IpAddress { get; set; }
 
 }
 
@@ -92,7 +92,7 @@ public partial class AzurermNginxDeploymentIdentityBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -102,7 +102,7 @@ public partial class AzurermNginxDeploymentIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -118,14 +118,14 @@ public partial class AzurermNginxDeploymentLoggingStorageAccountBlock : Terrafor
     /// </summary>
     [TerraformProperty("container_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContainerName { get; set; }
+    public partial TerraformValue<string>? ContainerName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
 }
 
@@ -141,7 +141,7 @@ public partial class AzurermNginxDeploymentNetworkInterfaceBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
 }
 
@@ -156,28 +156,28 @@ public partial class AzurermNginxDeploymentTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -193,7 +193,7 @@ public partial class AzurermNginxDeploymentWebApplicationFirewallBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActivationStateEnabled is required")]
     [TerraformProperty("activation_state_enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> ActivationStateEnabled { get; set; }
+    public required partial TerraformValue<bool> ActivationStateEnabled { get; set; }
 
 
 }
@@ -213,35 +213,35 @@ public partial class AzurermNginxDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("automatic_upgrade_channel")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AutomaticUpgradeChannel { get; set; }
+    public partial TerraformValue<string>? AutomaticUpgradeChannel { get; set; }
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
     [TerraformProperty("capacity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Capacity { get; set; }
+    public partial TerraformValue<double>? Capacity { get; set; }
 
     /// <summary>
     /// The diagnose_support_enabled attribute.
     /// </summary>
     [TerraformProperty("diagnose_support_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DiagnoseSupportEnabled { get; set; }
+    public partial TerraformValue<bool>? DiagnoseSupportEnabled { get; set; }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     [TerraformProperty("email")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Email { get; set; }
+    public partial TerraformValue<string>? Email { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -249,7 +249,7 @@ public partial class AzurermNginxDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The managed_resource_group attribute.
@@ -257,7 +257,7 @@ public partial class AzurermNginxDeployment : TerraformResource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("managed_resource_group")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ManagedResourceGroup { get; set; }
+    public partial TerraformValue<string> ManagedResourceGroup { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -265,7 +265,7 @@ public partial class AzurermNginxDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -273,7 +273,7 @@ public partial class AzurermNginxDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
@@ -281,28 +281,28 @@ public partial class AzurermNginxDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [TerraformProperty("sku")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Sku { get; set; }
+    public required partial TerraformValue<string> Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for auto_scale_profile.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("auto_scale_profile")]
-    public TerraformList<TerraformBlock<AzurermNginxDeploymentAutoScaleProfileBlock>>? AutoScaleProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNginxDeploymentAutoScaleProfileBlock>>? AutoScaleProfile { get; set; }
 
     /// <summary>
     /// Block for frontend_private.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("frontend_private")]
-    public TerraformList<TerraformBlock<AzurermNginxDeploymentFrontendPrivateBlock>>? FrontendPrivate { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNginxDeploymentFrontendPrivateBlock>>? FrontendPrivate { get; set; }
 
     /// <summary>
     /// Block for frontend_public.
@@ -310,7 +310,7 @@ public partial class AzurermNginxDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrontendPublic block(s) allowed")]
     [TerraformProperty("frontend_public")]
-    public TerraformList<TerraformBlock<AzurermNginxDeploymentFrontendPublicBlock>>? FrontendPublic { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNginxDeploymentFrontendPublicBlock>>? FrontendPublic { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -318,7 +318,7 @@ public partial class AzurermNginxDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermNginxDeploymentIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNginxDeploymentIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for logging_storage_account.
@@ -326,21 +326,21 @@ public partial class AzurermNginxDeployment : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("logging_storage_account")]
-    public TerraformList<TerraformBlock<AzurermNginxDeploymentLoggingStorageAccountBlock>>? LoggingStorageAccount { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNginxDeploymentLoggingStorageAccountBlock>>? LoggingStorageAccount { get; set; }
 
     /// <summary>
     /// Block for network_interface.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("network_interface")]
-    public TerraformList<TerraformBlock<AzurermNginxDeploymentNetworkInterfaceBlock>>? NetworkInterface { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNginxDeploymentNetworkInterfaceBlock>>? NetworkInterface { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNginxDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNginxDeploymentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for web_application_firewall.
@@ -348,27 +348,27 @@ public partial class AzurermNginxDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebApplicationFirewall block(s) allowed")]
     [TerraformProperty("web_application_firewall")]
-    public TerraformList<TerraformBlock<AzurermNginxDeploymentWebApplicationFirewallBlock>>? WebApplicationFirewall { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNginxDeploymentWebApplicationFirewallBlock>>? WebApplicationFirewall { get; set; }
 
     /// <summary>
     /// The dataplane_api_endpoint attribute.
     /// </summary>
     [TerraformProperty("dataplane_api_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DataplaneApiEndpoint { get; }
+    public partial TerraformValue<string> DataplaneApiEndpoint { get; }
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     [TerraformProperty("ip_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IpAddress { get; }
+    public partial TerraformValue<string> IpAddress { get; }
 
     /// <summary>
     /// The nginx_version attribute.
     /// </summary>
     [TerraformProperty("nginx_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NginxVersion { get; }
+    public partial TerraformValue<string> NginxVersion { get; }
 
 }

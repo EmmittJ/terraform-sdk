@@ -13,14 +13,14 @@ public partial class GoogleComputeSharedVpcHostProjectTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleComputeSharedVpcHostProject : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the project that will serve as a Shared VPC host project
@@ -46,13 +46,13 @@ public partial class GoogleComputeSharedVpcHostProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformProperty("project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Project { get; set; }
+    public required partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeSharedVpcHostProjectTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeSharedVpcHostProjectTimeoutsBlock>? Timeouts { get; set; }
 
 }

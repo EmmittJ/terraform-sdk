@@ -16,34 +16,34 @@ public partial class GoogleStorageTransferProjectServiceAccountDataSource : Terr
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     [TerraformProperty("email")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Email { get; }
+    public partial TerraformValue<string> Email { get; }
 
     /// <summary>
     /// The member attribute.
     /// </summary>
     [TerraformProperty("member")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Member { get; }
+    public partial TerraformValue<string> Member { get; }
 
     /// <summary>
     /// The subject_id attribute.
     /// </summary>
     [TerraformProperty("subject_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SubjectId { get; }
+    public partial TerraformValue<string> SubjectId { get; }
 
 }

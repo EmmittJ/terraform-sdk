@@ -13,7 +13,7 @@ public partial class AzurermExtendedCustomLocationAuthenticationBlock : Terrafor
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -21,7 +21,7 @@ public partial class AzurermExtendedCustomLocationAuthenticationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
 }
 
@@ -36,28 +36,28 @@ public partial class AzurermExtendedCustomLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -78,14 +78,14 @@ public partial class AzurermExtendedCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterExtensionIds is required")]
     [TerraformProperty("cluster_extension_ids")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? ClusterExtensionIds { get; set; }
+    public partial TerraformList<string>? ClusterExtensionIds { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The host_resource_id attribute.
@@ -93,21 +93,21 @@ public partial class AzurermExtendedCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostResourceId is required")]
     [TerraformProperty("host_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HostResourceId { get; set; }
+    public required partial TerraformValue<string> HostResourceId { get; set; }
 
     /// <summary>
     /// The host_type attribute.
     /// </summary>
     [TerraformProperty("host_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HostType { get; set; }
+    public partial TerraformValue<string>? HostType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -115,7 +115,7 @@ public partial class AzurermExtendedCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -123,7 +123,7 @@ public partial class AzurermExtendedCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The namespace attribute.
@@ -131,7 +131,7 @@ public partial class AzurermExtendedCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     [TerraformProperty("namespace")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Namespace { get; set; }
+    public required partial TerraformValue<string> Namespace { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -139,7 +139,7 @@ public partial class AzurermExtendedCustomLocation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for authentication.
@@ -147,13 +147,13 @@ public partial class AzurermExtendedCustomLocation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
     [TerraformProperty("authentication")]
-    public TerraformList<TerraformBlock<AzurermExtendedCustomLocationAuthenticationBlock>>? Authentication { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermExtendedCustomLocationAuthenticationBlock>>? Authentication { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermExtendedCustomLocationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermExtendedCustomLocationTimeoutsBlock>? Timeouts { get; set; }
 
 }

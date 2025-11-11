@@ -16,7 +16,7 @@ public partial class AwsIamInstanceProfilesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The role_name attribute.
@@ -24,27 +24,27 @@ public partial class AwsIamInstanceProfilesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     [TerraformProperty("role_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleName { get; set; }
+    public required partial TerraformValue<string> RoleName { get; set; }
 
     /// <summary>
     /// The arns attribute.
     /// </summary>
     [TerraformProperty("arns")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> Arns { get; }
+    public partial TerraformSet<string> Arns { get; }
 
     /// <summary>
     /// The names attribute.
     /// </summary>
     [TerraformProperty("names")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> Names { get; }
+    public partial TerraformSet<string> Names { get; }
 
     /// <summary>
     /// The paths attribute.
     /// </summary>
     [TerraformProperty("paths")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> Paths { get; }
+    public partial TerraformSet<string> Paths { get; }
 
 }

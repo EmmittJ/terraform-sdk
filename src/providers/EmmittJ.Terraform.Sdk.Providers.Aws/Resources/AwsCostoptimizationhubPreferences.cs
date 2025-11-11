@@ -16,20 +16,20 @@ public partial class AwsCostoptimizationhubPreferences : TerraformResource
     /// </summary>
     [TerraformProperty("member_account_discount_visibility")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> MemberAccountDiscountVisibility { get; set; }
+    public partial TerraformValue<string> MemberAccountDiscountVisibility { get; set; }
 
     /// <summary>
     /// The savings_estimation_mode attribute.
     /// </summary>
     [TerraformProperty("savings_estimation_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SavingsEstimationMode { get; set; }
+    public partial TerraformValue<string> SavingsEstimationMode { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

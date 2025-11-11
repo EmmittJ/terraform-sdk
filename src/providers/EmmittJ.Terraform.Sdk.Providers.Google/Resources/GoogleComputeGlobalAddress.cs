@@ -13,21 +13,21 @@ public partial class GoogleComputeGlobalAddressTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -47,7 +47,7 @@ public partial class GoogleComputeGlobalAddress : TerraformResource
     /// </summary>
     [TerraformProperty("address")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Address { get; set; }
+    public partial TerraformValue<string> Address { get; set; }
 
     /// <summary>
     /// The type of the address to reserve.
@@ -57,28 +57,28 @@ public partial class GoogleComputeGlobalAddress : TerraformResource
     /// </summary>
     [TerraformProperty("address_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AddressType { get; set; }
+    public partial TerraformValue<string>? AddressType { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The IP Version that will be used by this address. The default value is &#39;IPV4&#39;. Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
     [TerraformProperty("ip_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpVersion { get; set; }
+    public partial TerraformValue<string>? IpVersion { get; set; }
 
     /// <summary>
     /// Labels to apply to this address.  A list of key-&amp;gt;value pairs.
@@ -89,7 +89,7 @@ public partial class GoogleComputeGlobalAddress : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -103,7 +103,7 @@ public partial class GoogleComputeGlobalAddress : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The URL of the network in which to reserve the IP range. The IP range
@@ -114,7 +114,7 @@ public partial class GoogleComputeGlobalAddress : TerraformResource
     /// </summary>
     [TerraformProperty("network")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Network { get; set; }
+    public partial TerraformValue<string>? Network { get; set; }
 
     /// <summary>
     /// The prefix length of the IP range. If not present, it means the
@@ -125,14 +125,14 @@ public partial class GoogleComputeGlobalAddress : TerraformResource
     /// </summary>
     [TerraformProperty("prefix_length")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> PrefixLength { get; set; }
+    public partial TerraformValue<double> PrefixLength { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The purpose of the resource. Possible values include:
@@ -143,28 +143,28 @@ public partial class GoogleComputeGlobalAddress : TerraformResource
     /// </summary>
     [TerraformProperty("purpose")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Purpose { get; set; }
+    public partial TerraformValue<string>? Purpose { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeGlobalAddressTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeGlobalAddressTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
@@ -172,14 +172,14 @@ public partial class GoogleComputeGlobalAddress : TerraformResource
     /// </summary>
     [TerraformProperty("label_fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LabelFingerprint { get; }
+    public partial TerraformValue<string> LabelFingerprint { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -187,6 +187,6 @@ public partial class GoogleComputeGlobalAddress : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

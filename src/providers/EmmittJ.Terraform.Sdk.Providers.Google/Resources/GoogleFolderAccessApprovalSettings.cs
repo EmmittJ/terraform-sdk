@@ -37,14 +37,14 @@ public partial class GoogleFolderAccessApprovalSettingsEnrolledServicesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudProduct is required")]
     [TerraformProperty("cloud_product")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CloudProduct { get; set; }
+    public required partial TerraformValue<string> CloudProduct { get; set; }
 
     /// <summary>
     /// The enrollment level of the service. Default value: &amp;quot;BLOCK_ALL&amp;quot; Possible values: [&amp;quot;BLOCK_ALL&amp;quot;]
     /// </summary>
     [TerraformProperty("enrollment_level")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EnrollmentLevel { get; set; }
+    public partial TerraformValue<string>? EnrollmentLevel { get; set; }
 
 }
 
@@ -59,21 +59,21 @@ public partial class GoogleFolderAccessApprovalSettingsTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -94,7 +94,7 @@ public partial class GoogleFolderAccessApprovalSettings : TerraformResource
     /// </summary>
     [TerraformProperty("active_key_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ActiveKeyVersion { get; set; }
+    public partial TerraformValue<string>? ActiveKeyVersion { get; set; }
 
     /// <summary>
     /// ID of the folder of the access approval settings.
@@ -102,14 +102,14 @@ public partial class GoogleFolderAccessApprovalSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
     [TerraformProperty("folder_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FolderId { get; set; }
+    public required partial TerraformValue<string> FolderId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A list of email addresses to which notifications relating to approval requests should be sent.
@@ -118,7 +118,7 @@ public partial class GoogleFolderAccessApprovalSettings : TerraformResource
     /// </summary>
     [TerraformProperty("notification_emails")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> NotificationEmails { get; set; }
+    public partial TerraformSet<string> NotificationEmails { get; set; }
 
     /// <summary>
     /// Block for enrolled_services.
@@ -127,28 +127,28 @@ public partial class GoogleFolderAccessApprovalSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnrolledServices is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EnrolledServices block(s) required")]
     [TerraformProperty("enrolled_services")]
-    public TerraformSet<TerraformBlock<GoogleFolderAccessApprovalSettingsEnrolledServicesBlock>>? EnrolledServices { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleFolderAccessApprovalSettingsEnrolledServicesBlock>>? EnrolledServices { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleFolderAccessApprovalSettingsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleFolderAccessApprovalSettingsTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// If the field is true, that indicates that an ancestor of this Folder has set active_key_version.
     /// </summary>
     [TerraformProperty("ancestor_has_active_key_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> AncestorHasActiveKeyVersion { get; }
+    public partial TerraformValue<bool> AncestorHasActiveKeyVersion { get; }
 
     /// <summary>
     /// If the field is true, that indicates that at least one service is enrolled for Access Approval in one or more ancestors of the Folder.
     /// </summary>
     [TerraformProperty("enrolled_ancestor")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> EnrolledAncestor { get; }
+    public partial TerraformValue<bool> EnrolledAncestor { get; }
 
     /// <summary>
     /// If the field is true, that indicates that there is some configuration issue with the active_key_version
@@ -158,13 +158,13 @@ public partial class GoogleFolderAccessApprovalSettings : TerraformResource
     /// </summary>
     [TerraformProperty("invalid_key_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> InvalidKeyVersion { get; }
+    public partial TerraformValue<bool> InvalidKeyVersion { get; }
 
     /// <summary>
     /// The resource name of the settings. Format is &amp;quot;folders/{folder_id}/accessApprovalSettings&amp;quot;
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

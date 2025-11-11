@@ -16,27 +16,27 @@ public partial class GoogleComputeForwardingRulesDataSource : TerraformDataSourc
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The rules attribute.
     /// </summary>
     [TerraformProperty("rules")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Rules { get; }
+    public partial TerraformList<object> Rules { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class AzurermAppServicePublicCertificateTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AzurermAppServicePublicCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
     [TerraformProperty("app_service_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AppServiceName { get; set; }
+    public required partial TerraformValue<string> AppServiceName { get; set; }
 
     /// <summary>
     /// The blob attribute.
@@ -54,7 +54,7 @@ public partial class AzurermAppServicePublicCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Blob is required")]
     [TerraformProperty("blob")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Blob { get; set; }
+    public required partial TerraformValue<string> Blob { get; set; }
 
     /// <summary>
     /// The certificate_location attribute.
@@ -62,7 +62,7 @@ public partial class AzurermAppServicePublicCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateLocation is required")]
     [TerraformProperty("certificate_location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CertificateLocation { get; set; }
+    public required partial TerraformValue<string> CertificateLocation { get; set; }
 
     /// <summary>
     /// The certificate_name attribute.
@@ -70,14 +70,14 @@ public partial class AzurermAppServicePublicCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateName is required")]
     [TerraformProperty("certificate_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CertificateName { get; set; }
+    public required partial TerraformValue<string> CertificateName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -85,20 +85,20 @@ public partial class AzurermAppServicePublicCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAppServicePublicCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAppServicePublicCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     [TerraformProperty("thumbprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Thumbprint { get; }
+    public partial TerraformValue<string> Thumbprint { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermPrivateDnsResolverForwardingRuleDataSourceTimeoutsBl
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzurermPrivateDnsResolverForwardingRuleDataSource : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsForwardingRulesetId is required")]
     [TerraformProperty("dns_forwarding_ruleset_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DnsForwardingRulesetId { get; set; }
+    public required partial TerraformValue<string> DnsForwardingRulesetId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,41 +47,41 @@ public partial class AzurermPrivateDnsResolverForwardingRuleDataSource : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPrivateDnsResolverForwardingRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPrivateDnsResolverForwardingRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [TerraformProperty("domain_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DomainName { get; }
+    public partial TerraformValue<string> DomainName { get; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Enabled { get; }
+    public partial TerraformValue<bool> Enabled { get; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     [TerraformProperty("metadata")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Metadata { get; }
+    public partial TerraformMap<string> Metadata { get; }
 
     /// <summary>
     /// The target_dns_servers attribute.
     /// </summary>
     [TerraformProperty("target_dns_servers")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> TargetDnsServers { get; }
+    public partial TerraformList<object> TargetDnsServers { get; }
 
 }

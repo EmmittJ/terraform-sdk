@@ -13,7 +13,7 @@ public partial class AzureadDirectoryRoleTemplatesDataSourceTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,27 +31,27 @@ public partial class AzureadDirectoryRoleTemplatesDataSource : TerraformDataSour
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadDirectoryRoleTemplatesDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadDirectoryRoleTemplatesDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The object IDs of the role templates
     /// </summary>
     [TerraformProperty("object_ids")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ObjectIds { get; }
+    public partial TerraformList<string> ObjectIds { get; }
 
     /// <summary>
     /// A list of role templates
     /// </summary>
     [TerraformProperty("role_templates")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> RoleTemplates { get; }
+    public partial TerraformList<object> RoleTemplates { get; }
 
 }

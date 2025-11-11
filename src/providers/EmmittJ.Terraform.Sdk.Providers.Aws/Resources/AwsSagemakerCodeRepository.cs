@@ -13,7 +13,7 @@ public partial class AwsSagemakerCodeRepositoryGitConfigBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("branch")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Branch { get; set; }
+    public partial TerraformValue<string>? Branch { get; set; }
 
     /// <summary>
     /// The repository_url attribute.
@@ -21,14 +21,14 @@ public partial class AwsSagemakerCodeRepositoryGitConfigBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     [TerraformProperty("repository_url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepositoryUrl { get; set; }
+    public required partial TerraformValue<string> RepositoryUrl { get; set; }
 
     /// <summary>
     /// The secret_arn attribute.
     /// </summary>
     [TerraformProperty("secret_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecretArn { get; set; }
+    public partial TerraformValue<string>? SecretArn { get; set; }
 
 }
 
@@ -48,35 +48,35 @@ public partial class AwsSagemakerCodeRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeRepositoryName is required")]
     [TerraformProperty("code_repository_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CodeRepositoryName { get; set; }
+    public required partial TerraformValue<string> CodeRepositoryName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for git_config.
@@ -86,13 +86,13 @@ public partial class AwsSagemakerCodeRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GitConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitConfig block(s) allowed")]
     [TerraformProperty("git_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerCodeRepositoryGitConfigBlock>>? GitConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerCodeRepositoryGitConfigBlock>>? GitConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

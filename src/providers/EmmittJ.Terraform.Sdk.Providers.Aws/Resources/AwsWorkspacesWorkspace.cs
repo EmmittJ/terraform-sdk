@@ -13,21 +13,21 @@ public partial class AwsWorkspacesWorkspaceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -42,35 +42,35 @@ public partial class AwsWorkspacesWorkspaceWorkspacePropertiesBlock : TerraformB
     /// </summary>
     [TerraformProperty("compute_type_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ComputeTypeName { get; set; }
+    public partial TerraformValue<string>? ComputeTypeName { get; set; }
 
     /// <summary>
     /// The root_volume_size_gib attribute.
     /// </summary>
     [TerraformProperty("root_volume_size_gib")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RootVolumeSizeGib { get; set; }
+    public partial TerraformValue<double>? RootVolumeSizeGib { get; set; }
 
     /// <summary>
     /// The running_mode attribute.
     /// </summary>
     [TerraformProperty("running_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RunningMode { get; set; }
+    public partial TerraformValue<string>? RunningMode { get; set; }
 
     /// <summary>
     /// The running_mode_auto_stop_timeout_in_minutes attribute.
     /// </summary>
     [TerraformProperty("running_mode_auto_stop_timeout_in_minutes")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> RunningModeAutoStopTimeoutInMinutes { get; set; }
+    public partial TerraformValue<double> RunningModeAutoStopTimeoutInMinutes { get; set; }
 
     /// <summary>
     /// The user_volume_size_gib attribute.
     /// </summary>
     [TerraformProperty("user_volume_size_gib")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? UserVolumeSizeGib { get; set; }
+    public partial TerraformValue<double>? UserVolumeSizeGib { get; set; }
 
 }
 
@@ -90,7 +90,7 @@ public partial class AwsWorkspacesWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
     [TerraformProperty("bundle_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BundleId { get; set; }
+    public required partial TerraformValue<string> BundleId { get; set; }
 
     /// <summary>
     /// The directory_id attribute.
@@ -98,42 +98,42 @@ public partial class AwsWorkspacesWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     [TerraformProperty("directory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DirectoryId { get; set; }
+    public required partial TerraformValue<string> DirectoryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The root_volume_encryption_enabled attribute.
     /// </summary>
     [TerraformProperty("root_volume_encryption_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RootVolumeEncryptionEnabled { get; set; }
+    public partial TerraformValue<bool>? RootVolumeEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The user_name attribute.
@@ -141,28 +141,28 @@ public partial class AwsWorkspacesWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     [TerraformProperty("user_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UserName { get; set; }
+    public required partial TerraformValue<string> UserName { get; set; }
 
     /// <summary>
     /// The user_volume_encryption_enabled attribute.
     /// </summary>
     [TerraformProperty("user_volume_encryption_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UserVolumeEncryptionEnabled { get; set; }
+    public partial TerraformValue<bool>? UserVolumeEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The volume_encryption_key attribute.
     /// </summary>
     [TerraformProperty("volume_encryption_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VolumeEncryptionKey { get; set; }
+    public partial TerraformValue<string>? VolumeEncryptionKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsWorkspacesWorkspaceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsWorkspacesWorkspaceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for workspace_properties.
@@ -170,27 +170,27 @@ public partial class AwsWorkspacesWorkspace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkspaceProperties block(s) allowed")]
     [TerraformProperty("workspace_properties")]
-    public TerraformList<TerraformBlock<AwsWorkspacesWorkspaceWorkspacePropertiesBlock>>? WorkspaceProperties { get; set; }
+    public partial TerraformList<TerraformBlock<AwsWorkspacesWorkspaceWorkspacePropertiesBlock>>? WorkspaceProperties { get; set; }
 
     /// <summary>
     /// The computer_name attribute.
     /// </summary>
     [TerraformProperty("computer_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ComputerName { get; }
+    public partial TerraformValue<string> ComputerName { get; }
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     [TerraformProperty("ip_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IpAddress { get; }
+    public partial TerraformValue<string> IpAddress { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

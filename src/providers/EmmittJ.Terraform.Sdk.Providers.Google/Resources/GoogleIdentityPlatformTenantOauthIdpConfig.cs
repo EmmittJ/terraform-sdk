@@ -13,21 +13,21 @@ public partial class GoogleIdentityPlatformTenantOauthIdpConfigTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class GoogleIdentityPlatformTenantOauthIdpConfig : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     [TerraformProperty("client_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientId { get; set; }
+    public required partial TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The client secret of the OAuth client, to enable OIDC code flow.
     /// </summary>
     [TerraformProperty("client_secret")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientSecret { get; set; }
+    public partial TerraformValue<string>? ClientSecret { get; set; }
 
     /// <summary>
     /// Human friendly display name.
@@ -61,21 +61,21 @@ public partial class GoogleIdentityPlatformTenantOauthIdpConfig : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// If this config allows users to sign in with the provider.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// For OIDC Idps, the issuer identifier.
@@ -83,7 +83,7 @@ public partial class GoogleIdentityPlatformTenantOauthIdpConfig : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     [TerraformProperty("issuer")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Issuer { get; set; }
+    public required partial TerraformValue<string> Issuer { get; set; }
 
     /// <summary>
     /// The name of the OauthIdpConfig. Must start with &#39;oidc.&#39;.
@@ -91,14 +91,14 @@ public partial class GoogleIdentityPlatformTenantOauthIdpConfig : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The name of the tenant where this OIDC IDP configuration resource exists
@@ -106,13 +106,13 @@ public partial class GoogleIdentityPlatformTenantOauthIdpConfig : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tenant is required")]
     [TerraformProperty("tenant")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Tenant { get; set; }
+    public required partial TerraformValue<string> Tenant { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleIdentityPlatformTenantOauthIdpConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleIdentityPlatformTenantOauthIdpConfigTimeoutsBlock>? Timeouts { get; set; }
 
 }

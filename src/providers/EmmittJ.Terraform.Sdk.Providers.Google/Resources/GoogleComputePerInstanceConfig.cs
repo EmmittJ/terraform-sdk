@@ -13,7 +13,7 @@ public partial class GoogleComputePerInstanceConfigPreservedStateBlock : Terrafo
     /// </summary>
     [TerraformProperty("metadata")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Metadata { get; set; }
+    public partial TerraformMap<string>? Metadata { get; set; }
 
 }
 
@@ -28,21 +28,21 @@ public partial class GoogleComputePerInstanceConfigTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -61,7 +61,7 @@ public partial class GoogleComputePerInstanceConfig : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance group manager this instance config is part of.
@@ -69,7 +69,7 @@ public partial class GoogleComputePerInstanceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceGroupManager is required")]
     [TerraformProperty("instance_group_manager")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InstanceGroupManager { get; set; }
+    public required partial TerraformValue<string> InstanceGroupManager { get; set; }
 
     /// <summary>
     /// The minimal action to perform on the instance during an update.
@@ -81,7 +81,7 @@ public partial class GoogleComputePerInstanceConfig : TerraformResource
     /// </summary>
     [TerraformProperty("minimal_action")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MinimalAction { get; set; }
+    public partial TerraformValue<string>? MinimalAction { get; set; }
 
     /// <summary>
     /// The most disruptive action to perform on the instance during an update.
@@ -93,7 +93,7 @@ public partial class GoogleComputePerInstanceConfig : TerraformResource
     /// </summary>
     [TerraformProperty("most_disruptive_allowed_action")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MostDisruptiveAllowedAction { get; set; }
+    public partial TerraformValue<string>? MostDisruptiveAllowedAction { get; set; }
 
     /// <summary>
     /// The name for this per-instance config and its corresponding instance.
@@ -101,14 +101,14 @@ public partial class GoogleComputePerInstanceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// When true, deleting this config will immediately remove the underlying instance.
@@ -116,7 +116,7 @@ public partial class GoogleComputePerInstanceConfig : TerraformResource
     /// </summary>
     [TerraformProperty("remove_instance_on_destroy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RemoveInstanceOnDestroy { get; set; }
+    public partial TerraformValue<bool>? RemoveInstanceOnDestroy { get; set; }
 
     /// <summary>
     /// When true, deleting this config will immediately remove any specified state from the underlying instance.
@@ -125,14 +125,14 @@ public partial class GoogleComputePerInstanceConfig : TerraformResource
     /// </summary>
     [TerraformProperty("remove_instance_state_on_destroy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RemoveInstanceStateOnDestroy { get; set; }
+    public partial TerraformValue<bool>? RemoveInstanceStateOnDestroy { get; set; }
 
     /// <summary>
     /// Zone where the containing instance group manager is located
     /// </summary>
     [TerraformProperty("zone")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Zone { get; set; }
+    public partial TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Block for preserved_state.
@@ -140,13 +140,13 @@ public partial class GoogleComputePerInstanceConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreservedState block(s) allowed")]
     [TerraformProperty("preserved_state")]
-    public TerraformList<TerraformBlock<GoogleComputePerInstanceConfigPreservedStateBlock>>? PreservedState { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputePerInstanceConfigPreservedStateBlock>>? PreservedState { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputePerInstanceConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputePerInstanceConfigTimeoutsBlock>? Timeouts { get; set; }
 
 }

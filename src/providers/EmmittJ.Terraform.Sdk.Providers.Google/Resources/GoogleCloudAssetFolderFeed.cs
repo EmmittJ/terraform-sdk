@@ -14,7 +14,7 @@ public partial class GoogleCloudAssetFolderFeedConditionBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Textual representation of an expression in Common Expression Language syntax.
@@ -22,7 +22,7 @@ public partial class GoogleCloudAssetFolderFeedConditionBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     [TerraformProperty("expression")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Expression { get; set; }
+    public required partial TerraformValue<string> Expression { get; set; }
 
     /// <summary>
     /// String indicating the location of the expression for error reporting, e.g. a file
@@ -30,7 +30,7 @@ public partial class GoogleCloudAssetFolderFeedConditionBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Title for the expression, i.e. a short string describing its purpose.
@@ -38,7 +38,7 @@ public partial class GoogleCloudAssetFolderFeedConditionBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("title")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Title { get; set; }
+    public partial TerraformValue<string>? Title { get; set; }
 
 }
 
@@ -61,21 +61,21 @@ public partial class GoogleCloudAssetFolderFeedTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -97,7 +97,7 @@ public partial class GoogleCloudAssetFolderFeed : TerraformResource
     /// </summary>
     [TerraformProperty("asset_names")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AssetNames { get; set; }
+    public partial TerraformList<string>? AssetNames { get; set; }
 
     /// <summary>
     /// A list of types of the assets to receive updates. You must specify either or both of assetNames
@@ -108,7 +108,7 @@ public partial class GoogleCloudAssetFolderFeed : TerraformResource
     /// </summary>
     [TerraformProperty("asset_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AssetTypes { get; set; }
+    public partial TerraformList<string>? AssetTypes { get; set; }
 
     /// <summary>
     /// The project whose identity will be used when sending messages to the
@@ -118,14 +118,14 @@ public partial class GoogleCloudAssetFolderFeed : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingProject is required")]
     [TerraformProperty("billing_project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BillingProject { get; set; }
+    public required partial TerraformValue<string> BillingProject { get; set; }
 
     /// <summary>
     /// Asset content type. If not specified, no content but the asset name and type will be returned. Possible values: [&amp;quot;CONTENT_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;RESOURCE&amp;quot;, &amp;quot;IAM_POLICY&amp;quot;, &amp;quot;ORG_POLICY&amp;quot;, &amp;quot;OS_INVENTORY&amp;quot;, &amp;quot;ACCESS_POLICY&amp;quot;]
     /// </summary>
     [TerraformProperty("content_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContentType { get; set; }
+    public partial TerraformValue<string>? ContentType { get; set; }
 
     /// <summary>
     /// This is the client-assigned asset feed identifier and it needs to be unique under a specific parent.
@@ -133,7 +133,7 @@ public partial class GoogleCloudAssetFolderFeed : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeedId is required")]
     [TerraformProperty("feed_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FeedId { get; set; }
+    public required partial TerraformValue<string> FeedId { get; set; }
 
     /// <summary>
     /// The folder this feed should be created in.
@@ -141,14 +141,14 @@ public partial class GoogleCloudAssetFolderFeed : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     [TerraformProperty("folder")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Folder { get; set; }
+    public required partial TerraformValue<string> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for condition.
@@ -156,7 +156,7 @@ public partial class GoogleCloudAssetFolderFeed : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public TerraformList<TerraformBlock<GoogleCloudAssetFolderFeedConditionBlock>>? Condition { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudAssetFolderFeedConditionBlock>>? Condition { get; set; }
 
     /// <summary>
     /// Block for feed_output_config.
@@ -166,14 +166,14 @@ public partial class GoogleCloudAssetFolderFeed : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FeedOutputConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FeedOutputConfig block(s) allowed")]
     [TerraformProperty("feed_output_config")]
-    public TerraformList<TerraformBlock<GoogleCloudAssetFolderFeedFeedOutputConfigBlock>>? FeedOutputConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudAssetFolderFeedFeedOutputConfigBlock>>? FeedOutputConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleCloudAssetFolderFeedTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleCloudAssetFolderFeedTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The ID of the folder where this feed has been created. Both [FOLDER_NUMBER]
@@ -181,13 +181,13 @@ public partial class GoogleCloudAssetFolderFeed : TerraformResource
     /// </summary>
     [TerraformProperty("folder_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> FolderId { get; }
+    public partial TerraformValue<string> FolderId { get; }
 
     /// <summary>
     /// The format will be folders/{folder_number}/feeds/{client-assigned_feed_identifier}.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

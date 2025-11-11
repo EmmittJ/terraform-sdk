@@ -22,7 +22,7 @@ public partial class GoogleAccessContextManagerServicePerimeterSpecBlock : Terra
     /// </summary>
     [TerraformProperty("access_levels")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AccessLevels { get; set; }
+    public partial TerraformSet<string>? AccessLevels { get; set; }
 
     /// <summary>
     /// A list of GCP resources that are inside of the service perimeter.
@@ -31,7 +31,7 @@ public partial class GoogleAccessContextManagerServicePerimeterSpecBlock : Terra
     /// </summary>
     [TerraformProperty("resources")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Resources { get; set; }
+    public partial TerraformSet<string>? Resources { get; set; }
 
     /// <summary>
     /// GCP services that are subject to the Service Perimeter
@@ -42,7 +42,7 @@ public partial class GoogleAccessContextManagerServicePerimeterSpecBlock : Terra
     /// </summary>
     [TerraformProperty("restricted_services")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? RestrictedServices { get; set; }
+    public partial TerraformSet<string>? RestrictedServices { get; set; }
 
 }
 
@@ -66,7 +66,7 @@ public partial class GoogleAccessContextManagerServicePerimeterStatusBlock : Ter
     /// </summary>
     [TerraformProperty("access_levels")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AccessLevels { get; set; }
+    public partial TerraformSet<string>? AccessLevels { get; set; }
 
     /// <summary>
     /// A list of GCP resources that are inside of the service perimeter.
@@ -75,7 +75,7 @@ public partial class GoogleAccessContextManagerServicePerimeterStatusBlock : Ter
     /// </summary>
     [TerraformProperty("resources")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Resources { get; set; }
+    public partial TerraformSet<string>? Resources { get; set; }
 
     /// <summary>
     /// GCP services that are subject to the Service Perimeter
@@ -86,7 +86,7 @@ public partial class GoogleAccessContextManagerServicePerimeterStatusBlock : Ter
     /// </summary>
     [TerraformProperty("restricted_services")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? RestrictedServices { get; set; }
+    public partial TerraformSet<string>? RestrictedServices { get; set; }
 
 }
 
@@ -101,21 +101,21 @@ public partial class GoogleAccessContextManagerServicePerimeterTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -135,14 +135,14 @@ public partial class GoogleAccessContextManagerServicePerimeter : TerraformResou
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource name for the ServicePerimeter. The short_name component must
@@ -152,7 +152,7 @@ public partial class GoogleAccessContextManagerServicePerimeter : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The AccessPolicy this ServicePerimeter lives in.
@@ -161,7 +161,7 @@ public partial class GoogleAccessContextManagerServicePerimeter : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Specifies the type of the Perimeter. There are two types: regular and
@@ -183,7 +183,7 @@ public partial class GoogleAccessContextManagerServicePerimeter : TerraformResou
     /// </summary>
     [TerraformProperty("perimeter_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PerimeterType { get; set; }
+    public partial TerraformValue<string>? PerimeterType { get; set; }
 
     /// <summary>
     /// Human readable title. Must be unique within the Policy.
@@ -191,7 +191,7 @@ public partial class GoogleAccessContextManagerServicePerimeter : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     [TerraformProperty("title")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Title { get; set; }
+    public required partial TerraformValue<string> Title { get; set; }
 
     /// <summary>
     /// Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly exists
@@ -206,7 +206,7 @@ public partial class GoogleAccessContextManagerServicePerimeter : TerraformResou
     /// </summary>
     [TerraformProperty("use_explicit_dry_run_spec")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseExplicitDryRunSpec { get; set; }
+    public partial TerraformValue<bool>? UseExplicitDryRunSpec { get; set; }
 
     /// <summary>
     /// Block for spec.
@@ -214,7 +214,7 @@ public partial class GoogleAccessContextManagerServicePerimeter : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     [TerraformProperty("spec")]
-    public TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterSpecBlock>>? Spec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterSpecBlock>>? Spec { get; set; }
 
     /// <summary>
     /// Block for status.
@@ -222,27 +222,27 @@ public partial class GoogleAccessContextManagerServicePerimeter : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Status block(s) allowed")]
     [TerraformProperty("status")]
-    public TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterStatusBlock>>? Status { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterStatusBlock>>? Status { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleAccessContextManagerServicePerimeterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleAccessContextManagerServicePerimeterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the AccessPolicy was created in UTC.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Time the AccessPolicy was updated in UTC.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

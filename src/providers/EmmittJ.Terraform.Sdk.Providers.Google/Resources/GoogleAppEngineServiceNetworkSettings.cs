@@ -13,7 +13,7 @@ public partial class GoogleAppEngineServiceNetworkSettingsNetworkSettingsBlock :
     /// </summary>
     [TerraformProperty("ingress_traffic_allowed")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IngressTrafficAllowed { get; set; }
+    public partial TerraformValue<string>? IngressTrafficAllowed { get; set; }
 
 }
 
@@ -28,21 +28,21 @@ public partial class GoogleAppEngineServiceNetworkSettingsTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -61,14 +61,14 @@ public partial class GoogleAppEngineServiceNetworkSettings : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The name of the service these settings apply to.
@@ -76,7 +76,7 @@ public partial class GoogleAppEngineServiceNetworkSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformProperty("service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Service { get; set; }
+    public required partial TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// Block for network_settings.
@@ -86,13 +86,13 @@ public partial class GoogleAppEngineServiceNetworkSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkSettings block(s) allowed")]
     [TerraformProperty("network_settings")]
-    public TerraformList<TerraformBlock<GoogleAppEngineServiceNetworkSettingsNetworkSettingsBlock>>? NetworkSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineServiceNetworkSettingsNetworkSettingsBlock>>? NetworkSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleAppEngineServiceNetworkSettingsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleAppEngineServiceNetworkSettingsTimeoutsBlock>? Timeouts { get; set; }
 
 }

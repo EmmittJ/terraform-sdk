@@ -16,7 +16,7 @@ public partial class GoogleSecureSourceManagerHookPushOptionBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("branch_filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BranchFilter { get; set; }
+    public partial TerraformValue<string>? BranchFilter { get; set; }
 
 }
 
@@ -31,21 +31,21 @@ public partial class GoogleSecureSourceManagerHookTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -65,14 +65,14 @@ public partial class GoogleSecureSourceManagerHook : TerraformResource
     /// </summary>
     [TerraformProperty("disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Disabled { get; set; }
+    public partial TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The events that trigger hook on. Possible values: [&amp;quot;PUSH&amp;quot;, &amp;quot;PULL_REQUEST&amp;quot;]
     /// </summary>
     [TerraformProperty("events")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> Events { get; set; }
+    public partial TerraformList<string> Events { get; set; }
 
     /// <summary>
     /// The ID for the Hook.
@@ -80,14 +80,14 @@ public partial class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HookId is required")]
     [TerraformProperty("hook_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HookId { get; set; }
+    public required partial TerraformValue<string> HookId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the Repository.
@@ -95,14 +95,14 @@ public partial class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The ID for the Repository.
@@ -110,14 +110,14 @@ public partial class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     [TerraformProperty("repository_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepositoryId { get; set; }
+    public required partial TerraformValue<string> RepositoryId { get; set; }
 
     /// <summary>
     /// The sensitive query string to be appended to the target URI.
     /// </summary>
     [TerraformProperty("sensitive_query_string")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SensitiveQueryString { get; set; }
+    public partial TerraformValue<string>? SensitiveQueryString { get; set; }
 
     /// <summary>
     /// The target URI to which the payloads will be delivered.
@@ -125,7 +125,7 @@ public partial class GoogleSecureSourceManagerHook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetUri is required")]
     [TerraformProperty("target_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetUri { get; set; }
+    public required partial TerraformValue<string> TargetUri { get; set; }
 
     /// <summary>
     /// Block for push_option.
@@ -133,21 +133,21 @@ public partial class GoogleSecureSourceManagerHook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PushOption block(s) allowed")]
     [TerraformProperty("push_option")]
-    public TerraformList<TerraformBlock<GoogleSecureSourceManagerHookPushOptionBlock>>? PushOption { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleSecureSourceManagerHookPushOptionBlock>>? PushOption { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleSecureSourceManagerHookTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleSecureSourceManagerHookTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Create timestamp.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// A unique identifier for a Hook. The name should be of the format:
@@ -155,20 +155,20 @@ public partial class GoogleSecureSourceManagerHook : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Unique identifier of the hook.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Update timestamp.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

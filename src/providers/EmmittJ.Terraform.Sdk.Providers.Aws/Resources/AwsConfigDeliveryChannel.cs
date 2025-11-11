@@ -13,7 +13,7 @@ public partial class AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock : T
     /// </summary>
     [TerraformProperty("delivery_frequency")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeliveryFrequency { get; set; }
+    public partial TerraformValue<string>? DeliveryFrequency { get; set; }
 
 }
 
@@ -32,21 +32,21 @@ public partial class AwsConfigDeliveryChannel : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The s3_bucket_name attribute.
@@ -54,28 +54,28 @@ public partial class AwsConfigDeliveryChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     [TerraformProperty("s3_bucket_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> S3BucketName { get; set; }
+    public required partial TerraformValue<string> S3BucketName { get; set; }
 
     /// <summary>
     /// The s3_key_prefix attribute.
     /// </summary>
     [TerraformProperty("s3_key_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? S3KeyPrefix { get; set; }
+    public partial TerraformValue<string>? S3KeyPrefix { get; set; }
 
     /// <summary>
     /// The s3_kms_key_arn attribute.
     /// </summary>
     [TerraformProperty("s3_kms_key_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? S3KmsKeyArn { get; set; }
+    public partial TerraformValue<string>? S3KmsKeyArn { get; set; }
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
     [TerraformProperty("sns_topic_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SnsTopicArn { get; set; }
+    public partial TerraformValue<string>? SnsTopicArn { get; set; }
 
     /// <summary>
     /// Block for snapshot_delivery_properties.
@@ -83,6 +83,6 @@ public partial class AwsConfigDeliveryChannel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotDeliveryProperties block(s) allowed")]
     [TerraformProperty("snapshot_delivery_properties")]
-    public TerraformList<TerraformBlock<AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock>>? SnapshotDeliveryProperties { get; set; }
+    public partial TerraformList<TerraformBlock<AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock>>? SnapshotDeliveryProperties { get; set; }
 
 }

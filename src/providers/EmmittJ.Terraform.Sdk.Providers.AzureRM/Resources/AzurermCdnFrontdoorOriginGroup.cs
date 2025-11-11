@@ -14,14 +14,14 @@ public partial class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntervalInSeconds is required")]
     [TerraformProperty("interval_in_seconds")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> IntervalInSeconds { get; set; }
+    public required partial TerraformValue<double> IntervalInSeconds { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [TerraformProperty("path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Path { get; set; }
+    public partial TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The protocol attribute.
@@ -29,14 +29,14 @@ public partial class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformProperty("protocol")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Protocol { get; set; }
+    public required partial TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// The request_type attribute.
     /// </summary>
     [TerraformProperty("request_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RequestType { get; set; }
+    public partial TerraformValue<string>? RequestType { get; set; }
 
 }
 
@@ -51,21 +51,21 @@ public partial class AzurermCdnFrontdoorOriginGroupLoadBalancingBlock : Terrafor
     /// </summary>
     [TerraformProperty("additional_latency_in_milliseconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AdditionalLatencyInMilliseconds { get; set; }
+    public partial TerraformValue<double>? AdditionalLatencyInMilliseconds { get; set; }
 
     /// <summary>
     /// The sample_size attribute.
     /// </summary>
     [TerraformProperty("sample_size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SampleSize { get; set; }
+    public partial TerraformValue<double>? SampleSize { get; set; }
 
     /// <summary>
     /// The successful_samples_required attribute.
     /// </summary>
     [TerraformProperty("successful_samples_required")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SuccessfulSamplesRequired { get; set; }
+    public partial TerraformValue<double>? SuccessfulSamplesRequired { get; set; }
 
 }
 
@@ -80,28 +80,28 @@ public partial class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -121,14 +121,14 @@ public partial class AzurermCdnFrontdoorOriginGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
     [TerraformProperty("cdn_frontdoor_profile_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CdnFrontdoorProfileId { get; set; }
+    public required partial TerraformValue<string> CdnFrontdoorProfileId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -136,21 +136,21 @@ public partial class AzurermCdnFrontdoorOriginGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The restore_traffic_time_to_healed_or_new_endpoint_in_minutes attribute.
     /// </summary>
     [TerraformProperty("restore_traffic_time_to_healed_or_new_endpoint_in_minutes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RestoreTrafficTimeToHealedOrNewEndpointInMinutes { get; set; }
+    public partial TerraformValue<double>? RestoreTrafficTimeToHealedOrNewEndpointInMinutes { get; set; }
 
     /// <summary>
     /// The session_affinity_enabled attribute.
     /// </summary>
     [TerraformProperty("session_affinity_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SessionAffinityEnabled { get; set; }
+    public partial TerraformValue<bool>? SessionAffinityEnabled { get; set; }
 
     /// <summary>
     /// Block for health_probe.
@@ -158,7 +158,7 @@ public partial class AzurermCdnFrontdoorOriginGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthProbe block(s) allowed")]
     [TerraformProperty("health_probe")]
-    public TerraformList<TerraformBlock<AzurermCdnFrontdoorOriginGroupHealthProbeBlock>>? HealthProbe { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorOriginGroupHealthProbeBlock>>? HealthProbe { get; set; }
 
     /// <summary>
     /// Block for load_balancing.
@@ -168,13 +168,13 @@ public partial class AzurermCdnFrontdoorOriginGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LoadBalancing block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancing block(s) allowed")]
     [TerraformProperty("load_balancing")]
-    public TerraformList<TerraformBlock<AzurermCdnFrontdoorOriginGroupLoadBalancingBlock>>? LoadBalancing { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorOriginGroupLoadBalancingBlock>>? LoadBalancing { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCdnFrontdoorOriginGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCdnFrontdoorOriginGroupTimeoutsBlock>? Timeouts { get; set; }
 
 }

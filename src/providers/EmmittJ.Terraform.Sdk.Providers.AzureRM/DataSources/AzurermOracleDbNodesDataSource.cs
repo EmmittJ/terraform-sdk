@@ -13,7 +13,7 @@ public partial class AzurermOracleDbNodesDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,27 +32,27 @@ public partial class AzurermOracleDbNodesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
     [TerraformProperty("cloud_vm_cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CloudVmClusterId { get; set; }
+    public required partial TerraformValue<string> CloudVmClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermOracleDbNodesDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermOracleDbNodesDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The db_nodes attribute.
     /// </summary>
     [TerraformProperty("db_nodes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> DbNodes { get; }
+    public partial TerraformList<object> DbNodes { get; }
 
 }

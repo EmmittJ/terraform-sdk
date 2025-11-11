@@ -17,7 +17,7 @@ public partial class GoogleDialogflowEntityTypeEntitiesBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Synonyms is required")]
     [TerraformProperty("synonyms")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Synonyms { get; set; }
+    public partial TerraformList<string>? Synonyms { get; set; }
 
     /// <summary>
     /// The primary value associated with this entity entry. For example, if the entity type is vegetable, the value
@@ -30,7 +30,7 @@ public partial class GoogleDialogflowEntityTypeEntitiesBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
 }
 
@@ -45,21 +45,21 @@ public partial class GoogleDialogflowEntityTypeTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -78,21 +78,21 @@ public partial class GoogleDialogflowEntityType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Enables fuzzy entity extraction during classification.
     /// </summary>
     [TerraformProperty("enable_fuzzy_extraction")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableFuzzyExtraction { get; set; }
+    public partial TerraformValue<bool>? EnableFuzzyExtraction { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Indicates the kind of entity type.
@@ -104,28 +104,28 @@ public partial class GoogleDialogflowEntityType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     [TerraformProperty("kind")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Kind { get; set; }
+    public required partial TerraformValue<string> Kind { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for entities.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("entities")]
-    public TerraformList<TerraformBlock<GoogleDialogflowEntityTypeEntitiesBlock>>? Entities { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowEntityTypeEntitiesBlock>>? Entities { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDialogflowEntityTypeTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDialogflowEntityTypeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique identifier of the entity type.
@@ -133,6 +133,6 @@ public partial class GoogleDialogflowEntityType : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermElasticSanVolumeGroupDataSourceTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzurermElasticSanVolumeGroupDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticSanId is required")]
     [TerraformProperty("elastic_san_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ElasticSanId { get; set; }
+    public required partial TerraformValue<string> ElasticSanId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,48 +47,48 @@ public partial class AzurermElasticSanVolumeGroupDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermElasticSanVolumeGroupDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermElasticSanVolumeGroupDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The encryption attribute.
     /// </summary>
     [TerraformProperty("encryption")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Encryption { get; }
+    public partial TerraformList<object> Encryption { get; }
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
     [TerraformProperty("encryption_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EncryptionType { get; }
+    public partial TerraformValue<string> EncryptionType { get; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [TerraformProperty("identity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Identity { get; }
+    public partial TerraformList<object> Identity { get; }
 
     /// <summary>
     /// The network_rule attribute.
     /// </summary>
     [TerraformProperty("network_rule")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> NetworkRule { get; }
+    public partial TerraformList<object> NetworkRule { get; }
 
     /// <summary>
     /// The protocol_type attribute.
     /// </summary>
     [TerraformProperty("protocol_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ProtocolType { get; }
+    public partial TerraformValue<string> ProtocolType { get; }
 
 }

@@ -15,14 +15,14 @@ public partial class GoogleNotebooksEnvironmentContainerImageBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     [TerraformProperty("repository")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Repository { get; set; }
+    public required partial TerraformValue<string> Repository { get; set; }
 
     /// <summary>
     /// The tag of the container image. If not specified, this defaults to the latest tag.
     /// </summary>
     [TerraformProperty("tag")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Tag { get; set; }
+    public partial TerraformValue<string>? Tag { get; set; }
 
 }
 
@@ -37,21 +37,21 @@ public partial class GoogleNotebooksEnvironmentTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -66,14 +66,14 @@ public partial class GoogleNotebooksEnvironmentVmImageBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("image_family")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ImageFamily { get; set; }
+    public partial TerraformValue<string>? ImageFamily { get; set; }
 
     /// <summary>
     /// Use VM image name to find the image.
     /// </summary>
     [TerraformProperty("image_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ImageName { get; set; }
+    public partial TerraformValue<string>? ImageName { get; set; }
 
     /// <summary>
     /// The name of the Google Cloud project that this VM image belongs to.
@@ -82,7 +82,7 @@ public partial class GoogleNotebooksEnvironmentVmImageBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformProperty("project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Project { get; set; }
+    public required partial TerraformValue<string> Project { get; set; }
 
 }
 
@@ -101,21 +101,21 @@ public partial class GoogleNotebooksEnvironment : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Display name of this environment for the UI.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A reference to the zone where the machine resides.
@@ -123,7 +123,7 @@ public partial class GoogleNotebooksEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name specified for the Environment instance.
@@ -132,7 +132,7 @@ public partial class GoogleNotebooksEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Path to a Bash script that automatically runs after a notebook instance fully boots up.
@@ -140,14 +140,14 @@ public partial class GoogleNotebooksEnvironment : TerraformResource
     /// </summary>
     [TerraformProperty("post_startup_script")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PostStartupScript { get; set; }
+    public partial TerraformValue<string>? PostStartupScript { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for container_image.
@@ -155,14 +155,14 @@ public partial class GoogleNotebooksEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerImage block(s) allowed")]
     [TerraformProperty("container_image")]
-    public TerraformList<TerraformBlock<GoogleNotebooksEnvironmentContainerImageBlock>>? ContainerImage { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNotebooksEnvironmentContainerImageBlock>>? ContainerImage { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNotebooksEnvironmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNotebooksEnvironmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vm_image.
@@ -170,13 +170,13 @@ public partial class GoogleNotebooksEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VmImage block(s) allowed")]
     [TerraformProperty("vm_image")]
-    public TerraformList<TerraformBlock<GoogleNotebooksEnvironmentVmImageBlock>>? VmImage { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNotebooksEnvironmentVmImageBlock>>? VmImage { get; set; }
 
     /// <summary>
     /// Instance creation time
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
 }

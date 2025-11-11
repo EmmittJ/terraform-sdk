@@ -13,21 +13,21 @@ public partial class AwsSecretsmanagerSecretRotationRotationRulesBlock : Terrafo
     /// </summary>
     [TerraformProperty("automatically_after_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AutomaticallyAfterDays { get; set; }
+    public partial TerraformValue<double>? AutomaticallyAfterDays { get; set; }
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
     [TerraformProperty("duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Duration { get; set; }
+    public partial TerraformValue<string>? Duration { get; set; }
 
     /// <summary>
     /// The schedule_expression attribute.
     /// </summary>
     [TerraformProperty("schedule_expression")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ScheduleExpression { get; set; }
+    public partial TerraformValue<string>? ScheduleExpression { get; set; }
 
 }
 
@@ -46,28 +46,28 @@ public partial class AwsSecretsmanagerSecretRotation : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The rotate_immediately attribute.
     /// </summary>
     [TerraformProperty("rotate_immediately")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RotateImmediately { get; set; }
+    public partial TerraformValue<bool>? RotateImmediately { get; set; }
 
     /// <summary>
     /// The rotation_lambda_arn attribute.
     /// </summary>
     [TerraformProperty("rotation_lambda_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RotationLambdaArn { get; set; }
+    public partial TerraformValue<string>? RotationLambdaArn { get; set; }
 
     /// <summary>
     /// The secret_id attribute.
@@ -75,7 +75,7 @@ public partial class AwsSecretsmanagerSecretRotation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     [TerraformProperty("secret_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SecretId { get; set; }
+    public required partial TerraformValue<string> SecretId { get; set; }
 
     /// <summary>
     /// Block for rotation_rules.
@@ -85,13 +85,13 @@ public partial class AwsSecretsmanagerSecretRotation : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RotationRules block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RotationRules block(s) allowed")]
     [TerraformProperty("rotation_rules")]
-    public TerraformList<TerraformBlock<AwsSecretsmanagerSecretRotationRotationRulesBlock>>? RotationRules { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSecretsmanagerSecretRotationRotationRulesBlock>>? RotationRules { get; set; }
 
     /// <summary>
     /// The rotation_enabled attribute.
     /// </summary>
     [TerraformProperty("rotation_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> RotationEnabled { get; }
+    public partial TerraformValue<bool> RotationEnabled { get; }
 
 }

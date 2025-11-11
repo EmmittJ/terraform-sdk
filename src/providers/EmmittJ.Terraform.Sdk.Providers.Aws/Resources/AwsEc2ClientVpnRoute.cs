@@ -13,14 +13,14 @@ public partial class AwsEc2ClientVpnRouteTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public partial class AwsEc2ClientVpnRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientVpnEndpointId is required")]
     [TerraformProperty("client_vpn_endpoint_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientVpnEndpointId { get; set; }
+    public required partial TerraformValue<string> ClientVpnEndpointId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The destination_cidr_block attribute.
@@ -54,21 +54,21 @@ public partial class AwsEc2ClientVpnRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationCidrBlock is required")]
     [TerraformProperty("destination_cidr_block")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DestinationCidrBlock { get; set; }
+    public required partial TerraformValue<string> DestinationCidrBlock { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The target_vpc_subnet_id attribute.
@@ -76,27 +76,27 @@ public partial class AwsEc2ClientVpnRoute : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVpcSubnetId is required")]
     [TerraformProperty("target_vpc_subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetVpcSubnetId { get; set; }
+    public required partial TerraformValue<string> TargetVpcSubnetId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsEc2ClientVpnRouteTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsEc2ClientVpnRouteTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The origin attribute.
     /// </summary>
     [TerraformProperty("origin")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Origin { get; }
+    public partial TerraformValue<string> Origin { get; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Type { get; }
+    public partial TerraformValue<string> Type { get; }
 
 }

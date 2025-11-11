@@ -13,7 +13,7 @@ public partial class AzurermVirtualHubDataSourceTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermVirtualHubDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermVirtualHubDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,62 +47,62 @@ public partial class AzurermVirtualHubDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVirtualHubDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVirtualHubDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The address_prefix attribute.
     /// </summary>
     [TerraformProperty("address_prefix")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AddressPrefix { get; }
+    public partial TerraformValue<string> AddressPrefix { get; }
 
     /// <summary>
     /// The default_route_table_id attribute.
     /// </summary>
     [TerraformProperty("default_route_table_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DefaultRouteTableId { get; }
+    public partial TerraformValue<string> DefaultRouteTableId { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The virtual_router_asn attribute.
     /// </summary>
     [TerraformProperty("virtual_router_asn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> VirtualRouterAsn { get; }
+    public partial TerraformValue<double> VirtualRouterAsn { get; }
 
     /// <summary>
     /// The virtual_router_ips attribute.
     /// </summary>
     [TerraformProperty("virtual_router_ips")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> VirtualRouterIps { get; }
+    public partial TerraformList<string> VirtualRouterIps { get; }
 
     /// <summary>
     /// The virtual_wan_id attribute.
     /// </summary>
     [TerraformProperty("virtual_wan_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VirtualWanId { get; }
+    public partial TerraformValue<string> VirtualWanId { get; }
 
 }

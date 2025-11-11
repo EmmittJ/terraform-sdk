@@ -13,21 +13,21 @@ public partial class AzurermExpressRouteConnectionRoutingBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("associated_route_table_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AssociatedRouteTableId { get; set; }
+    public partial TerraformValue<string> AssociatedRouteTableId { get; set; }
 
     /// <summary>
     /// The inbound_route_map_id attribute.
     /// </summary>
     [TerraformProperty("inbound_route_map_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InboundRouteMapId { get; set; }
+    public partial TerraformValue<string>? InboundRouteMapId { get; set; }
 
     /// <summary>
     /// The outbound_route_map_id attribute.
     /// </summary>
     [TerraformProperty("outbound_route_map_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OutboundRouteMapId { get; set; }
+    public partial TerraformValue<string>? OutboundRouteMapId { get; set; }
 
 }
 
@@ -42,28 +42,28 @@ public partial class AzurermExpressRouteConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -82,14 +82,14 @@ public partial class AzurermExpressRouteConnection : TerraformResource
     /// </summary>
     [TerraformProperty("authorization_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthorizationKey { get; set; }
+    public partial TerraformValue<string>? AuthorizationKey { get; set; }
 
     /// <summary>
     /// The enable_internet_security attribute.
     /// </summary>
     [TerraformProperty("enable_internet_security")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableInternetSecurity { get; set; }
+    public partial TerraformValue<bool>? EnableInternetSecurity { get; set; }
 
     /// <summary>
     /// The express_route_circuit_peering_id attribute.
@@ -97,14 +97,14 @@ public partial class AzurermExpressRouteConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitPeeringId is required")]
     [TerraformProperty("express_route_circuit_peering_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ExpressRouteCircuitPeeringId { get; set; }
+    public required partial TerraformValue<string> ExpressRouteCircuitPeeringId { get; set; }
 
     /// <summary>
     /// The express_route_gateway_bypass_enabled attribute.
     /// </summary>
     [TerraformProperty("express_route_gateway_bypass_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ExpressRouteGatewayBypassEnabled { get; set; }
+    public partial TerraformValue<bool>? ExpressRouteGatewayBypassEnabled { get; set; }
 
     /// <summary>
     /// The express_route_gateway_id attribute.
@@ -112,14 +112,14 @@ public partial class AzurermExpressRouteConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteGatewayId is required")]
     [TerraformProperty("express_route_gateway_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ExpressRouteGatewayId { get; set; }
+    public required partial TerraformValue<string> ExpressRouteGatewayId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -127,7 +127,7 @@ public partial class AzurermExpressRouteConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_link_fast_path_enabled attribute.
@@ -135,14 +135,14 @@ public partial class AzurermExpressRouteConnection : TerraformResource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("private_link_fast_path_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PrivateLinkFastPathEnabled { get; set; }
+    public partial TerraformValue<bool>? PrivateLinkFastPathEnabled { get; set; }
 
     /// <summary>
     /// The routing_weight attribute.
     /// </summary>
     [TerraformProperty("routing_weight")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RoutingWeight { get; set; }
+    public partial TerraformValue<double>? RoutingWeight { get; set; }
 
     /// <summary>
     /// Block for routing.
@@ -150,13 +150,13 @@ public partial class AzurermExpressRouteConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
     [TerraformProperty("routing")]
-    public TerraformList<TerraformBlock<AzurermExpressRouteConnectionRoutingBlock>>? Routing { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermExpressRouteConnectionRoutingBlock>>? Routing { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermExpressRouteConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermExpressRouteConnectionTimeoutsBlock>? Timeouts { get; set; }
 
 }

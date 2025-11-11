@@ -13,7 +13,7 @@ public partial class GoogleAccessContextManagerAccessLevelsAccessLevelsBlock : T
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Resource name for the Access Level. The short_name component must begin
@@ -23,7 +23,7 @@ public partial class GoogleAccessContextManagerAccessLevelsAccessLevelsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Human readable title. Must be unique within the Policy.
@@ -31,7 +31,7 @@ public partial class GoogleAccessContextManagerAccessLevelsAccessLevelsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     [TerraformProperty("title")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Title { get; set; }
+    public required partial TerraformValue<string> Title { get; set; }
 
 }
 
@@ -46,21 +46,21 @@ public partial class GoogleAccessContextManagerAccessLevelsTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -78,7 +78,7 @@ public partial class GoogleAccessContextManagerAccessLevels : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The AccessPolicy this AccessLevel lives in.
@@ -87,20 +87,20 @@ public partial class GoogleAccessContextManagerAccessLevels : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Block for access_levels.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("access_levels")]
-    public TerraformSet<TerraformBlock<GoogleAccessContextManagerAccessLevelsAccessLevelsBlock>>? AccessLevels { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleAccessContextManagerAccessLevelsAccessLevelsBlock>>? AccessLevels { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleAccessContextManagerAccessLevelsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleAccessContextManagerAccessLevelsTimeoutsBlock>? Timeouts { get; set; }
 
 }

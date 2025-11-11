@@ -13,7 +13,7 @@ public partial class AzurermIothubDpsDataSourceTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermIothubDpsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermIothubDpsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,55 +47,55 @@ public partial class AzurermIothubDpsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermIothubDpsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermIothubDpsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The allocation_policy attribute.
     /// </summary>
     [TerraformProperty("allocation_policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AllocationPolicy { get; }
+    public partial TerraformValue<string> AllocationPolicy { get; }
 
     /// <summary>
     /// The device_provisioning_host_name attribute.
     /// </summary>
     [TerraformProperty("device_provisioning_host_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeviceProvisioningHostName { get; }
+    public partial TerraformValue<string> DeviceProvisioningHostName { get; }
 
     /// <summary>
     /// The id_scope attribute.
     /// </summary>
     [TerraformProperty("id_scope")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IdScope { get; }
+    public partial TerraformValue<string> IdScope { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The service_operations_host_name attribute.
     /// </summary>
     [TerraformProperty("service_operations_host_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServiceOperationsHostName { get; }
+    public partial TerraformValue<string> ServiceOperationsHostName { get; }
 
 }

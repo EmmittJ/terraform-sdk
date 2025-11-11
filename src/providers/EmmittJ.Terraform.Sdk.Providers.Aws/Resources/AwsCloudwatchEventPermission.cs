@@ -14,7 +14,7 @@ public partial class AwsCloudwatchEventPermissionConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public partial class AwsCloudwatchEventPermissionConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -30,7 +30,7 @@ public partial class AwsCloudwatchEventPermissionConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
 }
 
@@ -49,21 +49,21 @@ public partial class AwsCloudwatchEventPermission : TerraformResource
     /// </summary>
     [TerraformProperty("action")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Action { get; set; }
+    public partial TerraformValue<string>? Action { get; set; }
 
     /// <summary>
     /// The event_bus_name attribute.
     /// </summary>
     [TerraformProperty("event_bus_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EventBusName { get; set; }
+    public partial TerraformValue<string>? EventBusName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The principal attribute.
@@ -71,14 +71,14 @@ public partial class AwsCloudwatchEventPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     [TerraformProperty("principal")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Principal { get; set; }
+    public required partial TerraformValue<string> Principal { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The statement_id attribute.
@@ -86,7 +86,7 @@ public partial class AwsCloudwatchEventPermission : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatementId is required")]
     [TerraformProperty("statement_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StatementId { get; set; }
+    public required partial TerraformValue<string> StatementId { get; set; }
 
     /// <summary>
     /// Block for condition.
@@ -94,6 +94,6 @@ public partial class AwsCloudwatchEventPermission : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventPermissionConditionBlock>>? Condition { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchEventPermissionConditionBlock>>? Condition { get; set; }
 
 }

@@ -14,14 +14,14 @@ public partial class AzurermDataFactoryCustomDatasetLinkedServiceBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
 }
 
@@ -36,28 +36,28 @@ public partial class AzurermDataFactoryCustomDatasetTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -76,14 +76,14 @@ public partial class AzurermDataFactoryCustomDataset : TerraformResource
     /// </summary>
     [TerraformProperty("additional_properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? AdditionalProperties { get; set; }
+    public partial TerraformMap<string>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Annotations { get; set; }
+    public partial TerraformList<string>? Annotations { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
@@ -91,28 +91,28 @@ public partial class AzurermDataFactoryCustomDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformProperty("data_factory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataFactoryId { get; set; }
+    public required partial TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
     [TerraformProperty("folder")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Folder { get; set; }
+    public partial TerraformValue<string>? Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -120,21 +120,21 @@ public partial class AzurermDataFactoryCustomDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// The schema_json attribute.
     /// </summary>
     [TerraformProperty("schema_json")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SchemaJson { get; set; }
+    public partial TerraformValue<string>? SchemaJson { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -142,7 +142,7 @@ public partial class AzurermDataFactoryCustomDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The type_properties_json attribute.
@@ -150,7 +150,7 @@ public partial class AzurermDataFactoryCustomDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypePropertiesJson is required")]
     [TerraformProperty("type_properties_json")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TypePropertiesJson { get; set; }
+    public required partial TerraformValue<string> TypePropertiesJson { get; set; }
 
     /// <summary>
     /// Block for linked_service.
@@ -160,13 +160,13 @@ public partial class AzurermDataFactoryCustomDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LinkedService block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedService block(s) allowed")]
     [TerraformProperty("linked_service")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryCustomDatasetLinkedServiceBlock>>? LinkedService { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryCustomDatasetLinkedServiceBlock>>? LinkedService { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataFactoryCustomDatasetTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataFactoryCustomDatasetTimeoutsBlock>? Timeouts { get; set; }
 
 }

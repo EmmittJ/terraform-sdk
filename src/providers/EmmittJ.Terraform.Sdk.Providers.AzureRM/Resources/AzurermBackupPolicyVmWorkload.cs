@@ -14,7 +14,7 @@ public partial class AzurermBackupPolicyVmWorkloadProtectionPolicyBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyType is required")]
     [TerraformProperty("policy_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyType { get; set; }
+    public required partial TerraformValue<string> PolicyType { get; set; }
 
 }
 
@@ -29,7 +29,7 @@ public partial class AzurermBackupPolicyVmWorkloadSettingsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("compression_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CompressionEnabled { get; set; }
+    public partial TerraformValue<bool>? CompressionEnabled { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
@@ -37,7 +37,7 @@ public partial class AzurermBackupPolicyVmWorkloadSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     [TerraformProperty("time_zone")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TimeZone { get; set; }
+    public required partial TerraformValue<string> TimeZone { get; set; }
 
 }
 
@@ -52,28 +52,28 @@ public partial class AzurermBackupPolicyVmWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -92,7 +92,7 @@ public partial class AzurermBackupPolicyVmWorkload : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -100,7 +100,7 @@ public partial class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recovery_vault_name attribute.
@@ -108,7 +108,7 @@ public partial class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     [TerraformProperty("recovery_vault_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecoveryVaultName { get; set; }
+    public required partial TerraformValue<string> RecoveryVaultName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -116,7 +116,7 @@ public partial class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The workload_type attribute.
@@ -124,7 +124,7 @@ public partial class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadType is required")]
     [TerraformProperty("workload_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkloadType { get; set; }
+    public required partial TerraformValue<string> WorkloadType { get; set; }
 
     /// <summary>
     /// Block for protection_policy.
@@ -133,7 +133,7 @@ public partial class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectionPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProtectionPolicy block(s) required")]
     [TerraformProperty("protection_policy")]
-    public TerraformSet<TerraformBlock<AzurermBackupPolicyVmWorkloadProtectionPolicyBlock>>? ProtectionPolicy { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermBackupPolicyVmWorkloadProtectionPolicyBlock>>? ProtectionPolicy { get; set; }
 
     /// <summary>
     /// Block for settings.
@@ -143,13 +143,13 @@ public partial class AzurermBackupPolicyVmWorkload : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Settings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Settings block(s) allowed")]
     [TerraformProperty("settings")]
-    public TerraformList<TerraformBlock<AzurermBackupPolicyVmWorkloadSettingsBlock>>? Settings { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermBackupPolicyVmWorkloadSettingsBlock>>? Settings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermBackupPolicyVmWorkloadTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermBackupPolicyVmWorkloadTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -26,14 +26,14 @@ public partial class AwsAppflowConnectorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionMode is required")]
     [TerraformProperty("connection_mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConnectionMode { get; set; }
+    public required partial TerraformValue<string> ConnectionMode { get; set; }
 
     /// <summary>
     /// The connector_label attribute.
     /// </summary>
     [TerraformProperty("connector_label")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConnectorLabel { get; set; }
+    public partial TerraformValue<string>? ConnectorLabel { get; set; }
 
     /// <summary>
     /// The connector_type attribute.
@@ -41,21 +41,21 @@ public partial class AwsAppflowConnectorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
     [TerraformProperty("connector_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConnectorType { get; set; }
+    public required partial TerraformValue<string> ConnectorType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_arn attribute.
     /// </summary>
     [TerraformProperty("kms_arn")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> KmsArn { get; set; }
+    public partial TerraformValue<string> KmsArn { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -63,14 +63,14 @@ public partial class AwsAppflowConnectorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for connector_profile_config.
@@ -80,20 +80,20 @@ public partial class AwsAppflowConnectorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectorProfileConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectorProfileConfig block(s) allowed")]
     [TerraformProperty("connector_profile_config")]
-    public TerraformList<TerraformBlock<AwsAppflowConnectorProfileConnectorProfileConfigBlock>>? ConnectorProfileConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAppflowConnectorProfileConnectorProfileConfigBlock>>? ConnectorProfileConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The credentials_arn attribute.
     /// </summary>
     [TerraformProperty("credentials_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CredentialsArn { get; }
+    public partial TerraformValue<string> CredentialsArn { get; }
 
 }

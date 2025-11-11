@@ -13,14 +13,14 @@ public partial class AzurermMonitorDiagnosticSettingEnabledLogBlock : TerraformB
     /// </summary>
     [TerraformProperty("category")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Category { get; set; }
+    public partial TerraformValue<string>? Category { get; set; }
 
     /// <summary>
     /// The category_group attribute.
     /// </summary>
     [TerraformProperty("category_group")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CategoryGroup { get; set; }
+    public partial TerraformValue<string>? CategoryGroup { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public partial class AzurermMonitorDiagnosticSettingEnabledMetricBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     [TerraformProperty("category")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Category { get; set; }
+    public required partial TerraformValue<string> Category { get; set; }
 
 }
 
@@ -53,14 +53,14 @@ public partial class AzurermMonitorDiagnosticSettingMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     [TerraformProperty("category")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Category { get; set; }
+    public required partial TerraformValue<string> Category { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
 }
 
@@ -75,28 +75,28 @@ public partial class AzurermMonitorDiagnosticSettingTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -114,35 +114,35 @@ public partial class AzurermMonitorDiagnosticSetting : TerraformResource
     /// </summary>
     [TerraformProperty("eventhub_authorization_rule_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EventhubAuthorizationRuleId { get; set; }
+    public partial TerraformValue<string>? EventhubAuthorizationRuleId { get; set; }
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
     [TerraformProperty("eventhub_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EventhubName { get; set; }
+    public partial TerraformValue<string>? EventhubName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The log_analytics_destination_type attribute.
     /// </summary>
     [TerraformProperty("log_analytics_destination_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> LogAnalyticsDestinationType { get; set; }
+    public partial TerraformValue<string> LogAnalyticsDestinationType { get; set; }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [TerraformProperty("log_analytics_workspace_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LogAnalyticsWorkspaceId { get; set; }
+    public partial TerraformValue<string>? LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -150,21 +150,21 @@ public partial class AzurermMonitorDiagnosticSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The partner_solution_id attribute.
     /// </summary>
     [TerraformProperty("partner_solution_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PartnerSolutionId { get; set; }
+    public partial TerraformValue<string>? PartnerSolutionId { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [TerraformProperty("storage_account_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountId { get; set; }
+    public partial TerraformValue<string>? StorageAccountId { get; set; }
 
     /// <summary>
     /// The target_resource_id attribute.
@@ -172,21 +172,21 @@ public partial class AzurermMonitorDiagnosticSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     [TerraformProperty("target_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetResourceId { get; set; }
+    public required partial TerraformValue<string> TargetResourceId { get; set; }
 
     /// <summary>
     /// Block for enabled_log.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("enabled_log")]
-    public TerraformSet<TerraformBlock<AzurermMonitorDiagnosticSettingEnabledLogBlock>>? EnabledLog { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermMonitorDiagnosticSettingEnabledLogBlock>>? EnabledLog { get; set; }
 
     /// <summary>
     /// Block for enabled_metric.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("enabled_metric")]
-    public TerraformSet<TerraformBlock<AzurermMonitorDiagnosticSettingEnabledMetricBlock>>? EnabledMetric { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermMonitorDiagnosticSettingEnabledMetricBlock>>? EnabledMetric { get; set; }
 
     /// <summary>
     /// Block for metric.
@@ -194,13 +194,13 @@ public partial class AzurermMonitorDiagnosticSetting : TerraformResource
     /// </summary>
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("metric")]
-    public TerraformSet<TerraformBlock<AzurermMonitorDiagnosticSettingMetricBlock>>? Metric { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermMonitorDiagnosticSettingMetricBlock>>? Metric { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMonitorDiagnosticSettingTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMonitorDiagnosticSettingTimeoutsBlock>? Timeouts { get; set; }
 
 }

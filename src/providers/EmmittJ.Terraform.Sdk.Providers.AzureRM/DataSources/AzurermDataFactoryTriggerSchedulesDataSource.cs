@@ -13,7 +13,7 @@ public partial class AzurermDataFactoryTriggerSchedulesDataSourceTimeoutsBlock :
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,27 +32,27 @@ public partial class AzurermDataFactoryTriggerSchedulesDataSource : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformProperty("data_factory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataFactoryId { get; set; }
+    public required partial TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataFactoryTriggerSchedulesDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataFactoryTriggerSchedulesDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The items attribute.
     /// </summary>
     [TerraformProperty("items")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Items { get; }
+    public partial TerraformList<string> Items { get; }
 
 }

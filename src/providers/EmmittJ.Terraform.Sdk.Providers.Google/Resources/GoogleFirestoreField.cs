@@ -21,21 +21,21 @@ public partial class GoogleFirestoreFieldTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -64,14 +64,14 @@ public partial class GoogleFirestoreField : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     [TerraformProperty("collection")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Collection { get; set; }
+    public required partial TerraformValue<string> Collection { get; set; }
 
     /// <summary>
     /// The Firestore database id. Defaults to &#39;&amp;quot;(default)&amp;quot;&#39;.
     /// </summary>
     [TerraformProperty("database")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Database { get; set; }
+    public partial TerraformValue<string>? Database { get; set; }
 
     /// <summary>
     /// The id of the field to configure.
@@ -79,21 +79,21 @@ public partial class GoogleFirestoreField : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     [TerraformProperty("field")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Field { get; set; }
+    public required partial TerraformValue<string> Field { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for index_config.
@@ -101,14 +101,14 @@ public partial class GoogleFirestoreField : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexConfig block(s) allowed")]
     [TerraformProperty("index_config")]
-    public TerraformList<TerraformBlock<GoogleFirestoreFieldIndexConfigBlock>>? IndexConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleFirestoreFieldIndexConfigBlock>>? IndexConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleFirestoreFieldTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleFirestoreFieldTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for ttl_config.
@@ -116,7 +116,7 @@ public partial class GoogleFirestoreField : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TtlConfig block(s) allowed")]
     [TerraformProperty("ttl_config")]
-    public TerraformList<TerraformBlock<GoogleFirestoreFieldTtlConfigBlock>>? TtlConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleFirestoreFieldTtlConfigBlock>>? TtlConfig { get; set; }
 
     /// <summary>
     /// The name of this field. Format:
@@ -124,6 +124,6 @@ public partial class GoogleFirestoreField : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

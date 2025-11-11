@@ -14,7 +14,7 @@ public partial class GoogleComputeNodeTemplateAcceleratorsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("accelerator_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AcceleratorCount { get; set; }
+    public partial TerraformValue<double>? AcceleratorCount { get; set; }
 
     /// <summary>
     /// Full or partial URL of the accelerator type resource to expose
@@ -22,7 +22,7 @@ public partial class GoogleComputeNodeTemplateAcceleratorsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("accelerator_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AcceleratorType { get; set; }
+    public partial TerraformValue<string>? AcceleratorType { get; set; }
 
 }
 
@@ -37,21 +37,21 @@ public partial class GoogleComputeNodeTemplateDisksBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("disk_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DiskCount { get; set; }
+    public partial TerraformValue<double>? DiskCount { get; set; }
 
     /// <summary>
     /// Specifies the size of the disk in base-2 GB.
     /// </summary>
     [TerraformProperty("disk_size_gb")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DiskSizeGb { get; set; }
+    public partial TerraformValue<double>? DiskSizeGb { get; set; }
 
     /// <summary>
     /// Specifies the desired disk type on the node. This disk type must be a local storage type (e.g.: local-ssd). Note that for nodeTemplates, this should be the name of the disk type and not its URL.
     /// </summary>
     [TerraformProperty("disk_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DiskType { get; set; }
+    public partial TerraformValue<string>? DiskType { get; set; }
 
 }
 
@@ -66,7 +66,7 @@ public partial class GoogleComputeNodeTemplateNodeTypeFlexibilityBlock : Terrafo
     /// </summary>
     [TerraformProperty("cpus")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Cpus { get; set; }
+    public partial TerraformValue<string>? Cpus { get; set; }
 
 
     /// <summary>
@@ -74,7 +74,7 @@ public partial class GoogleComputeNodeTemplateNodeTypeFlexibilityBlock : Terrafo
     /// </summary>
     [TerraformProperty("memory")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Memory { get; set; }
+    public partial TerraformValue<string>? Memory { get; set; }
 
 }
 
@@ -101,7 +101,7 @@ public partial class GoogleComputeNodeTemplateServerBindingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -116,14 +116,14 @@ public partial class GoogleComputeNodeTemplateTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -142,21 +142,21 @@ public partial class GoogleComputeNodeTemplate : TerraformResource
     /// </summary>
     [TerraformProperty("cpu_overcommit_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CpuOvercommitType { get; set; }
+    public partial TerraformValue<string>? CpuOvercommitType { get; set; }
 
     /// <summary>
     /// An optional textual description of the resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource.
@@ -164,7 +164,7 @@ public partial class GoogleComputeNodeTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Labels to use for node affinity, which will be used in
@@ -172,7 +172,7 @@ public partial class GoogleComputeNodeTemplate : TerraformResource
     /// </summary>
     [TerraformProperty("node_affinity_labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? NodeAffinityLabels { get; set; }
+    public partial TerraformMap<string>? NodeAffinityLabels { get; set; }
 
     /// <summary>
     /// Node type to use for nodes group that are created from this template.
@@ -180,14 +180,14 @@ public partial class GoogleComputeNodeTemplate : TerraformResource
     /// </summary>
     [TerraformProperty("node_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NodeType { get; set; }
+    public partial TerraformValue<string>? NodeType { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Region where nodes using the node template will be created.
@@ -195,21 +195,21 @@ public partial class GoogleComputeNodeTemplate : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for accelerators.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("accelerators")]
-    public TerraformList<TerraformBlock<GoogleComputeNodeTemplateAcceleratorsBlock>>? Accelerators { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeNodeTemplateAcceleratorsBlock>>? Accelerators { get; set; }
 
     /// <summary>
     /// Block for disks.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("disks")]
-    public TerraformList<TerraformBlock<GoogleComputeNodeTemplateDisksBlock>>? Disks { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeNodeTemplateDisksBlock>>? Disks { get; set; }
 
     /// <summary>
     /// Block for node_type_flexibility.
@@ -217,7 +217,7 @@ public partial class GoogleComputeNodeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeTypeFlexibility block(s) allowed")]
     [TerraformProperty("node_type_flexibility")]
-    public TerraformList<TerraformBlock<GoogleComputeNodeTemplateNodeTypeFlexibilityBlock>>? NodeTypeFlexibility { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeNodeTemplateNodeTypeFlexibilityBlock>>? NodeTypeFlexibility { get; set; }
 
     /// <summary>
     /// Block for server_binding.
@@ -225,27 +225,27 @@ public partial class GoogleComputeNodeTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerBinding block(s) allowed")]
     [TerraformProperty("server_binding")]
-    public TerraformList<TerraformBlock<GoogleComputeNodeTemplateServerBindingBlock>>? ServerBinding { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeNodeTemplateServerBindingBlock>>? ServerBinding { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeNodeTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeNodeTemplateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
 }

@@ -13,14 +13,14 @@ public partial class AzurermAutomationConnectionTypeFieldBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("is_encrypted")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IsEncrypted { get; set; }
+    public partial TerraformValue<bool>? IsEncrypted { get; set; }
 
     /// <summary>
     /// The is_optional attribute.
     /// </summary>
     [TerraformProperty("is_optional")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IsOptional { get; set; }
+    public partial TerraformValue<bool>? IsOptional { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -28,7 +28,7 @@ public partial class AzurermAutomationConnectionTypeFieldBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -36,7 +36,7 @@ public partial class AzurermAutomationConnectionTypeFieldBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -51,21 +51,21 @@ public partial class AzurermAutomationConnectionTypeTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -85,21 +85,21 @@ public partial class AzurermAutomationConnectionType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     [TerraformProperty("automation_account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AutomationAccountName { get; set; }
+    public required partial TerraformValue<string> AutomationAccountName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The is_global attribute.
     /// </summary>
     [TerraformProperty("is_global")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IsGlobal { get; set; }
+    public partial TerraformValue<bool>? IsGlobal { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -107,7 +107,7 @@ public partial class AzurermAutomationConnectionType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -115,7 +115,7 @@ public partial class AzurermAutomationConnectionType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for field.
@@ -124,13 +124,13 @@ public partial class AzurermAutomationConnectionType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Field block(s) required")]
     [TerraformProperty("field")]
-    public TerraformList<TerraformBlock<AzurermAutomationConnectionTypeFieldBlock>>? Field { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermAutomationConnectionTypeFieldBlock>>? Field { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAutomationConnectionTypeTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAutomationConnectionTypeTimeoutsBlock>? Timeouts { get; set; }
 
 }

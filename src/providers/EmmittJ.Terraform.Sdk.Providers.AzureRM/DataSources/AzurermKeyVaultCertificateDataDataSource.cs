@@ -13,7 +13,7 @@ public partial class AzurermKeyVaultCertificateDataDataSourceTimeoutsBlock : Ter
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermKeyVaultCertificateDataDataSource : TerraformDataSou
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
@@ -39,7 +39,7 @@ public partial class AzurermKeyVaultCertificateDataDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformProperty("key_vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultId { get; set; }
+    public required partial TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,69 +47,69 @@ public partial class AzurermKeyVaultCertificateDataDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Version { get; set; }
+    public partial TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKeyVaultCertificateDataDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKeyVaultCertificateDataDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The certificates_count attribute.
     /// </summary>
     [TerraformProperty("certificates_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> CertificatesCount { get; }
+    public partial TerraformValue<double> CertificatesCount { get; }
 
     /// <summary>
     /// The expires attribute.
     /// </summary>
     [TerraformProperty("expires")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Expires { get; }
+    public partial TerraformValue<string> Expires { get; }
 
     /// <summary>
     /// The hex attribute.
     /// </summary>
     [TerraformProperty("hex")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Hex { get; }
+    public partial TerraformValue<string> Hex { get; }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     [TerraformProperty("key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Key { get; }
+    public partial TerraformValue<string> Key { get; }
 
     /// <summary>
     /// The not_before attribute.
     /// </summary>
     [TerraformProperty("not_before")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NotBefore { get; }
+    public partial TerraformValue<string> NotBefore { get; }
 
     /// <summary>
     /// The pem attribute.
     /// </summary>
     [TerraformProperty("pem")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Pem { get; }
+    public partial TerraformValue<string> Pem { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
 }

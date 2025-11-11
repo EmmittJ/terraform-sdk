@@ -14,7 +14,7 @@ public partial class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     [TerraformProperty("category")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Category { get; set; }
+    public required partial TerraformValue<string> Category { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -22,28 +22,28 @@ public partial class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
     [TerraformProperty("order")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Order { get; set; }
+    public partial TerraformValue<double>? Order { get; set; }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
     [TerraformProperty("resource_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResourceType { get; set; }
+    public partial TerraformValue<string>? ResourceType { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -58,28 +58,28 @@ public partial class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -98,21 +98,21 @@ public partial class AzurermApplicationInsightsWorkbookTemplate : TerraformResou
     /// </summary>
     [TerraformProperty("author")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Author { get; set; }
+    public partial TerraformValue<string>? Author { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The localized attribute.
     /// </summary>
     [TerraformProperty("localized")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Localized { get; set; }
+    public partial TerraformValue<string>? Localized { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -120,7 +120,7 @@ public partial class AzurermApplicationInsightsWorkbookTemplate : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -128,14 +128,14 @@ public partial class AzurermApplicationInsightsWorkbookTemplate : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [TerraformProperty("priority")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Priority { get; set; }
+    public partial TerraformValue<double>? Priority { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -143,14 +143,14 @@ public partial class AzurermApplicationInsightsWorkbookTemplate : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The template_data attribute.
@@ -158,7 +158,7 @@ public partial class AzurermApplicationInsightsWorkbookTemplate : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateData is required")]
     [TerraformProperty("template_data")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TemplateData { get; set; }
+    public required partial TerraformValue<string> TemplateData { get; set; }
 
     /// <summary>
     /// Block for galleries.
@@ -167,13 +167,13 @@ public partial class AzurermApplicationInsightsWorkbookTemplate : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Galleries is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Galleries block(s) required")]
     [TerraformProperty("galleries")]
-    public TerraformList<TerraformBlock<AzurermApplicationInsightsWorkbookTemplateGalleriesBlock>>? Galleries { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermApplicationInsightsWorkbookTemplateGalleriesBlock>>? Galleries { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -14,7 +14,7 @@ public partial class GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectKey is required")]
     [TerraformProperty("project_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProjectKey { get; set; }
+    public required partial TerraformValue<string> ProjectKey { get; set; }
 
     /// <summary>
     /// Identifier for the repository.
@@ -22,7 +22,7 @@ public partial class GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoSlug is required")]
     [TerraformProperty("repo_slug")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepoSlug { get; set; }
+    public required partial TerraformValue<string> RepoSlug { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleCloudbuildBitbucketServerConfigSecretsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminAccessTokenVersionName is required")]
     [TerraformProperty("admin_access_token_version_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AdminAccessTokenVersionName { get; set; }
+    public required partial TerraformValue<string> AdminAccessTokenVersionName { get; set; }
 
     /// <summary>
     /// The resource name for the read access token&#39;s secret version.
@@ -46,7 +46,7 @@ public partial class GoogleCloudbuildBitbucketServerConfigSecretsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadAccessTokenVersionName is required")]
     [TerraformProperty("read_access_token_version_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ReadAccessTokenVersionName { get; set; }
+    public required partial TerraformValue<string> ReadAccessTokenVersionName { get; set; }
 
     /// <summary>
     /// Immutable. The resource name for the webhook secret&#39;s secret version. Once this field has been set, it cannot be changed.
@@ -55,7 +55,7 @@ public partial class GoogleCloudbuildBitbucketServerConfigSecretsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretVersionName is required")]
     [TerraformProperty("webhook_secret_version_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WebhookSecretVersionName { get; set; }
+    public required partial TerraformValue<string> WebhookSecretVersionName { get; set; }
 
 }
 
@@ -70,21 +70,21 @@ public partial class GoogleCloudbuildBitbucketServerConfigTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -105,7 +105,7 @@ public partial class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     [TerraformProperty("api_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiKey { get; set; }
+    public required partial TerraformValue<string> ApiKey { get; set; }
 
     /// <summary>
     /// The ID to use for the BitbucketServerConfig, which will become the final component of the BitbucketServerConfig&#39;s resource name.
@@ -113,7 +113,7 @@ public partial class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
     [TerraformProperty("config_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConfigId { get; set; }
+    public required partial TerraformValue<string> ConfigId { get; set; }
 
     /// <summary>
     /// Immutable. The URI of the Bitbucket Server host. Once this field has been set, it cannot be changed.
@@ -122,14 +122,14 @@ public partial class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     [TerraformProperty("host_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HostUri { get; set; }
+    public required partial TerraformValue<string> HostUri { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of this bitbucket server config.
@@ -137,7 +137,7 @@ public partial class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The network to be used when reaching out to the Bitbucket Server instance. The VPC network must be enabled for private service connection.
@@ -147,21 +147,21 @@ public partial class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     /// </summary>
     [TerraformProperty("peered_network")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PeeredNetwork { get; set; }
+    public partial TerraformValue<string>? PeeredNetwork { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// SSL certificate to use for requests to Bitbucket Server. The format should be PEM format but the extension can be one of .pem, .cer, or .crt.
     /// </summary>
     [TerraformProperty("ssl_ca")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SslCa { get; set; }
+    public partial TerraformValue<string>? SslCa { get; set; }
 
     /// <summary>
     /// Username of the account Cloud Build will use on Bitbucket Server.
@@ -169,14 +169,14 @@ public partial class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformProperty("username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Username { get; set; }
+    public required partial TerraformValue<string> Username { get; set; }
 
     /// <summary>
     /// Block for connected_repositories.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("connected_repositories")]
-    public TerraformSet<TerraformBlock<GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock>>? ConnectedRepositories { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock>>? ConnectedRepositories { get; set; }
 
     /// <summary>
     /// Block for secrets.
@@ -186,27 +186,27 @@ public partial class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Secrets block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Secrets block(s) allowed")]
     [TerraformProperty("secrets")]
-    public TerraformList<TerraformBlock<GoogleCloudbuildBitbucketServerConfigSecretsBlock>>? Secrets { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudbuildBitbucketServerConfigSecretsBlock>>? Secrets { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleCloudbuildBitbucketServerConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleCloudbuildBitbucketServerConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The resource name for the config.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. UUID included in webhook requests. The UUID is used to look up the corresponding config.
     /// </summary>
     [TerraformProperty("webhook_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> WebhookKey { get; }
+    public partial TerraformValue<string> WebhookKey { get; }
 
 }

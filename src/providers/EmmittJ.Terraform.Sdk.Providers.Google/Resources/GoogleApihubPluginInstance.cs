@@ -15,7 +15,7 @@ public partial class GoogleApihubPluginInstanceActionsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionId is required")]
     [TerraformProperty("action_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ActionId { get; set; }
+    public required partial TerraformValue<string> ActionId { get; set; }
 
 
     /// <summary>
@@ -24,7 +24,7 @@ public partial class GoogleApihubPluginInstanceActionsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("schedule_cron_expression")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ScheduleCronExpression { get; set; }
+    public partial TerraformValue<string> ScheduleCronExpression { get; set; }
 
     /// <summary>
     /// The time zone for the schedule cron expression. If not provided, UTC will
@@ -32,7 +32,7 @@ public partial class GoogleApihubPluginInstanceActionsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("schedule_time_zone")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ScheduleTimeZone { get; set; }
+    public partial TerraformValue<string> ScheduleTimeZone { get; set; }
 
 
 }
@@ -55,7 +55,7 @@ public partial class GoogleApihubPluginInstanceAuthConfigBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     [TerraformProperty("auth_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AuthType { get; set; }
+    public required partial TerraformValue<string> AuthType { get; set; }
 
 }
 
@@ -70,21 +70,21 @@ public partial class GoogleApihubPluginInstanceTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -103,7 +103,7 @@ public partial class GoogleApihubPluginInstance : TerraformResource
     /// </summary>
     [TerraformProperty("disable")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Disable { get; set; }
+    public partial TerraformValue<bool>? Disable { get; set; }
 
     /// <summary>
     /// The display name for this plugin instance. Max length is 255 characters.
@@ -111,14 +111,14 @@ public partial class GoogleApihubPluginInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -126,7 +126,7 @@ public partial class GoogleApihubPluginInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -134,7 +134,7 @@ public partial class GoogleApihubPluginInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plugin is required")]
     [TerraformProperty("plugin")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Plugin { get; set; }
+    public required partial TerraformValue<string> Plugin { get; set; }
 
     /// <summary>
     /// The ID to use for the plugin instance, which will become the final
@@ -151,21 +151,21 @@ public partial class GoogleApihubPluginInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PluginInstanceId is required")]
     [TerraformProperty("plugin_instance_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PluginInstanceId { get; set; }
+    public required partial TerraformValue<string> PluginInstanceId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for actions.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("actions")]
-    public TerraformList<TerraformBlock<GoogleApihubPluginInstanceActionsBlock>>? Actions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApihubPluginInstanceActionsBlock>>? Actions { get; set; }
 
     /// <summary>
     /// Block for auth_config.
@@ -173,21 +173,21 @@ public partial class GoogleApihubPluginInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthConfig block(s) allowed")]
     [TerraformProperty("auth_config")]
-    public TerraformList<TerraformBlock<GoogleApihubPluginInstanceAuthConfigBlock>>? AuthConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApihubPluginInstanceAuthConfigBlock>>? AuthConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApihubPluginInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApihubPluginInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Timestamp indicating when the plugin instance was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Error message describing the failure, if any, during Create, Delete or
@@ -196,7 +196,7 @@ public partial class GoogleApihubPluginInstance : TerraformResource
     /// </summary>
     [TerraformProperty("error_message")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ErrorMessage { get; }
+    public partial TerraformValue<string> ErrorMessage { get; }
 
     /// <summary>
     /// Identifier. The unique name of the plugin instance resource.
@@ -205,7 +205,7 @@ public partial class GoogleApihubPluginInstance : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The current state of the plugin instance (e.g., enabled, disabled,
@@ -221,13 +221,13 @@ public partial class GoogleApihubPluginInstance : TerraformResource
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Timestamp indicating when the plugin instance was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

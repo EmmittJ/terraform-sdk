@@ -14,7 +14,7 @@ public partial class AwsVpcIpamResourceDiscoveryOperatingRegionsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
     [TerraformProperty("region_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RegionName { get; set; }
+    public required partial TerraformValue<string> RegionName { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public partial class AwsVpcIpamResourceDiscoveryTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -62,35 +62,35 @@ public partial class AwsVpcIpamResourceDiscovery : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for operating_regions.
@@ -99,41 +99,41 @@ public partial class AwsVpcIpamResourceDiscovery : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatingRegions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OperatingRegions block(s) required")]
     [TerraformProperty("operating_regions")]
-    public TerraformSet<TerraformBlock<AwsVpcIpamResourceDiscoveryOperatingRegionsBlock>>? OperatingRegions { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsVpcIpamResourceDiscoveryOperatingRegionsBlock>>? OperatingRegions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsVpcIpamResourceDiscoveryTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsVpcIpamResourceDiscoveryTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The ipam_resource_discovery_region attribute.
     /// </summary>
     [TerraformProperty("ipam_resource_discovery_region")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IpamResourceDiscoveryRegion { get; }
+    public partial TerraformValue<string> IpamResourceDiscoveryRegion { get; }
 
     /// <summary>
     /// The is_default attribute.
     /// </summary>
     [TerraformProperty("is_default")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> IsDefault { get; }
+    public partial TerraformValue<bool> IsDefault { get; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     [TerraformProperty("owner_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OwnerId { get; }
+    public partial TerraformValue<string> OwnerId { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermContainerRegistryTokenDataSourceTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzurermContainerRegistryTokenDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryName is required")]
     [TerraformProperty("container_registry_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerRegistryName { get; set; }
+    public required partial TerraformValue<string> ContainerRegistryName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,7 +47,7 @@ public partial class AzurermContainerRegistryTokenDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -55,27 +55,27 @@ public partial class AzurermContainerRegistryTokenDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermContainerRegistryTokenDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermContainerRegistryTokenDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Enabled { get; }
+    public partial TerraformValue<bool> Enabled { get; }
 
     /// <summary>
     /// The scope_map_id attribute.
     /// </summary>
     [TerraformProperty("scope_map_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ScopeMapId { get; }
+    public partial TerraformValue<string> ScopeMapId { get; }
 
 }

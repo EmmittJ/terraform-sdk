@@ -13,21 +13,21 @@ public partial class AwsVpcIpamResourceDiscoveryAssociationTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AwsVpcIpamResourceDiscoveryAssociation : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ipam_id attribute.
@@ -53,7 +53,7 @@ public partial class AwsVpcIpamResourceDiscoveryAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamId is required")]
     [TerraformProperty("ipam_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IpamId { get; set; }
+    public required partial TerraformValue<string> IpamId { get; set; }
 
     /// <summary>
     /// The ipam_resource_discovery_id attribute.
@@ -61,76 +61,76 @@ public partial class AwsVpcIpamResourceDiscoveryAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamResourceDiscoveryId is required")]
     [TerraformProperty("ipam_resource_discovery_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IpamResourceDiscoveryId { get; set; }
+    public required partial TerraformValue<string> IpamResourceDiscoveryId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsVpcIpamResourceDiscoveryAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsVpcIpamResourceDiscoveryAssociationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The ipam_arn attribute.
     /// </summary>
     [TerraformProperty("ipam_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IpamArn { get; }
+    public partial TerraformValue<string> IpamArn { get; }
 
     /// <summary>
     /// The ipam_region attribute.
     /// </summary>
     [TerraformProperty("ipam_region")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IpamRegion { get; }
+    public partial TerraformValue<string> IpamRegion { get; }
 
     /// <summary>
     /// The is_default attribute.
     /// </summary>
     [TerraformProperty("is_default")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> IsDefault { get; }
+    public partial TerraformValue<bool> IsDefault { get; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     [TerraformProperty("owner_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OwnerId { get; }
+    public partial TerraformValue<string> OwnerId { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

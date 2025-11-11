@@ -17,7 +17,7 @@ public partial class GoogleAccessContextManagerAccessLevelBasicBlock : Terraform
     /// </summary>
     [TerraformProperty("combining_function")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CombiningFunction { get; set; }
+    public partial TerraformValue<string>? CombiningFunction { get; set; }
 
 }
 
@@ -40,21 +40,21 @@ public partial class GoogleAccessContextManagerAccessLevelTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -73,14 +73,14 @@ public partial class GoogleAccessContextManagerAccessLevel : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource name for the Access Level. The short_name component must begin
@@ -90,7 +90,7 @@ public partial class GoogleAccessContextManagerAccessLevel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The AccessPolicy this AccessLevel lives in.
@@ -99,7 +99,7 @@ public partial class GoogleAccessContextManagerAccessLevel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Human readable title. Must be unique within the Policy.
@@ -107,7 +107,7 @@ public partial class GoogleAccessContextManagerAccessLevel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     [TerraformProperty("title")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Title { get; set; }
+    public required partial TerraformValue<string> Title { get; set; }
 
     /// <summary>
     /// Block for basic.
@@ -115,7 +115,7 @@ public partial class GoogleAccessContextManagerAccessLevel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Basic block(s) allowed")]
     [TerraformProperty("basic")]
-    public TerraformList<TerraformBlock<GoogleAccessContextManagerAccessLevelBasicBlock>>? Basic { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerAccessLevelBasicBlock>>? Basic { get; set; }
 
     /// <summary>
     /// Block for custom.
@@ -123,13 +123,13 @@ public partial class GoogleAccessContextManagerAccessLevel : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Custom block(s) allowed")]
     [TerraformProperty("custom")]
-    public TerraformList<TerraformBlock<GoogleAccessContextManagerAccessLevelCustomBlock>>? Custom { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerAccessLevelCustomBlock>>? Custom { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleAccessContextManagerAccessLevelTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleAccessContextManagerAccessLevelTimeoutsBlock>? Timeouts { get; set; }
 
 }

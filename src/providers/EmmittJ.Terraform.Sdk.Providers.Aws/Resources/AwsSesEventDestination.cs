@@ -14,7 +14,7 @@ public partial class AwsSesEventDestinationCloudwatchDestinationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultValue is required")]
     [TerraformProperty("default_value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DefaultValue { get; set; }
+    public required partial TerraformValue<string> DefaultValue { get; set; }
 
     /// <summary>
     /// The dimension_name attribute.
@@ -22,7 +22,7 @@ public partial class AwsSesEventDestinationCloudwatchDestinationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DimensionName is required")]
     [TerraformProperty("dimension_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DimensionName { get; set; }
+    public required partial TerraformValue<string> DimensionName { get; set; }
 
     /// <summary>
     /// The value_source attribute.
@@ -30,7 +30,7 @@ public partial class AwsSesEventDestinationCloudwatchDestinationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueSource is required")]
     [TerraformProperty("value_source")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ValueSource { get; set; }
+    public required partial TerraformValue<string> ValueSource { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AwsSesEventDestinationKinesisDestinationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The stream_arn attribute.
@@ -54,7 +54,7 @@ public partial class AwsSesEventDestinationKinesisDestinationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamArn is required")]
     [TerraformProperty("stream_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StreamArn { get; set; }
+    public required partial TerraformValue<string> StreamArn { get; set; }
 
 }
 
@@ -70,7 +70,7 @@ public partial class AwsSesEventDestinationSnsDestinationBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     [TerraformProperty("topic_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TopicArn { get; set; }
+    public required partial TerraformValue<string> TopicArn { get; set; }
 
 }
 
@@ -90,21 +90,21 @@ public partial class AwsSesEventDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
     [TerraformProperty("configuration_set_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConfigurationSetName { get; set; }
+    public required partial TerraformValue<string> ConfigurationSetName { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The matching_types attribute.
@@ -112,7 +112,7 @@ public partial class AwsSesEventDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingTypes is required")]
     [TerraformProperty("matching_types")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> MatchingTypes { get; set; }
+    public required partial TerraformSet<string> MatchingTypes { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -120,21 +120,21 @@ public partial class AwsSesEventDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for cloudwatch_destination.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("cloudwatch_destination")]
-    public TerraformSet<TerraformBlock<AwsSesEventDestinationCloudwatchDestinationBlock>>? CloudwatchDestination { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsSesEventDestinationCloudwatchDestinationBlock>>? CloudwatchDestination { get; set; }
 
     /// <summary>
     /// Block for kinesis_destination.
@@ -142,7 +142,7 @@ public partial class AwsSesEventDestination : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KinesisDestination block(s) allowed")]
     [TerraformProperty("kinesis_destination")]
-    public TerraformList<TerraformBlock<AwsSesEventDestinationKinesisDestinationBlock>>? KinesisDestination { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSesEventDestinationKinesisDestinationBlock>>? KinesisDestination { get; set; }
 
     /// <summary>
     /// Block for sns_destination.
@@ -150,13 +150,13 @@ public partial class AwsSesEventDestination : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnsDestination block(s) allowed")]
     [TerraformProperty("sns_destination")]
-    public TerraformList<TerraformBlock<AwsSesEventDestinationSnsDestinationBlock>>? SnsDestination { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSesEventDestinationSnsDestinationBlock>>? SnsDestination { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

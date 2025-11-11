@@ -14,7 +14,7 @@ public partial class GoogleChronicleReferenceListEntriesBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
 }
 
@@ -37,21 +37,21 @@ public partial class GoogleChronicleReferenceListTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -71,14 +71,14 @@ public partial class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     [TerraformProperty("description")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Description { get; set; }
+    public required partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
@@ -86,7 +86,7 @@ public partial class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
@@ -94,14 +94,14 @@ public partial class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Required. The ID to use for the reference list. This is also the display name for
@@ -114,7 +114,7 @@ public partial class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferenceListId is required")]
     [TerraformProperty("reference_list_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ReferenceListId { get; set; }
+    public required partial TerraformValue<string> ReferenceListId { get; set; }
 
     /// <summary>
     /// Possible values:
@@ -125,7 +125,7 @@ public partial class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SyntaxType is required")]
     [TerraformProperty("syntax_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SyntaxType { get; set; }
+    public required partial TerraformValue<string> SyntaxType { get; set; }
 
     /// <summary>
     /// Block for entries.
@@ -134,7 +134,7 @@ public partial class GoogleChronicleReferenceList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entries is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Entries block(s) required")]
     [TerraformProperty("entries")]
-    public TerraformList<TerraformBlock<GoogleChronicleReferenceListEntriesBlock>>? Entries { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleChronicleReferenceListEntriesBlock>>? Entries { get; set; }
 
     /// <summary>
     /// Block for scope_info.
@@ -142,21 +142,21 @@ public partial class GoogleChronicleReferenceList : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScopeInfo block(s) allowed")]
     [TerraformProperty("scope_info")]
-    public TerraformList<TerraformBlock<GoogleChronicleReferenceListScopeInfoBlock>>? ScopeInfo { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleChronicleReferenceListScopeInfoBlock>>? ScopeInfo { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleChronicleReferenceListTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleChronicleReferenceListTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The unique display name of the reference list.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// Output only. The resource name of the reference list.
@@ -165,21 +165,21 @@ public partial class GoogleChronicleReferenceList : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. The timestamp when the reference list was last updated.
     /// </summary>
     [TerraformProperty("revision_create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RevisionCreateTime { get; }
+    public partial TerraformValue<string> RevisionCreateTime { get; }
 
     /// <summary>
     /// Output only. The count of self-authored rules using the reference list.
     /// </summary>
     [TerraformProperty("rule_associations_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> RuleAssociationsCount { get; }
+    public partial TerraformValue<double> RuleAssociationsCount { get; }
 
     /// <summary>
     /// Output only. The resource names for the associated self-authored Rules that use this
@@ -188,6 +188,6 @@ public partial class GoogleChronicleReferenceList : TerraformResource
     /// </summary>
     [TerraformProperty("rules")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Rules { get; }
+    public partial TerraformList<string> Rules { get; }
 
 }

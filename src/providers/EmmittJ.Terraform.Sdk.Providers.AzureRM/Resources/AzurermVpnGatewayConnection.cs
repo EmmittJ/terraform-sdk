@@ -14,21 +14,21 @@ public partial class AzurermVpnGatewayConnectionRoutingBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociatedRouteTable is required")]
     [TerraformProperty("associated_route_table")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AssociatedRouteTable { get; set; }
+    public required partial TerraformValue<string> AssociatedRouteTable { get; set; }
 
     /// <summary>
     /// The inbound_route_map_id attribute.
     /// </summary>
     [TerraformProperty("inbound_route_map_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InboundRouteMapId { get; set; }
+    public partial TerraformValue<string>? InboundRouteMapId { get; set; }
 
     /// <summary>
     /// The outbound_route_map_id attribute.
     /// </summary>
     [TerraformProperty("outbound_route_map_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OutboundRouteMapId { get; set; }
+    public partial TerraformValue<string>? OutboundRouteMapId { get; set; }
 
 }
 
@@ -43,28 +43,28 @@ public partial class AzurermVpnGatewayConnectionTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -80,7 +80,7 @@ public partial class AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalAddressRanges is required")]
     [TerraformProperty("local_address_ranges")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> LocalAddressRanges { get; set; }
+    public required partial TerraformSet<string> LocalAddressRanges { get; set; }
 
     /// <summary>
     /// The remote_address_ranges attribute.
@@ -88,7 +88,7 @@ public partial class AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteAddressRanges is required")]
     [TerraformProperty("remote_address_ranges")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> RemoteAddressRanges { get; set; }
+    public required partial TerraformSet<string> RemoteAddressRanges { get; set; }
 
 }
 
@@ -103,49 +103,49 @@ public partial class AzurermVpnGatewayConnectionVpnLinkBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("bandwidth_mbps")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BandwidthMbps { get; set; }
+    public partial TerraformValue<double>? BandwidthMbps { get; set; }
 
     /// <summary>
     /// The bgp_enabled attribute.
     /// </summary>
     [TerraformProperty("bgp_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? BgpEnabled { get; set; }
+    public partial TerraformValue<bool>? BgpEnabled { get; set; }
 
     /// <summary>
     /// The connection_mode attribute.
     /// </summary>
     [TerraformProperty("connection_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConnectionMode { get; set; }
+    public partial TerraformValue<string>? ConnectionMode { get; set; }
 
     /// <summary>
     /// The dpd_timeout_seconds attribute.
     /// </summary>
     [TerraformProperty("dpd_timeout_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DpdTimeoutSeconds { get; set; }
+    public partial TerraformValue<double>? DpdTimeoutSeconds { get; set; }
 
     /// <summary>
     /// The egress_nat_rule_ids attribute.
     /// </summary>
     [TerraformProperty("egress_nat_rule_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? EgressNatRuleIds { get; set; }
+    public partial TerraformSet<string>? EgressNatRuleIds { get; set; }
 
     /// <summary>
     /// The ingress_nat_rule_ids attribute.
     /// </summary>
     [TerraformProperty("ingress_nat_rule_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IngressNatRuleIds { get; set; }
+    public partial TerraformSet<string>? IngressNatRuleIds { get; set; }
 
     /// <summary>
     /// The local_azure_ip_address_enabled attribute.
     /// </summary>
     [TerraformProperty("local_azure_ip_address_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LocalAzureIpAddressEnabled { get; set; }
+    public partial TerraformValue<bool>? LocalAzureIpAddressEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -153,42 +153,42 @@ public partial class AzurermVpnGatewayConnectionVpnLinkBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The policy_based_traffic_selector_enabled attribute.
     /// </summary>
     [TerraformProperty("policy_based_traffic_selector_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PolicyBasedTrafficSelectorEnabled { get; set; }
+    public partial TerraformValue<bool>? PolicyBasedTrafficSelectorEnabled { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [TerraformProperty("protocol")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Protocol { get; set; }
+    public partial TerraformValue<string>? Protocol { get; set; }
 
     /// <summary>
     /// The ratelimit_enabled attribute.
     /// </summary>
     [TerraformProperty("ratelimit_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RatelimitEnabled { get; set; }
+    public partial TerraformValue<bool>? RatelimitEnabled { get; set; }
 
     /// <summary>
     /// The route_weight attribute.
     /// </summary>
     [TerraformProperty("route_weight")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RouteWeight { get; set; }
+    public partial TerraformValue<double>? RouteWeight { get; set; }
 
     /// <summary>
     /// The shared_key attribute.
     /// </summary>
     [TerraformProperty("shared_key")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SharedKey { get; set; }
+    public partial TerraformValue<string> SharedKey { get; set; }
 
     /// <summary>
     /// The vpn_site_link_id attribute.
@@ -196,7 +196,7 @@ public partial class AzurermVpnGatewayConnectionVpnLinkBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnSiteLinkId is required")]
     [TerraformProperty("vpn_site_link_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VpnSiteLinkId { get; set; }
+    public required partial TerraformValue<string> VpnSiteLinkId { get; set; }
 
 }
 
@@ -215,14 +215,14 @@ public partial class AzurermVpnGatewayConnection : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The internet_security_enabled attribute.
     /// </summary>
     [TerraformProperty("internet_security_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? InternetSecurityEnabled { get; set; }
+    public partial TerraformValue<bool>? InternetSecurityEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -230,7 +230,7 @@ public partial class AzurermVpnGatewayConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The remote_vpn_site_id attribute.
@@ -238,7 +238,7 @@ public partial class AzurermVpnGatewayConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVpnSiteId is required")]
     [TerraformProperty("remote_vpn_site_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RemoteVpnSiteId { get; set; }
+    public required partial TerraformValue<string> RemoteVpnSiteId { get; set; }
 
     /// <summary>
     /// The vpn_gateway_id attribute.
@@ -246,7 +246,7 @@ public partial class AzurermVpnGatewayConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnGatewayId is required")]
     [TerraformProperty("vpn_gateway_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VpnGatewayId { get; set; }
+    public required partial TerraformValue<string> VpnGatewayId { get; set; }
 
     /// <summary>
     /// Block for routing.
@@ -254,21 +254,21 @@ public partial class AzurermVpnGatewayConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
     [TerraformProperty("routing")]
-    public TerraformList<TerraformBlock<AzurermVpnGatewayConnectionRoutingBlock>>? Routing { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermVpnGatewayConnectionRoutingBlock>>? Routing { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVpnGatewayConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVpnGatewayConnectionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for traffic_selector_policy.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("traffic_selector_policy")]
-    public TerraformSet<TerraformBlock<AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock>>? TrafficSelectorPolicy { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock>>? TrafficSelectorPolicy { get; set; }
 
     /// <summary>
     /// Block for vpn_link.
@@ -277,6 +277,6 @@ public partial class AzurermVpnGatewayConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnLink is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpnLink block(s) required")]
     [TerraformProperty("vpn_link")]
-    public TerraformList<TerraformBlock<AzurermVpnGatewayConnectionVpnLinkBlock>>? VpnLink { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermVpnGatewayConnectionVpnLinkBlock>>? VpnLink { get; set; }
 
 }

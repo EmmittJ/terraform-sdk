@@ -16,7 +16,7 @@ public partial class AwsRoute53RecordsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("name_regex")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NameRegex { get; set; }
+    public partial TerraformValue<string>? NameRegex { get; set; }
 
     /// <summary>
     /// The zone_id attribute.
@@ -24,13 +24,13 @@ public partial class AwsRoute53RecordsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     [TerraformProperty("zone_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ZoneId { get; set; }
+    public required partial TerraformValue<string> ZoneId { get; set; }
 
     /// <summary>
     /// The resource_record_sets attribute.
     /// </summary>
     [TerraformProperty("resource_record_sets")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ResourceRecordSets { get; }
+    public partial TerraformList<object> ResourceRecordSets { get; }
 
 }

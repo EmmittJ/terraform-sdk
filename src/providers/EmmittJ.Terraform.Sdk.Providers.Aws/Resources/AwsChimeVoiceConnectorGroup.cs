@@ -14,7 +14,7 @@ public partial class AwsChimeVoiceConnectorGroupConnectorBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformProperty("priority")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Priority { get; set; }
+    public required partial TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// The voice_connector_id attribute.
@@ -22,7 +22,7 @@ public partial class AwsChimeVoiceConnectorGroupConnectorBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     [TerraformProperty("voice_connector_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VoiceConnectorId { get; set; }
+    public required partial TerraformValue<string> VoiceConnectorId { get; set; }
 
 }
 
@@ -41,7 +41,7 @@ public partial class AwsChimeVoiceConnectorGroup : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -49,14 +49,14 @@ public partial class AwsChimeVoiceConnectorGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for connector.
@@ -64,6 +64,6 @@ public partial class AwsChimeVoiceConnectorGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 Connector block(s) allowed")]
     [TerraformProperty("connector")]
-    public TerraformSet<TerraformBlock<AwsChimeVoiceConnectorGroupConnectorBlock>>? Connector { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsChimeVoiceConnectorGroupConnectorBlock>>? Connector { get; set; }
 
 }

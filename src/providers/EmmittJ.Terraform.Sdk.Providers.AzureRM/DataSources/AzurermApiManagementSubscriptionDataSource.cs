@@ -13,7 +13,7 @@ public partial class AzurermApiManagementSubscriptionDataSourceTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzurermApiManagementSubscriptionDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     [TerraformProperty("api_management_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiManagementId { get; set; }
+    public required partial TerraformValue<string> ApiManagementId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
@@ -47,69 +47,69 @@ public partial class AzurermApiManagementSubscriptionDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     [TerraformProperty("subscription_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubscriptionId { get; set; }
+    public required partial TerraformValue<string> SubscriptionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApiManagementSubscriptionDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApiManagementSubscriptionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The allow_tracing attribute.
     /// </summary>
     [TerraformProperty("allow_tracing")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> AllowTracing { get; }
+    public partial TerraformValue<bool> AllowTracing { get; }
 
     /// <summary>
     /// The api_id attribute.
     /// </summary>
     [TerraformProperty("api_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ApiId { get; }
+    public partial TerraformValue<string> ApiId { get; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     [TerraformProperty("primary_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryKey { get; }
+    public partial TerraformValue<string> PrimaryKey { get; }
 
     /// <summary>
     /// The product_id attribute.
     /// </summary>
     [TerraformProperty("product_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ProductId { get; }
+    public partial TerraformValue<string> ProductId { get; }
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     [TerraformProperty("secondary_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecondaryKey { get; }
+    public partial TerraformValue<string> SecondaryKey { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
     [TerraformProperty("user_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UserId { get; }
+    public partial TerraformValue<string> UserId { get; }
 
 }

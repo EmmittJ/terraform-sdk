@@ -14,7 +14,7 @@ public partial class AwsSagemakerPipelineParallelismConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxParallelExecutionSteps is required")]
     [TerraformProperty("max_parallel_execution_steps")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MaxParallelExecutionSteps { get; set; }
+    public required partial TerraformValue<double> MaxParallelExecutionSteps { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public partial class AwsSagemakerPipelinePipelineDefinitionS3LocationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The object_key attribute.
@@ -38,14 +38,14 @@ public partial class AwsSagemakerPipelinePipelineDefinitionS3LocationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectKey is required")]
     [TerraformProperty("object_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ObjectKey { get; set; }
+    public required partial TerraformValue<string> ObjectKey { get; set; }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
     [TerraformProperty("version_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VersionId { get; set; }
+    public partial TerraformValue<string>? VersionId { get; set; }
 
 }
 
@@ -64,21 +64,21 @@ public partial class AwsSagemakerPipeline : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The pipeline_definition attribute.
     /// </summary>
     [TerraformProperty("pipeline_definition")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PipelineDefinition { get; set; }
+    public partial TerraformValue<string>? PipelineDefinition { get; set; }
 
     /// <summary>
     /// The pipeline_description attribute.
     /// </summary>
     [TerraformProperty("pipeline_description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PipelineDescription { get; set; }
+    public partial TerraformValue<string>? PipelineDescription { get; set; }
 
     /// <summary>
     /// The pipeline_display_name attribute.
@@ -86,7 +86,7 @@ public partial class AwsSagemakerPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineDisplayName is required")]
     [TerraformProperty("pipeline_display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PipelineDisplayName { get; set; }
+    public required partial TerraformValue<string> PipelineDisplayName { get; set; }
 
     /// <summary>
     /// The pipeline_name attribute.
@@ -94,35 +94,35 @@ public partial class AwsSagemakerPipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineName is required")]
     [TerraformProperty("pipeline_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PipelineName { get; set; }
+    public required partial TerraformValue<string> PipelineName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [TerraformProperty("role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RoleArn { get; set; }
+    public partial TerraformValue<string>? RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for parallelism_configuration.
@@ -130,7 +130,7 @@ public partial class AwsSagemakerPipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParallelismConfiguration block(s) allowed")]
     [TerraformProperty("parallelism_configuration")]
-    public TerraformList<TerraformBlock<AwsSagemakerPipelineParallelismConfigurationBlock>>? ParallelismConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerPipelineParallelismConfigurationBlock>>? ParallelismConfiguration { get; set; }
 
     /// <summary>
     /// Block for pipeline_definition_s3_location.
@@ -138,13 +138,13 @@ public partial class AwsSagemakerPipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PipelineDefinitionS3Location block(s) allowed")]
     [TerraformProperty("pipeline_definition_s3_location")]
-    public TerraformList<TerraformBlock<AwsSagemakerPipelinePipelineDefinitionS3LocationBlock>>? PipelineDefinitionS3Location { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerPipelinePipelineDefinitionS3LocationBlock>>? PipelineDefinitionS3Location { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

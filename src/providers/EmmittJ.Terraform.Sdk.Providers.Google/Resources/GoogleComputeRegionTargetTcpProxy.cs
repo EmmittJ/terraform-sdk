@@ -13,14 +13,14 @@ public partial class GoogleComputeRegionTargetTcpProxyTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,21 +39,21 @@ public partial class GoogleComputeRegionTargetTcpProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     [TerraformProperty("backend_service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackendService { get; set; }
+    public required partial TerraformValue<string> BackendService { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -67,14 +67,14 @@ public partial class GoogleComputeRegionTargetTcpProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// This field only applies when the forwarding rule that references
@@ -82,7 +82,7 @@ public partial class GoogleComputeRegionTargetTcpProxy : TerraformResource
     /// </summary>
     [TerraformProperty("proxy_bind")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> ProxyBind { get; set; }
+    public partial TerraformValue<bool> ProxyBind { get; set; }
 
     /// <summary>
     /// Specifies the type of proxy header to append before sending data to
@@ -90,7 +90,7 @@ public partial class GoogleComputeRegionTargetTcpProxy : TerraformResource
     /// </summary>
     [TerraformProperty("proxy_header")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProxyHeader { get; set; }
+    public partial TerraformValue<string>? ProxyHeader { get; set; }
 
     /// <summary>
     /// The Region in which the created target TCP proxy should reside.
@@ -98,34 +98,34 @@ public partial class GoogleComputeRegionTargetTcpProxy : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeRegionTargetTcpProxyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeRegionTargetTcpProxyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     [TerraformProperty("proxy_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ProxyId { get; }
+    public partial TerraformValue<double> ProxyId { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
 }

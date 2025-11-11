@@ -27,7 +27,7 @@ public partial class GooglePubsubTopicMessageStoragePolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedPersistenceRegions is required")]
     [TerraformProperty("allowed_persistence_regions")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> AllowedPersistenceRegions { get; set; }
+    public required partial TerraformSet<string> AllowedPersistenceRegions { get; set; }
 
     /// <summary>
     /// If true, &#39;allowedPersistenceRegions&#39; is also used to enforce in-transit
@@ -37,7 +37,7 @@ public partial class GooglePubsubTopicMessageStoragePolicyBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("enforce_in_transit")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnforceInTransit { get; set; }
+    public partial TerraformValue<bool>? EnforceInTransit { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class GooglePubsubTopicMessageTransformsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Disabled { get; set; }
+    public partial TerraformValue<bool>? Disabled { get; set; }
 
 }
 
@@ -68,7 +68,7 @@ public partial class GooglePubsubTopicSchemaSettingsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("encoding")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Encoding { get; set; }
+    public partial TerraformValue<string>? Encoding { get; set; }
 
     /// <summary>
     /// The name of the schema that messages published should be
@@ -79,7 +79,7 @@ public partial class GooglePubsubTopicSchemaSettingsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     [TerraformProperty("schema")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Schema { get; set; }
+    public required partial TerraformValue<string> Schema { get; set; }
 
 }
 
@@ -94,21 +94,21 @@ public partial class GooglePubsubTopicTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -127,7 +127,7 @@ public partial class GooglePubsubTopic : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource name of the Cloud KMS CryptoKey to be used to protect access
@@ -138,7 +138,7 @@ public partial class GooglePubsubTopic : TerraformResource
     /// </summary>
     [TerraformProperty("kms_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyName { get; set; }
+    public partial TerraformValue<string>? KmsKeyName { get; set; }
 
     /// <summary>
     /// A set of key/value label pairs to assign to this Topic.
@@ -149,7 +149,7 @@ public partial class GooglePubsubTopic : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Indicates the minimum duration to retain a message after it is published
@@ -163,7 +163,7 @@ public partial class GooglePubsubTopic : TerraformResource
     /// </summary>
     [TerraformProperty("message_retention_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MessageRetentionDuration { get; set; }
+    public partial TerraformValue<string>? MessageRetentionDuration { get; set; }
 
     /// <summary>
     /// Name of the topic.
@@ -171,14 +171,14 @@ public partial class GooglePubsubTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Input only. Resource manager tags to be bound to the topic. Tag keys and
@@ -192,7 +192,7 @@ public partial class GooglePubsubTopic : TerraformResource
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for ingestion_data_source_settings.
@@ -200,7 +200,7 @@ public partial class GooglePubsubTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngestionDataSourceSettings block(s) allowed")]
     [TerraformProperty("ingestion_data_source_settings")]
-    public TerraformList<TerraformBlock<GooglePubsubTopicIngestionDataSourceSettingsBlock>>? IngestionDataSourceSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePubsubTopicIngestionDataSourceSettingsBlock>>? IngestionDataSourceSettings { get; set; }
 
     /// <summary>
     /// Block for message_storage_policy.
@@ -208,14 +208,14 @@ public partial class GooglePubsubTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MessageStoragePolicy block(s) allowed")]
     [TerraformProperty("message_storage_policy")]
-    public TerraformList<TerraformBlock<GooglePubsubTopicMessageStoragePolicyBlock>>? MessageStoragePolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePubsubTopicMessageStoragePolicyBlock>>? MessageStoragePolicy { get; set; }
 
     /// <summary>
     /// Block for message_transforms.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("message_transforms")]
-    public TerraformList<TerraformBlock<GooglePubsubTopicMessageTransformsBlock>>? MessageTransforms { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePubsubTopicMessageTransformsBlock>>? MessageTransforms { get; set; }
 
     /// <summary>
     /// Block for schema_settings.
@@ -223,21 +223,21 @@ public partial class GooglePubsubTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchemaSettings block(s) allowed")]
     [TerraformProperty("schema_settings")]
-    public TerraformList<TerraformBlock<GooglePubsubTopicSchemaSettingsBlock>>? SchemaSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePubsubTopicSchemaSettingsBlock>>? SchemaSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GooglePubsubTopicTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GooglePubsubTopicTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -245,6 +245,6 @@ public partial class GooglePubsubTopic : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

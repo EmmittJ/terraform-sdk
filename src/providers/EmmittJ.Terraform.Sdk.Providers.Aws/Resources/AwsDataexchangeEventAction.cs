@@ -32,48 +32,48 @@ public partial class AwsDataexchangeEventAction : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for action.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("action")]
-    public TerraformList<TerraformBlock<AwsDataexchangeEventActionActionBlock>>? Action { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDataexchangeEventActionActionBlock>>? Action { get; set; }
 
     /// <summary>
     /// Block for event.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("event")]
-    public TerraformList<TerraformBlock<AwsDataexchangeEventActionEventBlock>>? Event { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDataexchangeEventActionEventBlock>>? Event { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformProperty("created_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedAt { get; }
+    public partial TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     [TerraformProperty("updated_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdatedAt { get; }
+    public partial TerraformValue<string> UpdatedAt { get; }
 
 }

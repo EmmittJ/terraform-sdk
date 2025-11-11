@@ -13,7 +13,7 @@ public partial class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBl
     /// </summary>
     [TerraformProperty("column_names")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> ColumnNames { get; set; }
+    public partial TerraformSet<string> ColumnNames { get; set; }
 
     /// <summary>
     /// The database_name attribute.
@@ -21,7 +21,7 @@ public partial class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformProperty("database_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatabaseName { get; set; }
+    public required partial TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -29,7 +29,7 @@ public partial class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The table_catalog_id attribute.
@@ -37,7 +37,7 @@ public partial class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableCatalogId is required")]
     [TerraformProperty("table_catalog_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TableCatalogId { get; set; }
+    public required partial TerraformValue<string> TableCatalogId { get; set; }
 
     /// <summary>
     /// The table_name attribute.
@@ -45,14 +45,14 @@ public partial class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     [TerraformProperty("table_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TableName { get; set; }
+    public required partial TerraformValue<string> TableName { get; set; }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
     [TerraformProperty("version_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VersionId { get; set; }
+    public partial TerraformValue<string> VersionId { get; set; }
 
 }
 
@@ -67,7 +67,7 @@ public partial class AwsLakeformationDataCellsFilterTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -85,27 +85,27 @@ public partial class AwsLakeformationDataCellsFilter : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for table_data.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("table_data")]
-    public TerraformList<TerraformBlock<AwsLakeformationDataCellsFilterTableDataBlock>>? TableData { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLakeformationDataCellsFilterTableDataBlock>>? TableData { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsLakeformationDataCellsFilterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsLakeformationDataCellsFilterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

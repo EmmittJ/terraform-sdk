@@ -13,21 +13,21 @@ public partial class AzurermRedisCacheAccessPolicyAssignmentTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPolicyName is required")]
     [TerraformProperty("access_policy_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccessPolicyName { get; set; }
+    public required partial TerraformValue<string> AccessPolicyName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -61,7 +61,7 @@ public partial class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The object_id attribute.
@@ -69,7 +69,7 @@ public partial class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     [TerraformProperty("object_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ObjectId { get; set; }
+    public required partial TerraformValue<string> ObjectId { get; set; }
 
     /// <summary>
     /// The object_id_alias attribute.
@@ -77,7 +77,7 @@ public partial class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectIdAlias is required")]
     [TerraformProperty("object_id_alias")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ObjectIdAlias { get; set; }
+    public required partial TerraformValue<string> ObjectIdAlias { get; set; }
 
     /// <summary>
     /// The redis_cache_id attribute.
@@ -85,13 +85,13 @@ public partial class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedisCacheId is required")]
     [TerraformProperty("redis_cache_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RedisCacheId { get; set; }
+    public required partial TerraformValue<string> RedisCacheId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermRedisCacheAccessPolicyAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermRedisCacheAccessPolicyAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

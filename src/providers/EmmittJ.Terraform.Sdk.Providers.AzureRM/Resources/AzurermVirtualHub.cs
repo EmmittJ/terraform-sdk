@@ -14,7 +14,7 @@ public partial class AzurermVirtualHubRouteBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixes is required")]
     [TerraformProperty("address_prefixes")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? AddressPrefixes { get; set; }
+    public partial TerraformList<string>? AddressPrefixes { get; set; }
 
     /// <summary>
     /// The next_hop_ip_address attribute.
@@ -22,7 +22,7 @@ public partial class AzurermVirtualHubRouteBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHopIpAddress is required")]
     [TerraformProperty("next_hop_ip_address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NextHopIpAddress { get; set; }
+    public required partial TerraformValue<string> NextHopIpAddress { get; set; }
 
 }
 
@@ -37,28 +37,28 @@ public partial class AzurermVirtualHubTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -76,28 +76,28 @@ public partial class AzurermVirtualHub : TerraformResource
     /// </summary>
     [TerraformProperty("address_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AddressPrefix { get; set; }
+    public partial TerraformValue<string>? AddressPrefix { get; set; }
 
     /// <summary>
     /// The branch_to_branch_traffic_enabled attribute.
     /// </summary>
     [TerraformProperty("branch_to_branch_traffic_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? BranchToBranchTrafficEnabled { get; set; }
+    public partial TerraformValue<bool>? BranchToBranchTrafficEnabled { get; set; }
 
     /// <summary>
     /// The hub_routing_preference attribute.
     /// </summary>
     [TerraformProperty("hub_routing_preference")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HubRoutingPreference { get; set; }
+    public partial TerraformValue<string>? HubRoutingPreference { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -105,7 +105,7 @@ public partial class AzurermVirtualHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -113,7 +113,7 @@ public partial class AzurermVirtualHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -121,69 +121,69 @@ public partial class AzurermVirtualHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [TerraformProperty("sku")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Sku { get; set; }
+    public partial TerraformValue<string>? Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The virtual_router_auto_scale_min_capacity attribute.
     /// </summary>
     [TerraformProperty("virtual_router_auto_scale_min_capacity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? VirtualRouterAutoScaleMinCapacity { get; set; }
+    public partial TerraformValue<double>? VirtualRouterAutoScaleMinCapacity { get; set; }
 
     /// <summary>
     /// The virtual_wan_id attribute.
     /// </summary>
     [TerraformProperty("virtual_wan_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VirtualWanId { get; set; }
+    public partial TerraformValue<string>? VirtualWanId { get; set; }
 
     /// <summary>
     /// Block for route.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("route")]
-    public TerraformSet<TerraformBlock<AzurermVirtualHubRouteBlock>>? Route { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermVirtualHubRouteBlock>>? Route { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVirtualHubTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVirtualHubTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The default_route_table_id attribute.
     /// </summary>
     [TerraformProperty("default_route_table_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DefaultRouteTableId { get; }
+    public partial TerraformValue<string> DefaultRouteTableId { get; }
 
     /// <summary>
     /// The virtual_router_asn attribute.
     /// </summary>
     [TerraformProperty("virtual_router_asn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> VirtualRouterAsn { get; }
+    public partial TerraformValue<double> VirtualRouterAsn { get; }
 
     /// <summary>
     /// The virtual_router_ips attribute.
     /// </summary>
     [TerraformProperty("virtual_router_ips")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> VirtualRouterIps { get; }
+    public partial TerraformList<string> VirtualRouterIps { get; }
 
 }

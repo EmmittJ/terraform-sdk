@@ -13,7 +13,7 @@ public partial class GoogleOsConfigPatchDeploymentInstanceFilterBlock : Terrafor
     /// </summary>
     [TerraformProperty("all")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? All { get; set; }
+    public partial TerraformValue<bool>? All { get; set; }
 
     /// <summary>
     /// Targets VMs whose name starts with one of these prefixes. Similar to labels, this is another way to group
@@ -21,7 +21,7 @@ public partial class GoogleOsConfigPatchDeploymentInstanceFilterBlock : Terrafor
     /// </summary>
     [TerraformProperty("instance_name_prefixes")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? InstanceNamePrefixes { get; set; }
+    public partial TerraformList<string>? InstanceNamePrefixes { get; set; }
 
     /// <summary>
     /// Targets any of the VM instances specified. Instances are specified by their URI in the &#39;form zones/{{zone}}/instances/{{instance_name}}&#39;,
@@ -30,14 +30,14 @@ public partial class GoogleOsConfigPatchDeploymentInstanceFilterBlock : Terrafor
     /// </summary>
     [TerraformProperty("instances")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Instances { get; set; }
+    public partial TerraformList<string>? Instances { get; set; }
 
     /// <summary>
     /// Targets VM instances in ANY of these zones. Leave empty to target VM instances in any zone.
     /// </summary>
     [TerraformProperty("zones")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Zones { get; set; }
+    public partial TerraformList<string>? Zones { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public partial class GoogleOsConfigPatchDeploymentOneTimeScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecuteTime is required")]
     [TerraformProperty("execute_time")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ExecuteTime { get; set; }
+    public required partial TerraformValue<string> ExecuteTime { get; set; }
 
 }
 
@@ -69,14 +69,14 @@ public partial class GoogleOsConfigPatchDeploymentPatchConfigBlock : TerraformBl
     /// </summary>
     [TerraformProperty("mig_instances_allowed")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? MigInstancesAllowed { get; set; }
+    public partial TerraformValue<bool>? MigInstancesAllowed { get; set; }
 
     /// <summary>
     /// Post-patch reboot settings. Possible values: [&amp;quot;DEFAULT&amp;quot;, &amp;quot;ALWAYS&amp;quot;, &amp;quot;NEVER&amp;quot;]
     /// </summary>
     [TerraformProperty("reboot_config")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RebootConfig { get; set; }
+    public partial TerraformValue<string>? RebootConfig { get; set; }
 
 }
 
@@ -92,7 +92,7 @@ public partial class GoogleOsConfigPatchDeploymentRecurringScheduleBlock : Terra
     /// </summary>
     [TerraformProperty("end_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EndTime { get; set; }
+    public partial TerraformValue<string>? EndTime { get; set; }
 
 
 
@@ -102,7 +102,7 @@ public partial class GoogleOsConfigPatchDeploymentRecurringScheduleBlock : Terra
     /// </summary>
     [TerraformProperty("start_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StartTime { get; set; }
+    public partial TerraformValue<string>? StartTime { get; set; }
 
 }
 
@@ -118,7 +118,7 @@ public partial class GoogleOsConfigPatchDeploymentRolloutBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     [TerraformProperty("mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Mode { get; set; }
+    public required partial TerraformValue<string> Mode { get; set; }
 
 }
 
@@ -133,14 +133,14 @@ public partial class GoogleOsConfigPatchDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -159,7 +159,7 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Duration of the patch. After the duration ends, the patch times out.
@@ -167,14 +167,14 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Duration { get; set; }
+    public partial TerraformValue<string>? Duration { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A name for the patch deployment in the project. When creating a name the following rules apply:
@@ -187,14 +187,14 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatchDeploymentId is required")]
     [TerraformProperty("patch_deployment_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PatchDeploymentId { get; set; }
+    public required partial TerraformValue<string> PatchDeploymentId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for instance_filter.
@@ -204,7 +204,7 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InstanceFilter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceFilter block(s) allowed")]
     [TerraformProperty("instance_filter")]
-    public TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentInstanceFilterBlock>>? InstanceFilter { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentInstanceFilterBlock>>? InstanceFilter { get; set; }
 
     /// <summary>
     /// Block for one_time_schedule.
@@ -212,7 +212,7 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OneTimeSchedule block(s) allowed")]
     [TerraformProperty("one_time_schedule")]
-    public TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentOneTimeScheduleBlock>>? OneTimeSchedule { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentOneTimeScheduleBlock>>? OneTimeSchedule { get; set; }
 
     /// <summary>
     /// Block for patch_config.
@@ -220,7 +220,7 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PatchConfig block(s) allowed")]
     [TerraformProperty("patch_config")]
-    public TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentPatchConfigBlock>>? PatchConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentPatchConfigBlock>>? PatchConfig { get; set; }
 
     /// <summary>
     /// Block for recurring_schedule.
@@ -228,7 +228,7 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecurringSchedule block(s) allowed")]
     [TerraformProperty("recurring_schedule")]
-    public TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentRecurringScheduleBlock>>? RecurringSchedule { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentRecurringScheduleBlock>>? RecurringSchedule { get; set; }
 
     /// <summary>
     /// Block for rollout.
@@ -236,14 +236,14 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rollout block(s) allowed")]
     [TerraformProperty("rollout")]
-    public TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentRolloutBlock>>? Rollout { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleOsConfigPatchDeploymentRolloutBlock>>? Rollout { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleOsConfigPatchDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleOsConfigPatchDeploymentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the patch deployment was created. Timestamp is in RFC3339 text format.
@@ -251,7 +251,7 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The last time a patch job was started by this deployment. Timestamp is in RFC3339 text format.
@@ -259,7 +259,7 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("last_execute_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastExecuteTime { get; }
+    public partial TerraformValue<string> LastExecuteTime { get; }
 
     /// <summary>
     /// Unique name for the patch deployment resource in a project.
@@ -267,7 +267,7 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Time the patch deployment was last updated. Timestamp is in RFC3339 text format.
@@ -275,6 +275,6 @@ public partial class GoogleOsConfigPatchDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

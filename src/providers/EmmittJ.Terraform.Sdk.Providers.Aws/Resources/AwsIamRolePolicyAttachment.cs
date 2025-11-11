@@ -16,7 +16,7 @@ public partial class AwsIamRolePolicyAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_arn attribute.
@@ -24,7 +24,7 @@ public partial class AwsIamRolePolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
     [TerraformProperty("policy_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyArn { get; set; }
+    public required partial TerraformValue<string> PolicyArn { get; set; }
 
     /// <summary>
     /// The role attribute.
@@ -32,6 +32,6 @@ public partial class AwsIamRolePolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     [TerraformProperty("role")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Role { get; set; }
+    public required partial TerraformValue<string> Role { get; set; }
 
 }

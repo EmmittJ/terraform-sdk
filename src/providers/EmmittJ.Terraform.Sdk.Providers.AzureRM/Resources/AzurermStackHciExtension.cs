@@ -13,28 +13,28 @@ public partial class AzurermStackHciExtensionTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,28 +53,28 @@ public partial class AzurermStackHciExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcSettingId is required")]
     [TerraformProperty("arc_setting_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ArcSettingId { get; set; }
+    public required partial TerraformValue<string> ArcSettingId { get; set; }
 
     /// <summary>
     /// The auto_upgrade_minor_version_enabled attribute.
     /// </summary>
     [TerraformProperty("auto_upgrade_minor_version_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutoUpgradeMinorVersionEnabled { get; set; }
+    public partial TerraformValue<bool>? AutoUpgradeMinorVersionEnabled { get; set; }
 
     /// <summary>
     /// The automatic_upgrade_enabled attribute.
     /// </summary>
     [TerraformProperty("automatic_upgrade_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutomaticUpgradeEnabled { get; set; }
+    public partial TerraformValue<bool>? AutomaticUpgradeEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -82,14 +82,14 @@ public partial class AzurermStackHciExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The protected_settings attribute.
     /// </summary>
     [TerraformProperty("protected_settings")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProtectedSettings { get; set; }
+    public partial TerraformValue<string>? ProtectedSettings { get; set; }
 
     /// <summary>
     /// The publisher attribute.
@@ -97,14 +97,14 @@ public partial class AzurermStackHciExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     [TerraformProperty("publisher")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Publisher { get; set; }
+    public required partial TerraformValue<string> Publisher { get; set; }
 
     /// <summary>
     /// The settings attribute.
     /// </summary>
     [TerraformProperty("settings")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Settings { get; set; }
+    public partial TerraformValue<string>? Settings { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -112,20 +112,20 @@ public partial class AzurermStackHciExtension : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The type_handler_version attribute.
     /// </summary>
     [TerraformProperty("type_handler_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TypeHandlerVersion { get; set; }
+    public partial TerraformValue<string>? TypeHandlerVersion { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStackHciExtensionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStackHciExtensionTimeoutsBlock>? Timeouts { get; set; }
 
 }

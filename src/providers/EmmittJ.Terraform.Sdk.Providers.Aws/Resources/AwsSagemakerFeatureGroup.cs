@@ -13,21 +13,21 @@ public partial class AwsSagemakerFeatureGroupFeatureDefinitionBlock : TerraformB
     /// </summary>
     [TerraformProperty("collection_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CollectionType { get; set; }
+    public partial TerraformValue<string>? CollectionType { get; set; }
 
     /// <summary>
     /// The feature_name attribute.
     /// </summary>
     [TerraformProperty("feature_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FeatureName { get; set; }
+    public partial TerraformValue<string>? FeatureName { get; set; }
 
     /// <summary>
     /// The feature_type attribute.
     /// </summary>
     [TerraformProperty("feature_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FeatureType { get; set; }
+    public partial TerraformValue<string>? FeatureType { get; set; }
 
 }
 
@@ -42,14 +42,14 @@ public partial class AwsSagemakerFeatureGroupOfflineStoreConfigBlock : Terraform
     /// </summary>
     [TerraformProperty("disable_glue_table_creation")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableGlueTableCreation { get; set; }
+    public partial TerraformValue<bool>? DisableGlueTableCreation { get; set; }
 
     /// <summary>
     /// The table_format attribute.
     /// </summary>
     [TerraformProperty("table_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TableFormat { get; set; }
+    public partial TerraformValue<string>? TableFormat { get; set; }
 
 }
 
@@ -64,14 +64,14 @@ public partial class AwsSagemakerFeatureGroupOnlineStoreConfigBlock : TerraformB
     /// </summary>
     [TerraformProperty("enable_online_store")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableOnlineStore { get; set; }
+    public partial TerraformValue<bool>? EnableOnlineStore { get; set; }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
     [TerraformProperty("storage_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageType { get; set; }
+    public partial TerraformValue<string>? StorageType { get; set; }
 
 }
 
@@ -86,21 +86,21 @@ public partial class AwsSagemakerFeatureGroupThroughputConfigBlock : TerraformBl
     /// </summary>
     [TerraformProperty("provisioned_read_capacity_units")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ProvisionedReadCapacityUnits { get; set; }
+    public partial TerraformValue<double>? ProvisionedReadCapacityUnits { get; set; }
 
     /// <summary>
     /// The provisioned_write_capacity_units attribute.
     /// </summary>
     [TerraformProperty("provisioned_write_capacity_units")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ProvisionedWriteCapacityUnits { get; set; }
+    public partial TerraformValue<double>? ProvisionedWriteCapacityUnits { get; set; }
 
     /// <summary>
     /// The throughput_mode attribute.
     /// </summary>
     [TerraformProperty("throughput_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ThroughputMode { get; set; }
+    public partial TerraformValue<string> ThroughputMode { get; set; }
 
 }
 
@@ -119,7 +119,7 @@ public partial class AwsSagemakerFeatureGroup : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The event_time_feature_name attribute.
@@ -127,7 +127,7 @@ public partial class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTimeFeatureName is required")]
     [TerraformProperty("event_time_feature_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EventTimeFeatureName { get; set; }
+    public required partial TerraformValue<string> EventTimeFeatureName { get; set; }
 
     /// <summary>
     /// The feature_group_name attribute.
@@ -135,14 +135,14 @@ public partial class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureGroupName is required")]
     [TerraformProperty("feature_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FeatureGroupName { get; set; }
+    public required partial TerraformValue<string> FeatureGroupName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The record_identifier_feature_name attribute.
@@ -150,14 +150,14 @@ public partial class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordIdentifierFeatureName is required")]
     [TerraformProperty("record_identifier_feature_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecordIdentifierFeatureName { get; set; }
+    public required partial TerraformValue<string> RecordIdentifierFeatureName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -165,21 +165,21 @@ public partial class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for feature_definition.
@@ -189,7 +189,7 @@ public partial class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FeatureDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2500, ErrorMessage = "Maximum 2500 FeatureDefinition block(s) allowed")]
     [TerraformProperty("feature_definition")]
-    public TerraformList<TerraformBlock<AwsSagemakerFeatureGroupFeatureDefinitionBlock>>? FeatureDefinition { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerFeatureGroupFeatureDefinitionBlock>>? FeatureDefinition { get; set; }
 
     /// <summary>
     /// Block for offline_store_config.
@@ -197,7 +197,7 @@ public partial class AwsSagemakerFeatureGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OfflineStoreConfig block(s) allowed")]
     [TerraformProperty("offline_store_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerFeatureGroupOfflineStoreConfigBlock>>? OfflineStoreConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerFeatureGroupOfflineStoreConfigBlock>>? OfflineStoreConfig { get; set; }
 
     /// <summary>
     /// Block for online_store_config.
@@ -205,7 +205,7 @@ public partial class AwsSagemakerFeatureGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnlineStoreConfig block(s) allowed")]
     [TerraformProperty("online_store_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerFeatureGroupOnlineStoreConfigBlock>>? OnlineStoreConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerFeatureGroupOnlineStoreConfigBlock>>? OnlineStoreConfig { get; set; }
 
     /// <summary>
     /// Block for throughput_config.
@@ -213,13 +213,13 @@ public partial class AwsSagemakerFeatureGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThroughputConfig block(s) allowed")]
     [TerraformProperty("throughput_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerFeatureGroupThroughputConfigBlock>>? ThroughputConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerFeatureGroupThroughputConfigBlock>>? ThroughputConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermPostgresqlServerDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,7 +32,7 @@ public partial class AzurermPostgresqlServerDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -40,7 +40,7 @@ public partial class AzurermPostgresqlServerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -48,62 +48,62 @@ public partial class AzurermPostgresqlServerDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPostgresqlServerDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPostgresqlServerDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The administrator_login attribute.
     /// </summary>
     [TerraformProperty("administrator_login")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AdministratorLogin { get; }
+    public partial TerraformValue<string> AdministratorLogin { get; }
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     [TerraformProperty("fqdn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Fqdn { get; }
+    public partial TerraformValue<string> Fqdn { get; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [TerraformProperty("identity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Identity { get; }
+    public partial TerraformList<object> Identity { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [TerraformProperty("sku_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SkuName { get; }
+    public partial TerraformValue<string> SkuName { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Version { get; }
+    public partial TerraformValue<string> Version { get; }
 
 }

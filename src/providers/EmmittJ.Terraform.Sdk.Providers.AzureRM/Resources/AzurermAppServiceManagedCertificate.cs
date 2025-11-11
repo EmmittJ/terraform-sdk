@@ -13,28 +13,28 @@ public partial class AzurermAppServiceManagedCertificateTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,83 +53,83 @@ public partial class AzurermAppServiceManagedCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomHostnameBindingId is required")]
     [TerraformProperty("custom_hostname_binding_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CustomHostnameBindingId { get; set; }
+    public required partial TerraformValue<string> CustomHostnameBindingId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAppServiceManagedCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAppServiceManagedCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The canonical_name attribute.
     /// </summary>
     [TerraformProperty("canonical_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CanonicalName { get; }
+    public partial TerraformValue<string> CanonicalName { get; }
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     [TerraformProperty("expiration_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpirationDate { get; }
+    public partial TerraformValue<string> ExpirationDate { get; }
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
     [TerraformProperty("friendly_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> FriendlyName { get; }
+    public partial TerraformValue<string> FriendlyName { get; }
 
     /// <summary>
     /// The host_names attribute.
     /// </summary>
     [TerraformProperty("host_names")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> HostNames { get; }
+    public partial TerraformList<string> HostNames { get; }
 
     /// <summary>
     /// The issue_date attribute.
     /// </summary>
     [TerraformProperty("issue_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IssueDate { get; }
+    public partial TerraformValue<string> IssueDate { get; }
 
     /// <summary>
     /// The issuer attribute.
     /// </summary>
     [TerraformProperty("issuer")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Issuer { get; }
+    public partial TerraformValue<string> Issuer { get; }
 
     /// <summary>
     /// The subject_name attribute.
     /// </summary>
     [TerraformProperty("subject_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SubjectName { get; }
+    public partial TerraformValue<string> SubjectName { get; }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     [TerraformProperty("thumbprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Thumbprint { get; }
+    public partial TerraformValue<string> Thumbprint { get; }
 
 }

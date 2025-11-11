@@ -13,21 +13,21 @@ public partial class GoogleIdentityPlatformTenantDefaultSupportedIdpConfigTimeou
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class GoogleIdentityPlatformTenantDefaultSupportedIdpConfig : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     [TerraformProperty("client_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientId { get; set; }
+    public required partial TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// OAuth client secret
@@ -54,21 +54,21 @@ public partial class GoogleIdentityPlatformTenantDefaultSupportedIdpConfig : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     [TerraformProperty("client_secret")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientSecret { get; set; }
+    public required partial TerraformValue<string> ClientSecret { get; set; }
 
     /// <summary>
     /// If this IDP allows the user to sign in
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// ID of the IDP. Possible values include:
@@ -96,14 +96,14 @@ public partial class GoogleIdentityPlatformTenantDefaultSupportedIdpConfig : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpId is required")]
     [TerraformProperty("idp_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IdpId { get; set; }
+    public required partial TerraformValue<string> IdpId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The name of the tenant where this DefaultSupportedIdpConfig resource exists
@@ -111,20 +111,20 @@ public partial class GoogleIdentityPlatformTenantDefaultSupportedIdpConfig : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tenant is required")]
     [TerraformProperty("tenant")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Tenant { get; set; }
+    public required partial TerraformValue<string> Tenant { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleIdentityPlatformTenantDefaultSupportedIdpConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleIdentityPlatformTenantDefaultSupportedIdpConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The name of the default supported IDP config resource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

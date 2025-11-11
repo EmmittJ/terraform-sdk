@@ -13,7 +13,7 @@ public partial class AzureadDirectoryObjectDataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzureadDirectoryObjectDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The object ID of the Directory Object
@@ -39,20 +39,20 @@ public partial class AzureadDirectoryObjectDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     [TerraformProperty("object_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ObjectId { get; set; }
+    public required partial TerraformValue<string> ObjectId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadDirectoryObjectDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadDirectoryObjectDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The OData type of the Directory Object
     /// </summary>
     [TerraformProperty("type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Type { get; }
+    public partial TerraformValue<string> Type { get; }
 
 }

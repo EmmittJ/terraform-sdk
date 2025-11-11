@@ -16,7 +16,7 @@ public partial class GoogleAccessApprovalProjectServiceAccountDataSource : Terra
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project_id attribute.
@@ -24,20 +24,20 @@ public partial class GoogleAccessApprovalProjectServiceAccountDataSource : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     [TerraformProperty("project_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProjectId { get; set; }
+    public required partial TerraformValue<string> ProjectId { get; set; }
 
     /// <summary>
     /// The account_email attribute.
     /// </summary>
     [TerraformProperty("account_email")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AccountEmail { get; }
+    public partial TerraformValue<string> AccountEmail { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

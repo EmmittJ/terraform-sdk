@@ -14,14 +14,14 @@ public partial class GoogleCloudbuildWorkerPoolNetworkConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeredNetwork is required")]
     [TerraformProperty("peered_network")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PeeredNetwork { get; set; }
+    public required partial TerraformValue<string> PeeredNetwork { get; set; }
 
     /// <summary>
     /// Optional. Immutable. Subnet IP range within the peered network. This is specified in CIDR notation with a slash and the subnet prefix size. You can optionally specify an IP address before the subnet prefix value. e.g. `192.168.0.0/29` would specify an IP range starting at 192.168.0.0 with a prefix size of 29 bits. `/16` would specify a prefix size of 16 bits, with an automatically determined IP within the peered VPC. If unspecified, a value of `/24` will be used.
     /// </summary>
     [TerraformProperty("peered_network_ip_range")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PeeredNetworkIpRange { get; set; }
+    public partial TerraformValue<string>? PeeredNetworkIpRange { get; set; }
 
 }
 
@@ -37,14 +37,14 @@ public partial class GoogleCloudbuildWorkerPoolPrivateServiceConnectBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkAttachment is required")]
     [TerraformProperty("network_attachment")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NetworkAttachment { get; set; }
+    public required partial TerraformValue<string> NetworkAttachment { get; set; }
 
     /// <summary>
     /// Immutable. Route all traffic through PSC interface. Enable this if you want full control of traffic in the private pool. Configure Cloud NAT for the subnet of network attachment if you need to access public Internet. If false, Only route private IPs, e.g. 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16 through PSC interface.
     /// </summary>
     [TerraformProperty("route_all_traffic")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RouteAllTraffic { get; set; }
+    public partial TerraformValue<bool>? RouteAllTraffic { get; set; }
 
 }
 
@@ -59,21 +59,21 @@ public partial class GoogleCloudbuildWorkerPoolTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -88,28 +88,28 @@ public partial class GoogleCloudbuildWorkerPoolWorkerConfigBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("disk_size_gb")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DiskSizeGb { get; set; }
+    public partial TerraformValue<double>? DiskSizeGb { get; set; }
 
     /// <summary>
     /// Enable nested virtualization on the worker, if supported by the machine type. See [Worker pool config file](https://cloud.google.com/build/docs/private-pools/worker-pool-config-file-schema). If left blank, Cloud Build will set this to false.
     /// </summary>
     [TerraformProperty("enable_nested_virtualization")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableNestedVirtualization { get; set; }
+    public partial TerraformValue<bool>? EnableNestedVirtualization { get; set; }
 
     /// <summary>
     /// Machine type of a worker, such as `n1-standard-1`. See [Worker pool config file](https://cloud.google.com/cloud-build/docs/custom-workers/worker-pool-config-file). If left blank, Cloud Build will use `n1-standard-1`.
     /// </summary>
     [TerraformProperty("machine_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MachineType { get; set; }
+    public partial TerraformValue<string>? MachineType { get; set; }
 
     /// <summary>
     /// If true, workers are created without any public address, which prevents network egress to public IPs.
     /// </summary>
     [TerraformProperty("no_external_ip")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> NoExternalIp { get; set; }
+    public partial TerraformValue<bool> NoExternalIp { get; set; }
 
 }
 
@@ -131,21 +131,21 @@ public partial class GoogleCloudbuildWorkerPool : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// A user-specified, human-readable name for the `WorkerPool`. If provided, this value must be 1-63 characters.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the resource
@@ -153,7 +153,7 @@ public partial class GoogleCloudbuildWorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// User-defined name of the `WorkerPool`.
@@ -161,14 +161,14 @@ public partial class GoogleCloudbuildWorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for network_config.
@@ -176,7 +176,7 @@ public partial class GoogleCloudbuildWorkerPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public TerraformList<TerraformBlock<GoogleCloudbuildWorkerPoolNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudbuildWorkerPoolNetworkConfigBlock>>? NetworkConfig { get; set; }
 
     /// <summary>
     /// Block for private_service_connect.
@@ -184,14 +184,14 @@ public partial class GoogleCloudbuildWorkerPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateServiceConnect block(s) allowed")]
     [TerraformProperty("private_service_connect")]
-    public TerraformList<TerraformBlock<GoogleCloudbuildWorkerPoolPrivateServiceConnectBlock>>? PrivateServiceConnect { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudbuildWorkerPoolPrivateServiceConnectBlock>>? PrivateServiceConnect { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleCloudbuildWorkerPoolTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleCloudbuildWorkerPoolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for worker_config.
@@ -199,48 +199,48 @@ public partial class GoogleCloudbuildWorkerPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerConfig block(s) allowed")]
     [TerraformProperty("worker_config")]
-    public TerraformList<TerraformBlock<GoogleCloudbuildWorkerPoolWorkerConfigBlock>>? WorkerConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudbuildWorkerPoolWorkerConfigBlock>>? WorkerConfig { get; set; }
 
     /// <summary>
     /// Output only. Time at which the request to create the `WorkerPool` was received.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Output only. Time at which the request to delete the `WorkerPool` was received.
     /// </summary>
     [TerraformProperty("delete_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeleteTime { get; }
+    public partial TerraformValue<string> DeleteTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// Output only. `WorkerPool` state. Possible values: STATE_UNSPECIFIED, PENDING, APPROVED, REJECTED, CANCELLED
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Output only. A unique identifier for the `WorkerPool`.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Output only. Time at which the request to update the `WorkerPool` was received.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

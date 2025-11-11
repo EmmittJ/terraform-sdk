@@ -13,21 +13,21 @@ public partial class AzurermPaloAltoVirtualNetworkApplianceTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermPaloAltoVirtualNetworkAppliance : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -53,7 +53,7 @@ public partial class AzurermPaloAltoVirtualNetworkAppliance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The virtual_hub_id attribute.
@@ -61,13 +61,13 @@ public partial class AzurermPaloAltoVirtualNetworkAppliance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     [TerraformProperty("virtual_hub_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualHubId { get; set; }
+    public required partial TerraformValue<string> VirtualHubId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPaloAltoVirtualNetworkApplianceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPaloAltoVirtualNetworkApplianceTimeoutsBlock>? Timeouts { get; set; }
 
 }

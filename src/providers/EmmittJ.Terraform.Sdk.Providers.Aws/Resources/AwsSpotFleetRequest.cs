@@ -14,42 +14,42 @@ public partial class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ami is required")]
     [TerraformProperty("ami")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Ami { get; set; }
+    public required partial TerraformValue<string> Ami { get; set; }
 
     /// <summary>
     /// The associate_public_ip_address attribute.
     /// </summary>
     [TerraformProperty("associate_public_ip_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AssociatePublicIpAddress { get; set; }
+    public partial TerraformValue<bool>? AssociatePublicIpAddress { get; set; }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     [TerraformProperty("availability_zone")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AvailabilityZone { get; set; }
+    public partial TerraformValue<string> AvailabilityZone { get; set; }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
     [TerraformProperty("ebs_optimized")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EbsOptimized { get; set; }
+    public partial TerraformValue<bool>? EbsOptimized { get; set; }
 
     /// <summary>
     /// The iam_instance_profile attribute.
     /// </summary>
     [TerraformProperty("iam_instance_profile")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IamInstanceProfile { get; set; }
+    public partial TerraformValue<string>? IamInstanceProfile { get; set; }
 
     /// <summary>
     /// The iam_instance_profile_arn attribute.
     /// </summary>
     [TerraformProperty("iam_instance_profile_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IamInstanceProfileArn { get; set; }
+    public partial TerraformValue<string>? IamInstanceProfileArn { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
@@ -57,77 +57,77 @@ public partial class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     [TerraformProperty("instance_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InstanceType { get; set; }
+    public required partial TerraformValue<string> InstanceType { get; set; }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
     [TerraformProperty("key_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> KeyName { get; set; }
+    public partial TerraformValue<string> KeyName { get; set; }
 
     /// <summary>
     /// The monitoring attribute.
     /// </summary>
     [TerraformProperty("monitoring")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Monitoring { get; set; }
+    public partial TerraformValue<bool>? Monitoring { get; set; }
 
     /// <summary>
     /// The placement_group attribute.
     /// </summary>
     [TerraformProperty("placement_group")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PlacementGroup { get; set; }
+    public partial TerraformValue<string> PlacementGroup { get; set; }
 
     /// <summary>
     /// The placement_tenancy attribute.
     /// </summary>
     [TerraformProperty("placement_tenancy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PlacementTenancy { get; set; }
+    public partial TerraformValue<string>? PlacementTenancy { get; set; }
 
     /// <summary>
     /// The spot_price attribute.
     /// </summary>
     [TerraformProperty("spot_price")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SpotPrice { get; set; }
+    public partial TerraformValue<string>? SpotPrice { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [TerraformProperty("subnet_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SubnetId { get; set; }
+    public partial TerraformValue<string> SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The user_data attribute.
     /// </summary>
     [TerraformProperty("user_data")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserData { get; set; }
+    public partial TerraformValue<string>? UserData { get; set; }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
     [TerraformProperty("vpc_security_group_ids")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> VpcSecurityGroupIds { get; set; }
+    public partial TerraformSet<string> VpcSecurityGroupIds { get; set; }
 
     /// <summary>
     /// The weighted_capacity attribute.
     /// </summary>
     [TerraformProperty("weighted_capacity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WeightedCapacity { get; set; }
+    public partial TerraformValue<string>? WeightedCapacity { get; set; }
 
 }
 
@@ -158,21 +158,21 @@ public partial class AwsSpotFleetRequestTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -191,28 +191,28 @@ public partial class AwsSpotFleetRequest : TerraformResource
     /// </summary>
     [TerraformProperty("allocation_strategy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AllocationStrategy { get; set; }
+    public partial TerraformValue<string>? AllocationStrategy { get; set; }
 
     /// <summary>
     /// The context attribute.
     /// </summary>
     [TerraformProperty("context")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Context { get; set; }
+    public partial TerraformValue<string>? Context { get; set; }
 
     /// <summary>
     /// The excess_capacity_termination_policy attribute.
     /// </summary>
     [TerraformProperty("excess_capacity_termination_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExcessCapacityTerminationPolicy { get; set; }
+    public partial TerraformValue<string>? ExcessCapacityTerminationPolicy { get; set; }
 
     /// <summary>
     /// The fleet_type attribute.
     /// </summary>
     [TerraformProperty("fleet_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FleetType { get; set; }
+    public partial TerraformValue<string>? FleetType { get; set; }
 
     /// <summary>
     /// The iam_fleet_role attribute.
@@ -220,91 +220,91 @@ public partial class AwsSpotFleetRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamFleetRole is required")]
     [TerraformProperty("iam_fleet_role")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IamFleetRole { get; set; }
+    public required partial TerraformValue<string> IamFleetRole { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_interruption_behaviour attribute.
     /// </summary>
     [TerraformProperty("instance_interruption_behaviour")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InstanceInterruptionBehaviour { get; set; }
+    public partial TerraformValue<string>? InstanceInterruptionBehaviour { get; set; }
 
     /// <summary>
     /// The instance_pools_to_use_count attribute.
     /// </summary>
     [TerraformProperty("instance_pools_to_use_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? InstancePoolsToUseCount { get; set; }
+    public partial TerraformValue<double>? InstancePoolsToUseCount { get; set; }
 
     /// <summary>
     /// The load_balancers attribute.
     /// </summary>
     [TerraformProperty("load_balancers")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> LoadBalancers { get; set; }
+    public partial TerraformSet<string> LoadBalancers { get; set; }
 
     /// <summary>
     /// The on_demand_allocation_strategy attribute.
     /// </summary>
     [TerraformProperty("on_demand_allocation_strategy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OnDemandAllocationStrategy { get; set; }
+    public partial TerraformValue<string>? OnDemandAllocationStrategy { get; set; }
 
     /// <summary>
     /// The on_demand_max_total_price attribute.
     /// </summary>
     [TerraformProperty("on_demand_max_total_price")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OnDemandMaxTotalPrice { get; set; }
+    public partial TerraformValue<string>? OnDemandMaxTotalPrice { get; set; }
 
     /// <summary>
     /// The on_demand_target_capacity attribute.
     /// </summary>
     [TerraformProperty("on_demand_target_capacity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? OnDemandTargetCapacity { get; set; }
+    public partial TerraformValue<double>? OnDemandTargetCapacity { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The replace_unhealthy_instances attribute.
     /// </summary>
     [TerraformProperty("replace_unhealthy_instances")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ReplaceUnhealthyInstances { get; set; }
+    public partial TerraformValue<bool>? ReplaceUnhealthyInstances { get; set; }
 
     /// <summary>
     /// The spot_price attribute.
     /// </summary>
     [TerraformProperty("spot_price")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SpotPrice { get; set; }
+    public partial TerraformValue<string>? SpotPrice { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The target_capacity attribute.
@@ -312,70 +312,70 @@ public partial class AwsSpotFleetRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetCapacity is required")]
     [TerraformProperty("target_capacity")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> TargetCapacity { get; set; }
+    public required partial TerraformValue<double> TargetCapacity { get; set; }
 
     /// <summary>
     /// The target_capacity_unit_type attribute.
     /// </summary>
     [TerraformProperty("target_capacity_unit_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TargetCapacityUnitType { get; set; }
+    public partial TerraformValue<string>? TargetCapacityUnitType { get; set; }
 
     /// <summary>
     /// The target_group_arns attribute.
     /// </summary>
     [TerraformProperty("target_group_arns")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> TargetGroupArns { get; set; }
+    public partial TerraformSet<string> TargetGroupArns { get; set; }
 
     /// <summary>
     /// The terminate_instances_on_delete attribute.
     /// </summary>
     [TerraformProperty("terminate_instances_on_delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TerminateInstancesOnDelete { get; set; }
+    public partial TerraformValue<string>? TerminateInstancesOnDelete { get; set; }
 
     /// <summary>
     /// The terminate_instances_with_expiration attribute.
     /// </summary>
     [TerraformProperty("terminate_instances_with_expiration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? TerminateInstancesWithExpiration { get; set; }
+    public partial TerraformValue<bool>? TerminateInstancesWithExpiration { get; set; }
 
     /// <summary>
     /// The valid_from attribute.
     /// </summary>
     [TerraformProperty("valid_from")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ValidFrom { get; set; }
+    public partial TerraformValue<string>? ValidFrom { get; set; }
 
     /// <summary>
     /// The valid_until attribute.
     /// </summary>
     [TerraformProperty("valid_until")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ValidUntil { get; set; }
+    public partial TerraformValue<string>? ValidUntil { get; set; }
 
     /// <summary>
     /// The wait_for_fulfillment attribute.
     /// </summary>
     [TerraformProperty("wait_for_fulfillment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? WaitForFulfillment { get; set; }
+    public partial TerraformValue<bool>? WaitForFulfillment { get; set; }
 
     /// <summary>
     /// Block for launch_specification.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("launch_specification")]
-    public TerraformSet<TerraformBlock<AwsSpotFleetRequestLaunchSpecificationBlock>>? LaunchSpecification { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsSpotFleetRequestLaunchSpecificationBlock>>? LaunchSpecification { get; set; }
 
     /// <summary>
     /// Block for launch_template_config.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("launch_template_config")]
-    public TerraformSet<TerraformBlock<AwsSpotFleetRequestLaunchTemplateConfigBlock>>? LaunchTemplateConfig { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsSpotFleetRequestLaunchTemplateConfigBlock>>? LaunchTemplateConfig { get; set; }
 
     /// <summary>
     /// Block for spot_maintenance_strategies.
@@ -383,27 +383,27 @@ public partial class AwsSpotFleetRequest : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpotMaintenanceStrategies block(s) allowed")]
     [TerraformProperty("spot_maintenance_strategies")]
-    public TerraformList<TerraformBlock<AwsSpotFleetRequestSpotMaintenanceStrategiesBlock>>? SpotMaintenanceStrategies { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSpotFleetRequestSpotMaintenanceStrategiesBlock>>? SpotMaintenanceStrategies { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsSpotFleetRequestTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsSpotFleetRequestTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The client_token attribute.
     /// </summary>
     [TerraformProperty("client_token")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ClientToken { get; }
+    public partial TerraformValue<string> ClientToken { get; }
 
     /// <summary>
     /// The spot_request_state attribute.
     /// </summary>
     [TerraformProperty("spot_request_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SpotRequestState { get; }
+    public partial TerraformValue<string> SpotRequestState { get; }
 
 }

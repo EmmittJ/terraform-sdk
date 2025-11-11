@@ -16,7 +16,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource : Terrafo
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is
@@ -29,28 +29,28 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource : Terrafo
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// A reference to the region where the regional NEGs reside.
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SelfLink { get; set; }
+    public partial TerraformValue<string>? SelfLink { get; set; }
 
     /// <summary>
     /// This field is only used for SERVERLESS NEGs.
@@ -59,7 +59,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource : Terrafo
     /// </summary>
     [TerraformProperty("app_engine")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> AppEngine { get; }
+    public partial TerraformList<object> AppEngine { get; }
 
     /// <summary>
     /// This field is only used for SERVERLESS NEGs.
@@ -68,7 +68,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource : Terrafo
     /// </summary>
     [TerraformProperty("cloud_function")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CloudFunction { get; }
+    public partial TerraformList<object> CloudFunction { get; }
 
     /// <summary>
     /// This field is only used for SERVERLESS NEGs.
@@ -77,7 +77,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource : Terrafo
     /// </summary>
     [TerraformProperty("cloud_run")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CloudRun { get; }
+    public partial TerraformList<object> CloudRun { get; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
@@ -85,7 +85,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource : Terrafo
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// This field is only used for PSC and INTERNET NEGs.
@@ -95,21 +95,21 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource : Terrafo
     /// </summary>
     [TerraformProperty("network")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Network { get; }
+    public partial TerraformValue<string> Network { get; }
 
     /// <summary>
     /// Type of network endpoints in this network endpoint group. Defaults to SERVERLESS. Default value: &amp;quot;SERVERLESS&amp;quot; Possible values: [&amp;quot;SERVERLESS&amp;quot;, &amp;quot;PRIVATE_SERVICE_CONNECT&amp;quot;, &amp;quot;INTERNET_IP_PORT&amp;quot;, &amp;quot;INTERNET_FQDN_PORT&amp;quot;, &amp;quot;GCE_VM_IP_PORTMAP&amp;quot;]
     /// </summary>
     [TerraformProperty("network_endpoint_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NetworkEndpointType { get; }
+    public partial TerraformValue<string> NetworkEndpointType { get; }
 
     /// <summary>
     /// This field is only used for PSC NEGs.
     /// </summary>
     [TerraformProperty("psc_data")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PscData { get; }
+    public partial TerraformList<object> PscData { get; }
 
     /// <summary>
     /// This field is only used for PSC and INTERNET NEGs.
@@ -119,7 +119,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource : Terrafo
     /// </summary>
     [TerraformProperty("psc_target_service")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PscTargetService { get; }
+    public partial TerraformValue<string> PscTargetService { get; }
 
     /// <summary>
     /// This field is only used for PSC NEGs.
@@ -128,6 +128,6 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource : Terrafo
     /// </summary>
     [TerraformProperty("subnetwork")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Subnetwork { get; }
+    public partial TerraformValue<string> Subnetwork { get; }
 
 }

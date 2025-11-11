@@ -13,14 +13,14 @@ public partial class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBloc
     /// </summary>
     [TerraformProperty("include_trust_context")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> IncludeTrustContext { get; set; }
+    public partial TerraformValue<bool> IncludeTrustContext { get; set; }
 
     /// <summary>
     /// The log_version attribute.
     /// </summary>
     [TerraformProperty("log_version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> LogVersion { get; set; }
+    public partial TerraformValue<string> LogVersion { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public partial class AwsVerifiedaccessInstanceLoggingConfiguration : TerraformRe
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The verifiedaccess_instance_id attribute.
@@ -54,7 +54,7 @@ public partial class AwsVerifiedaccessInstanceLoggingConfiguration : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedaccessInstanceId is required")]
     [TerraformProperty("verifiedaccess_instance_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VerifiedaccessInstanceId { get; set; }
+    public required partial TerraformValue<string> VerifiedaccessInstanceId { get; set; }
 
     /// <summary>
     /// Block for access_logs.
@@ -64,6 +64,6 @@ public partial class AwsVerifiedaccessInstanceLoggingConfiguration : TerraformRe
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AccessLogs block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLogs block(s) allowed")]
     [TerraformProperty("access_logs")]
-    public TerraformList<TerraformBlock<AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlock>>? AccessLogs { get; set; }
+    public partial TerraformList<TerraformBlock<AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlock>>? AccessLogs { get; set; }
 
 }

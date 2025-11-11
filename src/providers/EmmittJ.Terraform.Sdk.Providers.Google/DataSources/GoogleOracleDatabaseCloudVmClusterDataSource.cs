@@ -20,14 +20,14 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
     [TerraformProperty("cloud_vm_cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CloudVmClusterId { get; set; }
+    public required partial TerraformValue<string> CloudVmClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. See documentation for resource type &#39;oracledatabase.googleapis.com/DbNode&#39;.
@@ -35,14 +35,14 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The name of the backup OdbSubnet associated with the VM Cluster.
@@ -51,49 +51,49 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDat
     /// </summary>
     [TerraformProperty("backup_odb_subnet")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BackupOdbSubnet { get; }
+    public partial TerraformValue<string> BackupOdbSubnet { get; }
 
     /// <summary>
     /// CIDR range of the backup subnet.
     /// </summary>
     [TerraformProperty("backup_subnet_cidr")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BackupSubnetCidr { get; }
+    public partial TerraformValue<string> BackupSubnetCidr { get; }
 
     /// <summary>
     /// Network settings. CIDR to use for cluster IP allocation.
     /// </summary>
     [TerraformProperty("cidr")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Cidr { get; }
+    public partial TerraformValue<string> Cidr { get; }
 
     /// <summary>
     /// The date and time that the VM cluster was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the cluster. Deleting this cluster via terraform destroy or terraform apply will only succeed if this field is false in the Terraform state.
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> DeletionProtection { get; }
+    public partial TerraformValue<bool> DeletionProtection { get; }
 
     /// <summary>
     /// User friendly name for this resource.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The name of the Exadata Infrastructure resource on which VM cluster
@@ -102,7 +102,7 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDat
     /// </summary>
     [TerraformProperty("exadata_infrastructure")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExadataInfrastructure { get; }
+    public partial TerraformValue<string> ExadataInfrastructure { get; }
 
     /// <summary>
     /// GCP location where Oracle Exadata is hosted. It is same as GCP Oracle zone
@@ -110,7 +110,7 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDat
     /// </summary>
     [TerraformProperty("gcp_oracle_zone")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GcpOracleZone { get; }
+    public partial TerraformValue<string> GcpOracleZone { get; }
 
     /// <summary>
     /// Labels or tags associated with the VM Cluster. 
@@ -120,7 +120,7 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDat
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// Identifier. The name of the VM Cluster resource with the format:
@@ -128,7 +128,7 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDat
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The name of the VPC network.
@@ -136,7 +136,7 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDat
     /// </summary>
     [TerraformProperty("network")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Network { get; }
+    public partial TerraformValue<string> Network { get; }
 
     /// <summary>
     /// The name of the OdbNetwork associated with the VM Cluster.
@@ -147,7 +147,7 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDat
     /// </summary>
     [TerraformProperty("odb_network")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OdbNetwork { get; }
+    public partial TerraformValue<string> OdbNetwork { get; }
 
     /// <summary>
     /// The name of the OdbSubnet associated with the VM Cluster for
@@ -156,14 +156,14 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDat
     /// </summary>
     [TerraformProperty("odb_subnet")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OdbSubnet { get; }
+    public partial TerraformValue<string> OdbSubnet { get; }
 
     /// <summary>
     /// Various properties and settings associated with Exadata VM cluster.
     /// </summary>
     [TerraformProperty("properties")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Properties { get; }
+    public partial TerraformList<object> Properties { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -171,6 +171,6 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDat
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

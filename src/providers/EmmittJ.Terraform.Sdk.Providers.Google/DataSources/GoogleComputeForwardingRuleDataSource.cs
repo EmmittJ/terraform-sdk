@@ -16,7 +16,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is created.
@@ -36,14 +36,14 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// A reference to the region where the regional forwarding rule resides.
@@ -52,7 +52,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The &#39;ports&#39;, &#39;portRange&#39;, and &#39;allPorts&#39; fields are mutually exclusive.
@@ -73,7 +73,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("all_ports")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> AllPorts { get; }
+    public partial TerraformValue<bool> AllPorts { get; }
 
     /// <summary>
     /// This field is used along with the &#39;backend_service&#39; field for
@@ -88,14 +88,14 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("allow_global_access")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> AllowGlobalAccess { get; }
+    public partial TerraformValue<bool> AllowGlobalAccess { get; }
 
     /// <summary>
     /// This is used in PSC consumer ForwardingRule to control whether the PSC endpoint can be accessed from another region.
     /// </summary>
     [TerraformProperty("allow_psc_global_access")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> AllowPscGlobalAccess { get; }
+    public partial TerraformValue<bool> AllowPscGlobalAccess { get; }
 
     /// <summary>
     /// Identifies the backend service to which the forwarding rule sends traffic.
@@ -105,21 +105,21 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("backend_service")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BackendService { get; }
+    public partial TerraformValue<string> BackendService { get; }
 
     /// <summary>
     /// [Output Only] The URL for the corresponding base Forwarding Rule. By base Forwarding Rule, we mean the Forwarding Rule that has the same IP address, protocol, and port settings with the current Forwarding Rule, but without sourceIPRanges specified. Always empty if the current Forwarding Rule does not have sourceIPRanges specified.
     /// </summary>
     [TerraformProperty("base_forwarding_rule")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BaseForwardingRule { get; }
+    public partial TerraformValue<string> BaseForwardingRule { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
@@ -127,21 +127,21 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The unique identifier number for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformProperty("forwarding_rule_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ForwardingRuleId { get; }
+    public partial TerraformValue<double> ForwardingRuleId { get; }
 
     /// <summary>
     /// IP address for which this forwarding rule accepts traffic. When a client
@@ -185,7 +185,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("ip_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IpAddress { get; }
+    public partial TerraformValue<string> IpAddress { get; }
 
     /// <summary>
     /// Resource reference of a PublicDelegatedPrefix. The PDP must be a sub-PDP
@@ -200,7 +200,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("ip_collection")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IpCollection { get; }
+    public partial TerraformValue<string> IpCollection { get; }
 
     /// <summary>
     /// The IP protocol to which this rule applies.
@@ -220,7 +220,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("ip_protocol")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IpProtocol { get; }
+    public partial TerraformValue<string> IpProtocol { get; }
 
     /// <summary>
     /// The IP address version that will be used by this forwarding rule.
@@ -230,7 +230,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("ip_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IpVersion { get; }
+    public partial TerraformValue<string> IpVersion { get; }
 
     /// <summary>
     /// Indicates whether or not this load balancer can be used as a collector for
@@ -243,7 +243,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("is_mirroring_collector")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> IsMirroringCollector { get; }
+    public partial TerraformValue<bool> IsMirroringCollector { get; }
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
@@ -251,7 +251,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("label_fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LabelFingerprint { get; }
+    public partial TerraformValue<string> LabelFingerprint { get; }
 
     /// <summary>
     /// Labels to apply to this forwarding rule.  A list of key-&amp;gt;value pairs.
@@ -262,7 +262,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// Specifies the forwarding rule type.
@@ -276,7 +276,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("load_balancing_scheme")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LoadBalancingScheme { get; }
+    public partial TerraformValue<string> LoadBalancingScheme { get; }
 
     /// <summary>
     /// This field is not used for external load balancing.
@@ -292,7 +292,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("network")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Network { get; }
+    public partial TerraformValue<string> Network { get; }
 
     /// <summary>
     /// This signifies the networking tier used for configuring
@@ -309,14 +309,14 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("network_tier")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NetworkTier { get; }
+    public partial TerraformValue<string> NetworkTier { get; }
 
     /// <summary>
     /// This is used in PSC consumer ForwardingRule to control whether it should try to auto-generate a DNS zone or not. Non-PSC forwarding rules do not use this field.
     /// </summary>
     [TerraformProperty("no_automate_dns_zone")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> NoAutomateDnsZone { get; }
+    public partial TerraformValue<bool> NoAutomateDnsZone { get; }
 
     /// <summary>
     /// The &#39;ports&#39;, &#39;portRange&#39;, and &#39;allPorts&#39; fields are mutually exclusive.
@@ -346,7 +346,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("port_range")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PortRange { get; }
+    public partial TerraformValue<string> PortRange { get; }
 
     /// <summary>
     /// The &#39;ports&#39;, &#39;portRange&#39;, and &#39;allPorts&#39; fields are mutually exclusive.
@@ -374,35 +374,35 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("ports")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> Ports { get; }
+    public partial TerraformSet<string> Ports { get; }
 
     /// <summary>
     /// The PSC connection id of the PSC Forwarding Rule.
     /// </summary>
     [TerraformProperty("psc_connection_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PscConnectionId { get; }
+    public partial TerraformValue<string> PscConnectionId { get; }
 
     /// <summary>
     /// The PSC connection status of the PSC Forwarding Rule. Possible values: &#39;STATUS_UNSPECIFIED&#39;, &#39;PENDING&#39;, &#39;ACCEPTED&#39;, &#39;REJECTED&#39;, &#39;CLOSED&#39;
     /// </summary>
     [TerraformProperty("psc_connection_status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PscConnectionStatus { get; }
+    public partial TerraformValue<string> PscConnectionStatus { get; }
 
     /// <summary>
     /// This is used in PSC consumer ForwardingRule to make terraform recreate the ForwardingRule when the status is closed
     /// </summary>
     [TerraformProperty("recreate_closed_psc")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> RecreateClosedPsc { get; }
+    public partial TerraformValue<bool> RecreateClosedPsc { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// Service Directory resources to register this forwarding rule with.
@@ -411,7 +411,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("service_directory_registrations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ServiceDirectoryRegistrations { get; }
+    public partial TerraformList<object> ServiceDirectoryRegistrations { get; }
 
     /// <summary>
     /// An optional prefix to the service name for this Forwarding Rule.
@@ -429,7 +429,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("service_label")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServiceLabel { get; }
+    public partial TerraformValue<string> ServiceLabel { get; }
 
     /// <summary>
     /// The internal fully qualified service name for this Forwarding Rule.
@@ -438,14 +438,14 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("service_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServiceName { get; }
+    public partial TerraformValue<string> ServiceName { get; }
 
     /// <summary>
     /// If not empty, this Forwarding Rule will only forward the traffic when the source IP address matches one of the IP addresses or CIDR ranges set here. Note that a Forwarding Rule can only have up to 64 source IP ranges, and this field can only be used with a regional Forwarding Rule whose scheme is EXTERNAL. Each sourceIpRange entry should be either an IP address (for example, 1.2.3.4) or a CIDR range (for example, 1.2.3.0/24).
     /// </summary>
     [TerraformProperty("source_ip_ranges")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> SourceIpRanges { get; }
+    public partial TerraformList<string> SourceIpRanges { get; }
 
     /// <summary>
     /// This field identifies the subnetwork that the load balanced IP should
@@ -458,7 +458,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("subnetwork")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Subnetwork { get; }
+    public partial TerraformValue<string> Subnetwork { get; }
 
     /// <summary>
     /// The URL of the target resource to receive the matched traffic.  For
@@ -473,7 +473,7 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("target")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Target { get; }
+    public partial TerraformValue<string> Target { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -481,6 +481,6 @@ public partial class GoogleComputeForwardingRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

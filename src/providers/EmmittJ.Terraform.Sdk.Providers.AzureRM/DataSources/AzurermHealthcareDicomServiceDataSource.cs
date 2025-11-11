@@ -13,7 +13,7 @@ public partial class AzurermHealthcareDicomServiceDataSourceTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermHealthcareDicomServiceDataSource : TerraformDataSour
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermHealthcareDicomServiceDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -47,83 +47,83 @@ public partial class AzurermHealthcareDicomServiceDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformProperty("workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceId { get; set; }
+    public required partial TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermHealthcareDicomServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermHealthcareDicomServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The authentication attribute.
     /// </summary>
     [TerraformProperty("authentication")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Authentication { get; }
+    public partial TerraformList<object> Authentication { get; }
 
     /// <summary>
     /// The cors attribute.
     /// </summary>
     [TerraformProperty("cors")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Cors { get; }
+    public partial TerraformList<object> Cors { get; }
 
     /// <summary>
     /// The data_partitions_enabled attribute.
     /// </summary>
     [TerraformProperty("data_partitions_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> DataPartitionsEnabled { get; }
+    public partial TerraformValue<bool> DataPartitionsEnabled { get; }
 
     /// <summary>
     /// The encryption_key_url attribute.
     /// </summary>
     [TerraformProperty("encryption_key_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EncryptionKeyUrl { get; }
+    public partial TerraformValue<string> EncryptionKeyUrl { get; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [TerraformProperty("identity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Identity { get; }
+    public partial TerraformList<object> Identity { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The private_endpoint attribute.
     /// </summary>
     [TerraformProperty("private_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PrivateEndpoint { get; }
+    public partial TerraformList<object> PrivateEndpoint { get; }
 
     /// <summary>
     /// The service_url attribute.
     /// </summary>
     [TerraformProperty("service_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServiceUrl { get; }
+    public partial TerraformValue<string> ServiceUrl { get; }
 
     /// <summary>
     /// The storage attribute.
     /// </summary>
     [TerraformProperty("storage")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Storage { get; }
+    public partial TerraformList<object> Storage { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
 }

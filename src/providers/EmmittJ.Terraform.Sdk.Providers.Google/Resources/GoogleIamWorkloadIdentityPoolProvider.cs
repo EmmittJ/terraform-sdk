@@ -14,7 +14,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderAwsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     [TerraformProperty("account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccountId { get; set; }
+    public required partial TerraformValue<string> AccountId { get; set; }
 
 }
 
@@ -40,7 +40,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderOidcBlock : TerraformB
     /// </summary>
     [TerraformProperty("allowed_audiences")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AllowedAudiences { get; set; }
+    public partial TerraformList<string>? AllowedAudiences { get; set; }
 
     /// <summary>
     /// The OIDC issuer URL.
@@ -48,7 +48,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderOidcBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     [TerraformProperty("issuer_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IssuerUri { get; set; }
+    public required partial TerraformValue<string> IssuerUri { get; set; }
 
     /// <summary>
     /// OIDC JWKs in JSON String format. For details on definition of a
@@ -77,7 +77,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderOidcBlock : TerraformB
     /// </summary>
     [TerraformProperty("jwks_json")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? JwksJson { get; set; }
+    public partial TerraformValue<string>? JwksJson { get; set; }
 
 }
 
@@ -93,7 +93,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderSamlBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpMetadataXml is required")]
     [TerraformProperty("idp_metadata_xml")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IdpMetadataXml { get; set; }
+    public required partial TerraformValue<string> IdpMetadataXml { get; set; }
 
 }
 
@@ -108,21 +108,21 @@ public partial class GoogleIamWorkloadIdentityPoolProviderTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -167,7 +167,7 @@ public partial class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// </summary>
     [TerraformProperty("attribute_condition")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AttributeCondition { get; set; }
+    public partial TerraformValue<string>? AttributeCondition { get; set; }
 
     /// <summary>
     /// Maps attributes from authentication credentials issued by an external identity provider
@@ -233,14 +233,14 @@ public partial class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// </summary>
     [TerraformProperty("attribute_mapping")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? AttributeMapping { get; set; }
+    public partial TerraformMap<string>? AttributeMapping { get; set; }
 
     /// <summary>
     /// A description for the provider. Cannot exceed 256 characters.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Whether the provider is disabled. You cannot use a disabled provider to exchange tokens.
@@ -248,28 +248,28 @@ public partial class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// </summary>
     [TerraformProperty("disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Disabled { get; set; }
+    public partial TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// A display name for the provider. Cannot exceed 32 characters.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The ID used for the pool, which is the final component of the pool resource name. This
@@ -279,7 +279,7 @@ public partial class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolId is required")]
     [TerraformProperty("workload_identity_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkloadIdentityPoolId { get; set; }
+    public required partial TerraformValue<string> WorkloadIdentityPoolId { get; set; }
 
     /// <summary>
     /// The ID for the provider, which becomes the final component of the resource name. This
@@ -289,7 +289,7 @@ public partial class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolProviderId is required")]
     [TerraformProperty("workload_identity_pool_provider_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkloadIdentityPoolProviderId { get; set; }
+    public required partial TerraformValue<string> WorkloadIdentityPoolProviderId { get; set; }
 
     /// <summary>
     /// Block for aws.
@@ -297,7 +297,7 @@ public partial class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Aws block(s) allowed")]
     [TerraformProperty("aws")]
-    public TerraformList<TerraformBlock<GoogleIamWorkloadIdentityPoolProviderAwsBlock>>? Aws { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIamWorkloadIdentityPoolProviderAwsBlock>>? Aws { get; set; }
 
     /// <summary>
     /// Block for oidc.
@@ -305,7 +305,7 @@ public partial class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oidc block(s) allowed")]
     [TerraformProperty("oidc")]
-    public TerraformList<TerraformBlock<GoogleIamWorkloadIdentityPoolProviderOidcBlock>>? Oidc { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIamWorkloadIdentityPoolProviderOidcBlock>>? Oidc { get; set; }
 
     /// <summary>
     /// Block for saml.
@@ -313,14 +313,14 @@ public partial class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Saml block(s) allowed")]
     [TerraformProperty("saml")]
-    public TerraformList<TerraformBlock<GoogleIamWorkloadIdentityPoolProviderSamlBlock>>? Saml { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIamWorkloadIdentityPoolProviderSamlBlock>>? Saml { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleIamWorkloadIdentityPoolProviderTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleIamWorkloadIdentityPoolProviderTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for x509.
@@ -328,7 +328,7 @@ public partial class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 X509 block(s) allowed")]
     [TerraformProperty("x509")]
-    public TerraformList<TerraformBlock<GoogleIamWorkloadIdentityPoolProviderX509Block>>? X509 { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIamWorkloadIdentityPoolProviderX509Block>>? X509 { get; set; }
 
     /// <summary>
     /// The resource name of the provider as
@@ -336,7 +336,7 @@ public partial class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The state of the provider.
@@ -349,6 +349,6 @@ public partial class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

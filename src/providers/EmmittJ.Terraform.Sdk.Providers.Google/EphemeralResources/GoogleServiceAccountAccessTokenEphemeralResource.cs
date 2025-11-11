@@ -17,14 +17,14 @@ public partial class GoogleServiceAccountAccessTokenEphemeralResource : Terrafor
     /// </summary>
     [TerraformProperty("delegates")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Delegates { get; set; }
+    public partial TerraformSet<string>? Delegates { get; set; }
 
     /// <summary>
     /// Lifetime of the impersonated token (defaults to its max: `3600s`)
     /// </summary>
     [TerraformProperty("lifetime")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Lifetime { get; set; }
+    public partial TerraformValue<string> Lifetime { get; set; }
 
     /// <summary>
     /// The scopes the new credential should have (e.g. `[&#39;cloud-platform&#39;]`)
@@ -32,7 +32,7 @@ public partial class GoogleServiceAccountAccessTokenEphemeralResource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     [TerraformProperty("scopes")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Scopes { get; set; }
+    public required partial TerraformSet<string> Scopes { get; set; }
 
     /// <summary>
     /// The service account to impersonate (e.g. `service_B@your-project-id.iam.gserviceaccount.com`)
@@ -40,13 +40,13 @@ public partial class GoogleServiceAccountAccessTokenEphemeralResource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
     [TerraformProperty("target_service_account")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetServiceAccount { get; set; }
+    public required partial TerraformValue<string> TargetServiceAccount { get; set; }
 
     /// <summary>
     /// The `access_token` representing the new generated identity.
     /// </summary>
     [TerraformProperty("access_token")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AccessToken { get; }
+    public partial TerraformValue<string> AccessToken { get; }
 
 }

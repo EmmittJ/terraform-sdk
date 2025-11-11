@@ -14,7 +14,7 @@ public partial class AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     [TerraformProperty("offer")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Offer { get; set; }
+    public required partial TerraformValue<string> Offer { get; set; }
 
     /// <summary>
     /// The publisher attribute.
@@ -22,7 +22,7 @@ public partial class AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     [TerraformProperty("publisher")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Publisher { get; set; }
+    public required partial TerraformValue<string> Publisher { get; set; }
 
     /// <summary>
     /// The sku attribute.
@@ -30,7 +30,7 @@ public partial class AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [TerraformProperty("sku")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Sku { get; set; }
+    public required partial TerraformValue<string> Sku { get; set; }
 
     /// <summary>
     /// The version attribute.
@@ -38,7 +38,7 @@ public partial class AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformProperty("version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Version { get; set; }
+    public required partial TerraformValue<string> Version { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public partial class AzurermDevTestWindowsVirtualMachineInboundNatRuleBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPort is required")]
     [TerraformProperty("backend_port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> BackendPort { get; set; }
+    public required partial TerraformValue<double> BackendPort { get; set; }
 
 
     /// <summary>
@@ -63,7 +63,7 @@ public partial class AzurermDevTestWindowsVirtualMachineInboundNatRuleBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformProperty("protocol")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Protocol { get; set; }
+    public required partial TerraformValue<string> Protocol { get; set; }
 
 }
 
@@ -78,28 +78,28 @@ public partial class AzurermDevTestWindowsVirtualMachineTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -118,21 +118,21 @@ public partial class AzurermDevTestWindowsVirtualMachine : TerraformResource
     /// </summary>
     [TerraformProperty("allow_claim")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowClaim { get; set; }
+    public partial TerraformValue<bool>? AllowClaim { get; set; }
 
     /// <summary>
     /// The disallow_public_ip_address attribute.
     /// </summary>
     [TerraformProperty("disallow_public_ip_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisallowPublicIpAddress { get; set; }
+    public partial TerraformValue<bool>? DisallowPublicIpAddress { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The lab_name attribute.
@@ -140,7 +140,7 @@ public partial class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
     [TerraformProperty("lab_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LabName { get; set; }
+    public required partial TerraformValue<string> LabName { get; set; }
 
     /// <summary>
     /// The lab_subnet_name attribute.
@@ -148,7 +148,7 @@ public partial class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabSubnetName is required")]
     [TerraformProperty("lab_subnet_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LabSubnetName { get; set; }
+    public required partial TerraformValue<string> LabSubnetName { get; set; }
 
     /// <summary>
     /// The lab_virtual_network_id attribute.
@@ -156,7 +156,7 @@ public partial class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabVirtualNetworkId is required")]
     [TerraformProperty("lab_virtual_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LabVirtualNetworkId { get; set; }
+    public required partial TerraformValue<string> LabVirtualNetworkId { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -164,7 +164,7 @@ public partial class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -172,14 +172,14 @@ public partial class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The notes attribute.
     /// </summary>
     [TerraformProperty("notes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Notes { get; set; }
+    public partial TerraformValue<string>? Notes { get; set; }
 
     /// <summary>
     /// The password attribute.
@@ -187,7 +187,7 @@ public partial class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     [TerraformProperty("password")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Password { get; set; }
+    public required partial TerraformValue<string> Password { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -195,7 +195,7 @@ public partial class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The size attribute.
@@ -203,7 +203,7 @@ public partial class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     [TerraformProperty("size")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Size { get; set; }
+    public required partial TerraformValue<string> Size { get; set; }
 
     /// <summary>
     /// The storage_type attribute.
@@ -211,14 +211,14 @@ public partial class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
     [TerraformProperty("storage_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageType { get; set; }
+    public required partial TerraformValue<string> StorageType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The username attribute.
@@ -226,7 +226,7 @@ public partial class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformProperty("username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Username { get; set; }
+    public required partial TerraformValue<string> Username { get; set; }
 
     /// <summary>
     /// Block for gallery_image_reference.
@@ -236,34 +236,34 @@ public partial class AzurermDevTestWindowsVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GalleryImageReference block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GalleryImageReference block(s) allowed")]
     [TerraformProperty("gallery_image_reference")]
-    public TerraformList<TerraformBlock<AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlock>>? GalleryImageReference { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlock>>? GalleryImageReference { get; set; }
 
     /// <summary>
     /// Block for inbound_nat_rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("inbound_nat_rule")]
-    public TerraformSet<TerraformBlock<AzurermDevTestWindowsVirtualMachineInboundNatRuleBlock>>? InboundNatRule { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermDevTestWindowsVirtualMachineInboundNatRuleBlock>>? InboundNatRule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDevTestWindowsVirtualMachineTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDevTestWindowsVirtualMachineTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     [TerraformProperty("fqdn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Fqdn { get; }
+    public partial TerraformValue<string> Fqdn { get; }
 
     /// <summary>
     /// The unique_identifier attribute.
     /// </summary>
     [TerraformProperty("unique_identifier")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UniqueIdentifier { get; }
+    public partial TerraformValue<string> UniqueIdentifier { get; }
 
 }

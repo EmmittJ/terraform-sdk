@@ -22,7 +22,7 @@ public partial class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
 
 
@@ -38,7 +38,7 @@ public partial class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// In Cloud Run the namespace must be equal to either the
@@ -47,7 +47,7 @@ public partial class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
     [TerraformProperty("namespace")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Namespace { get; set; }
+    public required partial TerraformValue<string> Namespace { get; set; }
 
 
 
@@ -66,7 +66,7 @@ public partial class GoogleCloudRunDomainMappingSpecBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("certificate_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CertificateMode { get; set; }
+    public partial TerraformValue<string>? CertificateMode { get; set; }
 
     /// <summary>
     /// If set, the mapping will override any mapping set before this spec was set.
@@ -76,7 +76,7 @@ public partial class GoogleCloudRunDomainMappingSpecBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("force_override")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ForceOverride { get; set; }
+    public partial TerraformValue<bool>? ForceOverride { get; set; }
 
     /// <summary>
     /// The name of the Cloud Run Service that this DomainMapping applies to.
@@ -85,7 +85,7 @@ public partial class GoogleCloudRunDomainMappingSpecBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteName is required")]
     [TerraformProperty("route_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RouteName { get; set; }
+    public required partial TerraformValue<string> RouteName { get; set; }
 
 }
 
@@ -100,14 +100,14 @@ public partial class GoogleCloudRunDomainMappingTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -126,7 +126,7 @@ public partial class GoogleCloudRunDomainMapping : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the cloud run instance. eg us-central1
@@ -134,7 +134,7 @@ public partial class GoogleCloudRunDomainMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Name should be a [verified](https://support.google.com/webmasters/answer/9008080) domain
@@ -142,14 +142,14 @@ public partial class GoogleCloudRunDomainMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for metadata.
@@ -157,7 +157,7 @@ public partial class GoogleCloudRunDomainMapping : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
     [TerraformProperty("metadata")]
-    public TerraformList<TerraformBlock<GoogleCloudRunDomainMappingMetadataBlock>>? Metadata { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudRunDomainMappingMetadataBlock>>? Metadata { get; set; }
 
     /// <summary>
     /// Block for spec.
@@ -167,20 +167,20 @@ public partial class GoogleCloudRunDomainMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Spec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     [TerraformProperty("spec")]
-    public TerraformList<TerraformBlock<GoogleCloudRunDomainMappingSpecBlock>>? Spec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudRunDomainMappingSpecBlock>>? Spec { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleCloudRunDomainMappingTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleCloudRunDomainMappingTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The current status of the DomainMapping.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Status { get; }
+    public partial TerraformList<object> Status { get; }
 
 }

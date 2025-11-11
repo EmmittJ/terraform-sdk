@@ -13,21 +13,21 @@ public partial class AzurermAiServicesCustomerManagedKeyBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("identity_client_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IdentityClientId { get; set; }
+    public partial TerraformValue<string>? IdentityClientId { get; set; }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
     [TerraformProperty("key_vault_key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyVaultKeyId { get; set; }
+    public partial TerraformValue<string>? KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
     [TerraformProperty("managed_hsm_key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ManagedHsmKeyId { get; set; }
+    public partial TerraformValue<string>? ManagedHsmKeyId { get; set; }
 
 }
 
@@ -42,7 +42,7 @@ public partial class AzurermAiServicesIdentityBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -52,7 +52,7 @@ public partial class AzurermAiServicesIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -67,7 +67,7 @@ public partial class AzurermAiServicesNetworkAclsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("bypass")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Bypass { get; set; }
+    public partial TerraformValue<string>? Bypass { get; set; }
 
     /// <summary>
     /// The default_action attribute.
@@ -75,14 +75,14 @@ public partial class AzurermAiServicesNetworkAclsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     [TerraformProperty("default_action")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DefaultAction { get; set; }
+    public required partial TerraformValue<string> DefaultAction { get; set; }
 
     /// <summary>
     /// The ip_rules attribute.
     /// </summary>
     [TerraformProperty("ip_rules")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IpRules { get; set; }
+    public partial TerraformSet<string>? IpRules { get; set; }
 
 }
 
@@ -97,7 +97,7 @@ public partial class AzurermAiServicesStorageBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity_client_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IdentityClientId { get; set; }
+    public partial TerraformValue<string>? IdentityClientId { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -105,7 +105,7 @@ public partial class AzurermAiServicesStorageBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformProperty("storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountId { get; set; }
+    public required partial TerraformValue<string> StorageAccountId { get; set; }
 
 }
 
@@ -120,28 +120,28 @@ public partial class AzurermAiServicesTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -160,28 +160,28 @@ public partial class AzurermAiServices : TerraformResource
     /// </summary>
     [TerraformProperty("custom_subdomain_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CustomSubdomainName { get; set; }
+    public partial TerraformValue<string>? CustomSubdomainName { get; set; }
 
     /// <summary>
     /// The fqdns attribute.
     /// </summary>
     [TerraformProperty("fqdns")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Fqdns { get; set; }
+    public partial TerraformList<string>? Fqdns { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
     [TerraformProperty("local_authentication_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LocalAuthenticationEnabled { get; set; }
+    public partial TerraformValue<bool>? LocalAuthenticationEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -189,7 +189,7 @@ public partial class AzurermAiServices : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -197,21 +197,21 @@ public partial class AzurermAiServices : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The outbound_network_access_restricted attribute.
     /// </summary>
     [TerraformProperty("outbound_network_access_restricted")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? OutboundNetworkAccessRestricted { get; set; }
+    public partial TerraformValue<bool>? OutboundNetworkAccessRestricted { get; set; }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
     [TerraformProperty("public_network_access")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PublicNetworkAccess { get; set; }
+    public partial TerraformValue<string>? PublicNetworkAccess { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -219,7 +219,7 @@ public partial class AzurermAiServices : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
@@ -227,14 +227,14 @@ public partial class AzurermAiServices : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     [TerraformProperty("sku_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SkuName { get; set; }
+    public required partial TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for customer_managed_key.
@@ -242,7 +242,7 @@ public partial class AzurermAiServices : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
     [TerraformProperty("customer_managed_key")]
-    public TerraformList<TerraformBlock<AzurermAiServicesCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermAiServicesCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -250,7 +250,7 @@ public partial class AzurermAiServices : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermAiServicesIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermAiServicesIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for network_acls.
@@ -258,41 +258,41 @@ public partial class AzurermAiServices : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]
     [TerraformProperty("network_acls")]
-    public TerraformList<TerraformBlock<AzurermAiServicesNetworkAclsBlock>>? NetworkAcls { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermAiServicesNetworkAclsBlock>>? NetworkAcls { get; set; }
 
     /// <summary>
     /// Block for storage.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("storage")]
-    public TerraformList<TerraformBlock<AzurermAiServicesStorageBlock>>? Storage { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermAiServicesStorageBlock>>? Storage { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAiServicesTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAiServicesTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     [TerraformProperty("endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Endpoint { get; }
+    public partial TerraformValue<string> Endpoint { get; }
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     [TerraformProperty("primary_access_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryAccessKey { get; }
+    public partial TerraformValue<string> PrimaryAccessKey { get; }
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     [TerraformProperty("secondary_access_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecondaryAccessKey { get; }
+    public partial TerraformValue<string> SecondaryAccessKey { get; }
 
 }

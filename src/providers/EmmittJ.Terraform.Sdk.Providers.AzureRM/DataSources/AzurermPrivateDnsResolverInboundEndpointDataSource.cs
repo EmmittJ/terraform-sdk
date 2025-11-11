@@ -13,7 +13,7 @@ public partial class AzurermPrivateDnsResolverInboundEndpointDataSourceTimeoutsB
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermPrivateDnsResolverInboundEndpointDataSource : Terraf
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermPrivateDnsResolverInboundEndpointDataSource : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_dns_resolver_id attribute.
@@ -47,34 +47,34 @@ public partial class AzurermPrivateDnsResolverInboundEndpointDataSource : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsResolverId is required")]
     [TerraformProperty("private_dns_resolver_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrivateDnsResolverId { get; set; }
+    public required partial TerraformValue<string> PrivateDnsResolverId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPrivateDnsResolverInboundEndpointDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPrivateDnsResolverInboundEndpointDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The ip_configurations attribute.
     /// </summary>
     [TerraformProperty("ip_configurations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> IpConfigurations { get; }
+    public partial TerraformList<object> IpConfigurations { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
 }

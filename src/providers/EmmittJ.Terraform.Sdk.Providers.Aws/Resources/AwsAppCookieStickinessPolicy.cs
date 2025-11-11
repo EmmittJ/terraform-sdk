@@ -17,14 +17,14 @@ public partial class AwsAppCookieStickinessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CookieName is required")]
     [TerraformProperty("cookie_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CookieName { get; set; }
+    public required partial TerraformValue<string> CookieName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The lb_port attribute.
@@ -32,7 +32,7 @@ public partial class AwsAppCookieStickinessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbPort is required")]
     [TerraformProperty("lb_port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> LbPort { get; set; }
+    public required partial TerraformValue<double> LbPort { get; set; }
 
     /// <summary>
     /// The load_balancer attribute.
@@ -40,7 +40,7 @@ public partial class AwsAppCookieStickinessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancer is required")]
     [TerraformProperty("load_balancer")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LoadBalancer { get; set; }
+    public required partial TerraformValue<string> LoadBalancer { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -48,13 +48,13 @@ public partial class AwsAppCookieStickinessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
 }

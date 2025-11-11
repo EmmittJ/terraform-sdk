@@ -13,28 +13,28 @@ public partial class AzurermStorageShareDirectoryTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public partial class AzurermStorageShareDirectory : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     [TerraformProperty("metadata")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Metadata { get; set; }
+    public partial TerraformMap<string>? Metadata { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -67,7 +67,7 @@ public partial class AzurermStorageShareDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The storage_share_id attribute.
@@ -75,13 +75,13 @@ public partial class AzurermStorageShareDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageShareId is required")]
     [TerraformProperty("storage_share_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageShareId { get; set; }
+    public required partial TerraformValue<string> StorageShareId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageShareDirectoryTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageShareDirectoryTimeoutsBlock>? Timeouts { get; set; }
 
 }

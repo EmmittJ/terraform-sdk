@@ -13,7 +13,7 @@ public partial class AzurermPaloAltoLocalRulestackDataSourceTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermPaloAltoLocalRulestackDataSource : TerraformDataSour
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermPaloAltoLocalRulestackDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,83 +47,83 @@ public partial class AzurermPaloAltoLocalRulestackDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPaloAltoLocalRulestackDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPaloAltoLocalRulestackDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The anti_spyware_profile attribute.
     /// </summary>
     [TerraformProperty("anti_spyware_profile")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AntiSpywareProfile { get; }
+    public partial TerraformValue<string> AntiSpywareProfile { get; }
 
     /// <summary>
     /// The anti_virus_profile attribute.
     /// </summary>
     [TerraformProperty("anti_virus_profile")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AntiVirusProfile { get; }
+    public partial TerraformValue<string> AntiVirusProfile { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The dns_subscription attribute.
     /// </summary>
     [TerraformProperty("dns_subscription")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DnsSubscription { get; }
+    public partial TerraformValue<string> DnsSubscription { get; }
 
     /// <summary>
     /// The file_blocking_profile attribute.
     /// </summary>
     [TerraformProperty("file_blocking_profile")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> FileBlockingProfile { get; }
+    public partial TerraformValue<string> FileBlockingProfile { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The outbound_trust_certificate attribute.
     /// </summary>
     [TerraformProperty("outbound_trust_certificate")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OutboundTrustCertificate { get; }
+    public partial TerraformValue<string> OutboundTrustCertificate { get; }
 
     /// <summary>
     /// The outbound_untrust_certificate attribute.
     /// </summary>
     [TerraformProperty("outbound_untrust_certificate")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OutboundUntrustCertificate { get; }
+    public partial TerraformValue<string> OutboundUntrustCertificate { get; }
 
     /// <summary>
     /// The url_filtering_profile attribute.
     /// </summary>
     [TerraformProperty("url_filtering_profile")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UrlFilteringProfile { get; }
+    public partial TerraformValue<string> UrlFilteringProfile { get; }
 
     /// <summary>
     /// The vulnerability_profile attribute.
     /// </summary>
     [TerraformProperty("vulnerability_profile")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VulnerabilityProfile { get; }
+    public partial TerraformValue<string> VulnerabilityProfile { get; }
 
 }

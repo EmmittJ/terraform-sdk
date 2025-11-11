@@ -16,21 +16,21 @@ public partial class AwsIamRolePolicy : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformProperty("name_prefix")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NamePrefix { get; set; }
+    public partial TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The policy attribute.
@@ -38,7 +38,7 @@ public partial class AwsIamRolePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     [TerraformProperty("policy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Policy { get; set; }
+    public required partial TerraformValue<string> Policy { get; set; }
 
     /// <summary>
     /// The role attribute.
@@ -46,6 +46,6 @@ public partial class AwsIamRolePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     [TerraformProperty("role")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Role { get; set; }
+    public required partial TerraformValue<string> Role { get; set; }
 
 }

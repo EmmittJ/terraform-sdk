@@ -16,14 +16,14 @@ public partial class AwsStoragegatewayLocalDiskDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("disk_node")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DiskNode { get; set; }
+    public partial TerraformValue<string> DiskNode { get; set; }
 
     /// <summary>
     /// The disk_path attribute.
     /// </summary>
     [TerraformProperty("disk_path")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DiskPath { get; set; }
+    public partial TerraformValue<string> DiskPath { get; set; }
 
     /// <summary>
     /// The gateway_arn attribute.
@@ -31,27 +31,27 @@ public partial class AwsStoragegatewayLocalDiskDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
     [TerraformProperty("gateway_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GatewayArn { get; set; }
+    public required partial TerraformValue<string> GatewayArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The disk_id attribute.
     /// </summary>
     [TerraformProperty("disk_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DiskId { get; }
+    public partial TerraformValue<string> DiskId { get; }
 
 }

@@ -16,7 +16,7 @@ public partial class GoogleAccessContextManagerAccessPolicyDataSource : Terrafor
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The parent attribute.
@@ -24,27 +24,27 @@ public partial class GoogleAccessContextManagerAccessPolicyDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
     [TerraformProperty("scopes")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Scopes { get; set; }
+    public partial TerraformList<string>? Scopes { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     [TerraformProperty("title")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Title { get; }
+    public partial TerraformValue<string> Title { get; }
 
 }

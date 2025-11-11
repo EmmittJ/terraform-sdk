@@ -21,7 +21,7 @@ public partial class AzurermKubernetesFleetUpdateRunStageBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("after_stage_wait_in_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AfterStageWaitInSeconds { get; set; }
+    public partial TerraformValue<double>? AfterStageWaitInSeconds { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -29,7 +29,7 @@ public partial class AzurermKubernetesFleetUpdateRunStageBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -44,28 +44,28 @@ public partial class AzurermKubernetesFleetUpdateRunTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -84,14 +84,14 @@ public partial class AzurermKubernetesFleetUpdateRun : TerraformResource
     /// </summary>
     [TerraformProperty("fleet_update_strategy_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FleetUpdateStrategyId { get; set; }
+    public partial TerraformValue<string>? FleetUpdateStrategyId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kubernetes_fleet_manager_id attribute.
@@ -99,7 +99,7 @@ public partial class AzurermKubernetesFleetUpdateRun : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesFleetManagerId is required")]
     [TerraformProperty("kubernetes_fleet_manager_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KubernetesFleetManagerId { get; set; }
+    public required partial TerraformValue<string> KubernetesFleetManagerId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -107,7 +107,7 @@ public partial class AzurermKubernetesFleetUpdateRun : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for managed_cluster_update.
@@ -117,20 +117,20 @@ public partial class AzurermKubernetesFleetUpdateRun : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManagedClusterUpdate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedClusterUpdate block(s) allowed")]
     [TerraformProperty("managed_cluster_update")]
-    public TerraformList<TerraformBlock<AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock>>? ManagedClusterUpdate { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock>>? ManagedClusterUpdate { get; set; }
 
     /// <summary>
     /// Block for stage.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("stage")]
-    public TerraformList<TerraformBlock<AzurermKubernetesFleetUpdateRunStageBlock>>? Stage { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesFleetUpdateRunStageBlock>>? Stage { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKubernetesFleetUpdateRunTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKubernetesFleetUpdateRunTimeoutsBlock>? Timeouts { get; set; }
 
 }

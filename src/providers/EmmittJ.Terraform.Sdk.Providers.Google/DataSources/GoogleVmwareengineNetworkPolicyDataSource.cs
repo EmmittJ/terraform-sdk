@@ -16,7 +16,7 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource name of the location (region) to create the new network policy in.
@@ -26,7 +26,7 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The ID of the Network Policy.
@@ -34,14 +34,14 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Creation time of this resource.
@@ -50,14 +50,14 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// User-provided description for this network policy.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// IP address range in CIDR notation used to create internet access and external IP access.
@@ -66,7 +66,7 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("edge_services_cidr")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EdgeServicesCidr { get; }
+    public partial TerraformValue<string> EdgeServicesCidr { get; }
 
     /// <summary>
     /// Network service that allows External IP addresses to be assigned to VMware workloads.
@@ -74,21 +74,21 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("external_ip")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ExternalIp { get; }
+    public partial TerraformList<object> ExternalIp { get; }
 
     /// <summary>
     /// Network service that allows VMware workloads to access the internet.
     /// </summary>
     [TerraformProperty("internet_access")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> InternetAccess { get; }
+    public partial TerraformList<object> InternetAccess { get; }
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Last updated time of this resource.
@@ -97,7 +97,7 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// The relative resource name of the VMware Engine network. Specify the name in the following form:
@@ -106,7 +106,7 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("vmware_engine_network")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VmwareEngineNetwork { get; }
+    public partial TerraformValue<string> VmwareEngineNetwork { get; }
 
     /// <summary>
     /// The canonical name of the VMware Engine network in the form:
@@ -114,6 +114,6 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("vmware_engine_network_canonical")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VmwareEngineNetworkCanonical { get; }
+    public partial TerraformValue<string> VmwareEngineNetworkCanonical { get; }
 
 }

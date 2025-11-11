@@ -13,28 +13,28 @@ public partial class AzurermServicebusNamespaceCustomerManagedKeyTimeoutsBlock :
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public partial class AzurermServicebusNamespaceCustomerManagedKey : TerraformRes
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The infrastructure_encryption_enabled attribute.
     /// </summary>
     [TerraformProperty("infrastructure_encryption_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? InfrastructureEncryptionEnabled { get; set; }
+    public partial TerraformValue<bool>? InfrastructureEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The key_vault_key_id attribute.
@@ -67,7 +67,7 @@ public partial class AzurermServicebusNamespaceCustomerManagedKey : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     [TerraformProperty("key_vault_key_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultKeyId { get; set; }
+    public required partial TerraformValue<string> KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The namespace_id attribute.
@@ -75,13 +75,13 @@ public partial class AzurermServicebusNamespaceCustomerManagedKey : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceId is required")]
     [TerraformProperty("namespace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NamespaceId { get; set; }
+    public required partial TerraformValue<string> NamespaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermServicebusNamespaceCustomerManagedKeyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermServicebusNamespaceCustomerManagedKeyTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -37,21 +37,21 @@ public partial class AwsLexv2modelsSlotTypeTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -67,7 +67,7 @@ public partial class AwsLexv2modelsSlotTypeValueSelectionSettingBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResolutionStrategy is required")]
     [TerraformProperty("resolution_strategy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResolutionStrategy { get; set; }
+    public required partial TerraformValue<string> ResolutionStrategy { get; set; }
 
 }
 
@@ -86,7 +86,7 @@ public partial class AwsLexv2modelsSlotType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
     [TerraformProperty("bot_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BotId { get; set; }
+    public required partial TerraformValue<string> BotId { get; set; }
 
     /// <summary>
     /// The bot_version attribute.
@@ -94,14 +94,14 @@ public partial class AwsLexv2modelsSlotType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
     [TerraformProperty("bot_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BotVersion { get; set; }
+    public required partial TerraformValue<string> BotVersion { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The locale_id attribute.
@@ -109,7 +109,7 @@ public partial class AwsLexv2modelsSlotType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleId is required")]
     [TerraformProperty("locale_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LocaleId { get; set; }
+    public required partial TerraformValue<string> LocaleId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -117,69 +117,69 @@ public partial class AwsLexv2modelsSlotType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parent_slot_type_signature attribute.
     /// </summary>
     [TerraformProperty("parent_slot_type_signature")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ParentSlotTypeSignature { get; set; }
+    public partial TerraformValue<string>? ParentSlotTypeSignature { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for composite_slot_type_setting.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("composite_slot_type_setting")]
-    public TerraformList<TerraformBlock<AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock>>? CompositeSlotTypeSetting { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock>>? CompositeSlotTypeSetting { get; set; }
 
     /// <summary>
     /// Block for external_source_setting.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("external_source_setting")]
-    public TerraformList<TerraformBlock<AwsLexv2modelsSlotTypeExternalSourceSettingBlock>>? ExternalSourceSetting { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLexv2modelsSlotTypeExternalSourceSettingBlock>>? ExternalSourceSetting { get; set; }
 
     /// <summary>
     /// Block for slot_type_values.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("slot_type_values")]
-    public TerraformList<TerraformBlock<AwsLexv2modelsSlotTypeSlotTypeValuesBlock>>? SlotTypeValues { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLexv2modelsSlotTypeSlotTypeValuesBlock>>? SlotTypeValues { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsLexv2modelsSlotTypeTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsLexv2modelsSlotTypeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for value_selection_setting.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("value_selection_setting")]
-    public TerraformList<TerraformBlock<AwsLexv2modelsSlotTypeValueSelectionSettingBlock>>? ValueSelectionSetting { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLexv2modelsSlotTypeValueSelectionSettingBlock>>? ValueSelectionSetting { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The slot_type_id attribute.
     /// </summary>
     [TerraformProperty("slot_type_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SlotTypeId { get; }
+    public partial TerraformValue<string> SlotTypeId { get; }
 
 }

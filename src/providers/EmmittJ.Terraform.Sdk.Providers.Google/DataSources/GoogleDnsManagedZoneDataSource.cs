@@ -17,55 +17,55 @@ public partial class GoogleDnsManagedZoneDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     [TerraformProperty("dns_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DnsName { get; }
+    public partial TerraformValue<string> DnsName { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The managed_zone_id attribute.
     /// </summary>
     [TerraformProperty("managed_zone_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ManagedZoneId { get; }
+    public partial TerraformValue<double> ManagedZoneId { get; }
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
     [TerraformProperty("name_servers")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> NameServers { get; }
+    public partial TerraformList<string> NameServers { get; }
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
     [TerraformProperty("visibility")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Visibility { get; }
+    public partial TerraformValue<string> Visibility { get; }
 
 }

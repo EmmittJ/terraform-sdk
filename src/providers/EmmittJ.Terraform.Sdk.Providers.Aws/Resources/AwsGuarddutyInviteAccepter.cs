@@ -13,7 +13,7 @@ public partial class AwsGuarddutyInviteAccepterTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AwsGuarddutyInviteAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     [TerraformProperty("detector_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DetectorId { get; set; }
+    public required partial TerraformValue<string> DetectorId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The master_account_id attribute.
@@ -47,20 +47,20 @@ public partial class AwsGuarddutyInviteAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterAccountId is required")]
     [TerraformProperty("master_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MasterAccountId { get; set; }
+    public required partial TerraformValue<string> MasterAccountId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsGuarddutyInviteAccepterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsGuarddutyInviteAccepterTimeoutsBlock>? Timeouts { get; set; }
 
 }

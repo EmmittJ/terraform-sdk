@@ -13,7 +13,7 @@ public partial class AzurermNetappVolumeGroupOracleDataSourceTimeoutsBlock : Ter
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzurermNetappVolumeGroupOracleDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     [TerraformProperty("account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccountName { get; set; }
+    public required partial TerraformValue<string> AccountName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,7 +47,7 @@ public partial class AzurermNetappVolumeGroupOracleDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -55,41 +55,41 @@ public partial class AzurermNetappVolumeGroupOracleDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetappVolumeGroupOracleDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetappVolumeGroupOracleDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The application_identifier attribute.
     /// </summary>
     [TerraformProperty("application_identifier")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ApplicationIdentifier { get; }
+    public partial TerraformValue<string> ApplicationIdentifier { get; }
 
     /// <summary>
     /// The group_description attribute.
     /// </summary>
     [TerraformProperty("group_description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GroupDescription { get; }
+    public partial TerraformValue<string> GroupDescription { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The volume attribute.
     /// </summary>
     [TerraformProperty("volume")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Volume { get; }
+    public partial TerraformList<object> Volume { get; }
 
 }

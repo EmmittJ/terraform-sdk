@@ -13,7 +13,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlanDataSourceTimeout
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlanDataSource : Terr
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlanDataSource : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recovery_vault_id attribute.
@@ -47,48 +47,48 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlanDataSource : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     [TerraformProperty("recovery_vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecoveryVaultId { get; set; }
+    public required partial TerraformValue<string> RecoveryVaultId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSiteRecoveryReplicationRecoveryPlanDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSiteRecoveryReplicationRecoveryPlanDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The azure_to_azure_settings attribute.
     /// </summary>
     [TerraformProperty("azure_to_azure_settings")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> AzureToAzureSettings { get; }
+    public partial TerraformList<object> AzureToAzureSettings { get; }
 
     /// <summary>
     /// The failover_deployment_model attribute.
     /// </summary>
     [TerraformProperty("failover_deployment_model")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> FailoverDeploymentModel { get; }
+    public partial TerraformValue<string> FailoverDeploymentModel { get; }
 
     /// <summary>
     /// The recovery_group attribute.
     /// </summary>
     [TerraformProperty("recovery_group")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> RecoveryGroup { get; }
+    public partial TerraformSet<object> RecoveryGroup { get; }
 
     /// <summary>
     /// The source_recovery_fabric_id attribute.
     /// </summary>
     [TerraformProperty("source_recovery_fabric_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SourceRecoveryFabricId { get; }
+    public partial TerraformValue<string> SourceRecoveryFabricId { get; }
 
     /// <summary>
     /// The target_recovery_fabric_id attribute.
     /// </summary>
     [TerraformProperty("target_recovery_fabric_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TargetRecoveryFabricId { get; }
+    public partial TerraformValue<string> TargetRecoveryFabricId { get; }
 
 }

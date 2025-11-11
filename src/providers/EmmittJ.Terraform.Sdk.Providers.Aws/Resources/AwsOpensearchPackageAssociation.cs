@@ -13,14 +13,14 @@ public partial class AwsOpensearchPackageAssociationTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public partial class AwsOpensearchPackageAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformProperty("domain_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainName { get; set; }
+    public required partial TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The package_id attribute.
@@ -54,27 +54,27 @@ public partial class AwsOpensearchPackageAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageId is required")]
     [TerraformProperty("package_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PackageId { get; set; }
+    public required partial TerraformValue<string> PackageId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsOpensearchPackageAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsOpensearchPackageAssociationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The reference_path attribute.
     /// </summary>
     [TerraformProperty("reference_path")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ReferencePath { get; }
+    public partial TerraformValue<string> ReferencePath { get; }
 
 }

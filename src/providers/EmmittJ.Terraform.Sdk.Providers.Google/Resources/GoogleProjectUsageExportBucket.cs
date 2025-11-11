@@ -13,14 +13,14 @@ public partial class GoogleProjectUsageExportBucketTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,34 +39,34 @@ public partial class GoogleProjectUsageExportBucket : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     [TerraformProperty("bucket_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BucketName { get; set; }
+    public required partial TerraformValue<string> BucketName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A prefix for the reports, for instance, the project name.
     /// </summary>
     [TerraformProperty("prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Prefix { get; set; }
+    public partial TerraformValue<string>? Prefix { get; set; }
 
     /// <summary>
     /// The project to set the export bucket on. If it is not provided, the provider project is used.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleProjectUsageExportBucketTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleProjectUsageExportBucketTimeoutsBlock>? Timeouts { get; set; }
 
 }

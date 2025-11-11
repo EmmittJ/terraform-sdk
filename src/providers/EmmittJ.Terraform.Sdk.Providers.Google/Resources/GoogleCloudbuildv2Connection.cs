@@ -14,7 +14,7 @@ public partial class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     [TerraformProperty("webhook_secret_secret_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WebhookSecretSecretVersion { get; set; }
+    public required partial TerraformValue<string> WebhookSecretSecretVersion { get; set; }
 
     /// <summary>
     /// The Bitbucket Cloud Workspace ID to be connected to Google Cloud Platform.
@@ -22,7 +22,7 @@ public partial class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Workspace is required")]
     [TerraformProperty("workspace")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Workspace { get; set; }
+    public required partial TerraformValue<string> Workspace { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     [TerraformProperty("host_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HostUri { get; set; }
+    public required partial TerraformValue<string> HostUri { get; set; }
 
 
     /// <summary>
@@ -46,7 +46,7 @@ public partial class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock 
     /// </summary>
     [TerraformProperty("ssl_ca")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SslCa { get; set; }
+    public partial TerraformValue<string>? SslCa { get; set; }
 
     /// <summary>
     /// Required. Immutable. SecretManager resource containing the webhook secret used to verify webhook events, formatted as &#39;projects/*/secrets/*/versions/*&#39;.
@@ -54,7 +54,7 @@ public partial class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     [TerraformProperty("webhook_secret_secret_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WebhookSecretSecretVersion { get; set; }
+    public required partial TerraformValue<string> WebhookSecretSecretVersion { get; set; }
 
 }
 
@@ -69,7 +69,7 @@ public partial class GoogleCloudbuildv2ConnectionGithubConfigBlock : TerraformBl
     /// </summary>
     [TerraformProperty("app_installation_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AppInstallationId { get; set; }
+    public partial TerraformValue<double>? AppInstallationId { get; set; }
 
 }
 
@@ -84,21 +84,21 @@ public partial class GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock : T
     /// </summary>
     [TerraformProperty("app_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AppId { get; set; }
+    public partial TerraformValue<double>? AppId { get; set; }
 
     /// <summary>
     /// ID of the installation of the GitHub App.
     /// </summary>
     [TerraformProperty("app_installation_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AppInstallationId { get; set; }
+    public partial TerraformValue<double>? AppInstallationId { get; set; }
 
     /// <summary>
     /// The URL-friendly name of the GitHub App.
     /// </summary>
     [TerraformProperty("app_slug")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AppSlug { get; set; }
+    public partial TerraformValue<string>? AppSlug { get; set; }
 
     /// <summary>
     /// Required. The URI of the GitHub Enterprise host this connection is for.
@@ -106,28 +106,28 @@ public partial class GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     [TerraformProperty("host_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HostUri { get; set; }
+    public required partial TerraformValue<string> HostUri { get; set; }
 
     /// <summary>
     /// SecretManager resource containing the private key of the GitHub App, formatted as &#39;projects/*/secrets/*/versions/*&#39;.
     /// </summary>
     [TerraformProperty("private_key_secret_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrivateKeySecretVersion { get; set; }
+    public partial TerraformValue<string>? PrivateKeySecretVersion { get; set; }
 
     /// <summary>
     /// SSL certificate to use for requests to GitHub Enterprise.
     /// </summary>
     [TerraformProperty("ssl_ca")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SslCa { get; set; }
+    public partial TerraformValue<string>? SslCa { get; set; }
 
     /// <summary>
     /// SecretManager resource containing the webhook secret of the GitHub App, formatted as &#39;projects/*/secrets/*/versions/*&#39;.
     /// </summary>
     [TerraformProperty("webhook_secret_secret_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WebhookSecretSecretVersion { get; set; }
+    public partial TerraformValue<string>? WebhookSecretSecretVersion { get; set; }
 
 }
 
@@ -142,7 +142,7 @@ public partial class GoogleCloudbuildv2ConnectionGitlabConfigBlock : TerraformBl
     /// </summary>
     [TerraformProperty("host_uri")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> HostUri { get; set; }
+    public partial TerraformValue<string> HostUri { get; set; }
 
 
     /// <summary>
@@ -150,7 +150,7 @@ public partial class GoogleCloudbuildv2ConnectionGitlabConfigBlock : TerraformBl
     /// </summary>
     [TerraformProperty("ssl_ca")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SslCa { get; set; }
+    public partial TerraformValue<string>? SslCa { get; set; }
 
     /// <summary>
     /// Required. Immutable. SecretManager resource containing the webhook secret of a GitLab Enterprise project, formatted as &#39;projects/*/secrets/*/versions/*&#39;.
@@ -158,7 +158,7 @@ public partial class GoogleCloudbuildv2ConnectionGitlabConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     [TerraformProperty("webhook_secret_secret_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WebhookSecretSecretVersion { get; set; }
+    public required partial TerraformValue<string> WebhookSecretSecretVersion { get; set; }
 
 }
 
@@ -173,21 +173,21 @@ public partial class GoogleCloudbuildv2ConnectionTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -209,21 +209,21 @@ public partial class GoogleCloudbuildv2Connection : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// If disabled is set to true, functionality is disabled for this connection. Repository based API methods and webhooks processing for repositories in this connection will be disabled.
     /// </summary>
     [TerraformProperty("disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Disabled { get; set; }
+    public partial TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the resource
@@ -231,7 +231,7 @@ public partial class GoogleCloudbuildv2Connection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Immutable. The resource name of the connection.
@@ -239,14 +239,14 @@ public partial class GoogleCloudbuildv2Connection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for bitbucket_cloud_config.
@@ -254,7 +254,7 @@ public partial class GoogleCloudbuildv2Connection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BitbucketCloudConfig block(s) allowed")]
     [TerraformProperty("bitbucket_cloud_config")]
-    public TerraformList<TerraformBlock<GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlock>>? BitbucketCloudConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlock>>? BitbucketCloudConfig { get; set; }
 
     /// <summary>
     /// Block for bitbucket_data_center_config.
@@ -262,7 +262,7 @@ public partial class GoogleCloudbuildv2Connection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BitbucketDataCenterConfig block(s) allowed")]
     [TerraformProperty("bitbucket_data_center_config")]
-    public TerraformList<TerraformBlock<GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock>>? BitbucketDataCenterConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock>>? BitbucketDataCenterConfig { get; set; }
 
     /// <summary>
     /// Block for github_config.
@@ -270,7 +270,7 @@ public partial class GoogleCloudbuildv2Connection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubConfig block(s) allowed")]
     [TerraformProperty("github_config")]
-    public TerraformList<TerraformBlock<GoogleCloudbuildv2ConnectionGithubConfigBlock>>? GithubConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudbuildv2ConnectionGithubConfigBlock>>? GithubConfig { get; set; }
 
     /// <summary>
     /// Block for github_enterprise_config.
@@ -278,7 +278,7 @@ public partial class GoogleCloudbuildv2Connection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubEnterpriseConfig block(s) allowed")]
     [TerraformProperty("github_enterprise_config")]
-    public TerraformList<TerraformBlock<GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock>>? GithubEnterpriseConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock>>? GithubEnterpriseConfig { get; set; }
 
     /// <summary>
     /// Block for gitlab_config.
@@ -286,55 +286,55 @@ public partial class GoogleCloudbuildv2Connection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitlabConfig block(s) allowed")]
     [TerraformProperty("gitlab_config")]
-    public TerraformList<TerraformBlock<GoogleCloudbuildv2ConnectionGitlabConfigBlock>>? GitlabConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudbuildv2ConnectionGitlabConfigBlock>>? GitlabConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleCloudbuildv2ConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleCloudbuildv2ConnectionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Server assigned timestamp for when the connection was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Output only. Installation state of the Connection.
     /// </summary>
     [TerraformProperty("installation_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> InstallationState { get; }
+    public partial TerraformList<object> InstallationState { get; }
 
     /// <summary>
     /// Output only. Set to true when the connection is being set up or updated in the background.
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// Output only. Server assigned timestamp for when the connection was updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -13,28 +13,28 @@ public partial class AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock :
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermApplicationInsightsSmartDetectionRule : TerraformRes
     /// </summary>
     [TerraformProperty("additional_email_recipients")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AdditionalEmailRecipients { get; set; }
+    public partial TerraformSet<string>? AdditionalEmailRecipients { get; set; }
 
     /// <summary>
     /// The application_insights_id attribute.
@@ -60,21 +60,21 @@ public partial class AzurermApplicationInsightsSmartDetectionRule : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
     [TerraformProperty("application_insights_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApplicationInsightsId { get; set; }
+    public required partial TerraformValue<string> ApplicationInsightsId { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -82,20 +82,20 @@ public partial class AzurermApplicationInsightsSmartDetectionRule : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The send_emails_to_subscription_owners attribute.
     /// </summary>
     [TerraformProperty("send_emails_to_subscription_owners")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SendEmailsToSubscriptionOwners { get; set; }
+    public partial TerraformValue<bool>? SendEmailsToSubscriptionOwners { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

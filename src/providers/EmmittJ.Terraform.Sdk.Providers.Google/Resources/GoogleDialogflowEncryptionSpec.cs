@@ -17,7 +17,7 @@ public partial class GoogleDialogflowEncryptionSpecEncryptionSpecBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     [TerraformProperty("kms_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KmsKey { get; set; }
+    public required partial TerraformValue<string> KmsKey { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class GoogleDialogflowEncryptionSpecTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -58,7 +58,7 @@ public partial class GoogleDialogflowEncryptionSpec : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location in which the encryptionSpec is to be initialized.
@@ -66,14 +66,14 @@ public partial class GoogleDialogflowEncryptionSpec : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for encryption_spec.
@@ -83,13 +83,13 @@ public partial class GoogleDialogflowEncryptionSpec : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EncryptionSpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public TerraformList<TerraformBlock<GoogleDialogflowEncryptionSpecEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowEncryptionSpecEncryptionSpecBlock>>? EncryptionSpec { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDialogflowEncryptionSpecTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDialogflowEncryptionSpecTimeoutsBlock>? Timeouts { get; set; }
 
 }

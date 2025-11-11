@@ -14,14 +14,14 @@ public partial class AwsAppstreamStackAccessEndpointsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     [TerraformProperty("endpoint_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EndpointType { get; set; }
+    public required partial TerraformValue<string> EndpointType { get; set; }
 
     /// <summary>
     /// The vpce_id attribute.
     /// </summary>
     [TerraformProperty("vpce_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VpceId { get; set; }
+    public partial TerraformValue<string> VpceId { get; set; }
 
 }
 
@@ -37,14 +37,14 @@ public partial class AwsAppstreamStackApplicationSettingsBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The settings_group attribute.
     /// </summary>
     [TerraformProperty("settings_group")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SettingsGroup { get; set; }
+    public partial TerraformValue<string>? SettingsGroup { get; set; }
 
 }
 
@@ -60,21 +60,21 @@ public partial class AwsAppstreamStackStorageConnectorsBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
     [TerraformProperty("connector_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConnectorType { get; set; }
+    public required partial TerraformValue<string> ConnectorType { get; set; }
 
     /// <summary>
     /// The domains attribute.
     /// </summary>
     [TerraformProperty("domains")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> Domains { get; set; }
+    public partial TerraformList<string> Domains { get; set; }
 
     /// <summary>
     /// The resource_identifier attribute.
     /// </summary>
     [TerraformProperty("resource_identifier")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ResourceIdentifier { get; set; }
+    public partial TerraformValue<string> ResourceIdentifier { get; set; }
 
 }
 
@@ -89,7 +89,7 @@ public partial class AwsAppstreamStackStreamingExperienceSettingsBlock : Terrafo
     /// </summary>
     [TerraformProperty("preferred_protocol")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PreferredProtocol { get; set; }
+    public partial TerraformValue<string>? PreferredProtocol { get; set; }
 
 }
 
@@ -105,7 +105,7 @@ public partial class AwsAppstreamStackUserSettingsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformProperty("action")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Action { get; set; }
+    public required partial TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The permission attribute.
@@ -113,7 +113,7 @@ public partial class AwsAppstreamStackUserSettingsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     [TerraformProperty("permission")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Permission { get; set; }
+    public required partial TerraformValue<string> Permission { get; set; }
 
 }
 
@@ -132,35 +132,35 @@ public partial class AwsAppstreamStack : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The embed_host_domains attribute.
     /// </summary>
     [TerraformProperty("embed_host_domains")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> EmbedHostDomains { get; set; }
+    public partial TerraformSet<string> EmbedHostDomains { get; set; }
 
     /// <summary>
     /// The feedback_url attribute.
     /// </summary>
     [TerraformProperty("feedback_url")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> FeedbackUrl { get; set; }
+    public partial TerraformValue<string> FeedbackUrl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -168,35 +168,35 @@ public partial class AwsAppstreamStack : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The redirect_url attribute.
     /// </summary>
     [TerraformProperty("redirect_url")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> RedirectUrl { get; set; }
+    public partial TerraformValue<string> RedirectUrl { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for access_endpoints.
@@ -204,7 +204,7 @@ public partial class AwsAppstreamStack : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 AccessEndpoints block(s) allowed")]
     [TerraformProperty("access_endpoints")]
-    public TerraformSet<TerraformBlock<AwsAppstreamStackAccessEndpointsBlock>>? AccessEndpoints { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsAppstreamStackAccessEndpointsBlock>>? AccessEndpoints { get; set; }
 
     /// <summary>
     /// Block for application_settings.
@@ -212,14 +212,14 @@ public partial class AwsAppstreamStack : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationSettings block(s) allowed")]
     [TerraformProperty("application_settings")]
-    public TerraformList<TerraformBlock<AwsAppstreamStackApplicationSettingsBlock>>? ApplicationSettings { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAppstreamStackApplicationSettingsBlock>>? ApplicationSettings { get; set; }
 
     /// <summary>
     /// Block for storage_connectors.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("storage_connectors")]
-    public TerraformSet<TerraformBlock<AwsAppstreamStackStorageConnectorsBlock>>? StorageConnectors { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsAppstreamStackStorageConnectorsBlock>>? StorageConnectors { get; set; }
 
     /// <summary>
     /// Block for streaming_experience_settings.
@@ -227,27 +227,27 @@ public partial class AwsAppstreamStack : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StreamingExperienceSettings block(s) allowed")]
     [TerraformProperty("streaming_experience_settings")]
-    public TerraformList<TerraformBlock<AwsAppstreamStackStreamingExperienceSettingsBlock>>? StreamingExperienceSettings { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAppstreamStackStreamingExperienceSettingsBlock>>? StreamingExperienceSettings { get; set; }
 
     /// <summary>
     /// Block for user_settings.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("user_settings")]
-    public TerraformSet<TerraformBlock<AwsAppstreamStackUserSettingsBlock>>? UserSettings { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsAppstreamStackUserSettingsBlock>>? UserSettings { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     [TerraformProperty("created_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedTime { get; }
+    public partial TerraformValue<string> CreatedTime { get; }
 
 }

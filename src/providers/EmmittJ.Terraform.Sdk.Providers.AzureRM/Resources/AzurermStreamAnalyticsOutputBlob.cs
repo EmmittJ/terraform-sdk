@@ -13,21 +13,21 @@ public partial class AzurermStreamAnalyticsOutputBlobSerializationBlock : Terraf
     /// </summary>
     [TerraformProperty("encoding")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Encoding { get; set; }
+    public partial TerraformValue<string>? Encoding { get; set; }
 
     /// <summary>
     /// The field_delimiter attribute.
     /// </summary>
     [TerraformProperty("field_delimiter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FieldDelimiter { get; set; }
+    public partial TerraformValue<string>? FieldDelimiter { get; set; }
 
     /// <summary>
     /// The format attribute.
     /// </summary>
     [TerraformProperty("format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Format { get; set; }
+    public partial TerraformValue<string>? Format { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -35,7 +35,7 @@ public partial class AzurermStreamAnalyticsOutputBlobSerializationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -50,28 +50,28 @@ public partial class AzurermStreamAnalyticsOutputBlobTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -90,28 +90,28 @@ public partial class AzurermStreamAnalyticsOutputBlob : TerraformResource
     /// </summary>
     [TerraformProperty("authentication_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthenticationMode { get; set; }
+    public partial TerraformValue<string>? AuthenticationMode { get; set; }
 
     /// <summary>
     /// The batch_max_wait_time attribute.
     /// </summary>
     [TerraformProperty("batch_max_wait_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BatchMaxWaitTime { get; set; }
+    public partial TerraformValue<string>? BatchMaxWaitTime { get; set; }
 
     /// <summary>
     /// The batch_min_rows attribute.
     /// </summary>
     [TerraformProperty("batch_min_rows")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BatchMinRows { get; set; }
+    public partial TerraformValue<double>? BatchMinRows { get; set; }
 
     /// <summary>
     /// The blob_write_mode attribute.
     /// </summary>
     [TerraformProperty("blob_write_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BlobWriteMode { get; set; }
+    public partial TerraformValue<string>? BlobWriteMode { get; set; }
 
     /// <summary>
     /// The date_format attribute.
@@ -119,14 +119,14 @@ public partial class AzurermStreamAnalyticsOutputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DateFormat is required")]
     [TerraformProperty("date_format")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DateFormat { get; set; }
+    public required partial TerraformValue<string> DateFormat { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -134,7 +134,7 @@ public partial class AzurermStreamAnalyticsOutputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The path_pattern attribute.
@@ -142,7 +142,7 @@ public partial class AzurermStreamAnalyticsOutputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathPattern is required")]
     [TerraformProperty("path_pattern")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PathPattern { get; set; }
+    public required partial TerraformValue<string> PathPattern { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -150,14 +150,14 @@ public partial class AzurermStreamAnalyticsOutputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The storage_account_key attribute.
     /// </summary>
     [TerraformProperty("storage_account_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountKey { get; set; }
+    public partial TerraformValue<string>? StorageAccountKey { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
@@ -165,7 +165,7 @@ public partial class AzurermStreamAnalyticsOutputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     [TerraformProperty("storage_account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountName { get; set; }
+    public required partial TerraformValue<string> StorageAccountName { get; set; }
 
     /// <summary>
     /// The storage_container_name attribute.
@@ -173,7 +173,7 @@ public partial class AzurermStreamAnalyticsOutputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     [TerraformProperty("storage_container_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageContainerName { get; set; }
+    public required partial TerraformValue<string> StorageContainerName { get; set; }
 
     /// <summary>
     /// The stream_analytics_job_name attribute.
@@ -181,7 +181,7 @@ public partial class AzurermStreamAnalyticsOutputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     [TerraformProperty("stream_analytics_job_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StreamAnalyticsJobName { get; set; }
+    public required partial TerraformValue<string> StreamAnalyticsJobName { get; set; }
 
     /// <summary>
     /// The time_format attribute.
@@ -189,7 +189,7 @@ public partial class AzurermStreamAnalyticsOutputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeFormat is required")]
     [TerraformProperty("time_format")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TimeFormat { get; set; }
+    public required partial TerraformValue<string> TimeFormat { get; set; }
 
     /// <summary>
     /// Block for serialization.
@@ -199,13 +199,13 @@ public partial class AzurermStreamAnalyticsOutputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Serialization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serialization block(s) allowed")]
     [TerraformProperty("serialization")]
-    public TerraformList<TerraformBlock<AzurermStreamAnalyticsOutputBlobSerializationBlock>>? Serialization { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermStreamAnalyticsOutputBlobSerializationBlock>>? Serialization { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStreamAnalyticsOutputBlobTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStreamAnalyticsOutputBlobTimeoutsBlock>? Timeouts { get; set; }
 
 }

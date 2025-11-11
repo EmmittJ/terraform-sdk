@@ -13,7 +13,7 @@ public partial class GoogleArtifactRegistryRepositoryCleanupPoliciesBlock : Terr
     /// </summary>
     [TerraformProperty("action")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Action { get; set; }
+    public partial TerraformValue<string>? Action { get; set; }
 
     /// <summary>
     /// The id attribute.
@@ -21,7 +21,7 @@ public partial class GoogleArtifactRegistryRepositoryCleanupPoliciesBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public partial class GoogleArtifactRegistryRepositoryDockerConfigBlock : Terrafo
     /// </summary>
     [TerraformProperty("immutable_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ImmutableTags { get; set; }
+    public partial TerraformValue<bool>? ImmutableTags { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public partial class GoogleArtifactRegistryRepositoryMavenConfigBlock : Terrafor
     /// </summary>
     [TerraformProperty("allow_snapshot_overwrites")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowSnapshotOverwrites { get; set; }
+    public partial TerraformValue<bool>? AllowSnapshotOverwrites { get; set; }
 
     /// <summary>
     /// Version policy defines the versions that the registry will accept. Default value: &amp;quot;VERSION_POLICY_UNSPECIFIED&amp;quot; Possible values: [&amp;quot;VERSION_POLICY_UNSPECIFIED&amp;quot;, &amp;quot;RELEASE&amp;quot;, &amp;quot;SNAPSHOT&amp;quot;]
     /// </summary>
     [TerraformProperty("version_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VersionPolicy { get; set; }
+    public partial TerraformValue<string>? VersionPolicy { get; set; }
 
 }
 
@@ -74,7 +74,7 @@ public partial class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// If true, the remote repository upstream and upstream credentials will
@@ -82,7 +82,7 @@ public partial class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock
     /// </summary>
     [TerraformProperty("disable_upstream_validation")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableUpstreamValidation { get; set; }
+    public partial TerraformValue<bool>? DisableUpstreamValidation { get; set; }
 
 }
 
@@ -97,21 +97,21 @@ public partial class GoogleArtifactRegistryRepositoryTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -134,7 +134,7 @@ public partial class GoogleArtifactRegistryRepositoryVulnerabilityScanningConfig
     /// </summary>
     [TerraformProperty("enablement_config")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EnablementConfig { get; set; }
+    public partial TerraformValue<string>? EnablementConfig { get; set; }
 
 
 
@@ -156,14 +156,14 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     [TerraformProperty("cleanup_policy_dry_run")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CleanupPolicyDryRun { get; set; }
+    public partial TerraformValue<bool>? CleanupPolicyDryRun { get; set; }
 
     /// <summary>
     /// The user-provided description of the repository.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The format of packages that are stored in the repository. Supported formats
@@ -174,14 +174,14 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     [TerraformProperty("format")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Format { get; set; }
+    public required partial TerraformValue<string> Format { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The Cloud KMS resource name of the customer managed encryption key that’s
@@ -191,7 +191,7 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     [TerraformProperty("kms_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyName { get; set; }
+    public partial TerraformValue<string>? KmsKeyName { get; set; }
 
     /// <summary>
     /// Labels with user-defined metadata.
@@ -206,7 +206,7 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The name of the repository&#39;s location. In addition to specific regions,
@@ -218,21 +218,21 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     [TerraformProperty("location")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Location { get; set; }
+    public partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The mode configures the repository to serve artifacts from different sources. Default value: &amp;quot;STANDARD_REPOSITORY&amp;quot; Possible values: [&amp;quot;STANDARD_REPOSITORY&amp;quot;, &amp;quot;VIRTUAL_REPOSITORY&amp;quot;, &amp;quot;REMOTE_REPOSITORY&amp;quot;]
     /// </summary>
     [TerraformProperty("mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Mode { get; set; }
+    public partial TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The last part of the repository name, for example:
@@ -241,14 +241,14 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     [TerraformProperty("repository_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepositoryId { get; set; }
+    public required partial TerraformValue<string> RepositoryId { get; set; }
 
     /// <summary>
     /// Block for cleanup_policies.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("cleanup_policies")]
-    public TerraformSet<TerraformBlock<GoogleArtifactRegistryRepositoryCleanupPoliciesBlock>>? CleanupPolicies { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleArtifactRegistryRepositoryCleanupPoliciesBlock>>? CleanupPolicies { get; set; }
 
     /// <summary>
     /// Block for docker_config.
@@ -256,7 +256,7 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DockerConfig block(s) allowed")]
     [TerraformProperty("docker_config")]
-    public TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryDockerConfigBlock>>? DockerConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryDockerConfigBlock>>? DockerConfig { get; set; }
 
     /// <summary>
     /// Block for maven_config.
@@ -264,7 +264,7 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MavenConfig block(s) allowed")]
     [TerraformProperty("maven_config")]
-    public TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryMavenConfigBlock>>? MavenConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryMavenConfigBlock>>? MavenConfig { get; set; }
 
     /// <summary>
     /// Block for remote_repository_config.
@@ -272,14 +272,14 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteRepositoryConfig block(s) allowed")]
     [TerraformProperty("remote_repository_config")]
-    public TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock>>? RemoteRepositoryConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock>>? RemoteRepositoryConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleArtifactRegistryRepositoryTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleArtifactRegistryRepositoryTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for virtual_repository_config.
@@ -287,7 +287,7 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualRepositoryConfig block(s) allowed")]
     [TerraformProperty("virtual_repository_config")]
-    public TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlock>>? VirtualRepositoryConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlock>>? VirtualRepositoryConfig { get; set; }
 
     /// <summary>
     /// Block for vulnerability_scanning_config.
@@ -295,21 +295,21 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VulnerabilityScanningConfig block(s) allowed")]
     [TerraformProperty("vulnerability_scanning_config")]
-    public TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock>>? VulnerabilityScanningConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock>>? VulnerabilityScanningConfig { get; set; }
 
     /// <summary>
     /// The time when the repository was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The name of the repository, for example:
@@ -317,14 +317,14 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The repository endpoint, for example: us-docker.pkg.dev/my-proj/my-repo.
     /// </summary>
     [TerraformProperty("registry_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RegistryUri { get; }
+    public partial TerraformValue<string> RegistryUri { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -332,13 +332,13 @@ public partial class GoogleArtifactRegistryRepository : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The time when the repository was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

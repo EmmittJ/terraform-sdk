@@ -13,7 +13,7 @@ public partial class AzurermDataFactoryDatasetPostgresqlSchemaColumnBlock : Terr
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -21,14 +21,14 @@ public partial class AzurermDataFactoryDatasetPostgresqlSchemaColumnBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -43,28 +43,28 @@ public partial class AzurermDataFactoryDatasetPostgresqlTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -82,14 +82,14 @@ public partial class AzurermDataFactoryDatasetPostgresql : TerraformResource
     /// </summary>
     [TerraformProperty("additional_properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? AdditionalProperties { get; set; }
+    public partial TerraformMap<string>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Annotations { get; set; }
+    public partial TerraformList<string>? Annotations { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
@@ -97,28 +97,28 @@ public partial class AzurermDataFactoryDatasetPostgresql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformProperty("data_factory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataFactoryId { get; set; }
+    public required partial TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
     [TerraformProperty("folder")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Folder { get; set; }
+    public partial TerraformValue<string>? Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The linked_service_name attribute.
@@ -126,7 +126,7 @@ public partial class AzurermDataFactoryDatasetPostgresql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     [TerraformProperty("linked_service_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LinkedServiceName { get; set; }
+    public required partial TerraformValue<string> LinkedServiceName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -134,34 +134,34 @@ public partial class AzurermDataFactoryDatasetPostgresql : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     [TerraformProperty("table_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TableName { get; set; }
+    public partial TerraformValue<string>? TableName { get; set; }
 
     /// <summary>
     /// Block for schema_column.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("schema_column")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryDatasetPostgresqlSchemaColumnBlock>>? SchemaColumn { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryDatasetPostgresqlSchemaColumnBlock>>? SchemaColumn { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataFactoryDatasetPostgresqlTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataFactoryDatasetPostgresqlTimeoutsBlock>? Timeouts { get; set; }
 
 }

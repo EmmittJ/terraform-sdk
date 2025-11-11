@@ -13,7 +13,7 @@ public partial class AzurermRoleManagementPolicyDataSourceTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermRoleManagementPolicyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// ID of the Azure Role to which this policy is assigned
@@ -39,7 +39,7 @@ public partial class AzurermRoleManagementPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     [TerraformProperty("role_definition_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleDefinitionId { get; set; }
+    public required partial TerraformValue<string> RoleDefinitionId { get; set; }
 
     /// <summary>
     /// The scope of the role to which this policy will apply
@@ -47,55 +47,55 @@ public partial class AzurermRoleManagementPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     [TerraformProperty("scope")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Scope { get; set; }
+    public required partial TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermRoleManagementPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermRoleManagementPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The activation rules of the policy
     /// </summary>
     [TerraformProperty("activation_rules")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ActivationRules { get; }
+    public partial TerraformList<object> ActivationRules { get; }
 
     /// <summary>
     /// The rules for active assignment of the policy
     /// </summary>
     [TerraformProperty("active_assignment_rules")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ActiveAssignmentRules { get; }
+    public partial TerraformList<object> ActiveAssignmentRules { get; }
 
     /// <summary>
     /// The Description of the policy
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The rules for eligible assignment of the policy
     /// </summary>
     [TerraformProperty("eligible_assignment_rules")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> EligibleAssignmentRules { get; }
+    public partial TerraformList<object> EligibleAssignmentRules { get; }
 
     /// <summary>
     /// The name of the policy
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The notification rules of the policy
     /// </summary>
     [TerraformProperty("notification_rules")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> NotificationRules { get; }
+    public partial TerraformList<object> NotificationRules { get; }
 
 }

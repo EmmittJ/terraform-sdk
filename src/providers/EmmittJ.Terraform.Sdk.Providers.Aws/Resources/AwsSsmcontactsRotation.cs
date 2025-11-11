@@ -14,7 +14,7 @@ public partial class AwsSsmcontactsRotationRecurrenceBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfOnCalls is required")]
     [TerraformProperty("number_of_on_calls")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> NumberOfOnCalls { get; set; }
+    public required partial TerraformValue<double> NumberOfOnCalls { get; set; }
 
     /// <summary>
     /// The recurrence_multiplier attribute.
@@ -22,7 +22,7 @@ public partial class AwsSsmcontactsRotationRecurrenceBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrenceMultiplier is required")]
     [TerraformProperty("recurrence_multiplier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> RecurrenceMultiplier { get; set; }
+    public required partial TerraformValue<double> RecurrenceMultiplier { get; set; }
 
 }
 
@@ -41,7 +41,7 @@ public partial class AwsSsmcontactsRotation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactIds is required")]
     [TerraformProperty("contact_ids")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? ContactIds { get; set; }
+    public partial TerraformList<string>? ContactIds { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -49,28 +49,28 @@ public partial class AwsSsmcontactsRotation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     [TerraformProperty("start_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StartTime { get; set; }
+    public partial TerraformValue<string>? StartTime { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The time_zone_id attribute.
@@ -78,34 +78,34 @@ public partial class AwsSsmcontactsRotation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZoneId is required")]
     [TerraformProperty("time_zone_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TimeZoneId { get; set; }
+    public required partial TerraformValue<string> TimeZoneId { get; set; }
 
     /// <summary>
     /// Block for recurrence.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("recurrence")]
-    public TerraformList<TerraformBlock<AwsSsmcontactsRotationRecurrenceBlock>>? Recurrence { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSsmcontactsRotationRecurrenceBlock>>? Recurrence { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
 }

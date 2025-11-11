@@ -13,7 +13,7 @@ public partial class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlo
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The matching_event_types attribute.
@@ -21,7 +21,7 @@ public partial class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingEventTypes is required")]
     [TerraformProperty("matching_event_types")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> MatchingEventTypes { get; set; }
+    public required partial TerraformSet<string> MatchingEventTypes { get; set; }
 
 }
 
@@ -41,7 +41,7 @@ public partial class AwsSesv2ConfigurationSetEventDestination : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
     [TerraformProperty("configuration_set_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConfigurationSetName { get; set; }
+    public required partial TerraformValue<string> ConfigurationSetName { get; set; }
 
     /// <summary>
     /// The event_destination_name attribute.
@@ -49,21 +49,21 @@ public partial class AwsSesv2ConfigurationSetEventDestination : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventDestinationName is required")]
     [TerraformProperty("event_destination_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EventDestinationName { get; set; }
+    public required partial TerraformValue<string> EventDestinationName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for event_destination.
@@ -73,6 +73,6 @@ public partial class AwsSesv2ConfigurationSetEventDestination : TerraformResourc
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EventDestination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventDestination block(s) allowed")]
     [TerraformProperty("event_destination")]
-    public TerraformList<TerraformBlock<AwsSesv2ConfigurationSetEventDestinationEventDestinationBlock>>? EventDestination { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSesv2ConfigurationSetEventDestinationEventDestinationBlock>>? EventDestination { get; set; }
 
 }

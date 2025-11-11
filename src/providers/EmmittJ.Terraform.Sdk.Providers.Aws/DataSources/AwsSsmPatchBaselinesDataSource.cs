@@ -14,7 +14,7 @@ public partial class AwsSsmPatchBaselinesDataSourceFilterBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The values attribute.
@@ -22,7 +22,7 @@ public partial class AwsSsmPatchBaselinesDataSourceFilterBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     [TerraformProperty("values")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Values { get; set; }
+    public required partial TerraformSet<string> Values { get; set; }
 
 }
 
@@ -40,27 +40,27 @@ public partial class AwsSsmPatchBaselinesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("default_baselines")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DefaultBaselines { get; set; }
+    public partial TerraformValue<bool>? DefaultBaselines { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("filter")]
-    public TerraformList<TerraformBlock<AwsSsmPatchBaselinesDataSourceFilterBlock>>? Filter { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSsmPatchBaselinesDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// The baseline_identities attribute.
     /// </summary>
     [TerraformProperty("baseline_identities")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> BaselineIdentities { get; }
+    public partial TerraformList<object> BaselineIdentities { get; }
 
 }

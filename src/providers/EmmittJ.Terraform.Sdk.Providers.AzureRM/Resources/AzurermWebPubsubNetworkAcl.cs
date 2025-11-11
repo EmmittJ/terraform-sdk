@@ -13,14 +13,14 @@ public partial class AzurermWebPubsubNetworkAclPrivateEndpointBlock : TerraformB
     /// </summary>
     [TerraformProperty("allowed_request_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AllowedRequestTypes { get; set; }
+    public partial TerraformSet<string>? AllowedRequestTypes { get; set; }
 
     /// <summary>
     /// The denied_request_types attribute.
     /// </summary>
     [TerraformProperty("denied_request_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? DeniedRequestTypes { get; set; }
+    public partial TerraformSet<string>? DeniedRequestTypes { get; set; }
 
     /// <summary>
     /// The id attribute.
@@ -28,7 +28,7 @@ public partial class AzurermWebPubsubNetworkAclPrivateEndpointBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
 }
 
@@ -43,14 +43,14 @@ public partial class AzurermWebPubsubNetworkAclPublicNetworkBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("allowed_request_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AllowedRequestTypes { get; set; }
+    public partial TerraformSet<string>? AllowedRequestTypes { get; set; }
 
     /// <summary>
     /// The denied_request_types attribute.
     /// </summary>
     [TerraformProperty("denied_request_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? DeniedRequestTypes { get; set; }
+    public partial TerraformSet<string>? DeniedRequestTypes { get; set; }
 
 }
 
@@ -65,28 +65,28 @@ public partial class AzurermWebPubsubNetworkAclTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -105,14 +105,14 @@ public partial class AzurermWebPubsubNetworkAcl : TerraformResource
     /// </summary>
     [TerraformProperty("default_action")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultAction { get; set; }
+    public partial TerraformValue<string>? DefaultAction { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The web_pubsub_id attribute.
@@ -120,14 +120,14 @@ public partial class AzurermWebPubsubNetworkAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
     [TerraformProperty("web_pubsub_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WebPubsubId { get; set; }
+    public required partial TerraformValue<string> WebPubsubId { get; set; }
 
     /// <summary>
     /// Block for private_endpoint.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("private_endpoint")]
-    public TerraformSet<TerraformBlock<AzurermWebPubsubNetworkAclPrivateEndpointBlock>>? PrivateEndpoint { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermWebPubsubNetworkAclPrivateEndpointBlock>>? PrivateEndpoint { get; set; }
 
     /// <summary>
     /// Block for public_network.
@@ -137,13 +137,13 @@ public partial class AzurermWebPubsubNetworkAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PublicNetwork block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicNetwork block(s) allowed")]
     [TerraformProperty("public_network")]
-    public TerraformList<TerraformBlock<AzurermWebPubsubNetworkAclPublicNetworkBlock>>? PublicNetwork { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermWebPubsubNetworkAclPublicNetworkBlock>>? PublicNetwork { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermWebPubsubNetworkAclTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermWebPubsubNetworkAclTimeoutsBlock>? Timeouts { get; set; }
 
 }

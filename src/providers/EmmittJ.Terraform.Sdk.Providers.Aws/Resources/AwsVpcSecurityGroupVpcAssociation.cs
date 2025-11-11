@@ -13,14 +13,14 @@ public partial class AwsVpcSecurityGroupVpcAssociationTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class AwsVpcSecurityGroupVpcAssociation : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_group_id attribute.
@@ -46,7 +46,7 @@ public partial class AwsVpcSecurityGroupVpcAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
     [TerraformProperty("security_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SecurityGroupId { get; set; }
+    public required partial TerraformValue<string> SecurityGroupId { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
@@ -54,20 +54,20 @@ public partial class AwsVpcSecurityGroupVpcAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     [TerraformProperty("vpc_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VpcId { get; set; }
+    public required partial TerraformValue<string> VpcId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsVpcSecurityGroupVpcAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsVpcSecurityGroupVpcAssociationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermVpnGatewayDataSourceTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermVpnGatewayDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermVpnGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,55 +47,55 @@ public partial class AzurermVpnGatewayDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVpnGatewayDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVpnGatewayDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The bgp_settings attribute.
     /// </summary>
     [TerraformProperty("bgp_settings")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> BgpSettings { get; }
+    public partial TerraformList<object> BgpSettings { get; }
 
     /// <summary>
     /// The ip_configuration attribute.
     /// </summary>
     [TerraformProperty("ip_configuration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> IpConfiguration { get; }
+    public partial TerraformList<object> IpConfiguration { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The scale_unit attribute.
     /// </summary>
     [TerraformProperty("scale_unit")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ScaleUnit { get; }
+    public partial TerraformValue<double> ScaleUnit { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
     [TerraformProperty("virtual_hub_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VirtualHubId { get; }
+    public partial TerraformValue<string> VirtualHubId { get; }
 
 }

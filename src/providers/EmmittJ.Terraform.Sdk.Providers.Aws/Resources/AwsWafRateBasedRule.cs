@@ -14,7 +14,7 @@ public partial class AwsWafRateBasedRulePredicatesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataId is required")]
     [TerraformProperty("data_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataId { get; set; }
+    public required partial TerraformValue<string> DataId { get; set; }
 
     /// <summary>
     /// The negated attribute.
@@ -22,7 +22,7 @@ public partial class AwsWafRateBasedRulePredicatesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Negated is required")]
     [TerraformProperty("negated")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Negated { get; set; }
+    public required partial TerraformValue<bool> Negated { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -30,7 +30,7 @@ public partial class AwsWafRateBasedRulePredicatesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -48,7 +48,7 @@ public partial class AwsWafRateBasedRule : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The metric_name attribute.
@@ -56,7 +56,7 @@ public partial class AwsWafRateBasedRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     [TerraformProperty("metric_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MetricName { get; set; }
+    public required partial TerraformValue<string> MetricName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -64,7 +64,7 @@ public partial class AwsWafRateBasedRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The rate_key attribute.
@@ -72,7 +72,7 @@ public partial class AwsWafRateBasedRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RateKey is required")]
     [TerraformProperty("rate_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RateKey { get; set; }
+    public required partial TerraformValue<string> RateKey { get; set; }
 
     /// <summary>
     /// The rate_limit attribute.
@@ -80,34 +80,34 @@ public partial class AwsWafRateBasedRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RateLimit is required")]
     [TerraformProperty("rate_limit")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> RateLimit { get; set; }
+    public required partial TerraformValue<double> RateLimit { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for predicates.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("predicates")]
-    public TerraformSet<TerraformBlock<AwsWafRateBasedRulePredicatesBlock>>? Predicates { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsWafRateBasedRulePredicatesBlock>>? Predicates { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class AzurermSentinelWatchlistTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public partial class AzurermSentinelWatchlist : TerraformResource
     /// </summary>
     [TerraformProperty("default_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultDuration { get; set; }
+    public partial TerraformValue<string>? DefaultDuration { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
@@ -60,14 +60,14 @@ public partial class AzurermSentinelWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The item_search_key attribute.
@@ -75,14 +75,14 @@ public partial class AzurermSentinelWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ItemSearchKey is required")]
     [TerraformProperty("item_search_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ItemSearchKey { get; set; }
+    public required partial TerraformValue<string> ItemSearchKey { get; set; }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Labels { get; set; }
+    public partial TerraformList<string>? Labels { get; set; }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
@@ -90,7 +90,7 @@ public partial class AzurermSentinelWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     [TerraformProperty("log_analytics_workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
+    public required partial TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -98,13 +98,13 @@ public partial class AzurermSentinelWatchlist : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSentinelWatchlistTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSentinelWatchlistTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -16,7 +16,7 @@ public partial class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock : 
     /// </summary>
     [TerraformProperty("uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Uri { get; set; }
+    public partial TerraformValue<string>? Uri { get; set; }
 
 }
 
@@ -31,21 +31,21 @@ public partial class GoogleDeveloperConnectInsightsConfigTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -67,7 +67,7 @@ public partial class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// The name of the App Hub Application.
@@ -77,14 +77,14 @@ public partial class GoogleDeveloperConnectInsightsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppHubApplication is required")]
     [TerraformProperty("app_hub_application")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AppHubApplication { get; set; }
+    public required partial TerraformValue<string> AppHubApplication { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// ID of the requesting InsightsConfig.
@@ -92,7 +92,7 @@ public partial class GoogleDeveloperConnectInsightsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightsConfigId is required")]
     [TerraformProperty("insights_config_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InsightsConfigId { get; set; }
+    public required partial TerraformValue<string> InsightsConfigId { get; set; }
 
     /// <summary>
     /// Set of labels associated with an InsightsConfig.
@@ -102,7 +102,7 @@ public partial class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -110,49 +110,49 @@ public partial class GoogleDeveloperConnectInsightsConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for artifact_configs.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("artifact_configs")]
-    public TerraformList<TerraformBlock<GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock>>? ArtifactConfigs { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock>>? ArtifactConfigs { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDeveloperConnectInsightsConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDeveloperConnectInsightsConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// [Output only] Create timestamp
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Any errors that occurred while setting up the InsightsConfig.
@@ -162,7 +162,7 @@ public partial class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// </summary>
     [TerraformProperty("errors")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Errors { get; }
+    public partial TerraformList<object> Errors { get; }
 
     /// <summary>
     /// Identifier. The name of the InsightsConfig.
@@ -171,7 +171,7 @@ public partial class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Reconciling (https://google.aip.dev/128#reconciliation).
@@ -182,14 +182,14 @@ public partial class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// The runtime configurations where the application is deployed.
     /// </summary>
     [TerraformProperty("runtime_configs")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> RuntimeConfigs { get; }
+    public partial TerraformList<object> RuntimeConfigs { get; }
 
     /// <summary>
     /// The state of the InsightsConfig.
@@ -201,7 +201,7 @@ public partial class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -209,13 +209,13 @@ public partial class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// [Output only] Update timestamp
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermApiManagementDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermApiManagementDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermApiManagementDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,146 +47,146 @@ public partial class AzurermApiManagementDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApiManagementDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApiManagementDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The additional_location attribute.
     /// </summary>
     [TerraformProperty("additional_location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> AdditionalLocation { get; }
+    public partial TerraformList<object> AdditionalLocation { get; }
 
     /// <summary>
     /// The developer_portal_url attribute.
     /// </summary>
     [TerraformProperty("developer_portal_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeveloperPortalUrl { get; }
+    public partial TerraformValue<string> DeveloperPortalUrl { get; }
 
     /// <summary>
     /// The gateway_regional_url attribute.
     /// </summary>
     [TerraformProperty("gateway_regional_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GatewayRegionalUrl { get; }
+    public partial TerraformValue<string> GatewayRegionalUrl { get; }
 
     /// <summary>
     /// The gateway_url attribute.
     /// </summary>
     [TerraformProperty("gateway_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GatewayUrl { get; }
+    public partial TerraformValue<string> GatewayUrl { get; }
 
     /// <summary>
     /// The hostname_configuration attribute.
     /// </summary>
     [TerraformProperty("hostname_configuration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> HostnameConfiguration { get; }
+    public partial TerraformList<object> HostnameConfiguration { get; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [TerraformProperty("identity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Identity { get; }
+    public partial TerraformList<object> Identity { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The management_api_url attribute.
     /// </summary>
     [TerraformProperty("management_api_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ManagementApiUrl { get; }
+    public partial TerraformValue<string> ManagementApiUrl { get; }
 
     /// <summary>
     /// The notification_sender_email attribute.
     /// </summary>
     [TerraformProperty("notification_sender_email")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NotificationSenderEmail { get; }
+    public partial TerraformValue<string> NotificationSenderEmail { get; }
 
     /// <summary>
     /// The portal_url attribute.
     /// </summary>
     [TerraformProperty("portal_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PortalUrl { get; }
+    public partial TerraformValue<string> PortalUrl { get; }
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     [TerraformProperty("private_ip_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> PrivateIpAddresses { get; }
+    public partial TerraformList<string> PrivateIpAddresses { get; }
 
     /// <summary>
     /// The public_ip_address_id attribute.
     /// </summary>
     [TerraformProperty("public_ip_address_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PublicIpAddressId { get; }
+    public partial TerraformValue<string> PublicIpAddressId { get; }
 
     /// <summary>
     /// The public_ip_addresses attribute.
     /// </summary>
     [TerraformProperty("public_ip_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> PublicIpAddresses { get; }
+    public partial TerraformList<string> PublicIpAddresses { get; }
 
     /// <summary>
     /// The publisher_email attribute.
     /// </summary>
     [TerraformProperty("publisher_email")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PublisherEmail { get; }
+    public partial TerraformValue<string> PublisherEmail { get; }
 
     /// <summary>
     /// The publisher_name attribute.
     /// </summary>
     [TerraformProperty("publisher_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PublisherName { get; }
+    public partial TerraformValue<string> PublisherName { get; }
 
     /// <summary>
     /// The scm_url attribute.
     /// </summary>
     [TerraformProperty("scm_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ScmUrl { get; }
+    public partial TerraformValue<string> ScmUrl { get; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [TerraformProperty("sku_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SkuName { get; }
+    public partial TerraformValue<string> SkuName { get; }
 
     /// <summary>
     /// The tenant_access attribute.
     /// </summary>
     [TerraformProperty("tenant_access")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> TenantAccess { get; }
+    public partial TerraformList<object> TenantAccess { get; }
 
 }

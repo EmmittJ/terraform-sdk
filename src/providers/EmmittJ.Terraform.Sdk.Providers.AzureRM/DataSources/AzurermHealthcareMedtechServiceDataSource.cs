@@ -13,7 +13,7 @@ public partial class AzurermHealthcareMedtechServiceDataSourceTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermHealthcareMedtechServiceDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermHealthcareMedtechServiceDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -47,48 +47,48 @@ public partial class AzurermHealthcareMedtechServiceDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformProperty("workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceId { get; set; }
+    public required partial TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermHealthcareMedtechServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermHealthcareMedtechServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The device_mapping_json attribute.
     /// </summary>
     [TerraformProperty("device_mapping_json")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeviceMappingJson { get; }
+    public partial TerraformValue<string> DeviceMappingJson { get; }
 
     /// <summary>
     /// The eventhub_consumer_group_name attribute.
     /// </summary>
     [TerraformProperty("eventhub_consumer_group_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EventhubConsumerGroupName { get; }
+    public partial TerraformValue<string> EventhubConsumerGroupName { get; }
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
     [TerraformProperty("eventhub_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EventhubName { get; }
+    public partial TerraformValue<string> EventhubName { get; }
 
     /// <summary>
     /// The eventhub_namespace_name attribute.
     /// </summary>
     [TerraformProperty("eventhub_namespace_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EventhubNamespaceName { get; }
+    public partial TerraformValue<string> EventhubNamespaceName { get; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [TerraformProperty("identity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Identity { get; }
+    public partial TerraformList<object> Identity { get; }
 
 }

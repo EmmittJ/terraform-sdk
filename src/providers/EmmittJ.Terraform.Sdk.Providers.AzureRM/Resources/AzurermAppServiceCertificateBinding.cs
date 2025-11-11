@@ -13,21 +13,21 @@ public partial class AzurermAppServiceCertificateBindingTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AzurermAppServiceCertificateBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
     [TerraformProperty("certificate_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CertificateId { get; set; }
+    public required partial TerraformValue<string> CertificateId { get; set; }
 
     /// <summary>
     /// The hostname_binding_id attribute.
@@ -54,14 +54,14 @@ public partial class AzurermAppServiceCertificateBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostnameBindingId is required")]
     [TerraformProperty("hostname_binding_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HostnameBindingId { get; set; }
+    public required partial TerraformValue<string> HostnameBindingId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ssl_state attribute.
@@ -69,34 +69,34 @@ public partial class AzurermAppServiceCertificateBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslState is required")]
     [TerraformProperty("ssl_state")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SslState { get; set; }
+    public required partial TerraformValue<string> SslState { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAppServiceCertificateBindingTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAppServiceCertificateBindingTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The app_service_name attribute.
     /// </summary>
     [TerraformProperty("app_service_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AppServiceName { get; }
+    public partial TerraformValue<string> AppServiceName { get; }
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
     [TerraformProperty("hostname")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Hostname { get; }
+    public partial TerraformValue<string> Hostname { get; }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     [TerraformProperty("thumbprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Thumbprint { get; }
+    public partial TerraformValue<string> Thumbprint { get; }
 
 }

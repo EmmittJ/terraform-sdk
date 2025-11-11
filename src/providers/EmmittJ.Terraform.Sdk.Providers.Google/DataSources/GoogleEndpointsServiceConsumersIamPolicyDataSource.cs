@@ -17,14 +17,14 @@ public partial class GoogleEndpointsServiceConsumersIamPolicyDataSource : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerProject is required")]
     [TerraformProperty("consumer_project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConsumerProject { get; set; }
+    public required partial TerraformValue<string> ConsumerProject { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The service_name attribute.
@@ -32,20 +32,20 @@ public partial class GoogleEndpointsServiceConsumersIamPolicyDataSource : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     [TerraformProperty("service_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceName { get; set; }
+    public required partial TerraformValue<string> ServiceName { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     [TerraformProperty("policy_data")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PolicyData { get; }
+    public partial TerraformValue<string> PolicyData { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AzurermMonitorAadDiagnosticSettingEnabledLogBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     [TerraformProperty("category")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Category { get; set; }
+    public required partial TerraformValue<string> Category { get; set; }
 
 }
 
@@ -29,28 +29,28 @@ public partial class AzurermMonitorAadDiagnosticSettingTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -68,28 +68,28 @@ public partial class AzurermMonitorAadDiagnosticSetting : TerraformResource
     /// </summary>
     [TerraformProperty("eventhub_authorization_rule_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EventhubAuthorizationRuleId { get; set; }
+    public partial TerraformValue<string>? EventhubAuthorizationRuleId { get; set; }
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
     [TerraformProperty("eventhub_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EventhubName { get; set; }
+    public partial TerraformValue<string>? EventhubName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [TerraformProperty("log_analytics_workspace_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LogAnalyticsWorkspaceId { get; set; }
+    public partial TerraformValue<string>? LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -97,27 +97,27 @@ public partial class AzurermMonitorAadDiagnosticSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [TerraformProperty("storage_account_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountId { get; set; }
+    public partial TerraformValue<string>? StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for enabled_log.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("enabled_log")]
-    public TerraformSet<TerraformBlock<AzurermMonitorAadDiagnosticSettingEnabledLogBlock>>? EnabledLog { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermMonitorAadDiagnosticSettingEnabledLogBlock>>? EnabledLog { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMonitorAadDiagnosticSettingTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMonitorAadDiagnosticSettingTimeoutsBlock>? Timeouts { get; set; }
 
 }

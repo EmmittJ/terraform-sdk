@@ -16,7 +16,7 @@ public partial class AwsSesv2AccountSuppressionAttributes : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The suppressed_reasons attribute.
@@ -24,13 +24,13 @@ public partial class AwsSesv2AccountSuppressionAttributes : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SuppressedReasons is required")]
     [TerraformProperty("suppressed_reasons")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> SuppressedReasons { get; set; }
+    public required partial TerraformSet<string> SuppressedReasons { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

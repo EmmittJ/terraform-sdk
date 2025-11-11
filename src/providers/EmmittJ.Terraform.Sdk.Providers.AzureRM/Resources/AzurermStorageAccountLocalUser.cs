@@ -14,7 +14,7 @@ public partial class AzurermStorageAccountLocalUserPermissionScopeBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceName is required")]
     [TerraformProperty("resource_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceName { get; set; }
+    public required partial TerraformValue<string> ResourceName { get; set; }
 
     /// <summary>
     /// The service attribute.
@@ -22,7 +22,7 @@ public partial class AzurermStorageAccountLocalUserPermissionScopeBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformProperty("service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Service { get; set; }
+    public required partial TerraformValue<string> Service { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : Terra
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The key attribute.
@@ -45,7 +45,7 @@ public partial class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
 }
 
@@ -60,28 +60,28 @@ public partial class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -99,14 +99,14 @@ public partial class AzurermStorageAccountLocalUser : TerraformResource
     /// </summary>
     [TerraformProperty("home_directory")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HomeDirectory { get; set; }
+    public partial TerraformValue<string>? HomeDirectory { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -114,21 +114,21 @@ public partial class AzurermStorageAccountLocalUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The ssh_key_enabled attribute.
     /// </summary>
     [TerraformProperty("ssh_key_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SshKeyEnabled { get; set; }
+    public partial TerraformValue<bool>? SshKeyEnabled { get; set; }
 
     /// <summary>
     /// The ssh_password_enabled attribute.
     /// </summary>
     [TerraformProperty("ssh_password_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SshPasswordEnabled { get; set; }
+    public partial TerraformValue<bool>? SshPasswordEnabled { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -136,41 +136,41 @@ public partial class AzurermStorageAccountLocalUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformProperty("storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountId { get; set; }
+    public required partial TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for permission_scope.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("permission_scope")]
-    public TerraformList<TerraformBlock<AzurermStorageAccountLocalUserPermissionScopeBlock>>? PermissionScope { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermStorageAccountLocalUserPermissionScopeBlock>>? PermissionScope { get; set; }
 
     /// <summary>
     /// Block for ssh_authorized_key.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("ssh_authorized_key")]
-    public TerraformList<TerraformBlock<AzurermStorageAccountLocalUserSshAuthorizedKeyBlock>>? SshAuthorizedKey { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermStorageAccountLocalUserSshAuthorizedKeyBlock>>? SshAuthorizedKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageAccountLocalUserTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageAccountLocalUserTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
     [TerraformProperty("password")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Password { get; }
+    public partial TerraformValue<string> Password { get; }
 
     /// <summary>
     /// The sid attribute.
     /// </summary>
     [TerraformProperty("sid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Sid { get; }
+    public partial TerraformValue<string> Sid { get; }
 
 }

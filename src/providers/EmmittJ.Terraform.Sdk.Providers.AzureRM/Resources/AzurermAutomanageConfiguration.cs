@@ -13,35 +13,35 @@ public partial class AzurermAutomanageConfigurationAntimalwareBlock : TerraformB
     /// </summary>
     [TerraformProperty("real_time_protection_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RealTimeProtectionEnabled { get; set; }
+    public partial TerraformValue<bool>? RealTimeProtectionEnabled { get; set; }
 
     /// <summary>
     /// The scheduled_scan_day attribute.
     /// </summary>
     [TerraformProperty("scheduled_scan_day")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ScheduledScanDay { get; set; }
+    public partial TerraformValue<double>? ScheduledScanDay { get; set; }
 
     /// <summary>
     /// The scheduled_scan_enabled attribute.
     /// </summary>
     [TerraformProperty("scheduled_scan_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ScheduledScanEnabled { get; set; }
+    public partial TerraformValue<bool>? ScheduledScanEnabled { get; set; }
 
     /// <summary>
     /// The scheduled_scan_time_in_minutes attribute.
     /// </summary>
     [TerraformProperty("scheduled_scan_time_in_minutes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ScheduledScanTimeInMinutes { get; set; }
+    public partial TerraformValue<double>? ScheduledScanTimeInMinutes { get; set; }
 
     /// <summary>
     /// The scheduled_scan_type attribute.
     /// </summary>
     [TerraformProperty("scheduled_scan_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ScheduledScanType { get; set; }
+    public partial TerraformValue<string>? ScheduledScanType { get; set; }
 
 }
 
@@ -56,7 +56,7 @@ public partial class AzurermAutomanageConfigurationAzureSecurityBaselineBlock : 
     /// </summary>
     [TerraformProperty("assignment_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AssignmentType { get; set; }
+    public partial TerraformValue<string>? AssignmentType { get; set; }
 
 }
 
@@ -71,21 +71,21 @@ public partial class AzurermAutomanageConfigurationBackupBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("instant_rp_retention_range_in_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? InstantRpRetentionRangeInDays { get; set; }
+    public partial TerraformValue<double>? InstantRpRetentionRangeInDays { get; set; }
 
     /// <summary>
     /// The policy_name attribute.
     /// </summary>
     [TerraformProperty("policy_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PolicyName { get; set; }
+    public partial TerraformValue<string>? PolicyName { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
     [TerraformProperty("time_zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TimeZone { get; set; }
+    public partial TerraformValue<string>? TimeZone { get; set; }
 
 }
 
@@ -100,28 +100,28 @@ public partial class AzurermAutomanageConfigurationTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -140,35 +140,35 @@ public partial class AzurermAutomanageConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("automation_account_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutomationAccountEnabled { get; set; }
+    public partial TerraformValue<bool>? AutomationAccountEnabled { get; set; }
 
     /// <summary>
     /// The boot_diagnostics_enabled attribute.
     /// </summary>
     [TerraformProperty("boot_diagnostics_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? BootDiagnosticsEnabled { get; set; }
+    public partial TerraformValue<bool>? BootDiagnosticsEnabled { get; set; }
 
     /// <summary>
     /// The defender_for_cloud_enabled attribute.
     /// </summary>
     [TerraformProperty("defender_for_cloud_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DefenderForCloudEnabled { get; set; }
+    public partial TerraformValue<bool>? DefenderForCloudEnabled { get; set; }
 
     /// <summary>
     /// The guest_configuration_enabled attribute.
     /// </summary>
     [TerraformProperty("guest_configuration_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? GuestConfigurationEnabled { get; set; }
+    public partial TerraformValue<bool>? GuestConfigurationEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -176,14 +176,14 @@ public partial class AzurermAutomanageConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The log_analytics_enabled attribute.
     /// </summary>
     [TerraformProperty("log_analytics_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LogAnalyticsEnabled { get; set; }
+    public partial TerraformValue<bool>? LogAnalyticsEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -191,7 +191,7 @@ public partial class AzurermAutomanageConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -199,21 +199,21 @@ public partial class AzurermAutomanageConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The status_change_alert_enabled attribute.
     /// </summary>
     [TerraformProperty("status_change_alert_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? StatusChangeAlertEnabled { get; set; }
+    public partial TerraformValue<bool>? StatusChangeAlertEnabled { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for antimalware.
@@ -221,7 +221,7 @@ public partial class AzurermAutomanageConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Antimalware block(s) allowed")]
     [TerraformProperty("antimalware")]
-    public TerraformList<TerraformBlock<AzurermAutomanageConfigurationAntimalwareBlock>>? Antimalware { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermAutomanageConfigurationAntimalwareBlock>>? Antimalware { get; set; }
 
     /// <summary>
     /// Block for azure_security_baseline.
@@ -229,7 +229,7 @@ public partial class AzurermAutomanageConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureSecurityBaseline block(s) allowed")]
     [TerraformProperty("azure_security_baseline")]
-    public TerraformList<TerraformBlock<AzurermAutomanageConfigurationAzureSecurityBaselineBlock>>? AzureSecurityBaseline { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermAutomanageConfigurationAzureSecurityBaselineBlock>>? AzureSecurityBaseline { get; set; }
 
     /// <summary>
     /// Block for backup.
@@ -237,13 +237,13 @@ public partial class AzurermAutomanageConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
     [TerraformProperty("backup")]
-    public TerraformList<TerraformBlock<AzurermAutomanageConfigurationBackupBlock>>? Backup { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermAutomanageConfigurationBackupBlock>>? Backup { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAutomanageConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAutomanageConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
 }

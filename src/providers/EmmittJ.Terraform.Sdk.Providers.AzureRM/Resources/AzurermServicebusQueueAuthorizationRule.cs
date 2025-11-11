@@ -13,28 +13,28 @@ public partial class AzurermServicebusQueueAuthorizationRuleTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,21 +52,21 @@ public partial class AzurermServicebusQueueAuthorizationRule : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The listen attribute.
     /// </summary>
     [TerraformProperty("listen")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Listen { get; set; }
+    public partial TerraformValue<bool>? Listen { get; set; }
 
     /// <summary>
     /// The manage attribute.
     /// </summary>
     [TerraformProperty("manage")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Manage { get; set; }
+    public partial TerraformValue<bool>? Manage { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -74,7 +74,7 @@ public partial class AzurermServicebusQueueAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The queue_id attribute.
@@ -82,62 +82,62 @@ public partial class AzurermServicebusQueueAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueId is required")]
     [TerraformProperty("queue_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> QueueId { get; set; }
+    public required partial TerraformValue<string> QueueId { get; set; }
 
     /// <summary>
     /// The send attribute.
     /// </summary>
     [TerraformProperty("send")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Send { get; set; }
+    public partial TerraformValue<bool>? Send { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermServicebusQueueAuthorizationRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermServicebusQueueAuthorizationRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
     [TerraformProperty("primary_connection_string")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryConnectionString { get; }
+    public partial TerraformValue<string> PrimaryConnectionString { get; }
 
     /// <summary>
     /// The primary_connection_string_alias attribute.
     /// </summary>
     [TerraformProperty("primary_connection_string_alias")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryConnectionStringAlias { get; }
+    public partial TerraformValue<string> PrimaryConnectionStringAlias { get; }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     [TerraformProperty("primary_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryKey { get; }
+    public partial TerraformValue<string> PrimaryKey { get; }
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     [TerraformProperty("secondary_connection_string")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecondaryConnectionString { get; }
+    public partial TerraformValue<string> SecondaryConnectionString { get; }
 
     /// <summary>
     /// The secondary_connection_string_alias attribute.
     /// </summary>
     [TerraformProperty("secondary_connection_string_alias")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecondaryConnectionStringAlias { get; }
+    public partial TerraformValue<string> SecondaryConnectionStringAlias { get; }
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     [TerraformProperty("secondary_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecondaryKey { get; }
+    public partial TerraformValue<string> SecondaryKey { get; }
 
 }

@@ -14,28 +14,28 @@ public partial class GoogleBigtableInstanceClusterBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     [TerraformProperty("cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterId { get; set; }
+    public required partial TerraformValue<string> ClusterId { get; set; }
 
     /// <summary>
     /// Describes the Cloud KMS encryption key that will be used to protect the destination Bigtable cluster. The requirements for this key are: 1) The Cloud Bigtable service account associated with the project that contains this cluster must be granted the cloudkms.cryptoKeyEncrypterDecrypter role on the CMEK key. 2) Only regional keys can be used and the region of the CMEK key must match the region of the cluster. 3) All clusters within an instance must use the same CMEK key. Values are of the form projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}
     /// </summary>
     [TerraformProperty("kms_key_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> KmsKeyName { get; set; }
+    public partial TerraformValue<string> KmsKeyName { get; set; }
 
     /// <summary>
     /// The node scaling factor of this cluster. One of &amp;quot;NodeScalingFactor1X&amp;quot; or &amp;quot;NodeScalingFactor2X&amp;quot;. Defaults to &amp;quot;NodeScalingFactor1X&amp;quot;.
     /// </summary>
     [TerraformProperty("node_scaling_factor")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NodeScalingFactor { get; set; }
+    public partial TerraformValue<string>? NodeScalingFactor { get; set; }
 
     /// <summary>
     /// The number of nodes in the cluster. If no value is set, Cloud Bigtable automatically allocates nodes based on your data footprint and optimized for 50% storage utilization.
     /// </summary>
     [TerraformProperty("num_nodes")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> NumNodes { get; set; }
+    public partial TerraformValue<double> NumNodes { get; set; }
 
 
     /// <summary>
@@ -43,14 +43,14 @@ public partial class GoogleBigtableInstanceClusterBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("storage_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageType { get; set; }
+    public partial TerraformValue<string>? StorageType { get; set; }
 
     /// <summary>
     /// The zone to create the Cloud Bigtable cluster in. Each cluster must have a different zone in the same region. Zones that support Bigtable instances are noted on the Cloud Bigtable locations page.
     /// </summary>
     [TerraformProperty("zone")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Zone { get; set; }
+    public partial TerraformValue<string> Zone { get; set; }
 
 }
 
@@ -65,21 +65,21 @@ public partial class GoogleBigtableInstanceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -97,28 +97,28 @@ public partial class GoogleBigtableInstance : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeletionProtection { get; set; }
+    public partial TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// The human-readable display name of the Bigtable instance. Defaults to the instance name.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DisplayName { get; set; }
+    public partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// When deleting a BigTable instance, this boolean option will delete all backups within the instance.
     /// </summary>
     [TerraformProperty("force_destroy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ForceDestroy { get; set; }
+    public partial TerraformValue<bool>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance type to create. One of &amp;quot;DEVELOPMENT&amp;quot; or &amp;quot;PRODUCTION&amp;quot;. Defaults to &amp;quot;PRODUCTION&amp;quot;.
@@ -126,7 +126,7 @@ public partial class GoogleBigtableInstance : TerraformResource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("instance_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InstanceType { get; set; }
+    public partial TerraformValue<string>? InstanceType { get; set; }
 
     /// <summary>
     /// A mapping of labels to assign to the resource.
@@ -136,7 +136,7 @@ public partial class GoogleBigtableInstance : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The name (also called Instance Id in the Cloud Console) of the Cloud Bigtable instance. Must be 6-33 characters and must only contain hyphens, lowercase letters and numbers.
@@ -144,41 +144,41 @@ public partial class GoogleBigtableInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for cluster.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("cluster")]
-    public TerraformList<TerraformBlock<GoogleBigtableInstanceClusterBlock>>? Cluster { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigtableInstanceClusterBlock>>? Cluster { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBigtableInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBigtableInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class GoogleFilestoreBackupTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public partial class GoogleFilestoreBackup : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource labels to represent user-provided metadata.
@@ -63,7 +63,7 @@ public partial class GoogleFilestoreBackup : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The name of the location of the instance. This can be a region for ENTERPRISE tier instances.
@@ -71,7 +71,7 @@ public partial class GoogleFilestoreBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource name of the backup. The name must be unique within the specified instance.
@@ -86,14 +86,14 @@ public partial class GoogleFilestoreBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Name of the file share in the source Cloud Filestore instance that the backup is created from.
@@ -101,7 +101,7 @@ public partial class GoogleFilestoreBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileShare is required")]
     [TerraformProperty("source_file_share")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceFileShare { get; set; }
+    public required partial TerraformValue<string> SourceFileShare { get; set; }
 
     /// <summary>
     /// The resource name of the source Cloud Filestore instance, in the format projects/{projectId}/locations/{locationId}/instances/{instanceId}, used to create this backup.
@@ -109,7 +109,7 @@ public partial class GoogleFilestoreBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceInstance is required")]
     [TerraformProperty("source_instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceInstance { get; set; }
+    public required partial TerraformValue<string> SourceInstance { get; set; }
 
     /// <summary>
     /// A map of resource manager tags.
@@ -119,70 +119,70 @@ public partial class GoogleFilestoreBackup : TerraformResource
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleFilestoreBackupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleFilestoreBackupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The amount of bytes needed to allocate a full copy of the snapshot content.
     /// </summary>
     [TerraformProperty("capacity_gb")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CapacityGb { get; }
+    public partial TerraformValue<string> CapacityGb { get; }
 
     /// <summary>
     /// The time when the snapshot was created in RFC3339 text format.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Amount of bytes that will be downloaded if the backup is restored.
     /// </summary>
     [TerraformProperty("download_bytes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DownloadBytes { get; }
+    public partial TerraformValue<string> DownloadBytes { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// KMS key name used for data encryption.
     /// </summary>
     [TerraformProperty("kms_key_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KmsKeyName { get; }
+    public partial TerraformValue<string> KmsKeyName { get; }
 
     /// <summary>
     /// The service tier of the source Cloud Filestore instance that this backup is created from.
     /// </summary>
     [TerraformProperty("source_instance_tier")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SourceInstanceTier { get; }
+    public partial TerraformValue<string> SourceInstanceTier { get; }
 
     /// <summary>
     /// The backup state.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The size of the storage used by the backup. As backups share storage, this number is expected to change with backup creation/deletion.
     /// </summary>
     [TerraformProperty("storage_bytes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StorageBytes { get; }
+    public partial TerraformValue<string> StorageBytes { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -190,6 +190,6 @@ public partial class GoogleFilestoreBackup : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class GoogleComputeResizeRequestRequestedRunDurationBlock : Terra
     /// </summary>
     [TerraformProperty("nanos")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Nanos { get; set; }
+    public partial TerraformValue<double>? Nanos { get; set; }
 
     /// <summary>
     /// Span of time at a resolution of a second. Must be from 600 to 604800 inclusive. Note: minimum and maximum allowed range for requestedRunDuration is 10 minutes (600 seconds) and 7 days(604800 seconds) correspondingly.
@@ -21,7 +21,7 @@ public partial class GoogleComputeResizeRequestRequestedRunDurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     [TerraformProperty("seconds")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Seconds { get; set; }
+    public required partial TerraformValue<string> Seconds { get; set; }
 
 }
 
@@ -36,14 +36,14 @@ public partial class GoogleComputeResizeRequestTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -62,14 +62,14 @@ public partial class GoogleComputeResizeRequest : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The reference of the instance group manager this ResizeRequest is a part of.
@@ -77,7 +77,7 @@ public partial class GoogleComputeResizeRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceGroupManager is required")]
     [TerraformProperty("instance_group_manager")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InstanceGroupManager { get; set; }
+    public required partial TerraformValue<string> InstanceGroupManager { get; set; }
 
     /// <summary>
     /// The name of this resize request. The name must be 1-63 characters long, and comply with RFC1035.
@@ -85,14 +85,14 @@ public partial class GoogleComputeResizeRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The number of instances to be created by this resize request. The group&#39;s target size will be increased by this number.
@@ -100,14 +100,14 @@ public partial class GoogleComputeResizeRequest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResizeBy is required")]
     [TerraformProperty("resize_by")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ResizeBy { get; set; }
+    public required partial TerraformValue<double> ResizeBy { get; set; }
 
     /// <summary>
     /// The reference of the compute zone scoping this request. If it is not provided, the provider zone is used.
     /// </summary>
     [TerraformProperty("zone")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Zone { get; set; }
+    public partial TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Block for requested_run_duration.
@@ -115,34 +115,34 @@ public partial class GoogleComputeResizeRequest : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RequestedRunDuration block(s) allowed")]
     [TerraformProperty("requested_run_duration")]
-    public TerraformList<TerraformBlock<GoogleComputeResizeRequestRequestedRunDurationBlock>>? RequestedRunDuration { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeResizeRequestRequestedRunDurationBlock>>? RequestedRunDuration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeResizeRequestTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeResizeRequestTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The creation timestamp for this resize request in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// Current state of the request.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Status of the request.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Status { get; }
+    public partial TerraformList<object> Status { get; }
 
 }

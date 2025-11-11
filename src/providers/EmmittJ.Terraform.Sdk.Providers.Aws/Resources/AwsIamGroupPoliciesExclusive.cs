@@ -17,7 +17,7 @@ public partial class AwsIamGroupPoliciesExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     [TerraformProperty("group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GroupName { get; set; }
+    public required partial TerraformValue<string> GroupName { get; set; }
 
     /// <summary>
     /// The policy_names attribute.
@@ -25,6 +25,6 @@ public partial class AwsIamGroupPoliciesExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyNames is required")]
     [TerraformProperty("policy_names")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> PolicyNames { get; set; }
+    public required partial TerraformSet<string> PolicyNames { get; set; }
 
 }

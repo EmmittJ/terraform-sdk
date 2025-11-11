@@ -13,14 +13,14 @@ public partial class AzurermSpringCloudBuildPackBindingLaunchBlock : TerraformBl
     /// </summary>
     [TerraformProperty("properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Properties { get; set; }
+    public partial TerraformMap<string>? Properties { get; set; }
 
     /// <summary>
     /// The secrets attribute.
     /// </summary>
     [TerraformProperty("secrets")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Secrets { get; set; }
+    public partial TerraformMap<string>? Secrets { get; set; }
 
 }
 
@@ -35,28 +35,28 @@ public partial class AzurermSpringCloudBuildPackBindingTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -75,14 +75,14 @@ public partial class AzurermSpringCloudBuildPackBinding : TerraformResource
     /// </summary>
     [TerraformProperty("binding_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BindingType { get; set; }
+    public partial TerraformValue<string>? BindingType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -90,7 +90,7 @@ public partial class AzurermSpringCloudBuildPackBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The spring_cloud_builder_id attribute.
@@ -98,7 +98,7 @@ public partial class AzurermSpringCloudBuildPackBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudBuilderId is required")]
     [TerraformProperty("spring_cloud_builder_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SpringCloudBuilderId { get; set; }
+    public required partial TerraformValue<string> SpringCloudBuilderId { get; set; }
 
     /// <summary>
     /// Block for launch.
@@ -106,13 +106,13 @@ public partial class AzurermSpringCloudBuildPackBinding : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Launch block(s) allowed")]
     [TerraformProperty("launch")]
-    public TerraformList<TerraformBlock<AzurermSpringCloudBuildPackBindingLaunchBlock>>? Launch { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSpringCloudBuildPackBindingLaunchBlock>>? Launch { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSpringCloudBuildPackBindingTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSpringCloudBuildPackBindingTimeoutsBlock>? Timeouts { get; set; }
 
 }

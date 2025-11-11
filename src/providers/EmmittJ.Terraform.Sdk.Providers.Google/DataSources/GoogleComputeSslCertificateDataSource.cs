@@ -16,7 +16,7 @@ public partial class GoogleComputeSslCertificateDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -32,14 +32,14 @@ public partial class GoogleComputeSslCertificateDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The certificate in PEM format.
@@ -48,55 +48,55 @@ public partial class GoogleComputeSslCertificateDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("certificate")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Certificate { get; }
+    public partial TerraformValue<string> Certificate { get; }
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     [TerraformProperty("certificate_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> CertificateId { get; }
+    public partial TerraformValue<double> CertificateId { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// Expire time of the certificate in RFC3339 text format.
     /// </summary>
     [TerraformProperty("expire_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpireTime { get; }
+    public partial TerraformValue<string> ExpireTime { get; }
 
     /// <summary>
     /// Creates a unique name beginning with the specified prefix. Conflicts with name.
     /// </summary>
     [TerraformProperty("name_prefix")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NamePrefix { get; }
+    public partial TerraformValue<string> NamePrefix { get; }
 
     /// <summary>
     /// The write-only private key in PEM format.
     /// </summary>
     [TerraformProperty("private_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrivateKey { get; }
+    public partial TerraformValue<string> PrivateKey { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
 }

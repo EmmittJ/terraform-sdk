@@ -17,7 +17,7 @@ public partial class GoogleIapSettingsAccessSettingsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity_sources")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? IdentitySources { get; set; }
+    public partial TerraformList<string>? IdentitySources { get; set; }
 
 }
 
@@ -33,7 +33,7 @@ public partial class GoogleIapSettingsApplicationSettingsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("cookie_domain")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CookieDomain { get; set; }
+    public partial TerraformValue<string>? CookieDomain { get; set; }
 
 }
 
@@ -48,21 +48,21 @@ public partial class GoogleIapSettingsTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -81,7 +81,7 @@ public partial class GoogleIapSettings : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource name of the IAP protected resource. Name can have below resources:
@@ -100,7 +100,7 @@ public partial class GoogleIapSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for access_settings.
@@ -108,7 +108,7 @@ public partial class GoogleIapSettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessSettings block(s) allowed")]
     [TerraformProperty("access_settings")]
-    public TerraformList<TerraformBlock<GoogleIapSettingsAccessSettingsBlock>>? AccessSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIapSettingsAccessSettingsBlock>>? AccessSettings { get; set; }
 
     /// <summary>
     /// Block for application_settings.
@@ -116,13 +116,13 @@ public partial class GoogleIapSettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationSettings block(s) allowed")]
     [TerraformProperty("application_settings")]
-    public TerraformList<TerraformBlock<GoogleIapSettingsApplicationSettingsBlock>>? ApplicationSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIapSettingsApplicationSettingsBlock>>? ApplicationSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleIapSettingsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleIapSettingsTimeoutsBlock>? Timeouts { get; set; }
 
 }

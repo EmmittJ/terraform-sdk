@@ -16,7 +16,7 @@ public partial class GoogleGkeHubFeatureDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the resource
@@ -24,7 +24,7 @@ public partial class GoogleGkeHubFeatureDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The full, unique name of this Feature resource
@@ -32,42 +32,42 @@ public partial class GoogleGkeHubFeatureDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Output only. When the Feature resource was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Output only. When the Feature resource was deleted.
     /// </summary>
     [TerraformProperty("delete_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeleteTime { get; }
+    public partial TerraformValue<string> DeleteTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Optional. Fleet Default Membership Configuration.
     /// </summary>
     [TerraformProperty("fleet_default_member_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> FleetDefaultMemberConfig { get; }
+    public partial TerraformList<object> FleetDefaultMemberConfig { get; }
 
     /// <summary>
     /// GCP labels for this Feature.
@@ -77,28 +77,28 @@ public partial class GoogleGkeHubFeatureDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// State of the Feature resource itself.
     /// </summary>
     [TerraformProperty("resource_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ResourceState { get; }
+    public partial TerraformList<object> ResourceState { get; }
 
     /// <summary>
     /// Optional. Hub-wide Feature configuration. If this Feature does not support any Hub-wide configuration, this field may be unused.
     /// </summary>
     [TerraformProperty("spec")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Spec { get; }
+    public partial TerraformList<object> Spec { get; }
 
     /// <summary>
     /// Output only. The Hub-wide Feature state
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> State { get; }
+    public partial TerraformList<object> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -106,13 +106,13 @@ public partial class GoogleGkeHubFeatureDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Output only. When the Feature resource was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

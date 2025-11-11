@@ -14,7 +14,7 @@ public partial class AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     [TerraformProperty("resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceId { get; set; }
+    public required partial TerraformValue<string> ResourceId { get; set; }
 
 }
 
@@ -29,7 +29,7 @@ public partial class AzurermDashboardGrafanaIdentityBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -39,7 +39,7 @@ public partial class AzurermDashboardGrafanaIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public partial class AzurermDashboardGrafanaSmtpBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The from_address attribute.
@@ -62,14 +62,14 @@ public partial class AzurermDashboardGrafanaSmtpBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromAddress is required")]
     [TerraformProperty("from_address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FromAddress { get; set; }
+    public required partial TerraformValue<string> FromAddress { get; set; }
 
     /// <summary>
     /// The from_name attribute.
     /// </summary>
     [TerraformProperty("from_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FromName { get; set; }
+    public partial TerraformValue<string>? FromName { get; set; }
 
     /// <summary>
     /// The host attribute.
@@ -77,7 +77,7 @@ public partial class AzurermDashboardGrafanaSmtpBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     [TerraformProperty("host")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Host { get; set; }
+    public required partial TerraformValue<string> Host { get; set; }
 
     /// <summary>
     /// The password attribute.
@@ -85,7 +85,7 @@ public partial class AzurermDashboardGrafanaSmtpBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     [TerraformProperty("password")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Password { get; set; }
+    public required partial TerraformValue<string> Password { get; set; }
 
     /// <summary>
     /// The start_tls_policy attribute.
@@ -93,7 +93,7 @@ public partial class AzurermDashboardGrafanaSmtpBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTlsPolicy is required")]
     [TerraformProperty("start_tls_policy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StartTlsPolicy { get; set; }
+    public required partial TerraformValue<string> StartTlsPolicy { get; set; }
 
     /// <summary>
     /// The user attribute.
@@ -101,14 +101,14 @@ public partial class AzurermDashboardGrafanaSmtpBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     [TerraformProperty("user")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> User { get; set; }
+    public required partial TerraformValue<string> User { get; set; }
 
     /// <summary>
     /// The verification_skip_enabled attribute.
     /// </summary>
     [TerraformProperty("verification_skip_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? VerificationSkipEnabled { get; set; }
+    public partial TerraformValue<bool>? VerificationSkipEnabled { get; set; }
 
 }
 
@@ -123,28 +123,28 @@ public partial class AzurermDashboardGrafanaTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -163,21 +163,21 @@ public partial class AzurermDashboardGrafana : TerraformResource
     /// </summary>
     [TerraformProperty("api_key_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ApiKeyEnabled { get; set; }
+    public partial TerraformValue<bool>? ApiKeyEnabled { get; set; }
 
     /// <summary>
     /// The auto_generated_domain_name_label_scope attribute.
     /// </summary>
     [TerraformProperty("auto_generated_domain_name_label_scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AutoGeneratedDomainNameLabelScope { get; set; }
+    public partial TerraformValue<string>? AutoGeneratedDomainNameLabelScope { get; set; }
 
     /// <summary>
     /// The deterministic_outbound_ip_enabled attribute.
     /// </summary>
     [TerraformProperty("deterministic_outbound_ip_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeterministicOutboundIpEnabled { get; set; }
+    public partial TerraformValue<bool>? DeterministicOutboundIpEnabled { get; set; }
 
     /// <summary>
     /// The grafana_major_version attribute.
@@ -185,14 +185,14 @@ public partial class AzurermDashboardGrafana : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrafanaMajorVersion is required")]
     [TerraformProperty("grafana_major_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GrafanaMajorVersion { get; set; }
+    public required partial TerraformValue<string> GrafanaMajorVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -200,7 +200,7 @@ public partial class AzurermDashboardGrafana : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -208,14 +208,14 @@ public partial class AzurermDashboardGrafana : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformProperty("public_network_access_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
+    public partial TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -223,35 +223,35 @@ public partial class AzurermDashboardGrafana : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [TerraformProperty("sku")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Sku { get; set; }
+    public partial TerraformValue<string>? Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The zone_redundancy_enabled attribute.
     /// </summary>
     [TerraformProperty("zone_redundancy_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ZoneRedundancyEnabled { get; set; }
+    public partial TerraformValue<bool>? ZoneRedundancyEnabled { get; set; }
 
     /// <summary>
     /// Block for azure_monitor_workspace_integrations.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("azure_monitor_workspace_integrations")]
-    public TerraformList<TerraformBlock<AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock>>? AzureMonitorWorkspaceIntegrations { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock>>? AzureMonitorWorkspaceIntegrations { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -259,7 +259,7 @@ public partial class AzurermDashboardGrafana : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermDashboardGrafanaIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDashboardGrafanaIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for smtp.
@@ -267,34 +267,34 @@ public partial class AzurermDashboardGrafana : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Smtp block(s) allowed")]
     [TerraformProperty("smtp")]
-    public TerraformList<TerraformBlock<AzurermDashboardGrafanaSmtpBlock>>? Smtp { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDashboardGrafanaSmtpBlock>>? Smtp { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDashboardGrafanaTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDashboardGrafanaTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     [TerraformProperty("endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Endpoint { get; }
+    public partial TerraformValue<string> Endpoint { get; }
 
     /// <summary>
     /// The grafana_version attribute.
     /// </summary>
     [TerraformProperty("grafana_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GrafanaVersion { get; }
+    public partial TerraformValue<string> GrafanaVersion { get; }
 
     /// <summary>
     /// The outbound_ip attribute.
     /// </summary>
     [TerraformProperty("outbound_ip")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> OutboundIp { get; }
+    public partial TerraformList<string> OutboundIp { get; }
 
 }

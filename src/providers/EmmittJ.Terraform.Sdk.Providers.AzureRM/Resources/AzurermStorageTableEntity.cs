@@ -13,28 +13,28 @@ public partial class AzurermStorageTableEntityTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,14 +53,14 @@ public partial class AzurermStorageTableEntity : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entity is required")]
     [TerraformProperty("entity")]
     // Required argument - source generator will implement get/set
-    public required TerraformMap<string> Entity { get; set; }
+    public required partial TerraformMap<string> Entity { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The partition_key attribute.
@@ -68,7 +68,7 @@ public partial class AzurermStorageTableEntity : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
     [TerraformProperty("partition_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PartitionKey { get; set; }
+    public required partial TerraformValue<string> PartitionKey { get; set; }
 
     /// <summary>
     /// The row_key attribute.
@@ -76,7 +76,7 @@ public partial class AzurermStorageTableEntity : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowKey is required")]
     [TerraformProperty("row_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RowKey { get; set; }
+    public required partial TerraformValue<string> RowKey { get; set; }
 
     /// <summary>
     /// The storage_table_id attribute.
@@ -84,13 +84,13 @@ public partial class AzurermStorageTableEntity : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageTableId is required")]
     [TerraformProperty("storage_table_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageTableId { get; set; }
+    public required partial TerraformValue<string> StorageTableId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageTableEntityTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageTableEntityTimeoutsBlock>? Timeouts { get; set; }
 
 }

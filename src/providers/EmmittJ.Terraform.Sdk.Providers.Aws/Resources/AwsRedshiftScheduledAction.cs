@@ -25,21 +25,21 @@ public partial class AwsRedshiftScheduledAction : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The enable attribute.
     /// </summary>
     [TerraformProperty("enable")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enable { get; set; }
+    public partial TerraformValue<bool>? Enable { get; set; }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
     [TerraformProperty("end_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EndTime { get; set; }
+    public partial TerraformValue<string>? EndTime { get; set; }
 
     /// <summary>
     /// The iam_role attribute.
@@ -47,14 +47,14 @@ public partial class AwsRedshiftScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRole is required")]
     [TerraformProperty("iam_role")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IamRole { get; set; }
+    public required partial TerraformValue<string> IamRole { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -62,14 +62,14 @@ public partial class AwsRedshiftScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The schedule attribute.
@@ -77,14 +77,14 @@ public partial class AwsRedshiftScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [TerraformProperty("schedule")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Schedule { get; set; }
+    public required partial TerraformValue<string> Schedule { get; set; }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     [TerraformProperty("start_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StartTime { get; set; }
+    public partial TerraformValue<string>? StartTime { get; set; }
 
     /// <summary>
     /// Block for target_action.
@@ -94,6 +94,6 @@ public partial class AwsRedshiftScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetAction block(s) allowed")]
     [TerraformProperty("target_action")]
-    public TerraformList<TerraformBlock<AwsRedshiftScheduledActionTargetActionBlock>>? TargetAction { get; set; }
+    public partial TerraformList<TerraformBlock<AwsRedshiftScheduledActionTargetActionBlock>>? TargetAction { get; set; }
 
 }

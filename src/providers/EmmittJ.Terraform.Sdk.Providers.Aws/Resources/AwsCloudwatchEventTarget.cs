@@ -13,7 +13,7 @@ public partial class AwsCloudwatchEventTargetAppsyncTargetBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("graphql_operation")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GraphqlOperation { get; set; }
+    public partial TerraformValue<string>? GraphqlOperation { get; set; }
 
 }
 
@@ -28,14 +28,14 @@ public partial class AwsCloudwatchEventTargetBatchTargetBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("array_size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ArraySize { get; set; }
+    public partial TerraformValue<double>? ArraySize { get; set; }
 
     /// <summary>
     /// The job_attempts attribute.
     /// </summary>
     [TerraformProperty("job_attempts")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? JobAttempts { get; set; }
+    public partial TerraformValue<double>? JobAttempts { get; set; }
 
     /// <summary>
     /// The job_definition attribute.
@@ -43,7 +43,7 @@ public partial class AwsCloudwatchEventTargetBatchTargetBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobDefinition is required")]
     [TerraformProperty("job_definition")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> JobDefinition { get; set; }
+    public required partial TerraformValue<string> JobDefinition { get; set; }
 
     /// <summary>
     /// The job_name attribute.
@@ -51,7 +51,7 @@ public partial class AwsCloudwatchEventTargetBatchTargetBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobName is required")]
     [TerraformProperty("job_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> JobName { get; set; }
+    public required partial TerraformValue<string> JobName { get; set; }
 
 }
 
@@ -66,7 +66,7 @@ public partial class AwsCloudwatchEventTargetDeadLetterConfigBlock : TerraformBl
     /// </summary>
     [TerraformProperty("arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Arn { get; set; }
+    public partial TerraformValue<string>? Arn { get; set; }
 
 }
 
@@ -81,56 +81,56 @@ public partial class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("enable_ecs_managed_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableEcsManagedTags { get; set; }
+    public partial TerraformValue<bool>? EnableEcsManagedTags { get; set; }
 
     /// <summary>
     /// The enable_execute_command attribute.
     /// </summary>
     [TerraformProperty("enable_execute_command")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableExecuteCommand { get; set; }
+    public partial TerraformValue<bool>? EnableExecuteCommand { get; set; }
 
     /// <summary>
     /// The group attribute.
     /// </summary>
     [TerraformProperty("group")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Group { get; set; }
+    public partial TerraformValue<string>? Group { get; set; }
 
     /// <summary>
     /// The launch_type attribute.
     /// </summary>
     [TerraformProperty("launch_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LaunchType { get; set; }
+    public partial TerraformValue<string>? LaunchType { get; set; }
 
     /// <summary>
     /// The platform_version attribute.
     /// </summary>
     [TerraformProperty("platform_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PlatformVersion { get; set; }
+    public partial TerraformValue<string>? PlatformVersion { get; set; }
 
     /// <summary>
     /// The propagate_tags attribute.
     /// </summary>
     [TerraformProperty("propagate_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PropagateTags { get; set; }
+    public partial TerraformValue<string>? PropagateTags { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The task_count attribute.
     /// </summary>
     [TerraformProperty("task_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? TaskCount { get; set; }
+    public partial TerraformValue<double>? TaskCount { get; set; }
 
     /// <summary>
     /// The task_definition_arn attribute.
@@ -138,7 +138,7 @@ public partial class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinitionArn is required")]
     [TerraformProperty("task_definition_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TaskDefinitionArn { get; set; }
+    public required partial TerraformValue<string> TaskDefinitionArn { get; set; }
 
 }
 
@@ -153,21 +153,21 @@ public partial class AwsCloudwatchEventTargetHttpTargetBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("header_parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? HeaderParameters { get; set; }
+    public partial TerraformMap<string>? HeaderParameters { get; set; }
 
     /// <summary>
     /// The path_parameter_values attribute.
     /// </summary>
     [TerraformProperty("path_parameter_values")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? PathParameterValues { get; set; }
+    public partial TerraformList<string>? PathParameterValues { get; set; }
 
     /// <summary>
     /// The query_string_parameters attribute.
     /// </summary>
     [TerraformProperty("query_string_parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? QueryStringParameters { get; set; }
+    public partial TerraformMap<string>? QueryStringParameters { get; set; }
 
 }
 
@@ -182,7 +182,7 @@ public partial class AwsCloudwatchEventTargetInputTransformerBlock : TerraformBl
     /// </summary>
     [TerraformProperty("input_paths")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? InputPaths { get; set; }
+    public partial TerraformMap<string>? InputPaths { get; set; }
 
     /// <summary>
     /// The input_template attribute.
@@ -190,7 +190,7 @@ public partial class AwsCloudwatchEventTargetInputTransformerBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputTemplate is required")]
     [TerraformProperty("input_template")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InputTemplate { get; set; }
+    public required partial TerraformValue<string> InputTemplate { get; set; }
 
 }
 
@@ -205,7 +205,7 @@ public partial class AwsCloudwatchEventTargetKinesisTargetBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("partition_key_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PartitionKeyPath { get; set; }
+    public partial TerraformValue<string>? PartitionKeyPath { get; set; }
 
 }
 
@@ -221,42 +221,42 @@ public partial class AwsCloudwatchEventTargetRedshiftTargetBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     [TerraformProperty("database")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Database { get; set; }
+    public required partial TerraformValue<string> Database { get; set; }
 
     /// <summary>
     /// The db_user attribute.
     /// </summary>
     [TerraformProperty("db_user")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DbUser { get; set; }
+    public partial TerraformValue<string>? DbUser { get; set; }
 
     /// <summary>
     /// The secrets_manager_arn attribute.
     /// </summary>
     [TerraformProperty("secrets_manager_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecretsManagerArn { get; set; }
+    public partial TerraformValue<string>? SecretsManagerArn { get; set; }
 
     /// <summary>
     /// The sql attribute.
     /// </summary>
     [TerraformProperty("sql")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Sql { get; set; }
+    public partial TerraformValue<string>? Sql { get; set; }
 
     /// <summary>
     /// The statement_name attribute.
     /// </summary>
     [TerraformProperty("statement_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StatementName { get; set; }
+    public partial TerraformValue<string>? StatementName { get; set; }
 
     /// <summary>
     /// The with_event attribute.
     /// </summary>
     [TerraformProperty("with_event")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? WithEvent { get; set; }
+    public partial TerraformValue<bool>? WithEvent { get; set; }
 
 }
 
@@ -271,14 +271,14 @@ public partial class AwsCloudwatchEventTargetRetryPolicyBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("maximum_event_age_in_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaximumEventAgeInSeconds { get; set; }
+    public partial TerraformValue<double>? MaximumEventAgeInSeconds { get; set; }
 
     /// <summary>
     /// The maximum_retry_attempts attribute.
     /// </summary>
     [TerraformProperty("maximum_retry_attempts")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaximumRetryAttempts { get; set; }
+    public partial TerraformValue<double>? MaximumRetryAttempts { get; set; }
 
 }
 
@@ -294,7 +294,7 @@ public partial class AwsCloudwatchEventTargetRunCommandTargetsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The values attribute.
@@ -302,7 +302,7 @@ public partial class AwsCloudwatchEventTargetRunCommandTargetsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     [TerraformProperty("values")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Values { get; set; }
+    public partial TerraformList<string>? Values { get; set; }
 
 }
 
@@ -325,7 +325,7 @@ public partial class AwsCloudwatchEventTargetSqsTargetBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("message_group_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MessageGroupId { get; set; }
+    public partial TerraformValue<string>? MessageGroupId { get; set; }
 
 }
 
@@ -345,56 +345,56 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     [TerraformProperty("arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Arn { get; set; }
+    public required partial TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The event_bus_name attribute.
     /// </summary>
     [TerraformProperty("event_bus_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EventBusName { get; set; }
+    public partial TerraformValue<string>? EventBusName { get; set; }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
     [TerraformProperty("force_destroy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ForceDestroy { get; set; }
+    public partial TerraformValue<bool>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The input attribute.
     /// </summary>
     [TerraformProperty("input")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Input { get; set; }
+    public partial TerraformValue<string>? Input { get; set; }
 
     /// <summary>
     /// The input_path attribute.
     /// </summary>
     [TerraformProperty("input_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InputPath { get; set; }
+    public partial TerraformValue<string>? InputPath { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [TerraformProperty("role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RoleArn { get; set; }
+    public partial TerraformValue<string>? RoleArn { get; set; }
 
     /// <summary>
     /// The rule attribute.
@@ -402,14 +402,14 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [TerraformProperty("rule")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Rule { get; set; }
+    public required partial TerraformValue<string> Rule { get; set; }
 
     /// <summary>
     /// The target_id attribute.
     /// </summary>
     [TerraformProperty("target_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TargetId { get; set; }
+    public partial TerraformValue<string> TargetId { get; set; }
 
     /// <summary>
     /// Block for appsync_target.
@@ -417,7 +417,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppsyncTarget block(s) allowed")]
     [TerraformProperty("appsync_target")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventTargetAppsyncTargetBlock>>? AppsyncTarget { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetAppsyncTargetBlock>>? AppsyncTarget { get; set; }
 
     /// <summary>
     /// Block for batch_target.
@@ -425,7 +425,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BatchTarget block(s) allowed")]
     [TerraformProperty("batch_target")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventTargetBatchTargetBlock>>? BatchTarget { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetBatchTargetBlock>>? BatchTarget { get; set; }
 
     /// <summary>
     /// Block for dead_letter_config.
@@ -433,7 +433,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterConfig block(s) allowed")]
     [TerraformProperty("dead_letter_config")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventTargetDeadLetterConfigBlock>>? DeadLetterConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetDeadLetterConfigBlock>>? DeadLetterConfig { get; set; }
 
     /// <summary>
     /// Block for ecs_target.
@@ -441,7 +441,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EcsTarget block(s) allowed")]
     [TerraformProperty("ecs_target")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventTargetEcsTargetBlock>>? EcsTarget { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetEcsTargetBlock>>? EcsTarget { get; set; }
 
     /// <summary>
     /// Block for http_target.
@@ -449,7 +449,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpTarget block(s) allowed")]
     [TerraformProperty("http_target")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventTargetHttpTargetBlock>>? HttpTarget { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetHttpTargetBlock>>? HttpTarget { get; set; }
 
     /// <summary>
     /// Block for input_transformer.
@@ -457,7 +457,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputTransformer block(s) allowed")]
     [TerraformProperty("input_transformer")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventTargetInputTransformerBlock>>? InputTransformer { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetInputTransformerBlock>>? InputTransformer { get; set; }
 
     /// <summary>
     /// Block for kinesis_target.
@@ -465,7 +465,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KinesisTarget block(s) allowed")]
     [TerraformProperty("kinesis_target")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventTargetKinesisTargetBlock>>? KinesisTarget { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetKinesisTargetBlock>>? KinesisTarget { get; set; }
 
     /// <summary>
     /// Block for redshift_target.
@@ -473,7 +473,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedshiftTarget block(s) allowed")]
     [TerraformProperty("redshift_target")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventTargetRedshiftTargetBlock>>? RedshiftTarget { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetRedshiftTargetBlock>>? RedshiftTarget { get; set; }
 
     /// <summary>
     /// Block for retry_policy.
@@ -481,7 +481,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryPolicy block(s) allowed")]
     [TerraformProperty("retry_policy")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventTargetRetryPolicyBlock>>? RetryPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetRetryPolicyBlock>>? RetryPolicy { get; set; }
 
     /// <summary>
     /// Block for run_command_targets.
@@ -489,7 +489,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 RunCommandTargets block(s) allowed")]
     [TerraformProperty("run_command_targets")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventTargetRunCommandTargetsBlock>>? RunCommandTargets { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetRunCommandTargetsBlock>>? RunCommandTargets { get; set; }
 
     /// <summary>
     /// Block for sagemaker_pipeline_target.
@@ -497,7 +497,7 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SagemakerPipelineTarget block(s) allowed")]
     [TerraformProperty("sagemaker_pipeline_target")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventTargetSagemakerPipelineTargetBlock>>? SagemakerPipelineTarget { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetSagemakerPipelineTargetBlock>>? SagemakerPipelineTarget { get; set; }
 
     /// <summary>
     /// Block for sqs_target.
@@ -505,6 +505,6 @@ public partial class AwsCloudwatchEventTarget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SqsTarget block(s) allowed")]
     [TerraformProperty("sqs_target")]
-    public TerraformList<TerraformBlock<AwsCloudwatchEventTargetSqsTargetBlock>>? SqsTarget { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudwatchEventTargetSqsTargetBlock>>? SqsTarget { get; set; }
 
 }

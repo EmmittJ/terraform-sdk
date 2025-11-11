@@ -13,7 +13,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataS
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataS
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The inventory_type attribute.
@@ -39,7 +39,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InventoryType is required")]
     [TerraformProperty("inventory_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InventoryType { get; set; }
+    public required partial TerraformValue<string> InventoryType { get; set; }
 
     /// <summary>
     /// The system_center_virtual_machine_manager_server_id attribute.
@@ -47,20 +47,20 @@ public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SystemCenterVirtualMachineManagerServerId is required")]
     [TerraformProperty("system_center_virtual_machine_manager_server_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SystemCenterVirtualMachineManagerServerId { get; set; }
+    public required partial TerraformValue<string> SystemCenterVirtualMachineManagerServerId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The inventory_items attribute.
     /// </summary>
     [TerraformProperty("inventory_items")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> InventoryItems { get; }
+    public partial TerraformList<object> InventoryItems { get; }
 
 }

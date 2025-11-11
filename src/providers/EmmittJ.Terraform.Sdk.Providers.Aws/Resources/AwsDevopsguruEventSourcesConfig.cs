@@ -24,20 +24,20 @@ public partial class AwsDevopsguruEventSourcesConfig : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for event_sources.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("event_sources")]
-    public TerraformList<TerraformBlock<AwsDevopsguruEventSourcesConfigEventSourcesBlock>>? EventSources { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDevopsguruEventSourcesConfigEventSourcesBlock>>? EventSources { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

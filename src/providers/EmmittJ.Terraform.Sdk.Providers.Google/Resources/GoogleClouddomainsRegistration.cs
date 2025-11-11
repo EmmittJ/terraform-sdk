@@ -15,7 +15,7 @@ public partial class GoogleClouddomainsRegistrationContactSettingsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Privacy is required")]
     [TerraformProperty("privacy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Privacy { get; set; }
+    public required partial TerraformValue<string> Privacy { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class GoogleClouddomainsRegistrationManagementSettingsBlock : Ter
     /// </summary>
     [TerraformProperty("preferred_renewal_method")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PreferredRenewalMethod { get; set; }
+    public partial TerraformValue<string> PreferredRenewalMethod { get; set; }
 
 
     /// <summary>
@@ -53,7 +53,7 @@ public partial class GoogleClouddomainsRegistrationManagementSettingsBlock : Ter
     /// </summary>
     [TerraformProperty("transfer_lock_state")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TransferLockState { get; set; }
+    public partial TerraformValue<string> TransferLockState { get; set; }
 
 }
 
@@ -68,21 +68,21 @@ public partial class GoogleClouddomainsRegistrationTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -97,14 +97,14 @@ public partial class GoogleClouddomainsRegistrationYearlyPriceBlock : TerraformB
     /// </summary>
     [TerraformProperty("currency_code")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CurrencyCode { get; set; }
+    public partial TerraformValue<string>? CurrencyCode { get; set; }
 
     /// <summary>
     /// The whole units of the amount. For example if currencyCode is &amp;quot;USD&amp;quot;, then 1 unit is one US dollar.
     /// </summary>
     [TerraformProperty("units")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Units { get; set; }
+    public partial TerraformValue<string>? Units { get; set; }
 
 }
 
@@ -123,7 +123,7 @@ public partial class GoogleClouddomainsRegistration : TerraformResource
     /// </summary>
     [TerraformProperty("contact_notices")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ContactNotices { get; set; }
+    public partial TerraformList<string>? ContactNotices { get; set; }
 
     /// <summary>
     /// Required. The domain name. Unicode domain names must be expressed in Punycode format.
@@ -131,21 +131,21 @@ public partial class GoogleClouddomainsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformProperty("domain_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainName { get; set; }
+    public required partial TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The list of domain notices that you acknowledge. Possible value is HSTS_PRELOADED
     /// </summary>
     [TerraformProperty("domain_notices")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? DomainNotices { get; set; }
+    public partial TerraformList<string>? DomainNotices { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Set of labels associated with the Registration.
@@ -155,7 +155,7 @@ public partial class GoogleClouddomainsRegistration : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location for the resource
@@ -163,14 +163,14 @@ public partial class GoogleClouddomainsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for contact_settings.
@@ -180,7 +180,7 @@ public partial class GoogleClouddomainsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContactSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContactSettings block(s) allowed")]
     [TerraformProperty("contact_settings")]
-    public TerraformList<TerraformBlock<GoogleClouddomainsRegistrationContactSettingsBlock>>? ContactSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleClouddomainsRegistrationContactSettingsBlock>>? ContactSettings { get; set; }
 
     /// <summary>
     /// Block for dns_settings.
@@ -188,7 +188,7 @@ public partial class GoogleClouddomainsRegistration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsSettings block(s) allowed")]
     [TerraformProperty("dns_settings")]
-    public TerraformList<TerraformBlock<GoogleClouddomainsRegistrationDnsSettingsBlock>>? DnsSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleClouddomainsRegistrationDnsSettingsBlock>>? DnsSettings { get; set; }
 
     /// <summary>
     /// Block for management_settings.
@@ -196,14 +196,14 @@ public partial class GoogleClouddomainsRegistration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementSettings block(s) allowed")]
     [TerraformProperty("management_settings")]
-    public TerraformList<TerraformBlock<GoogleClouddomainsRegistrationManagementSettingsBlock>>? ManagementSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleClouddomainsRegistrationManagementSettingsBlock>>? ManagementSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleClouddomainsRegistrationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleClouddomainsRegistrationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for yearly_price.
@@ -213,63 +213,63 @@ public partial class GoogleClouddomainsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 YearlyPrice block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 YearlyPrice block(s) allowed")]
     [TerraformProperty("yearly_price")]
-    public TerraformList<TerraformBlock<GoogleClouddomainsRegistrationYearlyPriceBlock>>? YearlyPrice { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleClouddomainsRegistrationYearlyPriceBlock>>? YearlyPrice { get; set; }
 
     /// <summary>
     /// Output only. Time at which the automation was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Output only. Time at which the automation was updated.
     /// </summary>
     [TerraformProperty("expire_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpireTime { get; }
+    public partial TerraformValue<string> ExpireTime { get; }
 
     /// <summary>
     /// Output only. The set of issues with the Registration that require attention.
     /// </summary>
     [TerraformProperty("issues")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Issues { get; }
+    public partial TerraformList<string> Issues { get; }
 
     /// <summary>
     /// Output only. Name of the Registration resource, in the format projects/*/locations/*/registrations/&amp;lt;domain_name&amp;gt;.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. The reason the domain registration failed. Only set for domains in REGISTRATION_FAILED state.
     /// </summary>
     [TerraformProperty("register_failure_reason")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RegisterFailureReason { get; }
+    public partial TerraformValue<string> RegisterFailureReason { get; }
 
     /// <summary>
     /// Output only. The current state of the Registration.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Output only. Set of options for the contactSettings.privacy field that this Registration supports.
     /// </summary>
     [TerraformProperty("supported_privacy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> SupportedPrivacy { get; }
+    public partial TerraformList<string> SupportedPrivacy { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -277,6 +277,6 @@ public partial class GoogleClouddomainsRegistration : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

@@ -13,28 +13,28 @@ public partial class AzurermKustoClusterManagedPrivateEndpointTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermKustoClusterManagedPrivateEndpoint : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     [TerraformProperty("cluster_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterName { get; set; }
+    public required partial TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The group_id attribute.
@@ -61,14 +61,14 @@ public partial class AzurermKustoClusterManagedPrivateEndpoint : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     [TerraformProperty("group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GroupId { get; set; }
+    public required partial TerraformValue<string> GroupId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -76,7 +76,7 @@ public partial class AzurermKustoClusterManagedPrivateEndpoint : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_link_resource_id attribute.
@@ -84,21 +84,21 @@ public partial class AzurermKustoClusterManagedPrivateEndpoint : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateLinkResourceId is required")]
     [TerraformProperty("private_link_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrivateLinkResourceId { get; set; }
+    public required partial TerraformValue<string> PrivateLinkResourceId { get; set; }
 
     /// <summary>
     /// The private_link_resource_region attribute.
     /// </summary>
     [TerraformProperty("private_link_resource_region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrivateLinkResourceRegion { get; set; }
+    public partial TerraformValue<string>? PrivateLinkResourceRegion { get; set; }
 
     /// <summary>
     /// The request_message attribute.
     /// </summary>
     [TerraformProperty("request_message")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RequestMessage { get; set; }
+    public partial TerraformValue<string>? RequestMessage { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -106,13 +106,13 @@ public partial class AzurermKustoClusterManagedPrivateEndpoint : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKustoClusterManagedPrivateEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKustoClusterManagedPrivateEndpointTimeoutsBlock>? Timeouts { get; set; }
 
 }

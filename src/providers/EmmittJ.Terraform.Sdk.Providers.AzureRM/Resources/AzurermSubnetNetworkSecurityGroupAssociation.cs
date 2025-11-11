@@ -13,21 +13,21 @@ public partial class AzurermSubnetNetworkSecurityGroupAssociationTimeoutsBlock :
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermSubnetNetworkSecurityGroupAssociation : TerraformRes
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The network_security_group_id attribute.
@@ -53,7 +53,7 @@ public partial class AzurermSubnetNetworkSecurityGroupAssociation : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkSecurityGroupId is required")]
     [TerraformProperty("network_security_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NetworkSecurityGroupId { get; set; }
+    public required partial TerraformValue<string> NetworkSecurityGroupId { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -61,13 +61,13 @@ public partial class AzurermSubnetNetworkSecurityGroupAssociation : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSubnetNetworkSecurityGroupAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSubnetNetworkSecurityGroupAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

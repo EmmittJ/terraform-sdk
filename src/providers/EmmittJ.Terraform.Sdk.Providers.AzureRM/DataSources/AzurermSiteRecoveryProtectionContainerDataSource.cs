@@ -13,7 +13,7 @@ public partial class AzurermSiteRecoveryProtectionContainerDataSourceTimeoutsBlo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermSiteRecoveryProtectionContainerDataSource : Terrafor
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermSiteRecoveryProtectionContainerDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recovery_fabric_name attribute.
@@ -47,7 +47,7 @@ public partial class AzurermSiteRecoveryProtectionContainerDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryFabricName is required")]
     [TerraformProperty("recovery_fabric_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecoveryFabricName { get; set; }
+    public required partial TerraformValue<string> RecoveryFabricName { get; set; }
 
     /// <summary>
     /// The recovery_vault_name attribute.
@@ -55,7 +55,7 @@ public partial class AzurermSiteRecoveryProtectionContainerDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     [TerraformProperty("recovery_vault_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecoveryVaultName { get; set; }
+    public required partial TerraformValue<string> RecoveryVaultName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -63,13 +63,13 @@ public partial class AzurermSiteRecoveryProtectionContainerDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSiteRecoveryProtectionContainerDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSiteRecoveryProtectionContainerDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
 }

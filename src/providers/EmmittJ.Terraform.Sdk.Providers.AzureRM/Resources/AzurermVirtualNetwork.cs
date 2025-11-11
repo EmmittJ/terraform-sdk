@@ -14,7 +14,7 @@ public partial class AzurermVirtualNetworkDdosProtectionPlanBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
     [TerraformProperty("enable")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enable { get; set; }
+    public required partial TerraformValue<bool> Enable { get; set; }
 
     /// <summary>
     /// The id attribute.
@@ -22,7 +22,7 @@ public partial class AzurermVirtualNetworkDdosProtectionPlanBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class AzurermVirtualNetworkEncryptionBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enforcement is required")]
     [TerraformProperty("enforcement")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Enforcement { get; set; }
+    public required partial TerraformValue<string> Enforcement { get; set; }
 
 }
 
@@ -55,7 +55,7 @@ public partial class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The number_of_ip_addresses attribute.
@@ -63,7 +63,7 @@ public partial class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfIpAddresses is required")]
     [TerraformProperty("number_of_ip_addresses")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NumberOfIpAddresses { get; set; }
+    public required partial TerraformValue<string> NumberOfIpAddresses { get; set; }
 
 }
 
@@ -78,28 +78,28 @@ public partial class AzurermVirtualNetworkTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -118,42 +118,42 @@ public partial class AzurermVirtualNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("address_space")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AddressSpace { get; set; }
+    public partial TerraformSet<string>? AddressSpace { get; set; }
 
     /// <summary>
     /// The bgp_community attribute.
     /// </summary>
     [TerraformProperty("bgp_community")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BgpCommunity { get; set; }
+    public partial TerraformValue<string>? BgpCommunity { get; set; }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
     [TerraformProperty("dns_servers")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> DnsServers { get; set; }
+    public partial TerraformList<string> DnsServers { get; set; }
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
     [TerraformProperty("edge_zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EdgeZone { get; set; }
+    public partial TerraformValue<string>? EdgeZone { get; set; }
 
     /// <summary>
     /// The flow_timeout_in_minutes attribute.
     /// </summary>
     [TerraformProperty("flow_timeout_in_minutes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? FlowTimeoutInMinutes { get; set; }
+    public partial TerraformValue<double>? FlowTimeoutInMinutes { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -161,7 +161,7 @@ public partial class AzurermVirtualNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -169,14 +169,14 @@ public partial class AzurermVirtualNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_endpoint_vnet_policies attribute.
     /// </summary>
     [TerraformProperty("private_endpoint_vnet_policies")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrivateEndpointVnetPolicies { get; set; }
+    public partial TerraformValue<string>? PrivateEndpointVnetPolicies { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -184,21 +184,21 @@ public partial class AzurermVirtualNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The subnet attribute.
     /// </summary>
     [TerraformProperty("subnet")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<object> Subnet { get; set; }
+    public partial TerraformSet<object> Subnet { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for ddos_protection_plan.
@@ -206,7 +206,7 @@ public partial class AzurermVirtualNetwork : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DdosProtectionPlan block(s) allowed")]
     [TerraformProperty("ddos_protection_plan")]
-    public TerraformList<TerraformBlock<AzurermVirtualNetworkDdosProtectionPlanBlock>>? DdosProtectionPlan { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkDdosProtectionPlanBlock>>? DdosProtectionPlan { get; set; }
 
     /// <summary>
     /// Block for encryption.
@@ -214,7 +214,7 @@ public partial class AzurermVirtualNetwork : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
     [TerraformProperty("encryption")]
-    public TerraformList<TerraformBlock<AzurermVirtualNetworkEncryptionBlock>>? Encryption { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkEncryptionBlock>>? Encryption { get; set; }
 
     /// <summary>
     /// Block for ip_address_pool.
@@ -222,20 +222,20 @@ public partial class AzurermVirtualNetwork : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 IpAddressPool block(s) allowed")]
     [TerraformProperty("ip_address_pool")]
-    public TerraformList<TerraformBlock<AzurermVirtualNetworkIpAddressPoolBlock>>? IpAddressPool { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkIpAddressPoolBlock>>? IpAddressPool { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVirtualNetworkTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVirtualNetworkTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The guid attribute.
     /// </summary>
     [TerraformProperty("guid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Guid { get; }
+    public partial TerraformValue<string> Guid { get; }
 
 }

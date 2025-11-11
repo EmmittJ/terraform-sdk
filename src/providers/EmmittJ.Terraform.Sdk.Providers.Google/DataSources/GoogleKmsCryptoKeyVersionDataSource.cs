@@ -17,55 +17,55 @@ public partial class GoogleKmsCryptoKeyVersionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     [TerraformProperty("crypto_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CryptoKey { get; set; }
+    public required partial TerraformValue<string> CryptoKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Version { get; set; }
+    public partial TerraformValue<double>? Version { get; set; }
 
     /// <summary>
     /// The algorithm attribute.
     /// </summary>
     [TerraformProperty("algorithm")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Algorithm { get; }
+    public partial TerraformValue<string> Algorithm { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The protection_level attribute.
     /// </summary>
     [TerraformProperty("protection_level")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ProtectionLevel { get; }
+    public partial TerraformValue<string> ProtectionLevel { get; }
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     [TerraformProperty("public_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PublicKey { get; }
+    public partial TerraformList<object> PublicKey { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

@@ -14,14 +14,14 @@ public partial class AzurermDataFactoryTriggerBlobEventPipelineBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
 }
 
@@ -36,28 +36,28 @@ public partial class AzurermDataFactoryTriggerBlobEventTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -76,35 +76,35 @@ public partial class AzurermDataFactoryTriggerBlobEvent : TerraformResource
     /// </summary>
     [TerraformProperty("activated")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Activated { get; set; }
+    public partial TerraformValue<bool>? Activated { get; set; }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
     [TerraformProperty("additional_properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? AdditionalProperties { get; set; }
+    public partial TerraformMap<string>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Annotations { get; set; }
+    public partial TerraformList<string>? Annotations { get; set; }
 
     /// <summary>
     /// The blob_path_begins_with attribute.
     /// </summary>
     [TerraformProperty("blob_path_begins_with")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BlobPathBeginsWith { get; set; }
+    public partial TerraformValue<string>? BlobPathBeginsWith { get; set; }
 
     /// <summary>
     /// The blob_path_ends_with attribute.
     /// </summary>
     [TerraformProperty("blob_path_ends_with")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BlobPathEndsWith { get; set; }
+    public partial TerraformValue<string>? BlobPathEndsWith { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
@@ -112,14 +112,14 @@ public partial class AzurermDataFactoryTriggerBlobEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformProperty("data_factory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataFactoryId { get; set; }
+    public required partial TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The events attribute.
@@ -127,21 +127,21 @@ public partial class AzurermDataFactoryTriggerBlobEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     [TerraformProperty("events")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Events { get; set; }
+    public required partial TerraformSet<string> Events { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ignore_empty_blobs attribute.
     /// </summary>
     [TerraformProperty("ignore_empty_blobs")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IgnoreEmptyBlobs { get; set; }
+    public partial TerraformValue<bool>? IgnoreEmptyBlobs { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -149,7 +149,7 @@ public partial class AzurermDataFactoryTriggerBlobEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -157,7 +157,7 @@ public partial class AzurermDataFactoryTriggerBlobEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformProperty("storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountId { get; set; }
+    public required partial TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for pipeline.
@@ -166,13 +166,13 @@ public partial class AzurermDataFactoryTriggerBlobEvent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pipeline is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Pipeline block(s) required")]
     [TerraformProperty("pipeline")]
-    public TerraformSet<TerraformBlock<AzurermDataFactoryTriggerBlobEventPipelineBlock>>? Pipeline { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermDataFactoryTriggerBlobEventPipelineBlock>>? Pipeline { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataFactoryTriggerBlobEventTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataFactoryTriggerBlobEventTimeoutsBlock>? Timeouts { get; set; }
 
 }

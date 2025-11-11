@@ -13,21 +13,21 @@ public partial class AzurermWebPubsubCustomDomainTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzurermWebPubsubCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformProperty("domain_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainName { get; set; }
+    public required partial TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -61,7 +61,7 @@ public partial class AzurermWebPubsubCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The web_pubsub_custom_certificate_id attribute.
@@ -69,7 +69,7 @@ public partial class AzurermWebPubsubCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubCustomCertificateId is required")]
     [TerraformProperty("web_pubsub_custom_certificate_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WebPubsubCustomCertificateId { get; set; }
+    public required partial TerraformValue<string> WebPubsubCustomCertificateId { get; set; }
 
     /// <summary>
     /// The web_pubsub_id attribute.
@@ -77,13 +77,13 @@ public partial class AzurermWebPubsubCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
     [TerraformProperty("web_pubsub_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WebPubsubId { get; set; }
+    public required partial TerraformValue<string> WebPubsubId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermWebPubsubCustomDomainTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermWebPubsubCustomDomainTimeoutsBlock>? Timeouts { get; set; }
 
 }

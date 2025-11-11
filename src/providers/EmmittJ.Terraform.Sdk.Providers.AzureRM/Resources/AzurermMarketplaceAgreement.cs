@@ -13,21 +13,21 @@ public partial class AzurermMarketplaceAgreementTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermMarketplaceAgreement : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The offer attribute.
@@ -53,7 +53,7 @@ public partial class AzurermMarketplaceAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     [TerraformProperty("offer")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Offer { get; set; }
+    public required partial TerraformValue<string> Offer { get; set; }
 
     /// <summary>
     /// The plan attribute.
@@ -61,7 +61,7 @@ public partial class AzurermMarketplaceAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     [TerraformProperty("plan")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Plan { get; set; }
+    public required partial TerraformValue<string> Plan { get; set; }
 
     /// <summary>
     /// The publisher attribute.
@@ -69,27 +69,27 @@ public partial class AzurermMarketplaceAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     [TerraformProperty("publisher")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Publisher { get; set; }
+    public required partial TerraformValue<string> Publisher { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMarketplaceAgreementTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMarketplaceAgreementTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The license_text_link attribute.
     /// </summary>
     [TerraformProperty("license_text_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LicenseTextLink { get; }
+    public partial TerraformValue<string> LicenseTextLink { get; }
 
     /// <summary>
     /// The privacy_policy_link attribute.
     /// </summary>
     [TerraformProperty("privacy_policy_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrivacyPolicyLink { get; }
+    public partial TerraformValue<string> PrivacyPolicyLink { get; }
 
 }

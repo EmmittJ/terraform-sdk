@@ -13,21 +13,21 @@ public partial class AzurermDynatraceTagRulesLogRuleBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("send_activity_logs_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SendActivityLogsEnabled { get; set; }
+    public partial TerraformValue<bool>? SendActivityLogsEnabled { get; set; }
 
     /// <summary>
     /// The send_azure_active_directory_logs_enabled attribute.
     /// </summary>
     [TerraformProperty("send_azure_active_directory_logs_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SendAzureActiveDirectoryLogsEnabled { get; set; }
+    public partial TerraformValue<bool>? SendAzureActiveDirectoryLogsEnabled { get; set; }
 
     /// <summary>
     /// The send_subscription_logs_enabled attribute.
     /// </summary>
     [TerraformProperty("send_subscription_logs_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SendSubscriptionLogsEnabled { get; set; }
+    public partial TerraformValue<bool>? SendSubscriptionLogsEnabled { get; set; }
 
 }
 
@@ -42,7 +42,7 @@ public partial class AzurermDynatraceTagRulesMetricRuleBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("sending_metrics_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SendingMetricsEnabled { get; set; }
+    public partial TerraformValue<bool>? SendingMetricsEnabled { get; set; }
 
 }
 
@@ -57,28 +57,28 @@ public partial class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -97,7 +97,7 @@ public partial class AzurermDynatraceTagRules : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The monitor_id attribute.
@@ -105,7 +105,7 @@ public partial class AzurermDynatraceTagRules : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorId is required")]
     [TerraformProperty("monitor_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MonitorId { get; set; }
+    public required partial TerraformValue<string> MonitorId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -113,7 +113,7 @@ public partial class AzurermDynatraceTagRules : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for log_rule.
@@ -121,7 +121,7 @@ public partial class AzurermDynatraceTagRules : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogRule block(s) allowed")]
     [TerraformProperty("log_rule")]
-    public TerraformList<TerraformBlock<AzurermDynatraceTagRulesLogRuleBlock>>? LogRule { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDynatraceTagRulesLogRuleBlock>>? LogRule { get; set; }
 
     /// <summary>
     /// Block for metric_rule.
@@ -129,13 +129,13 @@ public partial class AzurermDynatraceTagRules : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricRule block(s) allowed")]
     [TerraformProperty("metric_rule")]
-    public TerraformList<TerraformBlock<AzurermDynatraceTagRulesMetricRuleBlock>>? MetricRule { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDynatraceTagRulesMetricRuleBlock>>? MetricRule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDynatraceTagRulesTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDynatraceTagRulesTimeoutsBlock>? Timeouts { get; set; }
 
 }

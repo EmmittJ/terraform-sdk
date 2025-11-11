@@ -15,7 +15,7 @@ public partial class GoogleComputeNetworkEndpointsNetworkEndpointsBlock : Terraf
     /// </summary>
     [TerraformProperty("instance")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Instance { get; set; }
+    public partial TerraformValue<string>? Instance { get; set; }
 
     /// <summary>
     /// IPv4 address of network endpoint. The IP address must belong
@@ -25,7 +25,7 @@ public partial class GoogleComputeNetworkEndpointsNetworkEndpointsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     [TerraformProperty("ip_address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IpAddress { get; set; }
+    public required partial TerraformValue<string> IpAddress { get; set; }
 
     /// <summary>
     /// Port number of network endpoint.
@@ -34,7 +34,7 @@ public partial class GoogleComputeNetworkEndpointsNetworkEndpointsBlock : Terraf
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
 }
 
@@ -49,21 +49,21 @@ public partial class GoogleComputeNetworkEndpointsTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -81,7 +81,7 @@ public partial class GoogleComputeNetworkEndpoints : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The network endpoint group these endpoints are part of.
@@ -89,34 +89,34 @@ public partial class GoogleComputeNetworkEndpoints : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkEndpointGroup is required")]
     [TerraformProperty("network_endpoint_group")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NetworkEndpointGroup { get; set; }
+    public required partial TerraformValue<string> NetworkEndpointGroup { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Zone where the containing network endpoint group is located.
     /// </summary>
     [TerraformProperty("zone")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Zone { get; set; }
+    public partial TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Block for network_endpoints.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("network_endpoints")]
-    public TerraformSet<TerraformBlock<GoogleComputeNetworkEndpointsNetworkEndpointsBlock>>? NetworkEndpoints { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleComputeNetworkEndpointsNetworkEndpointsBlock>>? NetworkEndpoints { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeNetworkEndpointsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeNetworkEndpointsTimeoutsBlock>? Timeouts { get; set; }
 
 }

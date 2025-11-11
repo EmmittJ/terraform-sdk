@@ -17,7 +17,7 @@ public partial class AwsIamRolePolicyAttachmentsExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArns is required")]
     [TerraformProperty("policy_arns")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> PolicyArns { get; set; }
+    public required partial TerraformSet<string> PolicyArns { get; set; }
 
     /// <summary>
     /// The role_name attribute.
@@ -25,6 +25,6 @@ public partial class AwsIamRolePolicyAttachmentsExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     [TerraformProperty("role_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleName { get; set; }
+    public required partial TerraformValue<string> RoleName { get; set; }
 
 }

@@ -14,7 +14,7 @@ public partial class GoogleApigeeInstanceAccessLoggingConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// Ship the access log entries that match the statusCode defined in the filter.
@@ -24,7 +24,7 @@ public partial class GoogleApigeeInstanceAccessLoggingConfigBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Filter { get; set; }
+    public partial TerraformValue<string>? Filter { get; set; }
 
 }
 
@@ -39,21 +39,21 @@ public partial class GoogleApigeeInstanceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -75,14 +75,14 @@ public partial class GoogleApigeeInstance : TerraformResource
     /// </summary>
     [TerraformProperty("consumer_accept_list")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> ConsumerAcceptList { get; set; }
+    public partial TerraformList<string> ConsumerAcceptList { get; set; }
 
     /// <summary>
     /// Description of the instance.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Customer Managed Encryption Key (CMEK) used for disk and volume encryption. Required for Apigee paid subscriptions only.
@@ -90,21 +90,21 @@ public partial class GoogleApigeeInstance : TerraformResource
     /// </summary>
     [TerraformProperty("disk_encryption_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DiskEncryptionKeyName { get; set; }
+    public partial TerraformValue<string>? DiskEncryptionKeyName { get; set; }
 
     /// <summary>
     /// Display name of the instance.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// IP range represents the customer-provided CIDR block of length 22 that will be used for
@@ -117,7 +117,7 @@ public partial class GoogleApigeeInstance : TerraformResource
     /// </summary>
     [TerraformProperty("ip_range")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpRange { get; set; }
+    public partial TerraformValue<string>? IpRange { get; set; }
 
     /// <summary>
     /// Required. Compute Engine location where the instance resides.
@@ -125,7 +125,7 @@ public partial class GoogleApigeeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Resource ID of the instance.
@@ -133,7 +133,7 @@ public partial class GoogleApigeeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee instance,
@@ -142,7 +142,7 @@ public partial class GoogleApigeeInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformProperty("org_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OrgId { get; set; }
+    public required partial TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// The size of the CIDR block range that will be reserved by the instance. For valid values,
@@ -150,7 +150,7 @@ public partial class GoogleApigeeInstance : TerraformResource
     /// </summary>
     [TerraformProperty("peering_cidr_range")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PeeringCidrRange { get; set; }
+    public partial TerraformValue<string> PeeringCidrRange { get; set; }
 
     /// <summary>
     /// Block for access_logging_config.
@@ -158,28 +158,28 @@ public partial class GoogleApigeeInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLoggingConfig block(s) allowed")]
     [TerraformProperty("access_logging_config")]
-    public TerraformList<TerraformBlock<GoogleApigeeInstanceAccessLoggingConfigBlock>>? AccessLoggingConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApigeeInstanceAccessLoggingConfigBlock>>? AccessLoggingConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Hostname or IP address of the exposed Apigee endpoint used by clients to connect to the service.
     /// </summary>
     [TerraformProperty("host")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Host { get; }
+    public partial TerraformValue<string> Host { get; }
 
     /// <summary>
     /// Output only. Port number of the exposed Apigee endpoint.
     /// </summary>
     [TerraformProperty("port")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Port { get; }
+    public partial TerraformValue<string> Port { get; }
 
     /// <summary>
     /// Output only. Resource name of the service attachment created for the instance in
@@ -188,6 +188,6 @@ public partial class GoogleApigeeInstance : TerraformResource
     /// </summary>
     [TerraformProperty("service_attachment")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServiceAttachment { get; }
+    public partial TerraformValue<string> ServiceAttachment { get; }
 
 }

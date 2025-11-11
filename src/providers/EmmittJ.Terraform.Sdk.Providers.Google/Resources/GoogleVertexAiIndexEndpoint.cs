@@ -14,7 +14,7 @@ public partial class GoogleVertexAiIndexEndpointEncryptionSpecBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     [TerraformProperty("kms_key_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KmsKeyName { get; set; }
+    public required partial TerraformValue<string> KmsKeyName { get; set; }
 
 }
 
@@ -30,14 +30,14 @@ public partial class GoogleVertexAiIndexEndpointPrivateServiceConnectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablePrivateServiceConnect is required")]
     [TerraformProperty("enable_private_service_connect")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> EnablePrivateServiceConnect { get; set; }
+    public required partial TerraformValue<bool> EnablePrivateServiceConnect { get; set; }
 
     /// <summary>
     /// A list of Projects from which the forwarding rule will target the service attachment.
     /// </summary>
     [TerraformProperty("project_allowlist")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ProjectAllowlist { get; set; }
+    public partial TerraformList<string>? ProjectAllowlist { get; set; }
 
 }
 
@@ -52,21 +52,21 @@ public partial class GoogleVertexAiIndexEndpointTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -85,7 +85,7 @@ public partial class GoogleVertexAiIndexEndpoint : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display name of the Index. The name can be up to 128 characters long and can consist of any UTF-8 characters.
@@ -93,14 +93,14 @@ public partial class GoogleVertexAiIndexEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The labels with user-defined metadata to organize your Indexes.
@@ -110,7 +110,7 @@ public partial class GoogleVertexAiIndexEndpoint : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The full name of the Google Compute Engine [network](https://cloud.google.com//compute/docs/networks-and-firewalls#networks) to which the index endpoint should be peered.
@@ -120,28 +120,28 @@ public partial class GoogleVertexAiIndexEndpoint : TerraformResource
     /// </summary>
     [TerraformProperty("network")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Network { get; set; }
+    public partial TerraformValue<string>? Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// If true, the deployed index will be accessible through public endpoint.
     /// </summary>
     [TerraformProperty("public_endpoint_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PublicEndpointEnabled { get; set; }
+    public partial TerraformValue<bool>? PublicEndpointEnabled { get; set; }
 
     /// <summary>
     /// The region of the index endpoint. eg us-central1
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// Block for encryption_spec.
@@ -149,7 +149,7 @@ public partial class GoogleVertexAiIndexEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public TerraformList<TerraformBlock<GoogleVertexAiIndexEndpointEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleVertexAiIndexEndpointEncryptionSpecBlock>>? EncryptionSpec { get; set; }
 
     /// <summary>
     /// Block for private_service_connect_config.
@@ -157,49 +157,49 @@ public partial class GoogleVertexAiIndexEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateServiceConnectConfig block(s) allowed")]
     [TerraformProperty("private_service_connect_config")]
-    public TerraformList<TerraformBlock<GoogleVertexAiIndexEndpointPrivateServiceConnectConfigBlock>>? PrivateServiceConnectConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleVertexAiIndexEndpointPrivateServiceConnectConfigBlock>>? PrivateServiceConnectConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleVertexAiIndexEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleVertexAiIndexEndpointTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp of when the Index was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Used to perform consistent read-modify-write updates.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The resource name of the Index.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// If publicEndpointEnabled is true, this field will be populated with the domain name to use for this index endpoint.
     /// </summary>
     [TerraformProperty("public_endpoint_domain_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PublicEndpointDomainName { get; }
+    public partial TerraformValue<string> PublicEndpointDomainName { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -207,13 +207,13 @@ public partial class GoogleVertexAiIndexEndpoint : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The timestamp of when the Index was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

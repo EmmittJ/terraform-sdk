@@ -14,7 +14,7 @@ public partial class AwsDatasyncLocationAzureBlobSasConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     [TerraformProperty("token")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Token { get; set; }
+    public required partial TerraformValue<string> Token { get; set; }
 
 }
 
@@ -33,7 +33,7 @@ public partial class AwsDatasyncLocationAzureBlob : TerraformResource
     /// </summary>
     [TerraformProperty("access_tier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AccessTier { get; set; }
+    public partial TerraformValue<string>? AccessTier { get; set; }
 
     /// <summary>
     /// The agent_arns attribute.
@@ -41,7 +41,7 @@ public partial class AwsDatasyncLocationAzureBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentArns is required")]
     [TerraformProperty("agent_arns")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> AgentArns { get; set; }
+    public required partial TerraformSet<string> AgentArns { get; set; }
 
     /// <summary>
     /// The authentication_type attribute.
@@ -49,14 +49,14 @@ public partial class AwsDatasyncLocationAzureBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     [TerraformProperty("authentication_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AuthenticationType { get; set; }
+    public required partial TerraformValue<string> AuthenticationType { get; set; }
 
     /// <summary>
     /// The blob_type attribute.
     /// </summary>
     [TerraformProperty("blob_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BlobType { get; set; }
+    public partial TerraformValue<string>? BlobType { get; set; }
 
     /// <summary>
     /// The container_url attribute.
@@ -64,42 +64,42 @@ public partial class AwsDatasyncLocationAzureBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerUrl is required")]
     [TerraformProperty("container_url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerUrl { get; set; }
+    public required partial TerraformValue<string> ContainerUrl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
     [TerraformProperty("subdirectory")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Subdirectory { get; set; }
+    public partial TerraformValue<string> Subdirectory { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for sas_configuration.
@@ -107,20 +107,20 @@ public partial class AwsDatasyncLocationAzureBlob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SasConfiguration block(s) allowed")]
     [TerraformProperty("sas_configuration")]
-    public TerraformList<TerraformBlock<AwsDatasyncLocationAzureBlobSasConfigurationBlock>>? SasConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDatasyncLocationAzureBlobSasConfigurationBlock>>? SasConfiguration { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     [TerraformProperty("uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uri { get; }
+    public partial TerraformValue<string> Uri { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AzurermFirewallIpConfigurationBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 
     /// <summary>
@@ -22,14 +22,14 @@ public partial class AzurermFirewallIpConfigurationBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("public_ip_address_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PublicIpAddressId { get; set; }
+    public partial TerraformValue<string>? PublicIpAddressId { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [TerraformProperty("subnet_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SubnetId { get; set; }
+    public partial TerraformValue<string>? SubnetId { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermFirewallManagementIpConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 
     /// <summary>
@@ -54,7 +54,7 @@ public partial class AzurermFirewallManagementIpConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
     [TerraformProperty("public_ip_address_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PublicIpAddressId { get; set; }
+    public required partial TerraformValue<string> PublicIpAddressId { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -62,7 +62,7 @@ public partial class AzurermFirewallManagementIpConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
 }
 
@@ -77,28 +77,28 @@ public partial class AzurermFirewallTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -115,7 +115,7 @@ public partial class AzurermFirewallVirtualHubBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("public_ip_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? PublicIpCount { get; set; }
+    public partial TerraformValue<double>? PublicIpCount { get; set; }
 
     /// <summary>
     /// The virtual_hub_id attribute.
@@ -123,7 +123,7 @@ public partial class AzurermFirewallVirtualHubBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     [TerraformProperty("virtual_hub_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualHubId { get; set; }
+    public required partial TerraformValue<string> VirtualHubId { get; set; }
 
 }
 
@@ -142,28 +142,28 @@ public partial class AzurermFirewall : TerraformResource
     /// </summary>
     [TerraformProperty("dns_proxy_enabled")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> DnsProxyEnabled { get; set; }
+    public partial TerraformValue<bool> DnsProxyEnabled { get; set; }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
     [TerraformProperty("dns_servers")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? DnsServers { get; set; }
+    public partial TerraformList<string>? DnsServers { get; set; }
 
     /// <summary>
     /// The firewall_policy_id attribute.
     /// </summary>
     [TerraformProperty("firewall_policy_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FirewallPolicyId { get; set; }
+    public partial TerraformValue<string>? FirewallPolicyId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -171,7 +171,7 @@ public partial class AzurermFirewall : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -179,14 +179,14 @@ public partial class AzurermFirewall : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_ip_ranges attribute.
     /// </summary>
     [TerraformProperty("private_ip_ranges")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? PrivateIpRanges { get; set; }
+    public partial TerraformSet<string>? PrivateIpRanges { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -194,7 +194,7 @@ public partial class AzurermFirewall : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
@@ -202,7 +202,7 @@ public partial class AzurermFirewall : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     [TerraformProperty("sku_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SkuName { get; set; }
+    public required partial TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The sku_tier attribute.
@@ -210,35 +210,35 @@ public partial class AzurermFirewall : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuTier is required")]
     [TerraformProperty("sku_tier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SkuTier { get; set; }
+    public required partial TerraformValue<string> SkuTier { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The threat_intel_mode attribute.
     /// </summary>
     [TerraformProperty("threat_intel_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ThreatIntelMode { get; set; }
+    public partial TerraformValue<string> ThreatIntelMode { get; set; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     [TerraformProperty("zones")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Zones { get; set; }
+    public partial TerraformSet<string>? Zones { get; set; }
 
     /// <summary>
     /// Block for ip_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("ip_configuration")]
-    public TerraformList<TerraformBlock<AzurermFirewallIpConfigurationBlock>>? IpConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermFirewallIpConfigurationBlock>>? IpConfiguration { get; set; }
 
     /// <summary>
     /// Block for management_ip_configuration.
@@ -246,14 +246,14 @@ public partial class AzurermFirewall : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementIpConfiguration block(s) allowed")]
     [TerraformProperty("management_ip_configuration")]
-    public TerraformList<TerraformBlock<AzurermFirewallManagementIpConfigurationBlock>>? ManagementIpConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermFirewallManagementIpConfigurationBlock>>? ManagementIpConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermFirewallTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermFirewallTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for virtual_hub.
@@ -261,6 +261,6 @@ public partial class AzurermFirewall : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualHub block(s) allowed")]
     [TerraformProperty("virtual_hub")]
-    public TerraformList<TerraformBlock<AzurermFirewallVirtualHubBlock>>? VirtualHub { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermFirewallVirtualHubBlock>>? VirtualHub { get; set; }
 
 }

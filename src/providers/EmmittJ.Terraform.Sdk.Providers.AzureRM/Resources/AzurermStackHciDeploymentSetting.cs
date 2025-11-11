@@ -14,28 +14,28 @@ public partial class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActiveDirectoryOrganizationalUnitPath is required")]
     [TerraformProperty("active_directory_organizational_unit_path")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ActiveDirectoryOrganizationalUnitPath { get; set; }
+    public required partial TerraformValue<string> ActiveDirectoryOrganizationalUnitPath { get; set; }
 
     /// <summary>
     /// The bitlocker_boot_volume_enabled attribute.
     /// </summary>
     [TerraformProperty("bitlocker_boot_volume_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? BitlockerBootVolumeEnabled { get; set; }
+    public partial TerraformValue<bool>? BitlockerBootVolumeEnabled { get; set; }
 
     /// <summary>
     /// The bitlocker_data_volume_enabled attribute.
     /// </summary>
     [TerraformProperty("bitlocker_data_volume_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? BitlockerDataVolumeEnabled { get; set; }
+    public partial TerraformValue<bool>? BitlockerDataVolumeEnabled { get; set; }
 
     /// <summary>
     /// The credential_guard_enabled attribute.
     /// </summary>
     [TerraformProperty("credential_guard_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CredentialGuardEnabled { get; set; }
+    public partial TerraformValue<bool>? CredentialGuardEnabled { get; set; }
 
     /// <summary>
     /// The domain_fqdn attribute.
@@ -43,42 +43,42 @@ public partial class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainFqdn is required")]
     [TerraformProperty("domain_fqdn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainFqdn { get; set; }
+    public required partial TerraformValue<string> DomainFqdn { get; set; }
 
     /// <summary>
     /// The drift_control_enabled attribute.
     /// </summary>
     [TerraformProperty("drift_control_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DriftControlEnabled { get; set; }
+    public partial TerraformValue<bool>? DriftControlEnabled { get; set; }
 
     /// <summary>
     /// The drtm_protection_enabled attribute.
     /// </summary>
     [TerraformProperty("drtm_protection_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DrtmProtectionEnabled { get; set; }
+    public partial TerraformValue<bool>? DrtmProtectionEnabled { get; set; }
 
     /// <summary>
     /// The episodic_data_upload_enabled attribute.
     /// </summary>
     [TerraformProperty("episodic_data_upload_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EpisodicDataUploadEnabled { get; set; }
+    public partial TerraformValue<bool>? EpisodicDataUploadEnabled { get; set; }
 
     /// <summary>
     /// The eu_location_enabled attribute.
     /// </summary>
     [TerraformProperty("eu_location_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EuLocationEnabled { get; set; }
+    public partial TerraformValue<bool>? EuLocationEnabled { get; set; }
 
     /// <summary>
     /// The hvci_protection_enabled attribute.
     /// </summary>
     [TerraformProperty("hvci_protection_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? HvciProtectionEnabled { get; set; }
+    public partial TerraformValue<bool>? HvciProtectionEnabled { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
@@ -86,7 +86,7 @@ public partial class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamePrefix is required")]
     [TerraformProperty("name_prefix")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NamePrefix { get; set; }
+    public required partial TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The secrets_location attribute.
@@ -94,42 +94,42 @@ public partial class AzurermStackHciDeploymentSettingScaleUnitBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretsLocation is required")]
     [TerraformProperty("secrets_location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SecretsLocation { get; set; }
+    public required partial TerraformValue<string> SecretsLocation { get; set; }
 
     /// <summary>
     /// The side_channel_mitigation_enabled attribute.
     /// </summary>
     [TerraformProperty("side_channel_mitigation_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SideChannelMitigationEnabled { get; set; }
+    public partial TerraformValue<bool>? SideChannelMitigationEnabled { get; set; }
 
     /// <summary>
     /// The smb_cluster_encryption_enabled attribute.
     /// </summary>
     [TerraformProperty("smb_cluster_encryption_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SmbClusterEncryptionEnabled { get; set; }
+    public partial TerraformValue<bool>? SmbClusterEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The smb_signing_enabled attribute.
     /// </summary>
     [TerraformProperty("smb_signing_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SmbSigningEnabled { get; set; }
+    public partial TerraformValue<bool>? SmbSigningEnabled { get; set; }
 
     /// <summary>
     /// The streaming_data_client_enabled attribute.
     /// </summary>
     [TerraformProperty("streaming_data_client_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? StreamingDataClientEnabled { get; set; }
+    public partial TerraformValue<bool>? StreamingDataClientEnabled { get; set; }
 
     /// <summary>
     /// The wdac_enabled attribute.
     /// </summary>
     [TerraformProperty("wdac_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? WdacEnabled { get; set; }
+    public partial TerraformValue<bool>? WdacEnabled { get; set; }
 
 }
 
@@ -144,21 +144,21 @@ public partial class AzurermStackHciDeploymentSettingTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -178,14 +178,14 @@ public partial class AzurermStackHciDeploymentSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcResourceIds is required")]
     [TerraformProperty("arc_resource_ids")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? ArcResourceIds { get; set; }
+    public partial TerraformList<string>? ArcResourceIds { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The stack_hci_cluster_id attribute.
@@ -193,7 +193,7 @@ public partial class AzurermStackHciDeploymentSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackHciClusterId is required")]
     [TerraformProperty("stack_hci_cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StackHciClusterId { get; set; }
+    public required partial TerraformValue<string> StackHciClusterId { get; set; }
 
     /// <summary>
     /// The version attribute.
@@ -201,7 +201,7 @@ public partial class AzurermStackHciDeploymentSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformProperty("version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Version { get; set; }
+    public required partial TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// Block for scale_unit.
@@ -210,13 +210,13 @@ public partial class AzurermStackHciDeploymentSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleUnit is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScaleUnit block(s) required")]
     [TerraformProperty("scale_unit")]
-    public TerraformList<TerraformBlock<AzurermStackHciDeploymentSettingScaleUnitBlock>>? ScaleUnit { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermStackHciDeploymentSettingScaleUnitBlock>>? ScaleUnit { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStackHciDeploymentSettingTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStackHciDeploymentSettingTimeoutsBlock>? Timeouts { get; set; }
 
 }

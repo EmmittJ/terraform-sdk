@@ -13,35 +13,35 @@ public partial class AzurermSpringCloudGatewayApiMetadataBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The documentation_url attribute.
     /// </summary>
     [TerraformProperty("documentation_url")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DocumentationUrl { get; set; }
+    public partial TerraformValue<string>? DocumentationUrl { get; set; }
 
     /// <summary>
     /// The server_url attribute.
     /// </summary>
     [TerraformProperty("server_url")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServerUrl { get; set; }
+    public partial TerraformValue<string>? ServerUrl { get; set; }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     [TerraformProperty("title")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Title { get; set; }
+    public partial TerraformValue<string>? Title { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Version { get; set; }
+    public partial TerraformValue<string>? Version { get; set; }
 
 }
 
@@ -56,14 +56,14 @@ public partial class AzurermSpringCloudGatewayClientAuthorizationBlock : Terrafo
     /// </summary>
     [TerraformProperty("certificate_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? CertificateIds { get; set; }
+    public partial TerraformList<string>? CertificateIds { get; set; }
 
     /// <summary>
     /// The verification_enabled attribute.
     /// </summary>
     [TerraformProperty("verification_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? VerificationEnabled { get; set; }
+    public partial TerraformValue<bool>? VerificationEnabled { get; set; }
 
 }
 
@@ -78,49 +78,49 @@ public partial class AzurermSpringCloudGatewayCorsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("allowed_headers")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AllowedHeaders { get; set; }
+    public partial TerraformSet<string>? AllowedHeaders { get; set; }
 
     /// <summary>
     /// The allowed_methods attribute.
     /// </summary>
     [TerraformProperty("allowed_methods")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AllowedMethods { get; set; }
+    public partial TerraformSet<string>? AllowedMethods { get; set; }
 
     /// <summary>
     /// The allowed_origin_patterns attribute.
     /// </summary>
     [TerraformProperty("allowed_origin_patterns")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AllowedOriginPatterns { get; set; }
+    public partial TerraformSet<string>? AllowedOriginPatterns { get; set; }
 
     /// <summary>
     /// The allowed_origins attribute.
     /// </summary>
     [TerraformProperty("allowed_origins")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AllowedOrigins { get; set; }
+    public partial TerraformSet<string>? AllowedOrigins { get; set; }
 
     /// <summary>
     /// The credentials_allowed attribute.
     /// </summary>
     [TerraformProperty("credentials_allowed")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CredentialsAllowed { get; set; }
+    public partial TerraformValue<bool>? CredentialsAllowed { get; set; }
 
     /// <summary>
     /// The exposed_headers attribute.
     /// </summary>
     [TerraformProperty("exposed_headers")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ExposedHeaders { get; set; }
+    public partial TerraformSet<string>? ExposedHeaders { get; set; }
 
     /// <summary>
     /// The max_age_seconds attribute.
     /// </summary>
     [TerraformProperty("max_age_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxAgeSeconds { get; set; }
+    public partial TerraformValue<double>? MaxAgeSeconds { get; set; }
 
 }
 
@@ -135,14 +135,14 @@ public partial class AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock
     /// </summary>
     [TerraformProperty("size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Size { get; set; }
+    public partial TerraformValue<string>? Size { get; set; }
 
     /// <summary>
     /// The time_to_live attribute.
     /// </summary>
     [TerraformProperty("time_to_live")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TimeToLive { get; set; }
+    public partial TerraformValue<string>? TimeToLive { get; set; }
 
 }
 
@@ -157,14 +157,14 @@ public partial class AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock : 
     /// </summary>
     [TerraformProperty("size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Size { get; set; }
+    public partial TerraformValue<string>? Size { get; set; }
 
     /// <summary>
     /// The time_to_live attribute.
     /// </summary>
     [TerraformProperty("time_to_live")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TimeToLive { get; set; }
+    public partial TerraformValue<string>? TimeToLive { get; set; }
 
 }
 
@@ -179,14 +179,14 @@ public partial class AzurermSpringCloudGatewayQuotaBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("cpu")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Cpu { get; set; }
+    public partial TerraformValue<string>? Cpu { get; set; }
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
     [TerraformProperty("memory")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Memory { get; set; }
+    public partial TerraformValue<string>? Memory { get; set; }
 
 }
 
@@ -201,28 +201,28 @@ public partial class AzurermSpringCloudGatewaySsoBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("client_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientId { get; set; }
+    public partial TerraformValue<string>? ClientId { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
     [TerraformProperty("client_secret")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientSecret { get; set; }
+    public partial TerraformValue<string>? ClientSecret { get; set; }
 
     /// <summary>
     /// The issuer_uri attribute.
     /// </summary>
     [TerraformProperty("issuer_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IssuerUri { get; set; }
+    public partial TerraformValue<string>? IssuerUri { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [TerraformProperty("scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Scope { get; set; }
+    public partial TerraformSet<string>? Scope { get; set; }
 
 }
 
@@ -237,28 +237,28 @@ public partial class AzurermSpringCloudGatewayTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -277,42 +277,42 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     /// </summary>
     [TerraformProperty("application_performance_monitoring_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ApplicationPerformanceMonitoringIds { get; set; }
+    public partial TerraformList<string>? ApplicationPerformanceMonitoringIds { get; set; }
 
     /// <summary>
     /// The application_performance_monitoring_types attribute.
     /// </summary>
     [TerraformProperty("application_performance_monitoring_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ApplicationPerformanceMonitoringTypes { get; set; }
+    public partial TerraformList<string>? ApplicationPerformanceMonitoringTypes { get; set; }
 
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
     [TerraformProperty("environment_variables")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? EnvironmentVariables { get; set; }
+    public partial TerraformMap<string>? EnvironmentVariables { get; set; }
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
     [TerraformProperty("https_only")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? HttpsOnly { get; set; }
+    public partial TerraformValue<bool>? HttpsOnly { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
     [TerraformProperty("instance_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? InstanceCount { get; set; }
+    public partial TerraformValue<double>? InstanceCount { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -320,21 +320,21 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformProperty("public_network_access_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
+    public partial TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The sensitive_environment_variables attribute.
     /// </summary>
     [TerraformProperty("sensitive_environment_variables")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? SensitiveEnvironmentVariables { get; set; }
+    public partial TerraformMap<string>? SensitiveEnvironmentVariables { get; set; }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
@@ -342,7 +342,7 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     [TerraformProperty("spring_cloud_service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SpringCloudServiceId { get; set; }
+    public required partial TerraformValue<string> SpringCloudServiceId { get; set; }
 
     /// <summary>
     /// Block for api_metadata.
@@ -350,7 +350,7 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApiMetadata block(s) allowed")]
     [TerraformProperty("api_metadata")]
-    public TerraformList<TerraformBlock<AzurermSpringCloudGatewayApiMetadataBlock>>? ApiMetadata { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSpringCloudGatewayApiMetadataBlock>>? ApiMetadata { get; set; }
 
     /// <summary>
     /// Block for client_authorization.
@@ -358,7 +358,7 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientAuthorization block(s) allowed")]
     [TerraformProperty("client_authorization")]
-    public TerraformList<TerraformBlock<AzurermSpringCloudGatewayClientAuthorizationBlock>>? ClientAuthorization { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSpringCloudGatewayClientAuthorizationBlock>>? ClientAuthorization { get; set; }
 
     /// <summary>
     /// Block for cors.
@@ -366,7 +366,7 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
     [TerraformProperty("cors")]
-    public TerraformList<TerraformBlock<AzurermSpringCloudGatewayCorsBlock>>? Cors { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSpringCloudGatewayCorsBlock>>? Cors { get; set; }
 
     /// <summary>
     /// Block for local_response_cache_per_instance.
@@ -374,7 +374,7 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalResponseCachePerInstance block(s) allowed")]
     [TerraformProperty("local_response_cache_per_instance")]
-    public TerraformList<TerraformBlock<AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock>>? LocalResponseCachePerInstance { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock>>? LocalResponseCachePerInstance { get; set; }
 
     /// <summary>
     /// Block for local_response_cache_per_route.
@@ -382,7 +382,7 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalResponseCachePerRoute block(s) allowed")]
     [TerraformProperty("local_response_cache_per_route")]
-    public TerraformList<TerraformBlock<AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock>>? LocalResponseCachePerRoute { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock>>? LocalResponseCachePerRoute { get; set; }
 
     /// <summary>
     /// Block for quota.
@@ -390,7 +390,7 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Quota block(s) allowed")]
     [TerraformProperty("quota")]
-    public TerraformList<TerraformBlock<AzurermSpringCloudGatewayQuotaBlock>>? Quota { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSpringCloudGatewayQuotaBlock>>? Quota { get; set; }
 
     /// <summary>
     /// Block for sso.
@@ -398,20 +398,20 @@ public partial class AzurermSpringCloudGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sso block(s) allowed")]
     [TerraformProperty("sso")]
-    public TerraformList<TerraformBlock<AzurermSpringCloudGatewaySsoBlock>>? Sso { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSpringCloudGatewaySsoBlock>>? Sso { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSpringCloudGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSpringCloudGatewayTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     [TerraformProperty("url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Url { get; }
+    public partial TerraformValue<string> Url { get; }
 
 }

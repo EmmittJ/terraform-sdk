@@ -13,14 +13,14 @@ public partial class AwsDbInstanceAutomatedBackupsReplicationTimeoutsBlock : Ter
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,35 +38,35 @@ public partial class AwsDbInstanceAutomatedBackupsReplication : TerraformResourc
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [TerraformProperty("kms_key_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> KmsKeyId { get; set; }
+    public partial TerraformValue<string> KmsKeyId { get; set; }
 
     /// <summary>
     /// The pre_signed_url attribute.
     /// </summary>
     [TerraformProperty("pre_signed_url")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PreSignedUrl { get; set; }
+    public partial TerraformValue<string>? PreSignedUrl { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The retention_period attribute.
     /// </summary>
     [TerraformProperty("retention_period")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetentionPeriod { get; set; }
+    public partial TerraformValue<double>? RetentionPeriod { get; set; }
 
     /// <summary>
     /// The source_db_instance_arn attribute.
@@ -74,13 +74,13 @@ public partial class AwsDbInstanceAutomatedBackupsReplication : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDbInstanceArn is required")]
     [TerraformProperty("source_db_instance_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceDbInstanceArn { get; set; }
+    public required partial TerraformValue<string> SourceDbInstanceArn { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsDbInstanceAutomatedBackupsReplicationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsDbInstanceAutomatedBackupsReplicationTimeoutsBlock>? Timeouts { get; set; }
 
 }

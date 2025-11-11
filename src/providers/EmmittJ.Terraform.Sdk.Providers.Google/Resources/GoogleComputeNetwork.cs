@@ -15,7 +15,7 @@ public partial class GoogleComputeNetworkParamsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("resource_manager_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? ResourceManagerTags { get; set; }
+    public partial TerraformMap<string>? ResourceManagerTags { get; set; }
 
 }
 
@@ -30,21 +30,21 @@ public partial class GoogleComputeNetworkTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -68,7 +68,7 @@ public partial class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("auto_create_subnetworks")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutoCreateSubnetworks { get; set; }
+    public partial TerraformValue<bool>? AutoCreateSubnetworks { get; set; }
 
     /// <summary>
     /// Enables/disables the comparison of MED across routes with different Neighbor ASNs.
@@ -76,21 +76,21 @@ public partial class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("bgp_always_compare_med")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> BgpAlwaysCompareMed { get; set; }
+    public partial TerraformValue<bool> BgpAlwaysCompareMed { get; set; }
 
     /// <summary>
     /// The BGP best selection algorithm to be employed. MODE can be LEGACY or STANDARD. Possible values: [&amp;quot;LEGACY&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
     [TerraformProperty("bgp_best_path_selection_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> BgpBestPathSelectionMode { get; set; }
+    public partial TerraformValue<string> BgpBestPathSelectionMode { get; set; }
 
     /// <summary>
     /// Choice of the behavior of inter-regional cost and MED in the BPS algorithm. Possible values: [&amp;quot;DEFAULT&amp;quot;, &amp;quot;ADD_COST_TO_MED&amp;quot;]
     /// </summary>
     [TerraformProperty("bgp_inter_region_cost")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> BgpInterRegionCost { get; set; }
+    public partial TerraformValue<string> BgpInterRegionCost { get; set; }
 
     /// <summary>
     /// If set to &#39;true&#39;, default routes (&#39;0.0.0.0/0&#39;) will be deleted
@@ -98,7 +98,7 @@ public partial class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("delete_default_routes_on_create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeleteDefaultRoutesOnCreate { get; set; }
+    public partial TerraformValue<bool>? DeleteDefaultRoutesOnCreate { get; set; }
 
     /// <summary>
     /// An optional description of this resource. The resource must be
@@ -106,7 +106,7 @@ public partial class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Enable ULA internal ipv6 on this network. Enabling this feature will assign
@@ -114,14 +114,14 @@ public partial class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("enable_ula_internal_ipv6")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableUlaInternalIpv6 { get; set; }
+    public partial TerraformValue<bool>? EnableUlaInternalIpv6 { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// When enabling ula internal ipv6, caller optionally can specify the /48 range
@@ -132,7 +132,7 @@ public partial class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("internal_ipv6_range")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> InternalIpv6Range { get; set; }
+    public partial TerraformValue<string> InternalIpv6Range { get; set; }
 
     /// <summary>
     /// Maximum Transmission Unit in bytes. The default value is 1460 bytes.
@@ -143,7 +143,7 @@ public partial class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("mtu")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Mtu { get; set; }
+    public partial TerraformValue<double> Mtu { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -157,14 +157,14 @@ public partial class GoogleComputeNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Set the order that Firewall Rules and Firewall Policies are evaluated. Default value: &amp;quot;AFTER_CLASSIC_FIREWALL&amp;quot; Possible values: [&amp;quot;BEFORE_CLASSIC_FIREWALL&amp;quot;, &amp;quot;AFTER_CLASSIC_FIREWALL&amp;quot;]
     /// </summary>
     [TerraformProperty("network_firewall_policy_enforcement_order")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NetworkFirewallPolicyEnforcementOrder { get; set; }
+    public partial TerraformValue<string>? NetworkFirewallPolicyEnforcementOrder { get; set; }
 
     /// <summary>
     /// A full or partial URL of the network profile to apply to this network.
@@ -175,14 +175,14 @@ public partial class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("network_profile")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NetworkProfile { get; set; }
+    public partial TerraformValue<string>? NetworkProfile { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The network-wide routing mode to use. If set to &#39;REGIONAL&#39;, this
@@ -193,7 +193,7 @@ public partial class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("routing_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> RoutingMode { get; set; }
+    public partial TerraformValue<string> RoutingMode { get; set; }
 
     /// <summary>
     /// Block for params.
@@ -201,14 +201,14 @@ public partial class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformProperty("params")]
-    public TerraformList<TerraformBlock<GoogleComputeNetworkParamsBlock>>? Params { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeNetworkParamsBlock>>? Params { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeNetworkTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeNetworkTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The gateway address for default routing out of the network. This value
@@ -216,27 +216,27 @@ public partial class GoogleComputeNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("gateway_ipv4")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GatewayIpv4 { get; }
+    public partial TerraformValue<string> GatewayIpv4 { get; }
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformProperty("network_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NetworkId { get; }
+    public partial TerraformValue<string> NetworkId { get; }
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformProperty("numeric_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NumericId { get; }
+    public partial TerraformValue<string> NumericId { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
 }

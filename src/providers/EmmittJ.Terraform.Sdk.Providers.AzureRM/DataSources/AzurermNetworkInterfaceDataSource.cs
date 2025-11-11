@@ -13,7 +13,7 @@ public partial class AzurermNetworkInterfaceDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermNetworkInterfaceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermNetworkInterfaceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,104 +47,104 @@ public partial class AzurermNetworkInterfaceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetworkInterfaceDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetworkInterfaceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The accelerated_networking_enabled attribute.
     /// </summary>
     [TerraformProperty("accelerated_networking_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> AcceleratedNetworkingEnabled { get; }
+    public partial TerraformValue<bool> AcceleratedNetworkingEnabled { get; }
 
     /// <summary>
     /// The applied_dns_servers attribute.
     /// </summary>
     [TerraformProperty("applied_dns_servers")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> AppliedDnsServers { get; }
+    public partial TerraformSet<string> AppliedDnsServers { get; }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
     [TerraformProperty("dns_servers")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> DnsServers { get; }
+    public partial TerraformSet<string> DnsServers { get; }
 
     /// <summary>
     /// The internal_dns_name_label attribute.
     /// </summary>
     [TerraformProperty("internal_dns_name_label")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> InternalDnsNameLabel { get; }
+    public partial TerraformValue<string> InternalDnsNameLabel { get; }
 
     /// <summary>
     /// The ip_configuration attribute.
     /// </summary>
     [TerraformProperty("ip_configuration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> IpConfiguration { get; }
+    public partial TerraformList<object> IpConfiguration { get; }
 
     /// <summary>
     /// The ip_forwarding_enabled attribute.
     /// </summary>
     [TerraformProperty("ip_forwarding_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> IpForwardingEnabled { get; }
+    public partial TerraformValue<bool> IpForwardingEnabled { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The mac_address attribute.
     /// </summary>
     [TerraformProperty("mac_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MacAddress { get; }
+    public partial TerraformValue<string> MacAddress { get; }
 
     /// <summary>
     /// The network_security_group_id attribute.
     /// </summary>
     [TerraformProperty("network_security_group_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NetworkSecurityGroupId { get; }
+    public partial TerraformValue<string> NetworkSecurityGroupId { get; }
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     [TerraformProperty("private_ip_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrivateIpAddress { get; }
+    public partial TerraformValue<string> PrivateIpAddress { get; }
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     [TerraformProperty("private_ip_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> PrivateIpAddresses { get; }
+    public partial TerraformList<string> PrivateIpAddresses { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
     [TerraformProperty("virtual_machine_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VirtualMachineId { get; }
+    public partial TerraformValue<string> VirtualMachineId { get; }
 
 }

@@ -16,7 +16,7 @@ public partial class GoogleBigqueryJobCopyBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create_disposition")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CreateDisposition { get; set; }
+    public partial TerraformValue<string>? CreateDisposition { get; set; }
 
     /// <summary>
     /// Specifies the action that occurs if the destination table already exists. The following values are supported:
@@ -28,7 +28,7 @@ public partial class GoogleBigqueryJobCopyBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("write_disposition")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WriteDisposition { get; set; }
+    public partial TerraformValue<string>? WriteDisposition { get; set; }
 
 }
 
@@ -44,7 +44,7 @@ public partial class GoogleBigqueryJobExtractBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("compression")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Compression { get; set; }
+    public partial TerraformValue<string>? Compression { get; set; }
 
     /// <summary>
     /// The exported file format. Possible values include CSV, NEWLINE_DELIMITED_JSON and AVRO for tables and SAVED_MODEL for models.
@@ -53,7 +53,7 @@ public partial class GoogleBigqueryJobExtractBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("destination_format")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DestinationFormat { get; set; }
+    public partial TerraformValue<string> DestinationFormat { get; set; }
 
     /// <summary>
     /// A list of fully-qualified Google Cloud Storage URIs where the extracted table should be written.
@@ -61,7 +61,7 @@ public partial class GoogleBigqueryJobExtractBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationUris is required")]
     [TerraformProperty("destination_uris")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? DestinationUris { get; set; }
+    public partial TerraformList<string>? DestinationUris { get; set; }
 
     /// <summary>
     /// When extracting data in CSV format, this defines the delimiter to use between fields in the exported data.
@@ -69,21 +69,21 @@ public partial class GoogleBigqueryJobExtractBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("field_delimiter")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> FieldDelimiter { get; set; }
+    public partial TerraformValue<string> FieldDelimiter { get; set; }
 
     /// <summary>
     /// Whether to print out a header row in the results. Default is true.
     /// </summary>
     [TerraformProperty("print_header")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PrintHeader { get; set; }
+    public partial TerraformValue<bool>? PrintHeader { get; set; }
 
     /// <summary>
     /// Whether to use logical types when extracting to AVRO format.
     /// </summary>
     [TerraformProperty("use_avro_logical_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseAvroLogicalTypes { get; set; }
+    public partial TerraformValue<bool>? UseAvroLogicalTypes { get; set; }
 
 }
 
@@ -100,7 +100,7 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("allow_jagged_rows")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowJaggedRows { get; set; }
+    public partial TerraformValue<bool>? AllowJaggedRows { get; set; }
 
     /// <summary>
     /// Indicates if BigQuery should allow quoted data sections that contain newline characters in a CSV file.
@@ -108,14 +108,14 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("allow_quoted_newlines")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowQuotedNewlines { get; set; }
+    public partial TerraformValue<bool>? AllowQuotedNewlines { get; set; }
 
     /// <summary>
     /// Indicates if we should automatically infer the options and schema for CSV and JSON sources.
     /// </summary>
     [TerraformProperty("autodetect")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Autodetect { get; set; }
+    public partial TerraformValue<bool>? Autodetect { get; set; }
 
     /// <summary>
     /// Specifies whether the job is allowed to create new tables. The following values are supported:
@@ -125,7 +125,7 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create_disposition")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CreateDisposition { get; set; }
+    public partial TerraformValue<string>? CreateDisposition { get; set; }
 
     /// <summary>
     /// The character encoding of the data. The supported values are UTF-8 or ISO-8859-1.
@@ -134,7 +134,7 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("encoding")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Encoding { get; set; }
+    public partial TerraformValue<string>? Encoding { get; set; }
 
     /// <summary>
     /// The separator for fields in a CSV file. The separator can be any ISO-8859-1 single-byte character.
@@ -145,7 +145,7 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("field_delimiter")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> FieldDelimiter { get; set; }
+    public partial TerraformValue<string> FieldDelimiter { get; set; }
 
     /// <summary>
     /// Indicates if BigQuery should allow extra values that are not represented in the table schema.
@@ -157,7 +157,7 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("ignore_unknown_values")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IgnoreUnknownValues { get; set; }
+    public partial TerraformValue<bool>? IgnoreUnknownValues { get; set; }
 
     /// <summary>
     /// If sourceFormat is set to newline-delimited JSON, indicates whether it should be processed as a JSON variant such as GeoJSON.
@@ -166,7 +166,7 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("json_extension")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? JsonExtension { get; set; }
+    public partial TerraformValue<string>? JsonExtension { get; set; }
 
     /// <summary>
     /// The maximum number of bad records that BigQuery can ignore when running the job. If the number of bad records exceeds this value,
@@ -174,7 +174,7 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("max_bad_records")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxBadRecords { get; set; }
+    public partial TerraformValue<double>? MaxBadRecords { get; set; }
 
     /// <summary>
     /// Specifies a string that represents a null value in a CSV file. For example, if you specify &amp;quot;\N&amp;quot;, BigQuery interprets &amp;quot;\N&amp;quot; as a null value
@@ -184,7 +184,7 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("null_marker")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NullMarker { get; set; }
+    public partial TerraformValue<string>? NullMarker { get; set; }
 
     /// <summary>
     /// If sourceFormat is set to &amp;quot;DATASTORE_BACKUP&amp;quot;, indicates which entity properties to load into BigQuery from a Cloud Datastore backup.
@@ -193,7 +193,7 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("projection_fields")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ProjectionFields { get; set; }
+    public partial TerraformList<string>? ProjectionFields { get; set; }
 
     /// <summary>
     /// The value that is used to quote data sections in a CSV file. BigQuery converts the string to ISO-8859-1 encoding,
@@ -203,7 +203,7 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("quote")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Quote { get; set; }
+    public partial TerraformValue<string> Quote { get; set; }
 
     /// <summary>
     /// Allows the schema of the destination table to be updated as a side effect of the load job if a schema is autodetected or
@@ -215,7 +215,7 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("schema_update_options")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? SchemaUpdateOptions { get; set; }
+    public partial TerraformList<string>? SchemaUpdateOptions { get; set; }
 
     /// <summary>
     /// The number of rows at the top of a CSV file that BigQuery will skip when loading the data.
@@ -229,7 +229,7 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("skip_leading_rows")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SkipLeadingRows { get; set; }
+    public partial TerraformValue<double>? SkipLeadingRows { get; set; }
 
     /// <summary>
     /// The format of the data files. For CSV files, specify &amp;quot;CSV&amp;quot;. For datastore backups, specify &amp;quot;DATASTORE_BACKUP&amp;quot;.
@@ -239,7 +239,7 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("source_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SourceFormat { get; set; }
+    public partial TerraformValue<string>? SourceFormat { get; set; }
 
     /// <summary>
     /// The fully-qualified URIs that point to your data in Google Cloud.
@@ -252,7 +252,7 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceUris is required")]
     [TerraformProperty("source_uris")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? SourceUris { get; set; }
+    public partial TerraformList<string>? SourceUris { get; set; }
 
     /// <summary>
     /// Specifies the action that occurs if the destination table already exists. The following values are supported:
@@ -264,7 +264,7 @@ public partial class GoogleBigqueryJobLoadBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("write_disposition")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WriteDisposition { get; set; }
+    public partial TerraformValue<string>? WriteDisposition { get; set; }
 
 }
 
@@ -281,7 +281,7 @@ public partial class GoogleBigqueryJobQueryBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("allow_large_results")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowLargeResults { get; set; }
+    public partial TerraformValue<bool>? AllowLargeResults { get; set; }
 
     /// <summary>
     /// Specifies whether the job is allowed to create new tables. The following values are supported:
@@ -291,7 +291,7 @@ public partial class GoogleBigqueryJobQueryBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create_disposition")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CreateDisposition { get; set; }
+    public partial TerraformValue<string>? CreateDisposition { get; set; }
 
     /// <summary>
     /// If true and query uses legacy SQL dialect, flattens all nested and repeated fields in the query results.
@@ -299,7 +299,7 @@ public partial class GoogleBigqueryJobQueryBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("flatten_results")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? FlattenResults { get; set; }
+    public partial TerraformValue<bool>? FlattenResults { get; set; }
 
     /// <summary>
     /// Limits the billing tier for this job. Queries that have resource usage beyond this tier will fail (without incurring a charge).
@@ -307,7 +307,7 @@ public partial class GoogleBigqueryJobQueryBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("maximum_billing_tier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaximumBillingTier { get; set; }
+    public partial TerraformValue<double>? MaximumBillingTier { get; set; }
 
     /// <summary>
     /// Limits the bytes billed for this job. Queries that will have bytes billed beyond this limit will fail (without incurring a charge).
@@ -315,21 +315,21 @@ public partial class GoogleBigqueryJobQueryBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("maximum_bytes_billed")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MaximumBytesBilled { get; set; }
+    public partial TerraformValue<string>? MaximumBytesBilled { get; set; }
 
     /// <summary>
     /// Standard SQL only. Set to POSITIONAL to use positional (?) query parameters or to NAMED to use named (@myparam) query parameters in this query.
     /// </summary>
     [TerraformProperty("parameter_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ParameterMode { get; set; }
+    public partial TerraformValue<string>? ParameterMode { get; set; }
 
     /// <summary>
     /// Specifies a priority for the query. Default value: &amp;quot;INTERACTIVE&amp;quot; Possible values: [&amp;quot;INTERACTIVE&amp;quot;, &amp;quot;BATCH&amp;quot;]
     /// </summary>
     [TerraformProperty("priority")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Priority { get; set; }
+    public partial TerraformValue<string>? Priority { get; set; }
 
     /// <summary>
     /// SQL query text to execute. The useLegacySql field can be used to indicate whether the query uses legacy SQL or standard SQL.
@@ -339,7 +339,7 @@ public partial class GoogleBigqueryJobQueryBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     [TerraformProperty("query")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Query { get; set; }
+    public required partial TerraformValue<string> Query { get; set; }
 
     /// <summary>
     /// Allows the schema of the destination table to be updated as a side effect of the query job.
@@ -352,7 +352,7 @@ public partial class GoogleBigqueryJobQueryBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("schema_update_options")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? SchemaUpdateOptions { get; set; }
+    public partial TerraformList<string>? SchemaUpdateOptions { get; set; }
 
     /// <summary>
     /// Specifies whether to use BigQuery&#39;s legacy SQL dialect for this query. The default value is true.
@@ -360,7 +360,7 @@ public partial class GoogleBigqueryJobQueryBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("use_legacy_sql")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseLegacySql { get; set; }
+    public partial TerraformValue<bool>? UseLegacySql { get; set; }
 
     /// <summary>
     /// Whether to look for the result in the query cache. The query cache is a best-effort cache that will be flushed whenever
@@ -369,7 +369,7 @@ public partial class GoogleBigqueryJobQueryBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("use_query_cache")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseQueryCache { get; set; }
+    public partial TerraformValue<bool>? UseQueryCache { get; set; }
 
     /// <summary>
     /// Specifies the action that occurs if the destination table already exists. The following values are supported:
@@ -381,7 +381,7 @@ public partial class GoogleBigqueryJobQueryBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("write_disposition")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WriteDisposition { get; set; }
+    public partial TerraformValue<string>? WriteDisposition { get; set; }
 
 }
 
@@ -396,21 +396,21 @@ public partial class GoogleBigqueryJobTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -429,7 +429,7 @@ public partial class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the job. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-). The maximum length is 1,024 characters.
@@ -437,14 +437,14 @@ public partial class GoogleBigqueryJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobId is required")]
     [TerraformProperty("job_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> JobId { get; set; }
+    public required partial TerraformValue<string> JobId { get; set; }
 
     /// <summary>
     /// Job timeout in milliseconds. If this time limit is exceeded, BigQuery may attempt to terminate the job.
     /// </summary>
     [TerraformProperty("job_timeout_ms")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? JobTimeoutMs { get; set; }
+    public partial TerraformValue<string>? JobTimeoutMs { get; set; }
 
     /// <summary>
     /// The labels associated with this job. You can use these to organize and group your jobs.
@@ -455,21 +455,21 @@ public partial class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The geographic location of the job. The default value is US.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for copy.
@@ -477,7 +477,7 @@ public partial class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Copy block(s) allowed")]
     [TerraformProperty("copy")]
-    public TerraformList<TerraformBlock<GoogleBigqueryJobCopyBlock>>? Copy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigqueryJobCopyBlock>>? Copy { get; set; }
 
     /// <summary>
     /// Block for extract.
@@ -485,7 +485,7 @@ public partial class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Extract block(s) allowed")]
     [TerraformProperty("extract")]
-    public TerraformList<TerraformBlock<GoogleBigqueryJobExtractBlock>>? Extract { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigqueryJobExtractBlock>>? Extract { get; set; }
 
     /// <summary>
     /// Block for load.
@@ -493,7 +493,7 @@ public partial class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Load block(s) allowed")]
     [TerraformProperty("load")]
-    public TerraformList<TerraformBlock<GoogleBigqueryJobLoadBlock>>? Load { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigqueryJobLoadBlock>>? Load { get; set; }
 
     /// <summary>
     /// Block for query.
@@ -501,35 +501,35 @@ public partial class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Query block(s) allowed")]
     [TerraformProperty("query")]
-    public TerraformList<TerraformBlock<GoogleBigqueryJobQueryBlock>>? Query { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigqueryJobQueryBlock>>? Query { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBigqueryJobTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBigqueryJobTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The type of the job.
     /// </summary>
     [TerraformProperty("job_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> JobType { get; }
+    public partial TerraformValue<string> JobType { get; }
 
     /// <summary>
     /// The status of this job. Examine this value when polling an asynchronous job to see if the job is complete.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Status { get; }
+    public partial TerraformList<object> Status { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -537,13 +537,13 @@ public partial class GoogleBigqueryJob : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Email address of the user who ran the job.
     /// </summary>
     [TerraformProperty("user_email")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UserEmail { get; }
+    public partial TerraformValue<string> UserEmail { get; }
 
 }

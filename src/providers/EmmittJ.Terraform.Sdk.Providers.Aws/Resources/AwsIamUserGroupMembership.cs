@@ -17,14 +17,14 @@ public partial class AwsIamUserGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Groups is required")]
     [TerraformProperty("groups")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Groups { get; set; }
+    public required partial TerraformSet<string> Groups { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The user attribute.
@@ -32,6 +32,6 @@ public partial class AwsIamUserGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     [TerraformProperty("user")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> User { get; set; }
+    public required partial TerraformValue<string> User { get; set; }
 
 }

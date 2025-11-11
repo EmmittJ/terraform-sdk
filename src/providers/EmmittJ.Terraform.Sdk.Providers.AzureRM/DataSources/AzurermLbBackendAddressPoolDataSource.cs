@@ -13,7 +13,7 @@ public partial class AzurermLbBackendAddressPoolDataSourceTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermLbBackendAddressPoolDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The loadbalancer_id attribute.
@@ -39,7 +39,7 @@ public partial class AzurermLbBackendAddressPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     [TerraformProperty("loadbalancer_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LoadbalancerId { get; set; }
+    public required partial TerraformValue<string> LoadbalancerId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,48 +47,48 @@ public partial class AzurermLbBackendAddressPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLbBackendAddressPoolDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLbBackendAddressPoolDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The backend_address attribute.
     /// </summary>
     [TerraformProperty("backend_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> BackendAddress { get; }
+    public partial TerraformList<object> BackendAddress { get; }
 
     /// <summary>
     /// The backend_ip_configurations attribute.
     /// </summary>
     [TerraformProperty("backend_ip_configurations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> BackendIpConfigurations { get; }
+    public partial TerraformList<object> BackendIpConfigurations { get; }
 
     /// <summary>
     /// The inbound_nat_rules attribute.
     /// </summary>
     [TerraformProperty("inbound_nat_rules")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> InboundNatRules { get; }
+    public partial TerraformList<string> InboundNatRules { get; }
 
     /// <summary>
     /// The load_balancing_rules attribute.
     /// </summary>
     [TerraformProperty("load_balancing_rules")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> LoadBalancingRules { get; }
+    public partial TerraformList<string> LoadBalancingRules { get; }
 
     /// <summary>
     /// The outbound_rules attribute.
     /// </summary>
     [TerraformProperty("outbound_rules")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> OutboundRules { get; }
+    public partial TerraformList<string> OutboundRules { get; }
 
 }

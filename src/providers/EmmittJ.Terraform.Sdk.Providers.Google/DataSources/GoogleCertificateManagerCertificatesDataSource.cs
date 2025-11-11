@@ -16,27 +16,27 @@ public partial class GoogleCertificateManagerCertificatesDataSource : TerraformD
     /// </summary>
     [TerraformProperty("filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Filter { get; set; }
+    public partial TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The certificates attribute.
     /// </summary>
     [TerraformProperty("certificates")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Certificates { get; }
+    public partial TerraformList<object> Certificates { get; }
 
 }

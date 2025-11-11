@@ -17,7 +17,7 @@ public partial class GoogleBackupDrDataSourceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultId is required")]
     [TerraformProperty("backup_vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackupVaultId { get; set; }
+    public required partial TerraformValue<string> BackupVaultId { get; set; }
 
     /// <summary>
     /// The data_source_id attribute.
@@ -25,14 +25,14 @@ public partial class GoogleBackupDrDataSourceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
     [TerraformProperty("data_source_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataSourceId { get; set; }
+    public required partial TerraformValue<string> DataSourceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -40,7 +40,7 @@ public partial class GoogleBackupDrDataSourceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
@@ -48,42 +48,42 @@ public partial class GoogleBackupDrDataSourceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformProperty("project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Project { get; set; }
+    public required partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Details of how the resource is configured for backup.
     /// </summary>
     [TerraformProperty("backup_config_info")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> BackupConfigInfo { get; }
+    public partial TerraformList<object> BackupConfigInfo { get; }
 
     /// <summary>
     /// Number of backups in the data source.
     /// </summary>
     [TerraformProperty("backup_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BackupCount { get; }
+    public partial TerraformValue<string> BackupCount { get; }
 
     /// <summary>
     /// The backup configuration state.
     /// </summary>
     [TerraformProperty("config_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ConfigState { get; }
+    public partial TerraformValue<string> ConfigState { get; }
 
     /// <summary>
     /// The time when the instance was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The backed up resource is a backup appliance application.
     /// </summary>
     [TerraformProperty("data_source_backup_appliance_application")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> DataSourceBackupApplianceApplication { get; }
+    public partial TerraformList<object> DataSourceBackupApplianceApplication { get; }
 
     /// <summary>
     /// The backed up resource is a Google Cloud resource.
@@ -93,21 +93,21 @@ public partial class GoogleBackupDrDataSourceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("data_source_gcp_resource")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> DataSourceGcpResource { get; }
+    public partial TerraformList<object> DataSourceGcpResource { get; }
 
     /// <summary>
     /// Server specified ETag for the ManagementServer resource to prevent simultaneous updates from overwiting each other.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Resource labels to represent user provided metadata.
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// Name of the datasource to create.
@@ -116,27 +116,27 @@ public partial class GoogleBackupDrDataSourceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The DataSource resource instance state.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The number of bytes (metadata and data) stored in this datasource.
     /// </summary>
     [TerraformProperty("total_stored_bytes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TotalStoredBytes { get; }
+    public partial TerraformValue<string> TotalStoredBytes { get; }
 
     /// <summary>
     /// The time when the instance was updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

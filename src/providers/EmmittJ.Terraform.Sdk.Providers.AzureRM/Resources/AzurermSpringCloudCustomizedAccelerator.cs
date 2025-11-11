@@ -13,42 +13,42 @@ public partial class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock :
     /// </summary>
     [TerraformProperty("branch")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Branch { get; set; }
+    public partial TerraformValue<string>? Branch { get; set; }
 
     /// <summary>
     /// The ca_certificate_id attribute.
     /// </summary>
     [TerraformProperty("ca_certificate_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CaCertificateId { get; set; }
+    public partial TerraformValue<string>? CaCertificateId { get; set; }
 
     /// <summary>
     /// The commit attribute.
     /// </summary>
     [TerraformProperty("commit")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Commit { get; set; }
+    public partial TerraformValue<string>? Commit { get; set; }
 
     /// <summary>
     /// The git_tag attribute.
     /// </summary>
     [TerraformProperty("git_tag")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GitTag { get; set; }
+    public partial TerraformValue<string>? GitTag { get; set; }
 
     /// <summary>
     /// The interval_in_seconds attribute.
     /// </summary>
     [TerraformProperty("interval_in_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? IntervalInSeconds { get; set; }
+    public partial TerraformValue<double>? IntervalInSeconds { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [TerraformProperty("path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Path { get; set; }
+    public partial TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The url attribute.
@@ -56,7 +56,7 @@ public partial class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     [TerraformProperty("url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Url { get; set; }
+    public required partial TerraformValue<string> Url { get; set; }
 
 }
 
@@ -71,28 +71,28 @@ public partial class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -111,42 +111,42 @@ public partial class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     /// </summary>
     [TerraformProperty("accelerator_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AcceleratorTags { get; set; }
+    public partial TerraformList<string>? AcceleratorTags { get; set; }
 
     /// <summary>
     /// The accelerator_type attribute.
     /// </summary>
     [TerraformProperty("accelerator_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AcceleratorType { get; set; }
+    public partial TerraformValue<string>? AcceleratorType { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The icon_url attribute.
     /// </summary>
     [TerraformProperty("icon_url")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IconUrl { get; set; }
+    public partial TerraformValue<string>? IconUrl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -154,7 +154,7 @@ public partial class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The spring_cloud_accelerator_id attribute.
@@ -162,7 +162,7 @@ public partial class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAcceleratorId is required")]
     [TerraformProperty("spring_cloud_accelerator_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SpringCloudAcceleratorId { get; set; }
+    public required partial TerraformValue<string> SpringCloudAcceleratorId { get; set; }
 
     /// <summary>
     /// Block for git_repository.
@@ -172,13 +172,13 @@ public partial class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GitRepository block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitRepository block(s) allowed")]
     [TerraformProperty("git_repository")]
-    public TerraformList<TerraformBlock<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock>>? GitRepository { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock>>? GitRepository { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock>? Timeouts { get; set; }
 
 }

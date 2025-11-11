@@ -13,21 +13,21 @@ public partial class AzureadAccessPackageResourcePackageAssociationTimeoutsBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzureadAccessPackageResourcePackageAssociation : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPackageId is required")]
     [TerraformProperty("access_package_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccessPackageId { get; set; }
+    public required partial TerraformValue<string> AccessPackageId { get; set; }
 
     /// <summary>
     /// The role of access type to the specified resource, valid values are `Member` and `Owner`
     /// </summary>
     [TerraformProperty("access_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AccessType { get; set; }
+    public partial TerraformValue<string>? AccessType { get; set; }
 
     /// <summary>
     /// The ID of the access package catalog association
@@ -61,20 +61,20 @@ public partial class AzureadAccessPackageResourcePackageAssociation : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogResourceAssociationId is required")]
     [TerraformProperty("catalog_resource_association_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CatalogResourceAssociationId { get; set; }
+    public required partial TerraformValue<string> CatalogResourceAssociationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadAccessPackageResourcePackageAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadAccessPackageResourcePackageAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

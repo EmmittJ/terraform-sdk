@@ -13,7 +13,7 @@ public partial class AwsGluePartitionIndexPartitionIndexBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("index_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IndexName { get; set; }
+    public partial TerraformValue<string>? IndexName { get; set; }
 
 
     /// <summary>
@@ -21,7 +21,7 @@ public partial class AwsGluePartitionIndexPartitionIndexBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("keys")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Keys { get; set; }
+    public partial TerraformList<string>? Keys { get; set; }
 
 }
 
@@ -36,14 +36,14 @@ public partial class AwsGluePartitionIndexTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -62,7 +62,7 @@ public partial class AwsGluePartitionIndex : TerraformResource
     /// </summary>
     [TerraformProperty("catalog_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CatalogId { get; set; }
+    public partial TerraformValue<string> CatalogId { get; set; }
 
     /// <summary>
     /// The database_name attribute.
@@ -70,21 +70,21 @@ public partial class AwsGluePartitionIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformProperty("database_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatabaseName { get; set; }
+    public required partial TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The table_name attribute.
@@ -92,7 +92,7 @@ public partial class AwsGluePartitionIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     [TerraformProperty("table_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TableName { get; set; }
+    public required partial TerraformValue<string> TableName { get; set; }
 
     /// <summary>
     /// Block for partition_index.
@@ -102,13 +102,13 @@ public partial class AwsGluePartitionIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PartitionIndex block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PartitionIndex block(s) allowed")]
     [TerraformProperty("partition_index")]
-    public TerraformList<TerraformBlock<AwsGluePartitionIndexPartitionIndexBlock>>? PartitionIndex { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGluePartitionIndexPartitionIndexBlock>>? PartitionIndex { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsGluePartitionIndexTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsGluePartitionIndexTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,28 +13,28 @@ public partial class AzurermSpringCloudDevToolPortalSsoBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("client_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientId { get; set; }
+    public partial TerraformValue<string>? ClientId { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
     [TerraformProperty("client_secret")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientSecret { get; set; }
+    public partial TerraformValue<string>? ClientSecret { get; set; }
 
     /// <summary>
     /// The metadata_url attribute.
     /// </summary>
     [TerraformProperty("metadata_url")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MetadataUrl { get; set; }
+    public partial TerraformValue<string>? MetadataUrl { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [TerraformProperty("scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Scope { get; set; }
+    public partial TerraformSet<string>? Scope { get; set; }
 
 }
 
@@ -49,28 +49,28 @@ public partial class AzurermSpringCloudDevToolPortalTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -89,21 +89,21 @@ public partial class AzurermSpringCloudDevToolPortal : TerraformResource
     /// </summary>
     [TerraformProperty("application_accelerator_enabled")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> ApplicationAcceleratorEnabled { get; set; }
+    public partial TerraformValue<bool> ApplicationAcceleratorEnabled { get; set; }
 
     /// <summary>
     /// The application_live_view_enabled attribute.
     /// </summary>
     [TerraformProperty("application_live_view_enabled")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> ApplicationLiveViewEnabled { get; set; }
+    public partial TerraformValue<bool> ApplicationLiveViewEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -111,14 +111,14 @@ public partial class AzurermSpringCloudDevToolPortal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformProperty("public_network_access_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
+    public partial TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
@@ -126,7 +126,7 @@ public partial class AzurermSpringCloudDevToolPortal : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     [TerraformProperty("spring_cloud_service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SpringCloudServiceId { get; set; }
+    public required partial TerraformValue<string> SpringCloudServiceId { get; set; }
 
     /// <summary>
     /// Block for sso.
@@ -134,13 +134,13 @@ public partial class AzurermSpringCloudDevToolPortal : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sso block(s) allowed")]
     [TerraformProperty("sso")]
-    public TerraformList<TerraformBlock<AzurermSpringCloudDevToolPortalSsoBlock>>? Sso { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSpringCloudDevToolPortalSsoBlock>>? Sso { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSpringCloudDevToolPortalTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSpringCloudDevToolPortalTimeoutsBlock>? Timeouts { get; set; }
 
 }

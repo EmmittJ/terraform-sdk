@@ -22,7 +22,7 @@ public partial class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheNetbiosName is required")]
     [TerraformProperty("cache_netbios_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CacheNetbiosName { get; set; }
+    public required partial TerraformValue<string> CacheNetbiosName { get; set; }
 
     /// <summary>
     /// The dns_primary_ip attribute.
@@ -30,14 +30,14 @@ public partial class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsPrimaryIp is required")]
     [TerraformProperty("dns_primary_ip")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DnsPrimaryIp { get; set; }
+    public required partial TerraformValue<string> DnsPrimaryIp { get; set; }
 
     /// <summary>
     /// The dns_secondary_ip attribute.
     /// </summary>
     [TerraformProperty("dns_secondary_ip")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DnsSecondaryIp { get; set; }
+    public partial TerraformValue<string>? DnsSecondaryIp { get; set; }
 
     /// <summary>
     /// The domain_name attribute.
@@ -45,7 +45,7 @@ public partial class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformProperty("domain_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainName { get; set; }
+    public required partial TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The domain_netbios_name attribute.
@@ -53,7 +53,7 @@ public partial class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainNetbiosName is required")]
     [TerraformProperty("domain_netbios_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainNetbiosName { get; set; }
+    public required partial TerraformValue<string> DomainNetbiosName { get; set; }
 
     /// <summary>
     /// The password attribute.
@@ -61,7 +61,7 @@ public partial class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     [TerraformProperty("password")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Password { get; set; }
+    public required partial TerraformValue<string> Password { get; set; }
 
     /// <summary>
     /// The username attribute.
@@ -69,7 +69,7 @@ public partial class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformProperty("username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Username { get; set; }
+    public required partial TerraformValue<string> Username { get; set; }
 
 }
 
@@ -85,7 +85,7 @@ public partial class AzurermHpcCacheDirectoryFlatFileBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupFileUri is required")]
     [TerraformProperty("group_file_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GroupFileUri { get; set; }
+    public required partial TerraformValue<string> GroupFileUri { get; set; }
 
     /// <summary>
     /// The password_file_uri attribute.
@@ -93,7 +93,7 @@ public partial class AzurermHpcCacheDirectoryFlatFileBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasswordFileUri is required")]
     [TerraformProperty("password_file_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PasswordFileUri { get; set; }
+    public required partial TerraformValue<string> PasswordFileUri { get; set; }
 
 }
 
@@ -109,28 +109,28 @@ public partial class AzurermHpcCacheDirectoryLdapBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseDn is required")]
     [TerraformProperty("base_dn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BaseDn { get; set; }
+    public required partial TerraformValue<string> BaseDn { get; set; }
 
     /// <summary>
     /// The certificate_validation_uri attribute.
     /// </summary>
     [TerraformProperty("certificate_validation_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CertificateValidationUri { get; set; }
+    public partial TerraformValue<string>? CertificateValidationUri { get; set; }
 
     /// <summary>
     /// The download_certificate_automatically attribute.
     /// </summary>
     [TerraformProperty("download_certificate_automatically")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DownloadCertificateAutomatically { get; set; }
+    public partial TerraformValue<bool>? DownloadCertificateAutomatically { get; set; }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     [TerraformProperty("encrypted")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Encrypted { get; set; }
+    public partial TerraformValue<bool>? Encrypted { get; set; }
 
     /// <summary>
     /// The server attribute.
@@ -138,7 +138,7 @@ public partial class AzurermHpcCacheDirectoryLdapBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     [TerraformProperty("server")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Server { get; set; }
+    public required partial TerraformValue<string> Server { get; set; }
 
 }
 
@@ -153,7 +153,7 @@ public partial class AzurermHpcCacheDnsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("search_domain")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SearchDomain { get; set; }
+    public partial TerraformValue<string>? SearchDomain { get; set; }
 
     /// <summary>
     /// The servers attribute.
@@ -161,7 +161,7 @@ public partial class AzurermHpcCacheDnsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Servers is required")]
     [TerraformProperty("servers")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Servers { get; set; }
+    public partial TerraformList<string>? Servers { get; set; }
 
 }
 
@@ -176,7 +176,7 @@ public partial class AzurermHpcCacheIdentityBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -186,7 +186,7 @@ public partial class AzurermHpcCacheIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -201,28 +201,28 @@ public partial class AzurermHpcCacheTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -242,7 +242,7 @@ public partial class AzurermHpcCache : TerraformResource
     /// </summary>
     [TerraformProperty("automatically_rotate_key_to_latest_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutomaticallyRotateKeyToLatestEnabled { get; set; }
+    public partial TerraformValue<bool>? AutomaticallyRotateKeyToLatestEnabled { get; set; }
 
     /// <summary>
     /// The cache_size_in_gb attribute.
@@ -250,21 +250,21 @@ public partial class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheSizeInGb is required")]
     [TerraformProperty("cache_size_in_gb")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> CacheSizeInGb { get; set; }
+    public required partial TerraformValue<double> CacheSizeInGb { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
     [TerraformProperty("key_vault_key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyVaultKeyId { get; set; }
+    public partial TerraformValue<string>? KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -272,14 +272,14 @@ public partial class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The mtu attribute.
     /// </summary>
     [TerraformProperty("mtu")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Mtu { get; set; }
+    public partial TerraformValue<double>? Mtu { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -287,14 +287,14 @@ public partial class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The ntp_server attribute.
     /// </summary>
     [TerraformProperty("ntp_server")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NtpServer { get; set; }
+    public partial TerraformValue<string>? NtpServer { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -302,7 +302,7 @@ public partial class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
@@ -310,7 +310,7 @@ public partial class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     [TerraformProperty("sku_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SkuName { get; set; }
+    public required partial TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -318,14 +318,14 @@ public partial class AzurermHpcCache : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for default_access_policy.
@@ -333,7 +333,7 @@ public partial class AzurermHpcCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultAccessPolicy block(s) allowed")]
     [TerraformProperty("default_access_policy")]
-    public TerraformList<TerraformBlock<AzurermHpcCacheDefaultAccessPolicyBlock>>? DefaultAccessPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHpcCacheDefaultAccessPolicyBlock>>? DefaultAccessPolicy { get; set; }
 
     /// <summary>
     /// Block for directory_active_directory.
@@ -341,7 +341,7 @@ public partial class AzurermHpcCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DirectoryActiveDirectory block(s) allowed")]
     [TerraformProperty("directory_active_directory")]
-    public TerraformList<TerraformBlock<AzurermHpcCacheDirectoryActiveDirectoryBlock>>? DirectoryActiveDirectory { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHpcCacheDirectoryActiveDirectoryBlock>>? DirectoryActiveDirectory { get; set; }
 
     /// <summary>
     /// Block for directory_flat_file.
@@ -349,7 +349,7 @@ public partial class AzurermHpcCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DirectoryFlatFile block(s) allowed")]
     [TerraformProperty("directory_flat_file")]
-    public TerraformList<TerraformBlock<AzurermHpcCacheDirectoryFlatFileBlock>>? DirectoryFlatFile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHpcCacheDirectoryFlatFileBlock>>? DirectoryFlatFile { get; set; }
 
     /// <summary>
     /// Block for directory_ldap.
@@ -357,7 +357,7 @@ public partial class AzurermHpcCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DirectoryLdap block(s) allowed")]
     [TerraformProperty("directory_ldap")]
-    public TerraformList<TerraformBlock<AzurermHpcCacheDirectoryLdapBlock>>? DirectoryLdap { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHpcCacheDirectoryLdapBlock>>? DirectoryLdap { get; set; }
 
     /// <summary>
     /// Block for dns.
@@ -365,7 +365,7 @@ public partial class AzurermHpcCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dns block(s) allowed")]
     [TerraformProperty("dns")]
-    public TerraformList<TerraformBlock<AzurermHpcCacheDnsBlock>>? Dns { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHpcCacheDnsBlock>>? Dns { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -373,20 +373,20 @@ public partial class AzurermHpcCache : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermHpcCacheIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHpcCacheIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermHpcCacheTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermHpcCacheTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The mount_addresses attribute.
     /// </summary>
     [TerraformProperty("mount_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> MountAddresses { get; }
+    public partial TerraformList<string> MountAddresses { get; }
 
 }

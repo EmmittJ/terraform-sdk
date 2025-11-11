@@ -16,14 +16,14 @@ public partial class AwsDatasyncLocationObjectStorage : TerraformResource
     /// </summary>
     [TerraformProperty("access_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AccessKey { get; set; }
+    public partial TerraformValue<string>? AccessKey { get; set; }
 
     /// <summary>
     /// The agent_arns attribute.
     /// </summary>
     [TerraformProperty("agent_arns")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AgentArns { get; set; }
+    public partial TerraformSet<string>? AgentArns { get; set; }
 
     /// <summary>
     /// The bucket_name attribute.
@@ -31,35 +31,35 @@ public partial class AwsDatasyncLocationObjectStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     [TerraformProperty("bucket_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BucketName { get; set; }
+    public required partial TerraformValue<string> BucketName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The secret_key attribute.
     /// </summary>
     [TerraformProperty("secret_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecretKey { get; set; }
+    public partial TerraformValue<string>? SecretKey { get; set; }
 
     /// <summary>
     /// The server_certificate attribute.
     /// </summary>
     [TerraformProperty("server_certificate")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServerCertificate { get; set; }
+    public partial TerraformValue<string>? ServerCertificate { get; set; }
 
     /// <summary>
     /// The server_hostname attribute.
@@ -67,55 +67,55 @@ public partial class AwsDatasyncLocationObjectStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerHostname is required")]
     [TerraformProperty("server_hostname")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServerHostname { get; set; }
+    public required partial TerraformValue<string> ServerHostname { get; set; }
 
     /// <summary>
     /// The server_port attribute.
     /// </summary>
     [TerraformProperty("server_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ServerPort { get; set; }
+    public partial TerraformValue<double>? ServerPort { get; set; }
 
     /// <summary>
     /// The server_protocol attribute.
     /// </summary>
     [TerraformProperty("server_protocol")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServerProtocol { get; set; }
+    public partial TerraformValue<string>? ServerProtocol { get; set; }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
     [TerraformProperty("subdirectory")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Subdirectory { get; set; }
+    public partial TerraformValue<string> Subdirectory { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     [TerraformProperty("uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uri { get; }
+    public partial TerraformValue<string> Uri { get; }
 
 }

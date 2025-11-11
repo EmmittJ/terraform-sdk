@@ -13,21 +13,21 @@ public partial class GoogleKmsAutokeyConfigTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class GoogleKmsAutokeyConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     [TerraformProperty("folder")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Folder { get; set; }
+    public required partial TerraformValue<string> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The target key project for a given folder where KMS Autokey will provision a
@@ -62,20 +62,20 @@ public partial class GoogleKmsAutokeyConfig : TerraformResource
     /// </summary>
     [TerraformProperty("key_project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyProject { get; set; }
+    public partial TerraformValue<string>? KeyProject { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleKmsAutokeyConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleKmsAutokeyConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The etag of the AutokeyConfig for optimistic concurrency control.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermSearchServiceDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermSearchServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermSearchServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,76 +47,76 @@ public partial class AzurermSearchServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSearchServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSearchServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The customer_managed_key_encryption_compliance_status attribute.
     /// </summary>
     [TerraformProperty("customer_managed_key_encryption_compliance_status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CustomerManagedKeyEncryptionComplianceStatus { get; }
+    public partial TerraformValue<string> CustomerManagedKeyEncryptionComplianceStatus { get; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [TerraformProperty("identity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Identity { get; }
+    public partial TerraformList<object> Identity { get; }
 
     /// <summary>
     /// The partition_count attribute.
     /// </summary>
     [TerraformProperty("partition_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> PartitionCount { get; }
+    public partial TerraformValue<double> PartitionCount { get; }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     [TerraformProperty("primary_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryKey { get; }
+    public partial TerraformValue<string> PrimaryKey { get; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformProperty("public_network_access_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> PublicNetworkAccessEnabled { get; }
+    public partial TerraformValue<bool> PublicNetworkAccessEnabled { get; }
 
     /// <summary>
     /// The query_keys attribute.
     /// </summary>
     [TerraformProperty("query_keys")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> QueryKeys { get; }
+    public partial TerraformList<object> QueryKeys { get; }
 
     /// <summary>
     /// The replica_count attribute.
     /// </summary>
     [TerraformProperty("replica_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ReplicaCount { get; }
+    public partial TerraformValue<double> ReplicaCount { get; }
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     [TerraformProperty("secondary_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecondaryKey { get; }
+    public partial TerraformValue<string> SecondaryKey { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
 }

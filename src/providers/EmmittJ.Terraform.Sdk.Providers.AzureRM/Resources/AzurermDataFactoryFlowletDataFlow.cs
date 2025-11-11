@@ -13,7 +13,7 @@ public partial class AzurermDataFactoryFlowletDataFlowSinkBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -21,7 +21,7 @@ public partial class AzurermDataFactoryFlowletDataFlowSinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public partial class AzurermDataFactoryFlowletDataFlowSourceBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -44,7 +44,7 @@ public partial class AzurermDataFactoryFlowletDataFlowSourceBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -59,28 +59,28 @@ public partial class AzurermDataFactoryFlowletDataFlowTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -95,7 +95,7 @@ public partial class AzurermDataFactoryFlowletDataFlowTransformationBlock : Terr
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -103,7 +103,7 @@ public partial class AzurermDataFactoryFlowletDataFlowTransformationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -121,7 +121,7 @@ public partial class AzurermDataFactoryFlowletDataFlow : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Annotations { get; set; }
+    public partial TerraformList<string>? Annotations { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
@@ -129,28 +129,28 @@ public partial class AzurermDataFactoryFlowletDataFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformProperty("data_factory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataFactoryId { get; set; }
+    public required partial TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
     [TerraformProperty("folder")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Folder { get; set; }
+    public partial TerraformValue<string>? Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -158,48 +158,48 @@ public partial class AzurermDataFactoryFlowletDataFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The script attribute.
     /// </summary>
     [TerraformProperty("script")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Script { get; set; }
+    public partial TerraformValue<string>? Script { get; set; }
 
     /// <summary>
     /// The script_lines attribute.
     /// </summary>
     [TerraformProperty("script_lines")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ScriptLines { get; set; }
+    public partial TerraformList<string>? ScriptLines { get; set; }
 
     /// <summary>
     /// Block for sink.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("sink")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryFlowletDataFlowSinkBlock>>? Sink { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryFlowletDataFlowSinkBlock>>? Sink { get; set; }
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("source")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryFlowletDataFlowSourceBlock>>? Source { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryFlowletDataFlowSourceBlock>>? Source { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataFactoryFlowletDataFlowTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataFactoryFlowletDataFlowTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for transformation.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("transformation")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryFlowletDataFlowTransformationBlock>>? Transformation { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryFlowletDataFlowTransformationBlock>>? Transformation { get; set; }
 
 }

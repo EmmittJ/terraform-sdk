@@ -31,14 +31,14 @@ public partial class GoogleIdentityPlatformConfigMfaBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("enabled_providers")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? EnabledProviders { get; set; }
+    public partial TerraformList<string>? EnabledProviders { get; set; }
 
     /// <summary>
     /// Whether MultiFactor Authentication has been enabled for this project. Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;ENABLED&amp;quot;, &amp;quot;MANDATORY&amp;quot;]
     /// </summary>
     [TerraformProperty("state")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> State { get; set; }
+    public partial TerraformValue<string> State { get; set; }
 
 }
 
@@ -61,7 +61,7 @@ public partial class GoogleIdentityPlatformConfigMultiTenantBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("allow_tenants")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowTenants { get; set; }
+    public partial TerraformValue<bool>? AllowTenants { get; set; }
 
     /// <summary>
     /// The default cloud parent org or folder that the tenant project should be created under.
@@ -70,7 +70,7 @@ public partial class GoogleIdentityPlatformConfigMultiTenantBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("default_tenant_location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultTenantLocation { get; set; }
+    public partial TerraformValue<string>? DefaultTenantLocation { get; set; }
 
 }
 
@@ -93,7 +93,7 @@ public partial class GoogleIdentityPlatformConfigSignInBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("allow_duplicate_emails")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowDuplicateEmails { get; set; }
+    public partial TerraformValue<bool>? AllowDuplicateEmails { get; set; }
 
 
 }
@@ -117,21 +117,21 @@ public partial class GoogleIdentityPlatformConfigTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -150,28 +150,28 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [TerraformProperty("authorized_domains")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> AuthorizedDomains { get; set; }
+    public partial TerraformList<string> AuthorizedDomains { get; set; }
 
     /// <summary>
     /// Whether anonymous users will be auto-deleted after a period of 30 days
     /// </summary>
     [TerraformProperty("autodelete_anonymous_users")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutodeleteAnonymousUsers { get; set; }
+    public partial TerraformValue<bool>? AutodeleteAnonymousUsers { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for blocking_functions.
@@ -179,7 +179,7 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BlockingFunctions block(s) allowed")]
     [TerraformProperty("blocking_functions")]
-    public TerraformList<TerraformBlock<GoogleIdentityPlatformConfigBlockingFunctionsBlock>>? BlockingFunctions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformConfigBlockingFunctionsBlock>>? BlockingFunctions { get; set; }
 
     /// <summary>
     /// Block for client.
@@ -187,7 +187,7 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Client block(s) allowed")]
     [TerraformProperty("client")]
-    public TerraformList<TerraformBlock<GoogleIdentityPlatformConfigClientBlock>>? Client { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformConfigClientBlock>>? Client { get; set; }
 
     /// <summary>
     /// Block for mfa.
@@ -195,7 +195,7 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Mfa block(s) allowed")]
     [TerraformProperty("mfa")]
-    public TerraformList<TerraformBlock<GoogleIdentityPlatformConfigMfaBlock>>? Mfa { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformConfigMfaBlock>>? Mfa { get; set; }
 
     /// <summary>
     /// Block for monitoring.
@@ -203,7 +203,7 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitoring block(s) allowed")]
     [TerraformProperty("monitoring")]
-    public TerraformList<TerraformBlock<GoogleIdentityPlatformConfigMonitoringBlock>>? Monitoring { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformConfigMonitoringBlock>>? Monitoring { get; set; }
 
     /// <summary>
     /// Block for multi_tenant.
@@ -211,7 +211,7 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MultiTenant block(s) allowed")]
     [TerraformProperty("multi_tenant")]
-    public TerraformList<TerraformBlock<GoogleIdentityPlatformConfigMultiTenantBlock>>? MultiTenant { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformConfigMultiTenantBlock>>? MultiTenant { get; set; }
 
     /// <summary>
     /// Block for quota.
@@ -219,7 +219,7 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Quota block(s) allowed")]
     [TerraformProperty("quota")]
-    public TerraformList<TerraformBlock<GoogleIdentityPlatformConfigQuotaBlock>>? Quota { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformConfigQuotaBlock>>? Quota { get; set; }
 
     /// <summary>
     /// Block for sign_in.
@@ -227,7 +227,7 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignIn block(s) allowed")]
     [TerraformProperty("sign_in")]
-    public TerraformList<TerraformBlock<GoogleIdentityPlatformConfigSignInBlock>>? SignIn { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformConfigSignInBlock>>? SignIn { get; set; }
 
     /// <summary>
     /// Block for sms_region_config.
@@ -235,20 +235,20 @@ public partial class GoogleIdentityPlatformConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SmsRegionConfig block(s) allowed")]
     [TerraformProperty("sms_region_config")]
-    public TerraformList<TerraformBlock<GoogleIdentityPlatformConfigSmsRegionConfigBlock>>? SmsRegionConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIdentityPlatformConfigSmsRegionConfigBlock>>? SmsRegionConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleIdentityPlatformConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleIdentityPlatformConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The name of the Config resource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

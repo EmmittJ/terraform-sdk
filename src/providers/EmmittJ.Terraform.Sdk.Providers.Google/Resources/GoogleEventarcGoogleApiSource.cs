@@ -14,7 +14,7 @@ public partial class GoogleEventarcGoogleApiSourceLoggingConfigBlock : Terraform
     /// </summary>
     [TerraformProperty("log_severity")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> LogSeverity { get; set; }
+    public partial TerraformValue<string> LogSeverity { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public partial class GoogleEventarcGoogleApiSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -65,7 +65,7 @@ public partial class GoogleEventarcGoogleApiSource : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// Resource name of a KMS crypto key (managed by the user) used to
@@ -76,7 +76,7 @@ public partial class GoogleEventarcGoogleApiSource : TerraformResource
     /// </summary>
     [TerraformProperty("crypto_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CryptoKeyName { get; set; }
+    public partial TerraformValue<string>? CryptoKeyName { get; set; }
 
     /// <summary>
     /// Destination is the message bus that the GoogleApiSource is delivering to.
@@ -86,14 +86,14 @@ public partial class GoogleEventarcGoogleApiSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [TerraformProperty("destination")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Destination { get; set; }
+    public required partial TerraformValue<string> Destination { get; set; }
 
     /// <summary>
     /// Resource display name.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The user-provided ID to be assigned to the GoogleApiSource. It should match
@@ -102,14 +102,14 @@ public partial class GoogleEventarcGoogleApiSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GoogleApiSourceId is required")]
     [TerraformProperty("google_api_source_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GoogleApiSourceId { get; set; }
+    public required partial TerraformValue<string> GoogleApiSourceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource labels.
@@ -119,7 +119,7 @@ public partial class GoogleEventarcGoogleApiSource : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -127,14 +127,14 @@ public partial class GoogleEventarcGoogleApiSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for logging_config.
@@ -142,35 +142,35 @@ public partial class GoogleEventarcGoogleApiSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformProperty("logging_config")]
-    public TerraformList<TerraformBlock<GoogleEventarcGoogleApiSourceLoggingConfigBlock>>? LoggingConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleEventarcGoogleApiSourceLoggingConfigBlock>>? LoggingConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleEventarcGoogleApiSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleEventarcGoogleApiSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The creation time.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -179,7 +179,7 @@ public partial class GoogleEventarcGoogleApiSource : TerraformResource
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Resource name of the form
@@ -187,7 +187,7 @@ public partial class GoogleEventarcGoogleApiSource : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -195,7 +195,7 @@ public partial class GoogleEventarcGoogleApiSource : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Server assigned unique identifier for the channel. The value is a UUID4
@@ -203,13 +203,13 @@ public partial class GoogleEventarcGoogleApiSource : TerraformResource
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// The last-modified time.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

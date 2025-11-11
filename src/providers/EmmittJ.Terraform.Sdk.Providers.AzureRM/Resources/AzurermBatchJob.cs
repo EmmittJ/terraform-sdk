@@ -13,28 +13,28 @@ public partial class AzurermBatchJobTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,28 +53,28 @@ public partial class AzurermBatchJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchPoolId is required")]
     [TerraformProperty("batch_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BatchPoolId { get; set; }
+    public required partial TerraformValue<string> BatchPoolId { get; set; }
 
     /// <summary>
     /// The common_environment_properties attribute.
     /// </summary>
     [TerraformProperty("common_environment_properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? CommonEnvironmentProperties { get; set; }
+    public partial TerraformMap<string>? CommonEnvironmentProperties { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -82,27 +82,27 @@ public partial class AzurermBatchJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [TerraformProperty("priority")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Priority { get; set; }
+    public partial TerraformValue<double>? Priority { get; set; }
 
     /// <summary>
     /// The task_retry_maximum attribute.
     /// </summary>
     [TerraformProperty("task_retry_maximum")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? TaskRetryMaximum { get; set; }
+    public partial TerraformValue<double>? TaskRetryMaximum { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermBatchJobTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermBatchJobTimeoutsBlock>? Timeouts { get; set; }
 
 }

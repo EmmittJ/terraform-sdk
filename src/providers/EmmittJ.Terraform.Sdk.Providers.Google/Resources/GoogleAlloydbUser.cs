@@ -13,21 +13,21 @@ public partial class GoogleAlloydbUserTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -47,28 +47,28 @@ public partial class GoogleAlloydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     [TerraformProperty("cluster")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Cluster { get; set; }
+    public required partial TerraformValue<string> Cluster { get; set; }
 
     /// <summary>
     /// List of database roles this database user has.
     /// </summary>
     [TerraformProperty("database_roles")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? DatabaseRoles { get; set; }
+    public partial TerraformList<string>? DatabaseRoles { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Password for this database user.
     /// </summary>
     [TerraformProperty("password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Password { get; set; }
+    public partial TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// The database role name of the user.
@@ -76,7 +76,7 @@ public partial class GoogleAlloydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     [TerraformProperty("user_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UserId { get; set; }
+    public required partial TerraformValue<string> UserId { get; set; }
 
     /// <summary>
     /// The type of this user. Possible values: [&amp;quot;ALLOYDB_BUILT_IN&amp;quot;, &amp;quot;ALLOYDB_IAM_USER&amp;quot;]
@@ -84,20 +84,20 @@ public partial class GoogleAlloydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserType is required")]
     [TerraformProperty("user_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UserType { get; set; }
+    public required partial TerraformValue<string> UserType { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleAlloydbUserTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleAlloydbUserTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Name of the resource in the form of projects/{project}/locations/{location}/clusters/{cluster}/users/{user}.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

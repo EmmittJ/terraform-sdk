@@ -22,7 +22,7 @@ public partial class AwsBackupSelectionSelectionTagBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -30,7 +30,7 @@ public partial class AwsBackupSelectionSelectionTagBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -38,7 +38,7 @@ public partial class AwsBackupSelectionSelectionTagBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
 }
 
@@ -57,14 +57,14 @@ public partial class AwsBackupSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     [TerraformProperty("iam_role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IamRoleArn { get; set; }
+    public required partial TerraformValue<string> IamRoleArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -72,14 +72,14 @@ public partial class AwsBackupSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The not_resources attribute.
     /// </summary>
     [TerraformProperty("not_resources")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> NotResources { get; set; }
+    public partial TerraformSet<string> NotResources { get; set; }
 
     /// <summary>
     /// The plan_id attribute.
@@ -87,34 +87,34 @@ public partial class AwsBackupSelection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlanId is required")]
     [TerraformProperty("plan_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PlanId { get; set; }
+    public required partial TerraformValue<string> PlanId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
     [TerraformProperty("resources")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Resources { get; set; }
+    public partial TerraformSet<string>? Resources { get; set; }
 
     /// <summary>
     /// Block for condition.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("condition")]
-    public TerraformSet<TerraformBlock<AwsBackupSelectionConditionBlock>>? Condition { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsBackupSelectionConditionBlock>>? Condition { get; set; }
 
     /// <summary>
     /// Block for selection_tag.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("selection_tag")]
-    public TerraformSet<TerraformBlock<AwsBackupSelectionSelectionTagBlock>>? SelectionTag { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsBackupSelectionSelectionTagBlock>>? SelectionTag { get; set; }
 
 }

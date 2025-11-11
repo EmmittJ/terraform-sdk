@@ -13,7 +13,7 @@ public partial class AwsVpcPeeringConnectionOptionsAccepterBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("allow_remote_vpc_dns_resolution")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowRemoteVpcDnsResolution { get; set; }
+    public partial TerraformValue<bool>? AllowRemoteVpcDnsResolution { get; set; }
 
 }
 
@@ -28,7 +28,7 @@ public partial class AwsVpcPeeringConnectionOptionsRequesterBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("allow_remote_vpc_dns_resolution")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowRemoteVpcDnsResolution { get; set; }
+    public partial TerraformValue<bool>? AllowRemoteVpcDnsResolution { get; set; }
 
 }
 
@@ -47,14 +47,14 @@ public partial class AwsVpcPeeringConnectionOptions : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The vpc_peering_connection_id attribute.
@@ -62,7 +62,7 @@ public partial class AwsVpcPeeringConnectionOptions : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcPeeringConnectionId is required")]
     [TerraformProperty("vpc_peering_connection_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VpcPeeringConnectionId { get; set; }
+    public required partial TerraformValue<string> VpcPeeringConnectionId { get; set; }
 
     /// <summary>
     /// Block for accepter.
@@ -70,7 +70,7 @@ public partial class AwsVpcPeeringConnectionOptions : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Accepter block(s) allowed")]
     [TerraformProperty("accepter")]
-    public TerraformList<TerraformBlock<AwsVpcPeeringConnectionOptionsAccepterBlock>>? Accepter { get; set; }
+    public partial TerraformList<TerraformBlock<AwsVpcPeeringConnectionOptionsAccepterBlock>>? Accepter { get; set; }
 
     /// <summary>
     /// Block for requester.
@@ -78,6 +78,6 @@ public partial class AwsVpcPeeringConnectionOptions : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Requester block(s) allowed")]
     [TerraformProperty("requester")]
-    public TerraformList<TerraformBlock<AwsVpcPeeringConnectionOptionsRequesterBlock>>? Requester { get; set; }
+    public partial TerraformList<TerraformBlock<AwsVpcPeeringConnectionOptionsRequesterBlock>>? Requester { get; set; }
 
 }

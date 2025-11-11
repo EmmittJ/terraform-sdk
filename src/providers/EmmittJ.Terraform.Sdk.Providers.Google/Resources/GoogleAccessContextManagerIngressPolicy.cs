@@ -13,14 +13,14 @@ public partial class GoogleAccessContextManagerIngressPolicyTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleAccessContextManagerIngressPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the Service Perimeter to add this resource to.
@@ -46,7 +46,7 @@ public partial class GoogleAccessContextManagerIngressPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngressPolicyName is required")]
     [TerraformProperty("ingress_policy_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IngressPolicyName { get; set; }
+    public required partial TerraformValue<string> IngressPolicyName { get; set; }
 
     /// <summary>
     /// A GCP resource that is inside of the service perimeter.
@@ -54,20 +54,20 @@ public partial class GoogleAccessContextManagerIngressPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     [TerraformProperty("resource")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Resource { get; set; }
+    public required partial TerraformValue<string> Resource { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleAccessContextManagerIngressPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleAccessContextManagerIngressPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The name of the Access Policy this resource belongs to.
     /// </summary>
     [TerraformProperty("access_policy_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AccessPolicyId { get; }
+    public partial TerraformValue<string> AccessPolicyId { get; }
 
 }

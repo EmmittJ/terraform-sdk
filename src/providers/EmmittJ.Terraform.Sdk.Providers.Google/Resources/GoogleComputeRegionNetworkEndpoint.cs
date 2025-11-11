@@ -13,14 +13,14 @@ public partial class GoogleComputeRegionNetworkEndpointTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -40,14 +40,14 @@ public partial class GoogleComputeRegionNetworkEndpoint : TerraformResource
     /// </summary>
     [TerraformProperty("fqdn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Fqdn { get; set; }
+    public partial TerraformValue<string>? Fqdn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// IPv4 address external endpoint.
@@ -56,7 +56,7 @@ public partial class GoogleComputeRegionNetworkEndpoint : TerraformResource
     /// </summary>
     [TerraformProperty("ip_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpAddress { get; set; }
+    public partial TerraformValue<string>? IpAddress { get; set; }
 
     /// <summary>
     /// Port number of network endpoint.
@@ -64,21 +64,21 @@ public partial class GoogleComputeRegionNetworkEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     [TerraformProperty("port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Port { get; set; }
+    public required partial TerraformValue<double> Port { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Region where the containing network endpoint group is located.
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The network endpoint group this endpoint is part of.
@@ -86,20 +86,20 @@ public partial class GoogleComputeRegionNetworkEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionNetworkEndpointGroup is required")]
     [TerraformProperty("region_network_endpoint_group")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RegionNetworkEndpointGroup { get; set; }
+    public required partial TerraformValue<string> RegionNetworkEndpointGroup { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeRegionNetworkEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeRegionNetworkEndpointTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique identifier number for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformProperty("network_endpoint_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> NetworkEndpointId { get; }
+    public partial TerraformValue<double> NetworkEndpointId { get; }
 
 }

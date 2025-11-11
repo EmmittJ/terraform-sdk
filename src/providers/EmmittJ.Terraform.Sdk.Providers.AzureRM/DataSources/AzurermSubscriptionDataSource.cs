@@ -13,7 +13,7 @@ public partial class AzurermSubscriptionDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,69 +31,69 @@ public partial class AzurermSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
     [TerraformProperty("subscription_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SubscriptionId { get; set; }
+    public partial TerraformValue<string> SubscriptionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSubscriptionDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSubscriptionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The location_placement_id attribute.
     /// </summary>
     [TerraformProperty("location_placement_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LocationPlacementId { get; }
+    public partial TerraformValue<string> LocationPlacementId { get; }
 
     /// <summary>
     /// The quota_id attribute.
     /// </summary>
     [TerraformProperty("quota_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> QuotaId { get; }
+    public partial TerraformValue<string> QuotaId { get; }
 
     /// <summary>
     /// The spending_limit attribute.
     /// </summary>
     [TerraformProperty("spending_limit")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SpendingLimit { get; }
+    public partial TerraformValue<string> SpendingLimit { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [TerraformProperty("tenant_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TenantId { get; }
+    public partial TerraformValue<string> TenantId { get; }
 
 }

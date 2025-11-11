@@ -13,14 +13,14 @@ public partial class AwsKendraIndexCapacityUnitsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("query_capacity_units")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> QueryCapacityUnits { get; set; }
+    public partial TerraformValue<double> QueryCapacityUnits { get; set; }
 
     /// <summary>
     /// The storage_capacity_units attribute.
     /// </summary>
     [TerraformProperty("storage_capacity_units")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> StorageCapacityUnits { get; set; }
+    public partial TerraformValue<double> StorageCapacityUnits { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public partial class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -44,7 +44,7 @@ public partial class AwsKendraIndexDocumentMetadataConfigurationUpdatesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -59,7 +59,7 @@ public partial class AwsKendraIndexServerSideEncryptionConfigurationBlock : Terr
     /// </summary>
     [TerraformProperty("kms_key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyId { get; set; }
+    public partial TerraformValue<string>? KmsKeyId { get; set; }
 
 }
 
@@ -74,21 +74,21 @@ public partial class AwsKendraIndexTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -104,7 +104,7 @@ public partial class AwsKendraIndexUserGroupResolutionConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserGroupResolutionMode is required")]
     [TerraformProperty("user_group_resolution_mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UserGroupResolutionMode { get; set; }
+    public required partial TerraformValue<string> UserGroupResolutionMode { get; set; }
 
 }
 
@@ -131,21 +131,21 @@ public partial class AwsKendraIndex : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The edition attribute.
     /// </summary>
     [TerraformProperty("edition")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Edition { get; set; }
+    public partial TerraformValue<string>? Edition { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -153,14 +153,14 @@ public partial class AwsKendraIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -168,28 +168,28 @@ public partial class AwsKendraIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The user_context_policy attribute.
     /// </summary>
     [TerraformProperty("user_context_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserContextPolicy { get; set; }
+    public partial TerraformValue<string>? UserContextPolicy { get; set; }
 
     /// <summary>
     /// Block for capacity_units.
@@ -197,7 +197,7 @@ public partial class AwsKendraIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacityUnits block(s) allowed")]
     [TerraformProperty("capacity_units")]
-    public TerraformList<TerraformBlock<AwsKendraIndexCapacityUnitsBlock>>? CapacityUnits { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKendraIndexCapacityUnitsBlock>>? CapacityUnits { get; set; }
 
     /// <summary>
     /// Block for document_metadata_configuration_updates.
@@ -205,7 +205,7 @@ public partial class AwsKendraIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(500, ErrorMessage = "Maximum 500 DocumentMetadataConfigurationUpdates block(s) allowed")]
     [TerraformProperty("document_metadata_configuration_updates")]
-    public TerraformSet<TerraformBlock<AwsKendraIndexDocumentMetadataConfigurationUpdatesBlock>>? DocumentMetadataConfigurationUpdates { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsKendraIndexDocumentMetadataConfigurationUpdatesBlock>>? DocumentMetadataConfigurationUpdates { get; set; }
 
     /// <summary>
     /// Block for server_side_encryption_configuration.
@@ -213,14 +213,14 @@ public partial class AwsKendraIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryptionConfiguration block(s) allowed")]
     [TerraformProperty("server_side_encryption_configuration")]
-    public TerraformList<TerraformBlock<AwsKendraIndexServerSideEncryptionConfigurationBlock>>? ServerSideEncryptionConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKendraIndexServerSideEncryptionConfigurationBlock>>? ServerSideEncryptionConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsKendraIndexTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsKendraIndexTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for user_group_resolution_configuration.
@@ -228,7 +228,7 @@ public partial class AwsKendraIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserGroupResolutionConfiguration block(s) allowed")]
     [TerraformProperty("user_group_resolution_configuration")]
-    public TerraformList<TerraformBlock<AwsKendraIndexUserGroupResolutionConfigurationBlock>>? UserGroupResolutionConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKendraIndexUserGroupResolutionConfigurationBlock>>? UserGroupResolutionConfiguration { get; set; }
 
     /// <summary>
     /// Block for user_token_configurations.
@@ -236,48 +236,48 @@ public partial class AwsKendraIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserTokenConfigurations block(s) allowed")]
     [TerraformProperty("user_token_configurations")]
-    public TerraformList<TerraformBlock<AwsKendraIndexUserTokenConfigurationsBlock>>? UserTokenConfigurations { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKendraIndexUserTokenConfigurationsBlock>>? UserTokenConfigurations { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformProperty("created_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedAt { get; }
+    public partial TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// The error_message attribute.
     /// </summary>
     [TerraformProperty("error_message")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ErrorMessage { get; }
+    public partial TerraformValue<string> ErrorMessage { get; }
 
     /// <summary>
     /// The index_statistics attribute.
     /// </summary>
     [TerraformProperty("index_statistics")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> IndexStatistics { get; }
+    public partial TerraformList<object> IndexStatistics { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     [TerraformProperty("updated_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdatedAt { get; }
+    public partial TerraformValue<string> UpdatedAt { get; }
 
 }

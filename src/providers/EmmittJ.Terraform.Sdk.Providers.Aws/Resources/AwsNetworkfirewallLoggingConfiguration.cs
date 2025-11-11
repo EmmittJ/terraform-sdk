@@ -25,7 +25,7 @@ public partial class AwsNetworkfirewallLoggingConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("enable_monitoring_dashboard")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> EnableMonitoringDashboard { get; set; }
+    public partial TerraformValue<bool> EnableMonitoringDashboard { get; set; }
 
     /// <summary>
     /// The firewall_arn attribute.
@@ -33,21 +33,21 @@ public partial class AwsNetworkfirewallLoggingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallArn is required")]
     [TerraformProperty("firewall_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FirewallArn { get; set; }
+    public required partial TerraformValue<string> FirewallArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for logging_configuration.
@@ -57,6 +57,6 @@ public partial class AwsNetworkfirewallLoggingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LoggingConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
     [TerraformProperty("logging_configuration")]
-    public TerraformList<TerraformBlock<AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlock>>? LoggingConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlock>>? LoggingConfiguration { get; set; }
 
 }

@@ -14,7 +14,7 @@ public partial class AwsElasticacheUserAuthenticationModeBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("passwords")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Passwords { get; set; }
+    public partial TerraformSet<string>? Passwords { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public partial class AwsElasticacheUserAuthenticationModeBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -37,28 +37,28 @@ public partial class AwsElasticacheUserTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -78,7 +78,7 @@ public partial class AwsElasticacheUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessString is required")]
     [TerraformProperty("access_string")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccessString { get; set; }
+    public required partial TerraformValue<string> AccessString { get; set; }
 
     /// <summary>
     /// The engine attribute.
@@ -86,49 +86,49 @@ public partial class AwsElasticacheUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
     [TerraformProperty("engine")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Engine { get; set; }
+    public required partial TerraformValue<string> Engine { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The no_password_required attribute.
     /// </summary>
     [TerraformProperty("no_password_required")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? NoPasswordRequired { get; set; }
+    public partial TerraformValue<bool>? NoPasswordRequired { get; set; }
 
     /// <summary>
     /// The passwords attribute.
     /// </summary>
     [TerraformProperty("passwords")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Passwords { get; set; }
+    public partial TerraformSet<string>? Passwords { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The user_id attribute.
@@ -136,7 +136,7 @@ public partial class AwsElasticacheUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     [TerraformProperty("user_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UserId { get; set; }
+    public required partial TerraformValue<string> UserId { get; set; }
 
     /// <summary>
     /// The user_name attribute.
@@ -144,7 +144,7 @@ public partial class AwsElasticacheUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     [TerraformProperty("user_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UserName { get; set; }
+    public required partial TerraformValue<string> UserName { get; set; }
 
     /// <summary>
     /// Block for authentication_mode.
@@ -152,20 +152,20 @@ public partial class AwsElasticacheUser : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticationMode block(s) allowed")]
     [TerraformProperty("authentication_mode")]
-    public TerraformList<TerraformBlock<AwsElasticacheUserAuthenticationModeBlock>>? AuthenticationMode { get; set; }
+    public partial TerraformList<TerraformBlock<AwsElasticacheUserAuthenticationModeBlock>>? AuthenticationMode { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsElasticacheUserTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsElasticacheUserTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

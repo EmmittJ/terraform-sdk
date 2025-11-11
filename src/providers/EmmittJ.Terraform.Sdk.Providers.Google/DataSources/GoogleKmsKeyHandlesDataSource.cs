@@ -16,7 +16,7 @@ public partial class GoogleKmsKeyHandlesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The canonical id for the location. For example: &amp;quot;us-east1&amp;quot;.
@@ -24,14 +24,14 @@ public partial class GoogleKmsKeyHandlesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Project ID of the project.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// 
@@ -44,13 +44,13 @@ public partial class GoogleKmsKeyHandlesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeSelector is required")]
     [TerraformProperty("resource_type_selector")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceTypeSelector { get; set; }
+    public required partial TerraformValue<string> ResourceTypeSelector { get; set; }
 
     /// <summary>
     /// A list of all the retrieved key handles
     /// </summary>
     [TerraformProperty("key_handles")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> KeyHandles { get; }
+    public partial TerraformList<object> KeyHandles { get; }
 
 }

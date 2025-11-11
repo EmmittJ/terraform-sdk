@@ -13,28 +13,28 @@ public partial class AzurermSpringCloudAppMysqlAssociationTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,14 +53,14 @@ public partial class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformProperty("database_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatabaseName { get; set; }
+    public required partial TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The mysql_server_id attribute.
@@ -68,7 +68,7 @@ public partial class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MysqlServerId is required")]
     [TerraformProperty("mysql_server_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MysqlServerId { get; set; }
+    public required partial TerraformValue<string> MysqlServerId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -76,7 +76,7 @@ public partial class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The password attribute.
@@ -84,7 +84,7 @@ public partial class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     [TerraformProperty("password")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Password { get; set; }
+    public required partial TerraformValue<string> Password { get; set; }
 
     /// <summary>
     /// The spring_cloud_app_id attribute.
@@ -92,7 +92,7 @@ public partial class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     [TerraformProperty("spring_cloud_app_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SpringCloudAppId { get; set; }
+    public required partial TerraformValue<string> SpringCloudAppId { get; set; }
 
     /// <summary>
     /// The username attribute.
@@ -100,13 +100,13 @@ public partial class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformProperty("username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Username { get; set; }
+    public required partial TerraformValue<string> Username { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSpringCloudAppMysqlAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSpringCloudAppMysqlAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

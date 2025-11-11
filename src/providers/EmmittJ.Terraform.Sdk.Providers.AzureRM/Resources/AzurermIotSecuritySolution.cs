@@ -14,7 +14,7 @@ public partial class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataTypes is required")]
     [TerraformProperty("data_types")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> DataTypes { get; set; }
+    public required partial TerraformSet<string> DataTypes { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -22,7 +22,7 @@ public partial class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformProperty("workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceId { get; set; }
+    public required partial TerraformValue<string> WorkspaceId { get; set; }
 
 }
 
@@ -37,112 +37,112 @@ public partial class AzurermIotSecuritySolutionRecommendationsEnabledBlock : Ter
     /// </summary>
     [TerraformProperty("acr_authentication")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AcrAuthentication { get; set; }
+    public partial TerraformValue<bool>? AcrAuthentication { get; set; }
 
     /// <summary>
     /// The agent_send_unutilized_msg attribute.
     /// </summary>
     [TerraformProperty("agent_send_unutilized_msg")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AgentSendUnutilizedMsg { get; set; }
+    public partial TerraformValue<bool>? AgentSendUnutilizedMsg { get; set; }
 
     /// <summary>
     /// The baseline attribute.
     /// </summary>
     [TerraformProperty("baseline")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Baseline { get; set; }
+    public partial TerraformValue<bool>? Baseline { get; set; }
 
     /// <summary>
     /// The edge_hub_mem_optimize attribute.
     /// </summary>
     [TerraformProperty("edge_hub_mem_optimize")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EdgeHubMemOptimize { get; set; }
+    public partial TerraformValue<bool>? EdgeHubMemOptimize { get; set; }
 
     /// <summary>
     /// The edge_logging_option attribute.
     /// </summary>
     [TerraformProperty("edge_logging_option")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EdgeLoggingOption { get; set; }
+    public partial TerraformValue<bool>? EdgeLoggingOption { get; set; }
 
     /// <summary>
     /// The inconsistent_module_settings attribute.
     /// </summary>
     [TerraformProperty("inconsistent_module_settings")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? InconsistentModuleSettings { get; set; }
+    public partial TerraformValue<bool>? InconsistentModuleSettings { get; set; }
 
     /// <summary>
     /// The install_agent attribute.
     /// </summary>
     [TerraformProperty("install_agent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? InstallAgent { get; set; }
+    public partial TerraformValue<bool>? InstallAgent { get; set; }
 
     /// <summary>
     /// The ip_filter_deny_all attribute.
     /// </summary>
     [TerraformProperty("ip_filter_deny_all")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IpFilterDenyAll { get; set; }
+    public partial TerraformValue<bool>? IpFilterDenyAll { get; set; }
 
     /// <summary>
     /// The ip_filter_permissive_rule attribute.
     /// </summary>
     [TerraformProperty("ip_filter_permissive_rule")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IpFilterPermissiveRule { get; set; }
+    public partial TerraformValue<bool>? IpFilterPermissiveRule { get; set; }
 
     /// <summary>
     /// The open_ports attribute.
     /// </summary>
     [TerraformProperty("open_ports")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? OpenPorts { get; set; }
+    public partial TerraformValue<bool>? OpenPorts { get; set; }
 
     /// <summary>
     /// The permissive_firewall_policy attribute.
     /// </summary>
     [TerraformProperty("permissive_firewall_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PermissiveFirewallPolicy { get; set; }
+    public partial TerraformValue<bool>? PermissiveFirewallPolicy { get; set; }
 
     /// <summary>
     /// The permissive_input_firewall_rules attribute.
     /// </summary>
     [TerraformProperty("permissive_input_firewall_rules")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PermissiveInputFirewallRules { get; set; }
+    public partial TerraformValue<bool>? PermissiveInputFirewallRules { get; set; }
 
     /// <summary>
     /// The permissive_output_firewall_rules attribute.
     /// </summary>
     [TerraformProperty("permissive_output_firewall_rules")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PermissiveOutputFirewallRules { get; set; }
+    public partial TerraformValue<bool>? PermissiveOutputFirewallRules { get; set; }
 
     /// <summary>
     /// The privileged_docker_options attribute.
     /// </summary>
     [TerraformProperty("privileged_docker_options")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PrivilegedDockerOptions { get; set; }
+    public partial TerraformValue<bool>? PrivilegedDockerOptions { get; set; }
 
     /// <summary>
     /// The shared_credentials attribute.
     /// </summary>
     [TerraformProperty("shared_credentials")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SharedCredentials { get; set; }
+    public partial TerraformValue<bool>? SharedCredentials { get; set; }
 
     /// <summary>
     /// The vulnerable_tls_cipher_suite attribute.
     /// </summary>
     [TerraformProperty("vulnerable_tls_cipher_suite")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? VulnerableTlsCipherSuite { get; set; }
+    public partial TerraformValue<bool>? VulnerableTlsCipherSuite { get; set; }
 
 }
 
@@ -157,28 +157,28 @@ public partial class AzurermIotSecuritySolutionTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -197,7 +197,7 @@ public partial class AzurermIotSecuritySolution : TerraformResource
     /// </summary>
     [TerraformProperty("disabled_data_sources")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? DisabledDataSources { get; set; }
+    public partial TerraformSet<string>? DisabledDataSources { get; set; }
 
     /// <summary>
     /// The display_name attribute.
@@ -205,28 +205,28 @@ public partial class AzurermIotSecuritySolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The events_to_export attribute.
     /// </summary>
     [TerraformProperty("events_to_export")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? EventsToExport { get; set; }
+    public partial TerraformSet<string>? EventsToExport { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The iothub_ids attribute.
@@ -234,7 +234,7 @@ public partial class AzurermIotSecuritySolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubIds is required")]
     [TerraformProperty("iothub_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> IothubIds { get; set; }
+    public required partial TerraformSet<string> IothubIds { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -242,21 +242,21 @@ public partial class AzurermIotSecuritySolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [TerraformProperty("log_analytics_workspace_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LogAnalyticsWorkspaceId { get; set; }
+    public partial TerraformValue<string>? LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The log_unmasked_ips_enabled attribute.
     /// </summary>
     [TerraformProperty("log_unmasked_ips_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LogUnmaskedIpsEnabled { get; set; }
+    public partial TerraformValue<bool>? LogUnmaskedIpsEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -264,21 +264,21 @@ public partial class AzurermIotSecuritySolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The query_for_resources attribute.
     /// </summary>
     [TerraformProperty("query_for_resources")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> QueryForResources { get; set; }
+    public partial TerraformValue<string> QueryForResources { get; set; }
 
     /// <summary>
     /// The query_subscription_ids attribute.
     /// </summary>
     [TerraformProperty("query_subscription_ids")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> QuerySubscriptionIds { get; set; }
+    public partial TerraformSet<string> QuerySubscriptionIds { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -286,21 +286,21 @@ public partial class AzurermIotSecuritySolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for additional_workspace.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("additional_workspace")]
-    public TerraformSet<TerraformBlock<AzurermIotSecuritySolutionAdditionalWorkspaceBlock>>? AdditionalWorkspace { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermIotSecuritySolutionAdditionalWorkspaceBlock>>? AdditionalWorkspace { get; set; }
 
     /// <summary>
     /// Block for recommendations_enabled.
@@ -308,13 +308,13 @@ public partial class AzurermIotSecuritySolution : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecommendationsEnabled block(s) allowed")]
     [TerraformProperty("recommendations_enabled")]
-    public TerraformList<TerraformBlock<AzurermIotSecuritySolutionRecommendationsEnabledBlock>>? RecommendationsEnabled { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermIotSecuritySolutionRecommendationsEnabledBlock>>? RecommendationsEnabled { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermIotSecuritySolutionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermIotSecuritySolutionTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,14 +13,14 @@ public partial class GoogleNetworkConnectivityPolicyBasedRouteFilterBlock : Terr
     /// </summary>
     [TerraformProperty("dest_range")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DestRange { get; set; }
+    public partial TerraformValue<string>? DestRange { get; set; }
 
     /// <summary>
     /// The IP protocol that this policy-based route applies to. Valid values are &#39;TCP&#39;, &#39;UDP&#39;, and &#39;ALL&#39;. Default is &#39;ALL&#39;.
     /// </summary>
     [TerraformProperty("ip_protocol")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpProtocol { get; set; }
+    public partial TerraformValue<string>? IpProtocol { get; set; }
 
     /// <summary>
     /// Internet protocol versions this policy-based route applies to. Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
@@ -28,14 +28,14 @@ public partial class GoogleNetworkConnectivityPolicyBasedRouteFilterBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolVersion is required")]
     [TerraformProperty("protocol_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProtocolVersion { get; set; }
+    public required partial TerraformValue<string> ProtocolVersion { get; set; }
 
     /// <summary>
     /// The source IP range of outgoing packets that this policy-based route applies to. Default is &amp;quot;0.0.0.0/0&amp;quot;.
     /// </summary>
     [TerraformProperty("src_range")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SrcRange { get; set; }
+    public partial TerraformValue<string>? SrcRange { get; set; }
 
 }
 
@@ -51,7 +51,7 @@ public partial class GoogleNetworkConnectivityPolicyBasedRouteInterconnectAttach
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     [TerraformProperty("region")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Region { get; set; }
+    public required partial TerraformValue<string> Region { get; set; }
 
 }
 
@@ -66,21 +66,21 @@ public partial class GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -96,7 +96,7 @@ public partial class GoogleNetworkConnectivityPolicyBasedRouteVirtualMachineBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tags is required")]
     [TerraformProperty("tags")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Tags { get; set; }
+    public partial TerraformList<string>? Tags { get; set; }
 
 }
 
@@ -115,14 +115,14 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResour
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// User-defined labels.
@@ -133,7 +133,7 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResour
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The name of the policy based route.
@@ -141,7 +141,7 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Fully-qualified URL of the network that this route applies to, for example: projects/my-project/global/networks/my-network.
@@ -149,35 +149,35 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformProperty("network")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Network { get; set; }
+    public required partial TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The IP address of a global-access-enabled L4 ILB that is the next hop for matching packets.
     /// </summary>
     [TerraformProperty("next_hop_ilb_ip")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NextHopIlbIp { get; set; }
+    public partial TerraformValue<string>? NextHopIlbIp { get; set; }
 
     /// <summary>
     /// Other routes that will be referenced to determine the next hop of the packet. Possible values: [&amp;quot;DEFAULT_ROUTING&amp;quot;]
     /// </summary>
     [TerraformProperty("next_hop_other_routes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NextHopOtherRoutes { get; set; }
+    public partial TerraformValue<string>? NextHopOtherRoutes { get; set; }
 
     /// <summary>
     /// The priority of this policy-based route. Priority is used to break ties in cases where there are more than one matching policy-based routes found. In cases where multiple policy-based routes are matched, the one with the lowest-numbered priority value wins. The default value is 1000. The priority value must be from 1 to 65535, inclusive.
     /// </summary>
     [TerraformProperty("priority")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Priority { get; set; }
+    public partial TerraformValue<double>? Priority { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for filter.
@@ -187,7 +187,7 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResour
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public TerraformList<TerraformBlock<GoogleNetworkConnectivityPolicyBasedRouteFilterBlock>>? Filter { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivityPolicyBasedRouteFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for interconnect_attachment.
@@ -195,14 +195,14 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InterconnectAttachment block(s) allowed")]
     [TerraformProperty("interconnect_attachment")]
-    public TerraformList<TerraformBlock<GoogleNetworkConnectivityPolicyBasedRouteInterconnectAttachmentBlock>>? InterconnectAttachment { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivityPolicyBasedRouteInterconnectAttachmentBlock>>? InterconnectAttachment { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for virtual_machine.
@@ -210,28 +210,28 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualMachine block(s) allowed")]
     [TerraformProperty("virtual_machine")]
-    public TerraformList<TerraformBlock<GoogleNetworkConnectivityPolicyBasedRouteVirtualMachineBlock>>? VirtualMachine { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivityPolicyBasedRouteVirtualMachineBlock>>? VirtualMachine { get; set; }
 
     /// <summary>
     /// Time when the policy-based route was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Type of this resource.
     /// </summary>
     [TerraformProperty("kind")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Kind { get; }
+    public partial TerraformValue<string> Kind { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -239,20 +239,20 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResour
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Time when the policy-based route was created.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// If potential misconfigurations are detected for this route, this field will be populated with warning messages.
     /// </summary>
     [TerraformProperty("warnings")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Warnings { get; }
+    public partial TerraformList<object> Warnings { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AwsConfigConformancePackInputParameterBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     [TerraformProperty("parameter_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ParameterName { get; set; }
+    public required partial TerraformValue<string> ParameterName { get; set; }
 
     /// <summary>
     /// The parameter_value attribute.
@@ -22,7 +22,7 @@ public partial class AwsConfigConformancePackInputParameterBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     [TerraformProperty("parameter_value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ParameterValue { get; set; }
+    public required partial TerraformValue<string> ParameterValue { get; set; }
 
 }
 
@@ -41,21 +41,21 @@ public partial class AwsConfigConformancePack : TerraformResource
     /// </summary>
     [TerraformProperty("delivery_s3_bucket")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeliveryS3Bucket { get; set; }
+    public partial TerraformValue<string>? DeliveryS3Bucket { get; set; }
 
     /// <summary>
     /// The delivery_s3_key_prefix attribute.
     /// </summary>
     [TerraformProperty("delivery_s3_key_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeliveryS3KeyPrefix { get; set; }
+    public partial TerraformValue<string>? DeliveryS3KeyPrefix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -63,28 +63,28 @@ public partial class AwsConfigConformancePack : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The template_body attribute.
     /// </summary>
     [TerraformProperty("template_body")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TemplateBody { get; set; }
+    public partial TerraformValue<string>? TemplateBody { get; set; }
 
     /// <summary>
     /// The template_s3_uri attribute.
     /// </summary>
     [TerraformProperty("template_s3_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TemplateS3Uri { get; set; }
+    public partial TerraformValue<string>? TemplateS3Uri { get; set; }
 
     /// <summary>
     /// Block for input_parameter.
@@ -92,13 +92,13 @@ public partial class AwsConfigConformancePack : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(60, ErrorMessage = "Maximum 60 InputParameter block(s) allowed")]
     [TerraformProperty("input_parameter")]
-    public TerraformSet<TerraformBlock<AwsConfigConformancePackInputParameterBlock>>? InputParameter { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsConfigConformancePackInputParameterBlock>>? InputParameter { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

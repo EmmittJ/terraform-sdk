@@ -13,28 +13,28 @@ public partial class AzurermMssqlJobScheduleTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,28 +52,28 @@ public partial class AzurermMssqlJobSchedule : TerraformResource
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> Enabled { get; set; }
+    public partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
     [TerraformProperty("end_time")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> EndTime { get; set; }
+    public partial TerraformValue<string> EndTime { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
     [TerraformProperty("interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Interval { get; set; }
+    public partial TerraformValue<string>? Interval { get; set; }
 
     /// <summary>
     /// The job_id attribute.
@@ -81,14 +81,14 @@ public partial class AzurermMssqlJobSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobId is required")]
     [TerraformProperty("job_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> JobId { get; set; }
+    public required partial TerraformValue<string> JobId { get; set; }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     [TerraformProperty("start_time")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> StartTime { get; set; }
+    public partial TerraformValue<string> StartTime { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -96,13 +96,13 @@ public partial class AzurermMssqlJobSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMssqlJobScheduleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMssqlJobScheduleTimeoutsBlock>? Timeouts { get; set; }
 
 }

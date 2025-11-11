@@ -14,7 +14,7 @@ public partial class AwsMedialiveInputDestinationsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
     [TerraformProperty("stream_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StreamName { get; set; }
+    public required partial TerraformValue<string> StreamName { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public partial class AwsMedialiveInputInputDevicesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AwsMedialiveInputMediaConnectFlowsBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowArn is required")]
     [TerraformProperty("flow_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FlowArn { get; set; }
+    public required partial TerraformValue<string> FlowArn { get; set; }
 
 }
 
@@ -62,7 +62,7 @@ public partial class AwsMedialiveInputSourcesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasswordParam is required")]
     [TerraformProperty("password_param")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PasswordParam { get; set; }
+    public required partial TerraformValue<string> PasswordParam { get; set; }
 
     /// <summary>
     /// The url attribute.
@@ -70,7 +70,7 @@ public partial class AwsMedialiveInputSourcesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     [TerraformProperty("url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Url { get; set; }
+    public required partial TerraformValue<string> Url { get; set; }
 
     /// <summary>
     /// The username attribute.
@@ -78,7 +78,7 @@ public partial class AwsMedialiveInputSourcesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformProperty("username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Username { get; set; }
+    public required partial TerraformValue<string> Username { get; set; }
 
 }
 
@@ -93,21 +93,21 @@ public partial class AwsMedialiveInputTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -122,7 +122,7 @@ public partial class AwsMedialiveInputVpcBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("security_group_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? SecurityGroupIds { get; set; }
+    public partial TerraformList<string>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
@@ -130,7 +130,7 @@ public partial class AwsMedialiveInputVpcBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     [TerraformProperty("subnet_ids")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? SubnetIds { get; set; }
+    public partial TerraformList<string>? SubnetIds { get; set; }
 
 }
 
@@ -149,14 +149,14 @@ public partial class AwsMedialiveInput : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The input_security_groups attribute.
     /// </summary>
     [TerraformProperty("input_security_groups")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? InputSecurityGroups { get; set; }
+    public partial TerraformList<string>? InputSecurityGroups { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -164,35 +164,35 @@ public partial class AwsMedialiveInput : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [TerraformProperty("role_arn")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> RoleArn { get; set; }
+    public partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -200,42 +200,42 @@ public partial class AwsMedialiveInput : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for destinations.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("destinations")]
-    public TerraformSet<TerraformBlock<AwsMedialiveInputDestinationsBlock>>? Destinations { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsMedialiveInputDestinationsBlock>>? Destinations { get; set; }
 
     /// <summary>
     /// Block for input_devices.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("input_devices")]
-    public TerraformSet<TerraformBlock<AwsMedialiveInputInputDevicesBlock>>? InputDevices { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsMedialiveInputInputDevicesBlock>>? InputDevices { get; set; }
 
     /// <summary>
     /// Block for media_connect_flows.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("media_connect_flows")]
-    public TerraformSet<TerraformBlock<AwsMedialiveInputMediaConnectFlowsBlock>>? MediaConnectFlows { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsMedialiveInputMediaConnectFlowsBlock>>? MediaConnectFlows { get; set; }
 
     /// <summary>
     /// Block for sources.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("sources")]
-    public TerraformSet<TerraformBlock<AwsMedialiveInputSourcesBlock>>? Sources { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsMedialiveInputSourcesBlock>>? Sources { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsMedialiveInputTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsMedialiveInputTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vpc.
@@ -243,41 +243,41 @@ public partial class AwsMedialiveInput : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Vpc block(s) allowed")]
     [TerraformProperty("vpc")]
-    public TerraformList<TerraformBlock<AwsMedialiveInputVpcBlock>>? Vpc { get; set; }
+    public partial TerraformList<TerraformBlock<AwsMedialiveInputVpcBlock>>? Vpc { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The attached_channels attribute.
     /// </summary>
     [TerraformProperty("attached_channels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> AttachedChannels { get; }
+    public partial TerraformList<string> AttachedChannels { get; }
 
     /// <summary>
     /// The input_class attribute.
     /// </summary>
     [TerraformProperty("input_class")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> InputClass { get; }
+    public partial TerraformValue<string> InputClass { get; }
 
     /// <summary>
     /// The input_partner_ids attribute.
     /// </summary>
     [TerraformProperty("input_partner_ids")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> InputPartnerIds { get; }
+    public partial TerraformList<string> InputPartnerIds { get; }
 
     /// <summary>
     /// The input_source_type attribute.
     /// </summary>
     [TerraformProperty("input_source_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> InputSourceType { get; }
+    public partial TerraformValue<string> InputSourceType { get; }
 
 }

@@ -13,28 +13,28 @@ public partial class AzurermApiManagementAuthorizationServerTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -50,7 +50,7 @@ public partial class AzurermApiManagementAuthorizationServerTokenBodyParameterBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -58,7 +58,7 @@ public partial class AzurermApiManagementAuthorizationServerTokenBodyParameterBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
 }
 
@@ -77,7 +77,7 @@ public partial class AzurermApiManagementAuthorizationServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     [TerraformProperty("api_management_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiManagementName { get; set; }
+    public required partial TerraformValue<string> ApiManagementName { get; set; }
 
     /// <summary>
     /// The authorization_endpoint attribute.
@@ -85,7 +85,7 @@ public partial class AzurermApiManagementAuthorizationServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationEndpoint is required")]
     [TerraformProperty("authorization_endpoint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AuthorizationEndpoint { get; set; }
+    public required partial TerraformValue<string> AuthorizationEndpoint { get; set; }
 
     /// <summary>
     /// The authorization_methods attribute.
@@ -93,21 +93,21 @@ public partial class AzurermApiManagementAuthorizationServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationMethods is required")]
     [TerraformProperty("authorization_methods")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> AuthorizationMethods { get; set; }
+    public required partial TerraformSet<string> AuthorizationMethods { get; set; }
 
     /// <summary>
     /// The bearer_token_sending_methods attribute.
     /// </summary>
     [TerraformProperty("bearer_token_sending_methods")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? BearerTokenSendingMethods { get; set; }
+    public partial TerraformSet<string>? BearerTokenSendingMethods { get; set; }
 
     /// <summary>
     /// The client_authentication_method attribute.
     /// </summary>
     [TerraformProperty("client_authentication_method")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ClientAuthenticationMethod { get; set; }
+    public partial TerraformSet<string>? ClientAuthenticationMethod { get; set; }
 
     /// <summary>
     /// The client_id attribute.
@@ -115,7 +115,7 @@ public partial class AzurermApiManagementAuthorizationServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     [TerraformProperty("client_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientId { get; set; }
+    public required partial TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The client_registration_endpoint attribute.
@@ -123,28 +123,28 @@ public partial class AzurermApiManagementAuthorizationServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientRegistrationEndpoint is required")]
     [TerraformProperty("client_registration_endpoint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientRegistrationEndpoint { get; set; }
+    public required partial TerraformValue<string> ClientRegistrationEndpoint { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
     [TerraformProperty("client_secret")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientSecret { get; set; }
+    public partial TerraformValue<string>? ClientSecret { get; set; }
 
     /// <summary>
     /// The default_scope attribute.
     /// </summary>
     [TerraformProperty("default_scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultScope { get; set; }
+    public partial TerraformValue<string>? DefaultScope { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
@@ -152,7 +152,7 @@ public partial class AzurermApiManagementAuthorizationServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The grant_types attribute.
@@ -160,14 +160,14 @@ public partial class AzurermApiManagementAuthorizationServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrantTypes is required")]
     [TerraformProperty("grant_types")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> GrantTypes { get; set; }
+    public required partial TerraformSet<string> GrantTypes { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -175,7 +175,7 @@ public partial class AzurermApiManagementAuthorizationServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -183,48 +183,48 @@ public partial class AzurermApiManagementAuthorizationServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The resource_owner_password attribute.
     /// </summary>
     [TerraformProperty("resource_owner_password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResourceOwnerPassword { get; set; }
+    public partial TerraformValue<string>? ResourceOwnerPassword { get; set; }
 
     /// <summary>
     /// The resource_owner_username attribute.
     /// </summary>
     [TerraformProperty("resource_owner_username")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResourceOwnerUsername { get; set; }
+    public partial TerraformValue<string>? ResourceOwnerUsername { get; set; }
 
     /// <summary>
     /// The support_state attribute.
     /// </summary>
     [TerraformProperty("support_state")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SupportState { get; set; }
+    public partial TerraformValue<bool>? SupportState { get; set; }
 
     /// <summary>
     /// The token_endpoint attribute.
     /// </summary>
     [TerraformProperty("token_endpoint")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TokenEndpoint { get; set; }
+    public partial TerraformValue<string>? TokenEndpoint { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApiManagementAuthorizationServerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApiManagementAuthorizationServerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for token_body_parameter.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("token_body_parameter")]
-    public TerraformList<TerraformBlock<AzurermApiManagementAuthorizationServerTokenBodyParameterBlock>>? TokenBodyParameter { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermApiManagementAuthorizationServerTokenBodyParameterBlock>>? TokenBodyParameter { get; set; }
 
 }

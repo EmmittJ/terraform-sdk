@@ -13,7 +13,7 @@ public partial class AwsBedrockProvisionedModelThroughputTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AwsBedrockProvisionedModelThroughput : TerraformResource
     /// </summary>
     [TerraformProperty("commitment_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CommitmentDuration { get; set; }
+    public partial TerraformValue<string>? CommitmentDuration { get; set; }
 
     /// <summary>
     /// The model_arn attribute.
@@ -39,7 +39,7 @@ public partial class AwsBedrockProvisionedModelThroughput : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelArn is required")]
     [TerraformProperty("model_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ModelArn { get; set; }
+    public required partial TerraformValue<string> ModelArn { get; set; }
 
     /// <summary>
     /// The model_units attribute.
@@ -47,7 +47,7 @@ public partial class AwsBedrockProvisionedModelThroughput : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelUnits is required")]
     [TerraformProperty("model_units")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ModelUnits { get; set; }
+    public required partial TerraformValue<double> ModelUnits { get; set; }
 
     /// <summary>
     /// The provisioned_model_name attribute.
@@ -55,48 +55,48 @@ public partial class AwsBedrockProvisionedModelThroughput : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvisionedModelName is required")]
     [TerraformProperty("provisioned_model_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProvisionedModelName { get; set; }
+    public required partial TerraformValue<string> ProvisionedModelName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsBedrockProvisionedModelThroughputTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsBedrockProvisionedModelThroughputTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The provisioned_model_arn attribute.
     /// </summary>
     [TerraformProperty("provisioned_model_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ProvisionedModelArn { get; }
+    public partial TerraformValue<string> ProvisionedModelArn { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
 }

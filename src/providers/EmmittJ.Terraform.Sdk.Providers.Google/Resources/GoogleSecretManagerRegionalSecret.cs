@@ -14,7 +14,7 @@ public partial class GoogleSecretManagerRegionalSecretCustomerManagedEncryptionB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     [TerraformProperty("kms_key_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KmsKeyName { get; set; }
+    public required partial TerraformValue<string> KmsKeyName { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class GoogleSecretManagerRegionalSecretRotationBlock : TerraformB
     /// </summary>
     [TerraformProperty("next_rotation_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NextRotationTime { get; set; }
+    public partial TerraformValue<string>? NextRotationTime { get; set; }
 
     /// <summary>
     /// The Duration between rotation notifications. Must be in seconds and at least 3600s (1h)
@@ -41,7 +41,7 @@ public partial class GoogleSecretManagerRegionalSecretRotationBlock : TerraformB
     /// </summary>
     [TerraformProperty("rotation_period")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RotationPeriod { get; set; }
+    public partial TerraformValue<string>? RotationPeriod { get; set; }
 
 }
 
@@ -56,21 +56,21 @@ public partial class GoogleSecretManagerRegionalSecretTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -88,7 +88,7 @@ public partial class GoogleSecretManagerRegionalSecretTopicsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -124,7 +124,7 @@ public partial class GoogleSecretManagerRegionalSecret : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the regional secret. Defaults to false.
@@ -133,7 +133,7 @@ public partial class GoogleSecretManagerRegionalSecret : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeletionProtection { get; set; }
+    public partial TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// Timestamp in UTC when the regional secret is scheduled to expire. This is always provided on
@@ -143,14 +143,14 @@ public partial class GoogleSecretManagerRegionalSecret : TerraformResource
     /// </summary>
     [TerraformProperty("expire_time")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ExpireTime { get; set; }
+    public partial TerraformValue<string> ExpireTime { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The labels assigned to this regional secret.
@@ -172,7 +172,7 @@ public partial class GoogleSecretManagerRegionalSecret : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the regional secret. eg us-central1
@@ -180,14 +180,14 @@ public partial class GoogleSecretManagerRegionalSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// This must be unique within the project.
@@ -195,7 +195,7 @@ public partial class GoogleSecretManagerRegionalSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     [TerraformProperty("secret_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SecretId { get; set; }
+    public required partial TerraformValue<string> SecretId { get; set; }
 
     /// <summary>
     /// A map of resource manager tags.
@@ -204,7 +204,7 @@ public partial class GoogleSecretManagerRegionalSecret : TerraformResource
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The TTL for the regional secret. A duration in seconds with up to nine fractional digits,
@@ -212,7 +212,7 @@ public partial class GoogleSecretManagerRegionalSecret : TerraformResource
     /// </summary>
     [TerraformProperty("ttl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Ttl { get; set; }
+    public partial TerraformValue<string>? Ttl { get; set; }
 
     /// <summary>
     /// Mapping from version alias to version name.
@@ -227,7 +227,7 @@ public partial class GoogleSecretManagerRegionalSecret : TerraformResource
     /// </summary>
     [TerraformProperty("version_aliases")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? VersionAliases { get; set; }
+    public partial TerraformMap<string>? VersionAliases { get; set; }
 
     /// <summary>
     /// Secret Version TTL after destruction request.
@@ -238,7 +238,7 @@ public partial class GoogleSecretManagerRegionalSecret : TerraformResource
     /// </summary>
     [TerraformProperty("version_destroy_ttl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VersionDestroyTtl { get; set; }
+    public partial TerraformValue<string>? VersionDestroyTtl { get; set; }
 
     /// <summary>
     /// Block for customer_managed_encryption.
@@ -246,7 +246,7 @@ public partial class GoogleSecretManagerRegionalSecret : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedEncryption block(s) allowed")]
     [TerraformProperty("customer_managed_encryption")]
-    public TerraformList<TerraformBlock<GoogleSecretManagerRegionalSecretCustomerManagedEncryptionBlock>>? CustomerManagedEncryption { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleSecretManagerRegionalSecretCustomerManagedEncryptionBlock>>? CustomerManagedEncryption { get; set; }
 
     /// <summary>
     /// Block for rotation.
@@ -254,42 +254,42 @@ public partial class GoogleSecretManagerRegionalSecret : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rotation block(s) allowed")]
     [TerraformProperty("rotation")]
-    public TerraformList<TerraformBlock<GoogleSecretManagerRegionalSecretRotationBlock>>? Rotation { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleSecretManagerRegionalSecretRotationBlock>>? Rotation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleSecretManagerRegionalSecretTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleSecretManagerRegionalSecretTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for topics.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("topics")]
-    public TerraformList<TerraformBlock<GoogleSecretManagerRegionalSecretTopicsBlock>>? Topics { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleSecretManagerRegionalSecretTopicsBlock>>? Topics { get; set; }
 
     /// <summary>
     /// The time at which the regional secret was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The resource name of the regional secret. Format:
@@ -297,7 +297,7 @@ public partial class GoogleSecretManagerRegionalSecret : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -305,6 +305,6 @@ public partial class GoogleSecretManagerRegionalSecret : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AwsLexSlotTypeEnumerationValueBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("synonyms")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Synonyms { get; set; }
+    public partial TerraformSet<string>? Synonyms { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -21,7 +21,7 @@ public partial class AwsLexSlotTypeEnumerationValueBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
 }
 
@@ -36,21 +36,21 @@ public partial class AwsLexSlotTypeTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -69,21 +69,21 @@ public partial class AwsLexSlotType : TerraformResource
     /// </summary>
     [TerraformProperty("create_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CreateVersion { get; set; }
+    public partial TerraformValue<bool>? CreateVersion { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -91,21 +91,21 @@ public partial class AwsLexSlotType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The value_selection_strategy attribute.
     /// </summary>
     [TerraformProperty("value_selection_strategy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ValueSelectionStrategy { get; set; }
+    public partial TerraformValue<string>? ValueSelectionStrategy { get; set; }
 
     /// <summary>
     /// Block for enumeration_value.
@@ -115,41 +115,41 @@ public partial class AwsLexSlotType : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EnumerationValue block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10000, ErrorMessage = "Maximum 10000 EnumerationValue block(s) allowed")]
     [TerraformProperty("enumeration_value")]
-    public TerraformSet<TerraformBlock<AwsLexSlotTypeEnumerationValueBlock>>? EnumerationValue { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsLexSlotTypeEnumerationValueBlock>>? EnumerationValue { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsLexSlotTypeTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsLexSlotTypeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The checksum attribute.
     /// </summary>
     [TerraformProperty("checksum")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Checksum { get; }
+    public partial TerraformValue<string> Checksum { get; }
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     [TerraformProperty("created_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedDate { get; }
+    public partial TerraformValue<string> CreatedDate { get; }
 
     /// <summary>
     /// The last_updated_date attribute.
     /// </summary>
     [TerraformProperty("last_updated_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastUpdatedDate { get; }
+    public partial TerraformValue<string> LastUpdatedDate { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Version { get; }
+    public partial TerraformValue<string> Version { get; }
 
 }

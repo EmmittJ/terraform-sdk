@@ -17,14 +17,14 @@ public partial class GoogleSecretManagerSecretVersionEphemeralResource : Terrafo
     /// </summary>
     [TerraformProperty("is_secret_data_base64")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IsSecretDataBase64 { get; set; }
+    public partial TerraformValue<bool>? IsSecretDataBase64 { get; set; }
 
     /// <summary>
     /// The project to get the secret version for. If it is not provided, the provider project is used.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The secret to get the secret version for.
@@ -32,48 +32,48 @@ public partial class GoogleSecretManagerSecretVersionEphemeralResource : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     [TerraformProperty("secret")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Secret { get; set; }
+    public required partial TerraformValue<string> Secret { get; set; }
 
     /// <summary>
     /// The version of the secret to get. If it is not provided, the latest version is retrieved.
     /// </summary>
     [TerraformProperty("version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Version { get; set; }
+    public partial TerraformValue<string>? Version { get; set; }
 
     /// <summary>
     /// The time at which the Secret was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The time at which the Secret was destroyed. Only present if state is DESTROYED.
     /// </summary>
     [TerraformProperty("destroy_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DestroyTime { get; }
+    public partial TerraformValue<string> DestroyTime { get; }
 
     /// <summary>
     /// True if the current state of the SecretVersion is enabled.
     /// </summary>
     [TerraformProperty("enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Enabled { get; }
+    public partial TerraformValue<bool> Enabled { get; }
 
     /// <summary>
     /// The resource name of the SecretVersion. Format: `projects/{{project}}/secrets/{{secret_id}}/versions/{{version}}`.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The secret data. No larger than 64KiB.
     /// </summary>
     [TerraformProperty("secret_data")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecretData { get; }
+    public partial TerraformValue<string> SecretData { get; }
 
 }

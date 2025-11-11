@@ -13,7 +13,7 @@ public partial class AwsS3controlAccessGrantAccessGrantsLocationConfigurationBlo
     /// </summary>
     [TerraformProperty("s3_sub_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? S3SubPrefix { get; set; }
+    public partial TerraformValue<string>? S3SubPrefix { get; set; }
 
 }
 
@@ -29,7 +29,7 @@ public partial class AwsS3controlAccessGrantGranteeBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteeIdentifier is required")]
     [TerraformProperty("grantee_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GranteeIdentifier { get; set; }
+    public required partial TerraformValue<string> GranteeIdentifier { get; set; }
 
     /// <summary>
     /// The grantee_type attribute.
@@ -37,7 +37,7 @@ public partial class AwsS3controlAccessGrantGranteeBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteeType is required")]
     [TerraformProperty("grantee_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GranteeType { get; set; }
+    public required partial TerraformValue<string> GranteeType { get; set; }
 
 }
 
@@ -56,14 +56,14 @@ public partial class AwsS3controlAccessGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessGrantsLocationId is required")]
     [TerraformProperty("access_grants_location_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccessGrantsLocationId { get; set; }
+    public required partial TerraformValue<string> AccessGrantsLocationId { get; set; }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
     [TerraformProperty("account_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AccountId { get; set; }
+    public partial TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The permission attribute.
@@ -71,76 +71,76 @@ public partial class AwsS3controlAccessGrant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     [TerraformProperty("permission")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Permission { get; set; }
+    public required partial TerraformValue<string> Permission { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The s3_prefix_type attribute.
     /// </summary>
     [TerraformProperty("s3_prefix_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? S3PrefixType { get; set; }
+    public partial TerraformValue<string>? S3PrefixType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for access_grants_location_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("access_grants_location_configuration")]
-    public TerraformList<TerraformBlock<AwsS3controlAccessGrantAccessGrantsLocationConfigurationBlock>>? AccessGrantsLocationConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3controlAccessGrantAccessGrantsLocationConfigurationBlock>>? AccessGrantsLocationConfiguration { get; set; }
 
     /// <summary>
     /// Block for grantee.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("grantee")]
-    public TerraformList<TerraformBlock<AwsS3controlAccessGrantGranteeBlock>>? Grantee { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3controlAccessGrantGranteeBlock>>? Grantee { get; set; }
 
     /// <summary>
     /// The access_grant_arn attribute.
     /// </summary>
     [TerraformProperty("access_grant_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AccessGrantArn { get; }
+    public partial TerraformValue<string> AccessGrantArn { get; }
 
     /// <summary>
     /// The access_grant_id attribute.
     /// </summary>
     [TerraformProperty("access_grant_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AccessGrantId { get; }
+    public partial TerraformValue<string> AccessGrantId { get; }
 
     /// <summary>
     /// The grant_scope attribute.
     /// </summary>
     [TerraformProperty("grant_scope")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GrantScope { get; }
+    public partial TerraformValue<string> GrantScope { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
 }

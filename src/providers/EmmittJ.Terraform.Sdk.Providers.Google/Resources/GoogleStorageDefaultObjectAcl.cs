@@ -17,20 +17,20 @@ public partial class GoogleStorageDefaultObjectAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The role_entity attribute.
     /// </summary>
     [TerraformProperty("role_entity")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> RoleEntity { get; set; }
+    public partial TerraformSet<string> RoleEntity { get; set; }
 
 }

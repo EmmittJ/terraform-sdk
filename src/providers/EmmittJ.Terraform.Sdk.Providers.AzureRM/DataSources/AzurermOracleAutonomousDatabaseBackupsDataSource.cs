@@ -13,7 +13,7 @@ public partial class AzurermOracleAutonomousDatabaseBackupsDataSourceTimeoutsBlo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,27 +32,27 @@ public partial class AzurermOracleAutonomousDatabaseBackupsDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
     [TerraformProperty("autonomous_database_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AutonomousDatabaseId { get; set; }
+    public required partial TerraformValue<string> AutonomousDatabaseId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermOracleAutonomousDatabaseBackupsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermOracleAutonomousDatabaseBackupsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The autonomous_database_backups attribute.
     /// </summary>
     [TerraformProperty("autonomous_database_backups")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> AutonomousDatabaseBackups { get; }
+    public partial TerraformList<object> AutonomousDatabaseBackups { get; }
 
 }

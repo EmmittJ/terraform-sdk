@@ -13,14 +13,14 @@ public partial class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("boot_disk_size_gb")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BootDiskSizeGb { get; set; }
+    public partial TerraformValue<double>? BootDiskSizeGb { get; set; }
 
     /// <summary>
     /// The number of CPUs for each node in the node pool.
     /// </summary>
     [TerraformProperty("cpus")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Cpus { get; set; }
+    public partial TerraformValue<double>? Cpus { get; set; }
 
     /// <summary>
     /// Allow node pool traffic to be load balanced. Only works for clusters with
@@ -28,14 +28,14 @@ public partial class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("enable_load_balancer")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableLoadBalancer { get; set; }
+    public partial TerraformValue<bool>? EnableLoadBalancer { get; set; }
 
     /// <summary>
     /// The OS image name in vCenter, only valid when using Windows.
     /// </summary>
     [TerraformProperty("image")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Image { get; set; }
+    public partial TerraformValue<string> Image { get; set; }
 
     /// <summary>
     /// The OS image to be used for each node in a node pool.
@@ -44,7 +44,7 @@ public partial class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageType is required")]
     [TerraformProperty("image_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ImageType { get; set; }
+    public required partial TerraformValue<string> ImageType { get; set; }
 
     /// <summary>
     /// The map of Kubernetes labels (key/value pairs) to be applied to each node.
@@ -56,21 +56,21 @@ public partial class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("labels")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Labels { get; set; }
+    public partial TerraformMap<string> Labels { get; set; }
 
     /// <summary>
     /// The megabytes of memory for each node in the node pool.
     /// </summary>
     [TerraformProperty("memory_mb")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MemoryMb { get; set; }
+    public partial TerraformValue<double>? MemoryMb { get; set; }
 
     /// <summary>
     /// The number of nodes in the node pool.
     /// </summary>
     [TerraformProperty("replicas")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Replicas { get; set; }
+    public partial TerraformValue<double>? Replicas { get; set; }
 
 }
 
@@ -86,7 +86,7 @@ public partial class GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxReplicas is required")]
     [TerraformProperty("max_replicas")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MaxReplicas { get; set; }
+    public required partial TerraformValue<double> MaxReplicas { get; set; }
 
     /// <summary>
     /// Minimum number of replicas in the NodePool.
@@ -94,7 +94,7 @@ public partial class GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicas is required")]
     [TerraformProperty("min_replicas")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MinReplicas { get; set; }
+    public required partial TerraformValue<double> MinReplicas { get; set; }
 
 }
 
@@ -109,21 +109,21 @@ public partial class GoogleGkeonpremVmwareNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -153,21 +153,21 @@ public partial class GoogleGkeonpremVmwareNodePool : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// The display name for the node pool.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the resource.
@@ -175,7 +175,7 @@ public partial class GoogleGkeonpremVmwareNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The vmware node pool name.
@@ -183,21 +183,21 @@ public partial class GoogleGkeonpremVmwareNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Anthos version for the node pool. Defaults to the user cluster version.
     /// </summary>
     [TerraformProperty("on_prem_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OnPremVersion { get; set; }
+    public partial TerraformValue<string>? OnPremVersion { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The cluster this node pool belongs to.
@@ -205,7 +205,7 @@ public partial class GoogleGkeonpremVmwareNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareCluster is required")]
     [TerraformProperty("vmware_cluster")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VmwareCluster { get; set; }
+    public required partial TerraformValue<string> VmwareCluster { get; set; }
 
     /// <summary>
     /// Block for config.
@@ -215,7 +215,7 @@ public partial class GoogleGkeonpremVmwareNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     [TerraformProperty("config")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareNodePoolConfigBlock>>? Config { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareNodePoolConfigBlock>>? Config { get; set; }
 
     /// <summary>
     /// Block for node_pool_autoscaling.
@@ -223,35 +223,35 @@ public partial class GoogleGkeonpremVmwareNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodePoolAutoscaling block(s) allowed")]
     [TerraformProperty("node_pool_autoscaling")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock>>? NodePoolAutoscaling { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock>>? NodePoolAutoscaling { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleGkeonpremVmwareNodePoolTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleGkeonpremVmwareNodePoolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The time the cluster was deleted, in RFC3339 text format.
     /// </summary>
     [TerraformProperty("delete_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeleteTime { get; }
+    public partial TerraformValue<string> DeleteTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -262,41 +262,41 @@ public partial class GoogleGkeonpremVmwareNodePool : TerraformResource
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// If set, there are currently changes in flight to the node pool.
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// The current state of this cluster.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// ResourceStatus representing detailed cluster state.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Status { get; }
+    public partial TerraformList<object> Status { get; }
 
     /// <summary>
     /// The unique identifier of the node pool.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

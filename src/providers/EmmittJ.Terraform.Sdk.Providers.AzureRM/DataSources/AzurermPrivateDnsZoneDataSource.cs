@@ -13,7 +13,7 @@ public partial class AzurermPrivateDnsZoneDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermPrivateDnsZoneDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,55 +39,55 @@ public partial class AzurermPrivateDnsZoneDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [TerraformProperty("resource_group_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ResourceGroupName { get; set; }
+    public partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPrivateDnsZoneDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPrivateDnsZoneDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The max_number_of_record_sets attribute.
     /// </summary>
     [TerraformProperty("max_number_of_record_sets")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> MaxNumberOfRecordSets { get; }
+    public partial TerraformValue<double> MaxNumberOfRecordSets { get; }
 
     /// <summary>
     /// The max_number_of_virtual_network_links attribute.
     /// </summary>
     [TerraformProperty("max_number_of_virtual_network_links")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> MaxNumberOfVirtualNetworkLinks { get; }
+    public partial TerraformValue<double> MaxNumberOfVirtualNetworkLinks { get; }
 
     /// <summary>
     /// The max_number_of_virtual_network_links_with_registration attribute.
     /// </summary>
     [TerraformProperty("max_number_of_virtual_network_links_with_registration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> MaxNumberOfVirtualNetworkLinksWithRegistration { get; }
+    public partial TerraformValue<double> MaxNumberOfVirtualNetworkLinksWithRegistration { get; }
 
     /// <summary>
     /// The number_of_record_sets attribute.
     /// </summary>
     [TerraformProperty("number_of_record_sets")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> NumberOfRecordSets { get; }
+    public partial TerraformValue<double> NumberOfRecordSets { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermMobileNetworkServiceDataSourceTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermMobileNetworkServiceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The mobile_network_id attribute.
@@ -39,7 +39,7 @@ public partial class AzurermMobileNetworkServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
     [TerraformProperty("mobile_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MobileNetworkId { get; set; }
+    public required partial TerraformValue<string> MobileNetworkId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,48 +47,48 @@ public partial class AzurermMobileNetworkServiceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMobileNetworkServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMobileNetworkServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The pcc_rule attribute.
     /// </summary>
     [TerraformProperty("pcc_rule")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PccRule { get; }
+    public partial TerraformList<object> PccRule { get; }
 
     /// <summary>
     /// The service_precedence attribute.
     /// </summary>
     [TerraformProperty("service_precedence")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ServicePrecedence { get; }
+    public partial TerraformValue<double> ServicePrecedence { get; }
 
     /// <summary>
     /// The service_qos_policy attribute.
     /// </summary>
     [TerraformProperty("service_qos_policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ServiceQosPolicy { get; }
+    public partial TerraformList<object> ServiceQosPolicy { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
 }

@@ -16,14 +16,14 @@ public partial class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the cloud run worker pool
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Name of the WorkerPool.
@@ -31,14 +31,14 @@ public partial class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects.
@@ -53,49 +53,49 @@ public partial class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Annotations { get; }
+    public partial TerraformMap<string> Annotations { get; }
 
     /// <summary>
     /// Settings for the Binary Authorization feature.
     /// </summary>
     [TerraformProperty("binary_authorization")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> BinaryAuthorization { get; }
+    public partial TerraformList<object> BinaryAuthorization { get; }
 
     /// <summary>
     /// Arbitrary identifier for the API client.
     /// </summary>
     [TerraformProperty("client")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Client { get; }
+    public partial TerraformValue<string> Client { get; }
 
     /// <summary>
     /// Arbitrary version identifier for the API client.
     /// </summary>
     [TerraformProperty("client_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ClientVersion { get; }
+    public partial TerraformValue<string> ClientVersion { get; }
 
     /// <summary>
     /// The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the WorkerPool does not reach its Serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     [TerraformProperty("conditions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Conditions { get; }
+    public partial TerraformList<object> Conditions { get; }
 
     /// <summary>
     /// The creation time.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Email address of the authenticated creator.
     /// </summary>
     [TerraformProperty("creator")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Creator { get; }
+    public partial TerraformValue<string> Creator { get; }
 
     /// <summary>
     /// One or more custom audiences that you want this worker pool to support. Specify each custom audience as the full URL in a string. The custom audiences are encoded in the token and used to authenticate requests.
@@ -103,14 +103,14 @@ public partial class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("custom_audiences")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> CustomAudiences { get; }
+    public partial TerraformList<string> CustomAudiences { get; }
 
     /// <summary>
     /// The deletion time.
     /// </summary>
     [TerraformProperty("delete_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeleteTime { get; }
+    public partial TerraformValue<string> DeleteTime { get; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the service. Defaults to true.
@@ -122,63 +122,63 @@ public partial class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> DeletionProtection { get; }
+    public partial TerraformValue<bool> DeletionProtection { get; }
 
     /// <summary>
     /// User-provided description of the WorkerPool. This field currently has a 512-character limit.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// For a deleted resource, the time after which it will be permanently deleted.
     /// </summary>
     [TerraformProperty("expire_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpireTime { get; }
+    public partial TerraformValue<string> ExpireTime { get; }
 
     /// <summary>
     /// A number that monotonically increases every time the user modifies the desired state. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a string instead of an integer.
     /// </summary>
     [TerraformProperty("generation")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Generation { get; }
+    public partial TerraformValue<string> Generation { get; }
 
     /// <summary>
     /// Detailed status information for corresponding instance splits. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     [TerraformProperty("instance_split_statuses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> InstanceSplitStatuses { get; }
+    public partial TerraformList<object> InstanceSplitStatuses { get; }
 
     /// <summary>
     /// Specifies how to distribute instances over a collection of Revisions belonging to the WorkerPool. If instance split is empty or not provided, defaults to 100% instances assigned to the latest Ready Revision.
     /// </summary>
     [TerraformProperty("instance_splits")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> InstanceSplits { get; }
+    public partial TerraformList<object> InstanceSplits { get; }
 
     /// <summary>
     /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google&#39;s billing system, so they can be used to filter, or break down billing charges by team, component,
@@ -192,28 +192,28 @@ public partial class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// Email address of the last authenticated modifier.
     /// </summary>
     [TerraformProperty("last_modifier")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastModifier { get; }
+    public partial TerraformValue<string> LastModifier { get; }
 
     /// <summary>
     /// Name of the last created revision. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     [TerraformProperty("latest_created_revision")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LatestCreatedRevision { get; }
+    public partial TerraformValue<string> LatestCreatedRevision { get; }
 
     /// <summary>
     /// Name of the latest revision that is serving traffic. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     [TerraformProperty("latest_ready_revision")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LatestReadyRevision { get; }
+    public partial TerraformValue<string> LatestReadyRevision { get; }
 
     /// <summary>
     /// The launch stage as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/products#product-launch-stages). Cloud Run supports ALPHA, BETA, and GA.
@@ -223,14 +223,14 @@ public partial class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("launch_stage")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LaunchStage { get; }
+    public partial TerraformValue<string> LaunchStage { get; }
 
     /// <summary>
     /// The generation of this WorkerPool currently serving traffic. See comments in reconciling for additional information on reconciliation process in Cloud Run. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a string instead of an integer.
     /// </summary>
     [TerraformProperty("observed_generation")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ObservedGeneration { get; }
+    public partial TerraformValue<string> ObservedGeneration { get; }
 
     /// <summary>
     /// Returns true if the WorkerPool is currently being acted upon by the system to bring it into the desired state.
@@ -243,28 +243,28 @@ public partial class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// Scaling settings that apply to the worker pool.
     /// </summary>
     [TerraformProperty("scaling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Scaling { get; }
+    public partial TerraformList<object> Scaling { get; }
 
     /// <summary>
     /// The template used to create revisions for this WorkerPool.
     /// </summary>
     [TerraformProperty("template")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Template { get; }
+    public partial TerraformList<object> Template { get; }
 
     /// <summary>
     /// The Condition of this WorkerPool, containing its readiness status, and detailed error information in case it did not reach a serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     [TerraformProperty("terminal_condition")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> TerminalCondition { get; }
+    public partial TerraformList<object> TerminalCondition { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -272,20 +272,20 @@ public partial class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Server assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// The last-modified time.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

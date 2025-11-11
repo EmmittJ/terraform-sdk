@@ -15,7 +15,7 @@ public partial class GoogleSiteVerificationWebResourceSiteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     [TerraformProperty("identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Identifier { get; set; }
+    public required partial TerraformValue<string> Identifier { get; set; }
 
     /// <summary>
     /// The type of resource to be verified. Possible values: [&amp;quot;INET_DOMAIN&amp;quot;, &amp;quot;SITE&amp;quot;]
@@ -23,7 +23,7 @@ public partial class GoogleSiteVerificationWebResourceSiteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -38,14 +38,14 @@ public partial class GoogleSiteVerificationWebResourceTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -64,7 +64,7 @@ public partial class GoogleSiteVerificationWebResource : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The verification method for the Site Verification system to use to verify
@@ -73,7 +73,7 @@ public partial class GoogleSiteVerificationWebResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerificationMethod is required")]
     [TerraformProperty("verification_method")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VerificationMethod { get; set; }
+    public required partial TerraformValue<string> VerificationMethod { get; set; }
 
     /// <summary>
     /// Block for site.
@@ -83,14 +83,14 @@ public partial class GoogleSiteVerificationWebResource : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Site block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Site block(s) allowed")]
     [TerraformProperty("site")]
-    public TerraformList<TerraformBlock<GoogleSiteVerificationWebResourceSiteBlock>>? Site { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleSiteVerificationWebResourceSiteBlock>>? Site { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleSiteVerificationWebResourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleSiteVerificationWebResourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The email addresses of all direct, verified owners of this exact property. Indirect owners —
@@ -98,13 +98,13 @@ public partial class GoogleSiteVerificationWebResource : TerraformResource
     /// </summary>
     [TerraformProperty("owners")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Owners { get; }
+    public partial TerraformList<string> Owners { get; }
 
     /// <summary>
     /// The string used to identify this web resource.
     /// </summary>
     [TerraformProperty("web_resource_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> WebResourceId { get; }
+    public partial TerraformValue<string> WebResourceId { get; }
 
 }

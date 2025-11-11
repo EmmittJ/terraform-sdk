@@ -13,28 +13,28 @@ public partial class AzurermPostgresqlFlexibleServerConfigurationTimeoutsBlock :
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermPostgresqlFlexibleServerConfiguration : TerraformRes
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -60,7 +60,7 @@ public partial class AzurermPostgresqlFlexibleServerConfiguration : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The server_id attribute.
@@ -68,7 +68,7 @@ public partial class AzurermPostgresqlFlexibleServerConfiguration : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     [TerraformProperty("server_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServerId { get; set; }
+    public required partial TerraformValue<string> ServerId { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -76,13 +76,13 @@ public partial class AzurermPostgresqlFlexibleServerConfiguration : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPostgresqlFlexibleServerConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPostgresqlFlexibleServerConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
 }

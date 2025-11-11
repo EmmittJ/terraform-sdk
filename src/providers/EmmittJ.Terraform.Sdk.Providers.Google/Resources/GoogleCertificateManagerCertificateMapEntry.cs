@@ -13,21 +13,21 @@ public partial class GoogleCertificateManagerCertificateMapEntryTimeoutsBlock : 
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -48,14 +48,14 @@ public partial class GoogleCertificateManagerCertificateMapEntry : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificates is required")]
     [TerraformProperty("certificates")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Certificates { get; set; }
+    public partial TerraformList<string>? Certificates { get; set; }
 
     /// <summary>
     /// A human-readable description of the resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A Hostname (FQDN, e.g. example.com) or a wildcard hostname expression (*.example.com)
@@ -64,14 +64,14 @@ public partial class GoogleCertificateManagerCertificateMapEntry : TerraformReso
     /// </summary>
     [TerraformProperty("hostname")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Hostname { get; set; }
+    public partial TerraformValue<string>? Hostname { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Set of labels associated with a Certificate Map Entry.
@@ -84,7 +84,7 @@ public partial class GoogleCertificateManagerCertificateMapEntry : TerraformReso
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// A map entry that is inputted into the certificate map
@@ -92,14 +92,14 @@ public partial class GoogleCertificateManagerCertificateMapEntry : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Map is required")]
     [TerraformProperty("map")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Map { get; set; }
+    public required partial TerraformValue<string> Map { get; set; }
 
     /// <summary>
     /// A predefined matcher for particular cases, other than SNI selection
     /// </summary>
     [TerraformProperty("matcher")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Matcher { get; set; }
+    public partial TerraformValue<string>? Matcher { get; set; }
 
     /// <summary>
     /// A user-defined name of the Certificate Map Entry. Certificate Map Entry
@@ -109,21 +109,21 @@ public partial class GoogleCertificateManagerCertificateMapEntry : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleCertificateManagerCertificateMapEntryTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleCertificateManagerCertificateMapEntryTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp of a Certificate Map Entry. Timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
@@ -132,21 +132,21 @@ public partial class GoogleCertificateManagerCertificateMapEntry : TerraformReso
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// A serving state of this Certificate Map Entry.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -154,7 +154,7 @@ public partial class GoogleCertificateManagerCertificateMapEntry : TerraformReso
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Update timestamp of a Certificate Map Entry. Timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
@@ -163,6 +163,6 @@ public partial class GoogleCertificateManagerCertificateMapEntry : TerraformReso
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

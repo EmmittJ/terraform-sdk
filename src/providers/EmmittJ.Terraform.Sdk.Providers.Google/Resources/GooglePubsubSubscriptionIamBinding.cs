@@ -13,7 +13,7 @@ public partial class GooglePubsubSubscriptionIamBindingConditionBlock : Terrafor
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The expression attribute.
@@ -21,7 +21,7 @@ public partial class GooglePubsubSubscriptionIamBindingConditionBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     [TerraformProperty("expression")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Expression { get; set; }
+    public required partial TerraformValue<string> Expression { get; set; }
 
     /// <summary>
     /// The title attribute.
@@ -29,7 +29,7 @@ public partial class GooglePubsubSubscriptionIamBindingConditionBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     [TerraformProperty("title")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Title { get; set; }
+    public required partial TerraformValue<string> Title { get; set; }
 
 }
 
@@ -48,7 +48,7 @@ public partial class GooglePubsubSubscriptionIamBinding : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The members attribute.
@@ -56,14 +56,14 @@ public partial class GooglePubsubSubscriptionIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Members is required")]
     [TerraformProperty("members")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Members { get; set; }
+    public required partial TerraformSet<string> Members { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The role attribute.
@@ -71,7 +71,7 @@ public partial class GooglePubsubSubscriptionIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     [TerraformProperty("role")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Role { get; set; }
+    public required partial TerraformValue<string> Role { get; set; }
 
     /// <summary>
     /// The subscription attribute.
@@ -79,7 +79,7 @@ public partial class GooglePubsubSubscriptionIamBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subscription is required")]
     [TerraformProperty("subscription")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Subscription { get; set; }
+    public required partial TerraformValue<string> Subscription { get; set; }
 
     /// <summary>
     /// Block for condition.
@@ -87,13 +87,13 @@ public partial class GooglePubsubSubscriptionIamBinding : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public TerraformList<TerraformBlock<GooglePubsubSubscriptionIamBindingConditionBlock>>? Condition { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePubsubSubscriptionIamBindingConditionBlock>>? Condition { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
 }

@@ -17,7 +17,7 @@ public partial class GoogleBackupDrBackupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultId is required")]
     [TerraformProperty("backup_vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackupVaultId { get; set; }
+    public required partial TerraformValue<string> BackupVaultId { get; set; }
 
     /// <summary>
     /// The data_source_id attribute.
@@ -25,14 +25,14 @@ public partial class GoogleBackupDrBackupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
     [TerraformProperty("data_source_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataSourceId { get; set; }
+    public required partial TerraformValue<string> DataSourceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -40,7 +40,7 @@ public partial class GoogleBackupDrBackupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
@@ -48,27 +48,27 @@ public partial class GoogleBackupDrBackupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformProperty("project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Project { get; set; }
+    public required partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// List of all backups under data source.
     /// </summary>
     [TerraformProperty("backups")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Backups { get; }
+    public partial TerraformList<object> Backups { get; }
 
     /// <summary>
     /// The time when the backup was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Name of resource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

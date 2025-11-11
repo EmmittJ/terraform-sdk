@@ -13,7 +13,7 @@ public partial class AwsLaunchConfigurationEbsBlockDeviceBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("delete_on_termination")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeleteOnTermination { get; set; }
+    public partial TerraformValue<bool>? DeleteOnTermination { get; set; }
 
     /// <summary>
     /// The device_name attribute.
@@ -21,56 +21,56 @@ public partial class AwsLaunchConfigurationEbsBlockDeviceBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     [TerraformProperty("device_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DeviceName { get; set; }
+    public required partial TerraformValue<string> DeviceName { get; set; }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     [TerraformProperty("encrypted")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> Encrypted { get; set; }
+    public partial TerraformValue<bool> Encrypted { get; set; }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
     [TerraformProperty("iops")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Iops { get; set; }
+    public partial TerraformValue<double> Iops { get; set; }
 
     /// <summary>
     /// The no_device attribute.
     /// </summary>
     [TerraformProperty("no_device")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? NoDevice { get; set; }
+    public partial TerraformValue<bool>? NoDevice { get; set; }
 
     /// <summary>
     /// The snapshot_id attribute.
     /// </summary>
     [TerraformProperty("snapshot_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SnapshotId { get; set; }
+    public partial TerraformValue<string> SnapshotId { get; set; }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
     [TerraformProperty("throughput")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Throughput { get; set; }
+    public partial TerraformValue<double> Throughput { get; set; }
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
     [TerraformProperty("volume_size")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> VolumeSize { get; set; }
+    public partial TerraformValue<double> VolumeSize { get; set; }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
     [TerraformProperty("volume_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VolumeType { get; set; }
+    public partial TerraformValue<string> VolumeType { get; set; }
 
 }
 
@@ -86,21 +86,21 @@ public partial class AwsLaunchConfigurationEphemeralBlockDeviceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     [TerraformProperty("device_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DeviceName { get; set; }
+    public required partial TerraformValue<string> DeviceName { get; set; }
 
     /// <summary>
     /// The no_device attribute.
     /// </summary>
     [TerraformProperty("no_device")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? NoDevice { get; set; }
+    public partial TerraformValue<bool>? NoDevice { get; set; }
 
     /// <summary>
     /// The virtual_name attribute.
     /// </summary>
     [TerraformProperty("virtual_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VirtualName { get; set; }
+    public partial TerraformValue<string>? VirtualName { get; set; }
 
 }
 
@@ -115,21 +115,21 @@ public partial class AwsLaunchConfigurationMetadataOptionsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("http_endpoint")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> HttpEndpoint { get; set; }
+    public partial TerraformValue<string> HttpEndpoint { get; set; }
 
     /// <summary>
     /// The http_put_response_hop_limit attribute.
     /// </summary>
     [TerraformProperty("http_put_response_hop_limit")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> HttpPutResponseHopLimit { get; set; }
+    public partial TerraformValue<double> HttpPutResponseHopLimit { get; set; }
 
     /// <summary>
     /// The http_tokens attribute.
     /// </summary>
     [TerraformProperty("http_tokens")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> HttpTokens { get; set; }
+    public partial TerraformValue<string> HttpTokens { get; set; }
 
 }
 
@@ -144,42 +144,42 @@ public partial class AwsLaunchConfigurationRootBlockDeviceBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("delete_on_termination")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeleteOnTermination { get; set; }
+    public partial TerraformValue<bool>? DeleteOnTermination { get; set; }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     [TerraformProperty("encrypted")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> Encrypted { get; set; }
+    public partial TerraformValue<bool> Encrypted { get; set; }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
     [TerraformProperty("iops")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Iops { get; set; }
+    public partial TerraformValue<double> Iops { get; set; }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
     [TerraformProperty("throughput")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Throughput { get; set; }
+    public partial TerraformValue<double> Throughput { get; set; }
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
     [TerraformProperty("volume_size")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> VolumeSize { get; set; }
+    public partial TerraformValue<double> VolumeSize { get; set; }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
     [TerraformProperty("volume_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VolumeType { get; set; }
+    public partial TerraformValue<string> VolumeType { get; set; }
 
 }
 
@@ -198,35 +198,35 @@ public partial class AwsLaunchConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("associate_public_ip_address")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> AssociatePublicIpAddress { get; set; }
+    public partial TerraformValue<bool> AssociatePublicIpAddress { get; set; }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
     [TerraformProperty("ebs_optimized")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> EbsOptimized { get; set; }
+    public partial TerraformValue<bool> EbsOptimized { get; set; }
 
     /// <summary>
     /// The enable_monitoring attribute.
     /// </summary>
     [TerraformProperty("enable_monitoring")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableMonitoring { get; set; }
+    public partial TerraformValue<bool>? EnableMonitoring { get; set; }
 
     /// <summary>
     /// The iam_instance_profile attribute.
     /// </summary>
     [TerraformProperty("iam_instance_profile")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IamInstanceProfile { get; set; }
+    public partial TerraformValue<string>? IamInstanceProfile { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The image_id attribute.
@@ -234,7 +234,7 @@ public partial class AwsLaunchConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageId is required")]
     [TerraformProperty("image_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ImageId { get; set; }
+    public required partial TerraformValue<string> ImageId { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
@@ -242,84 +242,84 @@ public partial class AwsLaunchConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     [TerraformProperty("instance_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InstanceType { get; set; }
+    public required partial TerraformValue<string> InstanceType { get; set; }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
     [TerraformProperty("key_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> KeyName { get; set; }
+    public partial TerraformValue<string> KeyName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformProperty("name_prefix")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NamePrefix { get; set; }
+    public partial TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The placement_tenancy attribute.
     /// </summary>
     [TerraformProperty("placement_tenancy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PlacementTenancy { get; set; }
+    public partial TerraformValue<string>? PlacementTenancy { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
     [TerraformProperty("security_groups")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? SecurityGroups { get; set; }
+    public partial TerraformSet<string>? SecurityGroups { get; set; }
 
     /// <summary>
     /// The spot_price attribute.
     /// </summary>
     [TerraformProperty("spot_price")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SpotPrice { get; set; }
+    public partial TerraformValue<string>? SpotPrice { get; set; }
 
     /// <summary>
     /// The user_data attribute.
     /// </summary>
     [TerraformProperty("user_data")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserData { get; set; }
+    public partial TerraformValue<string>? UserData { get; set; }
 
     /// <summary>
     /// The user_data_base64 attribute.
     /// </summary>
     [TerraformProperty("user_data_base64")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserDataBase64 { get; set; }
+    public partial TerraformValue<string>? UserDataBase64 { get; set; }
 
     /// <summary>
     /// Block for ebs_block_device.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ebs_block_device")]
-    public TerraformSet<TerraformBlock<AwsLaunchConfigurationEbsBlockDeviceBlock>>? EbsBlockDevice { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsLaunchConfigurationEbsBlockDeviceBlock>>? EbsBlockDevice { get; set; }
 
     /// <summary>
     /// Block for ephemeral_block_device.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ephemeral_block_device")]
-    public TerraformSet<TerraformBlock<AwsLaunchConfigurationEphemeralBlockDeviceBlock>>? EphemeralBlockDevice { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsLaunchConfigurationEphemeralBlockDeviceBlock>>? EphemeralBlockDevice { get; set; }
 
     /// <summary>
     /// Block for metadata_options.
@@ -327,7 +327,7 @@ public partial class AwsLaunchConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetadataOptions block(s) allowed")]
     [TerraformProperty("metadata_options")]
-    public TerraformList<TerraformBlock<AwsLaunchConfigurationMetadataOptionsBlock>>? MetadataOptions { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLaunchConfigurationMetadataOptionsBlock>>? MetadataOptions { get; set; }
 
     /// <summary>
     /// Block for root_block_device.
@@ -335,13 +335,13 @@ public partial class AwsLaunchConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootBlockDevice block(s) allowed")]
     [TerraformProperty("root_block_device")]
-    public TerraformList<TerraformBlock<AwsLaunchConfigurationRootBlockDeviceBlock>>? RootBlockDevice { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLaunchConfigurationRootBlockDeviceBlock>>? RootBlockDevice { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

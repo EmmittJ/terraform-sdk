@@ -13,21 +13,21 @@ public partial class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock
     /// </summary>
     [TerraformProperty("kms_key_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> KmsKeyId { get; set; }
+    public partial TerraformValue<string> KmsKeyId { get; set; }
 
     /// <summary>
     /// The opt_in_status attribute.
     /// </summary>
     [TerraformProperty("opt_in_status")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> OptInStatus { get; set; }
+    public partial TerraformValue<string> OptInStatus { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Type { get; set; }
+    public partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -42,7 +42,7 @@ public partial class AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock : 
     /// </summary>
     [TerraformProperty("opt_in_status")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> OptInStatus { get; set; }
+    public partial TerraformValue<string> OptInStatus { get; set; }
 
 }
 
@@ -57,7 +57,7 @@ public partial class AwsDevopsguruServiceIntegrationOpsCenterBlock : TerraformBl
     /// </summary>
     [TerraformProperty("opt_in_status")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> OptInStatus { get; set; }
+    public partial TerraformValue<string> OptInStatus { get; set; }
 
 }
 
@@ -75,34 +75,34 @@ public partial class AwsDevopsguruServiceIntegration : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for kms_server_side_encryption.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("kms_server_side_encryption")]
-    public TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock>>? KmsServerSideEncryption { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock>>? KmsServerSideEncryption { get; set; }
 
     /// <summary>
     /// Block for logs_anomaly_detection.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("logs_anomaly_detection")]
-    public TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock>>? LogsAnomalyDetection { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock>>? LogsAnomalyDetection { get; set; }
 
     /// <summary>
     /// Block for ops_center.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("ops_center")]
-    public TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationOpsCenterBlock>>? OpsCenter { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationOpsCenterBlock>>? OpsCenter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AzurermDataShareSnapshotScheduleBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recurrence attribute.
@@ -22,7 +22,7 @@ public partial class AzurermDataShareSnapshotScheduleBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Recurrence is required")]
     [TerraformProperty("recurrence")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Recurrence { get; set; }
+    public required partial TerraformValue<string> Recurrence { get; set; }
 
     /// <summary>
     /// The start_time attribute.
@@ -30,7 +30,7 @@ public partial class AzurermDataShareSnapshotScheduleBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     [TerraformProperty("start_time")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StartTime { get; set; }
+    public required partial TerraformValue<string> StartTime { get; set; }
 
 }
 
@@ -45,28 +45,28 @@ public partial class AzurermDataShareTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -86,21 +86,21 @@ public partial class AzurermDataShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     [TerraformProperty("account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccountId { get; set; }
+    public required partial TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kind attribute.
@@ -108,7 +108,7 @@ public partial class AzurermDataShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     [TerraformProperty("kind")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Kind { get; set; }
+    public required partial TerraformValue<string> Kind { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -116,14 +116,14 @@ public partial class AzurermDataShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The terms attribute.
     /// </summary>
     [TerraformProperty("terms")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Terms { get; set; }
+    public partial TerraformValue<string>? Terms { get; set; }
 
     /// <summary>
     /// Block for snapshot_schedule.
@@ -131,13 +131,13 @@ public partial class AzurermDataShare : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotSchedule block(s) allowed")]
     [TerraformProperty("snapshot_schedule")]
-    public TerraformList<TerraformBlock<AzurermDataShareSnapshotScheduleBlock>>? SnapshotSchedule { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataShareSnapshotScheduleBlock>>? SnapshotSchedule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataShareTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataShareTimeoutsBlock>? Timeouts { get; set; }
 
 }

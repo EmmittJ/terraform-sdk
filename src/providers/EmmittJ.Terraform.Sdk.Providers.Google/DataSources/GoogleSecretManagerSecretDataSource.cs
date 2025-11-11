@@ -16,14 +16,14 @@ public partial class GoogleSecretManagerSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// This must be unique within the project.
@@ -31,7 +31,7 @@ public partial class GoogleSecretManagerSecretDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     [TerraformProperty("secret_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SecretId { get; set; }
+    public required partial TerraformValue<string> SecretId { get; set; }
 
     /// <summary>
     /// Custom metadata about the secret.
@@ -55,14 +55,14 @@ public partial class GoogleSecretManagerSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Annotations { get; }
+    public partial TerraformMap<string> Annotations { get; }
 
     /// <summary>
     /// The time at which the Secret was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the secret. Defaults to false.
@@ -71,21 +71,21 @@ public partial class GoogleSecretManagerSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> DeletionProtection { get; }
+    public partial TerraformValue<bool> DeletionProtection { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Timestamp in UTC when the Secret is scheduled to expire. This is always provided on output, regardless of what was sent on input.
@@ -94,7 +94,7 @@ public partial class GoogleSecretManagerSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("expire_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpireTime { get; }
+    public partial TerraformValue<string> ExpireTime { get; }
 
     /// <summary>
     /// The labels assigned to this Secret.
@@ -116,7 +116,7 @@ public partial class GoogleSecretManagerSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// The resource name of the Secret. Format:
@@ -124,7 +124,7 @@ public partial class GoogleSecretManagerSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The replication policy of the secret data attached to the Secret. It cannot be changed
@@ -132,14 +132,14 @@ public partial class GoogleSecretManagerSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("replication")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Replication { get; }
+    public partial TerraformList<object> Replication { get; }
 
     /// <summary>
     /// The rotation time and period for a Secret. At &#39;next_rotation_time&#39;, Secret Manager will send a Pub/Sub notification to the topics configured on the Secret. &#39;topics&#39; must be set to configure rotation.
     /// </summary>
     [TerraformProperty("rotation")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Rotation { get; }
+    public partial TerraformList<object> Rotation { get; }
 
     /// <summary>
     /// A map of resource manager tags.
@@ -148,7 +148,7 @@ public partial class GoogleSecretManagerSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -156,14 +156,14 @@ public partial class GoogleSecretManagerSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// A list of up to 10 Pub/Sub topics to which messages are published when control plane operations are called on the secret or its versions.
     /// </summary>
     [TerraformProperty("topics")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Topics { get; }
+    public partial TerraformList<object> Topics { get; }
 
     /// <summary>
     /// The TTL for the Secret.
@@ -172,7 +172,7 @@ public partial class GoogleSecretManagerSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("ttl")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Ttl { get; }
+    public partial TerraformValue<string> Ttl { get; }
 
     /// <summary>
     /// Mapping from version alias to version name.
@@ -187,7 +187,7 @@ public partial class GoogleSecretManagerSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("version_aliases")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> VersionAliases { get; }
+    public partial TerraformMap<string> VersionAliases { get; }
 
     /// <summary>
     /// Secret Version TTL after destruction request.
@@ -198,6 +198,6 @@ public partial class GoogleSecretManagerSecretDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("version_destroy_ttl")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VersionDestroyTtl { get; }
+    public partial TerraformValue<string> VersionDestroyTtl { get; }
 
 }

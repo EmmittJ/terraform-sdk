@@ -16,7 +16,7 @@ public partial class GoogleLoggingProjectCmekSettingsDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource name for the configured Cloud KMS key.
@@ -28,7 +28,7 @@ public partial class GoogleLoggingProjectCmekSettingsDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("kms_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyName { get; set; }
+    public partial TerraformValue<string>? KmsKeyName { get; set; }
 
     /// <summary>
     /// The project attribute.
@@ -36,7 +36,7 @@ public partial class GoogleLoggingProjectCmekSettingsDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformProperty("project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Project { get; set; }
+    public required partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The CryptoKeyVersion resource name for the configured Cloud KMS key.
@@ -48,14 +48,14 @@ public partial class GoogleLoggingProjectCmekSettingsDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("kms_key_version_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KmsKeyVersionName { get; }
+    public partial TerraformValue<string> KmsKeyVersionName { get; }
 
     /// <summary>
     /// The resource name of the CMEK settings.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The service account associated with a project for which CMEK will apply.
@@ -64,6 +64,6 @@ public partial class GoogleLoggingProjectCmekSettingsDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("service_account_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServiceAccountId { get; }
+    public partial TerraformValue<string> ServiceAccountId { get; }
 
 }

@@ -13,42 +13,42 @@ public partial class AwsOpensearchDomainSamlOptionsSamlOptionsBlock : TerraformB
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The master_backend_role attribute.
     /// </summary>
     [TerraformProperty("master_backend_role")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MasterBackendRole { get; set; }
+    public partial TerraformValue<string>? MasterBackendRole { get; set; }
 
     /// <summary>
     /// The master_user_name attribute.
     /// </summary>
     [TerraformProperty("master_user_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MasterUserName { get; set; }
+    public partial TerraformValue<string>? MasterUserName { get; set; }
 
     /// <summary>
     /// The roles_key attribute.
     /// </summary>
     [TerraformProperty("roles_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RolesKey { get; set; }
+    public partial TerraformValue<string>? RolesKey { get; set; }
 
     /// <summary>
     /// The session_timeout_minutes attribute.
     /// </summary>
     [TerraformProperty("session_timeout_minutes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SessionTimeoutMinutes { get; set; }
+    public partial TerraformValue<double>? SessionTimeoutMinutes { get; set; }
 
     /// <summary>
     /// The subject_key attribute.
     /// </summary>
     [TerraformProperty("subject_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SubjectKey { get; set; }
+    public partial TerraformValue<string>? SubjectKey { get; set; }
 
 }
 
@@ -63,14 +63,14 @@ public partial class AwsOpensearchDomainSamlOptionsTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -90,21 +90,21 @@ public partial class AwsOpensearchDomainSamlOptions : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformProperty("domain_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainName { get; set; }
+    public required partial TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for saml_options.
@@ -112,13 +112,13 @@ public partial class AwsOpensearchDomainSamlOptions : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SamlOptions block(s) allowed")]
     [TerraformProperty("saml_options")]
-    public TerraformList<TerraformBlock<AwsOpensearchDomainSamlOptionsSamlOptionsBlock>>? SamlOptions { get; set; }
+    public partial TerraformList<TerraformBlock<AwsOpensearchDomainSamlOptionsSamlOptionsBlock>>? SamlOptions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsOpensearchDomainSamlOptionsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsOpensearchDomainSamlOptionsTimeoutsBlock>? Timeouts { get; set; }
 
 }

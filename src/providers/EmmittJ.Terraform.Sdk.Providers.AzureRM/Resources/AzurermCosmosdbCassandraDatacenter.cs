@@ -13,28 +13,28 @@ public partial class AzurermCosmosdbCassandraDatacenterTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,21 +52,21 @@ public partial class AzurermCosmosdbCassandraDatacenter : TerraformResource
     /// </summary>
     [TerraformProperty("availability_zones_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AvailabilityZonesEnabled { get; set; }
+    public partial TerraformValue<bool>? AvailabilityZonesEnabled { get; set; }
 
     /// <summary>
     /// The backup_storage_customer_key_uri attribute.
     /// </summary>
     [TerraformProperty("backup_storage_customer_key_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BackupStorageCustomerKeyUri { get; set; }
+    public partial TerraformValue<string>? BackupStorageCustomerKeyUri { get; set; }
 
     /// <summary>
     /// The base64_encoded_yaml_fragment attribute.
     /// </summary>
     [TerraformProperty("base64_encoded_yaml_fragment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Base64EncodedYamlFragment { get; set; }
+    public partial TerraformValue<string>? Base64EncodedYamlFragment { get; set; }
 
     /// <summary>
     /// The cassandra_cluster_id attribute.
@@ -74,7 +74,7 @@ public partial class AzurermCosmosdbCassandraDatacenter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CassandraClusterId is required")]
     [TerraformProperty("cassandra_cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CassandraClusterId { get; set; }
+    public required partial TerraformValue<string> CassandraClusterId { get; set; }
 
     /// <summary>
     /// The delegated_management_subnet_id attribute.
@@ -82,28 +82,28 @@ public partial class AzurermCosmosdbCassandraDatacenter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelegatedManagementSubnetId is required")]
     [TerraformProperty("delegated_management_subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DelegatedManagementSubnetId { get; set; }
+    public required partial TerraformValue<string> DelegatedManagementSubnetId { get; set; }
 
     /// <summary>
     /// The disk_count attribute.
     /// </summary>
     [TerraformProperty("disk_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DiskCount { get; set; }
+    public partial TerraformValue<double>? DiskCount { get; set; }
 
     /// <summary>
     /// The disk_sku attribute.
     /// </summary>
     [TerraformProperty("disk_sku")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DiskSku { get; set; }
+    public partial TerraformValue<string>? DiskSku { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -111,14 +111,14 @@ public partial class AzurermCosmosdbCassandraDatacenter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The managed_disk_customer_key_uri attribute.
     /// </summary>
     [TerraformProperty("managed_disk_customer_key_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ManagedDiskCustomerKeyUri { get; set; }
+    public partial TerraformValue<string>? ManagedDiskCustomerKeyUri { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -126,34 +126,34 @@ public partial class AzurermCosmosdbCassandraDatacenter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The node_count attribute.
     /// </summary>
     [TerraformProperty("node_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? NodeCount { get; set; }
+    public partial TerraformValue<double>? NodeCount { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [TerraformProperty("sku_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SkuName { get; set; }
+    public partial TerraformValue<string>? SkuName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCosmosdbCassandraDatacenterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCosmosdbCassandraDatacenterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The seed_node_ip_addresses attribute.
     /// </summary>
     [TerraformProperty("seed_node_ip_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> SeedNodeIpAddresses { get; }
+    public partial TerraformList<string> SeedNodeIpAddresses { get; }
 
 }

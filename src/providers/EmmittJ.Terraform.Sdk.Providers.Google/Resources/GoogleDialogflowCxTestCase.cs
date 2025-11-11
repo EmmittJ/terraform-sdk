@@ -23,7 +23,7 @@ public partial class GoogleDialogflowCxTestCaseTestConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("flow")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Flow { get; set; }
+    public partial TerraformValue<string>? Flow { get; set; }
 
     /// <summary>
     /// The page to start the test case with.
@@ -32,14 +32,14 @@ public partial class GoogleDialogflowCxTestCaseTestConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("page")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Page { get; set; }
+    public partial TerraformValue<string>? Page { get; set; }
 
     /// <summary>
     /// Session parameters to be compared when calculating differences.
     /// </summary>
     [TerraformProperty("tracking_parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? TrackingParameters { get; set; }
+    public partial TerraformList<string>? TrackingParameters { get; set; }
 
 }
 
@@ -54,21 +54,21 @@ public partial class GoogleDialogflowCxTestCaseTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -88,21 +88,21 @@ public partial class GoogleDialogflowCxTestCase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Additional freeform notes about the test case. Limit of 400 characters.
     /// </summary>
     [TerraformProperty("notes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Notes { get; set; }
+    public partial TerraformValue<string>? Notes { get; set; }
 
     /// <summary>
     /// The agent to create the test case for.
@@ -110,7 +110,7 @@ public partial class GoogleDialogflowCxTestCase : TerraformResource
     /// </summary>
     [TerraformProperty("parent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Parent { get; set; }
+    public partial TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// Tags are short descriptions that users may apply to test cases for organizational and filtering purposes.
@@ -118,14 +118,14 @@ public partial class GoogleDialogflowCxTestCase : TerraformResource
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Tags { get; set; }
+    public partial TerraformList<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for test_case_conversation_turns.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("test_case_conversation_turns")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlock>>? TestCaseConversationTurns { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlock>>? TestCaseConversationTurns { get; set; }
 
     /// <summary>
     /// Block for test_config.
@@ -133,28 +133,28 @@ public partial class GoogleDialogflowCxTestCase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TestConfig block(s) allowed")]
     [TerraformProperty("test_config")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxTestCaseTestConfigBlock>>? TestConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxTestCaseTestConfigBlock>>? TestConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDialogflowCxTestCaseTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDialogflowCxTestCaseTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// When the test was created. A timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTime { get; }
+    public partial TerraformValue<string> CreationTime { get; }
 
     /// <summary>
     /// The latest test result.
     /// </summary>
     [TerraformProperty("last_test_result")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> LastTestResult { get; }
+    public partial TerraformList<object> LastTestResult { get; }
 
     /// <summary>
     /// The unique identifier of the test case.
@@ -162,6 +162,6 @@ public partial class GoogleDialogflowCxTestCase : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

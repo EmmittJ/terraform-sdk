@@ -13,7 +13,7 @@ public partial class AzurermDataFactoryDataFlowSinkBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -21,7 +21,7 @@ public partial class AzurermDataFactoryDataFlowSinkBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public partial class AzurermDataFactoryDataFlowSourceBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -44,7 +44,7 @@ public partial class AzurermDataFactoryDataFlowSourceBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -59,28 +59,28 @@ public partial class AzurermDataFactoryDataFlowTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -95,7 +95,7 @@ public partial class AzurermDataFactoryDataFlowTransformationBlock : TerraformBl
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -103,7 +103,7 @@ public partial class AzurermDataFactoryDataFlowTransformationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -122,7 +122,7 @@ public partial class AzurermDataFactoryDataFlow : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Annotations { get; set; }
+    public partial TerraformList<string>? Annotations { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
@@ -130,28 +130,28 @@ public partial class AzurermDataFactoryDataFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformProperty("data_factory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataFactoryId { get; set; }
+    public required partial TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
     [TerraformProperty("folder")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Folder { get; set; }
+    public partial TerraformValue<string>? Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -159,21 +159,21 @@ public partial class AzurermDataFactoryDataFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The script attribute.
     /// </summary>
     [TerraformProperty("script")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Script { get; set; }
+    public partial TerraformValue<string>? Script { get; set; }
 
     /// <summary>
     /// The script_lines attribute.
     /// </summary>
     [TerraformProperty("script_lines")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ScriptLines { get; set; }
+    public partial TerraformList<string>? ScriptLines { get; set; }
 
     /// <summary>
     /// Block for sink.
@@ -182,7 +182,7 @@ public partial class AzurermDataFactoryDataFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sink is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sink block(s) required")]
     [TerraformProperty("sink")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryDataFlowSinkBlock>>? Sink { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryDataFlowSinkBlock>>? Sink { get; set; }
 
     /// <summary>
     /// Block for source.
@@ -191,20 +191,20 @@ public partial class AzurermDataFactoryDataFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [TerraformProperty("source")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryDataFlowSourceBlock>>? Source { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryDataFlowSourceBlock>>? Source { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataFactoryDataFlowTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataFactoryDataFlowTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for transformation.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("transformation")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryDataFlowTransformationBlock>>? Transformation { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryDataFlowTransformationBlock>>? Transformation { get; set; }
 
 }

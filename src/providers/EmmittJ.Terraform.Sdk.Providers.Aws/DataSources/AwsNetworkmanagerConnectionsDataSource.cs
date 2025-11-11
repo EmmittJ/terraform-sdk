@@ -16,7 +16,7 @@ public partial class AwsNetworkmanagerConnectionsDataSource : TerraformDataSourc
     /// </summary>
     [TerraformProperty("device_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeviceId { get; set; }
+    public partial TerraformValue<string>? DeviceId { get; set; }
 
     /// <summary>
     /// The global_network_id attribute.
@@ -24,27 +24,27 @@ public partial class AwsNetworkmanagerConnectionsDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     [TerraformProperty("global_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GlobalNetworkId { get; set; }
+    public required partial TerraformValue<string> GlobalNetworkId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The ids attribute.
     /// </summary>
     [TerraformProperty("ids")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Ids { get; }
+    public partial TerraformList<string> Ids { get; }
 
 }

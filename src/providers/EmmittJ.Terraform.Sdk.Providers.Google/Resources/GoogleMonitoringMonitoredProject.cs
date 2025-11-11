@@ -13,14 +13,14 @@ public partial class GoogleMonitoringMonitoredProjectTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleMonitoringMonitoredProject : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Required. The resource name of the existing Metrics Scope that will monitor this project. Example: locations/global/metricsScopes/{SCOPING_PROJECT_ID_OR_NUMBER}
@@ -46,7 +46,7 @@ public partial class GoogleMonitoringMonitoredProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricsScope is required")]
     [TerraformProperty("metrics_scope")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MetricsScope { get; set; }
+    public required partial TerraformValue<string> MetricsScope { get; set; }
 
     /// <summary>
     /// Immutable. The resource name of the &#39;MonitoredProject&#39;. On input, the resource name includes the scoping project ID and monitored project ID. On output, it contains the equivalent project numbers. Example: &#39;locations/global/metricsScopes/{SCOPING_PROJECT_ID_OR_NUMBER}/projects/{MONITORED_PROJECT_ID_OR_NUMBER}&#39;
@@ -54,20 +54,20 @@ public partial class GoogleMonitoringMonitoredProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleMonitoringMonitoredProjectTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleMonitoringMonitoredProjectTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time when this &#39;MonitoredProject&#39; was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
 }

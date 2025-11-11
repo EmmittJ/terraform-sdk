@@ -13,7 +13,7 @@ public partial class AwsSchedulerScheduleFlexibleTimeWindowBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("maximum_window_in_minutes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaximumWindowInMinutes { get; set; }
+    public partial TerraformValue<double>? MaximumWindowInMinutes { get; set; }
 
     /// <summary>
     /// The mode attribute.
@@ -21,7 +21,7 @@ public partial class AwsSchedulerScheduleFlexibleTimeWindowBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     [TerraformProperty("mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Mode { get; set; }
+    public required partial TerraformValue<string> Mode { get; set; }
 
 }
 
@@ -37,14 +37,14 @@ public partial class AwsSchedulerScheduleTargetBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     [TerraformProperty("arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Arn { get; set; }
+    public required partial TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The input attribute.
     /// </summary>
     [TerraformProperty("input")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Input { get; set; }
+    public partial TerraformValue<string>? Input { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -52,7 +52,7 @@ public partial class AwsSchedulerScheduleTargetBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
 }
 
@@ -71,63 +71,63 @@ public partial class AwsSchedulerSchedule : TerraformResource
     /// </summary>
     [TerraformProperty("action_after_completion")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ActionAfterCompletion { get; set; }
+    public partial TerraformValue<string> ActionAfterCompletion { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The end_date attribute.
     /// </summary>
     [TerraformProperty("end_date")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EndDate { get; set; }
+    public partial TerraformValue<string>? EndDate { get; set; }
 
     /// <summary>
     /// The group_name attribute.
     /// </summary>
     [TerraformProperty("group_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> GroupName { get; set; }
+    public partial TerraformValue<string> GroupName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     [TerraformProperty("kms_key_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyArn { get; set; }
+    public partial TerraformValue<string>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformProperty("name_prefix")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NamePrefix { get; set; }
+    public partial TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The schedule_expression attribute.
@@ -135,28 +135,28 @@ public partial class AwsSchedulerSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     [TerraformProperty("schedule_expression")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ScheduleExpression { get; set; }
+    public required partial TerraformValue<string> ScheduleExpression { get; set; }
 
     /// <summary>
     /// The schedule_expression_timezone attribute.
     /// </summary>
     [TerraformProperty("schedule_expression_timezone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ScheduleExpressionTimezone { get; set; }
+    public partial TerraformValue<string>? ScheduleExpressionTimezone { get; set; }
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
     [TerraformProperty("start_date")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StartDate { get; set; }
+    public partial TerraformValue<string>? StartDate { get; set; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformProperty("state")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? State { get; set; }
+    public partial TerraformValue<string>? State { get; set; }
 
     /// <summary>
     /// Block for flexible_time_window.
@@ -166,7 +166,7 @@ public partial class AwsSchedulerSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FlexibleTimeWindow block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FlexibleTimeWindow block(s) allowed")]
     [TerraformProperty("flexible_time_window")]
-    public TerraformList<TerraformBlock<AwsSchedulerScheduleFlexibleTimeWindowBlock>>? FlexibleTimeWindow { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSchedulerScheduleFlexibleTimeWindowBlock>>? FlexibleTimeWindow { get; set; }
 
     /// <summary>
     /// Block for target.
@@ -176,13 +176,13 @@ public partial class AwsSchedulerSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
     [TerraformProperty("target")]
-    public TerraformList<TerraformBlock<AwsSchedulerScheduleTargetBlock>>? Target { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSchedulerScheduleTargetBlock>>? Target { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

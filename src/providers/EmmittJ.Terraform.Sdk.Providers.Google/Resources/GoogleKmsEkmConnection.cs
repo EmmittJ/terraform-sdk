@@ -13,7 +13,7 @@ public partial class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("endpoint_filter")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> EndpointFilter { get; set; }
+    public partial TerraformValue<string> EndpointFilter { get; set; }
 
     /// <summary>
     /// Required. The hostname of the EKM replica used at TLS and HTTP layers.
@@ -21,7 +21,7 @@ public partial class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     [TerraformProperty("hostname")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Hostname { get; set; }
+    public required partial TerraformValue<string> Hostname { get; set; }
 
     /// <summary>
     /// Required. The resource name of the Service Directory service pointing to an EKM replica, in the format projects/*/locations/*/namespaces/*/services/*
@@ -29,7 +29,7 @@ public partial class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceDirectoryService is required")]
     [TerraformProperty("service_directory_service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceDirectoryService { get; set; }
+    public required partial TerraformValue<string> ServiceDirectoryService { get; set; }
 
 }
 
@@ -44,21 +44,21 @@ public partial class GoogleKmsEkmConnectionTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -77,28 +77,28 @@ public partial class GoogleKmsEkmConnection : TerraformResource
     /// </summary>
     [TerraformProperty("crypto_space_path")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CryptoSpacePath { get; set; }
+    public partial TerraformValue<string> CryptoSpacePath { get; set; }
 
     /// <summary>
     /// Optional. Etag of the currently stored EkmConnection.
     /// </summary>
     [TerraformProperty("etag")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Etag { get; set; }
+    public partial TerraformValue<string> Etag { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Optional. Describes who can perform control plane operations on the EKM. If unset, this defaults to MANUAL Default value: &amp;quot;MANUAL&amp;quot; Possible values: [&amp;quot;MANUAL&amp;quot;, &amp;quot;CLOUD_KMS&amp;quot;]
     /// </summary>
     [TerraformProperty("key_management_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyManagementMode { get; set; }
+    public partial TerraformValue<string>? KeyManagementMode { get; set; }
 
     /// <summary>
     /// The location for the EkmConnection.
@@ -107,7 +107,7 @@ public partial class GoogleKmsEkmConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource name for the EkmConnection.
@@ -115,14 +115,14 @@ public partial class GoogleKmsEkmConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for service_resolvers.
@@ -131,14 +131,14 @@ public partial class GoogleKmsEkmConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceResolvers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceResolvers block(s) required")]
     [TerraformProperty("service_resolvers")]
-    public TerraformList<TerraformBlock<GoogleKmsEkmConnectionServiceResolversBlock>>? ServiceResolvers { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleKmsEkmConnectionServiceResolversBlock>>? ServiceResolvers { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleKmsEkmConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleKmsEkmConnectionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time at which the EkmConnection was created.
@@ -146,6 +146,6 @@ public partial class GoogleKmsEkmConnection : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
 }

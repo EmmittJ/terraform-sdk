@@ -16,7 +16,7 @@ public partial class AwsCognitoIdentityPoolProviderPrincipalTag : TerraformResou
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The identity_pool_id attribute.
@@ -24,7 +24,7 @@ public partial class AwsCognitoIdentityPoolProviderPrincipalTag : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
     [TerraformProperty("identity_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IdentityPoolId { get; set; }
+    public required partial TerraformValue<string> IdentityPoolId { get; set; }
 
     /// <summary>
     /// The identity_provider_name attribute.
@@ -32,27 +32,27 @@ public partial class AwsCognitoIdentityPoolProviderPrincipalTag : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProviderName is required")]
     [TerraformProperty("identity_provider_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IdentityProviderName { get; set; }
+    public required partial TerraformValue<string> IdentityProviderName { get; set; }
 
     /// <summary>
     /// The principal_tags attribute.
     /// </summary>
     [TerraformProperty("principal_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? PrincipalTags { get; set; }
+    public partial TerraformMap<string>? PrincipalTags { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The use_defaults attribute.
     /// </summary>
     [TerraformProperty("use_defaults")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseDefaults { get; set; }
+    public partial TerraformValue<bool>? UseDefaults { get; set; }
 
 }

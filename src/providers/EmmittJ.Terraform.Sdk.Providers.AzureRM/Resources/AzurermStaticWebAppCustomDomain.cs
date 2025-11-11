@@ -13,21 +13,21 @@ public partial class AzurermStaticWebAppCustomDomainTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzurermStaticWebAppCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformProperty("domain_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainName { get; set; }
+    public required partial TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The static_web_app_id attribute.
@@ -61,7 +61,7 @@ public partial class AzurermStaticWebAppCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticWebAppId is required")]
     [TerraformProperty("static_web_app_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StaticWebAppId { get; set; }
+    public required partial TerraformValue<string> StaticWebAppId { get; set; }
 
     /// <summary>
     /// The validation_type attribute.
@@ -69,20 +69,20 @@ public partial class AzurermStaticWebAppCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidationType is required")]
     [TerraformProperty("validation_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ValidationType { get; set; }
+    public required partial TerraformValue<string> ValidationType { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStaticWebAppCustomDomainTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStaticWebAppCustomDomainTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The validation_token attribute.
     /// </summary>
     [TerraformProperty("validation_token")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ValidationToken { get; }
+    public partial TerraformValue<string> ValidationToken { get; }
 
 }

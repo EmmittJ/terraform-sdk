@@ -14,7 +14,7 @@ public partial class AzurermCustomProviderActionBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     [TerraformProperty("endpoint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Endpoint { get; set; }
+    public required partial TerraformValue<string> Endpoint { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -22,7 +22,7 @@ public partial class AzurermCustomProviderActionBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class AzurermCustomProviderResourceTypeBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     [TerraformProperty("endpoint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Endpoint { get; set; }
+    public required partial TerraformValue<string> Endpoint { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -46,14 +46,14 @@ public partial class AzurermCustomProviderResourceTypeBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The routing_type attribute.
     /// </summary>
     [TerraformProperty("routing_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RoutingType { get; set; }
+    public partial TerraformValue<string>? RoutingType { get; set; }
 
 }
 
@@ -68,28 +68,28 @@ public partial class AzurermCustomProviderTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -105,7 +105,7 @@ public partial class AzurermCustomProviderValidationBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Specification is required")]
     [TerraformProperty("specification")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Specification { get; set; }
+    public required partial TerraformValue<string> Specification { get; set; }
 
 }
 
@@ -123,7 +123,7 @@ public partial class AzurermCustomProvider : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -131,7 +131,7 @@ public partial class AzurermCustomProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -139,7 +139,7 @@ public partial class AzurermCustomProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -147,41 +147,41 @@ public partial class AzurermCustomProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for action.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("action")]
-    public TerraformSet<TerraformBlock<AzurermCustomProviderActionBlock>>? Action { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermCustomProviderActionBlock>>? Action { get; set; }
 
     /// <summary>
     /// Block for resource_type.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("resource_type")]
-    public TerraformSet<TerraformBlock<AzurermCustomProviderResourceTypeBlock>>? ResourceType { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermCustomProviderResourceTypeBlock>>? ResourceType { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCustomProviderTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCustomProviderTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for validation.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("validation")]
-    public TerraformSet<TerraformBlock<AzurermCustomProviderValidationBlock>>? Validation { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermCustomProviderValidationBlock>>? Validation { get; set; }
 
 }

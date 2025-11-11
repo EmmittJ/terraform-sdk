@@ -16,27 +16,27 @@ public partial class AwsS3DirectoryBucketsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The arns attribute.
     /// </summary>
     [TerraformProperty("arns")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Arns { get; }
+    public partial TerraformList<string> Arns { get; }
 
     /// <summary>
     /// The buckets attribute.
     /// </summary>
     [TerraformProperty("buckets")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Buckets { get; }
+    public partial TerraformList<string> Buckets { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

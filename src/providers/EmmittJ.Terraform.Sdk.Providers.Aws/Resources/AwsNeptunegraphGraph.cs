@@ -13,21 +13,21 @@ public partial class AwsNeptunegraphGraphTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -42,7 +42,7 @@ public partial class AwsNeptunegraphGraphVectorSearchConfigurationBlock : Terraf
     /// </summary>
     [TerraformProperty("vector_search_dimension")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? VectorSearchDimension { get; set; }
+    public partial TerraformValue<double>? VectorSearchDimension { get; set; }
 
 }
 
@@ -60,7 +60,7 @@ public partial class AwsNeptunegraphGraph : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> DeletionProtection { get; set; }
+    public partial TerraformValue<bool> DeletionProtection { get; set; }
 
     /// <summary>
     /// The graph name. For example: my-graph-1.
@@ -71,21 +71,21 @@ public partial class AwsNeptunegraphGraph : TerraformResource
     /// </summary>
     [TerraformProperty("graph_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> GraphName { get; set; }
+    public partial TerraformValue<string> GraphName { get; set; }
 
     /// <summary>
     /// Allows user to specify name prefix and have remainder of name automatically generated.
     /// </summary>
     [TerraformProperty("graph_name_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GraphNamePrefix { get; set; }
+    public partial TerraformValue<string>? GraphNamePrefix { get; set; }
 
     /// <summary>
     /// Specifies a KMS key to use to encrypt data in the new graph.  Value must be ARN of KMS Key.
     /// </summary>
     [TerraformProperty("kms_key_identifier")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> KmsKeyIdentifier { get; set; }
+    public partial TerraformValue<string> KmsKeyIdentifier { get; set; }
 
     /// <summary>
     /// The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
@@ -93,7 +93,7 @@ public partial class AwsNeptunegraphGraph : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvisionedMemory is required")]
     [TerraformProperty("provisioned_memory")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ProvisionedMemory { get; set; }
+    public required partial TerraformValue<double> ProvisionedMemory { get; set; }
 
     /// <summary>
     /// Specifies whether or not the graph can be reachable over the internet. 
@@ -105,69 +105,69 @@ public partial class AwsNeptunegraphGraph : TerraformResource
     /// </summary>
     [TerraformProperty("public_connectivity")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> PublicConnectivity { get; set; }
+    public partial TerraformValue<bool> PublicConnectivity { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The number of replicas in other AZs.  Value must be between 0 and 2.
     /// </summary>
     [TerraformProperty("replica_count")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> ReplicaCount { get; set; }
+    public partial TerraformValue<double> ReplicaCount { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsNeptunegraphGraphTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsNeptunegraphGraphTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vector_search_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("vector_search_configuration")]
-    public TerraformList<TerraformBlock<AwsNeptunegraphGraphVectorSearchConfigurationBlock>>? VectorSearchConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsNeptunegraphGraphVectorSearchConfigurationBlock>>? VectorSearchConfiguration { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     [TerraformProperty("endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Endpoint { get; }
+    public partial TerraformValue<string> Endpoint { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
 }

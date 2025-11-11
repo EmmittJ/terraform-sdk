@@ -13,21 +13,21 @@ public partial class AzurermVmwareNetappVolumeAttachmentTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermVmwareNetappVolumeAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -53,7 +53,7 @@ public partial class AzurermVmwareNetappVolumeAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The netapp_volume_id attribute.
@@ -61,7 +61,7 @@ public partial class AzurermVmwareNetappVolumeAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappVolumeId is required")]
     [TerraformProperty("netapp_volume_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NetappVolumeId { get; set; }
+    public required partial TerraformValue<string> NetappVolumeId { get; set; }
 
     /// <summary>
     /// The vmware_cluster_id attribute.
@@ -69,13 +69,13 @@ public partial class AzurermVmwareNetappVolumeAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareClusterId is required")]
     [TerraformProperty("vmware_cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VmwareClusterId { get; set; }
+    public required partial TerraformValue<string> VmwareClusterId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVmwareNetappVolumeAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVmwareNetappVolumeAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,28 +13,28 @@ public partial class AzurermOracleAutonomousDatabaseBackupTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,14 +53,14 @@ public partial class AzurermOracleAutonomousDatabaseBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
     [TerraformProperty("autonomous_database_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AutonomousDatabaseId { get; set; }
+    public required partial TerraformValue<string> AutonomousDatabaseId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -68,7 +68,7 @@ public partial class AzurermOracleAutonomousDatabaseBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The retention_period_in_days attribute.
@@ -76,20 +76,20 @@ public partial class AzurermOracleAutonomousDatabaseBackup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodInDays is required")]
     [TerraformProperty("retention_period_in_days")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> RetentionPeriodInDays { get; set; }
+    public required partial TerraformValue<double> RetentionPeriodInDays { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermOracleAutonomousDatabaseBackupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermOracleAutonomousDatabaseBackupTimeoutsBlock>? Timeouts { get; set; }
 
 }

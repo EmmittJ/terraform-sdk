@@ -16,7 +16,7 @@ public partial class GoogleIamTestablePermissionsDataSource : TerraformDataSourc
     /// </summary>
     [TerraformProperty("custom_support_level")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CustomSupportLevel { get; set; }
+    public partial TerraformValue<string>? CustomSupportLevel { get; set; }
 
     /// <summary>
     /// The full_resource_name attribute.
@@ -24,27 +24,27 @@ public partial class GoogleIamTestablePermissionsDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullResourceName is required")]
     [TerraformProperty("full_resource_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FullResourceName { get; set; }
+    public required partial TerraformValue<string> FullResourceName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The stages attribute.
     /// </summary>
     [TerraformProperty("stages")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Stages { get; set; }
+    public partial TerraformList<string>? Stages { get; set; }
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
     [TerraformProperty("permissions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Permissions { get; }
+    public partial TerraformList<object> Permissions { get; }
 
 }

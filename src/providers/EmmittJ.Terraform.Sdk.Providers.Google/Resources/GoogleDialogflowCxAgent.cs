@@ -22,7 +22,7 @@ public partial class GoogleDialogflowCxAgentAnswerFeedbackSettingsBlock : Terraf
     /// </summary>
     [TerraformProperty("enable_answer_feedback")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableAnswerFeedback { get; set; }
+    public partial TerraformValue<bool>? EnableAnswerFeedback { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class GoogleDialogflowCxAgentClientCertificateSettingsBlock : Ter
     /// </summary>
     [TerraformProperty("passphrase")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Passphrase { get; set; }
+    public partial TerraformValue<string>? Passphrase { get; set; }
 
     /// <summary>
     /// The name of the SecretManager secret version resource storing the private key encoded in PEM format. Format: **projects/{project}/secrets/{secret}/versions/{version}**
@@ -45,7 +45,7 @@ public partial class GoogleDialogflowCxAgentClientCertificateSettingsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     [TerraformProperty("private_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrivateKey { get; set; }
+    public required partial TerraformValue<string> PrivateKey { get; set; }
 
     /// <summary>
     /// The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines.
@@ -53,7 +53,7 @@ public partial class GoogleDialogflowCxAgentClientCertificateSettingsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslCertificate is required")]
     [TerraformProperty("ssl_certificate")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SslCertificate { get; set; }
+    public required partial TerraformValue<string> SslCertificate { get; set; }
 
 }
 
@@ -70,7 +70,7 @@ public partial class GoogleDialogflowCxAgentGenAppBuilderSettingsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
     [TerraformProperty("engine")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Engine { get; set; }
+    public required partial TerraformValue<string> Engine { get; set; }
 
 }
 
@@ -97,7 +97,7 @@ public partial class GoogleDialogflowCxAgentPersonalizationSettingsBlock : Terra
     /// </summary>
     [TerraformProperty("default_end_user_metadata")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultEndUserMetadata { get; set; }
+    public partial TerraformValue<string>? DefaultEndUserMetadata { get; set; }
 
 }
 
@@ -112,7 +112,7 @@ public partial class GoogleDialogflowCxAgentSpeechToTextSettingsBlock : Terrafor
     /// </summary>
     [TerraformProperty("enable_speech_adaptation")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableSpeechAdaptation { get; set; }
+    public partial TerraformValue<bool>? EnableSpeechAdaptation { get; set; }
 
 }
 
@@ -130,7 +130,7 @@ public partial class GoogleDialogflowCxAgentTextToSpeechSettingsBlock : Terrafor
     /// </summary>
     [TerraformProperty("synthesize_speech_configs")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SynthesizeSpeechConfigs { get; set; }
+    public partial TerraformValue<string>? SynthesizeSpeechConfigs { get; set; }
 
 }
 
@@ -145,21 +145,21 @@ public partial class GoogleDialogflowCxAgentTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -178,7 +178,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [TerraformProperty("avatar_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AvatarUri { get; set; }
+    public partial TerraformValue<string>? AvatarUri { get; set; }
 
     /// <summary>
     /// The default language of the agent as a language tag. [See Language Support](https://cloud.google.com/dialogflow/cx/docs/reference/language)
@@ -187,7 +187,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLanguageCode is required")]
     [TerraformProperty("default_language_code")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DefaultLanguageCode { get; set; }
+    public required partial TerraformValue<string> DefaultLanguageCode { get; set; }
 
     /// <summary>
     /// If set to &#39;true&#39;, Terraform will delete the chat engine associated with the agent when the agent is destroyed.
@@ -207,14 +207,14 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [TerraformProperty("delete_chat_engine_on_destroy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeleteChatEngineOnDestroy { get; set; }
+    public partial TerraformValue<bool>? DeleteChatEngineOnDestroy { get; set; }
 
     /// <summary>
     /// The description of this agent. The maximum length is 500 characters. If exceeded, the request is rejected.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The human-readable name of the agent, unique within the location.
@@ -222,21 +222,21 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Enable training multi-lingual models for this agent. These models will be trained on all the languages supported by the agent.
     /// </summary>
     [TerraformProperty("enable_multi_language_training")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableMultiLanguageTraining { get; set; }
+    public partial TerraformValue<bool>? EnableMultiLanguageTraining { get; set; }
 
     /// <summary>
     /// Indicates if automatic spell correction is enabled in detect intent requests.
     /// </summary>
     [TerraformProperty("enable_spell_correction")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableSpellCorrection { get; set; }
+    public partial TerraformValue<bool>? EnableSpellCorrection { get; set; }
 
     /// <summary>
     /// Determines whether this agent should log conversation queries.
@@ -244,14 +244,14 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("enable_stackdriver_logging")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableStackdriverLogging { get; set; }
+    public partial TerraformValue<bool>? EnableStackdriverLogging { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the location this agent is located in.
@@ -263,42 +263,42 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Indicates whether the agent is locked for changes. If the agent is locked, modifications to the agent will be rejected except for [agents.restore][].
     /// </summary>
     [TerraformProperty("locked")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Locked { get; set; }
+    public partial TerraformValue<bool>? Locked { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Name of the SecuritySettings reference for the agent. Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/securitySettings/&amp;lt;Security Settings ID&amp;gt;.
     /// </summary>
     [TerraformProperty("security_settings")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecuritySettings { get; set; }
+    public partial TerraformValue<string>? SecuritySettings { get; set; }
 
     /// <summary>
     /// Name of the start playbook in this agent. A start playbook will be automatically created when the agent is created, and can only be deleted by deleting the agent. Format: **projects/&amp;lt;ProjectID&amp;gt;/locations/&amp;lt;LocationID&amp;gt;/agents/&amp;lt;AgentID&amp;gt;/playbooks/&amp;lt;PlaybookID&amp;gt;**. Currently only the default playbook with id &amp;quot;00000000-0000-0000-0000-000000000000&amp;quot; is allowed.
     /// </summary>
     [TerraformProperty("start_playbook")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StartPlaybook { get; set; }
+    public partial TerraformValue<string>? StartPlaybook { get; set; }
 
     /// <summary>
     /// The list of all languages supported by this agent (except for the default_language_code).
     /// </summary>
     [TerraformProperty("supported_language_codes")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? SupportedLanguageCodes { get; set; }
+    public partial TerraformList<string>? SupportedLanguageCodes { get; set; }
 
     /// <summary>
     /// The time zone of this agent from the [time zone database](https://www.iana.org/time-zones), e.g., America/New_York,
@@ -307,7 +307,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     [TerraformProperty("time_zone")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TimeZone { get; set; }
+    public required partial TerraformValue<string> TimeZone { get; set; }
 
     /// <summary>
     /// Block for advanced_settings.
@@ -315,7 +315,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedSettings block(s) allowed")]
     [TerraformProperty("advanced_settings")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxAgentAdvancedSettingsBlock>>? AdvancedSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxAgentAdvancedSettingsBlock>>? AdvancedSettings { get; set; }
 
     /// <summary>
     /// Block for answer_feedback_settings.
@@ -323,7 +323,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AnswerFeedbackSettings block(s) allowed")]
     [TerraformProperty("answer_feedback_settings")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxAgentAnswerFeedbackSettingsBlock>>? AnswerFeedbackSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxAgentAnswerFeedbackSettingsBlock>>? AnswerFeedbackSettings { get; set; }
 
     /// <summary>
     /// Block for client_certificate_settings.
@@ -331,7 +331,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientCertificateSettings block(s) allowed")]
     [TerraformProperty("client_certificate_settings")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxAgentClientCertificateSettingsBlock>>? ClientCertificateSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxAgentClientCertificateSettingsBlock>>? ClientCertificateSettings { get; set; }
 
     /// <summary>
     /// Block for gen_app_builder_settings.
@@ -339,7 +339,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenAppBuilderSettings block(s) allowed")]
     [TerraformProperty("gen_app_builder_settings")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxAgentGenAppBuilderSettingsBlock>>? GenAppBuilderSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxAgentGenAppBuilderSettingsBlock>>? GenAppBuilderSettings { get; set; }
 
     /// <summary>
     /// Block for git_integration_settings.
@@ -347,7 +347,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitIntegrationSettings block(s) allowed")]
     [TerraformProperty("git_integration_settings")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxAgentGitIntegrationSettingsBlock>>? GitIntegrationSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxAgentGitIntegrationSettingsBlock>>? GitIntegrationSettings { get; set; }
 
     /// <summary>
     /// Block for personalization_settings.
@@ -355,7 +355,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersonalizationSettings block(s) allowed")]
     [TerraformProperty("personalization_settings")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxAgentPersonalizationSettingsBlock>>? PersonalizationSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxAgentPersonalizationSettingsBlock>>? PersonalizationSettings { get; set; }
 
     /// <summary>
     /// Block for speech_to_text_settings.
@@ -363,7 +363,7 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpeechToTextSettings block(s) allowed")]
     [TerraformProperty("speech_to_text_settings")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxAgentSpeechToTextSettingsBlock>>? SpeechToTextSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxAgentSpeechToTextSettingsBlock>>? SpeechToTextSettings { get; set; }
 
     /// <summary>
     /// Block for text_to_speech_settings.
@@ -371,41 +371,41 @@ public partial class GoogleDialogflowCxAgent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TextToSpeechSettings block(s) allowed")]
     [TerraformProperty("text_to_speech_settings")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxAgentTextToSpeechSettingsBlock>>? TextToSpeechSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxAgentTextToSpeechSettingsBlock>>? TextToSpeechSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDialogflowCxAgentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDialogflowCxAgentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique identifier of the agent.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// A read only boolean field reflecting Zone Isolation status of the agent.
     /// </summary>
     [TerraformProperty("satisfies_pzi")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> SatisfiesPzi { get; }
+    public partial TerraformValue<bool> SatisfiesPzi { get; }
 
     /// <summary>
     /// A read only boolean field reflecting Zone Separation status of the agent.
     /// </summary>
     [TerraformProperty("satisfies_pzs")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> SatisfiesPzs { get; }
+    public partial TerraformValue<bool> SatisfiesPzs { get; }
 
     /// <summary>
     /// Name of the start flow in this agent. A start flow will be automatically created when the agent is created, and can only be deleted by deleting the agent. Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;.
     /// </summary>
     [TerraformProperty("start_flow")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StartFlow { get; }
+    public partial TerraformValue<string> StartFlow { get; }
 
 }

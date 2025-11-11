@@ -13,28 +13,28 @@ public partial class AzurermBackupProtectedFileShareTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,14 +53,14 @@ public partial class AzurermBackupProtectedFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
     [TerraformProperty("backup_policy_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackupPolicyId { get; set; }
+    public required partial TerraformValue<string> BackupPolicyId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The recovery_vault_name attribute.
@@ -68,7 +68,7 @@ public partial class AzurermBackupProtectedFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     [TerraformProperty("recovery_vault_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecoveryVaultName { get; set; }
+    public required partial TerraformValue<string> RecoveryVaultName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -76,7 +76,7 @@ public partial class AzurermBackupProtectedFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The source_file_share_name attribute.
@@ -84,7 +84,7 @@ public partial class AzurermBackupProtectedFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileShareName is required")]
     [TerraformProperty("source_file_share_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceFileShareName { get; set; }
+    public required partial TerraformValue<string> SourceFileShareName { get; set; }
 
     /// <summary>
     /// The source_storage_account_id attribute.
@@ -92,13 +92,13 @@ public partial class AzurermBackupProtectedFileShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceStorageAccountId is required")]
     [TerraformProperty("source_storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceStorageAccountId { get; set; }
+    public required partial TerraformValue<string> SourceStorageAccountId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermBackupProtectedFileShareTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermBackupProtectedFileShareTimeoutsBlock>? Timeouts { get; set; }
 
 }

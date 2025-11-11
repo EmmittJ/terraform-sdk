@@ -16,21 +16,21 @@ public partial class GoogleServiceAccountAccessTokenDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("delegates")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Delegates { get; set; }
+    public partial TerraformSet<string>? Delegates { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The lifetime attribute.
     /// </summary>
     [TerraformProperty("lifetime")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Lifetime { get; set; }
+    public partial TerraformValue<string>? Lifetime { get; set; }
 
     /// <summary>
     /// The scopes attribute.
@@ -38,7 +38,7 @@ public partial class GoogleServiceAccountAccessTokenDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     [TerraformProperty("scopes")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Scopes { get; set; }
+    public required partial TerraformSet<string> Scopes { get; set; }
 
     /// <summary>
     /// The target_service_account attribute.
@@ -46,13 +46,13 @@ public partial class GoogleServiceAccountAccessTokenDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
     [TerraformProperty("target_service_account")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetServiceAccount { get; set; }
+    public required partial TerraformValue<string> TargetServiceAccount { get; set; }
 
     /// <summary>
     /// The access_token attribute.
     /// </summary>
     [TerraformProperty("access_token")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AccessToken { get; }
+    public partial TerraformValue<string> AccessToken { get; }
 
 }

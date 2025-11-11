@@ -21,7 +21,7 @@ public partial class GoogleContainerAnalysisNoteRelatedUrlBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("label")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Label { get; set; }
+    public partial TerraformValue<string>? Label { get; set; }
 
     /// <summary>
     /// Specific URL associated with the resource.
@@ -29,7 +29,7 @@ public partial class GoogleContainerAnalysisNoteRelatedUrlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     [TerraformProperty("url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Url { get; set; }
+    public required partial TerraformValue<string> Url { get; set; }
 
 }
 
@@ -44,21 +44,21 @@ public partial class GoogleContainerAnalysisNoteTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -77,21 +77,21 @@ public partial class GoogleContainerAnalysisNote : TerraformResource
     /// </summary>
     [TerraformProperty("expiration_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExpirationTime { get; set; }
+    public partial TerraformValue<string>? ExpirationTime { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A detailed description of the note
     /// </summary>
     [TerraformProperty("long_description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LongDescription { get; set; }
+    public partial TerraformValue<string>? LongDescription { get; set; }
 
     /// <summary>
     /// The name of the note.
@@ -99,28 +99,28 @@ public partial class GoogleContainerAnalysisNote : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Names of other notes related to this note.
     /// </summary>
     [TerraformProperty("related_note_names")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? RelatedNoteNames { get; set; }
+    public partial TerraformSet<string>? RelatedNoteNames { get; set; }
 
     /// <summary>
     /// A one sentence description of the note.
     /// </summary>
     [TerraformProperty("short_description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ShortDescription { get; set; }
+    public partial TerraformValue<string>? ShortDescription { get; set; }
 
     /// <summary>
     /// Block for attestation_authority.
@@ -130,41 +130,41 @@ public partial class GoogleContainerAnalysisNote : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AttestationAuthority block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AttestationAuthority block(s) allowed")]
     [TerraformProperty("attestation_authority")]
-    public TerraformList<TerraformBlock<GoogleContainerAnalysisNoteAttestationAuthorityBlock>>? AttestationAuthority { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleContainerAnalysisNoteAttestationAuthorityBlock>>? AttestationAuthority { get; set; }
 
     /// <summary>
     /// Block for related_url.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("related_url")]
-    public TerraformSet<TerraformBlock<GoogleContainerAnalysisNoteRelatedUrlBlock>>? RelatedUrl { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleContainerAnalysisNoteRelatedUrlBlock>>? RelatedUrl { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleContainerAnalysisNoteTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleContainerAnalysisNoteTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time this note was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The type of analysis this note describes
     /// </summary>
     [TerraformProperty("kind")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Kind { get; }
+    public partial TerraformValue<string> Kind { get; }
 
     /// <summary>
     /// The time this note was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

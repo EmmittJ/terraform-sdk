@@ -14,7 +14,7 @@ public partial class GooglePubsubLiteTopicPartitionConfigBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     [TerraformProperty("count")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Count { get; set; }
+    public required partial TerraformValue<double> Count { get; set; }
 
 }
 
@@ -29,7 +29,7 @@ public partial class GooglePubsubLiteTopicReservationConfigBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("throughput_reservation")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ThroughputReservation { get; set; }
+    public partial TerraformValue<string>? ThroughputReservation { get; set; }
 
 }
 
@@ -47,7 +47,7 @@ public partial class GooglePubsubLiteTopicRetentionConfigBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerPartitionBytes is required")]
     [TerraformProperty("per_partition_bytes")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PerPartitionBytes { get; set; }
+    public required partial TerraformValue<string> PerPartitionBytes { get; set; }
 
     /// <summary>
     /// How long a published message is retained. If unset, messages will be retained as
@@ -57,7 +57,7 @@ public partial class GooglePubsubLiteTopicRetentionConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("period")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Period { get; set; }
+    public partial TerraformValue<string>? Period { get; set; }
 
 }
 
@@ -72,21 +72,21 @@ public partial class GooglePubsubLiteTopicTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -105,7 +105,7 @@ public partial class GooglePubsubLiteTopic : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the topic.
@@ -113,28 +113,28 @@ public partial class GooglePubsubLiteTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region of the pubsub lite topic.
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The zone of the pubsub lite topic.
     /// </summary>
     [TerraformProperty("zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Zone { get; set; }
+    public partial TerraformValue<string>? Zone { get; set; }
 
     /// <summary>
     /// Block for partition_config.
@@ -142,7 +142,7 @@ public partial class GooglePubsubLiteTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PartitionConfig block(s) allowed")]
     [TerraformProperty("partition_config")]
-    public TerraformList<TerraformBlock<GooglePubsubLiteTopicPartitionConfigBlock>>? PartitionConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePubsubLiteTopicPartitionConfigBlock>>? PartitionConfig { get; set; }
 
     /// <summary>
     /// Block for reservation_config.
@@ -150,7 +150,7 @@ public partial class GooglePubsubLiteTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationConfig block(s) allowed")]
     [TerraformProperty("reservation_config")]
-    public TerraformList<TerraformBlock<GooglePubsubLiteTopicReservationConfigBlock>>? ReservationConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePubsubLiteTopicReservationConfigBlock>>? ReservationConfig { get; set; }
 
     /// <summary>
     /// Block for retention_config.
@@ -158,13 +158,13 @@ public partial class GooglePubsubLiteTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionConfig block(s) allowed")]
     [TerraformProperty("retention_config")]
-    public TerraformList<TerraformBlock<GooglePubsubLiteTopicRetentionConfigBlock>>? RetentionConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePubsubLiteTopicRetentionConfigBlock>>? RetentionConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GooglePubsubLiteTopicTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GooglePubsubLiteTopicTimeoutsBlock>? Timeouts { get; set; }
 
 }

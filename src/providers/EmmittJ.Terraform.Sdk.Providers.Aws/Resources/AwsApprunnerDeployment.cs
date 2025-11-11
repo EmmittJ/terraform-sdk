@@ -13,7 +13,7 @@ public partial class AwsApprunnerDeploymentTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AwsApprunnerDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The service_arn attribute.
@@ -39,34 +39,34 @@ public partial class AwsApprunnerDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceArn is required")]
     [TerraformProperty("service_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceArn { get; set; }
+    public required partial TerraformValue<string> ServiceArn { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsApprunnerDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsApprunnerDeploymentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The operation_id attribute.
     /// </summary>
     [TerraformProperty("operation_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OperationId { get; }
+    public partial TerraformValue<string> OperationId { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
 }

@@ -24,7 +24,7 @@ public partial class GoogleApigeeEnvironmentNodeConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("max_node_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MaxNodeCount { get; set; }
+    public partial TerraformValue<string>? MaxNodeCount { get; set; }
 
     /// <summary>
     /// The minimum total number of gateway nodes that the is reserved for all instances that
@@ -33,7 +33,7 @@ public partial class GoogleApigeeEnvironmentNodeConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("min_node_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MinNodeCount { get; set; }
+    public partial TerraformValue<string>? MinNodeCount { get; set; }
 
 }
 
@@ -56,21 +56,21 @@ public partial class GoogleApigeeEnvironmentTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -90,7 +90,7 @@ public partial class GoogleApigeeEnvironment : TerraformResource
     /// </summary>
     [TerraformProperty("api_proxy_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ApiProxyType { get; set; }
+    public partial TerraformValue<string> ApiProxyType { get; set; }
 
     /// <summary>
     /// Optional. Deployment type supported by the environment. The deployment type can be
@@ -103,35 +103,35 @@ public partial class GoogleApigeeEnvironment : TerraformResource
     /// </summary>
     [TerraformProperty("deployment_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DeploymentType { get; set; }
+    public partial TerraformValue<string> DeploymentType { get; set; }
 
     /// <summary>
     /// Description of the environment.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Display name of the environment.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// Optional. URI of the forward proxy to be applied to the runtime instances in this environment. Must be in the format of {scheme}://{hostname}:{port}. Note that the scheme must be one of &amp;quot;http&amp;quot; or &amp;quot;https&amp;quot;, and the port must be supplied.
     /// </summary>
     [TerraformProperty("forward_proxy_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ForwardProxyUri { get; set; }
+    public partial TerraformValue<string>? ForwardProxyUri { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource ID of the environment.
@@ -139,7 +139,7 @@ public partial class GoogleApigeeEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee environment,
@@ -148,7 +148,7 @@ public partial class GoogleApigeeEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformProperty("org_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OrgId { get; set; }
+    public required partial TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Types that can be selected for an Environment. Each of the types are
@@ -158,7 +158,7 @@ public partial class GoogleApigeeEnvironment : TerraformResource
     /// </summary>
     [TerraformProperty("type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Type { get; set; }
+    public partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for client_ip_resolution_config.
@@ -166,7 +166,7 @@ public partial class GoogleApigeeEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientIpResolutionConfig block(s) allowed")]
     [TerraformProperty("client_ip_resolution_config")]
-    public TerraformList<TerraformBlock<GoogleApigeeEnvironmentClientIpResolutionConfigBlock>>? ClientIpResolutionConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApigeeEnvironmentClientIpResolutionConfigBlock>>? ClientIpResolutionConfig { get; set; }
 
     /// <summary>
     /// Block for node_config.
@@ -174,7 +174,7 @@ public partial class GoogleApigeeEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     [TerraformProperty("node_config")]
-    public TerraformList<TerraformBlock<GoogleApigeeEnvironmentNodeConfigBlock>>? NodeConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApigeeEnvironmentNodeConfigBlock>>? NodeConfig { get; set; }
 
     /// <summary>
     /// Block for properties.
@@ -182,13 +182,13 @@ public partial class GoogleApigeeEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
     [TerraformProperty("properties")]
-    public TerraformList<TerraformBlock<GoogleApigeeEnvironmentPropertiesBlock>>? Properties { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApigeeEnvironmentPropertiesBlock>>? Properties { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeEnvironmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeEnvironmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

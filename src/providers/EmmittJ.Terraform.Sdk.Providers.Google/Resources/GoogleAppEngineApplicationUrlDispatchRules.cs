@@ -14,7 +14,7 @@ public partial class GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBloc
     /// </summary>
     [TerraformProperty("domain")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Domain { get; set; }
+    public partial TerraformValue<string>? Domain { get; set; }
 
     /// <summary>
     /// Pathname within the host. Must start with a &amp;quot;/&amp;quot;. A single &amp;quot;*&amp;quot; can be included at the end of the path.
@@ -23,7 +23,7 @@ public partial class GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     [TerraformProperty("path")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Path { get; set; }
+    public required partial TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// Pathname within the host. Must start with a &amp;quot;/&amp;quot;. A single &amp;quot;*&amp;quot; can be included at the end of the path.
@@ -32,7 +32,7 @@ public partial class GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformProperty("service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Service { get; set; }
+    public required partial TerraformValue<string> Service { get; set; }
 
 }
 
@@ -47,21 +47,21 @@ public partial class GoogleAppEngineApplicationUrlDispatchRulesTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -80,14 +80,14 @@ public partial class GoogleAppEngineApplicationUrlDispatchRules : TerraformResou
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for dispatch_rules.
@@ -96,13 +96,13 @@ public partial class GoogleAppEngineApplicationUrlDispatchRules : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DispatchRules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DispatchRules block(s) required")]
     [TerraformProperty("dispatch_rules")]
-    public TerraformList<TerraformBlock<GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBlock>>? DispatchRules { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineApplicationUrlDispatchRulesDispatchRulesBlock>>? DispatchRules { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleAppEngineApplicationUrlDispatchRulesTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleAppEngineApplicationUrlDispatchRulesTimeoutsBlock>? Timeouts { get; set; }
 
 }

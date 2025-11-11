@@ -13,7 +13,7 @@ public partial class GoogleGkeonpremBareMetalAdminClusterClusterOperationsBlock 
     /// </summary>
     [TerraformProperty("enable_application_logs")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableApplicationLogs { get; set; }
+    public partial TerraformValue<bool>? EnableApplicationLogs { get; set; }
 
 }
 
@@ -48,7 +48,7 @@ public partial class GoogleGkeonpremBareMetalAdminClusterMaintenanceConfigBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceAddressCidrBlocks is required")]
     [TerraformProperty("maintenance_address_cidr_blocks")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? MaintenanceAddressCidrBlocks { get; set; }
+    public partial TerraformList<string>? MaintenanceAddressCidrBlocks { get; set; }
 
 }
 
@@ -72,7 +72,7 @@ public partial class GoogleGkeonpremBareMetalAdminClusterNodeAccessConfigBlock :
     /// </summary>
     [TerraformProperty("login_user")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LoginUser { get; set; }
+    public partial TerraformValue<string>? LoginUser { get; set; }
 
 }
 
@@ -88,7 +88,7 @@ public partial class GoogleGkeonpremBareMetalAdminClusterNodeConfigBlock : Terra
     /// </summary>
     [TerraformProperty("max_pods_per_node")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxPodsPerNode { get; set; }
+    public partial TerraformValue<double>? MaxPodsPerNode { get; set; }
 
 }
 
@@ -104,7 +104,7 @@ public partial class GoogleGkeonpremBareMetalAdminClusterProxyBlock : TerraformB
     /// </summary>
     [TerraformProperty("no_proxy")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? NoProxy { get; set; }
+    public partial TerraformList<string>? NoProxy { get; set; }
 
     /// <summary>
     /// Specifies the address of your proxy server.
@@ -115,7 +115,7 @@ public partial class GoogleGkeonpremBareMetalAdminClusterProxyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     [TerraformProperty("uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Uri { get; set; }
+    public required partial TerraformValue<string> Uri { get; set; }
 
 }
 
@@ -146,21 +146,21 @@ public partial class GoogleGkeonpremBareMetalAdminClusterTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -190,28 +190,28 @@ public partial class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// A human readable description of this Bare Metal Admin Cluster.
     /// </summary>
     [TerraformProperty("bare_metal_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BareMetalVersion { get; set; }
+    public partial TerraformValue<string>? BareMetalVersion { get; set; }
 
     /// <summary>
     /// A human readable description of this Bare Metal Admin Cluster.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the resource.
@@ -219,7 +219,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The bare metal admin cluster name.
@@ -227,14 +227,14 @@ public partial class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for cluster_operations.
@@ -242,7 +242,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterOperations block(s) allowed")]
     [TerraformProperty("cluster_operations")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterClusterOperationsBlock>>? ClusterOperations { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterClusterOperationsBlock>>? ClusterOperations { get; set; }
 
     /// <summary>
     /// Block for control_plane.
@@ -250,7 +250,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlane block(s) allowed")]
     [TerraformProperty("control_plane")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterControlPlaneBlock>>? ControlPlane { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterControlPlaneBlock>>? ControlPlane { get; set; }
 
     /// <summary>
     /// Block for load_balancer.
@@ -258,7 +258,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancer block(s) allowed")]
     [TerraformProperty("load_balancer")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterLoadBalancerBlock>>? LoadBalancer { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterLoadBalancerBlock>>? LoadBalancer { get; set; }
 
     /// <summary>
     /// Block for maintenance_config.
@@ -266,7 +266,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceConfig block(s) allowed")]
     [TerraformProperty("maintenance_config")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterMaintenanceConfigBlock>>? MaintenanceConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterMaintenanceConfigBlock>>? MaintenanceConfig { get; set; }
 
     /// <summary>
     /// Block for network_config.
@@ -274,7 +274,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterNetworkConfigBlock>>? NetworkConfig { get; set; }
 
     /// <summary>
     /// Block for node_access_config.
@@ -282,7 +282,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeAccessConfig block(s) allowed")]
     [TerraformProperty("node_access_config")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterNodeAccessConfigBlock>>? NodeAccessConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterNodeAccessConfigBlock>>? NodeAccessConfig { get; set; }
 
     /// <summary>
     /// Block for node_config.
@@ -290,7 +290,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     [TerraformProperty("node_config")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterNodeConfigBlock>>? NodeConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterNodeConfigBlock>>? NodeConfig { get; set; }
 
     /// <summary>
     /// Block for proxy.
@@ -298,7 +298,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
     [TerraformProperty("proxy")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterProxyBlock>>? Proxy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterProxyBlock>>? Proxy { get; set; }
 
     /// <summary>
     /// Block for security_config.
@@ -306,7 +306,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityConfig block(s) allowed")]
     [TerraformProperty("security_config")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterSecurityConfigBlock>>? SecurityConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterSecurityConfigBlock>>? SecurityConfig { get; set; }
 
     /// <summary>
     /// Block for storage.
@@ -314,42 +314,42 @@ public partial class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
     [TerraformProperty("storage")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterStorageBlock>>? Storage { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremBareMetalAdminClusterStorageBlock>>? Storage { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleGkeonpremBareMetalAdminClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleGkeonpremBareMetalAdminClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The time the cluster was deleted, in RFC3339 text format.
     /// </summary>
     [TerraformProperty("delete_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeleteTime { get; }
+    public partial TerraformValue<string> DeleteTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// The IP address name of Bare Metal Admin Cluster&#39;s API server.
     /// </summary>
     [TerraformProperty("endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Endpoint { get; }
+    public partial TerraformValue<string> Endpoint { get; }
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -360,7 +360,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Fleet related configuration.
@@ -372,7 +372,7 @@ public partial class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// </summary>
     [TerraformProperty("fleet")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Fleet { get; }
+    public partial TerraformList<object> Fleet { get; }
 
     /// <summary>
     /// The object name of the Bare Metal Admin Cluster custom resource on the
@@ -388,48 +388,48 @@ public partial class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// </summary>
     [TerraformProperty("local_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LocalName { get; }
+    public partial TerraformValue<string> LocalName { get; }
 
     /// <summary>
     /// If set, there are currently changes in flight to the Bare Metal Admin Cluster.
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// The current state of this cluster.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Specifies detailed cluster status.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Status { get; }
+    public partial TerraformList<object> Status { get; }
 
     /// <summary>
     /// The unique identifier of the Bare Metal Admin Cluster.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// Specifies the security related settings for the Bare Metal Admin Cluster.
     /// </summary>
     [TerraformProperty("validation_check")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ValidationCheck { get; }
+    public partial TerraformList<object> ValidationCheck { get; }
 
 }

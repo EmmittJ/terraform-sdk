@@ -26,14 +26,14 @@ public partial class AwsCloudfrontMonitoringSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DistributionId is required")]
     [TerraformProperty("distribution_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DistributionId { get; set; }
+    public required partial TerraformValue<string> DistributionId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for monitoring_subscription.
@@ -43,6 +43,6 @@ public partial class AwsCloudfrontMonitoringSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MonitoringSubscription block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoringSubscription block(s) allowed")]
     [TerraformProperty("monitoring_subscription")]
-    public TerraformList<TerraformBlock<AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock>>? MonitoringSubscription { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock>>? MonitoringSubscription { get; set; }
 
 }

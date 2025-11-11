@@ -13,21 +13,21 @@ public partial class GoogleWorkflowsWorkflowTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -47,7 +47,7 @@ public partial class GoogleWorkflowsWorkflow : TerraformResource
     /// </summary>
     [TerraformProperty("call_log_level")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CallLogLevel { get; set; }
+    public partial TerraformValue<string>? CallLogLevel { get; set; }
 
     /// <summary>
     /// The KMS key used to encrypt workflow and execution data.
@@ -56,7 +56,7 @@ public partial class GoogleWorkflowsWorkflow : TerraformResource
     /// </summary>
     [TerraformProperty("crypto_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CryptoKeyName { get; set; }
+    public partial TerraformValue<string>? CryptoKeyName { get; set; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the workflow. Defaults to true.
@@ -68,14 +68,14 @@ public partial class GoogleWorkflowsWorkflow : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeletionProtection { get; set; }
+    public partial TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// Description of the workflow provided by the user. Must be at most 1000 unicode characters long.
     /// </summary>
     [TerraformProperty("description")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Description { get; set; }
+    public partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// Describes the level of execution history to be stored for this workflow. This configuration
@@ -84,14 +84,14 @@ public partial class GoogleWorkflowsWorkflow : TerraformResource
     /// </summary>
     [TerraformProperty("execution_history_level")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExecutionHistoryLevel { get; set; }
+    public partial TerraformValue<string>? ExecutionHistoryLevel { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A set of key/value label pairs to assign to this Workflow.
@@ -102,35 +102,35 @@ public partial class GoogleWorkflowsWorkflow : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Name of the Workflow.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformProperty("name_prefix")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NamePrefix { get; set; }
+    public partial TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region of the workflow.
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// Name of the service account associated with the latest workflow version. This service
@@ -143,14 +143,14 @@ public partial class GoogleWorkflowsWorkflow : TerraformResource
     /// </summary>
     [TerraformProperty("service_account")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ServiceAccount { get; set; }
+    public partial TerraformValue<string> ServiceAccount { get; set; }
 
     /// <summary>
     /// Workflow code to be executed. The size limit is 128KB.
     /// </summary>
     [TerraformProperty("source_contents")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SourceContents { get; set; }
+    public partial TerraformValue<string>? SourceContents { get; set; }
 
     /// <summary>
     /// A map of resource manager tags. Resource manager tag keys and values have the same definition
@@ -159,49 +159,49 @@ public partial class GoogleWorkflowsWorkflow : TerraformResource
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// User-defined environment variables associated with this workflow revision. This map has a maximum length of 20. Each string can take up to 4KiB. Keys cannot be empty strings and cannot start with &amp;quot;GOOGLE&amp;quot; or &amp;quot;WORKFLOWS&amp;quot;.
     /// </summary>
     [TerraformProperty("user_env_vars")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? UserEnvVars { get; set; }
+    public partial TerraformMap<string>? UserEnvVars { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleWorkflowsWorkflowTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleWorkflowsWorkflowTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp of when the workflow was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The revision of the workflow. A new one is generated if the service account or source contents is changed.
     /// </summary>
     [TerraformProperty("revision_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RevisionId { get; }
+    public partial TerraformValue<string> RevisionId { get; }
 
     /// <summary>
     /// State of the workflow deployment.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -209,13 +209,13 @@ public partial class GoogleWorkflowsWorkflow : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The timestamp of when the workflow was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AwsAutoscalingGroupTagTagBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The propagate_at_launch attribute.
@@ -22,7 +22,7 @@ public partial class AwsAutoscalingGroupTagTagBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropagateAtLaunch is required")]
     [TerraformProperty("propagate_at_launch")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> PropagateAtLaunch { get; set; }
+    public required partial TerraformValue<bool> PropagateAtLaunch { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -30,7 +30,7 @@ public partial class AwsAutoscalingGroupTagTagBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
 }
 
@@ -50,21 +50,21 @@ public partial class AwsAutoscalingGroupTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
     [TerraformProperty("autoscaling_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AutoscalingGroupName { get; set; }
+    public required partial TerraformValue<string> AutoscalingGroupName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for tag.
@@ -74,6 +74,6 @@ public partial class AwsAutoscalingGroupTag : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Tag block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tag block(s) allowed")]
     [TerraformProperty("tag")]
-    public TerraformList<TerraformBlock<AwsAutoscalingGroupTagTagBlock>>? Tag { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAutoscalingGroupTagTagBlock>>? Tag { get; set; }
 
 }

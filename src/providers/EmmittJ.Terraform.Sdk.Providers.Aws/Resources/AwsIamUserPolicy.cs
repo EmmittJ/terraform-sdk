@@ -16,21 +16,21 @@ public partial class AwsIamUserPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformProperty("name_prefix")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NamePrefix { get; set; }
+    public partial TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The policy attribute.
@@ -38,7 +38,7 @@ public partial class AwsIamUserPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     [TerraformProperty("policy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Policy { get; set; }
+    public required partial TerraformValue<string> Policy { get; set; }
 
     /// <summary>
     /// The user attribute.
@@ -46,6 +46,6 @@ public partial class AwsIamUserPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     [TerraformProperty("user")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> User { get; set; }
+    public required partial TerraformValue<string> User { get; set; }
 
 }

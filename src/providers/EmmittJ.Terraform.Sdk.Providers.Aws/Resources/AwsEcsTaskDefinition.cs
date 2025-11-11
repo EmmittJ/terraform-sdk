@@ -14,7 +14,7 @@ public partial class AwsEcsTaskDefinitionEphemeralStorageBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGib is required")]
     [TerraformProperty("size_in_gib")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> SizeInGib { get; set; }
+    public required partial TerraformValue<double> SizeInGib { get; set; }
 
 }
 
@@ -29,7 +29,7 @@ public partial class AwsEcsTaskDefinitionPlacementConstraintsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("expression")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Expression { get; set; }
+    public partial TerraformValue<string>? Expression { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -37,7 +37,7 @@ public partial class AwsEcsTaskDefinitionPlacementConstraintsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -53,21 +53,21 @@ public partial class AwsEcsTaskDefinitionProxyConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     [TerraformProperty("container_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerName { get; set; }
+    public required partial TerraformValue<string> ContainerName { get; set; }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
     [TerraformProperty("properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Properties { get; set; }
+    public partial TerraformMap<string>? Properties { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -82,14 +82,14 @@ public partial class AwsEcsTaskDefinitionRuntimePlatformBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("cpu_architecture")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CpuArchitecture { get; set; }
+    public partial TerraformValue<string>? CpuArchitecture { get; set; }
 
     /// <summary>
     /// The operating_system_family attribute.
     /// </summary>
     [TerraformProperty("operating_system_family")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OperatingSystemFamily { get; set; }
+    public partial TerraformValue<string>? OperatingSystemFamily { get; set; }
 
 }
 
@@ -104,14 +104,14 @@ public partial class AwsEcsTaskDefinitionVolumeBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("configure_at_launch")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> ConfigureAtLaunch { get; set; }
+    public partial TerraformValue<bool> ConfigureAtLaunch { get; set; }
 
     /// <summary>
     /// The host_path attribute.
     /// </summary>
     [TerraformProperty("host_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HostPath { get; set; }
+    public partial TerraformValue<string>? HostPath { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -119,7 +119,7 @@ public partial class AwsEcsTaskDefinitionVolumeBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -139,28 +139,28 @@ public partial class AwsEcsTaskDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerDefinitions is required")]
     [TerraformProperty("container_definitions")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerDefinitions { get; set; }
+    public required partial TerraformValue<string> ContainerDefinitions { get; set; }
 
     /// <summary>
     /// The cpu attribute.
     /// </summary>
     [TerraformProperty("cpu")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Cpu { get; set; }
+    public partial TerraformValue<string>? Cpu { get; set; }
 
     /// <summary>
     /// The enable_fault_injection attribute.
     /// </summary>
     [TerraformProperty("enable_fault_injection")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> EnableFaultInjection { get; set; }
+    public partial TerraformValue<bool> EnableFaultInjection { get; set; }
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
     [TerraformProperty("execution_role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExecutionRoleArn { get; set; }
+    public partial TerraformValue<string>? ExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The family attribute.
@@ -168,91 +168,91 @@ public partial class AwsEcsTaskDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     [TerraformProperty("family")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Family { get; set; }
+    public required partial TerraformValue<string> Family { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ipc_mode attribute.
     /// </summary>
     [TerraformProperty("ipc_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpcMode { get; set; }
+    public partial TerraformValue<string>? IpcMode { get; set; }
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
     [TerraformProperty("memory")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Memory { get; set; }
+    public partial TerraformValue<string>? Memory { get; set; }
 
     /// <summary>
     /// The network_mode attribute.
     /// </summary>
     [TerraformProperty("network_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NetworkMode { get; set; }
+    public partial TerraformValue<string> NetworkMode { get; set; }
 
     /// <summary>
     /// The pid_mode attribute.
     /// </summary>
     [TerraformProperty("pid_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PidMode { get; set; }
+    public partial TerraformValue<string>? PidMode { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The requires_compatibilities attribute.
     /// </summary>
     [TerraformProperty("requires_compatibilities")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? RequiresCompatibilities { get; set; }
+    public partial TerraformSet<string>? RequiresCompatibilities { get; set; }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
     [TerraformProperty("skip_destroy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SkipDestroy { get; set; }
+    public partial TerraformValue<bool>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The task_role_arn attribute.
     /// </summary>
     [TerraformProperty("task_role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TaskRoleArn { get; set; }
+    public partial TerraformValue<string>? TaskRoleArn { get; set; }
 
     /// <summary>
     /// The track_latest attribute.
     /// </summary>
     [TerraformProperty("track_latest")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? TrackLatest { get; set; }
+    public partial TerraformValue<bool>? TrackLatest { get; set; }
 
     /// <summary>
     /// Block for ephemeral_storage.
@@ -260,7 +260,7 @@ public partial class AwsEcsTaskDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EphemeralStorage block(s) allowed")]
     [TerraformProperty("ephemeral_storage")]
-    public TerraformList<TerraformBlock<AwsEcsTaskDefinitionEphemeralStorageBlock>>? EphemeralStorage { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcsTaskDefinitionEphemeralStorageBlock>>? EphemeralStorage { get; set; }
 
     /// <summary>
     /// Block for placement_constraints.
@@ -268,7 +268,7 @@ public partial class AwsEcsTaskDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PlacementConstraints block(s) allowed")]
     [TerraformProperty("placement_constraints")]
-    public TerraformSet<TerraformBlock<AwsEcsTaskDefinitionPlacementConstraintsBlock>>? PlacementConstraints { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsEcsTaskDefinitionPlacementConstraintsBlock>>? PlacementConstraints { get; set; }
 
     /// <summary>
     /// Block for proxy_configuration.
@@ -276,7 +276,7 @@ public partial class AwsEcsTaskDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProxyConfiguration block(s) allowed")]
     [TerraformProperty("proxy_configuration")]
-    public TerraformList<TerraformBlock<AwsEcsTaskDefinitionProxyConfigurationBlock>>? ProxyConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcsTaskDefinitionProxyConfigurationBlock>>? ProxyConfiguration { get; set; }
 
     /// <summary>
     /// Block for runtime_platform.
@@ -284,34 +284,34 @@ public partial class AwsEcsTaskDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuntimePlatform block(s) allowed")]
     [TerraformProperty("runtime_platform")]
-    public TerraformList<TerraformBlock<AwsEcsTaskDefinitionRuntimePlatformBlock>>? RuntimePlatform { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcsTaskDefinitionRuntimePlatformBlock>>? RuntimePlatform { get; set; }
 
     /// <summary>
     /// Block for volume.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("volume")]
-    public TerraformSet<TerraformBlock<AwsEcsTaskDefinitionVolumeBlock>>? Volume { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsEcsTaskDefinitionVolumeBlock>>? Volume { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The arn_without_revision attribute.
     /// </summary>
     [TerraformProperty("arn_without_revision")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ArnWithoutRevision { get; }
+    public partial TerraformValue<string> ArnWithoutRevision { get; }
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
     [TerraformProperty("revision")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> Revision { get; }
+    public partial TerraformValue<double> Revision { get; }
 
 }

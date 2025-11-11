@@ -21,21 +21,21 @@ public partial class GooglePrivatecaCertificateTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -57,7 +57,7 @@ public partial class GooglePrivatecaCertificate : TerraformResource
     /// </summary>
     [TerraformProperty("certificate_authority")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CertificateAuthority { get; set; }
+    public partial TerraformValue<string>? CertificateAuthority { get; set; }
 
     /// <summary>
     /// The resource name for a CertificateTemplate used to issue this certificate,
@@ -68,14 +68,14 @@ public partial class GooglePrivatecaCertificate : TerraformResource
     /// </summary>
     [TerraformProperty("certificate_template")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CertificateTemplate { get; set; }
+    public partial TerraformValue<string>? CertificateTemplate { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels with user-defined metadata to apply to this resource.
@@ -86,7 +86,7 @@ public partial class GooglePrivatecaCertificate : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The desired lifetime of the CA certificate. Used to create the &amp;quot;notBeforeTime&amp;quot; and
@@ -95,7 +95,7 @@ public partial class GooglePrivatecaCertificate : TerraformResource
     /// </summary>
     [TerraformProperty("lifetime")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Lifetime { get; set; }
+    public partial TerraformValue<string>? Lifetime { get; set; }
 
     /// <summary>
     /// Location of the Certificate. A full list of valid locations can be found by
@@ -104,7 +104,7 @@ public partial class GooglePrivatecaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name for this Certificate.
@@ -112,14 +112,14 @@ public partial class GooglePrivatecaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Immutable. A pem-encoded X.509 certificate signing request (CSR).
     /// </summary>
     [TerraformProperty("pem_csr")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PemCsr { get; set; }
+    public partial TerraformValue<string>? PemCsr { get; set; }
 
     /// <summary>
     /// The name of the CaPool this Certificate belongs to.
@@ -127,14 +127,14 @@ public partial class GooglePrivatecaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pool is required")]
     [TerraformProperty("pool")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Pool { get; set; }
+    public required partial TerraformValue<string> Pool { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for config.
@@ -142,21 +142,21 @@ public partial class GooglePrivatecaCertificate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     [TerraformProperty("config")]
-    public TerraformList<TerraformBlock<GooglePrivatecaCertificateConfigBlock>>? Config { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePrivatecaCertificateConfigBlock>>? Config { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GooglePrivatecaCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GooglePrivatecaCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Details regarding the revocation of this Certificate. This Certificate is considered revoked if and only if this field is present.
     /// </summary>
     [TerraformProperty("certificate_description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CertificateDescription { get; }
+    public partial TerraformList<object> CertificateDescription { get; }
 
     /// <summary>
     /// The time that this resource was created on the server.
@@ -164,35 +164,35 @@ public partial class GooglePrivatecaCertificate : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The resource name of the issuing CertificateAuthority in the format &#39;projects/*/locations/*/caPools/*/certificateAuthorities/*&#39;.
     /// </summary>
     [TerraformProperty("issuer_certificate_authority")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IssuerCertificateAuthority { get; }
+    public partial TerraformValue<string> IssuerCertificateAuthority { get; }
 
     /// <summary>
     /// Output only. The pem-encoded, signed X.509 certificate.
     /// </summary>
     [TerraformProperty("pem_certificate")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PemCertificate { get; }
+    public partial TerraformValue<string> PemCertificate { get; }
 
     /// <summary>
     /// The chain that may be used to verify the X.509 certificate. Expected to be in issuer-to-root order according to RFC 5246.
     /// </summary>
     [TerraformProperty("pem_certificate_chain")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> PemCertificateChain { get; }
+    public partial TerraformList<string> PemCertificateChain { get; }
 
     /// <summary>
     /// Output only. Details regarding the revocation of this Certificate. This Certificate is
@@ -200,7 +200,7 @@ public partial class GooglePrivatecaCertificate : TerraformResource
     /// </summary>
     [TerraformProperty("revocation_details")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> RevocationDetails { get; }
+    public partial TerraformList<object> RevocationDetails { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -208,7 +208,7 @@ public partial class GooglePrivatecaCertificate : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Output only. The time at which this CertificateAuthority was updated.
@@ -216,6 +216,6 @@ public partial class GooglePrivatecaCertificate : TerraformResource
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

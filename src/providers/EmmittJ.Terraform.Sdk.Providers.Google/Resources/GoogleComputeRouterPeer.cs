@@ -13,7 +13,7 @@ public partial class GoogleComputeRouterPeerAdvertisedIpRangesBlock : TerraformB
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The IP range to advertise. The value must be a
@@ -22,7 +22,7 @@ public partial class GoogleComputeRouterPeerAdvertisedIpRangesBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Range is required")]
     [TerraformProperty("range")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Range { get; set; }
+    public required partial TerraformValue<string> Range { get; set; }
 
 }
 
@@ -41,7 +41,7 @@ public partial class GoogleComputeRouterPeerBfdBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("min_receive_interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinReceiveInterval { get; set; }
+    public partial TerraformValue<double>? MinReceiveInterval { get; set; }
 
     /// <summary>
     /// The minimum interval, in milliseconds, between BFD control packets
@@ -52,7 +52,7 @@ public partial class GoogleComputeRouterPeerBfdBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("min_transmit_interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinTransmitInterval { get; set; }
+    public partial TerraformValue<double>? MinTransmitInterval { get; set; }
 
     /// <summary>
     /// The number of consecutive BFD packets that must be missed before
@@ -61,7 +61,7 @@ public partial class GoogleComputeRouterPeerBfdBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("multiplier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Multiplier { get; set; }
+    public partial TerraformValue<double>? Multiplier { get; set; }
 
     /// <summary>
     /// The BFD session initialization mode for this BGP peer.
@@ -73,7 +73,7 @@ public partial class GoogleComputeRouterPeerBfdBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SessionInitializationMode is required")]
     [TerraformProperty("session_initialization_mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SessionInitializationMode { get; set; }
+    public required partial TerraformValue<string> SessionInitializationMode { get; set; }
 
 }
 
@@ -90,7 +90,7 @@ public partial class GoogleComputeRouterPeerCustomLearnedIpRangesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Range is required")]
     [TerraformProperty("range")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Range { get; set; }
+    public required partial TerraformValue<string> Range { get; set; }
 
 }
 
@@ -106,7 +106,7 @@ public partial class GoogleComputeRouterPeerMd5AuthenticationKeyBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// [REQUIRED] Name used to identify the key.
@@ -115,7 +115,7 @@ public partial class GoogleComputeRouterPeerMd5AuthenticationKeyBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -130,21 +130,21 @@ public partial class GoogleComputeRouterPeerTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -164,7 +164,7 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [TerraformProperty("advertise_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AdvertiseMode { get; set; }
+    public partial TerraformValue<string>? AdvertiseMode { get; set; }
 
     /// <summary>
     /// User-specified list of prefix groups to advertise in custom
@@ -182,7 +182,7 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [TerraformProperty("advertised_groups")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AdvertisedGroups { get; set; }
+    public partial TerraformList<string>? AdvertisedGroups { get; set; }
 
     /// <summary>
     /// The priority of routes advertised to this BGP peer.
@@ -191,7 +191,7 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [TerraformProperty("advertised_route_priority")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AdvertisedRoutePriority { get; set; }
+    public partial TerraformValue<double>? AdvertisedRoutePriority { get; set; }
 
     /// <summary>
     /// The user-defined custom learned route priority for a BGP session.
@@ -200,7 +200,7 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [TerraformProperty("custom_learned_route_priority")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? CustomLearnedRoutePriority { get; set; }
+    public partial TerraformValue<double>? CustomLearnedRoutePriority { get; set; }
 
     /// <summary>
     /// The status of the BGP peer connection. If set to false, any active session
@@ -210,21 +210,21 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [TerraformProperty("enable")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enable { get; set; }
+    public partial TerraformValue<bool>? Enable { get; set; }
 
     /// <summary>
     /// Enable IPv4 traffic over BGP Peer. It is enabled by default if the peerIpAddress is version 4.
     /// </summary>
     [TerraformProperty("enable_ipv4")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> EnableIpv4 { get; set; }
+    public partial TerraformValue<bool> EnableIpv4 { get; set; }
 
     /// <summary>
     /// Enable IPv6 traffic over BGP Peer. If not specified, it is disabled by default.
     /// </summary>
     [TerraformProperty("enable_ipv6")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableIpv6 { get; set; }
+    public partial TerraformValue<bool>? EnableIpv6 { get; set; }
 
     /// <summary>
     /// routers.list of export policies applied to this peer, in the order they must be evaluated. 
@@ -232,14 +232,14 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [TerraformProperty("export_policies")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ExportPolicies { get; set; }
+    public partial TerraformList<string>? ExportPolicies { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// routers.list of import policies applied to this peer, in the order they must be evaluated. 
@@ -247,7 +247,7 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [TerraformProperty("import_policies")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ImportPolicies { get; set; }
+    public partial TerraformList<string>? ImportPolicies { get; set; }
 
     /// <summary>
     /// Name of the interface the BGP peer is associated with.
@@ -255,7 +255,7 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interface is required")]
     [TerraformProperty("interface")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Interface { get; set; }
+    public required partial TerraformValue<string> Interface { get; set; }
 
     /// <summary>
     /// IP address of the interface inside Google Cloud Platform.
@@ -263,14 +263,14 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [TerraformProperty("ip_address")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> IpAddress { get; set; }
+    public partial TerraformValue<string> IpAddress { get; set; }
 
     /// <summary>
     /// IPv4 address of the interface inside Google Cloud Platform.
     /// </summary>
     [TerraformProperty("ipv4_nexthop_address")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Ipv4NexthopAddress { get; set; }
+    public partial TerraformValue<string> Ipv4NexthopAddress { get; set; }
 
     /// <summary>
     /// IPv6 address of the interface inside Google Cloud Platform.
@@ -280,7 +280,7 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [TerraformProperty("ipv6_nexthop_address")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Ipv6NexthopAddress { get; set; }
+    public partial TerraformValue<string> Ipv6NexthopAddress { get; set; }
 
     /// <summary>
     /// Name of this BGP peer. The name must be 1-63 characters long,
@@ -293,7 +293,7 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Peer BGP Autonomous System Number (ASN).
@@ -302,7 +302,7 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAsn is required")]
     [TerraformProperty("peer_asn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> PeerAsn { get; set; }
+    public required partial TerraformValue<double> PeerAsn { get; set; }
 
     /// <summary>
     /// IP address of the BGP interface outside Google Cloud Platform.
@@ -310,14 +310,14 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [TerraformProperty("peer_ip_address")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PeerIpAddress { get; set; }
+    public partial TerraformValue<string> PeerIpAddress { get; set; }
 
     /// <summary>
     /// IPv4 address of the BGP interface outside Google Cloud Platform.
     /// </summary>
     [TerraformProperty("peer_ipv4_nexthop_address")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PeerIpv4NexthopAddress { get; set; }
+    public partial TerraformValue<string> PeerIpv4NexthopAddress { get; set; }
 
     /// <summary>
     /// IPv6 address of the BGP interface outside Google Cloud Platform.
@@ -327,14 +327,14 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [TerraformProperty("peer_ipv6_nexthop_address")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PeerIpv6NexthopAddress { get; set; }
+    public partial TerraformValue<string> PeerIpv6NexthopAddress { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Region where the router and BgpPeer reside.
@@ -342,7 +342,7 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The name of the Cloud Router in which this BgpPeer will be configured.
@@ -350,7 +350,7 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     [TerraformProperty("router")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Router { get; set; }
+    public required partial TerraformValue<string> Router { get; set; }
 
     /// <summary>
     /// The URI of the VM instance that is used as third-party router appliances
@@ -360,28 +360,28 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [TerraformProperty("router_appliance_instance")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RouterApplianceInstance { get; set; }
+    public partial TerraformValue<string>? RouterApplianceInstance { get; set; }
 
     /// <summary>
     /// Force the advertised_route_priority to be 0.
     /// </summary>
     [TerraformProperty("zero_advertised_route_priority")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ZeroAdvertisedRoutePriority { get; set; }
+    public partial TerraformValue<bool>? ZeroAdvertisedRoutePriority { get; set; }
 
     /// <summary>
     /// Force the custom_learned_route_priority to be 0.
     /// </summary>
     [TerraformProperty("zero_custom_learned_route_priority")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ZeroCustomLearnedRoutePriority { get; set; }
+    public partial TerraformValue<bool>? ZeroCustomLearnedRoutePriority { get; set; }
 
     /// <summary>
     /// Block for advertised_ip_ranges.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("advertised_ip_ranges")]
-    public TerraformSet<TerraformBlock<GoogleComputeRouterPeerAdvertisedIpRangesBlock>>? AdvertisedIpRanges { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleComputeRouterPeerAdvertisedIpRangesBlock>>? AdvertisedIpRanges { get; set; }
 
     /// <summary>
     /// Block for bfd.
@@ -389,14 +389,14 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bfd block(s) allowed")]
     [TerraformProperty("bfd")]
-    public TerraformList<TerraformBlock<GoogleComputeRouterPeerBfdBlock>>? Bfd { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRouterPeerBfdBlock>>? Bfd { get; set; }
 
     /// <summary>
     /// Block for custom_learned_ip_ranges.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("custom_learned_ip_ranges")]
-    public TerraformList<TerraformBlock<GoogleComputeRouterPeerCustomLearnedIpRangesBlock>>? CustomLearnedIpRanges { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRouterPeerCustomLearnedIpRangesBlock>>? CustomLearnedIpRanges { get; set; }
 
     /// <summary>
     /// Block for md5_authentication_key.
@@ -404,28 +404,28 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Md5AuthenticationKey block(s) allowed")]
     [TerraformProperty("md5_authentication_key")]
-    public TerraformList<TerraformBlock<GoogleComputeRouterPeerMd5AuthenticationKeyBlock>>? Md5AuthenticationKey { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRouterPeerMd5AuthenticationKeyBlock>>? Md5AuthenticationKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeRouterPeerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeRouterPeerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// An internal boolean field for provider use for zero_advertised_route_priority.
     /// </summary>
     [TerraformProperty("is_advertised_route_priority_set")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> IsAdvertisedRoutePrioritySet { get; }
+    public partial TerraformValue<bool> IsAdvertisedRoutePrioritySet { get; }
 
     /// <summary>
     /// An internal boolean field for provider use.
     /// </summary>
     [TerraformProperty("is_custom_learned_priority_set")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> IsCustomLearnedPrioritySet { get; }
+    public partial TerraformValue<bool> IsCustomLearnedPrioritySet { get; }
 
     /// <summary>
     /// The resource that configures and manages this BGP peer.
@@ -441,6 +441,6 @@ public partial class GoogleComputeRouterPeer : TerraformResource
     /// </summary>
     [TerraformProperty("management_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ManagementType { get; }
+    public partial TerraformValue<string> ManagementType { get; }
 
 }

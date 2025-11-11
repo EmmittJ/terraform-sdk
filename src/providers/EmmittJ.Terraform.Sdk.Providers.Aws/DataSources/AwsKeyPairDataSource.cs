@@ -14,7 +14,7 @@ public partial class AwsKeyPairDataSourceFilterBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
@@ -22,7 +22,7 @@ public partial class AwsKeyPairDataSourceFilterBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     [TerraformProperty("values")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Values { get; set; }
+    public required partial TerraformSet<string> Values { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class AwsKeyPairDataSourceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -55,90 +55,90 @@ public partial class AwsKeyPairDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The include_public_key attribute.
     /// </summary>
     [TerraformProperty("include_public_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IncludePublicKey { get; set; }
+    public partial TerraformValue<bool>? IncludePublicKey { get; set; }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
     [TerraformProperty("key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyName { get; set; }
+    public partial TerraformValue<string>? KeyName { get; set; }
 
     /// <summary>
     /// The key_pair_id attribute.
     /// </summary>
     [TerraformProperty("key_pair_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyPairId { get; set; }
+    public partial TerraformValue<string>? KeyPairId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Tags { get; set; }
+    public partial TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public TerraformSet<TerraformBlock<AwsKeyPairDataSourceFilterBlock>>? Filter { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsKeyPairDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsKeyPairDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsKeyPairDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The fingerprint attribute.
     /// </summary>
     [TerraformProperty("fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Fingerprint { get; }
+    public partial TerraformValue<string> Fingerprint { get; }
 
     /// <summary>
     /// The key_type attribute.
     /// </summary>
     [TerraformProperty("key_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KeyType { get; }
+    public partial TerraformValue<string> KeyType { get; }
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     [TerraformProperty("public_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PublicKey { get; }
+    public partial TerraformValue<string> PublicKey { get; }
 
 }

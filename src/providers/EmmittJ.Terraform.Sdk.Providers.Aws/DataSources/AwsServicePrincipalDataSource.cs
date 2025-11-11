@@ -16,7 +16,7 @@ public partial class AwsServicePrincipalDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The service_name attribute.
@@ -24,27 +24,27 @@ public partial class AwsServicePrincipalDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     [TerraformProperty("service_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceName { get; set; }
+    public required partial TerraformValue<string> ServiceName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The suffix attribute.
     /// </summary>
     [TerraformProperty("suffix")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Suffix { get; }
+    public partial TerraformValue<string> Suffix { get; }
 
 }

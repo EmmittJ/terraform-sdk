@@ -13,7 +13,7 @@ public partial class AwsQldbStreamKinesisConfigurationBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("aggregation_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AggregationEnabled { get; set; }
+    public partial TerraformValue<bool>? AggregationEnabled { get; set; }
 
     /// <summary>
     /// The stream_arn attribute.
@@ -21,7 +21,7 @@ public partial class AwsQldbStreamKinesisConfigurationBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamArn is required")]
     [TerraformProperty("stream_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StreamArn { get; set; }
+    public required partial TerraformValue<string> StreamArn { get; set; }
 
 }
 
@@ -36,14 +36,14 @@ public partial class AwsQldbStreamTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -62,14 +62,14 @@ public partial class AwsQldbStream : TerraformResource
     /// </summary>
     [TerraformProperty("exclusive_end_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExclusiveEndTime { get; set; }
+    public partial TerraformValue<string>? ExclusiveEndTime { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The inclusive_start_time attribute.
@@ -77,7 +77,7 @@ public partial class AwsQldbStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InclusiveStartTime is required")]
     [TerraformProperty("inclusive_start_time")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InclusiveStartTime { get; set; }
+    public required partial TerraformValue<string> InclusiveStartTime { get; set; }
 
     /// <summary>
     /// The ledger_name attribute.
@@ -85,14 +85,14 @@ public partial class AwsQldbStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerName is required")]
     [TerraformProperty("ledger_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LedgerName { get; set; }
+    public required partial TerraformValue<string> LedgerName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -100,7 +100,7 @@ public partial class AwsQldbStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The stream_name attribute.
@@ -108,21 +108,21 @@ public partial class AwsQldbStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
     [TerraformProperty("stream_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StreamName { get; set; }
+    public required partial TerraformValue<string> StreamName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for kinesis_configuration.
@@ -132,20 +132,20 @@ public partial class AwsQldbStream : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KinesisConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KinesisConfiguration block(s) allowed")]
     [TerraformProperty("kinesis_configuration")]
-    public TerraformList<TerraformBlock<AwsQldbStreamKinesisConfigurationBlock>>? KinesisConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsQldbStreamKinesisConfigurationBlock>>? KinesisConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsQldbStreamTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsQldbStreamTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

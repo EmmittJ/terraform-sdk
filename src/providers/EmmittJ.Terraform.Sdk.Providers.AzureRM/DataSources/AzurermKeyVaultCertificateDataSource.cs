@@ -13,7 +13,7 @@ public partial class AzurermKeyVaultCertificateDataSourceTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermKeyVaultCertificateDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
@@ -39,7 +39,7 @@ public partial class AzurermKeyVaultCertificateDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformProperty("key_vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultId { get; set; }
+    public required partial TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,104 +47,104 @@ public partial class AzurermKeyVaultCertificateDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Version { get; set; }
+    public partial TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKeyVaultCertificateDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKeyVaultCertificateDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The certificate_data attribute.
     /// </summary>
     [TerraformProperty("certificate_data")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CertificateData { get; }
+    public partial TerraformValue<string> CertificateData { get; }
 
     /// <summary>
     /// The certificate_data_base64 attribute.
     /// </summary>
     [TerraformProperty("certificate_data_base64")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CertificateDataBase64 { get; }
+    public partial TerraformValue<string> CertificateDataBase64 { get; }
 
     /// <summary>
     /// The certificate_policy attribute.
     /// </summary>
     [TerraformProperty("certificate_policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CertificatePolicy { get; }
+    public partial TerraformList<object> CertificatePolicy { get; }
 
     /// <summary>
     /// The expires attribute.
     /// </summary>
     [TerraformProperty("expires")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Expires { get; }
+    public partial TerraformValue<string> Expires { get; }
 
     /// <summary>
     /// The not_before attribute.
     /// </summary>
     [TerraformProperty("not_before")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NotBefore { get; }
+    public partial TerraformValue<string> NotBefore { get; }
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     [TerraformProperty("resource_manager_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceManagerId { get; }
+    public partial TerraformValue<string> ResourceManagerId { get; }
 
     /// <summary>
     /// The resource_manager_versionless_id attribute.
     /// </summary>
     [TerraformProperty("resource_manager_versionless_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceManagerVersionlessId { get; }
+    public partial TerraformValue<string> ResourceManagerVersionlessId { get; }
 
     /// <summary>
     /// The secret_id attribute.
     /// </summary>
     [TerraformProperty("secret_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecretId { get; }
+    public partial TerraformValue<string> SecretId { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     [TerraformProperty("thumbprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Thumbprint { get; }
+    public partial TerraformValue<string> Thumbprint { get; }
 
     /// <summary>
     /// The versionless_id attribute.
     /// </summary>
     [TerraformProperty("versionless_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VersionlessId { get; }
+    public partial TerraformValue<string> VersionlessId { get; }
 
     /// <summary>
     /// The versionless_secret_id attribute.
     /// </summary>
     [TerraformProperty("versionless_secret_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VersionlessSecretId { get; }
+    public partial TerraformValue<string> VersionlessSecretId { get; }
 
 }

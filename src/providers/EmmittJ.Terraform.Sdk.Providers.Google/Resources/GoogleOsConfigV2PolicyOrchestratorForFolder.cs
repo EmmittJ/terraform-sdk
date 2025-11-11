@@ -26,7 +26,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolderOrchestratedReso
     /// </summary>
     [TerraformProperty("id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Id { get; set; }
+    public partial TerraformValue<string>? Id { get; set; }
 
 }
 
@@ -49,21 +49,21 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolderTimeoutsBlock : 
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -87,14 +87,14 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformProperty("action")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Action { get; set; }
+    public required partial TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// Freeform text describing the purpose of the resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The parent resource name in the form of &#39;folders/{folder_id}/locations/global&#39;.
@@ -102,14 +102,14 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
     [TerraformProperty("folder_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FolderId { get; set; }
+    public required partial TerraformValue<string> FolderId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels as key value pairs
@@ -119,7 +119,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformReso
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The logical identifier of the policy orchestrator, with the following
@@ -134,7 +134,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyOrchestratorId is required")]
     [TerraformProperty("policy_orchestrator_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyOrchestratorId { get; set; }
+    public required partial TerraformValue<string> PolicyOrchestratorId { get; set; }
 
     /// <summary>
     /// State of the orchestrator. Can be updated to change orchestrator behaviour.
@@ -148,7 +148,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformReso
     /// </summary>
     [TerraformProperty("state")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? State { get; set; }
+    public partial TerraformValue<string>? State { get; set; }
 
     /// <summary>
     /// Block for orchestrated_resource.
@@ -158,7 +158,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformReso
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OrchestratedResource block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrchestratedResource block(s) allowed")]
     [TerraformProperty("orchestrated_resource")]
-    public TerraformList<TerraformBlock<GoogleOsConfigV2PolicyOrchestratorForFolderOrchestratedResourceBlock>>? OrchestratedResource { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleOsConfigV2PolicyOrchestratorForFolderOrchestratedResourceBlock>>? OrchestratedResource { get; set; }
 
     /// <summary>
     /// Block for orchestration_scope.
@@ -166,28 +166,28 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformReso
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrchestrationScope block(s) allowed")]
     [TerraformProperty("orchestration_scope")]
-    public TerraformList<TerraformBlock<GoogleOsConfigV2PolicyOrchestratorForFolderOrchestrationScopeBlock>>? OrchestrationScope { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleOsConfigV2PolicyOrchestratorForFolderOrchestrationScopeBlock>>? OrchestrationScope { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleOsConfigV2PolicyOrchestratorForFolderTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleOsConfigV2PolicyOrchestratorForFolderTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Timestamp when the policy orchestrator resource was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -196,7 +196,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformReso
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Identifier. In form of
@@ -206,14 +206,14 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformReso
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Describes the state of the orchestration process.
     /// </summary>
     [TerraformProperty("orchestration_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> OrchestrationState { get; }
+    public partial TerraformList<object> OrchestrationState { get; }
 
     /// <summary>
     /// Set to true, if the there are ongoing changes being applied by the
@@ -221,7 +221,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformReso
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -229,13 +229,13 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformReso
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Timestamp when the policy orchestrator resource was last modified.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzureadClientConfigDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,34 +31,34 @@ public partial class AzureadClientConfigDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadClientConfigDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadClientConfigDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The client ID (application ID) linked to the authenticated principal, or the application used for delegated authentication
     /// </summary>
     [TerraformProperty("client_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ClientId { get; }
+    public partial TerraformValue<string> ClientId { get; }
 
     /// <summary>
     /// The object ID of the authenticated principal
     /// </summary>
     [TerraformProperty("object_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ObjectId { get; }
+    public partial TerraformValue<string> ObjectId { get; }
 
     /// <summary>
     /// The tenant ID of the authenticated principal
     /// </summary>
     [TerraformProperty("tenant_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TenantId { get; }
+    public partial TerraformValue<string> TenantId { get; }
 
 }

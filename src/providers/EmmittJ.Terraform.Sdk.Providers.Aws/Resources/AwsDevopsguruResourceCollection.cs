@@ -14,7 +14,7 @@ public partial class AwsDevopsguruResourceCollectionCloudformationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackNames is required")]
     [TerraformProperty("stack_names")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? StackNames { get; set; }
+    public partial TerraformList<string>? StackNames { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public partial class AwsDevopsguruResourceCollectionTagsBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBoundaryKey is required")]
     [TerraformProperty("app_boundary_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AppBoundaryKey { get; set; }
+    public required partial TerraformValue<string> AppBoundaryKey { get; set; }
 
     /// <summary>
     /// The tag_values attribute.
@@ -38,7 +38,7 @@ public partial class AwsDevopsguruResourceCollectionTagsBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagValues is required")]
     [TerraformProperty("tag_values")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? TagValues { get; set; }
+    public partial TerraformList<string>? TagValues { get; set; }
 
 }
 
@@ -56,7 +56,7 @@ public partial class AwsDevopsguruResourceCollection : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -64,27 +64,27 @@ public partial class AwsDevopsguruResourceCollection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for cloudformation.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("cloudformation")]
-    public TerraformList<TerraformBlock<AwsDevopsguruResourceCollectionCloudformationBlock>>? Cloudformation { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDevopsguruResourceCollectionCloudformationBlock>>? Cloudformation { get; set; }
 
     /// <summary>
     /// Block for tags.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("tags")]
-    public TerraformList<TerraformBlock<AwsDevopsguruResourceCollectionTagsBlock>>? Tags { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDevopsguruResourceCollectionTagsBlock>>? Tags { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

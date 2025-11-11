@@ -13,21 +13,21 @@ public partial class AzurermNetworkInterfaceApplicationSecurityGroupAssociationT
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzurermNetworkInterfaceApplicationSecurityGroupAssociation 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationSecurityGroupId is required")]
     [TerraformProperty("application_security_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApplicationSecurityGroupId { get; set; }
+    public required partial TerraformValue<string> ApplicationSecurityGroupId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The network_interface_id attribute.
@@ -61,13 +61,13 @@ public partial class AzurermNetworkInterfaceApplicationSecurityGroupAssociation 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     [TerraformProperty("network_interface_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NetworkInterfaceId { get; set; }
+    public required partial TerraformValue<string> NetworkInterfaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetworkInterfaceApplicationSecurityGroupAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetworkInterfaceApplicationSecurityGroupAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,7 +13,7 @@ public partial class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecifica
     /// </summary>
     [TerraformProperty("environment")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Environment { get; set; }
+    public partial TerraformMap<string>? Environment { get; set; }
 
     /// <summary>
     /// The image_uri attribute.
@@ -21,21 +21,21 @@ public partial class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecifica
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageUri is required")]
     [TerraformProperty("image_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ImageUri { get; set; }
+    public required partial TerraformValue<string> ImageUri { get; set; }
 
     /// <summary>
     /// The post_analytics_processor_source_uri attribute.
     /// </summary>
     [TerraformProperty("post_analytics_processor_source_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PostAnalyticsProcessorSourceUri { get; set; }
+    public partial TerraformValue<string>? PostAnalyticsProcessorSourceUri { get; set; }
 
     /// <summary>
     /// The record_preprocessor_source_uri attribute.
     /// </summary>
     [TerraformProperty("record_preprocessor_source_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RecordPreprocessorSourceUri { get; set; }
+    public partial TerraformValue<string>? RecordPreprocessorSourceUri { get; set; }
 
 }
 
@@ -66,7 +66,7 @@ public partial class AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputCon
     /// </summary>
     [TerraformProperty("kms_key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyId { get; set; }
+    public partial TerraformValue<string>? KmsKeyId { get; set; }
 
 }
 
@@ -89,14 +89,14 @@ public partial class AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock : Te
     /// </summary>
     [TerraformProperty("enable_inter_container_traffic_encryption")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableInterContainerTrafficEncryption { get; set; }
+    public partial TerraformValue<bool>? EnableInterContainerTrafficEncryption { get; set; }
 
     /// <summary>
     /// The enable_network_isolation attribute.
     /// </summary>
     [TerraformProperty("enable_network_isolation")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableNetworkIsolation { get; set; }
+    public partial TerraformValue<bool>? EnableNetworkIsolation { get; set; }
 
 }
 
@@ -111,7 +111,7 @@ public partial class AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock 
     /// </summary>
     [TerraformProperty("max_runtime_in_seconds")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxRuntimeInSeconds { get; set; }
+    public partial TerraformValue<double> MaxRuntimeInSeconds { get; set; }
 
 }
 
@@ -130,21 +130,21 @@ public partial class AwsSagemakerDataQualityJobDefinition : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -152,21 +152,21 @@ public partial class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for data_quality_app_specification.
@@ -176,7 +176,7 @@ public partial class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataQualityAppSpecification block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualityAppSpecification block(s) allowed")]
     [TerraformProperty("data_quality_app_specification")]
-    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBlock>>? DataQualityAppSpecification { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBlock>>? DataQualityAppSpecification { get; set; }
 
     /// <summary>
     /// Block for data_quality_baseline_config.
@@ -184,7 +184,7 @@ public partial class AwsSagemakerDataQualityJobDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualityBaselineConfig block(s) allowed")]
     [TerraformProperty("data_quality_baseline_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityBaselineConfigBlock>>? DataQualityBaselineConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityBaselineConfigBlock>>? DataQualityBaselineConfig { get; set; }
 
     /// <summary>
     /// Block for data_quality_job_input.
@@ -194,7 +194,7 @@ public partial class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataQualityJobInput block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualityJobInput block(s) allowed")]
     [TerraformProperty("data_quality_job_input")]
-    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlock>>? DataQualityJobInput { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlock>>? DataQualityJobInput { get; set; }
 
     /// <summary>
     /// Block for data_quality_job_output_config.
@@ -204,7 +204,7 @@ public partial class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataQualityJobOutputConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualityJobOutputConfig block(s) allowed")]
     [TerraformProperty("data_quality_job_output_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock>>? DataQualityJobOutputConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock>>? DataQualityJobOutputConfig { get; set; }
 
     /// <summary>
     /// Block for job_resources.
@@ -214,7 +214,7 @@ public partial class AwsSagemakerDataQualityJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 JobResources block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JobResources block(s) allowed")]
     [TerraformProperty("job_resources")]
-    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionJobResourcesBlock>>? JobResources { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionJobResourcesBlock>>? JobResources { get; set; }
 
     /// <summary>
     /// Block for network_config.
@@ -222,7 +222,7 @@ public partial class AwsSagemakerDataQualityJobDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock>>? NetworkConfig { get; set; }
 
     /// <summary>
     /// Block for stopping_condition.
@@ -230,13 +230,13 @@ public partial class AwsSagemakerDataQualityJobDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StoppingCondition block(s) allowed")]
     [TerraformProperty("stopping_condition")]
-    public TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock>>? StoppingCondition { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock>>? StoppingCondition { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

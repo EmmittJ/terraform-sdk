@@ -21,7 +21,7 @@ public partial class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlo
     /// </summary>
     [TerraformProperty("role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RoleArn { get; set; }
+    public partial TerraformValue<string>? RoleArn { get; set; }
 
 }
 
@@ -36,21 +36,21 @@ public partial class AwsKendraDataSourceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -69,14 +69,14 @@ public partial class AwsKendraDataSource : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The index_id attribute.
@@ -84,14 +84,14 @@ public partial class AwsKendraDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexId is required")]
     [TerraformProperty("index_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IndexId { get; set; }
+    public required partial TerraformValue<string> IndexId { get; set; }
 
     /// <summary>
     /// The language_code attribute.
     /// </summary>
     [TerraformProperty("language_code")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> LanguageCode { get; set; }
+    public partial TerraformValue<string> LanguageCode { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -99,42 +99,42 @@ public partial class AwsKendraDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [TerraformProperty("role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RoleArn { get; set; }
+    public partial TerraformValue<string>? RoleArn { get; set; }
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
     [TerraformProperty("schedule")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Schedule { get; set; }
+    public partial TerraformValue<string>? Schedule { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -142,7 +142,7 @@ public partial class AwsKendraDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for configuration.
@@ -150,7 +150,7 @@ public partial class AwsKendraDataSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformProperty("configuration")]
-    public TerraformList<TerraformBlock<AwsKendraDataSourceConfigurationBlock>>? Configuration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKendraDataSourceConfigurationBlock>>? Configuration { get; set; }
 
     /// <summary>
     /// Block for custom_document_enrichment_configuration.
@@ -158,55 +158,55 @@ public partial class AwsKendraDataSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomDocumentEnrichmentConfiguration block(s) allowed")]
     [TerraformProperty("custom_document_enrichment_configuration")]
-    public TerraformList<TerraformBlock<AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlock>>? CustomDocumentEnrichmentConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlock>>? CustomDocumentEnrichmentConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsKendraDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsKendraDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformProperty("created_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedAt { get; }
+    public partial TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// The data_source_id attribute.
     /// </summary>
     [TerraformProperty("data_source_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DataSourceId { get; }
+    public partial TerraformValue<string> DataSourceId { get; }
 
     /// <summary>
     /// The error_message attribute.
     /// </summary>
     [TerraformProperty("error_message")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ErrorMessage { get; }
+    public partial TerraformValue<string> ErrorMessage { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     [TerraformProperty("updated_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdatedAt { get; }
+    public partial TerraformValue<string> UpdatedAt { get; }
 
 }

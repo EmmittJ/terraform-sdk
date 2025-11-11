@@ -13,7 +13,7 @@ public partial class AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,21 +32,21 @@ public partial class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     [TerraformProperty("algorithm")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Algorithm { get; set; }
+    public required partial TerraformValue<string> Algorithm { get; set; }
 
     /// <summary>
     /// The encrypted_data attribute.
     /// </summary>
     [TerraformProperty("encrypted_data")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EncryptedData { get; set; }
+    public partial TerraformValue<string>? EncryptedData { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_vault_key_id attribute.
@@ -54,27 +54,27 @@ public partial class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     [TerraformProperty("key_vault_key_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultKeyId { get; set; }
+    public required partial TerraformValue<string> KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The plain_text_value attribute.
     /// </summary>
     [TerraformProperty("plain_text_value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PlainTextValue { get; set; }
+    public partial TerraformValue<string>? PlainTextValue { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The decoded_plain_text_value attribute.
     /// </summary>
     [TerraformProperty("decoded_plain_text_value")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DecodedPlainTextValue { get; }
+    public partial TerraformValue<string> DecodedPlainTextValue { get; }
 
 }

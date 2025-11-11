@@ -16,20 +16,20 @@ public partial class AwsSyntheticsRuntimeVersionsDataSource : TerraformDataSourc
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The runtime_versions attribute.
     /// </summary>
     [TerraformProperty("runtime_versions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> RuntimeVersions { get; }
+    public partial TerraformList<object> RuntimeVersions { get; }
 
 }

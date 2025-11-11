@@ -13,7 +13,7 @@ public partial class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformB
     /// </summary>
     [TerraformProperty("access_policy_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AccessPolicyName { get; set; }
+    public partial TerraformValue<string>? AccessPolicyName { get; set; }
 
     /// <summary>
     /// The namespace_path attribute.
@@ -21,7 +21,7 @@ public partial class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespacePath is required")]
     [TerraformProperty("namespace_path")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NamespacePath { get; set; }
+    public required partial TerraformValue<string> NamespacePath { get; set; }
 
     /// <summary>
     /// The nfs_export attribute.
@@ -29,14 +29,14 @@ public partial class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NfsExport is required")]
     [TerraformProperty("nfs_export")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NfsExport { get; set; }
+    public required partial TerraformValue<string> NfsExport { get; set; }
 
     /// <summary>
     /// The target_path attribute.
     /// </summary>
     [TerraformProperty("target_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TargetPath { get; set; }
+    public partial TerraformValue<string>? TargetPath { get; set; }
 
 }
 
@@ -51,28 +51,28 @@ public partial class AzurermHpcCacheNfsTargetTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -93,14 +93,14 @@ public partial class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheName is required")]
     [TerraformProperty("cache_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CacheName { get; set; }
+    public required partial TerraformValue<string> CacheName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -108,7 +108,7 @@ public partial class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -116,7 +116,7 @@ public partial class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The target_host_name attribute.
@@ -124,7 +124,7 @@ public partial class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetHostName is required")]
     [TerraformProperty("target_host_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetHostName { get; set; }
+    public required partial TerraformValue<string> TargetHostName { get; set; }
 
     /// <summary>
     /// The usage_model attribute.
@@ -132,21 +132,21 @@ public partial class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsageModel is required")]
     [TerraformProperty("usage_model")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UsageModel { get; set; }
+    public required partial TerraformValue<string> UsageModel { get; set; }
 
     /// <summary>
     /// The verification_timer_in_seconds attribute.
     /// </summary>
     [TerraformProperty("verification_timer_in_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? VerificationTimerInSeconds { get; set; }
+    public partial TerraformValue<double>? VerificationTimerInSeconds { get; set; }
 
     /// <summary>
     /// The write_back_timer_in_seconds attribute.
     /// </summary>
     [TerraformProperty("write_back_timer_in_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? WriteBackTimerInSeconds { get; set; }
+    public partial TerraformValue<double>? WriteBackTimerInSeconds { get; set; }
 
     /// <summary>
     /// Block for namespace_junction.
@@ -156,13 +156,13 @@ public partial class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NamespaceJunction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 NamespaceJunction block(s) allowed")]
     [TerraformProperty("namespace_junction")]
-    public TerraformSet<TerraformBlock<AzurermHpcCacheNfsTargetNamespaceJunctionBlock>>? NamespaceJunction { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermHpcCacheNfsTargetNamespaceJunctionBlock>>? NamespaceJunction { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermHpcCacheNfsTargetTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermHpcCacheNfsTargetTimeoutsBlock>? Timeouts { get; set; }
 
 }

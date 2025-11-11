@@ -13,7 +13,7 @@ public partial class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("gateway_load_balancer_frontend_ip_configuration_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> GatewayLoadBalancerFrontendIpConfigurationId { get; set; }
+    public partial TerraformValue<string> GatewayLoadBalancerFrontendIpConfigurationId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -21,21 +21,21 @@ public partial class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The primary attribute.
     /// </summary>
     [TerraformProperty("primary")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> Primary { get; set; }
+    public partial TerraformValue<bool> Primary { get; set; }
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     [TerraformProperty("private_ip_address")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PrivateIpAddress { get; set; }
+    public partial TerraformValue<string> PrivateIpAddress { get; set; }
 
     /// <summary>
     /// The private_ip_address_allocation attribute.
@@ -43,28 +43,28 @@ public partial class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddressAllocation is required")]
     [TerraformProperty("private_ip_address_allocation")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrivateIpAddressAllocation { get; set; }
+    public required partial TerraformValue<string> PrivateIpAddressAllocation { get; set; }
 
     /// <summary>
     /// The private_ip_address_version attribute.
     /// </summary>
     [TerraformProperty("private_ip_address_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrivateIpAddressVersion { get; set; }
+    public partial TerraformValue<string>? PrivateIpAddressVersion { get; set; }
 
     /// <summary>
     /// The public_ip_address_id attribute.
     /// </summary>
     [TerraformProperty("public_ip_address_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PublicIpAddressId { get; set; }
+    public partial TerraformValue<string>? PublicIpAddressId { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [TerraformProperty("subnet_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SubnetId { get; set; }
+    public partial TerraformValue<string>? SubnetId { get; set; }
 
 }
 
@@ -79,28 +79,28 @@ public partial class AzurermNetworkInterfaceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -119,56 +119,56 @@ public partial class AzurermNetworkInterface : TerraformResource
     /// </summary>
     [TerraformProperty("accelerated_networking_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AcceleratedNetworkingEnabled { get; set; }
+    public partial TerraformValue<bool>? AcceleratedNetworkingEnabled { get; set; }
 
     /// <summary>
     /// The auxiliary_mode attribute.
     /// </summary>
     [TerraformProperty("auxiliary_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuxiliaryMode { get; set; }
+    public partial TerraformValue<string>? AuxiliaryMode { get; set; }
 
     /// <summary>
     /// The auxiliary_sku attribute.
     /// </summary>
     [TerraformProperty("auxiliary_sku")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuxiliarySku { get; set; }
+    public partial TerraformValue<string>? AuxiliarySku { get; set; }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
     [TerraformProperty("dns_servers")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? DnsServers { get; set; }
+    public partial TerraformList<string>? DnsServers { get; set; }
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
     [TerraformProperty("edge_zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EdgeZone { get; set; }
+    public partial TerraformValue<string>? EdgeZone { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The internal_dns_name_label attribute.
     /// </summary>
     [TerraformProperty("internal_dns_name_label")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InternalDnsNameLabel { get; set; }
+    public partial TerraformValue<string>? InternalDnsNameLabel { get; set; }
 
     /// <summary>
     /// The ip_forwarding_enabled attribute.
     /// </summary>
     [TerraformProperty("ip_forwarding_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IpForwardingEnabled { get; set; }
+    public partial TerraformValue<bool>? IpForwardingEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -176,7 +176,7 @@ public partial class AzurermNetworkInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -184,7 +184,7 @@ public partial class AzurermNetworkInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -192,14 +192,14 @@ public partial class AzurermNetworkInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for ip_configuration.
@@ -208,55 +208,55 @@ public partial class AzurermNetworkInterface : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfiguration block(s) required")]
     [TerraformProperty("ip_configuration")]
-    public TerraformList<TerraformBlock<AzurermNetworkInterfaceIpConfigurationBlock>>? IpConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNetworkInterfaceIpConfigurationBlock>>? IpConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetworkInterfaceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetworkInterfaceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The applied_dns_servers attribute.
     /// </summary>
     [TerraformProperty("applied_dns_servers")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> AppliedDnsServers { get; }
+    public partial TerraformList<string> AppliedDnsServers { get; }
 
     /// <summary>
     /// The internal_domain_name_suffix attribute.
     /// </summary>
     [TerraformProperty("internal_domain_name_suffix")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> InternalDomainNameSuffix { get; }
+    public partial TerraformValue<string> InternalDomainNameSuffix { get; }
 
     /// <summary>
     /// The mac_address attribute.
     /// </summary>
     [TerraformProperty("mac_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MacAddress { get; }
+    public partial TerraformValue<string> MacAddress { get; }
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     [TerraformProperty("private_ip_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrivateIpAddress { get; }
+    public partial TerraformValue<string> PrivateIpAddress { get; }
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     [TerraformProperty("private_ip_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> PrivateIpAddresses { get; }
+    public partial TerraformList<string> PrivateIpAddresses { get; }
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
     [TerraformProperty("virtual_machine_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VirtualMachineId { get; }
+    public partial TerraformValue<string> VirtualMachineId { get; }
 
 }

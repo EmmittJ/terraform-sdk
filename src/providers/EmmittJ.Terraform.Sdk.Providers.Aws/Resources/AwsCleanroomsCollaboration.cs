@@ -14,7 +14,7 @@ public partial class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowClearText is required")]
     [TerraformProperty("allow_clear_text")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> AllowClearText { get; set; }
+    public required partial TerraformValue<bool> AllowClearText { get; set; }
 
     /// <summary>
     /// The allow_duplicates attribute.
@@ -22,7 +22,7 @@ public partial class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowDuplicates is required")]
     [TerraformProperty("allow_duplicates")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> AllowDuplicates { get; set; }
+    public required partial TerraformValue<bool> AllowDuplicates { get; set; }
 
     /// <summary>
     /// The allow_joins_on_columns_with_different_names attribute.
@@ -30,7 +30,7 @@ public partial class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowJoinsOnColumnsWithDifferentNames is required")]
     [TerraformProperty("allow_joins_on_columns_with_different_names")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> AllowJoinsOnColumnsWithDifferentNames { get; set; }
+    public required partial TerraformValue<bool> AllowJoinsOnColumnsWithDifferentNames { get; set; }
 
     /// <summary>
     /// The preserve_nulls attribute.
@@ -38,7 +38,7 @@ public partial class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreserveNulls is required")]
     [TerraformProperty("preserve_nulls")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> PreserveNulls { get; set; }
+    public required partial TerraformValue<bool> PreserveNulls { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public partial class AwsCleanroomsCollaborationMemberBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     [TerraformProperty("account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccountId { get; set; }
+    public required partial TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The display_name attribute.
@@ -62,7 +62,7 @@ public partial class AwsCleanroomsCollaborationMemberBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The member_abilities attribute.
@@ -70,7 +70,7 @@ public partial class AwsCleanroomsCollaborationMemberBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberAbilities is required")]
     [TerraformProperty("member_abilities")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? MemberAbilities { get; set; }
+    public partial TerraformList<string>? MemberAbilities { get; set; }
 
 
 }
@@ -86,21 +86,21 @@ public partial class AwsCleanroomsCollaborationTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -119,7 +119,7 @@ public partial class AwsCleanroomsCollaboration : TerraformResource
     /// </summary>
     [TerraformProperty("analytics_engine")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AnalyticsEngine { get; set; }
+    public partial TerraformValue<string>? AnalyticsEngine { get; set; }
 
     /// <summary>
     /// The creator_display_name attribute.
@@ -127,7 +127,7 @@ public partial class AwsCleanroomsCollaboration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreatorDisplayName is required")]
     [TerraformProperty("creator_display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CreatorDisplayName { get; set; }
+    public required partial TerraformValue<string> CreatorDisplayName { get; set; }
 
     /// <summary>
     /// The creator_member_abilities attribute.
@@ -135,7 +135,7 @@ public partial class AwsCleanroomsCollaboration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreatorMemberAbilities is required")]
     [TerraformProperty("creator_member_abilities")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? CreatorMemberAbilities { get; set; }
+    public partial TerraformList<string>? CreatorMemberAbilities { get; set; }
 
     /// <summary>
     /// The description attribute.
@@ -143,7 +143,7 @@ public partial class AwsCleanroomsCollaboration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     [TerraformProperty("description")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Description { get; set; }
+    public required partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -151,7 +151,7 @@ public partial class AwsCleanroomsCollaboration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The query_log_status attribute.
@@ -159,28 +159,28 @@ public partial class AwsCleanroomsCollaboration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryLogStatus is required")]
     [TerraformProperty("query_log_status")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> QueryLogStatus { get; set; }
+    public required partial TerraformValue<string> QueryLogStatus { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for data_encryption_metadata.
@@ -188,48 +188,48 @@ public partial class AwsCleanroomsCollaboration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataEncryptionMetadata block(s) allowed")]
     [TerraformProperty("data_encryption_metadata")]
-    public TerraformList<TerraformBlock<AwsCleanroomsCollaborationDataEncryptionMetadataBlock>>? DataEncryptionMetadata { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCleanroomsCollaborationDataEncryptionMetadataBlock>>? DataEncryptionMetadata { get; set; }
 
     /// <summary>
     /// Block for member.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("member")]
-    public TerraformSet<TerraformBlock<AwsCleanroomsCollaborationMemberBlock>>? Member { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsCleanroomsCollaborationMemberBlock>>? Member { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsCleanroomsCollaborationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsCleanroomsCollaborationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

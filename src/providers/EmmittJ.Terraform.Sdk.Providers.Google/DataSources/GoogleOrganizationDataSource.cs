@@ -16,55 +16,55 @@ public partial class GoogleOrganizationDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("domain")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Domain { get; set; }
+    public partial TerraformValue<string> Domain { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The organization attribute.
     /// </summary>
     [TerraformProperty("organization")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Organization { get; set; }
+    public partial TerraformValue<string>? Organization { get; set; }
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The directory_customer_id attribute.
     /// </summary>
     [TerraformProperty("directory_customer_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DirectoryCustomerId { get; }
+    public partial TerraformValue<string> DirectoryCustomerId { get; }
 
     /// <summary>
     /// The lifecycle_state attribute.
     /// </summary>
     [TerraformProperty("lifecycle_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LifecycleState { get; }
+    public partial TerraformValue<string> LifecycleState { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
     [TerraformProperty("org_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OrgId { get; }
+    public partial TerraformValue<string> OrgId { get; }
 
 }

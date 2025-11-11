@@ -16,7 +16,7 @@ public partial class GoogleServiceAccountKeyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -24,27 +24,27 @@ public partial class GoogleServiceAccountKeyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_key_type attribute.
     /// </summary>
     [TerraformProperty("public_key_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PublicKeyType { get; set; }
+    public partial TerraformValue<string>? PublicKeyType { get; set; }
 
     /// <summary>
     /// The key_algorithm attribute.
     /// </summary>
     [TerraformProperty("key_algorithm")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KeyAlgorithm { get; }
+    public partial TerraformValue<string> KeyAlgorithm { get; }
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     [TerraformProperty("public_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PublicKey { get; }
+    public partial TerraformValue<string> PublicKey { get; }
 
 }

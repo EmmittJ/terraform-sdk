@@ -13,28 +13,28 @@ public partial class AzurermRoleDefinitionPermissionsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("actions")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Actions { get; set; }
+    public partial TerraformList<string>? Actions { get; set; }
 
     /// <summary>
     /// The data_actions attribute.
     /// </summary>
     [TerraformProperty("data_actions")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? DataActions { get; set; }
+    public partial TerraformSet<string>? DataActions { get; set; }
 
     /// <summary>
     /// The not_actions attribute.
     /// </summary>
     [TerraformProperty("not_actions")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? NotActions { get; set; }
+    public partial TerraformList<string>? NotActions { get; set; }
 
     /// <summary>
     /// The not_data_actions attribute.
     /// </summary>
     [TerraformProperty("not_data_actions")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? NotDataActions { get; set; }
+    public partial TerraformSet<string>? NotDataActions { get; set; }
 
 }
 
@@ -49,28 +49,28 @@ public partial class AzurermRoleDefinitionTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -88,21 +88,21 @@ public partial class AzurermRoleDefinition : TerraformResource
     /// </summary>
     [TerraformProperty("assignable_scopes")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> AssignableScopes { get; set; }
+    public partial TerraformList<string> AssignableScopes { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -110,14 +110,14 @@ public partial class AzurermRoleDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
     [TerraformProperty("role_definition_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> RoleDefinitionId { get; set; }
+    public partial TerraformValue<string> RoleDefinitionId { get; set; }
 
     /// <summary>
     /// The scope attribute.
@@ -125,27 +125,27 @@ public partial class AzurermRoleDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     [TerraformProperty("scope")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Scope { get; set; }
+    public required partial TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// Block for permissions.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("permissions")]
-    public TerraformList<TerraformBlock<AzurermRoleDefinitionPermissionsBlock>>? Permissions { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermRoleDefinitionPermissionsBlock>>? Permissions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermRoleDefinitionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermRoleDefinitionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The role_definition_resource_id attribute.
     /// </summary>
     [TerraformProperty("role_definition_resource_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RoleDefinitionResourceId { get; }
+    public partial TerraformValue<string> RoleDefinitionResourceId { get; }
 
 }

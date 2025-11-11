@@ -16,7 +16,7 @@ public partial class GoogleContainerAttachedVersionsDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -24,7 +24,7 @@ public partial class GoogleContainerAttachedVersionsDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
@@ -32,13 +32,13 @@ public partial class GoogleContainerAttachedVersionsDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformProperty("project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Project { get; set; }
+    public required partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The valid_versions attribute.
     /// </summary>
     [TerraformProperty("valid_versions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ValidVersions { get; }
+    public partial TerraformList<string> ValidVersions { get; }
 
 }

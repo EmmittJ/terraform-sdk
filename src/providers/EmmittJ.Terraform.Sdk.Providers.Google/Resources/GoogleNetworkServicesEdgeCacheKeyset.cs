@@ -16,14 +16,14 @@ public partial class GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Set to true to have the CDN automatically manage this public key value.
     /// </summary>
     [TerraformProperty("managed")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Managed { get; set; }
+    public partial TerraformValue<bool>? Managed { get; set; }
 
     /// <summary>
     /// The base64-encoded value of the Ed25519 public key. The base64 encoding can be padded (44 bytes) or unpadded (43 bytes).
@@ -31,7 +31,7 @@ public partial class GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock : Terraf
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Value { get; set; }
+    public partial TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -46,21 +46,21 @@ public partial class GoogleNetworkServicesEdgeCacheKeysetTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -82,7 +82,7 @@ public partial class GoogleNetworkServicesEdgeCacheKeysetValidationSharedKeysBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     [TerraformProperty("secret_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SecretVersion { get; set; }
+    public required partial TerraformValue<string> SecretVersion { get; set; }
 
 }
 
@@ -101,14 +101,14 @@ public partial class GoogleNetworkServicesEdgeCacheKeyset : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Set of label tags associated with the EdgeCache resource.
@@ -118,7 +118,7 @@ public partial class GoogleNetworkServicesEdgeCacheKeyset : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is created.
@@ -128,14 +128,14 @@ public partial class GoogleNetworkServicesEdgeCacheKeyset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for public_key.
@@ -143,14 +143,14 @@ public partial class GoogleNetworkServicesEdgeCacheKeyset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 PublicKey block(s) allowed")]
     [TerraformProperty("public_key")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock>>? PublicKey { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock>>? PublicKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkServicesEdgeCacheKeysetTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkServicesEdgeCacheKeysetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for validation_shared_keys.
@@ -158,14 +158,14 @@ public partial class GoogleNetworkServicesEdgeCacheKeyset : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 ValidationSharedKeys block(s) allowed")]
     [TerraformProperty("validation_shared_keys")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheKeysetValidationSharedKeysBlock>>? ValidationSharedKeys { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheKeysetValidationSharedKeysBlock>>? ValidationSharedKeys { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -173,6 +173,6 @@ public partial class GoogleNetworkServicesEdgeCacheKeyset : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

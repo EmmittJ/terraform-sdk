@@ -20,7 +20,7 @@ public partial class GoogleComputeBackendServiceBackendBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("balancing_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BalancingMode { get; set; }
+    public partial TerraformValue<string>? BalancingMode { get; set; }
 
     /// <summary>
     /// A multiplier applied to the group&#39;s maximum servicing capacity
@@ -33,7 +33,7 @@ public partial class GoogleComputeBackendServiceBackendBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("capacity_scaler")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? CapacityScaler { get; set; }
+    public partial TerraformValue<double>? CapacityScaler { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
@@ -41,7 +41,7 @@ public partial class GoogleComputeBackendServiceBackendBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The fully-qualified URL of an Instance Group or Network Endpoint
@@ -65,7 +65,7 @@ public partial class GoogleComputeBackendServiceBackendBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     [TerraformProperty("group")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Group { get; set; }
+    public required partial TerraformValue<string> Group { get; set; }
 
     /// <summary>
     /// The max number of simultaneous connections for the group. Can
@@ -77,7 +77,7 @@ public partial class GoogleComputeBackendServiceBackendBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("max_connections")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxConnections { get; set; }
+    public partial TerraformValue<double> MaxConnections { get; set; }
 
     /// <summary>
     /// The max number of simultaneous connections that a single backend
@@ -90,7 +90,7 @@ public partial class GoogleComputeBackendServiceBackendBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("max_connections_per_endpoint")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxConnectionsPerEndpoint { get; set; }
+    public partial TerraformValue<double> MaxConnectionsPerEndpoint { get; set; }
 
     /// <summary>
     /// The max number of simultaneous connections that a single
@@ -103,7 +103,7 @@ public partial class GoogleComputeBackendServiceBackendBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("max_connections_per_instance")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxConnectionsPerInstance { get; set; }
+    public partial TerraformValue<double> MaxConnectionsPerInstance { get; set; }
 
     /// <summary>
     /// The max requests per second (RPS) of the group.
@@ -115,7 +115,7 @@ public partial class GoogleComputeBackendServiceBackendBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("max_rate")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxRate { get; set; }
+    public partial TerraformValue<double> MaxRate { get; set; }
 
     /// <summary>
     /// The max requests per second (RPS) that a single backend network
@@ -125,7 +125,7 @@ public partial class GoogleComputeBackendServiceBackendBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("max_rate_per_endpoint")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxRatePerEndpoint { get; set; }
+    public partial TerraformValue<double> MaxRatePerEndpoint { get; set; }
 
     /// <summary>
     /// The max requests per second (RPS) that a single backend
@@ -135,7 +135,7 @@ public partial class GoogleComputeBackendServiceBackendBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("max_rate_per_instance")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxRatePerInstance { get; set; }
+    public partial TerraformValue<double> MaxRatePerInstance { get; set; }
 
     /// <summary>
     /// Used when balancingMode is UTILIZATION. This ratio defines the
@@ -143,7 +143,7 @@ public partial class GoogleComputeBackendServiceBackendBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("max_utilization")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxUtilization { get; set; }
+    public partial TerraformValue<double> MaxUtilization { get; set; }
 
     /// <summary>
     /// This field indicates whether this backend should be fully utilized before sending traffic to backends
@@ -155,7 +155,7 @@ public partial class GoogleComputeBackendServiceBackendBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("preference")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Preference { get; set; }
+    public partial TerraformValue<string>? Preference { get; set; }
 
 }
 
@@ -171,14 +171,14 @@ public partial class GoogleComputeBackendServiceCdnPolicyBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("cache_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CacheMode { get; set; }
+    public partial TerraformValue<string> CacheMode { get; set; }
 
     /// <summary>
     /// Specifies the maximum allowed TTL for cached content served by this origin.
     /// </summary>
     [TerraformProperty("client_ttl")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> ClientTtl { get; set; }
+    public partial TerraformValue<double> ClientTtl { get; set; }
 
     /// <summary>
     /// Specifies the default TTL for cached content served by this origin for responses
@@ -186,21 +186,21 @@ public partial class GoogleComputeBackendServiceCdnPolicyBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("default_ttl")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> DefaultTtl { get; set; }
+    public partial TerraformValue<double> DefaultTtl { get; set; }
 
     /// <summary>
     /// Specifies the maximum allowed TTL for cached content served by this origin.
     /// </summary>
     [TerraformProperty("max_ttl")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxTtl { get; set; }
+    public partial TerraformValue<double> MaxTtl { get; set; }
 
     /// <summary>
     /// Negative caching allows per-status code TTLs to be set, in order to apply fine-grained caching for common errors or redirects.
     /// </summary>
     [TerraformProperty("negative_caching")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> NegativeCaching { get; set; }
+    public partial TerraformValue<bool> NegativeCaching { get; set; }
 
     /// <summary>
     /// If true then Cloud CDN will combine multiple concurrent cache fill requests into a small number of requests
@@ -208,14 +208,14 @@ public partial class GoogleComputeBackendServiceCdnPolicyBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("request_coalescing")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> RequestCoalescing { get; set; }
+    public partial TerraformValue<bool> RequestCoalescing { get; set; }
 
     /// <summary>
     /// Serve existing content from the cache (if available) when revalidating content with the origin, or when an error is encountered when refreshing the cache.
     /// </summary>
     [TerraformProperty("serve_while_stale")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> ServeWhileStale { get; set; }
+    public partial TerraformValue<double> ServeWhileStale { get; set; }
 
     /// <summary>
     /// Maximum number of seconds the response to a signed URL request
@@ -231,7 +231,7 @@ public partial class GoogleComputeBackendServiceCdnPolicyBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("signed_url_cache_max_age_sec")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SignedUrlCacheMaxAgeSec { get; set; }
+    public partial TerraformValue<double>? SignedUrlCacheMaxAgeSec { get; set; }
 
 }
 
@@ -247,7 +247,7 @@ public partial class GoogleComputeBackendServiceCircuitBreakersBlock : Terraform
     /// </summary>
     [TerraformProperty("max_connections")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxConnections { get; set; }
+    public partial TerraformValue<double>? MaxConnections { get; set; }
 
     /// <summary>
     /// The maximum number of pending requests to the backend cluster.
@@ -255,7 +255,7 @@ public partial class GoogleComputeBackendServiceCircuitBreakersBlock : Terraform
     /// </summary>
     [TerraformProperty("max_pending_requests")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxPendingRequests { get; set; }
+    public partial TerraformValue<double>? MaxPendingRequests { get; set; }
 
     /// <summary>
     /// The maximum number of parallel requests to the backend cluster.
@@ -263,7 +263,7 @@ public partial class GoogleComputeBackendServiceCircuitBreakersBlock : Terraform
     /// </summary>
     [TerraformProperty("max_requests")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxRequests { get; set; }
+    public partial TerraformValue<double>? MaxRequests { get; set; }
 
     /// <summary>
     /// Maximum requests for a single backend connection. This parameter
@@ -273,7 +273,7 @@ public partial class GoogleComputeBackendServiceCircuitBreakersBlock : Terraform
     /// </summary>
     [TerraformProperty("max_requests_per_connection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxRequestsPerConnection { get; set; }
+    public partial TerraformValue<double>? MaxRequestsPerConnection { get; set; }
 
     /// <summary>
     /// The maximum number of parallel retries to the backend cluster.
@@ -281,7 +281,7 @@ public partial class GoogleComputeBackendServiceCircuitBreakersBlock : Terraform
     /// </summary>
     [TerraformProperty("max_retries")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxRetries { get; set; }
+    public partial TerraformValue<double>? MaxRetries { get; set; }
 
 }
 
@@ -297,7 +297,7 @@ public partial class GoogleComputeBackendServiceConsistentHashBlock : TerraformB
     /// </summary>
     [TerraformProperty("http_header_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HttpHeaderName { get; set; }
+    public partial TerraformValue<string>? HttpHeaderName { get; set; }
 
     /// <summary>
     /// The minimum number of virtual nodes to use for the hash ring.
@@ -309,7 +309,7 @@ public partial class GoogleComputeBackendServiceConsistentHashBlock : TerraformB
     /// </summary>
     [TerraformProperty("minimum_ring_size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinimumRingSize { get; set; }
+    public partial TerraformValue<double>? MinimumRingSize { get; set; }
 
 }
 
@@ -325,7 +325,7 @@ public partial class GoogleComputeBackendServiceCustomMetricsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DryRun is required")]
     [TerraformProperty("dry_run")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> DryRun { get; set; }
+    public required partial TerraformValue<bool> DryRun { get; set; }
 
     /// <summary>
     /// Name of a custom utilization signal. The name must be 1-64 characters
@@ -341,7 +341,7 @@ public partial class GoogleComputeBackendServiceCustomMetricsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -357,21 +357,21 @@ public partial class GoogleComputeBackendServiceIapBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// OAuth2 Client ID for IAP
     /// </summary>
     [TerraformProperty("oauth2_client_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Oauth2ClientId { get; set; }
+    public partial TerraformValue<string>? Oauth2ClientId { get; set; }
 
     /// <summary>
     /// OAuth2 Client Secret for IAP
     /// </summary>
     [TerraformProperty("oauth2_client_secret")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Oauth2ClientSecret { get; set; }
+    public partial TerraformValue<string>? Oauth2ClientSecret { get; set; }
 
 
 }
@@ -395,7 +395,7 @@ public partial class GoogleComputeBackendServiceLogConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("enable")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enable { get; set; }
+    public partial TerraformValue<bool>? Enable { get; set; }
 
     /// <summary>
     /// This field can only be specified if logging is enabled for this backend service and &amp;quot;logConfig.optionalMode&amp;quot;
@@ -405,7 +405,7 @@ public partial class GoogleComputeBackendServiceLogConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("optional_fields")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? OptionalFields { get; set; }
+    public partial TerraformList<string>? OptionalFields { get; set; }
 
     /// <summary>
     /// Specifies the optional logging mode for the load balancer traffic.
@@ -413,7 +413,7 @@ public partial class GoogleComputeBackendServiceLogConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("optional_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> OptionalMode { get; set; }
+    public partial TerraformValue<string> OptionalMode { get; set; }
 
     /// <summary>
     /// This field can only be specified if logging is enabled for this backend service. The value of
@@ -423,7 +423,7 @@ public partial class GoogleComputeBackendServiceLogConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("sample_rate")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SampleRate { get; set; }
+    public partial TerraformValue<double>? SampleRate { get; set; }
 
 }
 
@@ -440,7 +440,7 @@ public partial class GoogleComputeBackendServiceMaxStreamDurationBlock : Terrafo
     /// </summary>
     [TerraformProperty("nanos")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Nanos { get; set; }
+    public partial TerraformValue<double>? Nanos { get; set; }
 
     /// <summary>
     /// Span of time at a resolution of a second. Must be from 0 to 315,576,000,000 inclusive. (int64 format)
@@ -448,7 +448,7 @@ public partial class GoogleComputeBackendServiceMaxStreamDurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     [TerraformProperty("seconds")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Seconds { get; set; }
+    public required partial TerraformValue<string> Seconds { get; set; }
 
 }
 
@@ -465,7 +465,7 @@ public partial class GoogleComputeBackendServiceOutlierDetectionBlock : Terrafor
     /// </summary>
     [TerraformProperty("consecutive_errors")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ConsecutiveErrors { get; set; }
+    public partial TerraformValue<double>? ConsecutiveErrors { get; set; }
 
     /// <summary>
     /// The number of consecutive gateway failures (502, 503, 504 status or connection
@@ -474,7 +474,7 @@ public partial class GoogleComputeBackendServiceOutlierDetectionBlock : Terrafor
     /// </summary>
     [TerraformProperty("consecutive_gateway_failure")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ConsecutiveGatewayFailure { get; set; }
+    public partial TerraformValue<double>? ConsecutiveGatewayFailure { get; set; }
 
     /// <summary>
     /// The percentage chance that a host will be actually ejected when an outlier
@@ -483,7 +483,7 @@ public partial class GoogleComputeBackendServiceOutlierDetectionBlock : Terrafor
     /// </summary>
     [TerraformProperty("enforcing_consecutive_errors")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? EnforcingConsecutiveErrors { get; set; }
+    public partial TerraformValue<double>? EnforcingConsecutiveErrors { get; set; }
 
     /// <summary>
     /// The percentage chance that a host will be actually ejected when an outlier
@@ -492,7 +492,7 @@ public partial class GoogleComputeBackendServiceOutlierDetectionBlock : Terrafor
     /// </summary>
     [TerraformProperty("enforcing_consecutive_gateway_failure")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? EnforcingConsecutiveGatewayFailure { get; set; }
+    public partial TerraformValue<double>? EnforcingConsecutiveGatewayFailure { get; set; }
 
     /// <summary>
     /// The percentage chance that a host will be actually ejected when an outlier
@@ -501,7 +501,7 @@ public partial class GoogleComputeBackendServiceOutlierDetectionBlock : Terrafor
     /// </summary>
     [TerraformProperty("enforcing_success_rate")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? EnforcingSuccessRate { get; set; }
+    public partial TerraformValue<double>? EnforcingSuccessRate { get; set; }
 
     /// <summary>
     /// Maximum percentage of hosts in the load balancing pool for the backend service
@@ -509,7 +509,7 @@ public partial class GoogleComputeBackendServiceOutlierDetectionBlock : Terrafor
     /// </summary>
     [TerraformProperty("max_ejection_percent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxEjectionPercent { get; set; }
+    public partial TerraformValue<double>? MaxEjectionPercent { get; set; }
 
     /// <summary>
     /// The number of hosts in a cluster that must have enough request volume to detect
@@ -519,7 +519,7 @@ public partial class GoogleComputeBackendServiceOutlierDetectionBlock : Terrafor
     /// </summary>
     [TerraformProperty("success_rate_minimum_hosts")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SuccessRateMinimumHosts { get; set; }
+    public partial TerraformValue<double>? SuccessRateMinimumHosts { get; set; }
 
     /// <summary>
     /// The minimum number of total requests that must be collected in one interval (as
@@ -530,7 +530,7 @@ public partial class GoogleComputeBackendServiceOutlierDetectionBlock : Terrafor
     /// </summary>
     [TerraformProperty("success_rate_request_volume")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SuccessRateRequestVolume { get; set; }
+    public partial TerraformValue<double>? SuccessRateRequestVolume { get; set; }
 
     /// <summary>
     /// This factor is used to determine the ejection threshold for success rate outlier
@@ -542,7 +542,7 @@ public partial class GoogleComputeBackendServiceOutlierDetectionBlock : Terrafor
     /// </summary>
     [TerraformProperty("success_rate_stdev_factor")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SuccessRateStdevFactor { get; set; }
+    public partial TerraformValue<double>? SuccessRateStdevFactor { get; set; }
 
 }
 
@@ -559,7 +559,7 @@ public partial class GoogleComputeBackendServiceParamsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("resource_manager_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? ResourceManagerTags { get; set; }
+    public partial TerraformMap<string>? ResourceManagerTags { get; set; }
 
 }
 
@@ -576,7 +576,7 @@ public partial class GoogleComputeBackendServiceSecuritySettingsBlock : Terrafor
     /// </summary>
     [TerraformProperty("client_tls_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientTlsPolicy { get; set; }
+    public partial TerraformValue<string>? ClientTlsPolicy { get; set; }
 
     /// <summary>
     /// A list of alternate names to verify the subject identity in the certificate.
@@ -585,7 +585,7 @@ public partial class GoogleComputeBackendServiceSecuritySettingsBlock : Terrafor
     /// </summary>
     [TerraformProperty("subject_alt_names")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? SubjectAltNames { get; set; }
+    public partial TerraformList<string>? SubjectAltNames { get; set; }
 
 }
 
@@ -600,14 +600,14 @@ public partial class GoogleComputeBackendServiceStrongSessionAffinityCookieBlock
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Path to set for the cookie.
     /// </summary>
     [TerraformProperty("path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Path { get; set; }
+    public partial TerraformValue<string>? Path { get; set; }
 
 }
 
@@ -622,21 +622,21 @@ public partial class GoogleComputeBackendServiceTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -653,7 +653,7 @@ public partial class GoogleComputeBackendServiceTlsSettingsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("authentication_config")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthenticationConfig { get; set; }
+    public partial TerraformValue<string>? AuthenticationConfig { get; set; }
 
     /// <summary>
     /// Server Name Indication - see RFC3546 section 3.1. If set, the load balancer sends this string as the SNI hostname in the
@@ -663,7 +663,7 @@ public partial class GoogleComputeBackendServiceTlsSettingsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("sni")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Sni { get; set; }
+    public partial TerraformValue<string>? Sni { get; set; }
 
 }
 
@@ -687,14 +687,14 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [TerraformProperty("affinity_cookie_ttl_sec")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AffinityCookieTtlSec { get; set; }
+    public partial TerraformValue<double>? AffinityCookieTtlSec { get; set; }
 
     /// <summary>
     /// Compress text responses using Brotli or gzip compression, based on the client&#39;s Accept-Encoding header. Possible values: [&amp;quot;AUTOMATIC&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
     [TerraformProperty("compression_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CompressionMode { get; set; }
+    public partial TerraformValue<string>? CompressionMode { get; set; }
 
     /// <summary>
     /// Time for which instance will be drained (not accept new
@@ -702,7 +702,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [TerraformProperty("connection_draining_timeout_sec")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ConnectionDrainingTimeoutSec { get; set; }
+    public partial TerraformValue<double>? ConnectionDrainingTimeoutSec { get; set; }
 
     /// <summary>
     /// Headers that the HTTP/S load balancer should add to proxied
@@ -710,7 +710,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [TerraformProperty("custom_request_headers")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? CustomRequestHeaders { get; set; }
+    public partial TerraformSet<string>? CustomRequestHeaders { get; set; }
 
     /// <summary>
     /// Headers that the HTTP/S load balancer should add to proxied
@@ -718,28 +718,28 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [TerraformProperty("custom_response_headers")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? CustomResponseHeaders { get; set; }
+    public partial TerraformSet<string>? CustomResponseHeaders { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The resource URL for the edge security policy associated with this backend service.
     /// </summary>
     [TerraformProperty("edge_security_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EdgeSecurityPolicy { get; set; }
+    public partial TerraformValue<string>? EdgeSecurityPolicy { get; set; }
 
     /// <summary>
     /// If true, enable Cloud CDN for this BackendService.
     /// </summary>
     [TerraformProperty("enable_cdn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableCdn { get; set; }
+    public partial TerraformValue<bool>? EnableCdn { get; set; }
 
     /// <summary>
     /// Specifies the canary migration state. Possible values are PREPARE, TEST_BY_PERCENTAGE, and
@@ -757,7 +757,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [TerraformProperty("external_managed_migration_state")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExternalManagedMigrationState { get; set; }
+    public partial TerraformValue<string>? ExternalManagedMigrationState { get; set; }
 
     /// <summary>
     /// Determines the fraction of requests that should be processed by the Global external
@@ -773,7 +773,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [TerraformProperty("external_managed_migration_testing_percentage")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ExternalManagedMigrationTestingPercentage { get; set; }
+    public partial TerraformValue<double>? ExternalManagedMigrationTestingPercentage { get; set; }
 
     /// <summary>
     /// The set of URLs to the HttpHealthCheck or HttpsHealthCheck resource
@@ -787,21 +787,21 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [TerraformProperty("health_checks")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? HealthChecks { get; set; }
+    public partial TerraformSet<string>? HealthChecks { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Specifies preference of traffic to the backend (from the proxy and from the client for proxyless gRPC). Possible values: [&amp;quot;IPV4_ONLY&amp;quot;, &amp;quot;PREFER_IPV6&amp;quot;, &amp;quot;IPV6_ONLY&amp;quot;]
     /// </summary>
     [TerraformProperty("ip_address_selection_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpAddressSelectionPolicy { get; set; }
+    public partial TerraformValue<string>? IpAddressSelectionPolicy { get; set; }
 
     /// <summary>
     /// Indicates whether the backend service will be used with internal or
@@ -811,7 +811,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [TerraformProperty("load_balancing_scheme")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LoadBalancingScheme { get; set; }
+    public partial TerraformValue<string>? LoadBalancingScheme { get; set; }
 
     /// <summary>
     /// The load balancing algorithm used within the scope of the locality.
@@ -880,7 +880,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [TerraformProperty("locality_lb_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LocalityLbPolicy { get; set; }
+    public partial TerraformValue<string>? LocalityLbPolicy { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -894,7 +894,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Name of backend port. The same name should appear in the instance
@@ -903,14 +903,14 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [TerraformProperty("port_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PortName { get; set; }
+    public partial TerraformValue<string> PortName { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The protocol this BackendService uses to communicate with backends.
@@ -921,14 +921,14 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [TerraformProperty("protocol")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Protocol { get; set; }
+    public partial TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// The security policy associated with this backend service.
     /// </summary>
     [TerraformProperty("security_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecurityPolicy { get; set; }
+    public partial TerraformValue<string>? SecurityPolicy { get; set; }
 
     /// <summary>
     /// URL to networkservices.ServiceLbPolicy resource.
@@ -936,7 +936,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [TerraformProperty("service_lb_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServiceLbPolicy { get; set; }
+    public partial TerraformValue<string>? ServiceLbPolicy { get; set; }
 
     /// <summary>
     /// Type of session affinity to use. The default is NONE. Session affinity is
@@ -944,7 +944,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [TerraformProperty("session_affinity")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SessionAffinity { get; set; }
+    public partial TerraformValue<string> SessionAffinity { get; set; }
 
     /// <summary>
     /// The backend service timeout has a different meaning depending on the type of load balancer.
@@ -954,14 +954,14 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [TerraformProperty("timeout_sec")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> TimeoutSec { get; set; }
+    public partial TerraformValue<double> TimeoutSec { get; set; }
 
     /// <summary>
     /// Block for backend.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("backend")]
-    public TerraformSet<TerraformBlock<GoogleComputeBackendServiceBackendBlock>>? Backend { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleComputeBackendServiceBackendBlock>>? Backend { get; set; }
 
     /// <summary>
     /// Block for cdn_policy.
@@ -969,7 +969,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CdnPolicy block(s) allowed")]
     [TerraformProperty("cdn_policy")]
-    public TerraformList<TerraformBlock<GoogleComputeBackendServiceCdnPolicyBlock>>? CdnPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceCdnPolicyBlock>>? CdnPolicy { get; set; }
 
     /// <summary>
     /// Block for circuit_breakers.
@@ -977,7 +977,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CircuitBreakers block(s) allowed")]
     [TerraformProperty("circuit_breakers")]
-    public TerraformList<TerraformBlock<GoogleComputeBackendServiceCircuitBreakersBlock>>? CircuitBreakers { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceCircuitBreakersBlock>>? CircuitBreakers { get; set; }
 
     /// <summary>
     /// Block for consistent_hash.
@@ -985,14 +985,14 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConsistentHash block(s) allowed")]
     [TerraformProperty("consistent_hash")]
-    public TerraformList<TerraformBlock<GoogleComputeBackendServiceConsistentHashBlock>>? ConsistentHash { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceConsistentHashBlock>>? ConsistentHash { get; set; }
 
     /// <summary>
     /// Block for custom_metrics.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("custom_metrics")]
-    public TerraformList<TerraformBlock<GoogleComputeBackendServiceCustomMetricsBlock>>? CustomMetrics { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceCustomMetricsBlock>>? CustomMetrics { get; set; }
 
     /// <summary>
     /// Block for iap.
@@ -1000,14 +1000,14 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Iap block(s) allowed")]
     [TerraformProperty("iap")]
-    public TerraformList<TerraformBlock<GoogleComputeBackendServiceIapBlock>>? Iap { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceIapBlock>>? Iap { get; set; }
 
     /// <summary>
     /// Block for locality_lb_policies.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("locality_lb_policies")]
-    public TerraformList<TerraformBlock<GoogleComputeBackendServiceLocalityLbPoliciesBlock>>? LocalityLbPolicies { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceLocalityLbPoliciesBlock>>? LocalityLbPolicies { get; set; }
 
     /// <summary>
     /// Block for log_config.
@@ -1015,7 +1015,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformProperty("log_config")]
-    public TerraformList<TerraformBlock<GoogleComputeBackendServiceLogConfigBlock>>? LogConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceLogConfigBlock>>? LogConfig { get; set; }
 
     /// <summary>
     /// Block for max_stream_duration.
@@ -1023,7 +1023,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaxStreamDuration block(s) allowed")]
     [TerraformProperty("max_stream_duration")]
-    public TerraformList<TerraformBlock<GoogleComputeBackendServiceMaxStreamDurationBlock>>? MaxStreamDuration { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceMaxStreamDurationBlock>>? MaxStreamDuration { get; set; }
 
     /// <summary>
     /// Block for outlier_detection.
@@ -1031,7 +1031,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutlierDetection block(s) allowed")]
     [TerraformProperty("outlier_detection")]
-    public TerraformList<TerraformBlock<GoogleComputeBackendServiceOutlierDetectionBlock>>? OutlierDetection { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceOutlierDetectionBlock>>? OutlierDetection { get; set; }
 
     /// <summary>
     /// Block for params.
@@ -1039,7 +1039,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
     [TerraformProperty("params")]
-    public TerraformList<TerraformBlock<GoogleComputeBackendServiceParamsBlock>>? Params { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceParamsBlock>>? Params { get; set; }
 
     /// <summary>
     /// Block for security_settings.
@@ -1047,7 +1047,7 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecuritySettings block(s) allowed")]
     [TerraformProperty("security_settings")]
-    public TerraformList<TerraformBlock<GoogleComputeBackendServiceSecuritySettingsBlock>>? SecuritySettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceSecuritySettingsBlock>>? SecuritySettings { get; set; }
 
     /// <summary>
     /// Block for strong_session_affinity_cookie.
@@ -1055,14 +1055,14 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StrongSessionAffinityCookie block(s) allowed")]
     [TerraformProperty("strong_session_affinity_cookie")]
-    public TerraformList<TerraformBlock<GoogleComputeBackendServiceStrongSessionAffinityCookieBlock>>? StrongSessionAffinityCookie { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceStrongSessionAffinityCookieBlock>>? StrongSessionAffinityCookie { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeBackendServiceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeBackendServiceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for tls_settings.
@@ -1070,14 +1070,14 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsSettings block(s) allowed")]
     [TerraformProperty("tls_settings")]
-    public TerraformList<TerraformBlock<GoogleComputeBackendServiceTlsSettingsBlock>>? TlsSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeBackendServiceTlsSettingsBlock>>? TlsSettings { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this
@@ -1085,20 +1085,20 @@ public partial class GoogleComputeBackendService : TerraformResource
     /// </summary>
     [TerraformProperty("fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Fingerprint { get; }
+    public partial TerraformValue<string> Fingerprint { get; }
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformProperty("generated_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> GeneratedId { get; }
+    public partial TerraformValue<double> GeneratedId { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
 }

@@ -16,7 +16,7 @@ public partial class GoogleArtifactRegistryVersionDataSource : TerraformDataSour
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -24,7 +24,7 @@ public partial class GoogleArtifactRegistryVersionDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The package_name attribute.
@@ -32,14 +32,14 @@ public partial class GoogleArtifactRegistryVersionDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageName is required")]
     [TerraformProperty("package_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PackageName { get; set; }
+    public required partial TerraformValue<string> PackageName { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The repository_id attribute.
@@ -47,7 +47,7 @@ public partial class GoogleArtifactRegistryVersionDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     [TerraformProperty("repository_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepositoryId { get; set; }
+    public required partial TerraformValue<string> RepositoryId { get; set; }
 
     /// <summary>
     /// The version_name attribute.
@@ -55,55 +55,55 @@ public partial class GoogleArtifactRegistryVersionDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionName is required")]
     [TerraformProperty("version_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VersionName { get; set; }
+    public required partial TerraformValue<string> VersionName { get; set; }
 
     /// <summary>
     /// The view attribute.
     /// </summary>
     [TerraformProperty("view")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? View { get; set; }
+    public partial TerraformValue<string>? View { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
     [TerraformProperty("annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Annotations { get; }
+    public partial TerraformMap<string> Annotations { get; }
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The related_tags attribute.
     /// </summary>
     [TerraformProperty("related_tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> RelatedTags { get; }
+    public partial TerraformList<object> RelatedTags { get; }
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

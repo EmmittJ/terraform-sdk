@@ -13,14 +13,14 @@ public partial class GoogleSiteVerificationOwnerTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public partial class GoogleSiteVerificationOwner : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     [TerraformProperty("email")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Email { get; set; }
+    public required partial TerraformValue<string> Email { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The id of the Web Resource to add this owner to, in the form &amp;quot;webResource/&amp;lt;web-resource-id&amp;gt;&amp;quot;.
@@ -54,13 +54,13 @@ public partial class GoogleSiteVerificationOwner : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebResourceId is required")]
     [TerraformProperty("web_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WebResourceId { get; set; }
+    public required partial TerraformValue<string> WebResourceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleSiteVerificationOwnerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleSiteVerificationOwnerTimeoutsBlock>? Timeouts { get; set; }
 
 }

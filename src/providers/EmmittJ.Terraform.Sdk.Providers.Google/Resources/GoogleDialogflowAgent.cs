@@ -13,21 +13,21 @@ public partial class GoogleDialogflowAgentTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -50,7 +50,7 @@ public partial class GoogleDialogflowAgent : TerraformResource
     /// </summary>
     [TerraformProperty("api_version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ApiVersion { get; set; }
+    public partial TerraformValue<string> ApiVersion { get; set; }
 
     /// <summary>
     /// The URI of the agent&#39;s avatar, which are used throughout the Dialogflow console. When an image URL is entered
@@ -59,7 +59,7 @@ public partial class GoogleDialogflowAgent : TerraformResource
     /// </summary>
     [TerraformProperty("avatar_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AvatarUri { get; set; }
+    public partial TerraformValue<string>? AvatarUri { get; set; }
 
     /// <summary>
     /// To filter out false positive results and still get variety in matched natural language inputs for your agent,
@@ -70,7 +70,7 @@ public partial class GoogleDialogflowAgent : TerraformResource
     /// </summary>
     [TerraformProperty("classification_threshold")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ClassificationThreshold { get; set; }
+    public partial TerraformValue<double>? ClassificationThreshold { get; set; }
 
     /// <summary>
     /// The default language of the agent as a language tag. [See Language Support](https://cloud.google.com/dialogflow/docs/reference/language)
@@ -79,14 +79,14 @@ public partial class GoogleDialogflowAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLanguageCode is required")]
     [TerraformProperty("default_language_code")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DefaultLanguageCode { get; set; }
+    public required partial TerraformValue<string> DefaultLanguageCode { get; set; }
 
     /// <summary>
     /// The description of this agent. The maximum length is 500 characters. If exceeded, the request is rejected.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name of this agent.
@@ -94,21 +94,21 @@ public partial class GoogleDialogflowAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Determines whether this agent should log conversation queries.
     /// </summary>
     [TerraformProperty("enable_logging")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableLogging { get; set; }
+    public partial TerraformValue<bool>? EnableLogging { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Determines how intents are detected from user queries.
@@ -119,21 +119,21 @@ public partial class GoogleDialogflowAgent : TerraformResource
     /// </summary>
     [TerraformProperty("match_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> MatchMode { get; set; }
+    public partial TerraformValue<string> MatchMode { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The list of all languages supported by this agent (except for the defaultLanguageCode).
     /// </summary>
     [TerraformProperty("supported_language_codes")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? SupportedLanguageCodes { get; set; }
+    public partial TerraformList<string>? SupportedLanguageCodes { get; set; }
 
     /// <summary>
     /// The agent tier. If not specified, TIER_STANDARD is assumed.
@@ -145,7 +145,7 @@ public partial class GoogleDialogflowAgent : TerraformResource
     /// </summary>
     [TerraformProperty("tier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Tier { get; set; }
+    public partial TerraformValue<string>? Tier { get; set; }
 
     /// <summary>
     /// The time zone of this agent from the [time zone database](https://www.iana.org/time-zones), e.g., America/New_York,
@@ -154,14 +154,14 @@ public partial class GoogleDialogflowAgent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     [TerraformProperty("time_zone")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TimeZone { get; set; }
+    public required partial TerraformValue<string> TimeZone { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDialogflowAgentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDialogflowAgentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The URI of the agent&#39;s avatar as returned from the API. Output only. To provide an image URL for the agent avatar,
@@ -169,6 +169,6 @@ public partial class GoogleDialogflowAgent : TerraformResource
     /// </summary>
     [TerraformProperty("avatar_uri_backend")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AvatarUriBackend { get; }
+    public partial TerraformValue<string> AvatarUriBackend { get; }
 
 }

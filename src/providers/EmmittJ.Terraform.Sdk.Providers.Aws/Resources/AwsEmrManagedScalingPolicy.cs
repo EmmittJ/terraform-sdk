@@ -14,21 +14,21 @@ public partial class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumCapacityUnits is required")]
     [TerraformProperty("maximum_capacity_units")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MaximumCapacityUnits { get; set; }
+    public required partial TerraformValue<double> MaximumCapacityUnits { get; set; }
 
     /// <summary>
     /// The maximum_core_capacity_units attribute.
     /// </summary>
     [TerraformProperty("maximum_core_capacity_units")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaximumCoreCapacityUnits { get; set; }
+    public partial TerraformValue<double>? MaximumCoreCapacityUnits { get; set; }
 
     /// <summary>
     /// The maximum_ondemand_capacity_units attribute.
     /// </summary>
     [TerraformProperty("maximum_ondemand_capacity_units")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaximumOndemandCapacityUnits { get; set; }
+    public partial TerraformValue<double>? MaximumOndemandCapacityUnits { get; set; }
 
     /// <summary>
     /// The minimum_capacity_units attribute.
@@ -36,7 +36,7 @@ public partial class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumCapacityUnits is required")]
     [TerraformProperty("minimum_capacity_units")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MinimumCapacityUnits { get; set; }
+    public required partial TerraformValue<double> MinimumCapacityUnits { get; set; }
 
     /// <summary>
     /// The unit_type attribute.
@@ -44,7 +44,7 @@ public partial class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UnitType is required")]
     [TerraformProperty("unit_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UnitType { get; set; }
+    public required partial TerraformValue<string> UnitType { get; set; }
 
 }
 
@@ -64,21 +64,21 @@ public partial class AwsEmrManagedScalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     [TerraformProperty("cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterId { get; set; }
+    public required partial TerraformValue<string> ClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for compute_limits.
@@ -87,6 +87,6 @@ public partial class AwsEmrManagedScalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeLimits is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComputeLimits block(s) required")]
     [TerraformProperty("compute_limits")]
-    public TerraformSet<TerraformBlock<AwsEmrManagedScalingPolicyComputeLimitsBlock>>? ComputeLimits { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsEmrManagedScalingPolicyComputeLimitsBlock>>? ComputeLimits { get; set; }
 
 }

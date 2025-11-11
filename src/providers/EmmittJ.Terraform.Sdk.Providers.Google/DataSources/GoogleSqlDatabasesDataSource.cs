@@ -16,7 +16,7 @@ public partial class GoogleSqlDatabasesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the Cloud SQL database instance in which the database belongs.
@@ -24,20 +24,20 @@ public partial class GoogleSqlDatabasesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// Project ID of the project that contains the instance.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The databases attribute.
     /// </summary>
     [TerraformProperty("databases")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Databases { get; }
+    public partial TerraformList<object> Databases { get; }
 
 }

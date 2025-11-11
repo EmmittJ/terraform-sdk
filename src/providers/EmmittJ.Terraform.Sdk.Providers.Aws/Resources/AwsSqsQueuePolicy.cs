@@ -16,7 +16,7 @@ public partial class AwsSqsQueuePolicy : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy attribute.
@@ -24,7 +24,7 @@ public partial class AwsSqsQueuePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     [TerraformProperty("policy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Policy { get; set; }
+    public required partial TerraformValue<string> Policy { get; set; }
 
     /// <summary>
     /// The queue_url attribute.
@@ -32,13 +32,13 @@ public partial class AwsSqsQueuePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueUrl is required")]
     [TerraformProperty("queue_url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> QueueUrl { get; set; }
+    public required partial TerraformValue<string> QueueUrl { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
 }

@@ -13,21 +13,21 @@ public partial class AwsNetworkInterfaceSgAttachmentTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AwsNetworkInterfaceSgAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The network_interface_id attribute.
@@ -53,14 +53,14 @@ public partial class AwsNetworkInterfaceSgAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     [TerraformProperty("network_interface_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NetworkInterfaceId { get; set; }
+    public required partial TerraformValue<string> NetworkInterfaceId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_group_id attribute.
@@ -68,13 +68,13 @@ public partial class AwsNetworkInterfaceSgAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
     [TerraformProperty("security_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SecurityGroupId { get; set; }
+    public required partial TerraformValue<string> SecurityGroupId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsNetworkInterfaceSgAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsNetworkInterfaceSgAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

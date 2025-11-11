@@ -14,7 +14,7 @@ public partial class GoogleHealthcarePipelineJobBackfillPipelineJobBlock : Terra
     /// </summary>
     [TerraformProperty("mapping_pipeline_job")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MappingPipelineJob { get; set; }
+    public partial TerraformValue<string>? MappingPipelineJob { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class GoogleHealthcarePipelineJobMappingPipelineJobBlock : Terraf
     /// </summary>
     [TerraformProperty("fhir_store_destination")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FhirStoreDestination { get; set; }
+    public partial TerraformValue<string>? FhirStoreDestination { get; set; }
 
     /// <summary>
     /// If set to true, a mapping pipeline will send output snapshots
@@ -47,7 +47,7 @@ public partial class GoogleHealthcarePipelineJobMappingPipelineJobBlock : Terraf
     /// </summary>
     [TerraformProperty("reconciliation_destination")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ReconciliationDestination { get; set; }
+    public partial TerraformValue<bool>? ReconciliationDestination { get; set; }
 
 }
 
@@ -63,7 +63,7 @@ public partial class GoogleHealthcarePipelineJobReconciliationPipelineJobBlock :
     /// </summary>
     [TerraformProperty("fhir_store_destination")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FhirStoreDestination { get; set; }
+    public partial TerraformValue<string>? FhirStoreDestination { get; set; }
 
     /// <summary>
     /// Specifies the top level directory of the matching configs used
@@ -74,7 +74,7 @@ public partial class GoogleHealthcarePipelineJobReconciliationPipelineJobBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingUriPrefix is required")]
     [TerraformProperty("matching_uri_prefix")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MatchingUriPrefix { get; set; }
+    public required partial TerraformValue<string> MatchingUriPrefix { get; set; }
 
 }
 
@@ -89,21 +89,21 @@ public partial class GoogleHealthcarePipelineJobTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -123,21 +123,21 @@ public partial class GoogleHealthcarePipelineJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     [TerraformProperty("dataset")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Dataset { get; set; }
+    public required partial TerraformValue<string> Dataset { get; set; }
 
     /// <summary>
     /// If true, disables writing lineage for the pipeline.
     /// </summary>
     [TerraformProperty("disable_lineage")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableLineage { get; set; }
+    public partial TerraformValue<bool>? DisableLineage { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// User-supplied key-value pairs used to organize Pipeline Jobs.
@@ -157,7 +157,7 @@ public partial class GoogleHealthcarePipelineJob : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Location where the Pipeline Job is to run
@@ -165,7 +165,7 @@ public partial class GoogleHealthcarePipelineJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Specifies the name of the pipeline job. This field is user-assigned.
@@ -173,7 +173,7 @@ public partial class GoogleHealthcarePipelineJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for backfill_pipeline_job.
@@ -181,7 +181,7 @@ public partial class GoogleHealthcarePipelineJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackfillPipelineJob block(s) allowed")]
     [TerraformProperty("backfill_pipeline_job")]
-    public TerraformList<TerraformBlock<GoogleHealthcarePipelineJobBackfillPipelineJobBlock>>? BackfillPipelineJob { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleHealthcarePipelineJobBackfillPipelineJobBlock>>? BackfillPipelineJob { get; set; }
 
     /// <summary>
     /// Block for mapping_pipeline_job.
@@ -189,7 +189,7 @@ public partial class GoogleHealthcarePipelineJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MappingPipelineJob block(s) allowed")]
     [TerraformProperty("mapping_pipeline_job")]
-    public TerraformList<TerraformBlock<GoogleHealthcarePipelineJobMappingPipelineJobBlock>>? MappingPipelineJob { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleHealthcarePipelineJobMappingPipelineJobBlock>>? MappingPipelineJob { get; set; }
 
     /// <summary>
     /// Block for reconciliation_pipeline_job.
@@ -197,28 +197,28 @@ public partial class GoogleHealthcarePipelineJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReconciliationPipelineJob block(s) allowed")]
     [TerraformProperty("reconciliation_pipeline_job")]
-    public TerraformList<TerraformBlock<GoogleHealthcarePipelineJobReconciliationPipelineJobBlock>>? ReconciliationPipelineJob { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleHealthcarePipelineJobReconciliationPipelineJobBlock>>? ReconciliationPipelineJob { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleHealthcarePipelineJobTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleHealthcarePipelineJobTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The fully qualified name of this dataset
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -226,6 +226,6 @@ public partial class GoogleHealthcarePipelineJob : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

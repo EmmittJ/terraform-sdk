@@ -16,7 +16,7 @@ public partial class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("disable_default_iam_recipients")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableDefaultIamRecipients { get; set; }
+    public partial TerraformValue<bool>? DisableDefaultIamRecipients { get; set; }
 
     /// <summary>
     /// When set to true, and when the budget has a single project configured,
@@ -27,7 +27,7 @@ public partial class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("enable_project_level_recipients")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableProjectLevelRecipients { get; set; }
+    public partial TerraformValue<bool>? EnableProjectLevelRecipients { get; set; }
 
     /// <summary>
     /// The full resource name of a monitoring notification
@@ -37,7 +37,7 @@ public partial class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("monitoring_notification_channels")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? MonitoringNotificationChannels { get; set; }
+    public partial TerraformList<string>? MonitoringNotificationChannels { get; set; }
 
     /// <summary>
     /// The name of the Cloud Pub/Sub topic where budget related
@@ -47,7 +47,7 @@ public partial class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("pubsub_topic")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PubsubTopic { get; set; }
+    public partial TerraformValue<string>? PubsubTopic { get; set; }
 
     /// <summary>
     /// The schema version of the notification. Only &amp;quot;1.0&amp;quot; is
@@ -56,7 +56,7 @@ public partial class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("schema_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SchemaVersion { get; set; }
+    public partial TerraformValue<string>? SchemaVersion { get; set; }
 
 }
 
@@ -74,7 +74,7 @@ public partial class GoogleBillingBudgetAmountBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("last_period_amount")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LastPeriodAmount { get; set; }
+    public partial TerraformValue<bool>? LastPeriodAmount { get; set; }
 
 }
 
@@ -93,7 +93,7 @@ public partial class GoogleBillingBudgetBudgetFilterBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("calendar_period")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CalendarPeriod { get; set; }
+    public partial TerraformValue<string>? CalendarPeriod { get; set; }
 
     /// <summary>
     /// Optional. If creditTypesTreatment is INCLUDE_SPECIFIED_CREDITS,
@@ -102,7 +102,7 @@ public partial class GoogleBillingBudgetBudgetFilterBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("credit_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? CreditTypes { get; set; }
+    public partial TerraformList<string>? CreditTypes { get; set; }
 
     /// <summary>
     /// Specifies how credits should be treated when determining spend
@@ -110,7 +110,7 @@ public partial class GoogleBillingBudgetBudgetFilterBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("credit_types_treatment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CreditTypesTreatment { get; set; }
+    public partial TerraformValue<string>? CreditTypesTreatment { get; set; }
 
     /// <summary>
     /// A single label and value pair specifying that usage from only
@@ -118,7 +118,7 @@ public partial class GoogleBillingBudgetBudgetFilterBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("labels")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Labels { get; set; }
+    public partial TerraformMap<string> Labels { get; set; }
 
     /// <summary>
     /// A set of projects of the form projects/{project_number},
@@ -129,7 +129,7 @@ public partial class GoogleBillingBudgetBudgetFilterBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("projects")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Projects { get; set; }
+    public partial TerraformSet<string>? Projects { get; set; }
 
     /// <summary>
     /// A set of folder and organization names of the form folders/{folderId} or organizations/{organizationId},
@@ -139,7 +139,7 @@ public partial class GoogleBillingBudgetBudgetFilterBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("resource_ancestors")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ResourceAncestors { get; set; }
+    public partial TerraformSet<string>? ResourceAncestors { get; set; }
 
     /// <summary>
     /// A set of services of the form services/{service_id},
@@ -151,7 +151,7 @@ public partial class GoogleBillingBudgetBudgetFilterBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("services")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> Services { get; set; }
+    public partial TerraformList<string> Services { get; set; }
 
     /// <summary>
     /// A set of subaccounts of the form billingAccounts/{account_id},
@@ -163,7 +163,7 @@ public partial class GoogleBillingBudgetBudgetFilterBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("subaccounts")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Subaccounts { get; set; }
+    public partial TerraformList<string>? Subaccounts { get; set; }
 
 }
 
@@ -179,7 +179,7 @@ public partial class GoogleBillingBudgetThresholdRulesBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("spend_basis")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SpendBasis { get; set; }
+    public partial TerraformValue<string>? SpendBasis { get; set; }
 
     /// <summary>
     /// Send an alert when this threshold is exceeded. This is a
@@ -188,7 +188,7 @@ public partial class GoogleBillingBudgetThresholdRulesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThresholdPercent is required")]
     [TerraformProperty("threshold_percent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ThresholdPercent { get; set; }
+    public required partial TerraformValue<double> ThresholdPercent { get; set; }
 
 }
 
@@ -203,21 +203,21 @@ public partial class GoogleBillingBudgetTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -237,21 +237,21 @@ public partial class GoogleBillingBudget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccount is required")]
     [TerraformProperty("billing_account")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BillingAccount { get; set; }
+    public required partial TerraformValue<string> BillingAccount { get; set; }
 
     /// <summary>
     /// User data for display name in UI. Must be &amp;lt;= 60 chars.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ownership scope of the budget. The ownership scope and users&#39;
@@ -259,7 +259,7 @@ public partial class GoogleBillingBudget : TerraformResource
     /// </summary>
     [TerraformProperty("ownership_scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OwnershipScope { get; set; }
+    public partial TerraformValue<string>? OwnershipScope { get; set; }
 
     /// <summary>
     /// Block for all_updates_rule.
@@ -267,7 +267,7 @@ public partial class GoogleBillingBudget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AllUpdatesRule block(s) allowed")]
     [TerraformProperty("all_updates_rule")]
-    public TerraformList<TerraformBlock<GoogleBillingBudgetAllUpdatesRuleBlock>>? AllUpdatesRule { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBillingBudgetAllUpdatesRuleBlock>>? AllUpdatesRule { get; set; }
 
     /// <summary>
     /// Block for amount.
@@ -277,7 +277,7 @@ public partial class GoogleBillingBudget : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Amount block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Amount block(s) allowed")]
     [TerraformProperty("amount")]
-    public TerraformList<TerraformBlock<GoogleBillingBudgetAmountBlock>>? Amount { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBillingBudgetAmountBlock>>? Amount { get; set; }
 
     /// <summary>
     /// Block for budget_filter.
@@ -285,21 +285,21 @@ public partial class GoogleBillingBudget : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BudgetFilter block(s) allowed")]
     [TerraformProperty("budget_filter")]
-    public TerraformList<TerraformBlock<GoogleBillingBudgetBudgetFilterBlock>>? BudgetFilter { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBillingBudgetBudgetFilterBlock>>? BudgetFilter { get; set; }
 
     /// <summary>
     /// Block for threshold_rules.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("threshold_rules")]
-    public TerraformList<TerraformBlock<GoogleBillingBudgetThresholdRulesBlock>>? ThresholdRules { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBillingBudgetThresholdRulesBlock>>? ThresholdRules { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBillingBudgetTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBillingBudgetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Resource name of the budget. The resource name
@@ -308,6 +308,6 @@ public partial class GoogleBillingBudget : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

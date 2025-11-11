@@ -14,7 +14,7 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     [TerraformProperty("from_port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> FromPort { get; set; }
+    public required partial TerraformValue<double> FromPort { get; set; }
 
     /// <summary>
     /// The protocols attribute.
@@ -22,7 +22,7 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
     [TerraformProperty("protocols")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Protocols { get; set; }
+    public required partial TerraformSet<string> Protocols { get; set; }
 
     /// <summary>
     /// The to_port attribute.
@@ -30,7 +30,7 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     [TerraformProperty("to_port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ToPort { get; set; }
+    public required partial TerraformValue<double> ToPort { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroupEndpointConfi
     /// </summary>
     [TerraformProperty("endpoint_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EndpointId { get; set; }
+    public partial TerraformValue<string>? EndpointId { get; set; }
 
 }
 
@@ -60,14 +60,14 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroupTimeoutsBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -86,14 +86,14 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroup : TerraformR
     /// </summary>
     [TerraformProperty("endpoint_group_region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> EndpointGroupRegion { get; set; }
+    public partial TerraformValue<string> EndpointGroupRegion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The listener_arn attribute.
@@ -101,7 +101,7 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroup : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArn is required")]
     [TerraformProperty("listener_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ListenerArn { get; set; }
+    public required partial TerraformValue<string> ListenerArn { get; set; }
 
     /// <summary>
     /// Block for destination_configuration.
@@ -110,27 +110,27 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroup : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationConfiguration block(s) required")]
     [TerraformProperty("destination_configuration")]
-    public TerraformSet<TerraformBlock<AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurationBlock>>? DestinationConfiguration { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurationBlock>>? DestinationConfiguration { get; set; }
 
     /// <summary>
     /// Block for endpoint_configuration.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("endpoint_configuration")]
-    public TerraformSet<TerraformBlock<AwsGlobalacceleratorCustomRoutingEndpointGroupEndpointConfigurationBlock>>? EndpointConfiguration { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsGlobalacceleratorCustomRoutingEndpointGroupEndpointConfigurationBlock>>? EndpointConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsGlobalacceleratorCustomRoutingEndpointGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsGlobalacceleratorCustomRoutingEndpointGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

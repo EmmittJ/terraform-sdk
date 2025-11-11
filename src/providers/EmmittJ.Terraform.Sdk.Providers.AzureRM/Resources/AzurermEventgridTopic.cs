@@ -13,7 +13,7 @@ public partial class AzurermEventgridTopicIdentityBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -23,7 +23,7 @@ public partial class AzurermEventgridTopicIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -38,21 +38,21 @@ public partial class AzurermEventgridTopicInputMappingDefaultValuesBlock : Terra
     /// </summary>
     [TerraformProperty("data_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DataVersion { get; set; }
+    public partial TerraformValue<string>? DataVersion { get; set; }
 
     /// <summary>
     /// The event_type attribute.
     /// </summary>
     [TerraformProperty("event_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EventType { get; set; }
+    public partial TerraformValue<string>? EventType { get; set; }
 
     /// <summary>
     /// The subject attribute.
     /// </summary>
     [TerraformProperty("subject")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Subject { get; set; }
+    public partial TerraformValue<string>? Subject { get; set; }
 
 }
 
@@ -67,42 +67,42 @@ public partial class AzurermEventgridTopicInputMappingFieldsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("data_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DataVersion { get; set; }
+    public partial TerraformValue<string>? DataVersion { get; set; }
 
     /// <summary>
     /// The event_time attribute.
     /// </summary>
     [TerraformProperty("event_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EventTime { get; set; }
+    public partial TerraformValue<string>? EventTime { get; set; }
 
     /// <summary>
     /// The event_type attribute.
     /// </summary>
     [TerraformProperty("event_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EventType { get; set; }
+    public partial TerraformValue<string>? EventType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Id { get; set; }
+    public partial TerraformValue<string>? Id { get; set; }
 
     /// <summary>
     /// The subject attribute.
     /// </summary>
     [TerraformProperty("subject")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Subject { get; set; }
+    public partial TerraformValue<string>? Subject { get; set; }
 
     /// <summary>
     /// The topic attribute.
     /// </summary>
     [TerraformProperty("topic")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Topic { get; set; }
+    public partial TerraformValue<string>? Topic { get; set; }
 
 }
 
@@ -117,28 +117,28 @@ public partial class AzurermEventgridTopicTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -157,28 +157,28 @@ public partial class AzurermEventgridTopic : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The inbound_ip_rule attribute.
     /// </summary>
     [TerraformProperty("inbound_ip_rule")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<object>? InboundIpRule { get; set; }
+    public partial TerraformList<object>? InboundIpRule { get; set; }
 
     /// <summary>
     /// The input_schema attribute.
     /// </summary>
     [TerraformProperty("input_schema")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InputSchema { get; set; }
+    public partial TerraformValue<string>? InputSchema { get; set; }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
     [TerraformProperty("local_auth_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LocalAuthEnabled { get; set; }
+    public partial TerraformValue<bool>? LocalAuthEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -186,7 +186,7 @@ public partial class AzurermEventgridTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -194,14 +194,14 @@ public partial class AzurermEventgridTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformProperty("public_network_access_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
+    public partial TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -209,14 +209,14 @@ public partial class AzurermEventgridTopic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -224,7 +224,7 @@ public partial class AzurermEventgridTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermEventgridTopicIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermEventgridTopicIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for input_mapping_default_values.
@@ -232,7 +232,7 @@ public partial class AzurermEventgridTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputMappingDefaultValues block(s) allowed")]
     [TerraformProperty("input_mapping_default_values")]
-    public TerraformList<TerraformBlock<AzurermEventgridTopicInputMappingDefaultValuesBlock>>? InputMappingDefaultValues { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermEventgridTopicInputMappingDefaultValuesBlock>>? InputMappingDefaultValues { get; set; }
 
     /// <summary>
     /// Block for input_mapping_fields.
@@ -240,34 +240,34 @@ public partial class AzurermEventgridTopic : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputMappingFields block(s) allowed")]
     [TerraformProperty("input_mapping_fields")]
-    public TerraformList<TerraformBlock<AzurermEventgridTopicInputMappingFieldsBlock>>? InputMappingFields { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermEventgridTopicInputMappingFieldsBlock>>? InputMappingFields { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermEventgridTopicTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermEventgridTopicTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     [TerraformProperty("endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Endpoint { get; }
+    public partial TerraformValue<string> Endpoint { get; }
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     [TerraformProperty("primary_access_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryAccessKey { get; }
+    public partial TerraformValue<string> PrimaryAccessKey { get; }
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     [TerraformProperty("secondary_access_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecondaryAccessKey { get; }
+    public partial TerraformValue<string> SecondaryAccessKey { get; }
 
 }

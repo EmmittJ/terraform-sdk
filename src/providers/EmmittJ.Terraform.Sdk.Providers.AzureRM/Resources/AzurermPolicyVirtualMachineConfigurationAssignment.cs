@@ -13,28 +13,28 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignmentConfigura
     /// </summary>
     [TerraformProperty("assignment_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AssignmentType { get; set; }
+    public partial TerraformValue<string>? AssignmentType { get; set; }
 
     /// <summary>
     /// The content_hash attribute.
     /// </summary>
     [TerraformProperty("content_hash")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ContentHash { get; set; }
+    public partial TerraformValue<string> ContentHash { get; set; }
 
     /// <summary>
     /// The content_uri attribute.
     /// </summary>
     [TerraformProperty("content_uri")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ContentUri { get; set; }
+    public partial TerraformValue<string> ContentUri { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Version { get; set; }
+    public partial TerraformValue<string>? Version { get; set; }
 
 }
 
@@ -49,28 +49,28 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -89,7 +89,7 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignment : Terraf
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -97,7 +97,7 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignment : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -105,7 +105,7 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignment : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The virtual_machine_id attribute.
@@ -113,7 +113,7 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignment : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     [TerraformProperty("virtual_machine_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualMachineId { get; set; }
+    public required partial TerraformValue<string> VirtualMachineId { get; set; }
 
     /// <summary>
     /// Block for configuration.
@@ -123,13 +123,13 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignment : Terraf
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Configuration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformProperty("configuration")]
-    public TerraformList<TerraformBlock<AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock>>? Configuration { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock>>? Configuration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

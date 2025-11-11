@@ -13,21 +13,21 @@ public partial class AzurermKustoIothubDataConnectionTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AzurermKustoIothubDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     [TerraformProperty("cluster_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterName { get; set; }
+    public required partial TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The consumer_group attribute.
@@ -54,14 +54,14 @@ public partial class AzurermKustoIothubDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerGroup is required")]
     [TerraformProperty("consumer_group")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConsumerGroup { get; set; }
+    public required partial TerraformValue<string> ConsumerGroup { get; set; }
 
     /// <summary>
     /// The data_format attribute.
     /// </summary>
     [TerraformProperty("data_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DataFormat { get; set; }
+    public partial TerraformValue<string>? DataFormat { get; set; }
 
     /// <summary>
     /// The database_name attribute.
@@ -69,28 +69,28 @@ public partial class AzurermKustoIothubDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformProperty("database_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatabaseName { get; set; }
+    public required partial TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The database_routing_type attribute.
     /// </summary>
     [TerraformProperty("database_routing_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DatabaseRoutingType { get; set; }
+    public partial TerraformValue<string>? DatabaseRoutingType { get; set; }
 
     /// <summary>
     /// The event_system_properties attribute.
     /// </summary>
     [TerraformProperty("event_system_properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? EventSystemProperties { get; set; }
+    public partial TerraformSet<string>? EventSystemProperties { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The iothub_id attribute.
@@ -98,7 +98,7 @@ public partial class AzurermKustoIothubDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     [TerraformProperty("iothub_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IothubId { get; set; }
+    public required partial TerraformValue<string> IothubId { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -106,14 +106,14 @@ public partial class AzurermKustoIothubDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The mapping_rule_name attribute.
     /// </summary>
     [TerraformProperty("mapping_rule_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MappingRuleName { get; set; }
+    public partial TerraformValue<string>? MappingRuleName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -121,7 +121,7 @@ public partial class AzurermKustoIothubDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -129,7 +129,7 @@ public partial class AzurermKustoIothubDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The shared_access_policy_name attribute.
@@ -137,20 +137,20 @@ public partial class AzurermKustoIothubDataConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedAccessPolicyName is required")]
     [TerraformProperty("shared_access_policy_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SharedAccessPolicyName { get; set; }
+    public required partial TerraformValue<string> SharedAccessPolicyName { get; set; }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     [TerraformProperty("table_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TableName { get; set; }
+    public partial TerraformValue<string>? TableName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKustoIothubDataConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKustoIothubDataConnectionTimeoutsBlock>? Timeouts { get; set; }
 
 }

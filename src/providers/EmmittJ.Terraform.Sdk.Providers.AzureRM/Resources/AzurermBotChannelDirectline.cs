@@ -13,21 +13,21 @@ public partial class AzurermBotChannelDirectlineSiteBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The endpoint_parameters_enabled attribute.
     /// </summary>
     [TerraformProperty("endpoint_parameters_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EndpointParametersEnabled { get; set; }
+    public partial TerraformValue<bool>? EndpointParametersEnabled { get; set; }
 
     /// <summary>
     /// The enhanced_authentication_enabled attribute.
     /// </summary>
     [TerraformProperty("enhanced_authentication_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnhancedAuthenticationEnabled { get; set; }
+    public partial TerraformValue<bool>? EnhancedAuthenticationEnabled { get; set; }
 
 
 
@@ -38,42 +38,42 @@ public partial class AzurermBotChannelDirectlineSiteBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The storage_enabled attribute.
     /// </summary>
     [TerraformProperty("storage_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? StorageEnabled { get; set; }
+    public partial TerraformValue<bool>? StorageEnabled { get; set; }
 
     /// <summary>
     /// The trusted_origins attribute.
     /// </summary>
     [TerraformProperty("trusted_origins")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? TrustedOrigins { get; set; }
+    public partial TerraformSet<string>? TrustedOrigins { get; set; }
 
     /// <summary>
     /// The user_upload_enabled attribute.
     /// </summary>
     [TerraformProperty("user_upload_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UserUploadEnabled { get; set; }
+    public partial TerraformValue<bool>? UserUploadEnabled { get; set; }
 
     /// <summary>
     /// The v1_allowed attribute.
     /// </summary>
     [TerraformProperty("v1_allowed")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? V1Allowed { get; set; }
+    public partial TerraformValue<bool>? V1Allowed { get; set; }
 
     /// <summary>
     /// The v3_allowed attribute.
     /// </summary>
     [TerraformProperty("v3_allowed")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? V3Allowed { get; set; }
+    public partial TerraformValue<bool>? V3Allowed { get; set; }
 
 }
 
@@ -88,28 +88,28 @@ public partial class AzurermBotChannelDirectlineTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -129,14 +129,14 @@ public partial class AzurermBotChannelDirectline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     [TerraformProperty("bot_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BotName { get; set; }
+    public required partial TerraformValue<string> BotName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -144,7 +144,7 @@ public partial class AzurermBotChannelDirectline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -152,7 +152,7 @@ public partial class AzurermBotChannelDirectline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for site.
@@ -161,13 +161,13 @@ public partial class AzurermBotChannelDirectline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Site is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Site block(s) required")]
     [TerraformProperty("site")]
-    public TerraformSet<TerraformBlock<AzurermBotChannelDirectlineSiteBlock>>? Site { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermBotChannelDirectlineSiteBlock>>? Site { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermBotChannelDirectlineTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermBotChannelDirectlineTimeoutsBlock>? Timeouts { get; set; }
 
 }

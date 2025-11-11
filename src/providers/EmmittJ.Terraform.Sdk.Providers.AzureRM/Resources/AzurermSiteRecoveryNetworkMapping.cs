@@ -13,21 +13,21 @@ public partial class AzurermSiteRecoveryNetworkMappingTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermSiteRecoveryNetworkMapping : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -53,7 +53,7 @@ public partial class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recovery_vault_name attribute.
@@ -61,7 +61,7 @@ public partial class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     [TerraformProperty("recovery_vault_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecoveryVaultName { get; set; }
+    public required partial TerraformValue<string> RecoveryVaultName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -69,7 +69,7 @@ public partial class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The source_network_id attribute.
@@ -77,7 +77,7 @@ public partial class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceNetworkId is required")]
     [TerraformProperty("source_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceNetworkId { get; set; }
+    public required partial TerraformValue<string> SourceNetworkId { get; set; }
 
     /// <summary>
     /// The source_recovery_fabric_name attribute.
@@ -85,7 +85,7 @@ public partial class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRecoveryFabricName is required")]
     [TerraformProperty("source_recovery_fabric_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceRecoveryFabricName { get; set; }
+    public required partial TerraformValue<string> SourceRecoveryFabricName { get; set; }
 
     /// <summary>
     /// The target_network_id attribute.
@@ -93,7 +93,7 @@ public partial class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetNetworkId is required")]
     [TerraformProperty("target_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetNetworkId { get; set; }
+    public required partial TerraformValue<string> TargetNetworkId { get; set; }
 
     /// <summary>
     /// The target_recovery_fabric_name attribute.
@@ -101,13 +101,13 @@ public partial class AzurermSiteRecoveryNetworkMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRecoveryFabricName is required")]
     [TerraformProperty("target_recovery_fabric_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetRecoveryFabricName { get; set; }
+    public required partial TerraformValue<string> TargetRecoveryFabricName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSiteRecoveryNetworkMappingTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSiteRecoveryNetworkMappingTimeoutsBlock>? Timeouts { get; set; }
 
 }

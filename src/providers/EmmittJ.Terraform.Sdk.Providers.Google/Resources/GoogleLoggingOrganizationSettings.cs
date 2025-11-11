@@ -13,21 +13,21 @@ public partial class GoogleLoggingOrganizationSettingsTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,21 +45,21 @@ public partial class GoogleLoggingOrganizationSettings : TerraformResource
     /// </summary>
     [TerraformProperty("disable_default_sink")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> DisableDefaultSink { get; set; }
+    public partial TerraformValue<bool> DisableDefaultSink { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource name for the configured Cloud KMS key.
     /// </summary>
     [TerraformProperty("kms_key_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> KmsKeyName { get; set; }
+    public partial TerraformValue<string> KmsKeyName { get; set; }
 
     /// <summary>
     /// The organization for which to retrieve or configure settings.
@@ -67,41 +67,41 @@ public partial class GoogleLoggingOrganizationSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     [TerraformProperty("organization")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Organization { get; set; }
+    public required partial TerraformValue<string> Organization { get; set; }
 
     /// <summary>
     /// The storage location that Cloud Logging will use to create new resources when a location is needed but not explicitly provided.
     /// </summary>
     [TerraformProperty("storage_location")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> StorageLocation { get; set; }
+    public partial TerraformValue<string> StorageLocation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleLoggingOrganizationSettingsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleLoggingOrganizationSettingsTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The service account that will be used by the Log Router to access your Cloud KMS key.
     /// </summary>
     [TerraformProperty("kms_service_account_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KmsServiceAccountId { get; }
+    public partial TerraformValue<string> KmsServiceAccountId { get; }
 
     /// <summary>
     /// The service account for the given container. Sinks use this service account as their writerIdentity if no custom service account is provided.
     /// </summary>
     [TerraformProperty("logging_service_account_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LoggingServiceAccountId { get; }
+    public partial TerraformValue<string> LoggingServiceAccountId { get; }
 
     /// <summary>
     /// The resource name of the settings.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

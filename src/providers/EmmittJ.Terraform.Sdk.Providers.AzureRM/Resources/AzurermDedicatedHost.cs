@@ -13,28 +13,28 @@ public partial class AzurermDedicatedHostTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermDedicatedHost : TerraformResource
     /// </summary>
     [TerraformProperty("auto_replace_on_failure")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutoReplaceOnFailure { get; set; }
+    public partial TerraformValue<bool>? AutoReplaceOnFailure { get; set; }
 
     /// <summary>
     /// The dedicated_host_group_id attribute.
@@ -60,21 +60,21 @@ public partial class AzurermDedicatedHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DedicatedHostGroupId is required")]
     [TerraformProperty("dedicated_host_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DedicatedHostGroupId { get; set; }
+    public required partial TerraformValue<string> DedicatedHostGroupId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
     [TerraformProperty("license_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LicenseType { get; set; }
+    public partial TerraformValue<string>? LicenseType { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -82,7 +82,7 @@ public partial class AzurermDedicatedHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -90,7 +90,7 @@ public partial class AzurermDedicatedHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The platform_fault_domain attribute.
@@ -98,7 +98,7 @@ public partial class AzurermDedicatedHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformFaultDomain is required")]
     [TerraformProperty("platform_fault_domain")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> PlatformFaultDomain { get; set; }
+    public required partial TerraformValue<double> PlatformFaultDomain { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
@@ -106,20 +106,20 @@ public partial class AzurermDedicatedHost : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     [TerraformProperty("sku_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SkuName { get; set; }
+    public required partial TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDedicatedHostTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDedicatedHostTimeoutsBlock>? Timeouts { get; set; }
 
 }

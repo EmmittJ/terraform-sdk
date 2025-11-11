@@ -13,7 +13,7 @@ public partial class AzureadApplicationPublishedAppIdsDataSourceTimeoutsBlock : 
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,20 +31,20 @@ public partial class AzureadApplicationPublishedAppIdsDataSource : TerraformData
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadApplicationPublishedAppIdsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadApplicationPublishedAppIdsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// A mapping of application names and application IDs
     /// </summary>
     [TerraformProperty("result")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Result { get; }
+    public partial TerraformMap<string> Result { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermServicebusQueueDataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermServicebusQueueDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,14 +39,14 @@ public partial class AzurermServicebusQueueDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
     [TerraformProperty("namespace_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NamespaceId { get; set; }
+    public partial TerraformValue<string>? NamespaceId { get; set; }
 
     /// <summary>
     /// The namespace_name attribute.
@@ -54,7 +54,7 @@ public partial class AzurermServicebusQueueDataSource : TerraformDataSource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("namespace_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NamespaceName { get; set; }
+    public partial TerraformValue<string>? NamespaceName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -62,139 +62,139 @@ public partial class AzurermServicebusQueueDataSource : TerraformDataSource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("resource_group_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResourceGroupName { get; set; }
+    public partial TerraformValue<string>? ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermServicebusQueueDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermServicebusQueueDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The auto_delete_on_idle attribute.
     /// </summary>
     [TerraformProperty("auto_delete_on_idle")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AutoDeleteOnIdle { get; }
+    public partial TerraformValue<string> AutoDeleteOnIdle { get; }
 
     /// <summary>
     /// The batched_operations_enabled attribute.
     /// </summary>
     [TerraformProperty("batched_operations_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> BatchedOperationsEnabled { get; }
+    public partial TerraformValue<bool> BatchedOperationsEnabled { get; }
 
     /// <summary>
     /// The dead_lettering_on_message_expiration attribute.
     /// </summary>
     [TerraformProperty("dead_lettering_on_message_expiration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> DeadLetteringOnMessageExpiration { get; }
+    public partial TerraformValue<bool> DeadLetteringOnMessageExpiration { get; }
 
     /// <summary>
     /// The default_message_ttl attribute.
     /// </summary>
     [TerraformProperty("default_message_ttl")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DefaultMessageTtl { get; }
+    public partial TerraformValue<string> DefaultMessageTtl { get; }
 
     /// <summary>
     /// The duplicate_detection_history_time_window attribute.
     /// </summary>
     [TerraformProperty("duplicate_detection_history_time_window")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DuplicateDetectionHistoryTimeWindow { get; }
+    public partial TerraformValue<string> DuplicateDetectionHistoryTimeWindow { get; }
 
     /// <summary>
     /// The enable_batched_operations attribute.
     /// </summary>
     [TerraformProperty("enable_batched_operations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> EnableBatchedOperations { get; }
+    public partial TerraformValue<bool> EnableBatchedOperations { get; }
 
     /// <summary>
     /// The enable_express attribute.
     /// </summary>
     [TerraformProperty("enable_express")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> EnableExpress { get; }
+    public partial TerraformValue<bool> EnableExpress { get; }
 
     /// <summary>
     /// The enable_partitioning attribute.
     /// </summary>
     [TerraformProperty("enable_partitioning")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> EnablePartitioning { get; }
+    public partial TerraformValue<bool> EnablePartitioning { get; }
 
     /// <summary>
     /// The express_enabled attribute.
     /// </summary>
     [TerraformProperty("express_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> ExpressEnabled { get; }
+    public partial TerraformValue<bool> ExpressEnabled { get; }
 
     /// <summary>
     /// The forward_dead_lettered_messages_to attribute.
     /// </summary>
     [TerraformProperty("forward_dead_lettered_messages_to")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ForwardDeadLetteredMessagesTo { get; }
+    public partial TerraformValue<string> ForwardDeadLetteredMessagesTo { get; }
 
     /// <summary>
     /// The forward_to attribute.
     /// </summary>
     [TerraformProperty("forward_to")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ForwardTo { get; }
+    public partial TerraformValue<string> ForwardTo { get; }
 
     /// <summary>
     /// The lock_duration attribute.
     /// </summary>
     [TerraformProperty("lock_duration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LockDuration { get; }
+    public partial TerraformValue<string> LockDuration { get; }
 
     /// <summary>
     /// The max_delivery_count attribute.
     /// </summary>
     [TerraformProperty("max_delivery_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> MaxDeliveryCount { get; }
+    public partial TerraformValue<double> MaxDeliveryCount { get; }
 
     /// <summary>
     /// The max_size_in_megabytes attribute.
     /// </summary>
     [TerraformProperty("max_size_in_megabytes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> MaxSizeInMegabytes { get; }
+    public partial TerraformValue<double> MaxSizeInMegabytes { get; }
 
     /// <summary>
     /// The partitioning_enabled attribute.
     /// </summary>
     [TerraformProperty("partitioning_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> PartitioningEnabled { get; }
+    public partial TerraformValue<bool> PartitioningEnabled { get; }
 
     /// <summary>
     /// The requires_duplicate_detection attribute.
     /// </summary>
     [TerraformProperty("requires_duplicate_detection")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> RequiresDuplicateDetection { get; }
+    public partial TerraformValue<bool> RequiresDuplicateDetection { get; }
 
     /// <summary>
     /// The requires_session attribute.
     /// </summary>
     [TerraformProperty("requires_session")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> RequiresSession { get; }
+    public partial TerraformValue<bool> RequiresSession { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
 }

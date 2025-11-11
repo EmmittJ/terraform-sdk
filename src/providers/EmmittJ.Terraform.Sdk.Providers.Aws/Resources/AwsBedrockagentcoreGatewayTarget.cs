@@ -29,21 +29,21 @@ public partial class AwsBedrockagentcoreGatewayTargetTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -61,7 +61,7 @@ public partial class AwsBedrockagentcoreGatewayTarget : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The gateway_identifier attribute.
@@ -69,7 +69,7 @@ public partial class AwsBedrockagentcoreGatewayTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayIdentifier is required")]
     [TerraformProperty("gateway_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GatewayIdentifier { get; set; }
+    public required partial TerraformValue<string> GatewayIdentifier { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -77,41 +77,41 @@ public partial class AwsBedrockagentcoreGatewayTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for credential_provider_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("credential_provider_configuration")]
-    public TerraformList<TerraformBlock<AwsBedrockagentcoreGatewayTargetCredentialProviderConfigurationBlock>>? CredentialProviderConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreGatewayTargetCredentialProviderConfigurationBlock>>? CredentialProviderConfiguration { get; set; }
 
     /// <summary>
     /// Block for target_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("target_configuration")]
-    public TerraformList<TerraformBlock<AwsBedrockagentcoreGatewayTargetTargetConfigurationBlock>>? TargetConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreGatewayTargetTargetConfigurationBlock>>? TargetConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsBedrockagentcoreGatewayTargetTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsBedrockagentcoreGatewayTargetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The target_id attribute.
     /// </summary>
     [TerraformProperty("target_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TargetId { get; }
+    public partial TerraformValue<string> TargetId { get; }
 
 }

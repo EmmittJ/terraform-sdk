@@ -14,14 +14,14 @@ public partial class AwsDatazoneAssetTypeFormsInputBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     [TerraformProperty("map_block_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MapBlockKey { get; set; }
+    public required partial TerraformValue<string> MapBlockKey { get; set; }
 
     /// <summary>
     /// The required attribute.
     /// </summary>
     [TerraformProperty("required")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Required { get; set; }
+    public partial TerraformValue<bool>? Required { get; set; }
 
     /// <summary>
     /// The type_identifier attribute.
@@ -29,7 +29,7 @@ public partial class AwsDatazoneAssetTypeFormsInputBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeIdentifier is required")]
     [TerraformProperty("type_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TypeIdentifier { get; set; }
+    public required partial TerraformValue<string> TypeIdentifier { get; set; }
 
     /// <summary>
     /// The type_revision attribute.
@@ -37,7 +37,7 @@ public partial class AwsDatazoneAssetTypeFormsInputBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeRevision is required")]
     [TerraformProperty("type_revision")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TypeRevision { get; set; }
+    public required partial TerraformValue<string> TypeRevision { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AwsDatazoneAssetTypeTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -70,7 +70,7 @@ public partial class AwsDatazoneAssetType : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The domain_identifier attribute.
@@ -78,7 +78,7 @@ public partial class AwsDatazoneAssetType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     [TerraformProperty("domain_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainIdentifier { get; set; }
+    public required partial TerraformValue<string> DomainIdentifier { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -86,7 +86,7 @@ public partial class AwsDatazoneAssetType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The owning_project_identifier attribute.
@@ -94,48 +94,48 @@ public partial class AwsDatazoneAssetType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwningProjectIdentifier is required")]
     [TerraformProperty("owning_project_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OwningProjectIdentifier { get; set; }
+    public required partial TerraformValue<string> OwningProjectIdentifier { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for forms_input.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("forms_input")]
-    public TerraformSet<TerraformBlock<AwsDatazoneAssetTypeFormsInputBlock>>? FormsInput { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsDatazoneAssetTypeFormsInputBlock>>? FormsInput { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsDatazoneAssetTypeTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsDatazoneAssetTypeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformProperty("created_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedAt { get; }
+    public partial TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     [TerraformProperty("created_by")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedBy { get; }
+    public partial TerraformValue<string> CreatedBy { get; }
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
     [TerraformProperty("revision")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Revision { get; }
+    public partial TerraformValue<string> Revision { get; }
 
 }

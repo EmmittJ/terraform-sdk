@@ -13,21 +13,21 @@ public partial class AwsGlueJobCommandBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The python_version attribute.
     /// </summary>
     [TerraformProperty("python_version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PythonVersion { get; set; }
+    public partial TerraformValue<string> PythonVersion { get; set; }
 
     /// <summary>
     /// The runtime attribute.
     /// </summary>
     [TerraformProperty("runtime")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Runtime { get; set; }
+    public partial TerraformValue<string> Runtime { get; set; }
 
     /// <summary>
     /// The script_location attribute.
@@ -35,7 +35,7 @@ public partial class AwsGlueJobCommandBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptLocation is required")]
     [TerraformProperty("script_location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ScriptLocation { get; set; }
+    public required partial TerraformValue<string> ScriptLocation { get; set; }
 
 }
 
@@ -50,7 +50,7 @@ public partial class AwsGlueJobExecutionPropertyBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("max_concurrent_runs")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxConcurrentRuns { get; set; }
+    public partial TerraformValue<double>? MaxConcurrentRuns { get; set; }
 
 }
 
@@ -65,7 +65,7 @@ public partial class AwsGlueJobNotificationPropertyBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("notify_delay_after")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? NotifyDelayAfter { get; set; }
+    public partial TerraformValue<double>? NotifyDelayAfter { get; set; }
 
 }
 
@@ -80,56 +80,56 @@ public partial class AwsGlueJobSourceControlDetailsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("auth_strategy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthStrategy { get; set; }
+    public partial TerraformValue<string>? AuthStrategy { get; set; }
 
     /// <summary>
     /// The auth_token attribute.
     /// </summary>
     [TerraformProperty("auth_token")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthToken { get; set; }
+    public partial TerraformValue<string>? AuthToken { get; set; }
 
     /// <summary>
     /// The branch attribute.
     /// </summary>
     [TerraformProperty("branch")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Branch { get; set; }
+    public partial TerraformValue<string>? Branch { get; set; }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
     [TerraformProperty("folder")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Folder { get; set; }
+    public partial TerraformValue<string>? Folder { get; set; }
 
     /// <summary>
     /// The last_commit_id attribute.
     /// </summary>
     [TerraformProperty("last_commit_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LastCommitId { get; set; }
+    public partial TerraformValue<string>? LastCommitId { get; set; }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     [TerraformProperty("owner")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Owner { get; set; }
+    public partial TerraformValue<string>? Owner { get; set; }
 
     /// <summary>
     /// The provider attribute.
     /// </summary>
     [TerraformProperty("provider")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Provider { get; set; }
+    public partial TerraformValue<string>? Provider { get; set; }
 
     /// <summary>
     /// The repository attribute.
     /// </summary>
     [TerraformProperty("repository")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Repository { get; set; }
+    public partial TerraformValue<string>? Repository { get; set; }
 
 }
 
@@ -148,77 +148,77 @@ public partial class AwsGlueJob : TerraformResource
     /// </summary>
     [TerraformProperty("connections")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Connections { get; set; }
+    public partial TerraformList<string>? Connections { get; set; }
 
     /// <summary>
     /// The default_arguments attribute.
     /// </summary>
     [TerraformProperty("default_arguments")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? DefaultArguments { get; set; }
+    public partial TerraformMap<string>? DefaultArguments { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The execution_class attribute.
     /// </summary>
     [TerraformProperty("execution_class")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExecutionClass { get; set; }
+    public partial TerraformValue<string>? ExecutionClass { get; set; }
 
     /// <summary>
     /// The glue_version attribute.
     /// </summary>
     [TerraformProperty("glue_version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> GlueVersion { get; set; }
+    public partial TerraformValue<string> GlueVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The job_mode attribute.
     /// </summary>
     [TerraformProperty("job_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> JobMode { get; set; }
+    public partial TerraformValue<string> JobMode { get; set; }
 
     /// <summary>
     /// The job_run_queuing_enabled attribute.
     /// </summary>
     [TerraformProperty("job_run_queuing_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? JobRunQueuingEnabled { get; set; }
+    public partial TerraformValue<bool>? JobRunQueuingEnabled { get; set; }
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
     [TerraformProperty("maintenance_window")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MaintenanceWindow { get; set; }
+    public partial TerraformValue<string>? MaintenanceWindow { get; set; }
 
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
     [TerraformProperty("max_capacity")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxCapacity { get; set; }
+    public partial TerraformValue<double> MaxCapacity { get; set; }
 
     /// <summary>
     /// The max_retries attribute.
     /// </summary>
     [TerraformProperty("max_retries")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxRetries { get; set; }
+    public partial TerraformValue<double>? MaxRetries { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -226,28 +226,28 @@ public partial class AwsGlueJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The non_overridable_arguments attribute.
     /// </summary>
     [TerraformProperty("non_overridable_arguments")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? NonOverridableArguments { get; set; }
+    public partial TerraformMap<string>? NonOverridableArguments { get; set; }
 
     /// <summary>
     /// The number_of_workers attribute.
     /// </summary>
     [TerraformProperty("number_of_workers")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> NumberOfWorkers { get; set; }
+    public partial TerraformValue<double> NumberOfWorkers { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -255,42 +255,42 @@ public partial class AwsGlueJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The security_configuration attribute.
     /// </summary>
     [TerraformProperty("security_configuration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecurityConfiguration { get; set; }
+    public partial TerraformValue<string>? SecurityConfiguration { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
     [TerraformProperty("timeout")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Timeout { get; set; }
+    public partial TerraformValue<double> Timeout { get; set; }
 
     /// <summary>
     /// The worker_type attribute.
     /// </summary>
     [TerraformProperty("worker_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> WorkerType { get; set; }
+    public partial TerraformValue<string> WorkerType { get; set; }
 
     /// <summary>
     /// Block for command.
@@ -300,7 +300,7 @@ public partial class AwsGlueJob : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Command block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Command block(s) allowed")]
     [TerraformProperty("command")]
-    public TerraformList<TerraformBlock<AwsGlueJobCommandBlock>>? Command { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGlueJobCommandBlock>>? Command { get; set; }
 
     /// <summary>
     /// Block for execution_property.
@@ -308,7 +308,7 @@ public partial class AwsGlueJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExecutionProperty block(s) allowed")]
     [TerraformProperty("execution_property")]
-    public TerraformList<TerraformBlock<AwsGlueJobExecutionPropertyBlock>>? ExecutionProperty { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGlueJobExecutionPropertyBlock>>? ExecutionProperty { get; set; }
 
     /// <summary>
     /// Block for notification_property.
@@ -316,7 +316,7 @@ public partial class AwsGlueJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationProperty block(s) allowed")]
     [TerraformProperty("notification_property")]
-    public TerraformList<TerraformBlock<AwsGlueJobNotificationPropertyBlock>>? NotificationProperty { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGlueJobNotificationPropertyBlock>>? NotificationProperty { get; set; }
 
     /// <summary>
     /// Block for source_control_details.
@@ -324,13 +324,13 @@ public partial class AwsGlueJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceControlDetails block(s) allowed")]
     [TerraformProperty("source_control_details")]
-    public TerraformList<TerraformBlock<AwsGlueJobSourceControlDetailsBlock>>? SourceControlDetails { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGlueJobSourceControlDetailsBlock>>? SourceControlDetails { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

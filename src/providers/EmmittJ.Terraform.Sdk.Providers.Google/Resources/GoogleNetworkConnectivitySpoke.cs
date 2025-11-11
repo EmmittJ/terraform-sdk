@@ -14,7 +14,7 @@ public partial class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachments
     /// </summary>
     [TerraformProperty("include_import_ranges")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? IncludeImportRanges { get; set; }
+    public partial TerraformList<string>? IncludeImportRanges { get; set; }
 
     /// <summary>
     /// A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.
@@ -22,7 +22,7 @@ public partial class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachments
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     [TerraformProperty("site_to_site_data_transfer")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> SiteToSiteDataTransfer { get; set; }
+    public required partial TerraformValue<bool> SiteToSiteDataTransfer { get; set; }
 
     /// <summary>
     /// The URIs of linked interconnect attachment resources
@@ -30,7 +30,7 @@ public partial class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachments
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
     [TerraformProperty("uris")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Uris { get; set; }
+    public partial TerraformList<string>? Uris { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public partial class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock
     /// </summary>
     [TerraformProperty("exclude_export_ranges")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ExcludeExportRanges { get; set; }
+    public partial TerraformList<string>? ExcludeExportRanges { get; set; }
 
     /// <summary>
     /// IP ranges allowed to be included from peering.
     /// </summary>
     [TerraformProperty("include_export_ranges")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? IncludeExportRanges { get; set; }
+    public partial TerraformList<string>? IncludeExportRanges { get; set; }
 
     /// <summary>
     /// The URI of the Service Consumer VPC that the Producer VPC is peered with.
@@ -60,7 +60,7 @@ public partial class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformProperty("network")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Network { get; set; }
+    public required partial TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The name of the VPC peering between the Service Consumer VPC and the Producer VPC (defined in the Tenant project) which is added to the NCC hub. This peering must be in ACTIVE state.
@@ -68,7 +68,7 @@ public partial class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
     [TerraformProperty("peering")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Peering { get; set; }
+    public required partial TerraformValue<string> Peering { get; set; }
 
 
 }
@@ -85,7 +85,7 @@ public partial class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstance
     /// </summary>
     [TerraformProperty("include_import_ranges")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? IncludeImportRanges { get; set; }
+    public partial TerraformList<string>? IncludeImportRanges { get; set; }
 
     /// <summary>
     /// A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.
@@ -93,7 +93,7 @@ public partial class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstance
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     [TerraformProperty("site_to_site_data_transfer")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> SiteToSiteDataTransfer { get; set; }
+    public required partial TerraformValue<bool> SiteToSiteDataTransfer { get; set; }
 
 }
 
@@ -108,14 +108,14 @@ public partial class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock : Terra
     /// </summary>
     [TerraformProperty("exclude_export_ranges")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ExcludeExportRanges { get; set; }
+    public partial TerraformList<string>? ExcludeExportRanges { get; set; }
 
     /// <summary>
     /// IP ranges allowed to be included from peering.
     /// </summary>
     [TerraformProperty("include_export_ranges")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? IncludeExportRanges { get; set; }
+    public partial TerraformList<string>? IncludeExportRanges { get; set; }
 
     /// <summary>
     /// The URI of the VPC network resource.
@@ -123,7 +123,7 @@ public partial class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     [TerraformProperty("uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Uri { get; set; }
+    public required partial TerraformValue<string> Uri { get; set; }
 
 }
 
@@ -139,7 +139,7 @@ public partial class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : Terra
     /// </summary>
     [TerraformProperty("include_import_ranges")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? IncludeImportRanges { get; set; }
+    public partial TerraformList<string>? IncludeImportRanges { get; set; }
 
     /// <summary>
     /// A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.
@@ -147,7 +147,7 @@ public partial class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     [TerraformProperty("site_to_site_data_transfer")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> SiteToSiteDataTransfer { get; set; }
+    public required partial TerraformValue<bool> SiteToSiteDataTransfer { get; set; }
 
     /// <summary>
     /// The URIs of linked VPN tunnel resources.
@@ -155,7 +155,7 @@ public partial class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
     [TerraformProperty("uris")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Uris { get; set; }
+    public partial TerraformList<string>? Uris { get; set; }
 
 }
 
@@ -170,21 +170,21 @@ public partial class GoogleNetworkConnectivitySpokeTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -203,14 +203,14 @@ public partial class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name of the group that this spoke is associated with.
     /// </summary>
     [TerraformProperty("group")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Group { get; set; }
+    public partial TerraformValue<string> Group { get; set; }
 
     /// <summary>
     /// Immutable. The URI of the hub that this spoke is attached to.
@@ -218,14 +218,14 @@ public partial class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hub is required")]
     [TerraformProperty("hub")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Hub { get; set; }
+    public required partial TerraformValue<string> Hub { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Optional labels in key:value format. For more information about labels, see [Requirements for labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
@@ -235,7 +235,7 @@ public partial class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location for the resource
@@ -243,7 +243,7 @@ public partial class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Immutable. The name of the spoke. Spoke names must be unique.
@@ -251,14 +251,14 @@ public partial class GoogleNetworkConnectivitySpoke : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for linked_interconnect_attachments.
@@ -266,7 +266,7 @@ public partial class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedInterconnectAttachments block(s) allowed")]
     [TerraformProperty("linked_interconnect_attachments")]
-    public TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock>>? LinkedInterconnectAttachments { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock>>? LinkedInterconnectAttachments { get; set; }
 
     /// <summary>
     /// Block for linked_producer_vpc_network.
@@ -274,7 +274,7 @@ public partial class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedProducerVpcNetwork block(s) allowed")]
     [TerraformProperty("linked_producer_vpc_network")]
-    public TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock>>? LinkedProducerVpcNetwork { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock>>? LinkedProducerVpcNetwork { get; set; }
 
     /// <summary>
     /// Block for linked_router_appliance_instances.
@@ -282,7 +282,7 @@ public partial class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedRouterApplianceInstances block(s) allowed")]
     [TerraformProperty("linked_router_appliance_instances")]
-    public TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock>>? LinkedRouterApplianceInstances { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock>>? LinkedRouterApplianceInstances { get; set; }
 
     /// <summary>
     /// Block for linked_vpc_network.
@@ -290,7 +290,7 @@ public partial class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedVpcNetwork block(s) allowed")]
     [TerraformProperty("linked_vpc_network")]
-    public TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock>>? LinkedVpcNetwork { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock>>? LinkedVpcNetwork { get; set; }
 
     /// <summary>
     /// Block for linked_vpn_tunnels.
@@ -298,42 +298,42 @@ public partial class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedVpnTunnels block(s) allowed")]
     [TerraformProperty("linked_vpn_tunnels")]
-    public TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock>>? LinkedVpnTunnels { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock>>? LinkedVpnTunnels { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkConnectivitySpokeTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkConnectivitySpokeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time the spoke was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The reasons for the current state in the lifecycle
     /// </summary>
     [TerraformProperty("reasons")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Reasons { get; }
+    public partial TerraformList<object> Reasons { get; }
 
     /// <summary>
     /// Output only. The current lifecycle state of this spoke.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -341,20 +341,20 @@ public partial class GoogleNetworkConnectivitySpoke : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Output only. The Google-generated UUID for the spoke. This value is unique across all spoke resources. If a spoke is deleted and another with the same name is created, the new spoke is assigned a different unique_id.
     /// </summary>
     [TerraformProperty("unique_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UniqueId { get; }
+    public partial TerraformValue<string> UniqueId { get; }
 
     /// <summary>
     /// Output only. The time the spoke was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

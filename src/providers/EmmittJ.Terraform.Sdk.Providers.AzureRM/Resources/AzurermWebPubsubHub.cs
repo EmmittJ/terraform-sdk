@@ -13,7 +13,7 @@ public partial class AzurermWebPubsubHubEventHandlerBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("system_events")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? SystemEvents { get; set; }
+    public partial TerraformSet<string>? SystemEvents { get; set; }
 
     /// <summary>
     /// The url_template attribute.
@@ -21,14 +21,14 @@ public partial class AzurermWebPubsubHubEventHandlerBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlTemplate is required")]
     [TerraformProperty("url_template")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UrlTemplate { get; set; }
+    public required partial TerraformValue<string> UrlTemplate { get; set; }
 
     /// <summary>
     /// The user_event_pattern attribute.
     /// </summary>
     [TerraformProperty("user_event_pattern")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserEventPattern { get; set; }
+    public partial TerraformValue<string>? UserEventPattern { get; set; }
 
 }
 
@@ -44,7 +44,7 @@ public partial class AzurermWebPubsubHubEventListenerBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     [TerraformProperty("eventhub_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EventhubName { get; set; }
+    public required partial TerraformValue<string> EventhubName { get; set; }
 
     /// <summary>
     /// The eventhub_namespace_name attribute.
@@ -52,21 +52,21 @@ public partial class AzurermWebPubsubHubEventListenerBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceName is required")]
     [TerraformProperty("eventhub_namespace_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EventhubNamespaceName { get; set; }
+    public required partial TerraformValue<string> EventhubNamespaceName { get; set; }
 
     /// <summary>
     /// The system_event_name_filter attribute.
     /// </summary>
     [TerraformProperty("system_event_name_filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? SystemEventNameFilter { get; set; }
+    public partial TerraformList<string>? SystemEventNameFilter { get; set; }
 
     /// <summary>
     /// The user_event_name_filter attribute.
     /// </summary>
     [TerraformProperty("user_event_name_filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? UserEventNameFilter { get; set; }
+    public partial TerraformList<string>? UserEventNameFilter { get; set; }
 
 }
 
@@ -81,28 +81,28 @@ public partial class AzurermWebPubsubHubTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -120,14 +120,14 @@ public partial class AzurermWebPubsubHub : TerraformResource
     /// </summary>
     [TerraformProperty("anonymous_connections_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AnonymousConnectionsEnabled { get; set; }
+    public partial TerraformValue<bool>? AnonymousConnectionsEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -135,7 +135,7 @@ public partial class AzurermWebPubsubHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The web_pubsub_id attribute.
@@ -143,27 +143,27 @@ public partial class AzurermWebPubsubHub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
     [TerraformProperty("web_pubsub_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WebPubsubId { get; set; }
+    public required partial TerraformValue<string> WebPubsubId { get; set; }
 
     /// <summary>
     /// Block for event_handler.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("event_handler")]
-    public TerraformList<TerraformBlock<AzurermWebPubsubHubEventHandlerBlock>>? EventHandler { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermWebPubsubHubEventHandlerBlock>>? EventHandler { get; set; }
 
     /// <summary>
     /// Block for event_listener.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("event_listener")]
-    public TerraformList<TerraformBlock<AzurermWebPubsubHubEventListenerBlock>>? EventListener { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermWebPubsubHubEventListenerBlock>>? EventListener { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermWebPubsubHubTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermWebPubsubHubTimeoutsBlock>? Timeouts { get; set; }
 
 }

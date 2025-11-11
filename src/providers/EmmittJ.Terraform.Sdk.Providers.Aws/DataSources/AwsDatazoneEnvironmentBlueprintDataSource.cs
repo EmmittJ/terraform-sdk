@@ -17,7 +17,7 @@ public partial class AwsDatazoneEnvironmentBlueprintDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     [TerraformProperty("domain_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainId { get; set; }
+    public required partial TerraformValue<string> DomainId { get; set; }
 
     /// <summary>
     /// The managed attribute.
@@ -25,7 +25,7 @@ public partial class AwsDatazoneEnvironmentBlueprintDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Managed is required")]
     [TerraformProperty("managed")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Managed { get; set; }
+    public required partial TerraformValue<bool> Managed { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -33,34 +33,34 @@ public partial class AwsDatazoneEnvironmentBlueprintDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The blueprint_provider attribute.
     /// </summary>
     [TerraformProperty("blueprint_provider")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BlueprintProvider { get; }
+    public partial TerraformValue<string> BlueprintProvider { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

@@ -13,14 +13,14 @@ public partial class GoogleApigeeFlowhookTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,14 +38,14 @@ public partial class GoogleApigeeFlowhook : TerraformResource
     /// </summary>
     [TerraformProperty("continue_on_error")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ContinueOnError { get; set; }
+    public partial TerraformValue<bool>? ContinueOnError { get; set; }
 
     /// <summary>
     /// Description of the flow hook.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The resource ID of the environment.
@@ -53,7 +53,7 @@ public partial class GoogleApigeeFlowhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     [TerraformProperty("environment")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Environment { get; set; }
+    public required partial TerraformValue<string> Environment { get; set; }
 
     /// <summary>
     /// Where in the API call flow the flow hook is invoked. Must be one of PreProxyFlowHook, PostProxyFlowHook, PreTargetFlowHook, or PostTargetFlowHook.
@@ -61,14 +61,14 @@ public partial class GoogleApigeeFlowhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowHookPoint is required")]
     [TerraformProperty("flow_hook_point")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FlowHookPoint { get; set; }
+    public required partial TerraformValue<string> FlowHookPoint { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the environment
@@ -76,7 +76,7 @@ public partial class GoogleApigeeFlowhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformProperty("org_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OrgId { get; set; }
+    public required partial TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Id of the Sharedflow attaching to a flowhook point.
@@ -84,13 +84,13 @@ public partial class GoogleApigeeFlowhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sharedflow is required")]
     [TerraformProperty("sharedflow")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Sharedflow { get; set; }
+    public required partial TerraformValue<string> Sharedflow { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeFlowhookTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeFlowhookTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -16,14 +16,14 @@ public partial class AwsS3controlMultiRegionAccessPointDataSource : TerraformDat
     /// </summary>
     [TerraformProperty("account_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AccountId { get; set; }
+    public partial TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -31,62 +31,62 @@ public partial class AwsS3controlMultiRegionAccessPointDataSource : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
     [TerraformProperty("alias")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Alias { get; }
+    public partial TerraformValue<string> Alias { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformProperty("created_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedAt { get; }
+    public partial TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [TerraformProperty("domain_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DomainName { get; }
+    public partial TerraformValue<string> DomainName { get; }
 
     /// <summary>
     /// The public_access_block attribute.
     /// </summary>
     [TerraformProperty("public_access_block")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PublicAccessBlock { get; }
+    public partial TerraformList<object> PublicAccessBlock { get; }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
     [TerraformProperty("regions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Regions { get; }
+    public partial TerraformList<object> Regions { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
 }

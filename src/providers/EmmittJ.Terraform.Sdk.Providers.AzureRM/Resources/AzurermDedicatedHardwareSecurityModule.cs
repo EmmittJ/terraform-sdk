@@ -14,7 +14,7 @@ public partial class AzurermDedicatedHardwareSecurityModuleManagementNetworkProf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfacePrivateIpAddresses is required")]
     [TerraformProperty("network_interface_private_ip_addresses")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> NetworkInterfacePrivateIpAddresses { get; set; }
+    public required partial TerraformSet<string> NetworkInterfacePrivateIpAddresses { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -22,7 +22,7 @@ public partial class AzurermDedicatedHardwareSecurityModuleManagementNetworkProf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfacePrivateIpAddresses is required")]
     [TerraformProperty("network_interface_private_ip_addresses")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> NetworkInterfacePrivateIpAddresses { get; set; }
+    public required partial TerraformSet<string> NetworkInterfacePrivateIpAddresses { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -46,7 +46,7 @@ public partial class AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
 }
 
@@ -61,28 +61,28 @@ public partial class AzurermDedicatedHardwareSecurityModuleTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -101,7 +101,7 @@ public partial class AzurermDedicatedHardwareSecurityModule : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -109,7 +109,7 @@ public partial class AzurermDedicatedHardwareSecurityModule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -117,7 +117,7 @@ public partial class AzurermDedicatedHardwareSecurityModule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -125,7 +125,7 @@ public partial class AzurermDedicatedHardwareSecurityModule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
@@ -133,28 +133,28 @@ public partial class AzurermDedicatedHardwareSecurityModule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     [TerraformProperty("sku_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SkuName { get; set; }
+    public required partial TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The stamp_id attribute.
     /// </summary>
     [TerraformProperty("stamp_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StampId { get; set; }
+    public partial TerraformValue<string>? StampId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     [TerraformProperty("zones")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Zones { get; set; }
+    public partial TerraformSet<string>? Zones { get; set; }
 
     /// <summary>
     /// Block for management_network_profile.
@@ -162,7 +162,7 @@ public partial class AzurermDedicatedHardwareSecurityModule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementNetworkProfile block(s) allowed")]
     [TerraformProperty("management_network_profile")]
-    public TerraformList<TerraformBlock<AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock>>? ManagementNetworkProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock>>? ManagementNetworkProfile { get; set; }
 
     /// <summary>
     /// Block for network_profile.
@@ -172,13 +172,13 @@ public partial class AzurermDedicatedHardwareSecurityModule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
     [TerraformProperty("network_profile")]
-    public TerraformList<TerraformBlock<AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock>>? NetworkProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock>>? NetworkProfile { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDedicatedHardwareSecurityModuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDedicatedHardwareSecurityModuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

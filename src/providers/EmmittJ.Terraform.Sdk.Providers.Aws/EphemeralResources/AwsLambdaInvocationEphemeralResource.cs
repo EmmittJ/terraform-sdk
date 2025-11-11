@@ -17,7 +17,7 @@ public partial class AwsLambdaInvocationEphemeralResource : TerraformEphemeralRe
     /// </summary>
     [TerraformProperty("client_context")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientContext { get; set; }
+    public partial TerraformValue<string>? ClientContext { get; set; }
 
     /// <summary>
     /// The function_name attribute.
@@ -25,14 +25,14 @@ public partial class AwsLambdaInvocationEphemeralResource : TerraformEphemeralRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     [TerraformProperty("function_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FunctionName { get; set; }
+    public required partial TerraformValue<string> FunctionName { get; set; }
 
     /// <summary>
     /// The log_type attribute.
     /// </summary>
     [TerraformProperty("log_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LogType { get; set; }
+    public partial TerraformValue<string>? LogType { get; set; }
 
     /// <summary>
     /// The payload attribute.
@@ -40,55 +40,55 @@ public partial class AwsLambdaInvocationEphemeralResource : TerraformEphemeralRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Payload is required")]
     [TerraformProperty("payload")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Payload { get; set; }
+    public required partial TerraformValue<string> Payload { get; set; }
 
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
     [TerraformProperty("qualifier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Qualifier { get; set; }
+    public partial TerraformValue<string>? Qualifier { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The executed_version attribute.
     /// </summary>
     [TerraformProperty("executed_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExecutedVersion { get; }
+    public partial TerraformValue<string> ExecutedVersion { get; }
 
     /// <summary>
     /// The function_error attribute.
     /// </summary>
     [TerraformProperty("function_error")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> FunctionError { get; }
+    public partial TerraformValue<string> FunctionError { get; }
 
     /// <summary>
     /// The log_result attribute.
     /// </summary>
     [TerraformProperty("log_result")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LogResult { get; }
+    public partial TerraformValue<string> LogResult { get; }
 
     /// <summary>
     /// The result attribute.
     /// </summary>
     [TerraformProperty("result")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Result { get; }
+    public partial TerraformValue<string> Result { get; }
 
     /// <summary>
     /// The status_code attribute.
     /// </summary>
     [TerraformProperty("status_code")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> StatusCode { get; }
+    public partial TerraformValue<double> StatusCode { get; }
 
 }

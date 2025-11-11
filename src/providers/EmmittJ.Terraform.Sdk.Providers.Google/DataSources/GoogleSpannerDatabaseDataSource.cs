@@ -16,7 +16,7 @@ public partial class GoogleSpannerDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance to create the database on.
@@ -24,7 +24,7 @@ public partial class GoogleSpannerDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// A unique identifier for the database, which cannot be changed after the
@@ -33,14 +33,14 @@ public partial class GoogleSpannerDatabaseDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The dialect of the Cloud Spanner Database.
@@ -48,7 +48,7 @@ public partial class GoogleSpannerDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("database_dialect")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DatabaseDialect { get; }
+    public partial TerraformValue<string> DatabaseDialect { get; }
 
     /// <summary>
     /// An optional list of DDL statements to run inside the database. Statements can create
@@ -64,7 +64,7 @@ public partial class GoogleSpannerDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("ddl")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Ddl { get; }
+    public partial TerraformList<string> Ddl { get; }
 
     /// <summary>
     /// The default time zone for the database. The default time zone must be a valid name
@@ -72,7 +72,7 @@ public partial class GoogleSpannerDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("default_time_zone")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DefaultTimeZone { get; }
+    public partial TerraformValue<string> DefaultTimeZone { get; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the database. Defaults to true.
@@ -84,7 +84,7 @@ public partial class GoogleSpannerDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> DeletionProtection { get; }
+    public partial TerraformValue<bool> DeletionProtection { get; }
 
     /// <summary>
     /// Whether drop protection is enabled for this database. Defaults to false.
@@ -97,21 +97,21 @@ public partial class GoogleSpannerDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("enable_drop_protection")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> EnableDropProtection { get; }
+    public partial TerraformValue<bool> EnableDropProtection { get; }
 
     /// <summary>
     /// Encryption configuration for the database
     /// </summary>
     [TerraformProperty("encryption_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> EncryptionConfig { get; }
+    public partial TerraformList<object> EncryptionConfig { get; }
 
     /// <summary>
     /// An explanation of the status of the database.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The retention period for the database. The retention period must be between 1 hour
@@ -122,6 +122,6 @@ public partial class GoogleSpannerDatabaseDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("version_retention_period")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VersionRetentionPeriod { get; }
+    public partial TerraformValue<string> VersionRetentionPeriod { get; }
 
 }

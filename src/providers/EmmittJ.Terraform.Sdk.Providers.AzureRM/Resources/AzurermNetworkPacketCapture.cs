@@ -13,14 +13,14 @@ public partial class AzurermNetworkPacketCaptureFilterBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("local_ip_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LocalIpAddress { get; set; }
+    public partial TerraformValue<string>? LocalIpAddress { get; set; }
 
     /// <summary>
     /// The local_port attribute.
     /// </summary>
     [TerraformProperty("local_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LocalPort { get; set; }
+    public partial TerraformValue<string>? LocalPort { get; set; }
 
     /// <summary>
     /// The protocol attribute.
@@ -28,21 +28,21 @@ public partial class AzurermNetworkPacketCaptureFilterBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformProperty("protocol")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Protocol { get; set; }
+    public required partial TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// The remote_ip_address attribute.
     /// </summary>
     [TerraformProperty("remote_ip_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RemoteIpAddress { get; set; }
+    public partial TerraformValue<string>? RemoteIpAddress { get; set; }
 
     /// <summary>
     /// The remote_port attribute.
     /// </summary>
     [TerraformProperty("remote_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RemotePort { get; set; }
+    public partial TerraformValue<string>? RemotePort { get; set; }
 
 }
 
@@ -57,14 +57,14 @@ public partial class AzurermNetworkPacketCaptureStorageLocationBlock : Terraform
     /// </summary>
     [TerraformProperty("file_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FilePath { get; set; }
+    public partial TerraformValue<string>? FilePath { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [TerraformProperty("storage_account_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountId { get; set; }
+    public partial TerraformValue<string>? StorageAccountId { get; set; }
 
 
 }
@@ -80,21 +80,21 @@ public partial class AzurermNetworkPacketCaptureTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -114,28 +114,28 @@ public partial class AzurermNetworkPacketCapture : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The maximum_bytes_per_packet attribute.
     /// </summary>
     [TerraformProperty("maximum_bytes_per_packet")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaximumBytesPerPacket { get; set; }
+    public partial TerraformValue<double>? MaximumBytesPerPacket { get; set; }
 
     /// <summary>
     /// The maximum_bytes_per_session attribute.
     /// </summary>
     [TerraformProperty("maximum_bytes_per_session")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaximumBytesPerSession { get; set; }
+    public partial TerraformValue<double>? MaximumBytesPerSession { get; set; }
 
     /// <summary>
     /// The maximum_capture_duration attribute.
     /// </summary>
     [TerraformProperty("maximum_capture_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaximumCaptureDuration { get; set; }
+    public partial TerraformValue<double>? MaximumCaptureDuration { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -143,7 +143,7 @@ public partial class AzurermNetworkPacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network_watcher_name attribute.
@@ -151,7 +151,7 @@ public partial class AzurermNetworkPacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherName is required")]
     [TerraformProperty("network_watcher_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NetworkWatcherName { get; set; }
+    public required partial TerraformValue<string> NetworkWatcherName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -159,7 +159,7 @@ public partial class AzurermNetworkPacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The target_resource_id attribute.
@@ -167,14 +167,14 @@ public partial class AzurermNetworkPacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     [TerraformProperty("target_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetResourceId { get; set; }
+    public required partial TerraformValue<string> TargetResourceId { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("filter")]
-    public TerraformList<TerraformBlock<AzurermNetworkPacketCaptureFilterBlock>>? Filter { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNetworkPacketCaptureFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for storage_location.
@@ -184,13 +184,13 @@ public partial class AzurermNetworkPacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageLocation block(s) allowed")]
     [TerraformProperty("storage_location")]
-    public TerraformList<TerraformBlock<AzurermNetworkPacketCaptureStorageLocationBlock>>? StorageLocation { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNetworkPacketCaptureStorageLocationBlock>>? StorageLocation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetworkPacketCaptureTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetworkPacketCaptureTimeoutsBlock>? Timeouts { get; set; }
 
 }

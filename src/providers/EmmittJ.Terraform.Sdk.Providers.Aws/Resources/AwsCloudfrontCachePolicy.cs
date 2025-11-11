@@ -13,14 +13,14 @@ public partial class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToO
     /// </summary>
     [TerraformProperty("enable_accept_encoding_brotli")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableAcceptEncodingBrotli { get; set; }
+    public partial TerraformValue<bool>? EnableAcceptEncodingBrotli { get; set; }
 
     /// <summary>
     /// The enable_accept_encoding_gzip attribute.
     /// </summary>
     [TerraformProperty("enable_accept_encoding_gzip")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableAcceptEncodingGzip { get; set; }
+    public partial TerraformValue<bool>? EnableAcceptEncodingGzip { get; set; }
 
 }
 
@@ -39,35 +39,35 @@ public partial class AwsCloudfrontCachePolicy : TerraformResource
     /// </summary>
     [TerraformProperty("comment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Comment { get; set; }
+    public partial TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
     [TerraformProperty("default_ttl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DefaultTtl { get; set; }
+    public partial TerraformValue<double>? DefaultTtl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The max_ttl attribute.
     /// </summary>
     [TerraformProperty("max_ttl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxTtl { get; set; }
+    public partial TerraformValue<double>? MaxTtl { get; set; }
 
     /// <summary>
     /// The min_ttl attribute.
     /// </summary>
     [TerraformProperty("min_ttl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinTtl { get; set; }
+    public partial TerraformValue<double>? MinTtl { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -75,7 +75,7 @@ public partial class AwsCloudfrontCachePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for parameters_in_cache_key_and_forwarded_to_origin.
@@ -85,20 +85,20 @@ public partial class AwsCloudfrontCachePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ParametersInCacheKeyAndForwardedToOrigin block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParametersInCacheKeyAndForwardedToOrigin block(s) allowed")]
     [TerraformProperty("parameters_in_cache_key_and_forwarded_to_origin")]
-    public TerraformList<TerraformBlock<AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlock>>? ParametersInCacheKeyAndForwardedToOrigin { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlock>>? ParametersInCacheKeyAndForwardedToOrigin { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
 }

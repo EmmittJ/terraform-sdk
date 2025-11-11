@@ -17,14 +17,14 @@ public partial class AwsAuditmanagerControlDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -32,62 +32,62 @@ public partial class AwsAuditmanagerControlDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The action_plan_instructions attribute.
     /// </summary>
     [TerraformProperty("action_plan_instructions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ActionPlanInstructions { get; }
+    public partial TerraformValue<string> ActionPlanInstructions { get; }
 
     /// <summary>
     /// The action_plan_title attribute.
     /// </summary>
     [TerraformProperty("action_plan_title")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ActionPlanTitle { get; }
+    public partial TerraformValue<string> ActionPlanTitle { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The control_mapping_sources attribute.
     /// </summary>
     [TerraformProperty("control_mapping_sources")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ControlMappingSources { get; }
+    public partial TerraformList<object> ControlMappingSources { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The testing_information attribute.
     /// </summary>
     [TerraformProperty("testing_information")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TestingInformation { get; }
+    public partial TerraformValue<string> TestingInformation { get; }
 
 }

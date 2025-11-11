@@ -13,7 +13,7 @@ public partial class AwsVpcPeeringConnectionAccepterBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("allow_remote_vpc_dns_resolution")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowRemoteVpcDnsResolution { get; set; }
+    public partial TerraformValue<bool>? AllowRemoteVpcDnsResolution { get; set; }
 
 }
 
@@ -28,7 +28,7 @@ public partial class AwsVpcPeeringConnectionRequesterBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("allow_remote_vpc_dns_resolution")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowRemoteVpcDnsResolution { get; set; }
+    public partial TerraformValue<bool>? AllowRemoteVpcDnsResolution { get; set; }
 
 }
 
@@ -43,21 +43,21 @@ public partial class AwsVpcPeeringConnectionTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -76,28 +76,28 @@ public partial class AwsVpcPeeringConnection : TerraformResource
     /// </summary>
     [TerraformProperty("auto_accept")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutoAccept { get; set; }
+    public partial TerraformValue<bool>? AutoAccept { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The peer_owner_id attribute.
     /// </summary>
     [TerraformProperty("peer_owner_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PeerOwnerId { get; set; }
+    public partial TerraformValue<string> PeerOwnerId { get; set; }
 
     /// <summary>
     /// The peer_region attribute.
     /// </summary>
     [TerraformProperty("peer_region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PeerRegion { get; set; }
+    public partial TerraformValue<string> PeerRegion { get; set; }
 
     /// <summary>
     /// The peer_vpc_id attribute.
@@ -105,28 +105,28 @@ public partial class AwsVpcPeeringConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerVpcId is required")]
     [TerraformProperty("peer_vpc_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PeerVpcId { get; set; }
+    public required partial TerraformValue<string> PeerVpcId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
@@ -134,7 +134,7 @@ public partial class AwsVpcPeeringConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     [TerraformProperty("vpc_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VpcId { get; set; }
+    public required partial TerraformValue<string> VpcId { get; set; }
 
     /// <summary>
     /// Block for accepter.
@@ -142,7 +142,7 @@ public partial class AwsVpcPeeringConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Accepter block(s) allowed")]
     [TerraformProperty("accepter")]
-    public TerraformList<TerraformBlock<AwsVpcPeeringConnectionAccepterBlock>>? Accepter { get; set; }
+    public partial TerraformList<TerraformBlock<AwsVpcPeeringConnectionAccepterBlock>>? Accepter { get; set; }
 
     /// <summary>
     /// Block for requester.
@@ -150,20 +150,20 @@ public partial class AwsVpcPeeringConnection : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Requester block(s) allowed")]
     [TerraformProperty("requester")]
-    public TerraformList<TerraformBlock<AwsVpcPeeringConnectionRequesterBlock>>? Requester { get; set; }
+    public partial TerraformList<TerraformBlock<AwsVpcPeeringConnectionRequesterBlock>>? Requester { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsVpcPeeringConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsVpcPeeringConnectionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The accept_status attribute.
     /// </summary>
     [TerraformProperty("accept_status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AcceptStatus { get; }
+    public partial TerraformValue<string> AcceptStatus { get; }
 
 }

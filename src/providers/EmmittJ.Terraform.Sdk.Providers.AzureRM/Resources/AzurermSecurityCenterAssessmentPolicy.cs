@@ -13,28 +13,28 @@ public partial class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("categories")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> Categories { get; set; }
+    public partial TerraformSet<string> Categories { get; set; }
 
     /// <summary>
     /// The description attribute.
@@ -60,7 +60,7 @@ public partial class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     [TerraformProperty("description")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Description { get; set; }
+    public required partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
@@ -68,62 +68,62 @@ public partial class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The implementation_effort attribute.
     /// </summary>
     [TerraformProperty("implementation_effort")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ImplementationEffort { get; set; }
+    public partial TerraformValue<string>? ImplementationEffort { get; set; }
 
     /// <summary>
     /// The remediation_description attribute.
     /// </summary>
     [TerraformProperty("remediation_description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RemediationDescription { get; set; }
+    public partial TerraformValue<string>? RemediationDescription { get; set; }
 
     /// <summary>
     /// The severity attribute.
     /// </summary>
     [TerraformProperty("severity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Severity { get; set; }
+    public partial TerraformValue<string>? Severity { get; set; }
 
     /// <summary>
     /// The threats attribute.
     /// </summary>
     [TerraformProperty("threats")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Threats { get; set; }
+    public partial TerraformSet<string>? Threats { get; set; }
 
     /// <summary>
     /// The user_impact attribute.
     /// </summary>
     [TerraformProperty("user_impact")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserImpact { get; set; }
+    public partial TerraformValue<string>? UserImpact { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSecurityCenterAssessmentPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSecurityCenterAssessmentPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

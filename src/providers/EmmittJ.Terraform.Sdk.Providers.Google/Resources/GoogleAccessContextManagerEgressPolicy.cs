@@ -13,14 +13,14 @@ public partial class GoogleAccessContextManagerEgressPolicyTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public partial class GoogleAccessContextManagerEgressPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EgressPolicyName is required")]
     [TerraformProperty("egress_policy_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EgressPolicyName { get; set; }
+    public required partial TerraformValue<string> EgressPolicyName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A GCP resource that is inside of the service perimeter.
@@ -54,20 +54,20 @@ public partial class GoogleAccessContextManagerEgressPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     [TerraformProperty("resource")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Resource { get; set; }
+    public required partial TerraformValue<string> Resource { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleAccessContextManagerEgressPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleAccessContextManagerEgressPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The name of the Access Policy this resource belongs to.
     /// </summary>
     [TerraformProperty("access_policy_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AccessPolicyId { get; }
+    public partial TerraformValue<string> AccessPolicyId { get; }
 
 }

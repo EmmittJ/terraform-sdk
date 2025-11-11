@@ -16,7 +16,7 @@ public partial class GoogleComputeGlobalAddressDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -24,83 +24,83 @@ public partial class GoogleComputeGlobalAddressDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The address attribute.
     /// </summary>
     [TerraformProperty("address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Address { get; }
+    public partial TerraformValue<string> Address { get; }
 
     /// <summary>
     /// The address_type attribute.
     /// </summary>
     [TerraformProperty("address_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AddressType { get; }
+    public partial TerraformValue<string> AddressType { get; }
 
     /// <summary>
     /// The network attribute.
     /// </summary>
     [TerraformProperty("network")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Network { get; }
+    public partial TerraformValue<string> Network { get; }
 
     /// <summary>
     /// The network_tier attribute.
     /// </summary>
     [TerraformProperty("network_tier")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NetworkTier { get; }
+    public partial TerraformValue<string> NetworkTier { get; }
 
     /// <summary>
     /// The prefix_length attribute.
     /// </summary>
     [TerraformProperty("prefix_length")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> PrefixLength { get; }
+    public partial TerraformValue<double> PrefixLength { get; }
 
     /// <summary>
     /// The purpose attribute.
     /// </summary>
     [TerraformProperty("purpose")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Purpose { get; }
+    public partial TerraformValue<string> Purpose { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The subnetwork attribute.
     /// </summary>
     [TerraformProperty("subnetwork")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Subnetwork { get; }
+    public partial TerraformValue<string> Subnetwork { get; }
 
     /// <summary>
     /// The users attribute.
     /// </summary>
     [TerraformProperty("users")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Users { get; }
+    public partial TerraformValue<string> Users { get; }
 
 }

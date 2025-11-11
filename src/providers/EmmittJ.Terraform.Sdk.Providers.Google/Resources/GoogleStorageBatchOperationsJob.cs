@@ -22,7 +22,7 @@ public partial class GoogleStorageBatchOperationsJobDeleteObjectBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermanentObjectDeletionEnabled is required")]
     [TerraformProperty("permanent_object_deletion_enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> PermanentObjectDeletionEnabled { get; set; }
+    public required partial TerraformValue<bool> PermanentObjectDeletionEnabled { get; set; }
 
 }
 
@@ -37,49 +37,49 @@ public partial class GoogleStorageBatchOperationsJobPutMetadataBlock : Terraform
     /// </summary>
     [TerraformProperty("cache_control")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CacheControl { get; set; }
+    public partial TerraformValue<string>? CacheControl { get; set; }
 
     /// <summary>
     /// Content-Disposition of the object data.
     /// </summary>
     [TerraformProperty("content_disposition")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContentDisposition { get; set; }
+    public partial TerraformValue<string>? ContentDisposition { get; set; }
 
     /// <summary>
     /// Content Encoding of the object data.
     /// </summary>
     [TerraformProperty("content_encoding")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContentEncoding { get; set; }
+    public partial TerraformValue<string>? ContentEncoding { get; set; }
 
     /// <summary>
     /// Content-Language of the object data.
     /// </summary>
     [TerraformProperty("content_language")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContentLanguage { get; set; }
+    public partial TerraformValue<string>? ContentLanguage { get; set; }
 
     /// <summary>
     /// Content-Type of the object data.
     /// </summary>
     [TerraformProperty("content_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContentType { get; set; }
+    public partial TerraformValue<string>? ContentType { get; set; }
 
     /// <summary>
     /// User-provided metadata, in key/value pairs.
     /// </summary>
     [TerraformProperty("custom_metadata")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? CustomMetadata { get; set; }
+    public partial TerraformMap<string>? CustomMetadata { get; set; }
 
     /// <summary>
     /// Updates the objects fixed custom time metadata.
     /// </summary>
     [TerraformProperty("custom_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CustomTime { get; set; }
+    public partial TerraformValue<string>? CustomTime { get; set; }
 
 }
 
@@ -94,14 +94,14 @@ public partial class GoogleStorageBatchOperationsJobPutObjectHoldBlock : Terrafo
     /// </summary>
     [TerraformProperty("event_based_hold")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EventBasedHold { get; set; }
+    public partial TerraformValue<string>? EventBasedHold { get; set; }
 
     /// <summary>
     /// set/unset to update temporary based hold for objects.
     /// </summary>
     [TerraformProperty("temporary_hold")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TemporaryHold { get; set; }
+    public partial TerraformValue<string>? TemporaryHold { get; set; }
 
 }
 
@@ -117,7 +117,7 @@ public partial class GoogleStorageBatchOperationsJobRewriteObjectBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     [TerraformProperty("kms_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KmsKey { get; set; }
+    public required partial TerraformValue<string> KmsKey { get; set; }
 
 }
 
@@ -132,21 +132,21 @@ public partial class GoogleStorageBatchOperationsJobTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -165,28 +165,28 @@ public partial class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [TerraformProperty("delete_protection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeleteProtection { get; set; }
+    public partial TerraformValue<bool>? DeleteProtection { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the job.
     /// </summary>
     [TerraformProperty("job_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? JobId { get; set; }
+    public partial TerraformValue<string>? JobId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for bucket_list.
@@ -194,7 +194,7 @@ public partial class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BucketList block(s) allowed")]
     [TerraformProperty("bucket_list")]
-    public TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobBucketListBlock>>? BucketList { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobBucketListBlock>>? BucketList { get; set; }
 
     /// <summary>
     /// Block for delete_object.
@@ -202,7 +202,7 @@ public partial class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeleteObject block(s) allowed")]
     [TerraformProperty("delete_object")]
-    public TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobDeleteObjectBlock>>? DeleteObject { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobDeleteObjectBlock>>? DeleteObject { get; set; }
 
     /// <summary>
     /// Block for put_metadata.
@@ -210,7 +210,7 @@ public partial class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PutMetadata block(s) allowed")]
     [TerraformProperty("put_metadata")]
-    public TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobPutMetadataBlock>>? PutMetadata { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobPutMetadataBlock>>? PutMetadata { get; set; }
 
     /// <summary>
     /// Block for put_object_hold.
@@ -218,7 +218,7 @@ public partial class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PutObjectHold block(s) allowed")]
     [TerraformProperty("put_object_hold")]
-    public TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobPutObjectHoldBlock>>? PutObjectHold { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobPutObjectHoldBlock>>? PutObjectHold { get; set; }
 
     /// <summary>
     /// Block for rewrite_object.
@@ -226,48 +226,48 @@ public partial class GoogleStorageBatchOperationsJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RewriteObject block(s) allowed")]
     [TerraformProperty("rewrite_object")]
-    public TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobRewriteObjectBlock>>? RewriteObject { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageBatchOperationsJobRewriteObjectBlock>>? RewriteObject { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleStorageBatchOperationsJobTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleStorageBatchOperationsJobTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time that the job was completed.
     /// </summary>
     [TerraformProperty("complete_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CompleteTime { get; }
+    public partial TerraformValue<string> CompleteTime { get; }
 
     /// <summary>
     /// The timestamp at which this storage batch operation was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The time that the job was scheduled.
     /// </summary>
     [TerraformProperty("schedule_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ScheduleTime { get; }
+    public partial TerraformValue<string> ScheduleTime { get; }
 
     /// <summary>
     /// State of the job.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The timestamp at which this storage batch operation was most recently updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

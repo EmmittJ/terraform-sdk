@@ -16,14 +16,14 @@ public partial class AwsEcrImagesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// ID of the registry (AWS account ID)
     /// </summary>
     [TerraformProperty("registry_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RegistryId { get; set; }
+    public partial TerraformValue<string>? RegistryId { get; set; }
 
     /// <summary>
     /// Name of the repository
@@ -31,13 +31,13 @@ public partial class AwsEcrImagesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     [TerraformProperty("repository_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepositoryName { get; set; }
+    public required partial TerraformValue<string> RepositoryName { get; set; }
 
     /// <summary>
     /// The image_ids attribute.
     /// </summary>
     [TerraformProperty("image_ids")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ImageIds { get; }
+    public partial TerraformList<object> ImageIds { get; }
 
 }

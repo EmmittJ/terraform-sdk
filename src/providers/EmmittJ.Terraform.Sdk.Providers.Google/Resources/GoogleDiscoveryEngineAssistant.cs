@@ -23,7 +23,7 @@ public partial class GoogleDiscoveryEngineAssistantGenerationConfigBlock : Terra
     /// </summary>
     [TerraformProperty("default_language")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultLanguage { get; set; }
+    public partial TerraformValue<string>? DefaultLanguage { get; set; }
 
 }
 
@@ -38,21 +38,21 @@ public partial class GoogleDiscoveryEngineAssistantTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -72,7 +72,7 @@ public partial class GoogleDiscoveryEngineAssistant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssistantId is required")]
     [TerraformProperty("assistant_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AssistantId { get; set; }
+    public required partial TerraformValue<string> AssistantId { get; set; }
 
     /// <summary>
     /// The unique id of the collection.
@@ -80,7 +80,7 @@ public partial class GoogleDiscoveryEngineAssistant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     [TerraformProperty("collection_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CollectionId { get; set; }
+    public required partial TerraformValue<string> CollectionId { get; set; }
 
     /// <summary>
     /// Description for additional information. Expected to be shown on the
@@ -88,7 +88,7 @@ public partial class GoogleDiscoveryEngineAssistant : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The assistant display name.
@@ -98,7 +98,7 @@ public partial class GoogleDiscoveryEngineAssistant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The unique id of the engine.
@@ -106,14 +106,14 @@ public partial class GoogleDiscoveryEngineAssistant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     [TerraformProperty("engine_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EngineId { get; set; }
+    public required partial TerraformValue<string> EngineId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
@@ -122,14 +122,14 @@ public partial class GoogleDiscoveryEngineAssistant : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The type of web grounding to use.
@@ -137,7 +137,7 @@ public partial class GoogleDiscoveryEngineAssistant : TerraformResource
     /// </summary>
     [TerraformProperty("web_grounding_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WebGroundingType { get; set; }
+    public partial TerraformValue<string>? WebGroundingType { get; set; }
 
     /// <summary>
     /// Block for customer_policy.
@@ -145,7 +145,7 @@ public partial class GoogleDiscoveryEngineAssistant : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerPolicy block(s) allowed")]
     [TerraformProperty("customer_policy")]
-    public TerraformList<TerraformBlock<GoogleDiscoveryEngineAssistantCustomerPolicyBlock>>? CustomerPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineAssistantCustomerPolicyBlock>>? CustomerPolicy { get; set; }
 
     /// <summary>
     /// Block for generation_config.
@@ -153,14 +153,14 @@ public partial class GoogleDiscoveryEngineAssistant : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenerationConfig block(s) allowed")]
     [TerraformProperty("generation_config")]
-    public TerraformList<TerraformBlock<GoogleDiscoveryEngineAssistantGenerationConfigBlock>>? GenerationConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineAssistantGenerationConfigBlock>>? GenerationConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDiscoveryEngineAssistantTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDiscoveryEngineAssistantTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Resource name of the assistant.
@@ -171,6 +171,6 @@ public partial class GoogleDiscoveryEngineAssistant : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

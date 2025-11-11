@@ -17,7 +17,7 @@ public partial class GoogleSpannerBackupScheduleEncryptionConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionType is required")]
     [TerraformProperty("encryption_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EncryptionType { get; set; }
+    public required partial TerraformValue<string> EncryptionType { get; set; }
 
     /// <summary>
     /// The resource name of the Cloud KMS key to use for encryption.
@@ -25,7 +25,7 @@ public partial class GoogleSpannerBackupScheduleEncryptionConfigBlock : Terrafor
     /// </summary>
     [TerraformProperty("kms_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyName { get; set; }
+    public partial TerraformValue<string>? KmsKeyName { get; set; }
 
     /// <summary>
     /// Fully qualified name of the KMS keys to use to encrypt this database. The keys must exist
@@ -33,7 +33,7 @@ public partial class GoogleSpannerBackupScheduleEncryptionConfigBlock : Terrafor
     /// </summary>
     [TerraformProperty("kms_key_names")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? KmsKeyNames { get; set; }
+    public partial TerraformList<string>? KmsKeyNames { get; set; }
 
 }
 
@@ -72,21 +72,21 @@ public partial class GoogleSpannerBackupScheduleTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -106,14 +106,14 @@ public partial class GoogleSpannerBackupSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     [TerraformProperty("database")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Database { get; set; }
+    public required partial TerraformValue<string> Database { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance to create the database on.
@@ -121,7 +121,7 @@ public partial class GoogleSpannerBackupSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// A unique identifier for the backup schedule, which cannot be changed after
@@ -129,14 +129,14 @@ public partial class GoogleSpannerBackupSchedule : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// At what relative time in the future, compared to its creation time, the backup should be deleted, e.g. keep backups for 7 days.
@@ -146,7 +146,7 @@ public partial class GoogleSpannerBackupSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionDuration is required")]
     [TerraformProperty("retention_duration")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RetentionDuration { get; set; }
+    public required partial TerraformValue<string> RetentionDuration { get; set; }
 
     /// <summary>
     /// Block for encryption_config.
@@ -154,7 +154,7 @@ public partial class GoogleSpannerBackupSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     [TerraformProperty("encryption_config")]
-    public TerraformList<TerraformBlock<GoogleSpannerBackupScheduleEncryptionConfigBlock>>? EncryptionConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleSpannerBackupScheduleEncryptionConfigBlock>>? EncryptionConfig { get; set; }
 
     /// <summary>
     /// Block for full_backup_spec.
@@ -162,7 +162,7 @@ public partial class GoogleSpannerBackupSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FullBackupSpec block(s) allowed")]
     [TerraformProperty("full_backup_spec")]
-    public TerraformList<TerraformBlock<GoogleSpannerBackupScheduleFullBackupSpecBlock>>? FullBackupSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleSpannerBackupScheduleFullBackupSpecBlock>>? FullBackupSpec { get; set; }
 
     /// <summary>
     /// Block for incremental_backup_spec.
@@ -170,7 +170,7 @@ public partial class GoogleSpannerBackupSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncrementalBackupSpec block(s) allowed")]
     [TerraformProperty("incremental_backup_spec")]
-    public TerraformList<TerraformBlock<GoogleSpannerBackupScheduleIncrementalBackupSpecBlock>>? IncrementalBackupSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleSpannerBackupScheduleIncrementalBackupSpecBlock>>? IncrementalBackupSpec { get; set; }
 
     /// <summary>
     /// Block for spec.
@@ -178,13 +178,13 @@ public partial class GoogleSpannerBackupSchedule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
     [TerraformProperty("spec")]
-    public TerraformList<TerraformBlock<GoogleSpannerBackupScheduleSpecBlock>>? Spec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleSpannerBackupScheduleSpecBlock>>? Spec { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleSpannerBackupScheduleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleSpannerBackupScheduleTimeoutsBlock>? Timeouts { get; set; }
 
 }

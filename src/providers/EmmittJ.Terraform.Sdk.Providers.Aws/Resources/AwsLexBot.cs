@@ -13,7 +13,7 @@ public partial class AwsLexBotAbortStatementBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("response_card")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResponseCard { get; set; }
+    public partial TerraformValue<string>? ResponseCard { get; set; }
 
 }
 
@@ -29,14 +29,14 @@ public partial class AwsLexBotClarificationPromptBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAttempts is required")]
     [TerraformProperty("max_attempts")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MaxAttempts { get; set; }
+    public required partial TerraformValue<double> MaxAttempts { get; set; }
 
     /// <summary>
     /// The response_card attribute.
     /// </summary>
     [TerraformProperty("response_card")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResponseCard { get; set; }
+    public partial TerraformValue<string>? ResponseCard { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AwsLexBotIntentBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntentName is required")]
     [TerraformProperty("intent_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IntentName { get; set; }
+    public required partial TerraformValue<string> IntentName { get; set; }
 
     /// <summary>
     /// The intent_version attribute.
@@ -60,7 +60,7 @@ public partial class AwsLexBotIntentBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntentVersion is required")]
     [TerraformProperty("intent_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IntentVersion { get; set; }
+    public required partial TerraformValue<string> IntentVersion { get; set; }
 
 }
 
@@ -75,21 +75,21 @@ public partial class AwsLexBotTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -109,56 +109,56 @@ public partial class AwsLexBot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChildDirected is required")]
     [TerraformProperty("child_directed")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> ChildDirected { get; set; }
+    public required partial TerraformValue<bool> ChildDirected { get; set; }
 
     /// <summary>
     /// The create_version attribute.
     /// </summary>
     [TerraformProperty("create_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CreateVersion { get; set; }
+    public partial TerraformValue<bool>? CreateVersion { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The detect_sentiment attribute.
     /// </summary>
     [TerraformProperty("detect_sentiment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DetectSentiment { get; set; }
+    public partial TerraformValue<bool>? DetectSentiment { get; set; }
 
     /// <summary>
     /// The enable_model_improvements attribute.
     /// </summary>
     [TerraformProperty("enable_model_improvements")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableModelImprovements { get; set; }
+    public partial TerraformValue<bool>? EnableModelImprovements { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The idle_session_ttl_in_seconds attribute.
     /// </summary>
     [TerraformProperty("idle_session_ttl_in_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? IdleSessionTtlInSeconds { get; set; }
+    public partial TerraformValue<double>? IdleSessionTtlInSeconds { get; set; }
 
     /// <summary>
     /// The locale attribute.
     /// </summary>
     [TerraformProperty("locale")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Locale { get; set; }
+    public partial TerraformValue<string>? Locale { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -166,35 +166,35 @@ public partial class AwsLexBot : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The nlu_intent_confidence_threshold attribute.
     /// </summary>
     [TerraformProperty("nlu_intent_confidence_threshold")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? NluIntentConfidenceThreshold { get; set; }
+    public partial TerraformValue<double>? NluIntentConfidenceThreshold { get; set; }
 
     /// <summary>
     /// The process_behavior attribute.
     /// </summary>
     [TerraformProperty("process_behavior")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProcessBehavior { get; set; }
+    public partial TerraformValue<string>? ProcessBehavior { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The voice_id attribute.
     /// </summary>
     [TerraformProperty("voice_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VoiceId { get; set; }
+    public partial TerraformValue<string> VoiceId { get; set; }
 
     /// <summary>
     /// Block for abort_statement.
@@ -204,7 +204,7 @@ public partial class AwsLexBot : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AbortStatement block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AbortStatement block(s) allowed")]
     [TerraformProperty("abort_statement")]
-    public TerraformList<TerraformBlock<AwsLexBotAbortStatementBlock>>? AbortStatement { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLexBotAbortStatementBlock>>? AbortStatement { get; set; }
 
     /// <summary>
     /// Block for clarification_prompt.
@@ -212,7 +212,7 @@ public partial class AwsLexBot : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClarificationPrompt block(s) allowed")]
     [TerraformProperty("clarification_prompt")]
-    public TerraformList<TerraformBlock<AwsLexBotClarificationPromptBlock>>? ClarificationPrompt { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLexBotClarificationPromptBlock>>? ClarificationPrompt { get; set; }
 
     /// <summary>
     /// Block for intent.
@@ -222,62 +222,62 @@ public partial class AwsLexBot : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Intent block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(250, ErrorMessage = "Maximum 250 Intent block(s) allowed")]
     [TerraformProperty("intent")]
-    public TerraformSet<TerraformBlock<AwsLexBotIntentBlock>>? Intent { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsLexBotIntentBlock>>? Intent { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsLexBotTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsLexBotTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The checksum attribute.
     /// </summary>
     [TerraformProperty("checksum")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Checksum { get; }
+    public partial TerraformValue<string> Checksum { get; }
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     [TerraformProperty("created_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedDate { get; }
+    public partial TerraformValue<string> CreatedDate { get; }
 
     /// <summary>
     /// The failure_reason attribute.
     /// </summary>
     [TerraformProperty("failure_reason")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> FailureReason { get; }
+    public partial TerraformValue<string> FailureReason { get; }
 
     /// <summary>
     /// The last_updated_date attribute.
     /// </summary>
     [TerraformProperty("last_updated_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastUpdatedDate { get; }
+    public partial TerraformValue<string> LastUpdatedDate { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Version { get; }
+    public partial TerraformValue<string> Version { get; }
 
 }

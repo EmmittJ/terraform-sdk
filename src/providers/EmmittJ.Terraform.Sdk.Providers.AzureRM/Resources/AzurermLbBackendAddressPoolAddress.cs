@@ -13,28 +13,28 @@ public partial class AzurermLbBackendAddressPoolAddressTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermLbBackendAddressPoolAddress : TerraformResource
     /// </summary>
     [TerraformProperty("backend_address_ip_configuration_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BackendAddressIpConfigurationId { get; set; }
+    public partial TerraformValue<string>? BackendAddressIpConfigurationId { get; set; }
 
     /// <summary>
     /// The backend_address_pool_id attribute.
@@ -60,21 +60,21 @@ public partial class AzurermLbBackendAddressPoolAddress : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
     [TerraformProperty("backend_address_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackendAddressPoolId { get; set; }
+    public required partial TerraformValue<string> BackendAddressPoolId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     [TerraformProperty("ip_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpAddress { get; set; }
+    public partial TerraformValue<string>? IpAddress { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -82,27 +82,27 @@ public partial class AzurermLbBackendAddressPoolAddress : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
     [TerraformProperty("virtual_network_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VirtualNetworkId { get; set; }
+    public partial TerraformValue<string>? VirtualNetworkId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLbBackendAddressPoolAddressTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLbBackendAddressPoolAddressTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The inbound_nat_rule_port_mapping attribute.
     /// </summary>
     [TerraformProperty("inbound_nat_rule_port_mapping")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> InboundNatRulePortMapping { get; }
+    public partial TerraformList<object> InboundNatRulePortMapping { get; }
 
 }

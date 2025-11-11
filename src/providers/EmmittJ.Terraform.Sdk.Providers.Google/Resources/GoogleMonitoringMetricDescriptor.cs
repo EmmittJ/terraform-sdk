@@ -13,7 +13,7 @@ public partial class GoogleMonitoringMetricDescriptorLabelsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The key for this label. The key must not exceed 100 characters. The first character of the key must be an upper- or lower-case letter, the remaining characters must be letters, digits or underscores, and the key must match the regular expression [a-zA-Z][a-zA-Z0-9_]*
@@ -21,14 +21,14 @@ public partial class GoogleMonitoringMetricDescriptorLabelsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The type of data that can be assigned to the label. Default value: &amp;quot;STRING&amp;quot; Possible values: [&amp;quot;STRING&amp;quot;, &amp;quot;BOOL&amp;quot;, &amp;quot;INT64&amp;quot;]
     /// </summary>
     [TerraformProperty("value_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ValueType { get; set; }
+    public partial TerraformValue<string>? ValueType { get; set; }
 
 }
 
@@ -43,14 +43,14 @@ public partial class GoogleMonitoringMetricDescriptorMetadataBlock : TerraformBl
     /// </summary>
     [TerraformProperty("ingest_delay")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IngestDelay { get; set; }
+    public partial TerraformValue<string>? IngestDelay { get; set; }
 
     /// <summary>
     /// The sampling period of metric data points. For metrics which are written periodically, consecutive data points are stored at this time interval, excluding data loss due to errors. Metrics with a higher granularity have a smaller sampling period. In &#39;[duration format](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf?&amp;amp;_ga=2.264881487.1507873253.1593446723-935052455.1591817775#google.protobuf.Duration)&#39;.
     /// </summary>
     [TerraformProperty("sample_period")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SamplePeriod { get; set; }
+    public partial TerraformValue<string>? SamplePeriod { get; set; }
 
 }
 
@@ -65,21 +65,21 @@ public partial class GoogleMonitoringMetricDescriptorTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -98,28 +98,28 @@ public partial class GoogleMonitoringMetricDescriptor : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A concise name for the metric, which can be displayed in user interfaces. Use sentence case without an ending period, for example &amp;quot;Request count&amp;quot;.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The launch stage of the metric definition. Possible values: [&amp;quot;LAUNCH_STAGE_UNSPECIFIED&amp;quot;, &amp;quot;UNIMPLEMENTED&amp;quot;, &amp;quot;PRELAUNCH&amp;quot;, &amp;quot;EARLY_ACCESS&amp;quot;, &amp;quot;ALPHA&amp;quot;, &amp;quot;BETA&amp;quot;, &amp;quot;GA&amp;quot;, &amp;quot;DEPRECATED&amp;quot;]
     /// </summary>
     [TerraformProperty("launch_stage")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LaunchStage { get; set; }
+    public partial TerraformValue<string>? LaunchStage { get; set; }
 
     /// <summary>
     /// Whether the metric records instantaneous values, changes to a value, etc. Some combinations of metricKind and valueType might not be supported. Possible values: [&amp;quot;METRIC_KIND_UNSPECIFIED&amp;quot;, &amp;quot;GAUGE&amp;quot;, &amp;quot;DELTA&amp;quot;, &amp;quot;CUMULATIVE&amp;quot;]
@@ -127,14 +127,14 @@ public partial class GoogleMonitoringMetricDescriptor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricKind is required")]
     [TerraformProperty("metric_kind")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MetricKind { get; set; }
+    public required partial TerraformValue<string> MetricKind { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The metric type, including its DNS name prefix. The type is not URL-encoded. All service defined metrics must be prefixed with the service name, in the format of {service name}/{relative metric name}, such as cloudsql.googleapis.com/database/cpu/utilization. The relative metric name must have only upper and lower-case letters, digits, &#39;/&#39; and underscores &#39;_&#39; are allowed. Additionally, the maximum number of characters allowed for the relative_metric_name is 100. All user-defined metric types have the DNS name custom.googleapis.com, external.googleapis.com, or logging.googleapis.com/user/.
@@ -142,7 +142,7 @@ public partial class GoogleMonitoringMetricDescriptor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The units in which the metric value is reported. It is only applicable if the
@@ -168,7 +168,7 @@ public partial class GoogleMonitoringMetricDescriptor : TerraformResource
     /// </summary>
     [TerraformProperty("unit")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Unit { get; set; }
+    public partial TerraformValue<string>? Unit { get; set; }
 
     /// <summary>
     /// Whether the measurement is an integer, a floating-point number, etc. Some combinations of metricKind and valueType might not be supported. Possible values: [&amp;quot;BOOL&amp;quot;, &amp;quot;INT64&amp;quot;, &amp;quot;DOUBLE&amp;quot;, &amp;quot;STRING&amp;quot;, &amp;quot;DISTRIBUTION&amp;quot;]
@@ -176,14 +176,14 @@ public partial class GoogleMonitoringMetricDescriptor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
     [TerraformProperty("value_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ValueType { get; set; }
+    public required partial TerraformValue<string> ValueType { get; set; }
 
     /// <summary>
     /// Block for labels.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("labels")]
-    public TerraformSet<TerraformBlock<GoogleMonitoringMetricDescriptorLabelsBlock>>? Labels { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleMonitoringMetricDescriptorLabelsBlock>>? Labels { get; set; }
 
     /// <summary>
     /// Block for metadata.
@@ -191,27 +191,27 @@ public partial class GoogleMonitoringMetricDescriptor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
     [TerraformProperty("metadata")]
-    public TerraformList<TerraformBlock<GoogleMonitoringMetricDescriptorMetadataBlock>>? Metadata { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleMonitoringMetricDescriptorMetadataBlock>>? Metadata { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleMonitoringMetricDescriptorTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleMonitoringMetricDescriptorTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// If present, then a time series, which is identified partially by a metric type and a MonitoredResourceDescriptor, that is associated with this metric type can only be associated with one of the monitored resource types listed here. This field allows time series to be associated with the intersection of this metric type and the monitored resource types in this list.
     /// </summary>
     [TerraformProperty("monitored_resource_types")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> MonitoredResourceTypes { get; }
+    public partial TerraformSet<string> MonitoredResourceTypes { get; }
 
     /// <summary>
     /// The resource name of the metric descriptor.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

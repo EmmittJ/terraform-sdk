@@ -13,14 +13,14 @@ public partial class GoogleComputeRegionCommitmentLicenseResourceBlock : Terrafo
     /// </summary>
     [TerraformProperty("amount")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Amount { get; set; }
+    public partial TerraformValue<string>? Amount { get; set; }
 
     /// <summary>
     /// Specifies the core range of the instance for which this license applies.
     /// </summary>
     [TerraformProperty("cores_per_license")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CoresPerLicense { get; set; }
+    public partial TerraformValue<string>? CoresPerLicense { get; set; }
 
     /// <summary>
     /// Any applicable license URI.
@@ -28,7 +28,7 @@ public partial class GoogleComputeRegionCommitmentLicenseResourceBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "License is required")]
     [TerraformProperty("license")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> License { get; set; }
+    public required partial TerraformValue<string> License { get; set; }
 
 }
 
@@ -43,7 +43,7 @@ public partial class GoogleComputeRegionCommitmentResourcesBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("accelerator_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AcceleratorType { get; set; }
+    public partial TerraformValue<string>? AcceleratorType { get; set; }
 
     /// <summary>
     /// The amount of the resource purchased (in a type-dependent unit,
@@ -53,7 +53,7 @@ public partial class GoogleComputeRegionCommitmentResourcesBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("amount")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Amount { get; set; }
+    public partial TerraformValue<string>? Amount { get; set; }
 
     /// <summary>
     /// Type of resource for which this commitment applies.
@@ -61,7 +61,7 @@ public partial class GoogleComputeRegionCommitmentResourcesBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -76,14 +76,14 @@ public partial class GoogleComputeRegionCommitmentTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -105,7 +105,7 @@ public partial class GoogleComputeRegionCommitment : TerraformResource
     /// </summary>
     [TerraformProperty("auto_renew")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> AutoRenew { get; set; }
+    public partial TerraformValue<bool> AutoRenew { get; set; }
 
     /// <summary>
     /// The category of the commitment. Category MACHINE specifies commitments composed of
@@ -115,28 +115,28 @@ public partial class GoogleComputeRegionCommitment : TerraformResource
     /// </summary>
     [TerraformProperty("category")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Category { get; set; }
+    public partial TerraformValue<string> Category { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Specifies the already existing reservations to attach to the Commitment.
     /// </summary>
     [TerraformProperty("existing_reservations")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ExistingReservations { get; set; }
+    public partial TerraformValue<string> ExistingReservations { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. The name must be 1-63 characters long and match
@@ -148,7 +148,7 @@ public partial class GoogleComputeRegionCommitment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The plan for this commitment, which determines duration and discount rate.
@@ -157,21 +157,21 @@ public partial class GoogleComputeRegionCommitment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     [TerraformProperty("plan")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Plan { get; set; }
+    public required partial TerraformValue<string> Plan { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// URL of the region where this commitment may be used.
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The type of commitment, which affects the discount rate and the eligible resources.
@@ -182,7 +182,7 @@ public partial class GoogleComputeRegionCommitment : TerraformResource
     /// </summary>
     [TerraformProperty("type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Type { get; set; }
+    public partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for license_resource.
@@ -190,56 +190,56 @@ public partial class GoogleComputeRegionCommitment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LicenseResource block(s) allowed")]
     [TerraformProperty("license_resource")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionCommitmentLicenseResourceBlock>>? LicenseResource { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRegionCommitmentLicenseResourceBlock>>? LicenseResource { get; set; }
 
     /// <summary>
     /// Block for resources.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("resources")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionCommitmentResourcesBlock>>? Resources { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRegionCommitmentResourcesBlock>>? Resources { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeRegionCommitmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeRegionCommitmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Unique identifier for the resource.
     /// </summary>
     [TerraformProperty("commitment_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> CommitmentId { get; }
+    public partial TerraformValue<double> CommitmentId { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// Commitment end time in RFC3339 text format.
     /// </summary>
     [TerraformProperty("end_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EndTimestamp { get; }
+    public partial TerraformValue<string> EndTimestamp { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// Commitment start time in RFC3339 text format.
     /// </summary>
     [TerraformProperty("start_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StartTimestamp { get; }
+    public partial TerraformValue<string> StartTimestamp { get; }
 
     /// <summary>
     /// Status of the commitment with regards to eventual expiration
@@ -247,13 +247,13 @@ public partial class GoogleComputeRegionCommitment : TerraformResource
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
     /// <summary>
     /// A human-readable explanation of the status.
     /// </summary>
     [TerraformProperty("status_message")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StatusMessage { get; }
+    public partial TerraformValue<string> StatusMessage { get; }
 
 }

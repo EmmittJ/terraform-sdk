@@ -13,7 +13,7 @@ public partial class AwsVpcEndpointServicePrivateDnsVerificationTimeoutsBlock : 
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AwsVpcEndpointServicePrivateDnsVerification : TerraformReso
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The service_id attribute.
@@ -39,20 +39,20 @@ public partial class AwsVpcEndpointServicePrivateDnsVerification : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     [TerraformProperty("service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceId { get; set; }
+    public required partial TerraformValue<string> ServiceId { get; set; }
 
     /// <summary>
     /// The wait_for_verification attribute.
     /// </summary>
     [TerraformProperty("wait_for_verification")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? WaitForVerification { get; set; }
+    public partial TerraformValue<bool>? WaitForVerification { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsVpcEndpointServicePrivateDnsVerificationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsVpcEndpointServicePrivateDnsVerificationTimeoutsBlock>? Timeouts { get; set; }
 
 }

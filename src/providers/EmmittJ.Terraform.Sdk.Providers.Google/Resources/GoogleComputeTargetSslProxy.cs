@@ -13,21 +13,21 @@ public partial class GoogleComputeTargetSslProxyTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class GoogleComputeTargetSslProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     [TerraformProperty("backend_service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackendService { get; set; }
+    public required partial TerraformValue<string> BackendService { get; set; }
 
     /// <summary>
     /// A reference to the CertificateMap resource uri that identifies a certificate map
@@ -55,21 +55,21 @@ public partial class GoogleComputeTargetSslProxy : TerraformResource
     /// </summary>
     [TerraformProperty("certificate_map")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CertificateMap { get; set; }
+    public partial TerraformValue<string>? CertificateMap { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -83,14 +83,14 @@ public partial class GoogleComputeTargetSslProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Specifies the type of proxy header to append before sending data to
@@ -98,7 +98,7 @@ public partial class GoogleComputeTargetSslProxy : TerraformResource
     /// </summary>
     [TerraformProperty("proxy_header")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProxyHeader { get; set; }
+    public partial TerraformValue<string>? ProxyHeader { get; set; }
 
     /// <summary>
     /// A list of SslCertificate resources that are used to authenticate
@@ -107,7 +107,7 @@ public partial class GoogleComputeTargetSslProxy : TerraformResource
     /// </summary>
     [TerraformProperty("ssl_certificates")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? SslCertificates { get; set; }
+    public partial TerraformList<string>? SslCertificates { get; set; }
 
     /// <summary>
     /// A reference to the SslPolicy resource that will be associated with
@@ -116,34 +116,34 @@ public partial class GoogleComputeTargetSslProxy : TerraformResource
     /// </summary>
     [TerraformProperty("ssl_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SslPolicy { get; set; }
+    public partial TerraformValue<string>? SslPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeTargetSslProxyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeTargetSslProxyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     [TerraformProperty("proxy_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ProxyId { get; }
+    public partial TerraformValue<double> ProxyId { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
 }

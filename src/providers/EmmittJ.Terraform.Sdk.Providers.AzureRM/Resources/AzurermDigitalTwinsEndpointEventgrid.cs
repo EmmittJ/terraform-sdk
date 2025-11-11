@@ -13,28 +13,28 @@ public partial class AzurermDigitalTwinsEndpointEventgridTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     /// </summary>
     [TerraformProperty("dead_letter_storage_secret")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeadLetterStorageSecret { get; set; }
+    public partial TerraformValue<string>? DeadLetterStorageSecret { get; set; }
 
     /// <summary>
     /// The digital_twins_id attribute.
@@ -60,7 +60,7 @@ public partial class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
     [TerraformProperty("digital_twins_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DigitalTwinsId { get; set; }
+    public required partial TerraformValue<string> DigitalTwinsId { get; set; }
 
     /// <summary>
     /// The eventgrid_topic_endpoint attribute.
@@ -68,7 +68,7 @@ public partial class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicEndpoint is required")]
     [TerraformProperty("eventgrid_topic_endpoint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EventgridTopicEndpoint { get; set; }
+    public required partial TerraformValue<string> EventgridTopicEndpoint { get; set; }
 
     /// <summary>
     /// The eventgrid_topic_primary_access_key attribute.
@@ -76,7 +76,7 @@ public partial class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicPrimaryAccessKey is required")]
     [TerraformProperty("eventgrid_topic_primary_access_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EventgridTopicPrimaryAccessKey { get; set; }
+    public required partial TerraformValue<string> EventgridTopicPrimaryAccessKey { get; set; }
 
     /// <summary>
     /// The eventgrid_topic_secondary_access_key attribute.
@@ -84,14 +84,14 @@ public partial class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicSecondaryAccessKey is required")]
     [TerraformProperty("eventgrid_topic_secondary_access_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EventgridTopicSecondaryAccessKey { get; set; }
+    public required partial TerraformValue<string> EventgridTopicSecondaryAccessKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -99,13 +99,13 @@ public partial class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDigitalTwinsEndpointEventgridTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDigitalTwinsEndpointEventgridTimeoutsBlock>? Timeouts { get; set; }
 
 }

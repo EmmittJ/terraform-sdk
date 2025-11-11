@@ -17,41 +17,41 @@ public partial class AwsVpcIpamOrganizationAdminAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelegatedAdminAccountId is required")]
     [TerraformProperty("delegated_admin_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DelegatedAdminAccountId { get; set; }
+    public required partial TerraformValue<string> DelegatedAdminAccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     [TerraformProperty("email")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Email { get; }
+    public partial TerraformValue<string> Email { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The service_principal attribute.
     /// </summary>
     [TerraformProperty("service_principal")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServicePrincipal { get; }
+    public partial TerraformValue<string> ServicePrincipal { get; }
 
 }

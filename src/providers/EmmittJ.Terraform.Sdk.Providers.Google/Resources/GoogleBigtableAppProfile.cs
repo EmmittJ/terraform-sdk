@@ -14,7 +14,7 @@ public partial class GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeBillingOwner is required")]
     [TerraformProperty("compute_billing_owner")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ComputeBillingOwner { get; set; }
+    public required partial TerraformValue<string> ComputeBillingOwner { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public partial class GoogleBigtableAppProfileSingleClusterRoutingBlock : Terrafo
     /// </summary>
     [TerraformProperty("allow_transactional_writes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowTransactionalWrites { get; set; }
+    public partial TerraformValue<bool>? AllowTransactionalWrites { get; set; }
 
     /// <summary>
     /// The cluster to which read/write requests should be routed.
@@ -38,7 +38,7 @@ public partial class GoogleBigtableAppProfileSingleClusterRoutingBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     [TerraformProperty("cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterId { get; set; }
+    public required partial TerraformValue<string> ClusterId { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public partial class GoogleBigtableAppProfileStandardIsolationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformProperty("priority")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Priority { get; set; }
+    public required partial TerraformValue<string> Priority { get; set; }
 
 }
 
@@ -69,21 +69,21 @@ public partial class GoogleBigtableAppProfileTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -103,42 +103,42 @@ public partial class GoogleBigtableAppProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppProfileId is required")]
     [TerraformProperty("app_profile_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AppProfileId { get; set; }
+    public required partial TerraformValue<string> AppProfileId { get; set; }
 
     /// <summary>
     /// Long form description of the use case for this app profile.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// If true, ignore safety checks when deleting/updating the app profile.
     /// </summary>
     [TerraformProperty("ignore_warnings")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IgnoreWarnings { get; set; }
+    public partial TerraformValue<bool>? IgnoreWarnings { get; set; }
 
     /// <summary>
     /// The name of the instance to create the app profile within.
     /// </summary>
     [TerraformProperty("instance")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Instance { get; set; }
+    public partial TerraformValue<string>? Instance { get; set; }
 
     /// <summary>
     /// The set of clusters to route to. The order is ignored; clusters will be tried in order of distance. If left empty, all clusters are eligible.
     /// </summary>
     [TerraformProperty("multi_cluster_routing_cluster_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? MultiClusterRoutingClusterIds { get; set; }
+    public partial TerraformList<string>? MultiClusterRoutingClusterIds { get; set; }
 
     /// <summary>
     /// If true, read/write requests are routed to the nearest cluster in the instance, and will fail over to the nearest cluster that is available
@@ -147,21 +147,21 @@ public partial class GoogleBigtableAppProfile : TerraformResource
     /// </summary>
     [TerraformProperty("multi_cluster_routing_use_any")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? MultiClusterRoutingUseAny { get; set; }
+    public partial TerraformValue<bool>? MultiClusterRoutingUseAny { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Must be used with multi-cluster routing. If true, then this app profile will use row affinity sticky routing. With row affinity, Bigtable will route single row key requests based on the row key, rather than randomly. Instead, each row key will be assigned to a cluster by Cloud Bigtable, and will stick to that cluster. Choosing this option improves read-your-writes consistency for most requests under most circumstances, without sacrificing availability. Consistency is not guaranteed, as requests may still fail over between clusters in the event of errors or latency.
     /// </summary>
     [TerraformProperty("row_affinity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RowAffinity { get; set; }
+    public partial TerraformValue<bool>? RowAffinity { get; set; }
 
     /// <summary>
     /// Block for data_boost_isolation_read_only.
@@ -169,7 +169,7 @@ public partial class GoogleBigtableAppProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataBoostIsolationReadOnly block(s) allowed")]
     [TerraformProperty("data_boost_isolation_read_only")]
-    public TerraformList<TerraformBlock<GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock>>? DataBoostIsolationReadOnly { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock>>? DataBoostIsolationReadOnly { get; set; }
 
     /// <summary>
     /// Block for single_cluster_routing.
@@ -177,7 +177,7 @@ public partial class GoogleBigtableAppProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SingleClusterRouting block(s) allowed")]
     [TerraformProperty("single_cluster_routing")]
-    public TerraformList<TerraformBlock<GoogleBigtableAppProfileSingleClusterRoutingBlock>>? SingleClusterRouting { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigtableAppProfileSingleClusterRoutingBlock>>? SingleClusterRouting { get; set; }
 
     /// <summary>
     /// Block for standard_isolation.
@@ -185,20 +185,20 @@ public partial class GoogleBigtableAppProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StandardIsolation block(s) allowed")]
     [TerraformProperty("standard_isolation")]
-    public TerraformList<TerraformBlock<GoogleBigtableAppProfileStandardIsolationBlock>>? StandardIsolation { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigtableAppProfileStandardIsolationBlock>>? StandardIsolation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBigtableAppProfileTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBigtableAppProfileTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique name of the requested app profile. Values are of the form &#39;projects/&amp;lt;project&amp;gt;/instances/&amp;lt;instance&amp;gt;/appProfiles/&amp;lt;appProfileId&amp;gt;&#39;.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

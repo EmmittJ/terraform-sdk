@@ -13,28 +13,28 @@ public partial class AzurermMapsCreatorTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermMapsCreator : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -61,7 +61,7 @@ public partial class AzurermMapsCreator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The maps_account_id attribute.
@@ -69,7 +69,7 @@ public partial class AzurermMapsCreator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapsAccountId is required")]
     [TerraformProperty("maps_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MapsAccountId { get; set; }
+    public required partial TerraformValue<string> MapsAccountId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -77,7 +77,7 @@ public partial class AzurermMapsCreator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The storage_units attribute.
@@ -85,20 +85,20 @@ public partial class AzurermMapsCreator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageUnits is required")]
     [TerraformProperty("storage_units")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> StorageUnits { get; set; }
+    public required partial TerraformValue<double> StorageUnits { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMapsCreatorTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMapsCreatorTimeoutsBlock>? Timeouts { get; set; }
 
 }

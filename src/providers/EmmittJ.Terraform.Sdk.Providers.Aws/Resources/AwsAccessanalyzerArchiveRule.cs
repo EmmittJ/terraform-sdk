@@ -13,7 +13,7 @@ public partial class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("contains")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> Contains { get; set; }
+    public partial TerraformList<string> Contains { get; set; }
 
     /// <summary>
     /// The criteria attribute.
@@ -21,28 +21,28 @@ public partial class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
     [TerraformProperty("criteria")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Criteria { get; set; }
+    public required partial TerraformValue<string> Criteria { get; set; }
 
     /// <summary>
     /// The eq attribute.
     /// </summary>
     [TerraformProperty("eq")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> Eq { get; set; }
+    public partial TerraformList<string> Eq { get; set; }
 
     /// <summary>
     /// The exists attribute.
     /// </summary>
     [TerraformProperty("exists")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Exists { get; set; }
+    public partial TerraformValue<string> Exists { get; set; }
 
     /// <summary>
     /// The neq attribute.
     /// </summary>
     [TerraformProperty("neq")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> Neq { get; set; }
+    public partial TerraformList<string> Neq { get; set; }
 
 }
 
@@ -62,21 +62,21 @@ public partial class AwsAccessanalyzerArchiveRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AnalyzerName is required")]
     [TerraformProperty("analyzer_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AnalyzerName { get; set; }
+    public required partial TerraformValue<string> AnalyzerName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The rule_name attribute.
@@ -84,7 +84,7 @@ public partial class AwsAccessanalyzerArchiveRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     [TerraformProperty("rule_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RuleName { get; set; }
+    public required partial TerraformValue<string> RuleName { get; set; }
 
     /// <summary>
     /// Block for filter.
@@ -93,6 +93,6 @@ public partial class AwsAccessanalyzerArchiveRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
     [TerraformProperty("filter")]
-    public TerraformSet<TerraformBlock<AwsAccessanalyzerArchiveRuleFilterBlock>>? Filter { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsAccessanalyzerArchiveRuleFilterBlock>>? Filter { get; set; }
 
 }

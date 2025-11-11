@@ -25,41 +25,41 @@ public partial class AwsVerifiedpermissionsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyStoreId is required")]
     [TerraformProperty("policy_store_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyStoreId { get; set; }
+    public required partial TerraformValue<string> PolicyStoreId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for definition.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("definition")]
-    public TerraformList<TerraformBlock<AwsVerifiedpermissionsPolicyDefinitionBlock>>? Definition { get; set; }
+    public partial TerraformList<TerraformBlock<AwsVerifiedpermissionsPolicyDefinitionBlock>>? Definition { get; set; }
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     [TerraformProperty("created_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedDate { get; }
+    public partial TerraformValue<string> CreatedDate { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
     [TerraformProperty("policy_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PolicyId { get; }
+    public partial TerraformValue<string> PolicyId { get; }
 
 }

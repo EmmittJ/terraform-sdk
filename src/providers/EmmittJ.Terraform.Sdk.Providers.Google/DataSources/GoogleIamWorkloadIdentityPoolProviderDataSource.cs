@@ -16,14 +16,14 @@ public partial class GoogleIamWorkloadIdentityPoolProviderDataSource : Terraform
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The ID used for the pool, which is the final component of the pool resource name. This
@@ -33,7 +33,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderDataSource : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolId is required")]
     [TerraformProperty("workload_identity_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkloadIdentityPoolId { get; set; }
+    public required partial TerraformValue<string> WorkloadIdentityPoolId { get; set; }
 
     /// <summary>
     /// The ID for the provider, which becomes the final component of the resource name. This
@@ -43,7 +43,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderDataSource : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolProviderId is required")]
     [TerraformProperty("workload_identity_pool_provider_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkloadIdentityPoolProviderId { get; set; }
+    public required partial TerraformValue<string> WorkloadIdentityPoolProviderId { get; set; }
 
     /// <summary>
     /// [A Common Expression Language](https://opensource.google/projects/cel) expression, in
@@ -68,7 +68,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderDataSource : Terraform
     /// </summary>
     [TerraformProperty("attribute_condition")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AttributeCondition { get; }
+    public partial TerraformValue<string> AttributeCondition { get; }
 
     /// <summary>
     /// Maps attributes from authentication credentials issued by an external identity provider
@@ -134,21 +134,21 @@ public partial class GoogleIamWorkloadIdentityPoolProviderDataSource : Terraform
     /// </summary>
     [TerraformProperty("attribute_mapping")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> AttributeMapping { get; }
+    public partial TerraformMap<string> AttributeMapping { get; }
 
     /// <summary>
     /// An Amazon Web Services identity provider. Not compatible with the property oidc or saml.
     /// </summary>
     [TerraformProperty("aws")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Aws { get; }
+    public partial TerraformList<object> Aws { get; }
 
     /// <summary>
     /// A description for the provider. Cannot exceed 256 characters.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// Whether the provider is disabled. You cannot use a disabled provider to exchange tokens.
@@ -156,14 +156,14 @@ public partial class GoogleIamWorkloadIdentityPoolProviderDataSource : Terraform
     /// </summary>
     [TerraformProperty("disabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Disabled { get; }
+    public partial TerraformValue<bool> Disabled { get; }
 
     /// <summary>
     /// A display name for the provider. Cannot exceed 32 characters.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The resource name of the provider as
@@ -171,21 +171,21 @@ public partial class GoogleIamWorkloadIdentityPoolProviderDataSource : Terraform
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// An OpenId Connect 1.0 identity provider. Not compatible with the property aws or saml.
     /// </summary>
     [TerraformProperty("oidc")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Oidc { get; }
+    public partial TerraformList<object> Oidc { get; }
 
     /// <summary>
     /// An SAML 2.0 identity provider. Not compatible with the property oidc or aws.
     /// </summary>
     [TerraformProperty("saml")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Saml { get; }
+    public partial TerraformList<object> Saml { get; }
 
     /// <summary>
     /// The state of the provider.
@@ -198,7 +198,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderDataSource : Terraform
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// An X.509-type identity provider represents a CA. It is trusted to assert a
@@ -206,6 +206,6 @@ public partial class GoogleIamWorkloadIdentityPoolProviderDataSource : Terraform
     /// </summary>
     [TerraformProperty("x509")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> X509 { get; }
+    public partial TerraformList<object> X509 { get; }
 
 }

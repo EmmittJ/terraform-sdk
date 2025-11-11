@@ -14,14 +14,14 @@ public partial class AzurermAppConfigurationFeatureTargetingFilterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRolloutPercentage is required")]
     [TerraformProperty("default_rollout_percentage")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> DefaultRolloutPercentage { get; set; }
+    public required partial TerraformValue<double> DefaultRolloutPercentage { get; set; }
 
     /// <summary>
     /// The users attribute.
     /// </summary>
     [TerraformProperty("users")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Users { get; set; }
+    public partial TerraformList<string>? Users { get; set; }
 
 }
 
@@ -36,28 +36,28 @@ public partial class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -72,14 +72,14 @@ public partial class AzurermAppConfigurationFeatureTimewindowFilterBlock : Terra
     /// </summary>
     [TerraformProperty("end")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? End { get; set; }
+    public partial TerraformValue<string>? End { get; set; }
 
     /// <summary>
     /// The start attribute.
     /// </summary>
     [TerraformProperty("start")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Start { get; set; }
+    public partial TerraformValue<string>? Start { get; set; }
 
 }
 
@@ -98,56 +98,56 @@ public partial class AzurermAppConfigurationFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
     [TerraformProperty("configuration_store_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConfigurationStoreId { get; set; }
+    public required partial TerraformValue<string> ConfigurationStoreId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Etag { get; set; }
+    public partial TerraformValue<string> Etag { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     [TerraformProperty("key")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Key { get; set; }
+    public partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
     [TerraformProperty("label")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Label { get; set; }
+    public partial TerraformValue<string>? Label { get; set; }
 
     /// <summary>
     /// The locked attribute.
     /// </summary>
     [TerraformProperty("locked")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Locked { get; set; }
+    public partial TerraformValue<bool>? Locked { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -155,41 +155,41 @@ public partial class AzurermAppConfigurationFeature : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The percentage_filter_value attribute.
     /// </summary>
     [TerraformProperty("percentage_filter_value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? PercentageFilterValue { get; set; }
+    public partial TerraformValue<double>? PercentageFilterValue { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for targeting_filter.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("targeting_filter")]
-    public TerraformList<TerraformBlock<AzurermAppConfigurationFeatureTargetingFilterBlock>>? TargetingFilter { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermAppConfigurationFeatureTargetingFilterBlock>>? TargetingFilter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAppConfigurationFeatureTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAppConfigurationFeatureTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for timewindow_filter.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("timewindow_filter")]
-    public TerraformList<TerraformBlock<AzurermAppConfigurationFeatureTimewindowFilterBlock>>? TimewindowFilter { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermAppConfigurationFeatureTimewindowFilterBlock>>? TimewindowFilter { get; set; }
 
 }

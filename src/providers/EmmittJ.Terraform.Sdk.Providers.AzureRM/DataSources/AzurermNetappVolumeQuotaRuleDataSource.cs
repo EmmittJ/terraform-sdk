@@ -13,7 +13,7 @@ public partial class AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSourc
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The volume_id attribute.
@@ -47,41 +47,41 @@ public partial class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     [TerraformProperty("volume_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VolumeId { get; set; }
+    public required partial TerraformValue<string> VolumeId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The quota_size_in_kib attribute.
     /// </summary>
     [TerraformProperty("quota_size_in_kib")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> QuotaSizeInKib { get; }
+    public partial TerraformValue<double> QuotaSizeInKib { get; }
 
     /// <summary>
     /// The quota_target attribute.
     /// </summary>
     [TerraformProperty("quota_target")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> QuotaTarget { get; }
+    public partial TerraformValue<string> QuotaTarget { get; }
 
     /// <summary>
     /// The quota_type attribute.
     /// </summary>
     [TerraformProperty("quota_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> QuotaType { get; }
+    public partial TerraformValue<string> QuotaType { get; }
 
 }

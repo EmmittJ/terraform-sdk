@@ -16,7 +16,7 @@ public partial class GoogleComputeInstanceSerialPortDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance attribute.
@@ -24,7 +24,7 @@ public partial class GoogleComputeInstanceSerialPortDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The port attribute.
@@ -32,27 +32,27 @@ public partial class GoogleComputeInstanceSerialPortDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     [TerraformProperty("port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Port { get; set; }
+    public required partial TerraformValue<double> Port { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
     [TerraformProperty("zone")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Zone { get; set; }
+    public partial TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// The contents attribute.
     /// </summary>
     [TerraformProperty("contents")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Contents { get; }
+    public partial TerraformValue<string> Contents { get; }
 
 }

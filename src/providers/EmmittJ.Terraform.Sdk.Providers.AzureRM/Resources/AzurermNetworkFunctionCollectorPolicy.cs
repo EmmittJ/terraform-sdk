@@ -14,7 +14,7 @@ public partial class AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationTypes is required")]
     [TerraformProperty("destination_types")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? DestinationTypes { get; set; }
+    public partial TerraformList<string>? DestinationTypes { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public partial class AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceIds is required")]
     [TerraformProperty("source_resource_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> SourceResourceIds { get; set; }
+    public required partial TerraformSet<string> SourceResourceIds { get; set; }
 
 }
 
@@ -45,28 +45,28 @@ public partial class AzurermNetworkFunctionCollectorPolicyTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -85,7 +85,7 @@ public partial class AzurermNetworkFunctionCollectorPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -93,7 +93,7 @@ public partial class AzurermNetworkFunctionCollectorPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -101,14 +101,14 @@ public partial class AzurermNetworkFunctionCollectorPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The traffic_collector_id attribute.
@@ -116,7 +116,7 @@ public partial class AzurermNetworkFunctionCollectorPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficCollectorId is required")]
     [TerraformProperty("traffic_collector_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TrafficCollectorId { get; set; }
+    public required partial TerraformValue<string> TrafficCollectorId { get; set; }
 
     /// <summary>
     /// Block for ipfx_emission.
@@ -126,7 +126,7 @@ public partial class AzurermNetworkFunctionCollectorPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpfxEmission block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpfxEmission block(s) allowed")]
     [TerraformProperty("ipfx_emission")]
-    public TerraformList<TerraformBlock<AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock>>? IpfxEmission { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock>>? IpfxEmission { get; set; }
 
     /// <summary>
     /// Block for ipfx_ingestion.
@@ -136,13 +136,13 @@ public partial class AzurermNetworkFunctionCollectorPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpfxIngestion block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpfxIngestion block(s) allowed")]
     [TerraformProperty("ipfx_ingestion")]
-    public TerraformList<TerraformBlock<AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock>>? IpfxIngestion { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock>>? IpfxIngestion { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetworkFunctionCollectorPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetworkFunctionCollectorPolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

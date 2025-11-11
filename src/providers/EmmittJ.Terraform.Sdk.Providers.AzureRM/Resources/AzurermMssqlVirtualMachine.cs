@@ -13,14 +13,14 @@ public partial class AzurermMssqlVirtualMachineAssessmentBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The run_immediately attribute.
     /// </summary>
     [TerraformProperty("run_immediately")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RunImmediately { get; set; }
+    public partial TerraformValue<bool>? RunImmediately { get; set; }
 
 }
 
@@ -36,14 +36,14 @@ public partial class AzurermMssqlVirtualMachineAutoBackupBlock : TerraformBlockB
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("encryption_enabled")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> EncryptionEnabled { get; set; }
+    public partial TerraformValue<bool> EncryptionEnabled { get; set; }
 
     /// <summary>
     /// The encryption_password attribute.
     /// </summary>
     [TerraformProperty("encryption_password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EncryptionPassword { get; set; }
+    public partial TerraformValue<string>? EncryptionPassword { get; set; }
 
     /// <summary>
     /// The retention_period_in_days attribute.
@@ -51,7 +51,7 @@ public partial class AzurermMssqlVirtualMachineAutoBackupBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodInDays is required")]
     [TerraformProperty("retention_period_in_days")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> RetentionPeriodInDays { get; set; }
+    public required partial TerraformValue<double> RetentionPeriodInDays { get; set; }
 
     /// <summary>
     /// The storage_account_access_key attribute.
@@ -59,7 +59,7 @@ public partial class AzurermMssqlVirtualMachineAutoBackupBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountAccessKey is required")]
     [TerraformProperty("storage_account_access_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountAccessKey { get; set; }
+    public required partial TerraformValue<string> StorageAccountAccessKey { get; set; }
 
     /// <summary>
     /// The storage_blob_endpoint attribute.
@@ -67,14 +67,14 @@ public partial class AzurermMssqlVirtualMachineAutoBackupBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageBlobEndpoint is required")]
     [TerraformProperty("storage_blob_endpoint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageBlobEndpoint { get; set; }
+    public required partial TerraformValue<string> StorageBlobEndpoint { get; set; }
 
     /// <summary>
     /// The system_databases_backup_enabled attribute.
     /// </summary>
     [TerraformProperty("system_databases_backup_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SystemDatabasesBackupEnabled { get; set; }
+    public partial TerraformValue<bool>? SystemDatabasesBackupEnabled { get; set; }
 
 }
 
@@ -90,7 +90,7 @@ public partial class AzurermMssqlVirtualMachineAutoPatchingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     [TerraformProperty("day_of_week")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DayOfWeek { get; set; }
+    public required partial TerraformValue<string> DayOfWeek { get; set; }
 
     /// <summary>
     /// The maintenance_window_duration_in_minutes attribute.
@@ -98,7 +98,7 @@ public partial class AzurermMssqlVirtualMachineAutoPatchingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceWindowDurationInMinutes is required")]
     [TerraformProperty("maintenance_window_duration_in_minutes")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MaintenanceWindowDurationInMinutes { get; set; }
+    public required partial TerraformValue<double> MaintenanceWindowDurationInMinutes { get; set; }
 
     /// <summary>
     /// The maintenance_window_starting_hour attribute.
@@ -106,7 +106,7 @@ public partial class AzurermMssqlVirtualMachineAutoPatchingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceWindowStartingHour is required")]
     [TerraformProperty("maintenance_window_starting_hour")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MaintenanceWindowStartingHour { get; set; }
+    public required partial TerraformValue<double> MaintenanceWindowStartingHour { get; set; }
 
 }
 
@@ -122,7 +122,7 @@ public partial class AzurermMssqlVirtualMachineKeyVaultCredentialBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultUrl is required")]
     [TerraformProperty("key_vault_url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultUrl { get; set; }
+    public required partial TerraformValue<string> KeyVaultUrl { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -130,7 +130,7 @@ public partial class AzurermMssqlVirtualMachineKeyVaultCredentialBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The service_principal_name attribute.
@@ -138,7 +138,7 @@ public partial class AzurermMssqlVirtualMachineKeyVaultCredentialBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalName is required")]
     [TerraformProperty("service_principal_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServicePrincipalName { get; set; }
+    public required partial TerraformValue<string> ServicePrincipalName { get; set; }
 
     /// <summary>
     /// The service_principal_secret attribute.
@@ -146,7 +146,7 @@ public partial class AzurermMssqlVirtualMachineKeyVaultCredentialBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalSecret is required")]
     [TerraformProperty("service_principal_secret")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServicePrincipalSecret { get; set; }
+    public required partial TerraformValue<string> ServicePrincipalSecret { get; set; }
 
 }
 
@@ -161,49 +161,49 @@ public partial class AzurermMssqlVirtualMachineSqlInstanceBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("adhoc_workloads_optimization_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AdhocWorkloadsOptimizationEnabled { get; set; }
+    public partial TerraformValue<bool>? AdhocWorkloadsOptimizationEnabled { get; set; }
 
     /// <summary>
     /// The collation attribute.
     /// </summary>
     [TerraformProperty("collation")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Collation { get; set; }
+    public partial TerraformValue<string>? Collation { get; set; }
 
     /// <summary>
     /// The instant_file_initialization_enabled attribute.
     /// </summary>
     [TerraformProperty("instant_file_initialization_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? InstantFileInitializationEnabled { get; set; }
+    public partial TerraformValue<bool>? InstantFileInitializationEnabled { get; set; }
 
     /// <summary>
     /// The lock_pages_in_memory_enabled attribute.
     /// </summary>
     [TerraformProperty("lock_pages_in_memory_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LockPagesInMemoryEnabled { get; set; }
+    public partial TerraformValue<bool>? LockPagesInMemoryEnabled { get; set; }
 
     /// <summary>
     /// The max_dop attribute.
     /// </summary>
     [TerraformProperty("max_dop")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxDop { get; set; }
+    public partial TerraformValue<double>? MaxDop { get; set; }
 
     /// <summary>
     /// The max_server_memory_mb attribute.
     /// </summary>
     [TerraformProperty("max_server_memory_mb")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxServerMemoryMb { get; set; }
+    public partial TerraformValue<double>? MaxServerMemoryMb { get; set; }
 
     /// <summary>
     /// The min_server_memory_mb attribute.
     /// </summary>
     [TerraformProperty("min_server_memory_mb")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinServerMemoryMb { get; set; }
+    public partial TerraformValue<double>? MinServerMemoryMb { get; set; }
 
 }
 
@@ -219,7 +219,7 @@ public partial class AzurermMssqlVirtualMachineStorageConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskType is required")]
     [TerraformProperty("disk_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DiskType { get; set; }
+    public required partial TerraformValue<string> DiskType { get; set; }
 
     /// <summary>
     /// The storage_workload_type attribute.
@@ -227,14 +227,14 @@ public partial class AzurermMssqlVirtualMachineStorageConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageWorkloadType is required")]
     [TerraformProperty("storage_workload_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageWorkloadType { get; set; }
+    public required partial TerraformValue<string> StorageWorkloadType { get; set; }
 
     /// <summary>
     /// The system_db_on_data_disk_enabled attribute.
     /// </summary>
     [TerraformProperty("system_db_on_data_disk_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SystemDbOnDataDiskEnabled { get; set; }
+    public partial TerraformValue<bool>? SystemDbOnDataDiskEnabled { get; set; }
 
 }
 
@@ -249,28 +249,28 @@ public partial class AzurermMssqlVirtualMachineTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -286,7 +286,7 @@ public partial class AzurermMssqlVirtualMachineWsfcDomainCredentialBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterBootstrapAccountPassword is required")]
     [TerraformProperty("cluster_bootstrap_account_password")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterBootstrapAccountPassword { get; set; }
+    public required partial TerraformValue<string> ClusterBootstrapAccountPassword { get; set; }
 
     /// <summary>
     /// The cluster_operator_account_password attribute.
@@ -294,7 +294,7 @@ public partial class AzurermMssqlVirtualMachineWsfcDomainCredentialBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterOperatorAccountPassword is required")]
     [TerraformProperty("cluster_operator_account_password")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterOperatorAccountPassword { get; set; }
+    public required partial TerraformValue<string> ClusterOperatorAccountPassword { get; set; }
 
     /// <summary>
     /// The sql_service_account_password attribute.
@@ -302,7 +302,7 @@ public partial class AzurermMssqlVirtualMachineWsfcDomainCredentialBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlServiceAccountPassword is required")]
     [TerraformProperty("sql_service_account_password")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SqlServiceAccountPassword { get; set; }
+    public required partial TerraformValue<string> SqlServiceAccountPassword { get; set; }
 
 }
 
@@ -321,63 +321,63 @@ public partial class AzurermMssqlVirtualMachine : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The r_services_enabled attribute.
     /// </summary>
     [TerraformProperty("r_services_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RServicesEnabled { get; set; }
+    public partial TerraformValue<bool>? RServicesEnabled { get; set; }
 
     /// <summary>
     /// The sql_connectivity_port attribute.
     /// </summary>
     [TerraformProperty("sql_connectivity_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SqlConnectivityPort { get; set; }
+    public partial TerraformValue<double>? SqlConnectivityPort { get; set; }
 
     /// <summary>
     /// The sql_connectivity_type attribute.
     /// </summary>
     [TerraformProperty("sql_connectivity_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SqlConnectivityType { get; set; }
+    public partial TerraformValue<string>? SqlConnectivityType { get; set; }
 
     /// <summary>
     /// The sql_connectivity_update_password attribute.
     /// </summary>
     [TerraformProperty("sql_connectivity_update_password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SqlConnectivityUpdatePassword { get; set; }
+    public partial TerraformValue<string>? SqlConnectivityUpdatePassword { get; set; }
 
     /// <summary>
     /// The sql_connectivity_update_username attribute.
     /// </summary>
     [TerraformProperty("sql_connectivity_update_username")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SqlConnectivityUpdateUsername { get; set; }
+    public partial TerraformValue<string>? SqlConnectivityUpdateUsername { get; set; }
 
     /// <summary>
     /// The sql_license_type attribute.
     /// </summary>
     [TerraformProperty("sql_license_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SqlLicenseType { get; set; }
+    public partial TerraformValue<string>? SqlLicenseType { get; set; }
 
     /// <summary>
     /// The sql_virtual_machine_group_id attribute.
     /// </summary>
     [TerraformProperty("sql_virtual_machine_group_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SqlVirtualMachineGroupId { get; set; }
+    public partial TerraformValue<string>? SqlVirtualMachineGroupId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The virtual_machine_id attribute.
@@ -385,7 +385,7 @@ public partial class AzurermMssqlVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     [TerraformProperty("virtual_machine_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualMachineId { get; set; }
+    public required partial TerraformValue<string> VirtualMachineId { get; set; }
 
     /// <summary>
     /// Block for assessment.
@@ -393,7 +393,7 @@ public partial class AzurermMssqlVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Assessment block(s) allowed")]
     [TerraformProperty("assessment")]
-    public TerraformList<TerraformBlock<AzurermMssqlVirtualMachineAssessmentBlock>>? Assessment { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineAssessmentBlock>>? Assessment { get; set; }
 
     /// <summary>
     /// Block for auto_backup.
@@ -401,7 +401,7 @@ public partial class AzurermMssqlVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoBackup block(s) allowed")]
     [TerraformProperty("auto_backup")]
-    public TerraformList<TerraformBlock<AzurermMssqlVirtualMachineAutoBackupBlock>>? AutoBackup { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineAutoBackupBlock>>? AutoBackup { get; set; }
 
     /// <summary>
     /// Block for auto_patching.
@@ -409,7 +409,7 @@ public partial class AzurermMssqlVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoPatching block(s) allowed")]
     [TerraformProperty("auto_patching")]
-    public TerraformList<TerraformBlock<AzurermMssqlVirtualMachineAutoPatchingBlock>>? AutoPatching { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineAutoPatchingBlock>>? AutoPatching { get; set; }
 
     /// <summary>
     /// Block for key_vault_credential.
@@ -417,7 +417,7 @@ public partial class AzurermMssqlVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultCredential block(s) allowed")]
     [TerraformProperty("key_vault_credential")]
-    public TerraformList<TerraformBlock<AzurermMssqlVirtualMachineKeyVaultCredentialBlock>>? KeyVaultCredential { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineKeyVaultCredentialBlock>>? KeyVaultCredential { get; set; }
 
     /// <summary>
     /// Block for sql_instance.
@@ -425,7 +425,7 @@ public partial class AzurermMssqlVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SqlInstance block(s) allowed")]
     [TerraformProperty("sql_instance")]
-    public TerraformList<TerraformBlock<AzurermMssqlVirtualMachineSqlInstanceBlock>>? SqlInstance { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineSqlInstanceBlock>>? SqlInstance { get; set; }
 
     /// <summary>
     /// Block for storage_configuration.
@@ -433,14 +433,14 @@ public partial class AzurermMssqlVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageConfiguration block(s) allowed")]
     [TerraformProperty("storage_configuration")]
-    public TerraformList<TerraformBlock<AzurermMssqlVirtualMachineStorageConfigurationBlock>>? StorageConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineStorageConfigurationBlock>>? StorageConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMssqlVirtualMachineTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMssqlVirtualMachineTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for wsfc_domain_credential.
@@ -448,6 +448,6 @@ public partial class AzurermMssqlVirtualMachine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WsfcDomainCredential block(s) allowed")]
     [TerraformProperty("wsfc_domain_credential")]
-    public TerraformList<TerraformBlock<AzurermMssqlVirtualMachineWsfcDomainCredentialBlock>>? WsfcDomainCredential { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineWsfcDomainCredentialBlock>>? WsfcDomainCredential { get; set; }
 
 }

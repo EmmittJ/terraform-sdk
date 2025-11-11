@@ -18,35 +18,35 @@ public partial class GooglePrivilegedAccessManagerEntitlementDataSource : Terraf
     /// </summary>
     [TerraformProperty("entitlement_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EntitlementId { get; set; }
+    public partial TerraformValue<string>? EntitlementId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The region of the Entitlement resource.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Format: projects/{project-id|project-number} or organizations/{organization-number} or folders/{folder-number}
     /// </summary>
     [TerraformProperty("parent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Parent { get; set; }
+    public partial TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// AdditionalNotificationTargets includes email addresses to be notified.
     /// </summary>
     [TerraformProperty("additional_notification_targets")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> AdditionalNotificationTargets { get; }
+    public partial TerraformList<object> AdditionalNotificationTargets { get; }
 
     /// <summary>
     /// The approvals needed before access will be granted to a requester.
@@ -54,7 +54,7 @@ public partial class GooglePrivilegedAccessManagerEntitlementDataSource : Terraf
     /// </summary>
     [TerraformProperty("approval_workflow")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ApprovalWorkflow { get; }
+    public partial TerraformList<object> ApprovalWorkflow { get; }
 
     /// <summary>
     /// Output only. Create time stamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
@@ -62,21 +62,21 @@ public partial class GooglePrivilegedAccessManagerEntitlementDataSource : Terraf
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Who can create Grants using Entitlement. This list should contain at most one entry
     /// </summary>
     [TerraformProperty("eligible_users")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> EligibleUsers { get; }
+    public partial TerraformList<object> EligibleUsers { get; }
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The maximum amount of time for which access would be granted for a request.
@@ -85,7 +85,7 @@ public partial class GooglePrivilegedAccessManagerEntitlementDataSource : Terraf
     /// </summary>
     [TerraformProperty("max_request_duration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MaxRequestDuration { get; }
+    public partial TerraformValue<string> MaxRequestDuration { get; }
 
     /// <summary>
     /// Output Only. The entitlement&#39;s name follows a hierarchical structure, comprising the organization, folder, or project, alongside the region and a unique entitlement ID.
@@ -93,28 +93,28 @@ public partial class GooglePrivilegedAccessManagerEntitlementDataSource : Terraf
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Privileged access that this service can be used to gate.
     /// </summary>
     [TerraformProperty("privileged_access")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PrivilegedAccess { get; }
+    public partial TerraformList<object> PrivilegedAccess { get; }
 
     /// <summary>
     /// Defines the ways in which a requester should provide the justification while requesting for access.
     /// </summary>
     [TerraformProperty("requester_justification_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> RequesterJustificationConfig { get; }
+    public partial TerraformList<object> RequesterJustificationConfig { get; }
 
     /// <summary>
     /// Output only. The current state of the Entitlement.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Output only. Update time stamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
@@ -122,6 +122,6 @@ public partial class GooglePrivilegedAccessManagerEntitlementDataSource : Terraf
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

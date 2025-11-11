@@ -14,7 +14,7 @@ public partial class AzurermOrbitalSpacecraftLinksBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BandwidthMhz is required")]
     [TerraformProperty("bandwidth_mhz")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> BandwidthMhz { get; set; }
+    public required partial TerraformValue<double> BandwidthMhz { get; set; }
 
     /// <summary>
     /// The center_frequency_mhz attribute.
@@ -22,7 +22,7 @@ public partial class AzurermOrbitalSpacecraftLinksBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CenterFrequencyMhz is required")]
     [TerraformProperty("center_frequency_mhz")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> CenterFrequencyMhz { get; set; }
+    public required partial TerraformValue<double> CenterFrequencyMhz { get; set; }
 
     /// <summary>
     /// The direction attribute.
@@ -30,7 +30,7 @@ public partial class AzurermOrbitalSpacecraftLinksBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     [TerraformProperty("direction")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Direction { get; set; }
+    public required partial TerraformValue<string> Direction { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -38,7 +38,7 @@ public partial class AzurermOrbitalSpacecraftLinksBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The polarization attribute.
@@ -46,7 +46,7 @@ public partial class AzurermOrbitalSpacecraftLinksBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Polarization is required")]
     [TerraformProperty("polarization")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Polarization { get; set; }
+    public required partial TerraformValue<string> Polarization { get; set; }
 
 }
 
@@ -61,28 +61,28 @@ public partial class AzurermOrbitalSpacecraftTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -102,7 +102,7 @@ public partial class AzurermOrbitalSpacecraft : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -110,7 +110,7 @@ public partial class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -118,7 +118,7 @@ public partial class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The norad_id attribute.
@@ -126,7 +126,7 @@ public partial class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoradId is required")]
     [TerraformProperty("norad_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NoradId { get; set; }
+    public required partial TerraformValue<string> NoradId { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -134,14 +134,14 @@ public partial class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The title_line attribute.
@@ -149,7 +149,7 @@ public partial class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TitleLine is required")]
     [TerraformProperty("title_line")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TitleLine { get; set; }
+    public required partial TerraformValue<string> TitleLine { get; set; }
 
     /// <summary>
     /// The two_line_elements attribute.
@@ -157,7 +157,7 @@ public partial class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TwoLineElements is required")]
     [TerraformProperty("two_line_elements")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? TwoLineElements { get; set; }
+    public partial TerraformList<string>? TwoLineElements { get; set; }
 
     /// <summary>
     /// Block for links.
@@ -166,13 +166,13 @@ public partial class AzurermOrbitalSpacecraft : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Links is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Links block(s) required")]
     [TerraformProperty("links")]
-    public TerraformList<TerraformBlock<AzurermOrbitalSpacecraftLinksBlock>>? Links { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermOrbitalSpacecraftLinksBlock>>? Links { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermOrbitalSpacecraftTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermOrbitalSpacecraftTimeoutsBlock>? Timeouts { get; set; }
 
 }

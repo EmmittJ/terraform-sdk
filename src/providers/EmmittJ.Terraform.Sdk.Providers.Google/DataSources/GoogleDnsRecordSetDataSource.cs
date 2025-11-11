@@ -16,7 +16,7 @@ public partial class GoogleDnsRecordSetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The managed_zone attribute.
@@ -24,7 +24,7 @@ public partial class GoogleDnsRecordSetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedZone is required")]
     [TerraformProperty("managed_zone")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ManagedZone { get; set; }
+    public required partial TerraformValue<string> ManagedZone { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -32,14 +32,14 @@ public partial class GoogleDnsRecordSetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -47,20 +47,20 @@ public partial class GoogleDnsRecordSetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The rrdatas attribute.
     /// </summary>
     [TerraformProperty("rrdatas")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Rrdatas { get; }
+    public partial TerraformList<string> Rrdatas { get; }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
     [TerraformProperty("ttl")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> Ttl { get; }
+    public partial TerraformValue<double> Ttl { get; }
 
 }

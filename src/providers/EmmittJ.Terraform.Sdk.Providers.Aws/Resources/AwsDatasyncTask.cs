@@ -13,14 +13,14 @@ public partial class AwsDatasyncTaskExcludesBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("filter_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FilterType { get; set; }
+    public partial TerraformValue<string>? FilterType { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Value { get; set; }
+    public partial TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -35,14 +35,14 @@ public partial class AwsDatasyncTaskIncludesBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("filter_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FilterType { get; set; }
+    public partial TerraformValue<string>? FilterType { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Value { get; set; }
+    public partial TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -57,105 +57,105 @@ public partial class AwsDatasyncTaskOptionsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("atime")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Atime { get; set; }
+    public partial TerraformValue<string>? Atime { get; set; }
 
     /// <summary>
     /// The bytes_per_second attribute.
     /// </summary>
     [TerraformProperty("bytes_per_second")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BytesPerSecond { get; set; }
+    public partial TerraformValue<double>? BytesPerSecond { get; set; }
 
     /// <summary>
     /// The gid attribute.
     /// </summary>
     [TerraformProperty("gid")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Gid { get; set; }
+    public partial TerraformValue<string>? Gid { get; set; }
 
     /// <summary>
     /// The log_level attribute.
     /// </summary>
     [TerraformProperty("log_level")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LogLevel { get; set; }
+    public partial TerraformValue<string>? LogLevel { get; set; }
 
     /// <summary>
     /// The mtime attribute.
     /// </summary>
     [TerraformProperty("mtime")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Mtime { get; set; }
+    public partial TerraformValue<string>? Mtime { get; set; }
 
     /// <summary>
     /// The object_tags attribute.
     /// </summary>
     [TerraformProperty("object_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ObjectTags { get; set; }
+    public partial TerraformValue<string>? ObjectTags { get; set; }
 
     /// <summary>
     /// The overwrite_mode attribute.
     /// </summary>
     [TerraformProperty("overwrite_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OverwriteMode { get; set; }
+    public partial TerraformValue<string>? OverwriteMode { get; set; }
 
     /// <summary>
     /// The posix_permissions attribute.
     /// </summary>
     [TerraformProperty("posix_permissions")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PosixPermissions { get; set; }
+    public partial TerraformValue<string>? PosixPermissions { get; set; }
 
     /// <summary>
     /// The preserve_deleted_files attribute.
     /// </summary>
     [TerraformProperty("preserve_deleted_files")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PreserveDeletedFiles { get; set; }
+    public partial TerraformValue<string>? PreserveDeletedFiles { get; set; }
 
     /// <summary>
     /// The preserve_devices attribute.
     /// </summary>
     [TerraformProperty("preserve_devices")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PreserveDevices { get; set; }
+    public partial TerraformValue<string>? PreserveDevices { get; set; }
 
     /// <summary>
     /// The security_descriptor_copy_flags attribute.
     /// </summary>
     [TerraformProperty("security_descriptor_copy_flags")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SecurityDescriptorCopyFlags { get; set; }
+    public partial TerraformValue<string> SecurityDescriptorCopyFlags { get; set; }
 
     /// <summary>
     /// The task_queueing attribute.
     /// </summary>
     [TerraformProperty("task_queueing")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TaskQueueing { get; set; }
+    public partial TerraformValue<string>? TaskQueueing { get; set; }
 
     /// <summary>
     /// The transfer_mode attribute.
     /// </summary>
     [TerraformProperty("transfer_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TransferMode { get; set; }
+    public partial TerraformValue<string>? TransferMode { get; set; }
 
     /// <summary>
     /// The uid attribute.
     /// </summary>
     [TerraformProperty("uid")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Uid { get; set; }
+    public partial TerraformValue<string>? Uid { get; set; }
 
     /// <summary>
     /// The verify_mode attribute.
     /// </summary>
     [TerraformProperty("verify_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VerifyMode { get; set; }
+    public partial TerraformValue<string>? VerifyMode { get; set; }
 
 }
 
@@ -171,7 +171,7 @@ public partial class AwsDatasyncTaskScheduleBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     [TerraformProperty("schedule_expression")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ScheduleExpression { get; set; }
+    public required partial TerraformValue<string> ScheduleExpression { get; set; }
 
 }
 
@@ -186,21 +186,21 @@ public partial class AwsDatasyncTaskTaskReportConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("output_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OutputType { get; set; }
+    public partial TerraformValue<string>? OutputType { get; set; }
 
     /// <summary>
     /// The report_level attribute.
     /// </summary>
     [TerraformProperty("report_level")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ReportLevel { get; set; }
+    public partial TerraformValue<string>? ReportLevel { get; set; }
 
     /// <summary>
     /// The s3_object_versioning attribute.
     /// </summary>
     [TerraformProperty("s3_object_versioning")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? S3ObjectVersioning { get; set; }
+    public partial TerraformValue<string>? S3ObjectVersioning { get; set; }
 
 }
 
@@ -215,7 +215,7 @@ public partial class AwsDatasyncTaskTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -234,7 +234,7 @@ public partial class AwsDatasyncTask : TerraformResource
     /// </summary>
     [TerraformProperty("cloudwatch_log_group_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CloudwatchLogGroupArn { get; set; }
+    public partial TerraformValue<string>? CloudwatchLogGroupArn { get; set; }
 
     /// <summary>
     /// The destination_location_arn attribute.
@@ -242,28 +242,28 @@ public partial class AwsDatasyncTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationLocationArn is required")]
     [TerraformProperty("destination_location_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DestinationLocationArn { get; set; }
+    public required partial TerraformValue<string> DestinationLocationArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The source_location_arn attribute.
@@ -271,28 +271,28 @@ public partial class AwsDatasyncTask : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceLocationArn is required")]
     [TerraformProperty("source_location_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceLocationArn { get; set; }
+    public required partial TerraformValue<string> SourceLocationArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The task_mode attribute.
     /// </summary>
     [TerraformProperty("task_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TaskMode { get; set; }
+    public partial TerraformValue<string> TaskMode { get; set; }
 
     /// <summary>
     /// Block for excludes.
@@ -300,7 +300,7 @@ public partial class AwsDatasyncTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Excludes block(s) allowed")]
     [TerraformProperty("excludes")]
-    public TerraformList<TerraformBlock<AwsDatasyncTaskExcludesBlock>>? Excludes { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDatasyncTaskExcludesBlock>>? Excludes { get; set; }
 
     /// <summary>
     /// Block for includes.
@@ -308,7 +308,7 @@ public partial class AwsDatasyncTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Includes block(s) allowed")]
     [TerraformProperty("includes")]
-    public TerraformList<TerraformBlock<AwsDatasyncTaskIncludesBlock>>? Includes { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDatasyncTaskIncludesBlock>>? Includes { get; set; }
 
     /// <summary>
     /// Block for options.
@@ -316,7 +316,7 @@ public partial class AwsDatasyncTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Options block(s) allowed")]
     [TerraformProperty("options")]
-    public TerraformList<TerraformBlock<AwsDatasyncTaskOptionsBlock>>? Options { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDatasyncTaskOptionsBlock>>? Options { get; set; }
 
     /// <summary>
     /// Block for schedule.
@@ -324,7 +324,7 @@ public partial class AwsDatasyncTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public TerraformList<TerraformBlock<AwsDatasyncTaskScheduleBlock>>? Schedule { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDatasyncTaskScheduleBlock>>? Schedule { get; set; }
 
     /// <summary>
     /// Block for task_report_config.
@@ -332,20 +332,20 @@ public partial class AwsDatasyncTask : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TaskReportConfig block(s) allowed")]
     [TerraformProperty("task_report_config")]
-    public TerraformList<TerraformBlock<AwsDatasyncTaskTaskReportConfigBlock>>? TaskReportConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDatasyncTaskTaskReportConfigBlock>>? TaskReportConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsDatasyncTaskTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsDatasyncTaskTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

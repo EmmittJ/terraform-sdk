@@ -36,27 +36,27 @@ public partial class AwsDevopsguruNotificationChannelDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for filters.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("filters")]
-    public TerraformList<TerraformBlock<AwsDevopsguruNotificationChannelDataSourceFiltersBlock>>? Filters { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDevopsguruNotificationChannelDataSourceFiltersBlock>>? Filters { get; set; }
 
     /// <summary>
     /// Block for sns.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("sns")]
-    public TerraformList<TerraformBlock<AwsDevopsguruNotificationChannelDataSourceSnsBlock>>? Sns { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDevopsguruNotificationChannelDataSourceSnsBlock>>? Sns { get; set; }
 
 }

@@ -16,21 +16,21 @@ public partial class GoogleServiceAccountJwtDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("delegates")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Delegates { get; set; }
+    public partial TerraformSet<string>? Delegates { get; set; }
 
     /// <summary>
     /// Number of seconds until the JWT expires. If set and non-zero an `exp` claim will be added to the payload derived from the current timestamp plus expires_in seconds.
     /// </summary>
     [TerraformProperty("expires_in")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ExpiresIn { get; set; }
+    public partial TerraformValue<double>? ExpiresIn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A JSON-encoded JWT claims set that will be included in the signed JWT.
@@ -38,7 +38,7 @@ public partial class GoogleServiceAccountJwtDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Payload is required")]
     [TerraformProperty("payload")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Payload { get; set; }
+    public required partial TerraformValue<string> Payload { get; set; }
 
     /// <summary>
     /// The target_service_account attribute.
@@ -46,13 +46,13 @@ public partial class GoogleServiceAccountJwtDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
     [TerraformProperty("target_service_account")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetServiceAccount { get; set; }
+    public required partial TerraformValue<string> TargetServiceAccount { get; set; }
 
     /// <summary>
     /// The jwt attribute.
     /// </summary>
     [TerraformProperty("jwt")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Jwt { get; }
+    public partial TerraformValue<string> Jwt { get; }
 
 }

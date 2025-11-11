@@ -16,21 +16,21 @@ public partial class AwsIotThingGroupMembership : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The override_dynamic_group attribute.
     /// </summary>
     [TerraformProperty("override_dynamic_group")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? OverrideDynamicGroup { get; set; }
+    public partial TerraformValue<bool>? OverrideDynamicGroup { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The thing_group_name attribute.
@@ -38,7 +38,7 @@ public partial class AwsIotThingGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingGroupName is required")]
     [TerraformProperty("thing_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ThingGroupName { get; set; }
+    public required partial TerraformValue<string> ThingGroupName { get; set; }
 
     /// <summary>
     /// The thing_name attribute.
@@ -46,6 +46,6 @@ public partial class AwsIotThingGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingName is required")]
     [TerraformProperty("thing_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ThingName { get; set; }
+    public required partial TerraformValue<string> ThingName { get; set; }
 
 }

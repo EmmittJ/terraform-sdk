@@ -13,7 +13,7 @@ public partial class GoogleDataplexLakeMetastoreBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("service")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Service { get; set; }
+    public partial TerraformValue<string>? Service { get; set; }
 
 }
 
@@ -28,21 +28,21 @@ public partial class GoogleDataplexLakeTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -61,21 +61,21 @@ public partial class GoogleDataplexLake : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Optional. User friendly display name.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Optional. User-defined labels for the lake.
@@ -85,7 +85,7 @@ public partial class GoogleDataplexLake : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location for the resource
@@ -93,7 +93,7 @@ public partial class GoogleDataplexLake : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of the lake.
@@ -101,14 +101,14 @@ public partial class GoogleDataplexLake : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for metastore.
@@ -116,76 +116,76 @@ public partial class GoogleDataplexLake : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metastore block(s) allowed")]
     [TerraformProperty("metastore")]
-    public TerraformList<TerraformBlock<GoogleDataplexLakeMetastoreBlock>>? Metastore { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataplexLakeMetastoreBlock>>? Metastore { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDataplexLakeTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDataplexLakeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Aggregated status of the underlying assets of the lake.
     /// </summary>
     [TerraformProperty("asset_status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> AssetStatus { get; }
+    public partial TerraformList<object> AssetStatus { get; }
 
     /// <summary>
     /// Output only. The time when the lake was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Output only. Metastore status of the lake.
     /// </summary>
     [TerraformProperty("metastore_status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MetastoreStatus { get; }
+    public partial TerraformList<object> MetastoreStatus { get; }
 
     /// <summary>
     /// Output only. Service account associated with this lake. This service account must be authorized to access or operate on resources managed by the lake.
     /// </summary>
     [TerraformProperty("service_account")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServiceAccount { get; }
+    public partial TerraformValue<string> ServiceAccount { get; }
 
     /// <summary>
     /// Output only. Current state of the lake. Possible values: STATE_UNSPECIFIED, ACTIVE, CREATING, DELETING, ACTION_REQUIRED
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Output only. System generated globally unique ID for the lake. This ID will be different if the lake is deleted and re-created with the same name.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Output only. The time when the lake was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

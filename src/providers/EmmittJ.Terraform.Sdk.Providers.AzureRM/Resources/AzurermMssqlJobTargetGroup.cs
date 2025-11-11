@@ -13,28 +13,28 @@ public partial class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("database_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DatabaseName { get; set; }
+    public partial TerraformValue<string>? DatabaseName { get; set; }
 
     /// <summary>
     /// The elastic_pool_name attribute.
     /// </summary>
     [TerraformProperty("elastic_pool_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ElasticPoolName { get; set; }
+    public partial TerraformValue<string>? ElasticPoolName { get; set; }
 
     /// <summary>
     /// The job_credential_id attribute.
     /// </summary>
     [TerraformProperty("job_credential_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? JobCredentialId { get; set; }
+    public partial TerraformValue<string>? JobCredentialId { get; set; }
 
     /// <summary>
     /// The membership_type attribute.
     /// </summary>
     [TerraformProperty("membership_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MembershipType { get; set; }
+    public partial TerraformValue<string>? MembershipType { get; set; }
 
     /// <summary>
     /// The server_name attribute.
@@ -42,7 +42,7 @@ public partial class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     [TerraformProperty("server_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServerName { get; set; }
+    public required partial TerraformValue<string> ServerName { get; set; }
 
 
 }
@@ -58,28 +58,28 @@ public partial class AzurermMssqlJobTargetGroupTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -97,7 +97,7 @@ public partial class AzurermMssqlJobTargetGroup : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The job_agent_id attribute.
@@ -105,7 +105,7 @@ public partial class AzurermMssqlJobTargetGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobAgentId is required")]
     [TerraformProperty("job_agent_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> JobAgentId { get; set; }
+    public required partial TerraformValue<string> JobAgentId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -113,20 +113,20 @@ public partial class AzurermMssqlJobTargetGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for job_target.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("job_target")]
-    public TerraformSet<TerraformBlock<AzurermMssqlJobTargetGroupJobTargetBlock>>? JobTarget { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermMssqlJobTargetGroupJobTargetBlock>>? JobTarget { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMssqlJobTargetGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMssqlJobTargetGroupTimeoutsBlock>? Timeouts { get; set; }
 
 }

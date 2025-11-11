@@ -13,28 +13,28 @@ public partial class AzurermAppConfigurationKeyTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,28 +53,28 @@ public partial class AzurermAppConfigurationKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
     [TerraformProperty("configuration_store_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConfigurationStoreId { get; set; }
+    public required partial TerraformValue<string> ConfigurationStoreId { get; set; }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
     [TerraformProperty("content_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ContentType { get; set; }
+    public partial TerraformValue<string> ContentType { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Etag { get; set; }
+    public partial TerraformValue<string> Etag { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key attribute.
@@ -82,55 +82,55 @@ public partial class AzurermAppConfigurationKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
     [TerraformProperty("label")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Label { get; set; }
+    public partial TerraformValue<string>? Label { get; set; }
 
     /// <summary>
     /// The locked attribute.
     /// </summary>
     [TerraformProperty("locked")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Locked { get; set; }
+    public partial TerraformValue<bool>? Locked { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Value { get; set; }
+    public partial TerraformValue<string>? Value { get; set; }
 
     /// <summary>
     /// The vault_key_reference attribute.
     /// </summary>
     [TerraformProperty("vault_key_reference")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VaultKeyReference { get; set; }
+    public partial TerraformValue<string>? VaultKeyReference { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAppConfigurationKeyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAppConfigurationKeyTimeoutsBlock>? Timeouts { get; set; }
 
 }

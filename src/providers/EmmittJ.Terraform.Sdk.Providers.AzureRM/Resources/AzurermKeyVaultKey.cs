@@ -13,14 +13,14 @@ public partial class AzurermKeyVaultKeyRotationPolicyBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("expire_after")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExpireAfter { get; set; }
+    public partial TerraformValue<string>? ExpireAfter { get; set; }
 
     /// <summary>
     /// The notify_before_expiry attribute.
     /// </summary>
     [TerraformProperty("notify_before_expiry")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NotifyBeforeExpiry { get; set; }
+    public partial TerraformValue<string>? NotifyBeforeExpiry { get; set; }
 
 }
 
@@ -35,28 +35,28 @@ public partial class AzurermKeyVaultKeyTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -75,21 +75,21 @@ public partial class AzurermKeyVaultKey : TerraformResource
     /// </summary>
     [TerraformProperty("curve")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Curve { get; set; }
+    public partial TerraformValue<string> Curve { get; set; }
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     [TerraformProperty("expiration_date")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExpirationDate { get; set; }
+    public partial TerraformValue<string>? ExpirationDate { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_opts attribute.
@@ -97,14 +97,14 @@ public partial class AzurermKeyVaultKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyOpts is required")]
     [TerraformProperty("key_opts")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? KeyOpts { get; set; }
+    public partial TerraformList<string>? KeyOpts { get; set; }
 
     /// <summary>
     /// The key_size attribute.
     /// </summary>
     [TerraformProperty("key_size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? KeySize { get; set; }
+    public partial TerraformValue<double>? KeySize { get; set; }
 
     /// <summary>
     /// The key_type attribute.
@@ -112,7 +112,7 @@ public partial class AzurermKeyVaultKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
     [TerraformProperty("key_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyType { get; set; }
+    public required partial TerraformValue<string> KeyType { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
@@ -120,7 +120,7 @@ public partial class AzurermKeyVaultKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformProperty("key_vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultId { get; set; }
+    public required partial TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -128,21 +128,21 @@ public partial class AzurermKeyVaultKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The not_before_date attribute.
     /// </summary>
     [TerraformProperty("not_before_date")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NotBeforeDate { get; set; }
+    public partial TerraformValue<string>? NotBeforeDate { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for rotation_policy.
@@ -150,83 +150,83 @@ public partial class AzurermKeyVaultKey : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RotationPolicy block(s) allowed")]
     [TerraformProperty("rotation_policy")]
-    public TerraformList<TerraformBlock<AzurermKeyVaultKeyRotationPolicyBlock>>? RotationPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKeyVaultKeyRotationPolicyBlock>>? RotationPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKeyVaultKeyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKeyVaultKeyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The e attribute.
     /// </summary>
     [TerraformProperty("e")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> E { get; }
+    public partial TerraformValue<string> E { get; }
 
     /// <summary>
     /// The n attribute.
     /// </summary>
     [TerraformProperty("n")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> N { get; }
+    public partial TerraformValue<string> N { get; }
 
     /// <summary>
     /// The public_key_openssh attribute.
     /// </summary>
     [TerraformProperty("public_key_openssh")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PublicKeyOpenssh { get; }
+    public partial TerraformValue<string> PublicKeyOpenssh { get; }
 
     /// <summary>
     /// The public_key_pem attribute.
     /// </summary>
     [TerraformProperty("public_key_pem")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PublicKeyPem { get; }
+    public partial TerraformValue<string> PublicKeyPem { get; }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     [TerraformProperty("resource_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceId { get; }
+    public partial TerraformValue<string> ResourceId { get; }
 
     /// <summary>
     /// The resource_versionless_id attribute.
     /// </summary>
     [TerraformProperty("resource_versionless_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceVersionlessId { get; }
+    public partial TerraformValue<string> ResourceVersionlessId { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Version { get; }
+    public partial TerraformValue<string> Version { get; }
 
     /// <summary>
     /// The versionless_id attribute.
     /// </summary>
     [TerraformProperty("versionless_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VersionlessId { get; }
+    public partial TerraformValue<string> VersionlessId { get; }
 
     /// <summary>
     /// The x attribute.
     /// </summary>
     [TerraformProperty("x")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> X { get; }
+    public partial TerraformValue<string> X { get; }
 
     /// <summary>
     /// The y attribute.
     /// </summary>
     [TerraformProperty("y")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Y { get; }
+    public partial TerraformValue<string> Y { get; }
 
 }

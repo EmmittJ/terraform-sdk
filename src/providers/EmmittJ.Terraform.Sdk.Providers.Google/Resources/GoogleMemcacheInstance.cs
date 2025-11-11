@@ -16,7 +16,7 @@ public partial class GoogleMemcacheInstanceMaintenancePolicyBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
 
 }
@@ -33,7 +33,7 @@ public partial class GoogleMemcacheInstanceMemcacheParametersBlock : TerraformBl
     /// </summary>
     [TerraformProperty("params")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Params { get; set; }
+    public partial TerraformMap<string>? Params { get; set; }
 
 }
 
@@ -49,7 +49,7 @@ public partial class GoogleMemcacheInstanceNodeConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCount is required")]
     [TerraformProperty("cpu_count")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> CpuCount { get; set; }
+    public required partial TerraformValue<double> CpuCount { get; set; }
 
     /// <summary>
     /// Memory size in Mebibytes for each memcache node.
@@ -57,7 +57,7 @@ public partial class GoogleMemcacheInstanceNodeConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemorySizeMb is required")]
     [TerraformProperty("memory_size_mb")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MemorySizeMb { get; set; }
+    public required partial TerraformValue<double> MemorySizeMb { get; set; }
 
 }
 
@@ -72,21 +72,21 @@ public partial class GoogleMemcacheInstanceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -106,7 +106,7 @@ public partial class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [TerraformProperty("authorized_network")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AuthorizedNetwork { get; set; }
+    public partial TerraformValue<string> AuthorizedNetwork { get; set; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the instance.
@@ -118,21 +118,21 @@ public partial class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeletionProtection { get; set; }
+    public partial TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// A user-visible name for the instance.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DisplayName { get; set; }
+    public partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource labels to represent user-provided metadata.
@@ -143,7 +143,7 @@ public partial class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The major version of Memcached software. If not provided, latest supported version will be used.
@@ -152,7 +152,7 @@ public partial class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [TerraformProperty("memcache_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MemcacheVersion { get; set; }
+    public partial TerraformValue<string>? MemcacheVersion { get; set; }
 
     /// <summary>
     /// The resource name of the instance.
@@ -160,7 +160,7 @@ public partial class GoogleMemcacheInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Number of nodes in the memcache instance.
@@ -168,21 +168,21 @@ public partial class GoogleMemcacheInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     [TerraformProperty("node_count")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> NodeCount { get; set; }
+    public required partial TerraformValue<double> NodeCount { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region of the Memcache instance. If it is not provided, the provider region is used.
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Contains the name of allocated IP address ranges associated with
@@ -191,7 +191,7 @@ public partial class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [TerraformProperty("reserved_ip_range_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ReservedIpRangeId { get; set; }
+    public partial TerraformList<string>? ReservedIpRangeId { get; set; }
 
     /// <summary>
     /// Zones where memcache nodes should be provisioned.  If not
@@ -199,7 +199,7 @@ public partial class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [TerraformProperty("zones")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> Zones { get; set; }
+    public partial TerraformSet<string> Zones { get; set; }
 
     /// <summary>
     /// Block for maintenance_policy.
@@ -207,7 +207,7 @@ public partial class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     [TerraformProperty("maintenance_policy")]
-    public TerraformList<TerraformBlock<GoogleMemcacheInstanceMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleMemcacheInstanceMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
 
     /// <summary>
     /// Block for memcache_parameters.
@@ -215,7 +215,7 @@ public partial class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MemcacheParameters block(s) allowed")]
     [TerraformProperty("memcache_parameters")]
-    public TerraformList<TerraformBlock<GoogleMemcacheInstanceMemcacheParametersBlock>>? MemcacheParameters { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleMemcacheInstanceMemcacheParametersBlock>>? MemcacheParameters { get; set; }
 
     /// <summary>
     /// Block for node_config.
@@ -225,56 +225,56 @@ public partial class GoogleMemcacheInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NodeConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     [TerraformProperty("node_config")]
-    public TerraformList<TerraformBlock<GoogleMemcacheInstanceNodeConfigBlock>>? NodeConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleMemcacheInstanceNodeConfigBlock>>? NodeConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleMemcacheInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleMemcacheInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Endpoint for Discovery API
     /// </summary>
     [TerraformProperty("discovery_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DiscoveryEndpoint { get; }
+    public partial TerraformValue<string> DiscoveryEndpoint { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Output only. Published maintenance schedule.
     /// </summary>
     [TerraformProperty("maintenance_schedule")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MaintenanceSchedule { get; }
+    public partial TerraformList<object> MaintenanceSchedule { get; }
 
     /// <summary>
     /// The full version of memcached server running on this instance.
     /// </summary>
     [TerraformProperty("memcache_full_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MemcacheFullVersion { get; }
+    public partial TerraformValue<string> MemcacheFullVersion { get; }
 
     /// <summary>
     /// Additional information about the instance state, if available.
     /// </summary>
     [TerraformProperty("memcache_nodes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MemcacheNodes { get; }
+    public partial TerraformList<object> MemcacheNodes { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -282,6 +282,6 @@ public partial class GoogleMemcacheInstance : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

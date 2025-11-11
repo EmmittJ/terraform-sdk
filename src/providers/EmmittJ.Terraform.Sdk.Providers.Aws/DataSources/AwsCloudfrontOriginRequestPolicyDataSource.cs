@@ -16,55 +16,55 @@ public partial class AwsCloudfrontOriginRequestPolicyDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Id { get; set; }
+    public partial TerraformValue<string>? Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     [TerraformProperty("comment")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Comment { get; }
+    public partial TerraformValue<string> Comment { get; }
 
     /// <summary>
     /// The cookies_config attribute.
     /// </summary>
     [TerraformProperty("cookies_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CookiesConfig { get; }
+    public partial TerraformList<object> CookiesConfig { get; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The headers_config attribute.
     /// </summary>
     [TerraformProperty("headers_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> HeadersConfig { get; }
+    public partial TerraformList<object> HeadersConfig { get; }
 
     /// <summary>
     /// The query_strings_config attribute.
     /// </summary>
     [TerraformProperty("query_strings_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> QueryStringsConfig { get; }
+    public partial TerraformList<object> QueryStringsConfig { get; }
 
 }

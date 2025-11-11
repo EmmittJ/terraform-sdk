@@ -13,28 +13,28 @@ public partial class AzurermStreamAnalyticsOutputFunctionTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,21 +53,21 @@ public partial class AzurermStreamAnalyticsOutputFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     [TerraformProperty("api_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiKey { get; set; }
+    public required partial TerraformValue<string> ApiKey { get; set; }
 
     /// <summary>
     /// The batch_max_count attribute.
     /// </summary>
     [TerraformProperty("batch_max_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BatchMaxCount { get; set; }
+    public partial TerraformValue<double>? BatchMaxCount { get; set; }
 
     /// <summary>
     /// The batch_max_in_bytes attribute.
     /// </summary>
     [TerraformProperty("batch_max_in_bytes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BatchMaxInBytes { get; set; }
+    public partial TerraformValue<double>? BatchMaxInBytes { get; set; }
 
     /// <summary>
     /// The function_app attribute.
@@ -75,7 +75,7 @@ public partial class AzurermStreamAnalyticsOutputFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionApp is required")]
     [TerraformProperty("function_app")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FunctionApp { get; set; }
+    public required partial TerraformValue<string> FunctionApp { get; set; }
 
     /// <summary>
     /// The function_name attribute.
@@ -83,14 +83,14 @@ public partial class AzurermStreamAnalyticsOutputFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     [TerraformProperty("function_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FunctionName { get; set; }
+    public required partial TerraformValue<string> FunctionName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -98,7 +98,7 @@ public partial class AzurermStreamAnalyticsOutputFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -106,7 +106,7 @@ public partial class AzurermStreamAnalyticsOutputFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The stream_analytics_job_name attribute.
@@ -114,13 +114,13 @@ public partial class AzurermStreamAnalyticsOutputFunction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     [TerraformProperty("stream_analytics_job_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StreamAnalyticsJobName { get; set; }
+    public required partial TerraformValue<string> StreamAnalyticsJobName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStreamAnalyticsOutputFunctionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStreamAnalyticsOutputFunctionTimeoutsBlock>? Timeouts { get; set; }
 
 }

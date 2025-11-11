@@ -13,21 +13,21 @@ public partial class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock :
     /// </summary>
     [TerraformProperty("approval_required")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ApprovalRequired { get; set; }
+    public partial TerraformValue<bool>? ApprovalRequired { get; set; }
 
     /// <summary>
     /// Whether an approval is required to grant extension. Same approval settings used to approve initial access will apply
     /// </summary>
     [TerraformProperty("approval_required_for_extension")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ApprovalRequiredForExtension { get; set; }
+    public partial TerraformValue<bool>? ApprovalRequiredForExtension { get; set; }
 
     /// <summary>
     /// Whether requestor are required to provide a justification to request an access package. Justification is visible to other approvers and the requestor
     /// </summary>
     [TerraformProperty("requestor_justification_required")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RequestorJustificationRequired { get; set; }
+    public partial TerraformValue<bool>? RequestorJustificationRequired { get; set; }
 
 }
 
@@ -42,56 +42,56 @@ public partial class AzureadAccessPackageAssignmentPolicyAssignmentReviewSetting
     /// </summary>
     [TerraformProperty("access_recommendation_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AccessRecommendationEnabled { get; set; }
+    public partial TerraformValue<bool>? AccessRecommendationEnabled { get; set; }
 
     /// <summary>
     /// What actions the system takes if reviewers don&#39;t respond in time
     /// </summary>
     [TerraformProperty("access_review_timeout_behavior")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AccessReviewTimeoutBehavior { get; set; }
+    public partial TerraformValue<string>? AccessReviewTimeoutBehavior { get; set; }
 
     /// <summary>
     /// Whether a reviewer need provide a justification for their decision. Justification is visible to other reviewers and the requestor
     /// </summary>
     [TerraformProperty("approver_justification_required")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ApproverJustificationRequired { get; set; }
+    public partial TerraformValue<bool>? ApproverJustificationRequired { get; set; }
 
     /// <summary>
     /// How many days each occurrence of the access review series will run
     /// </summary>
     [TerraformProperty("duration_in_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DurationInDays { get; set; }
+    public partial TerraformValue<double>? DurationInDays { get; set; }
 
     /// <summary>
     /// Whether to enable assignment review
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// This will determine how often the access review campaign runs
     /// </summary>
     [TerraformProperty("review_frequency")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ReviewFrequency { get; set; }
+    public partial TerraformValue<string>? ReviewFrequency { get; set; }
 
     /// <summary>
     /// Self review or specific reviewers
     /// </summary>
     [TerraformProperty("review_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ReviewType { get; set; }
+    public partial TerraformValue<string>? ReviewType { get; set; }
 
     /// <summary>
     /// This is the date the access review campaign will start on, formatted as an RFC3339 date string in UTC(e.g. 2018-01-01T01:02:03Z), default is now. Once an access review has been created, you cannot update its start date
     /// </summary>
     [TerraformProperty("starting_on")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StartingOn { get; set; }
+    public partial TerraformValue<string>? StartingOn { get; set; }
 
 }
 
@@ -106,14 +106,14 @@ public partial class AzureadAccessPackageAssignmentPolicyQuestionBlock : Terrafo
     /// </summary>
     [TerraformProperty("required")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Required { get; set; }
+    public partial TerraformValue<bool>? Required { get; set; }
 
     /// <summary>
     /// The sequence number of this question
     /// </summary>
     [TerraformProperty("sequence")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Sequence { get; set; }
+    public partial TerraformValue<double>? Sequence { get; set; }
 
 }
 
@@ -128,14 +128,14 @@ public partial class AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock 
     /// </summary>
     [TerraformProperty("requests_accepted")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RequestsAccepted { get; set; }
+    public partial TerraformValue<bool>? RequestsAccepted { get; set; }
 
     /// <summary>
     /// Specify the scopes of the requestors
     /// </summary>
     [TerraformProperty("scope_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ScopeType { get; set; }
+    public partial TerraformValue<string>? ScopeType { get; set; }
 
 }
 
@@ -150,28 +150,28 @@ public partial class AzureadAccessPackageAssignmentPolicyTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -191,7 +191,7 @@ public partial class AzureadAccessPackageAssignmentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPackageId is required")]
     [TerraformProperty("access_package_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccessPackageId { get; set; }
+    public required partial TerraformValue<string> AccessPackageId { get; set; }
 
     /// <summary>
     /// The description of the policy
@@ -199,7 +199,7 @@ public partial class AzureadAccessPackageAssignmentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     [TerraformProperty("description")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Description { get; set; }
+    public required partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The display name of the policy
@@ -207,35 +207,35 @@ public partial class AzureadAccessPackageAssignmentPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// How many days this assignment is valid for
     /// </summary>
     [TerraformProperty("duration_in_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DurationInDays { get; set; }
+    public partial TerraformValue<double>? DurationInDays { get; set; }
 
     /// <summary>
     /// The date that this assignment expires, formatted as an RFC3339 date string in UTC (e.g. 2018-01-01T01:02:03Z)
     /// </summary>
     [TerraformProperty("expiration_date")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExpirationDate { get; set; }
+    public partial TerraformValue<string>? ExpirationDate { get; set; }
 
     /// <summary>
     /// When enabled, users will be able to request extension of their access to this package before their access expires
     /// </summary>
     [TerraformProperty("extension_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ExtensionEnabled { get; set; }
+    public partial TerraformValue<bool>? ExtensionEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for approval_settings.
@@ -243,7 +243,7 @@ public partial class AzureadAccessPackageAssignmentPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApprovalSettings block(s) allowed")]
     [TerraformProperty("approval_settings")]
-    public TerraformList<TerraformBlock<AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock>>? ApprovalSettings { get; set; }
+    public partial TerraformList<TerraformBlock<AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock>>? ApprovalSettings { get; set; }
 
     /// <summary>
     /// Block for assignment_review_settings.
@@ -251,14 +251,14 @@ public partial class AzureadAccessPackageAssignmentPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AssignmentReviewSettings block(s) allowed")]
     [TerraformProperty("assignment_review_settings")]
-    public TerraformList<TerraformBlock<AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock>>? AssignmentReviewSettings { get; set; }
+    public partial TerraformList<TerraformBlock<AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock>>? AssignmentReviewSettings { get; set; }
 
     /// <summary>
     /// Block for question.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("question")]
-    public TerraformList<TerraformBlock<AzureadAccessPackageAssignmentPolicyQuestionBlock>>? Question { get; set; }
+    public partial TerraformList<TerraformBlock<AzureadAccessPackageAssignmentPolicyQuestionBlock>>? Question { get; set; }
 
     /// <summary>
     /// Block for requestor_settings.
@@ -266,13 +266,13 @@ public partial class AzureadAccessPackageAssignmentPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RequestorSettings block(s) allowed")]
     [TerraformProperty("requestor_settings")]
-    public TerraformList<TerraformBlock<AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock>>? RequestorSettings { get; set; }
+    public partial TerraformList<TerraformBlock<AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock>>? RequestorSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadAccessPackageAssignmentPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadAccessPackageAssignmentPolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

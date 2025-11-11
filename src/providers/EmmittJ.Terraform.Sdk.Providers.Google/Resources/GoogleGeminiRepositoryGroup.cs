@@ -15,7 +15,7 @@ public partial class GoogleGeminiRepositoryGroupRepositoriesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchPattern is required")]
     [TerraformProperty("branch_pattern")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BranchPattern { get; set; }
+    public required partial TerraformValue<string> BranchPattern { get; set; }
 
     /// <summary>
     /// Required. The DeveloperConnect repository full resource name, relative resource name
@@ -24,7 +24,7 @@ public partial class GoogleGeminiRepositoryGroupRepositoriesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     [TerraformProperty("resource")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Resource { get; set; }
+    public required partial TerraformValue<string> Resource { get; set; }
 
 }
 
@@ -39,21 +39,21 @@ public partial class GoogleGeminiRepositoryGroupTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -73,14 +73,14 @@ public partial class GoogleGeminiRepositoryGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeRepositoryIndex is required")]
     [TerraformProperty("code_repository_index")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CodeRepositoryIndex { get; set; }
+    public required partial TerraformValue<string> CodeRepositoryIndex { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Optional. Labels as key value pairs.
@@ -90,7 +90,7 @@ public partial class GoogleGeminiRepositoryGroup : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the Code Repository Index, for example &#39;us-central1&#39;.
@@ -98,14 +98,14 @@ public partial class GoogleGeminiRepositoryGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Required. Id of the Repository Group.
@@ -113,7 +113,7 @@ public partial class GoogleGeminiRepositoryGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryGroupId is required")]
     [TerraformProperty("repository_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepositoryGroupId { get; set; }
+    public required partial TerraformValue<string> RepositoryGroupId { get; set; }
 
     /// <summary>
     /// Block for repositories.
@@ -122,35 +122,35 @@ public partial class GoogleGeminiRepositoryGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repositories is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Repositories block(s) required")]
     [TerraformProperty("repositories")]
-    public TerraformList<TerraformBlock<GoogleGeminiRepositoryGroupRepositoriesBlock>>? Repositories { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGeminiRepositoryGroupRepositoriesBlock>>? Repositories { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleGeminiRepositoryGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleGeminiRepositoryGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Create time stamp.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Immutable. Identifier. Name of Repository Group.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -158,13 +158,13 @@ public partial class GoogleGeminiRepositoryGroup : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Output only. Update time stamp.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

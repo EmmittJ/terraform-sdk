@@ -14,7 +14,7 @@ public partial class AzurermMobileNetworkServicePccRuleBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The precedence attribute.
@@ -22,14 +22,14 @@ public partial class AzurermMobileNetworkServicePccRuleBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Precedence is required")]
     [TerraformProperty("precedence")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Precedence { get; set; }
+    public required partial TerraformValue<double> Precedence { get; set; }
 
     /// <summary>
     /// The traffic_control_enabled attribute.
     /// </summary>
     [TerraformProperty("traffic_control_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? TrafficControlEnabled { get; set; }
+    public partial TerraformValue<bool>? TrafficControlEnabled { get; set; }
 
 }
 
@@ -44,28 +44,28 @@ public partial class AzurermMobileNetworkServiceServiceQosPolicyBlock : Terrafor
     /// </summary>
     [TerraformProperty("allocation_and_retention_priority_level")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AllocationAndRetentionPriorityLevel { get; set; }
+    public partial TerraformValue<double>? AllocationAndRetentionPriorityLevel { get; set; }
 
     /// <summary>
     /// The preemption_capability attribute.
     /// </summary>
     [TerraformProperty("preemption_capability")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PreemptionCapability { get; set; }
+    public partial TerraformValue<string>? PreemptionCapability { get; set; }
 
     /// <summary>
     /// The preemption_vulnerability attribute.
     /// </summary>
     [TerraformProperty("preemption_vulnerability")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PreemptionVulnerability { get; set; }
+    public partial TerraformValue<string>? PreemptionVulnerability { get; set; }
 
     /// <summary>
     /// The qos_indicator attribute.
     /// </summary>
     [TerraformProperty("qos_indicator")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? QosIndicator { get; set; }
+    public partial TerraformValue<double>? QosIndicator { get; set; }
 
 }
 
@@ -80,28 +80,28 @@ public partial class AzurermMobileNetworkServiceTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -120,7 +120,7 @@ public partial class AzurermMobileNetworkService : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -128,7 +128,7 @@ public partial class AzurermMobileNetworkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The mobile_network_id attribute.
@@ -136,7 +136,7 @@ public partial class AzurermMobileNetworkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
     [TerraformProperty("mobile_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MobileNetworkId { get; set; }
+    public required partial TerraformValue<string> MobileNetworkId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -144,7 +144,7 @@ public partial class AzurermMobileNetworkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The service_precedence attribute.
@@ -152,14 +152,14 @@ public partial class AzurermMobileNetworkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrecedence is required")]
     [TerraformProperty("service_precedence")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ServicePrecedence { get; set; }
+    public required partial TerraformValue<double> ServicePrecedence { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for pcc_rule.
@@ -168,7 +168,7 @@ public partial class AzurermMobileNetworkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PccRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PccRule block(s) required")]
     [TerraformProperty("pcc_rule")]
-    public TerraformList<TerraformBlock<AzurermMobileNetworkServicePccRuleBlock>>? PccRule { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMobileNetworkServicePccRuleBlock>>? PccRule { get; set; }
 
     /// <summary>
     /// Block for service_qos_policy.
@@ -176,13 +176,13 @@ public partial class AzurermMobileNetworkService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceQosPolicy block(s) allowed")]
     [TerraformProperty("service_qos_policy")]
-    public TerraformList<TerraformBlock<AzurermMobileNetworkServiceServiceQosPolicyBlock>>? ServiceQosPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMobileNetworkServiceServiceQosPolicyBlock>>? ServiceQosPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMobileNetworkServiceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMobileNetworkServiceTimeoutsBlock>? Timeouts { get; set; }
 
 }

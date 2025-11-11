@@ -16,7 +16,7 @@ public partial class GoogleSqlDatabaseInstanceLatestRecoveryTimeDataSource : Ter
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance attribute.
@@ -24,27 +24,27 @@ public partial class GoogleSqlDatabaseInstanceLatestRecoveryTimeDataSource : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Timestamp, identifies when the source instance was deleted. If this instance is deleted, then you must set the timestamp.
     /// </summary>
     [TerraformProperty("source_instance_deletion_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SourceInstanceDeletionTime { get; set; }
+    public partial TerraformValue<string>? SourceInstanceDeletionTime { get; set; }
 
     /// <summary>
     /// Timestamp, identifies the latest recovery time of the source instance.
     /// </summary>
     [TerraformProperty("latest_recovery_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LatestRecoveryTime { get; }
+    public partial TerraformValue<string> LatestRecoveryTime { get; }
 
 }

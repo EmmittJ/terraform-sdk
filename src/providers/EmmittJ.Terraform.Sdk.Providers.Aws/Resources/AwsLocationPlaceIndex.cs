@@ -13,7 +13,7 @@ public partial class AwsLocationPlaceIndexDataSourceConfigurationBlock : Terrafo
     /// </summary>
     [TerraformProperty("intended_use")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IntendedUse { get; set; }
+    public partial TerraformValue<string>? IntendedUse { get; set; }
 
 }
 
@@ -33,21 +33,21 @@ public partial class AwsLocationPlaceIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSource is required")]
     [TerraformProperty("data_source")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataSource { get; set; }
+    public required partial TerraformValue<string> DataSource { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The index_name attribute.
@@ -55,28 +55,28 @@ public partial class AwsLocationPlaceIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     [TerraformProperty("index_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IndexName { get; set; }
+    public required partial TerraformValue<string> IndexName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for data_source_configuration.
@@ -84,27 +84,27 @@ public partial class AwsLocationPlaceIndex : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataSourceConfiguration block(s) allowed")]
     [TerraformProperty("data_source_configuration")]
-    public TerraformList<TerraformBlock<AwsLocationPlaceIndexDataSourceConfigurationBlock>>? DataSourceConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLocationPlaceIndexDataSourceConfigurationBlock>>? DataSourceConfiguration { get; set; }
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The index_arn attribute.
     /// </summary>
     [TerraformProperty("index_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IndexArn { get; }
+    public partial TerraformValue<string> IndexArn { get; }
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

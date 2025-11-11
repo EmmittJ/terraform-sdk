@@ -13,21 +13,21 @@ public partial class AwsConfigConfigurationRecorderRecordingGroupBlock : Terrafo
     /// </summary>
     [TerraformProperty("all_supported")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllSupported { get; set; }
+    public partial TerraformValue<bool>? AllSupported { get; set; }
 
     /// <summary>
     /// The include_global_resource_types attribute.
     /// </summary>
     [TerraformProperty("include_global_resource_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IncludeGlobalResourceTypes { get; set; }
+    public partial TerraformValue<bool>? IncludeGlobalResourceTypes { get; set; }
 
     /// <summary>
     /// The resource_types attribute.
     /// </summary>
     [TerraformProperty("resource_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ResourceTypes { get; set; }
+    public partial TerraformSet<string>? ResourceTypes { get; set; }
 
 }
 
@@ -42,7 +42,7 @@ public partial class AwsConfigConfigurationRecorderRecordingModeBlock : Terrafor
     /// </summary>
     [TerraformProperty("recording_frequency")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RecordingFrequency { get; set; }
+    public partial TerraformValue<string>? RecordingFrequency { get; set; }
 
 }
 
@@ -61,21 +61,21 @@ public partial class AwsConfigConfigurationRecorder : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -83,7 +83,7 @@ public partial class AwsConfigConfigurationRecorder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// Block for recording_group.
@@ -91,7 +91,7 @@ public partial class AwsConfigConfigurationRecorder : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecordingGroup block(s) allowed")]
     [TerraformProperty("recording_group")]
-    public TerraformList<TerraformBlock<AwsConfigConfigurationRecorderRecordingGroupBlock>>? RecordingGroup { get; set; }
+    public partial TerraformList<TerraformBlock<AwsConfigConfigurationRecorderRecordingGroupBlock>>? RecordingGroup { get; set; }
 
     /// <summary>
     /// Block for recording_mode.
@@ -99,6 +99,6 @@ public partial class AwsConfigConfigurationRecorder : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecordingMode block(s) allowed")]
     [TerraformProperty("recording_mode")]
-    public TerraformList<TerraformBlock<AwsConfigConfigurationRecorderRecordingModeBlock>>? RecordingMode { get; set; }
+    public partial TerraformList<TerraformBlock<AwsConfigConfigurationRecorderRecordingModeBlock>>? RecordingMode { get; set; }
 
 }

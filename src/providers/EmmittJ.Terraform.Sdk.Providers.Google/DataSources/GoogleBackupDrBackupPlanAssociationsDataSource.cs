@@ -16,7 +16,7 @@ public partial class GoogleBackupDrBackupPlanAssociationsDataSource : TerraformD
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location to list the backup plan associations from.
@@ -24,14 +24,14 @@ public partial class GoogleBackupDrBackupPlanAssociationsDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The ID of the project in which the resource belongs.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The resource type of workload on which backup plan is applied. Examples include, &amp;quot;compute.googleapis.com/Instance&amp;quot;, &amp;quot;compute.googleapis.com/Disk&amp;quot;.
@@ -39,13 +39,13 @@ public partial class GoogleBackupDrBackupPlanAssociationsDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     [TerraformProperty("resource_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceType { get; set; }
+    public required partial TerraformValue<string> ResourceType { get; set; }
 
     /// <summary>
     /// A list of the backup plan associations found.
     /// </summary>
     [TerraformProperty("associations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Associations { get; }
+    public partial TerraformList<object> Associations { get; }
 
 }

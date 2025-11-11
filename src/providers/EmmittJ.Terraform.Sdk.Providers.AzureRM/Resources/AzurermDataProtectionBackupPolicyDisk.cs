@@ -14,7 +14,7 @@ public partial class AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     [TerraformProperty("duration")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Duration { get; set; }
+    public required partial TerraformValue<string> Duration { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -22,7 +22,7 @@ public partial class AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
@@ -30,7 +30,7 @@ public partial class AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformProperty("priority")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Priority { get; set; }
+    public required partial TerraformValue<double> Priority { get; set; }
 
 }
 
@@ -45,21 +45,21 @@ public partial class AzurermDataProtectionBackupPolicyDiskTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -78,7 +78,7 @@ public partial class AzurermDataProtectionBackupPolicyDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRepeatingTimeIntervals is required")]
     [TerraformProperty("backup_repeating_time_intervals")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? BackupRepeatingTimeIntervals { get; set; }
+    public partial TerraformList<string>? BackupRepeatingTimeIntervals { get; set; }
 
     /// <summary>
     /// The default_retention_duration attribute.
@@ -86,14 +86,14 @@ public partial class AzurermDataProtectionBackupPolicyDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRetentionDuration is required")]
     [TerraformProperty("default_retention_duration")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DefaultRetentionDuration { get; set; }
+    public required partial TerraformValue<string> DefaultRetentionDuration { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -101,14 +101,14 @@ public partial class AzurermDataProtectionBackupPolicyDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
     [TerraformProperty("time_zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TimeZone { get; set; }
+    public partial TerraformValue<string>? TimeZone { get; set; }
 
     /// <summary>
     /// The vault_id attribute.
@@ -116,20 +116,20 @@ public partial class AzurermDataProtectionBackupPolicyDisk : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
     [TerraformProperty("vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VaultId { get; set; }
+    public required partial TerraformValue<string> VaultId { get; set; }
 
     /// <summary>
     /// Block for retention_rule.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("retention_rule")]
-    public TerraformList<TerraformBlock<AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock>>? RetentionRule { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock>>? RetentionRule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataProtectionBackupPolicyDiskTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataProtectionBackupPolicyDiskTimeoutsBlock>? Timeouts { get; set; }
 
 }

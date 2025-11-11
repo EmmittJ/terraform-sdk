@@ -16,7 +16,7 @@ public partial class GooglePubsubTopicDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the topic.
@@ -24,28 +24,28 @@ public partial class GooglePubsubTopicDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Settings for ingestion from a data source into this topic.
     /// </summary>
     [TerraformProperty("ingestion_data_source_settings")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> IngestionDataSourceSettings { get; }
+    public partial TerraformList<object> IngestionDataSourceSettings { get; }
 
     /// <summary>
     /// The resource name of the Cloud KMS CryptoKey to be used to protect access
@@ -56,7 +56,7 @@ public partial class GooglePubsubTopicDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("kms_key_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KmsKeyName { get; }
+    public partial TerraformValue<string> KmsKeyName { get; }
 
     /// <summary>
     /// A set of key/value label pairs to assign to this Topic.
@@ -67,7 +67,7 @@ public partial class GooglePubsubTopicDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// Indicates the minimum duration to retain a message after it is published
@@ -81,7 +81,7 @@ public partial class GooglePubsubTopicDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("message_retention_duration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MessageRetentionDuration { get; }
+    public partial TerraformValue<string> MessageRetentionDuration { get; }
 
     /// <summary>
     /// Policy constraining the set of Google Cloud Platform regions where
@@ -90,7 +90,7 @@ public partial class GooglePubsubTopicDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("message_storage_policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MessageStoragePolicy { get; }
+    public partial TerraformList<object> MessageStoragePolicy { get; }
 
     /// <summary>
     /// Transforms to be applied to messages published to the topic. Transforms are applied in the
@@ -98,14 +98,14 @@ public partial class GooglePubsubTopicDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("message_transforms")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MessageTransforms { get; }
+    public partial TerraformList<object> MessageTransforms { get; }
 
     /// <summary>
     /// Settings for validating messages published against a schema.
     /// </summary>
     [TerraformProperty("schema_settings")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> SchemaSettings { get; }
+    public partial TerraformList<object> SchemaSettings { get; }
 
     /// <summary>
     /// Input only. Resource manager tags to be bound to the topic. Tag keys and
@@ -119,7 +119,7 @@ public partial class GooglePubsubTopicDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -127,6 +127,6 @@ public partial class GooglePubsubTopicDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

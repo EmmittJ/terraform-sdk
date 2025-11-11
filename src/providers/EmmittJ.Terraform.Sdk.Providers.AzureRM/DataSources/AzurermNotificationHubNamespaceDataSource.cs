@@ -13,7 +13,7 @@ public partial class AzurermNotificationHubNamespaceDataSourceTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermNotificationHubNamespaceDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermNotificationHubNamespaceDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,55 +47,55 @@ public partial class AzurermNotificationHubNamespaceDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNotificationHubNamespaceDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNotificationHubNamespaceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Enabled { get; }
+    public partial TerraformValue<bool> Enabled { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The namespace_type attribute.
     /// </summary>
     [TerraformProperty("namespace_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NamespaceType { get; }
+    public partial TerraformValue<string> NamespaceType { get; }
 
     /// <summary>
     /// The servicebus_endpoint attribute.
     /// </summary>
     [TerraformProperty("servicebus_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServicebusEndpoint { get; }
+    public partial TerraformValue<string> ServicebusEndpoint { get; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [TerraformProperty("sku")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Sku { get; }
+    public partial TerraformList<object> Sku { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
 }

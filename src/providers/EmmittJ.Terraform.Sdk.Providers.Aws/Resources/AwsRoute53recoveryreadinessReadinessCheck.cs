@@ -13,7 +13,7 @@ public partial class AwsRoute53recoveryreadinessReadinessCheckTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AwsRoute53recoveryreadinessReadinessCheck : TerraformResour
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The readiness_check_name attribute.
@@ -39,7 +39,7 @@ public partial class AwsRoute53recoveryreadinessReadinessCheck : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadinessCheckName is required")]
     [TerraformProperty("readiness_check_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ReadinessCheckName { get; set; }
+    public required partial TerraformValue<string> ReadinessCheckName { get; set; }
 
     /// <summary>
     /// The resource_set_name attribute.
@@ -47,34 +47,34 @@ public partial class AwsRoute53recoveryreadinessReadinessCheck : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceSetName is required")]
     [TerraformProperty("resource_set_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceSetName { get; set; }
+    public required partial TerraformValue<string> ResourceSetName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsRoute53recoveryreadinessReadinessCheckTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsRoute53recoveryreadinessReadinessCheckTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

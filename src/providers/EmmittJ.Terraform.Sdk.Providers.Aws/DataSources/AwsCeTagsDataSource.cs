@@ -21,14 +21,14 @@ public partial class AwsCeTagsDataSourceSortByBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Key { get; set; }
+    public partial TerraformValue<string>? Key { get; set; }
 
     /// <summary>
     /// The sort_order attribute.
     /// </summary>
     [TerraformProperty("sort_order")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SortOrder { get; set; }
+    public partial TerraformValue<string>? SortOrder { get; set; }
 
 }
 
@@ -44,7 +44,7 @@ public partial class AwsCeTagsDataSourceTimePeriodBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     [TerraformProperty("end")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> End { get; set; }
+    public required partial TerraformValue<string> End { get; set; }
 
     /// <summary>
     /// The start attribute.
@@ -52,7 +52,7 @@ public partial class AwsCeTagsDataSourceTimePeriodBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     [TerraformProperty("start")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Start { get; set; }
+    public required partial TerraformValue<string> Start { get; set; }
 
 }
 
@@ -71,21 +71,21 @@ public partial class AwsCeTagsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The search_string attribute.
     /// </summary>
     [TerraformProperty("search_string")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SearchString { get; set; }
+    public partial TerraformValue<string>? SearchString { get; set; }
 
     /// <summary>
     /// The tag_key attribute.
     /// </summary>
     [TerraformProperty("tag_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TagKey { get; set; }
+    public partial TerraformValue<string>? TagKey { get; set; }
 
     /// <summary>
     /// Block for filter.
@@ -93,14 +93,14 @@ public partial class AwsCeTagsDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public TerraformList<TerraformBlock<AwsCeTagsDataSourceFilterBlock>>? Filter { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCeTagsDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for sort_by.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("sort_by")]
-    public TerraformList<TerraformBlock<AwsCeTagsDataSourceSortByBlock>>? SortBy { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCeTagsDataSourceSortByBlock>>? SortBy { get; set; }
 
     /// <summary>
     /// Block for time_period.
@@ -110,13 +110,13 @@ public partial class AwsCeTagsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TimePeriod block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TimePeriod block(s) allowed")]
     [TerraformProperty("time_period")]
-    public TerraformList<TerraformBlock<AwsCeTagsDataSourceTimePeriodBlock>>? TimePeriod { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCeTagsDataSourceTimePeriodBlock>>? TimePeriod { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> Tags { get; }
+    public partial TerraformSet<string> Tags { get; }
 
 }

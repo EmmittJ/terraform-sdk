@@ -15,7 +15,7 @@ public partial class GoogleDataprocMetastoreServiceEncryptionConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     [TerraformProperty("kms_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KmsKey { get; set; }
+    public required partial TerraformValue<string> KmsKey { get; set; }
 
 }
 
@@ -31,14 +31,14 @@ public partial class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock : Te
     /// </summary>
     [TerraformProperty("config_overrides")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> ConfigOverrides { get; set; }
+    public partial TerraformMap<string> ConfigOverrides { get; set; }
 
     /// <summary>
     /// The protocol to use for the metastore service endpoint. If unspecified, defaults to &#39;THRIFT&#39;. Default value: &amp;quot;THRIFT&amp;quot; Possible values: [&amp;quot;THRIFT&amp;quot;, &amp;quot;GRPC&amp;quot;]
     /// </summary>
     [TerraformProperty("endpoint_protocol")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EndpointProtocol { get; set; }
+    public partial TerraformValue<string>? EndpointProtocol { get; set; }
 
     /// <summary>
     /// The Hive metastore schema version.
@@ -46,7 +46,7 @@ public partial class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformProperty("version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Version { get; set; }
+    public required partial TerraformValue<string> Version { get; set; }
 
 }
 
@@ -62,7 +62,7 @@ public partial class GoogleDataprocMetastoreServiceMaintenanceWindowBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     [TerraformProperty("day_of_week")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DayOfWeek { get; set; }
+    public required partial TerraformValue<string> DayOfWeek { get; set; }
 
     /// <summary>
     /// The hour of day (0-23) when the window starts.
@@ -70,7 +70,7 @@ public partial class GoogleDataprocMetastoreServiceMaintenanceWindowBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
     [TerraformProperty("hour_of_day")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> HourOfDay { get; set; }
+    public required partial TerraformValue<double> HourOfDay { get; set; }
 
 }
 
@@ -101,14 +101,14 @@ public partial class GoogleDataprocMetastoreServiceScalingConfigBlock : Terrafor
     /// </summary>
     [TerraformProperty("instance_size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InstanceSize { get; set; }
+    public partial TerraformValue<string>? InstanceSize { get; set; }
 
     /// <summary>
     /// Scaling factor, in increments of 0.1 for values less than 1.0, and increments of 1.0 for values greater than 1.0.
     /// </summary>
     [TerraformProperty("scaling_factor")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ScalingFactor { get; set; }
+    public partial TerraformValue<double>? ScalingFactor { get; set; }
 
 }
 
@@ -124,28 +124,28 @@ public partial class GoogleDataprocMetastoreServiceScheduledBackupBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupLocation is required")]
     [TerraformProperty("backup_location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackupLocation { get; set; }
+    public required partial TerraformValue<string> BackupLocation { get; set; }
 
     /// <summary>
     /// The scheduled interval in Cron format, see https://en.wikipedia.org/wiki/Cron The default is empty: scheduled backup is not enabled. Must be specified to enable scheduled backups.
     /// </summary>
     [TerraformProperty("cron_schedule")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CronSchedule { get; set; }
+    public partial TerraformValue<string>? CronSchedule { get; set; }
 
     /// <summary>
     /// Defines whether the scheduled backup is enabled. The default value is false.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> Enabled { get; set; }
+    public partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// Specifies the time zone to be used when interpreting cronSchedule. Must be a time zone name from the time zone database (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), e.g. America/Los_Angeles or Africa/Abidjan. If left unspecified, the default is UTC.
     /// </summary>
     [TerraformProperty("time_zone")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TimeZone { get; set; }
+    public partial TerraformValue<string> TimeZone { get; set; }
 
 }
 
@@ -160,7 +160,7 @@ public partial class GoogleDataprocMetastoreServiceTelemetryConfigBlock : Terraf
     /// </summary>
     [TerraformProperty("log_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LogFormat { get; set; }
+    public partial TerraformValue<string>? LogFormat { get; set; }
 
 }
 
@@ -175,21 +175,21 @@ public partial class GoogleDataprocMetastoreServiceTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -208,21 +208,21 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [TerraformProperty("database_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DatabaseType { get; set; }
+    public partial TerraformValue<string>? DatabaseType { get; set; }
 
     /// <summary>
     /// Indicates if the dataproc metastore should be protected against accidental deletions.
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeletionProtection { get; set; }
+    public partial TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// User-defined labels for the metastore service.
@@ -232,7 +232,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location where the metastore service should reside.
@@ -240,7 +240,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The relative resource name of the VPC network on which the instance can be accessed. It is specified in the following form:
@@ -249,28 +249,28 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [TerraformProperty("network")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Network { get; set; }
+    public partial TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The TCP port at which the metastore service is reached. Default: 9083.
     /// </summary>
     [TerraformProperty("port")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Port { get; set; }
+    public partial TerraformValue<double> Port { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The release channel of the service. If unspecified, defaults to &#39;STABLE&#39;. Default value: &amp;quot;STABLE&amp;quot; Possible values: [&amp;quot;CANARY&amp;quot;, &amp;quot;STABLE&amp;quot;]
     /// </summary>
     [TerraformProperty("release_channel")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ReleaseChannel { get; set; }
+    public partial TerraformValue<string>? ReleaseChannel { get; set; }
 
     /// <summary>
     /// The ID of the metastore service. The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_),
@@ -280,7 +280,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     [TerraformProperty("service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceId { get; set; }
+    public required partial TerraformValue<string> ServiceId { get; set; }
 
     /// <summary>
     /// A map of resource manager tags.
@@ -289,14 +289,14 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tier of the service. Possible values: [&amp;quot;DEVELOPER&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;]
     /// </summary>
     [TerraformProperty("tier")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Tier { get; set; }
+    public partial TerraformValue<string> Tier { get; set; }
 
     /// <summary>
     /// Block for encryption_config.
@@ -304,7 +304,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     [TerraformProperty("encryption_config")]
-    public TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceEncryptionConfigBlock>>? EncryptionConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceEncryptionConfigBlock>>? EncryptionConfig { get; set; }
 
     /// <summary>
     /// Block for hive_metastore_config.
@@ -312,7 +312,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HiveMetastoreConfig block(s) allowed")]
     [TerraformProperty("hive_metastore_config")]
-    public TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock>>? HiveMetastoreConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock>>? HiveMetastoreConfig { get; set; }
 
     /// <summary>
     /// Block for maintenance_window.
@@ -320,7 +320,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     [TerraformProperty("maintenance_window")]
-    public TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
 
     /// <summary>
     /// Block for metadata_integration.
@@ -328,7 +328,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetadataIntegration block(s) allowed")]
     [TerraformProperty("metadata_integration")]
-    public TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceMetadataIntegrationBlock>>? MetadataIntegration { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceMetadataIntegrationBlock>>? MetadataIntegration { get; set; }
 
     /// <summary>
     /// Block for network_config.
@@ -336,7 +336,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceNetworkConfigBlock>>? NetworkConfig { get; set; }
 
     /// <summary>
     /// Block for scaling_config.
@@ -344,7 +344,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfig block(s) allowed")]
     [TerraformProperty("scaling_config")]
-    public TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceScalingConfigBlock>>? ScalingConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceScalingConfigBlock>>? ScalingConfig { get; set; }
 
     /// <summary>
     /// Block for scheduled_backup.
@@ -352,7 +352,7 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduledBackup block(s) allowed")]
     [TerraformProperty("scheduled_backup")]
-    public TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceScheduledBackupBlock>>? ScheduledBackup { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceScheduledBackupBlock>>? ScheduledBackup { get; set; }
 
     /// <summary>
     /// Block for telemetry_config.
@@ -360,63 +360,63 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TelemetryConfig block(s) allowed")]
     [TerraformProperty("telemetry_config")]
-    public TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceTelemetryConfigBlock>>? TelemetryConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocMetastoreServiceTelemetryConfigBlock>>? TelemetryConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDataprocMetastoreServiceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDataprocMetastoreServiceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// A Cloud Storage URI (starting with gs://) that specifies where artifacts related to the metastore service are stored.
     /// </summary>
     [TerraformProperty("artifact_gcs_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ArtifactGcsUri { get; }
+    public partial TerraformValue<string> ArtifactGcsUri { get; }
 
     /// <summary>
     /// Output only. The time when the metastore service was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The URI of the endpoint used to access the metastore service.
     /// </summary>
     [TerraformProperty("endpoint_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EndpointUri { get; }
+    public partial TerraformValue<string> EndpointUri { get; }
 
     /// <summary>
     /// The relative resource name of the metastore service.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The current state of the metastore service.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Additional information about the current state of the metastore service, if available.
     /// </summary>
     [TerraformProperty("state_message")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StateMessage { get; }
+    public partial TerraformValue<string> StateMessage { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -424,20 +424,20 @@ public partial class GoogleDataprocMetastoreService : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The globally unique resource identifier of the metastore service.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Output only. The time when the metastore service was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

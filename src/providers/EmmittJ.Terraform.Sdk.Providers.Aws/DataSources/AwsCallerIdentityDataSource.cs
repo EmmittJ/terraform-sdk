@@ -16,27 +16,27 @@ public partial class AwsCallerIdentityDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
     [TerraformProperty("account_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AccountId { get; }
+    public partial TerraformValue<string> AccountId { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
     [TerraformProperty("user_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UserId { get; }
+    public partial TerraformValue<string> UserId { get; }
 
 }

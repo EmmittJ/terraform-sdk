@@ -13,7 +13,7 @@ public partial class AzurermStorageQueueDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,14 +31,14 @@ public partial class AzurermStorageQueueDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     [TerraformProperty("metadata")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Metadata { get; set; }
+    public partial TerraformMap<string> Metadata { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -46,14 +46,14 @@ public partial class AzurermStorageQueueDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [TerraformProperty("storage_account_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountId { get; set; }
+    public partial TerraformValue<string>? StorageAccountId { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
@@ -61,27 +61,27 @@ public partial class AzurermStorageQueueDataSource : TerraformDataSource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("storage_account_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountName { get; set; }
+    public partial TerraformValue<string>? StorageAccountName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageQueueDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageQueueDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     [TerraformProperty("resource_manager_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceManagerId { get; }
+    public partial TerraformValue<string> ResourceManagerId { get; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     [TerraformProperty("url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Url { get; }
+    public partial TerraformValue<string> Url { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class GoogleComputeRegionSecurityPolicyRuleMatchBlock : Terraform
     /// </summary>
     [TerraformProperty("versioned_expr")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VersionedExpr { get; set; }
+    public partial TerraformValue<string>? VersionedExpr { get; set; }
 
 }
 
@@ -29,49 +29,49 @@ public partial class GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock : Te
     /// </summary>
     [TerraformProperty("dest_ip_ranges")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? DestIpRanges { get; set; }
+    public partial TerraformList<string>? DestIpRanges { get; set; }
 
     /// <summary>
     /// Destination port numbers for TCP/UDP/SCTP. Each element can be a 16-bit unsigned decimal number (e.g. &amp;quot;80&amp;quot;) or range (e.g. &amp;quot;0-1023&amp;quot;).
     /// </summary>
     [TerraformProperty("dest_ports")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? DestPorts { get; set; }
+    public partial TerraformList<string>? DestPorts { get; set; }
 
     /// <summary>
     /// IPv4 protocol / IPv6 next header (after extension headers). Each element can be an 8-bit unsigned decimal number (e.g. &amp;quot;6&amp;quot;), range (e.g. &amp;quot;253-254&amp;quot;), or one of the following protocol names: &amp;quot;tcp&amp;quot;, &amp;quot;udp&amp;quot;, &amp;quot;icmp&amp;quot;, &amp;quot;esp&amp;quot;, &amp;quot;ah&amp;quot;, &amp;quot;ipip&amp;quot;, or &amp;quot;sctp&amp;quot;.
     /// </summary>
     [TerraformProperty("ip_protocols")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? IpProtocols { get; set; }
+    public partial TerraformList<string>? IpProtocols { get; set; }
 
     /// <summary>
     /// BGP Autonomous System Number associated with the source IP address.
     /// </summary>
     [TerraformProperty("src_asns")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<double>? SrcAsns { get; set; }
+    public partial TerraformList<double>? SrcAsns { get; set; }
 
     /// <summary>
     /// Source IPv4/IPv6 addresses or CIDR prefixes, in standard text format.
     /// </summary>
     [TerraformProperty("src_ip_ranges")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? SrcIpRanges { get; set; }
+    public partial TerraformList<string>? SrcIpRanges { get; set; }
 
     /// <summary>
     /// Source port numbers for TCP/UDP/SCTP. Each element can be a 16-bit unsigned decimal number (e.g. &amp;quot;80&amp;quot;) or range (e.g. &amp;quot;0-1023&amp;quot;).
     /// </summary>
     [TerraformProperty("src_ports")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? SrcPorts { get; set; }
+    public partial TerraformList<string>? SrcPorts { get; set; }
 
     /// <summary>
     /// Two-letter ISO 3166-1 alpha-2 country code associated with the source IP address.
     /// </summary>
     [TerraformProperty("src_region_codes")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? SrcRegionCodes { get; set; }
+    public partial TerraformList<string>? SrcRegionCodes { get; set; }
 
 }
 
@@ -95,7 +95,7 @@ public partial class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock 
     /// </summary>
     [TerraformProperty("ban_duration_sec")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BanDurationSec { get; set; }
+    public partial TerraformValue<double>? BanDurationSec { get; set; }
 
     /// <summary>
     /// Action to take for requests that are under the configured rate limit threshold.
@@ -103,7 +103,7 @@ public partial class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock 
     /// </summary>
     [TerraformProperty("conform_action")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConformAction { get; set; }
+    public partial TerraformValue<string>? ConformAction { get; set; }
 
     /// <summary>
     /// Determines the key to enforce the rateLimitThreshold on. Possible values are:
@@ -121,7 +121,7 @@ public partial class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock 
     /// </summary>
     [TerraformProperty("enforce_on_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EnforceOnKey { get; set; }
+    public partial TerraformValue<string>? EnforceOnKey { get; set; }
 
     /// <summary>
     /// Rate limit key name applicable only for the following key types:
@@ -130,7 +130,7 @@ public partial class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock 
     /// </summary>
     [TerraformProperty("enforce_on_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EnforceOnKeyName { get; set; }
+    public partial TerraformValue<string>? EnforceOnKeyName { get; set; }
 
     /// <summary>
     /// Action to take for requests that are above the configured rate limit threshold, to deny with a specified HTTP response code.
@@ -138,7 +138,7 @@ public partial class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock 
     /// </summary>
     [TerraformProperty("exceed_action")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExceedAction { get; set; }
+    public partial TerraformValue<string>? ExceedAction { get; set; }
 
 }
 
@@ -153,21 +153,21 @@ public partial class GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -197,28 +197,28 @@ public partial class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformProperty("action")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Action { get; set; }
+    public required partial TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// If set to true, the specified action is not enforced.
     /// </summary>
     [TerraformProperty("preview")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Preview { get; set; }
+    public partial TerraformValue<bool>? Preview { get; set; }
 
     /// <summary>
     /// An integer indicating the priority of a rule in the list.
@@ -228,14 +228,14 @@ public partial class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformProperty("priority")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Priority { get; set; }
+    public required partial TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The Region in which the created Region Security Policy rule should reside.
@@ -243,7 +243,7 @@ public partial class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     [TerraformProperty("region")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Region { get; set; }
+    public required partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The name of the security policy this rule belongs to.
@@ -251,7 +251,7 @@ public partial class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityPolicy is required")]
     [TerraformProperty("security_policy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SecurityPolicy { get; set; }
+    public required partial TerraformValue<string> SecurityPolicy { get; set; }
 
     /// <summary>
     /// Block for match.
@@ -259,7 +259,7 @@ public partial class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Match block(s) allowed")]
     [TerraformProperty("match")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRuleMatchBlock>>? Match { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRuleMatchBlock>>? Match { get; set; }
 
     /// <summary>
     /// Block for network_match.
@@ -267,7 +267,7 @@ public partial class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkMatch block(s) allowed")]
     [TerraformProperty("network_match")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock>>? NetworkMatch { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock>>? NetworkMatch { get; set; }
 
     /// <summary>
     /// Block for preconfigured_waf_config.
@@ -275,7 +275,7 @@ public partial class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreconfiguredWafConfig block(s) allowed")]
     [TerraformProperty("preconfigured_waf_config")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlock>>? PreconfiguredWafConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlock>>? PreconfiguredWafConfig { get; set; }
 
     /// <summary>
     /// Block for rate_limit_options.
@@ -283,13 +283,13 @@ public partial class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RateLimitOptions block(s) allowed")]
     [TerraformProperty("rate_limit_options")]
-    public TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock>>? RateLimitOptions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock>>? RateLimitOptions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

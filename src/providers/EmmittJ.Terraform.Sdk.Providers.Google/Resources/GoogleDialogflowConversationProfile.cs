@@ -15,14 +15,14 @@ public partial class GoogleDialogflowConversationProfileAutomatedAgentConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Agent is required")]
     [TerraformProperty("agent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Agent { get; set; }
+    public required partial TerraformValue<string> Agent { get; set; }
 
     /// <summary>
     /// Configure lifetime of the Dialogflow session.
     /// </summary>
     [TerraformProperty("session_ttl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SessionTtl { get; set; }
+    public partial TerraformValue<string>? SessionTtl { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class GoogleDialogflowConversationProfileLoggingConfigBlock : Ter
     /// </summary>
     [TerraformProperty("enable_stackdriver_logging")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableStackdriverLogging { get; set; }
+    public partial TerraformValue<bool>? EnableStackdriverLogging { get; set; }
 
 }
 
@@ -68,14 +68,14 @@ public partial class GoogleDialogflowConversationProfileNewMessageEventNotificat
     /// </summary>
     [TerraformProperty("message_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MessageFormat { get; set; }
+    public partial TerraformValue<string>? MessageFormat { get; set; }
 
     /// <summary>
     /// Name of the Pub/Sub topic to publish conversation events
     /// </summary>
     [TerraformProperty("topic")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Topic { get; set; }
+    public partial TerraformValue<string>? Topic { get; set; }
 
 }
 
@@ -90,7 +90,7 @@ public partial class GoogleDialogflowConversationProfileNewRecognitionResultNoti
     /// </summary>
     [TerraformProperty("message_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MessageFormat { get; set; }
+    public partial TerraformValue<string>? MessageFormat { get; set; }
 
     /// <summary>
     /// Name of the Pub/Sub topic to publish conversation events like CONVERSATION_STARTED as serialized ConversationEvent protos.
@@ -100,7 +100,7 @@ public partial class GoogleDialogflowConversationProfileNewRecognitionResultNoti
     /// </summary>
     [TerraformProperty("topic")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Topic { get; set; }
+    public partial TerraformValue<string>? Topic { get; set; }
 
 }
 
@@ -115,14 +115,14 @@ public partial class GoogleDialogflowConversationProfileNotificationConfigBlock 
     /// </summary>
     [TerraformProperty("message_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MessageFormat { get; set; }
+    public partial TerraformValue<string>? MessageFormat { get; set; }
 
     /// <summary>
     /// Name of the Pub/Sub topic to publish conversation events
     /// </summary>
     [TerraformProperty("topic")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Topic { get; set; }
+    public partial TerraformValue<string>? Topic { get; set; }
 
 }
 
@@ -137,21 +137,21 @@ public partial class GoogleDialogflowConversationProfileSttConfigBlock : Terrafo
     /// </summary>
     [TerraformProperty("audio_encoding")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AudioEncoding { get; set; }
+    public partial TerraformValue<string>? AudioEncoding { get; set; }
 
     /// <summary>
     /// If true, Dialogflow returns SpeechWordInfo in StreamingRecognitionResult with information about the recognized speech words.
     /// </summary>
     [TerraformProperty("enable_word_info")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableWordInfo { get; set; }
+    public partial TerraformValue<bool>? EnableWordInfo { get; set; }
 
     /// <summary>
     /// The language of the supplied audio.
     /// </summary>
     [TerraformProperty("language_code")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> LanguageCode { get; set; }
+    public partial TerraformValue<string> LanguageCode { get; set; }
 
     /// <summary>
     /// Which Speech model to select.
@@ -159,28 +159,28 @@ public partial class GoogleDialogflowConversationProfileSttConfigBlock : Terrafo
     /// </summary>
     [TerraformProperty("model")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Model { get; set; }
+    public partial TerraformValue<string>? Model { get; set; }
 
     /// <summary>
     /// Sample rate (in Hertz) of the audio content sent in the query.
     /// </summary>
     [TerraformProperty("sample_rate_hertz")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SampleRateHertz { get; set; }
+    public partial TerraformValue<double>? SampleRateHertz { get; set; }
 
     /// <summary>
     /// The speech model used in speech to text. Possible values: [&amp;quot;SPEECH_MODEL_VARIANT_UNSPECIFIED&amp;quot;, &amp;quot;USE_BEST_AVAILABLE&amp;quot;, &amp;quot;USE_STANDARD&amp;quot;, &amp;quot;USE_ENHANCED&amp;quot;]
     /// </summary>
     [TerraformProperty("speech_model_variant")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SpeechModelVariant { get; set; }
+    public partial TerraformValue<string>? SpeechModelVariant { get; set; }
 
     /// <summary>
     /// Use timeout based endpointing, interpreting endpointer sensitivy as seconds of timeout value.
     /// </summary>
     [TerraformProperty("use_timeout_based_endpointing")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseTimeoutBasedEndpointing { get; set; }
+    public partial TerraformValue<bool>? UseTimeoutBasedEndpointing { get; set; }
 
 }
 
@@ -195,21 +195,21 @@ public partial class GoogleDialogflowConversationProfileTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -224,28 +224,28 @@ public partial class GoogleDialogflowConversationProfileTtsConfigBlock : Terrafo
     /// </summary>
     [TerraformProperty("effects_profile_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? EffectsProfileId { get; set; }
+    public partial TerraformList<string>? EffectsProfileId { get; set; }
 
     /// <summary>
     /// Speaking pitch, in the range [-20.0, 20.0]. 20 means increase 20 semitones from the original pitch. -20 means decrease 20 semitones from the original pitch.
     /// </summary>
     [TerraformProperty("pitch")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Pitch { get; set; }
+    public partial TerraformValue<double>? Pitch { get; set; }
 
     /// <summary>
     /// Speaking rate/speed, in the range [0.25, 4.0].
     /// </summary>
     [TerraformProperty("speaking_rate")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SpeakingRate { get; set; }
+    public partial TerraformValue<double>? SpeakingRate { get; set; }
 
     /// <summary>
     /// Volume gain (in dB) of the normal native volume supported by the specific voice.
     /// </summary>
     [TerraformProperty("volume_gain_db")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? VolumeGainDb { get; set; }
+    public partial TerraformValue<double>? VolumeGainDb { get; set; }
 
 }
 
@@ -265,21 +265,21 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Language code for the conversation profile. This should be a BCP-47 language tag.
     /// </summary>
     [TerraformProperty("language_code")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> LanguageCode { get; set; }
+    public partial TerraformValue<string> LanguageCode { get; set; }
 
     /// <summary>
     /// desc
@@ -287,28 +287,28 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Name of the CX SecuritySettings reference for the agent.
     /// </summary>
     [TerraformProperty("security_settings")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecuritySettings { get; set; }
+    public partial TerraformValue<string>? SecuritySettings { get; set; }
 
     /// <summary>
     /// The time zone of this conversational profile.
     /// </summary>
     [TerraformProperty("time_zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TimeZone { get; set; }
+    public partial TerraformValue<string>? TimeZone { get; set; }
 
     /// <summary>
     /// Block for automated_agent_config.
@@ -316,7 +316,7 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedAgentConfig block(s) allowed")]
     [TerraformProperty("automated_agent_config")]
-    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileAutomatedAgentConfigBlock>>? AutomatedAgentConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileAutomatedAgentConfigBlock>>? AutomatedAgentConfig { get; set; }
 
     /// <summary>
     /// Block for human_agent_assistant_config.
@@ -324,7 +324,7 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanAgentAssistantConfig block(s) allowed")]
     [TerraformProperty("human_agent_assistant_config")]
-    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlock>>? HumanAgentAssistantConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlock>>? HumanAgentAssistantConfig { get; set; }
 
     /// <summary>
     /// Block for human_agent_handoff_config.
@@ -332,7 +332,7 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanAgentHandoffConfig block(s) allowed")]
     [TerraformProperty("human_agent_handoff_config")]
-    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileHumanAgentHandoffConfigBlock>>? HumanAgentHandoffConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileHumanAgentHandoffConfigBlock>>? HumanAgentHandoffConfig { get; set; }
 
     /// <summary>
     /// Block for logging_config.
@@ -340,7 +340,7 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformProperty("logging_config")]
-    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileLoggingConfigBlock>>? LoggingConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileLoggingConfigBlock>>? LoggingConfig { get; set; }
 
     /// <summary>
     /// Block for new_message_event_notification_config.
@@ -348,7 +348,7 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NewMessageEventNotificationConfig block(s) allowed")]
     [TerraformProperty("new_message_event_notification_config")]
-    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileNewMessageEventNotificationConfigBlock>>? NewMessageEventNotificationConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileNewMessageEventNotificationConfigBlock>>? NewMessageEventNotificationConfig { get; set; }
 
     /// <summary>
     /// Block for new_recognition_result_notification_config.
@@ -356,7 +356,7 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NewRecognitionResultNotificationConfig block(s) allowed")]
     [TerraformProperty("new_recognition_result_notification_config")]
-    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileNewRecognitionResultNotificationConfigBlock>>? NewRecognitionResultNotificationConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileNewRecognitionResultNotificationConfigBlock>>? NewRecognitionResultNotificationConfig { get; set; }
 
     /// <summary>
     /// Block for notification_config.
@@ -364,7 +364,7 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
     [TerraformProperty("notification_config")]
-    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileNotificationConfigBlock>>? NotificationConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileNotificationConfigBlock>>? NotificationConfig { get; set; }
 
     /// <summary>
     /// Block for stt_config.
@@ -372,14 +372,14 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SttConfig block(s) allowed")]
     [TerraformProperty("stt_config")]
-    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileSttConfigBlock>>? SttConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileSttConfigBlock>>? SttConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDialogflowConversationProfileTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDialogflowConversationProfileTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for tts_config.
@@ -387,13 +387,13 @@ public partial class GoogleDialogflowConversationProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TtsConfig block(s) allowed")]
     [TerraformProperty("tts_config")]
-    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileTtsConfigBlock>>? TtsConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowConversationProfileTtsConfigBlock>>? TtsConfig { get; set; }
 
     /// <summary>
     /// name
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

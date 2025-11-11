@@ -13,21 +13,21 @@ public partial class AzureadAccessPackageResourceCatalogAssociationTimeoutsBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzureadAccessPackageResourceCatalogAssociation : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     [TerraformProperty("catalog_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CatalogId { get; set; }
+    public required partial TerraformValue<string> CatalogId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The unique identifier of the resource in the origin system. In the case of an Azure AD group, this is the identifier of the group
@@ -61,7 +61,7 @@ public partial class AzureadAccessPackageResourceCatalogAssociation : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceOriginId is required")]
     [TerraformProperty("resource_origin_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceOriginId { get; set; }
+    public required partial TerraformValue<string> ResourceOriginId { get; set; }
 
     /// <summary>
     /// The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup
@@ -69,13 +69,13 @@ public partial class AzureadAccessPackageResourceCatalogAssociation : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceOriginSystem is required")]
     [TerraformProperty("resource_origin_system")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceOriginSystem { get; set; }
+    public required partial TerraformValue<string> ResourceOriginSystem { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadAccessPackageResourceCatalogAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadAccessPackageResourceCatalogAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

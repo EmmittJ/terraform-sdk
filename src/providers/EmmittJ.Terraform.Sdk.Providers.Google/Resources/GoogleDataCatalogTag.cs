@@ -13,7 +13,7 @@ public partial class GoogleDataCatalogTagFieldsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("bool_value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? BoolValue { get; set; }
+    public partial TerraformValue<bool>? BoolValue { get; set; }
 
 
     /// <summary>
@@ -21,14 +21,14 @@ public partial class GoogleDataCatalogTagFieldsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("double_value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DoubleValue { get; set; }
+    public partial TerraformValue<double>? DoubleValue { get; set; }
 
     /// <summary>
     /// The display name of the enum value.
     /// </summary>
     [TerraformProperty("enum_value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EnumValue { get; set; }
+    public partial TerraformValue<string>? EnumValue { get; set; }
 
     /// <summary>
     /// The field_name attribute.
@@ -36,7 +36,7 @@ public partial class GoogleDataCatalogTagFieldsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldName is required")]
     [TerraformProperty("field_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FieldName { get; set; }
+    public required partial TerraformValue<string> FieldName { get; set; }
 
 
     /// <summary>
@@ -44,14 +44,14 @@ public partial class GoogleDataCatalogTagFieldsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("string_value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StringValue { get; set; }
+    public partial TerraformValue<string>? StringValue { get; set; }
 
     /// <summary>
     /// Holds the value for a tag field with timestamp type.
     /// </summary>
     [TerraformProperty("timestamp_value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TimestampValue { get; set; }
+    public partial TerraformValue<string>? TimestampValue { get; set; }
 
 }
 
@@ -66,21 +66,21 @@ public partial class GoogleDataCatalogTagTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -104,14 +104,14 @@ public partial class GoogleDataCatalogTag : TerraformResource
     /// </summary>
     [TerraformProperty("column")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Column { get; set; }
+    public partial TerraformValue<string>? Column { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the parent this tag is attached to. This can be the name of an entry or an entry group. If an entry group, the tag will be attached to
@@ -119,7 +119,7 @@ public partial class GoogleDataCatalogTag : TerraformResource
     /// </summary>
     [TerraformProperty("parent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Parent { get; set; }
+    public partial TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// The resource name of the tag template that this tag uses. Example:
@@ -129,7 +129,7 @@ public partial class GoogleDataCatalogTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Template is required")]
     [TerraformProperty("template")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Template { get; set; }
+    public required partial TerraformValue<string> Template { get; set; }
 
     /// <summary>
     /// Block for fields.
@@ -138,14 +138,14 @@ public partial class GoogleDataCatalogTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fields block(s) required")]
     [TerraformProperty("fields")]
-    public TerraformSet<TerraformBlock<GoogleDataCatalogTagFieldsBlock>>? Fields { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleDataCatalogTagFieldsBlock>>? Fields { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDataCatalogTagTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDataCatalogTagTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The resource name of the tag in URL format. Example:
@@ -155,13 +155,13 @@ public partial class GoogleDataCatalogTag : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The display name of the tag template.
     /// </summary>
     [TerraformProperty("template_displayname")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TemplateDisplayname { get; }
+    public partial TerraformValue<string> TemplateDisplayname { get; }
 
 }

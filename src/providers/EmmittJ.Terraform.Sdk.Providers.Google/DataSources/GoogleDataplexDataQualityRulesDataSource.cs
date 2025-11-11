@@ -17,34 +17,34 @@ public partial class GoogleDataplexDataQualityRulesDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataScanId is required")]
     [TerraformProperty("data_scan_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataScanId { get; set; }
+    public required partial TerraformValue<string> DataScanId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The rules attribute.
     /// </summary>
     [TerraformProperty("rules")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Rules { get; }
+    public partial TerraformList<object> Rules { get; }
 
 }

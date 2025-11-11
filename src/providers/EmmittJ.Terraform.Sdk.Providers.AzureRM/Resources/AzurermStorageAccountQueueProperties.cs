@@ -14,7 +14,7 @@ public partial class AzurermStorageAccountQueuePropertiesCorsRuleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedHeaders is required")]
     [TerraformProperty("allowed_headers")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? AllowedHeaders { get; set; }
+    public partial TerraformList<string>? AllowedHeaders { get; set; }
 
     /// <summary>
     /// The allowed_methods attribute.
@@ -22,7 +22,7 @@ public partial class AzurermStorageAccountQueuePropertiesCorsRuleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
     [TerraformProperty("allowed_methods")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? AllowedMethods { get; set; }
+    public partial TerraformList<string>? AllowedMethods { get; set; }
 
     /// <summary>
     /// The allowed_origins attribute.
@@ -30,7 +30,7 @@ public partial class AzurermStorageAccountQueuePropertiesCorsRuleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
     [TerraformProperty("allowed_origins")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? AllowedOrigins { get; set; }
+    public partial TerraformList<string>? AllowedOrigins { get; set; }
 
     /// <summary>
     /// The exposed_headers attribute.
@@ -38,7 +38,7 @@ public partial class AzurermStorageAccountQueuePropertiesCorsRuleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExposedHeaders is required")]
     [TerraformProperty("exposed_headers")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? ExposedHeaders { get; set; }
+    public partial TerraformList<string>? ExposedHeaders { get; set; }
 
     /// <summary>
     /// The max_age_in_seconds attribute.
@@ -46,7 +46,7 @@ public partial class AzurermStorageAccountQueuePropertiesCorsRuleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAgeInSeconds is required")]
     [TerraformProperty("max_age_in_seconds")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MaxAgeInSeconds { get; set; }
+    public required partial TerraformValue<double> MaxAgeInSeconds { get; set; }
 
 }
 
@@ -61,14 +61,14 @@ public partial class AzurermStorageAccountQueuePropertiesHourMetricsBlock : Terr
     /// </summary>
     [TerraformProperty("include_apis")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IncludeApis { get; set; }
+    public partial TerraformValue<bool>? IncludeApis { get; set; }
 
     /// <summary>
     /// The retention_policy_days attribute.
     /// </summary>
     [TerraformProperty("retention_policy_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetentionPolicyDays { get; set; }
+    public partial TerraformValue<double>? RetentionPolicyDays { get; set; }
 
     /// <summary>
     /// The version attribute.
@@ -76,7 +76,7 @@ public partial class AzurermStorageAccountQueuePropertiesHourMetricsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformProperty("version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Version { get; set; }
+    public required partial TerraformValue<string> Version { get; set; }
 
 }
 
@@ -92,7 +92,7 @@ public partial class AzurermStorageAccountQueuePropertiesLoggingBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delete is required")]
     [TerraformProperty("delete")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Delete { get; set; }
+    public required partial TerraformValue<bool> Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
@@ -100,14 +100,14 @@ public partial class AzurermStorageAccountQueuePropertiesLoggingBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Read is required")]
     [TerraformProperty("read")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Read { get; set; }
+    public required partial TerraformValue<bool> Read { get; set; }
 
     /// <summary>
     /// The retention_policy_days attribute.
     /// </summary>
     [TerraformProperty("retention_policy_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetentionPolicyDays { get; set; }
+    public partial TerraformValue<double>? RetentionPolicyDays { get; set; }
 
     /// <summary>
     /// The version attribute.
@@ -115,7 +115,7 @@ public partial class AzurermStorageAccountQueuePropertiesLoggingBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformProperty("version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Version { get; set; }
+    public required partial TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// The write attribute.
@@ -123,7 +123,7 @@ public partial class AzurermStorageAccountQueuePropertiesLoggingBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Write is required")]
     [TerraformProperty("write")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Write { get; set; }
+    public required partial TerraformValue<bool> Write { get; set; }
 
 }
 
@@ -138,14 +138,14 @@ public partial class AzurermStorageAccountQueuePropertiesMinuteMetricsBlock : Te
     /// </summary>
     [TerraformProperty("include_apis")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IncludeApis { get; set; }
+    public partial TerraformValue<bool>? IncludeApis { get; set; }
 
     /// <summary>
     /// The retention_policy_days attribute.
     /// </summary>
     [TerraformProperty("retention_policy_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetentionPolicyDays { get; set; }
+    public partial TerraformValue<double>? RetentionPolicyDays { get; set; }
 
     /// <summary>
     /// The version attribute.
@@ -153,7 +153,7 @@ public partial class AzurermStorageAccountQueuePropertiesMinuteMetricsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformProperty("version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Version { get; set; }
+    public required partial TerraformValue<string> Version { get; set; }
 
 }
 
@@ -168,28 +168,28 @@ public partial class AzurermStorageAccountQueuePropertiesTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -208,7 +208,7 @@ public partial class AzurermStorageAccountQueueProperties : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -216,7 +216,7 @@ public partial class AzurermStorageAccountQueueProperties : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformProperty("storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountId { get; set; }
+    public required partial TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for cors_rule.
@@ -224,7 +224,7 @@ public partial class AzurermStorageAccountQueueProperties : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 CorsRule block(s) allowed")]
     [TerraformProperty("cors_rule")]
-    public TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesCorsRuleBlock>>? CorsRule { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesCorsRuleBlock>>? CorsRule { get; set; }
 
     /// <summary>
     /// Block for hour_metrics.
@@ -232,7 +232,7 @@ public partial class AzurermStorageAccountQueueProperties : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HourMetrics block(s) allowed")]
     [TerraformProperty("hour_metrics")]
-    public TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesHourMetricsBlock>>? HourMetrics { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesHourMetricsBlock>>? HourMetrics { get; set; }
 
     /// <summary>
     /// Block for logging.
@@ -240,7 +240,7 @@ public partial class AzurermStorageAccountQueueProperties : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
     [TerraformProperty("logging")]
-    public TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesLoggingBlock>>? Logging { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesLoggingBlock>>? Logging { get; set; }
 
     /// <summary>
     /// Block for minute_metrics.
@@ -248,13 +248,13 @@ public partial class AzurermStorageAccountQueueProperties : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MinuteMetrics block(s) allowed")]
     [TerraformProperty("minute_metrics")]
-    public TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesMinuteMetricsBlock>>? MinuteMetrics { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesMinuteMetricsBlock>>? MinuteMetrics { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageAccountQueuePropertiesTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageAccountQueuePropertiesTimeoutsBlock>? Timeouts { get; set; }
 
 }

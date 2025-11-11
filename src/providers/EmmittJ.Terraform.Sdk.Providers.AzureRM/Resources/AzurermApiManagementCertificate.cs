@@ -13,28 +13,28 @@ public partial class AzurermApiManagementCertificateTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,35 +53,35 @@ public partial class AzurermApiManagementCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     [TerraformProperty("api_management_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiManagementName { get; set; }
+    public required partial TerraformValue<string> ApiManagementName { get; set; }
 
     /// <summary>
     /// The data attribute.
     /// </summary>
     [TerraformProperty("data")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Data { get; set; }
+    public partial TerraformValue<string>? Data { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_vault_identity_client_id attribute.
     /// </summary>
     [TerraformProperty("key_vault_identity_client_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyVaultIdentityClientId { get; set; }
+    public partial TerraformValue<string>? KeyVaultIdentityClientId { get; set; }
 
     /// <summary>
     /// The key_vault_secret_id attribute.
     /// </summary>
     [TerraformProperty("key_vault_secret_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyVaultSecretId { get; set; }
+    public partial TerraformValue<string>? KeyVaultSecretId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -89,14 +89,14 @@ public partial class AzurermApiManagementCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
     [TerraformProperty("password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Password { get; set; }
+    public partial TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -104,34 +104,34 @@ public partial class AzurermApiManagementCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApiManagementCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApiManagementCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The expiration attribute.
     /// </summary>
     [TerraformProperty("expiration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Expiration { get; }
+    public partial TerraformValue<string> Expiration { get; }
 
     /// <summary>
     /// The subject attribute.
     /// </summary>
     [TerraformProperty("subject")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Subject { get; }
+    public partial TerraformValue<string> Subject { get; }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     [TerraformProperty("thumbprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Thumbprint { get; }
+    public partial TerraformValue<string> Thumbprint { get; }
 
 }

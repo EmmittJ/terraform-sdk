@@ -17,7 +17,7 @@ public partial class AwsLightsailLbStickinessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CookieDuration is required")]
     [TerraformProperty("cookie_duration")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> CookieDuration { get; set; }
+    public required partial TerraformValue<double> CookieDuration { get; set; }
 
     /// <summary>
     /// The enabled attribute.
@@ -25,14 +25,14 @@ public partial class AwsLightsailLbStickinessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The lb_name attribute.
@@ -40,13 +40,13 @@ public partial class AwsLightsailLbStickinessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbName is required")]
     [TerraformProperty("lb_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LbName { get; set; }
+    public required partial TerraformValue<string> LbName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
 }

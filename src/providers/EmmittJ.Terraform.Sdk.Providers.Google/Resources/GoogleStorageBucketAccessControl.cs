@@ -13,21 +13,21 @@ public partial class GoogleStorageBucketAccessControlTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class GoogleStorageBucketAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The entity holding the permission, in one of the following forms:
@@ -68,41 +68,41 @@ public partial class GoogleStorageBucketAccessControl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entity is required")]
     [TerraformProperty("entity")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Entity { get; set; }
+    public required partial TerraformValue<string> Entity { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The access permission for the entity. Possible values: [&amp;quot;OWNER&amp;quot;, &amp;quot;READER&amp;quot;, &amp;quot;WRITER&amp;quot;]
     /// </summary>
     [TerraformProperty("role")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Role { get; set; }
+    public partial TerraformValue<string>? Role { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleStorageBucketAccessControlTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleStorageBucketAccessControlTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The domain associated with the entity.
     /// </summary>
     [TerraformProperty("domain")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Domain { get; }
+    public partial TerraformValue<string> Domain { get; }
 
     /// <summary>
     /// The email address associated with the entity.
     /// </summary>
     [TerraformProperty("email")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Email { get; }
+    public partial TerraformValue<string> Email { get; }
 
 }

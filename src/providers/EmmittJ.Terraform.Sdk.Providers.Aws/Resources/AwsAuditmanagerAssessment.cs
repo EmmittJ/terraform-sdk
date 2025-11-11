@@ -14,7 +14,7 @@ public partial class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [TerraformProperty("destination")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Destination { get; set; }
+    public required partial TerraformValue<string> Destination { get; set; }
 
     /// <summary>
     /// The destination_type attribute.
@@ -22,7 +22,7 @@ public partial class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationType is required")]
     [TerraformProperty("destination_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DestinationType { get; set; }
+    public required partial TerraformValue<string> DestinationType { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class AwsAuditmanagerAssessmentRolesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The role_type attribute.
@@ -46,7 +46,7 @@ public partial class AwsAuditmanagerAssessmentRolesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleType is required")]
     [TerraformProperty("role_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleType { get; set; }
+    public required partial TerraformValue<string> RoleType { get; set; }
 
 }
 
@@ -72,7 +72,7 @@ public partial class AwsAuditmanagerAssessment : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The framework_id attribute.
@@ -80,7 +80,7 @@ public partial class AwsAuditmanagerAssessment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameworkId is required")]
     [TerraformProperty("framework_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FrameworkId { get; set; }
+    public required partial TerraformValue<string> FrameworkId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -88,76 +88,76 @@ public partial class AwsAuditmanagerAssessment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for assessment_reports_destination.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("assessment_reports_destination")]
-    public TerraformList<TerraformBlock<AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock>>? AssessmentReportsDestination { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock>>? AssessmentReportsDestination { get; set; }
 
     /// <summary>
     /// Block for roles.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("roles")]
-    public TerraformSet<TerraformBlock<AwsAuditmanagerAssessmentRolesBlock>>? Roles { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsAuditmanagerAssessmentRolesBlock>>? Roles { get; set; }
 
     /// <summary>
     /// Block for scope.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("scope")]
-    public TerraformList<TerraformBlock<AwsAuditmanagerAssessmentScopeBlock>>? Scope { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAuditmanagerAssessmentScopeBlock>>? Scope { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The roles_all attribute.
     /// </summary>
     [TerraformProperty("roles_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> RolesAll { get; }
+    public partial TerraformList<object> RolesAll { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
 }

@@ -13,28 +13,28 @@ public partial class AzurermMachineLearningDatastoreFileshareTimeoutsBlock : Ter
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,21 +52,21 @@ public partial class AzurermMachineLearningDatastoreFileshare : TerraformResourc
     /// </summary>
     [TerraformProperty("account_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AccountKey { get; set; }
+    public partial TerraformValue<string>? AccountKey { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -74,21 +74,21 @@ public partial class AzurermMachineLearningDatastoreFileshare : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The service_data_identity attribute.
     /// </summary>
     [TerraformProperty("service_data_identity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServiceDataIdentity { get; set; }
+    public partial TerraformValue<string>? ServiceDataIdentity { get; set; }
 
     /// <summary>
     /// The shared_access_signature attribute.
     /// </summary>
     [TerraformProperty("shared_access_signature")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SharedAccessSignature { get; set; }
+    public partial TerraformValue<string>? SharedAccessSignature { get; set; }
 
     /// <summary>
     /// The storage_fileshare_id attribute.
@@ -96,14 +96,14 @@ public partial class AzurermMachineLearningDatastoreFileshare : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageFileshareId is required")]
     [TerraformProperty("storage_fileshare_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageFileshareId { get; set; }
+    public required partial TerraformValue<string> StorageFileshareId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -111,20 +111,20 @@ public partial class AzurermMachineLearningDatastoreFileshare : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformProperty("workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceId { get; set; }
+    public required partial TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMachineLearningDatastoreFileshareTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMachineLearningDatastoreFileshareTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The is_default attribute.
     /// </summary>
     [TerraformProperty("is_default")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> IsDefault { get; }
+    public partial TerraformValue<bool> IsDefault { get; }
 
 }

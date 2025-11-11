@@ -13,21 +13,21 @@ public partial class AzurermAdvisorSuppressionTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermAdvisorSuppression : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -53,7 +53,7 @@ public partial class AzurermAdvisorSuppression : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recommendation_id attribute.
@@ -61,7 +61,7 @@ public partial class AzurermAdvisorSuppression : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecommendationId is required")]
     [TerraformProperty("recommendation_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecommendationId { get; set; }
+    public required partial TerraformValue<string> RecommendationId { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
@@ -69,27 +69,27 @@ public partial class AzurermAdvisorSuppression : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     [TerraformProperty("resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceId { get; set; }
+    public required partial TerraformValue<string> ResourceId { get; set; }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
     [TerraformProperty("ttl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Ttl { get; set; }
+    public partial TerraformValue<string>? Ttl { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAdvisorSuppressionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAdvisorSuppressionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The suppression_id attribute.
     /// </summary>
     [TerraformProperty("suppression_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SuppressionId { get; }
+    public partial TerraformValue<string> SuppressionId { get; }
 
 }

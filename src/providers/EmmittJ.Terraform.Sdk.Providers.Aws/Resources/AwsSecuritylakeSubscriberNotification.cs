@@ -24,7 +24,7 @@ public partial class AwsSecuritylakeSubscriberNotification : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The subscriber_id attribute.
@@ -32,34 +32,34 @@ public partial class AwsSecuritylakeSubscriberNotification : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriberId is required")]
     [TerraformProperty("subscriber_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubscriberId { get; set; }
+    public required partial TerraformValue<string> SubscriberId { get; set; }
 
     /// <summary>
     /// Block for configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("configuration")]
-    public TerraformList<TerraformBlock<AwsSecuritylakeSubscriberNotificationConfigurationBlock>>? Configuration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSecuritylakeSubscriberNotificationConfigurationBlock>>? Configuration { get; set; }
 
     /// <summary>
     /// The endpoint_id attribute.
     /// </summary>
     [TerraformProperty("endpoint_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EndpointId { get; }
+    public partial TerraformValue<string> EndpointId { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The subscriber_endpoint attribute.
     /// </summary>
     [TerraformProperty("subscriber_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SubscriberEndpoint { get; }
+    public partial TerraformValue<string> SubscriberEndpoint { get; }
 
 }

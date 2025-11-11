@@ -13,49 +13,49 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesClusterBackupD
     /// </summary>
     [TerraformProperty("cluster_scoped_resources_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ClusterScopedResourcesEnabled { get; set; }
+    public partial TerraformValue<bool>? ClusterScopedResourcesEnabled { get; set; }
 
     /// <summary>
     /// The excluded_namespaces attribute.
     /// </summary>
     [TerraformProperty("excluded_namespaces")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ExcludedNamespaces { get; set; }
+    public partial TerraformList<string>? ExcludedNamespaces { get; set; }
 
     /// <summary>
     /// The excluded_resource_types attribute.
     /// </summary>
     [TerraformProperty("excluded_resource_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ExcludedResourceTypes { get; set; }
+    public partial TerraformList<string>? ExcludedResourceTypes { get; set; }
 
     /// <summary>
     /// The included_namespaces attribute.
     /// </summary>
     [TerraformProperty("included_namespaces")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? IncludedNamespaces { get; set; }
+    public partial TerraformList<string>? IncludedNamespaces { get; set; }
 
     /// <summary>
     /// The included_resource_types attribute.
     /// </summary>
     [TerraformProperty("included_resource_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? IncludedResourceTypes { get; set; }
+    public partial TerraformList<string>? IncludedResourceTypes { get; set; }
 
     /// <summary>
     /// The label_selectors attribute.
     /// </summary>
     [TerraformProperty("label_selectors")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? LabelSelectors { get; set; }
+    public partial TerraformList<string>? LabelSelectors { get; set; }
 
     /// <summary>
     /// The volume_snapshot_enabled attribute.
     /// </summary>
     [TerraformProperty("volume_snapshot_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? VolumeSnapshotEnabled { get; set; }
+    public partial TerraformValue<bool>? VolumeSnapshotEnabled { get; set; }
 
 }
 
@@ -70,21 +70,21 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesClusterTimeout
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -104,14 +104,14 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesCluster : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
     [TerraformProperty("backup_policy_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackupPolicyId { get; set; }
+    public required partial TerraformValue<string> BackupPolicyId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kubernetes_cluster_id attribute.
@@ -119,7 +119,7 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesCluster : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
     [TerraformProperty("kubernetes_cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KubernetesClusterId { get; set; }
+    public required partial TerraformValue<string> KubernetesClusterId { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -127,7 +127,7 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesCluster : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -135,7 +135,7 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesCluster : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The snapshot_resource_group_name attribute.
@@ -143,7 +143,7 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesCluster : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotResourceGroupName is required")]
     [TerraformProperty("snapshot_resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SnapshotResourceGroupName { get; set; }
+    public required partial TerraformValue<string> SnapshotResourceGroupName { get; set; }
 
     /// <summary>
     /// The vault_id attribute.
@@ -151,7 +151,7 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesCluster : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
     [TerraformProperty("vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VaultId { get; set; }
+    public required partial TerraformValue<string> VaultId { get; set; }
 
     /// <summary>
     /// Block for backup_datasource_parameters.
@@ -159,13 +159,13 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesCluster : Terr
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupDatasourceParameters block(s) allowed")]
     [TerraformProperty("backup_datasource_parameters")]
-    public TerraformList<TerraformBlock<AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourceParametersBlock>>? BackupDatasourceParameters { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourceParametersBlock>>? BackupDatasourceParameters { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataProtectionBackupInstanceKubernetesClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataProtectionBackupInstanceKubernetesClusterTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,21 +13,21 @@ public partial class GoogleChronicleRuleTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -51,7 +51,7 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeletionPolicy { get; set; }
+    public partial TerraformValue<string>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// The etag for this rule.
@@ -62,14 +62,14 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("etag")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Etag { get; set; }
+    public partial TerraformValue<string> Etag { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
@@ -77,7 +77,7 @@ public partial class GoogleChronicleRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
@@ -85,21 +85,21 @@ public partial class GoogleChronicleRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Rule Id is the ID of the Rule.
     /// </summary>
     [TerraformProperty("rule_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> RuleId { get; set; }
+    public partial TerraformValue<string> RuleId { get; set; }
 
     /// <summary>
     /// Resource name of the DataAccessScope bound to this rule.
@@ -112,7 +112,7 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Scope { get; set; }
+    public partial TerraformValue<string>? Scope { get; set; }
 
     /// <summary>
     /// The YARA-L content of the rule.
@@ -120,14 +120,14 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("text")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Text { get; set; }
+    public partial TerraformValue<string>? Text { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleChronicleRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleChronicleRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The run frequencies that are allowed for the rule.
@@ -135,7 +135,7 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("allowed_run_frequencies")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> AllowedRunFrequencies { get; }
+    public partial TerraformList<string> AllowedRunFrequencies { get; }
 
     /// <summary>
     /// Output only. The author of the rule. Extracted from the meta section of text.
@@ -143,7 +143,7 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("author")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Author { get; }
+    public partial TerraformValue<string> Author { get; }
 
     /// <summary>
     /// Output only. A list of a rule&#39;s corresponding compilation diagnostic messages
@@ -152,7 +152,7 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("compilation_diagnostics")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CompilationDiagnostics { get; }
+    public partial TerraformList<object> CompilationDiagnostics { get; }
 
     /// <summary>
     /// Output only. The current compilation state of the rule.
@@ -164,7 +164,7 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("compilation_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CompilationState { get; }
+    public partial TerraformValue<string> CompilationState { get; }
 
     /// <summary>
     /// Output only. The timestamp of when the rule was created.
@@ -172,14 +172,14 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Output only. Resource names of the data tables used in this rule.
     /// </summary>
     [TerraformProperty("data_tables")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> DataTables { get; }
+    public partial TerraformList<string> DataTables { get; }
 
     /// <summary>
     /// Output only. Display name of the rule.
@@ -187,7 +187,7 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// Output only. Additional metadata specified in the meta section of text.
@@ -195,7 +195,7 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("metadata")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Metadata { get; }
+    public partial TerraformMap<string> Metadata { get; }
 
     /// <summary>
     /// Full resource name for the rule. This unique identifier is generated using values provided for the URL parameters.
@@ -204,7 +204,7 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. Indicate the rule can run in near real time live rule.
@@ -213,7 +213,7 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("near_real_time_live_rule_eligible")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> NearRealTimeLiveRuleEligible { get; }
+    public partial TerraformValue<bool> NearRealTimeLiveRuleEligible { get; }
 
     /// <summary>
     /// Output only. Resource names of the reference lists used in this rule.
@@ -221,7 +221,7 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("reference_lists")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ReferenceLists { get; }
+    public partial TerraformList<string> ReferenceLists { get; }
 
     /// <summary>
     /// Output only. The timestamp of when the rule revision was created.
@@ -229,7 +229,7 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("revision_create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RevisionCreateTime { get; }
+    public partial TerraformValue<string> RevisionCreateTime { get; }
 
     /// <summary>
     /// Output only. The revision ID of the rule.
@@ -239,14 +239,14 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("revision_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RevisionId { get; }
+    public partial TerraformValue<string> RevisionId { get; }
 
     /// <summary>
     /// Severity represents the severity level of the rule.
     /// </summary>
     [TerraformProperty("severity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Severity { get; }
+    public partial TerraformList<object> Severity { get; }
 
     /// <summary>
     /// Possible values:
@@ -256,6 +256,6 @@ public partial class GoogleChronicleRule : TerraformResource
     /// </summary>
     [TerraformProperty("type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Type { get; }
+    public partial TerraformValue<string> Type { get; }
 
 }

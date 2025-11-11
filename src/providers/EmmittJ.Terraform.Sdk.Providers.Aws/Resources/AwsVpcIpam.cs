@@ -14,7 +14,7 @@ public partial class AwsVpcIpamOperatingRegionsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
     [TerraformProperty("region_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RegionName { get; set; }
+    public required partial TerraformValue<string> RegionName { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public partial class AwsVpcIpamTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -62,63 +62,63 @@ public partial class AwsVpcIpam : TerraformResource
     /// </summary>
     [TerraformProperty("cascade")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Cascade { get; set; }
+    public partial TerraformValue<bool>? Cascade { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The enable_private_gua attribute.
     /// </summary>
     [TerraformProperty("enable_private_gua")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnablePrivateGua { get; set; }
+    public partial TerraformValue<bool>? EnablePrivateGua { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The metered_account attribute.
     /// </summary>
     [TerraformProperty("metered_account")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> MeteredAccount { get; set; }
+    public partial TerraformValue<string> MeteredAccount { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
     [TerraformProperty("tier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Tier { get; set; }
+    public partial TerraformValue<string>? Tier { get; set; }
 
     /// <summary>
     /// Block for operating_regions.
@@ -127,55 +127,55 @@ public partial class AwsVpcIpam : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatingRegions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OperatingRegions block(s) required")]
     [TerraformProperty("operating_regions")]
-    public TerraformSet<TerraformBlock<AwsVpcIpamOperatingRegionsBlock>>? OperatingRegions { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsVpcIpamOperatingRegionsBlock>>? OperatingRegions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsVpcIpamTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsVpcIpamTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The default_resource_discovery_association_id attribute.
     /// </summary>
     [TerraformProperty("default_resource_discovery_association_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DefaultResourceDiscoveryAssociationId { get; }
+    public partial TerraformValue<string> DefaultResourceDiscoveryAssociationId { get; }
 
     /// <summary>
     /// The default_resource_discovery_id attribute.
     /// </summary>
     [TerraformProperty("default_resource_discovery_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DefaultResourceDiscoveryId { get; }
+    public partial TerraformValue<string> DefaultResourceDiscoveryId { get; }
 
     /// <summary>
     /// The private_default_scope_id attribute.
     /// </summary>
     [TerraformProperty("private_default_scope_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrivateDefaultScopeId { get; }
+    public partial TerraformValue<string> PrivateDefaultScopeId { get; }
 
     /// <summary>
     /// The public_default_scope_id attribute.
     /// </summary>
     [TerraformProperty("public_default_scope_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PublicDefaultScopeId { get; }
+    public partial TerraformValue<string> PublicDefaultScopeId { get; }
 
     /// <summary>
     /// The scope_count attribute.
     /// </summary>
     [TerraformProperty("scope_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ScopeCount { get; }
+    public partial TerraformValue<double> ScopeCount { get; }
 
 }

@@ -21,28 +21,28 @@ public partial class AzurermCdnFrontdoorSecurityPolicyTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -62,14 +62,14 @@ public partial class AzurermCdnFrontdoorSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
     [TerraformProperty("cdn_frontdoor_profile_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CdnFrontdoorProfileId { get; set; }
+    public required partial TerraformValue<string> CdnFrontdoorProfileId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -77,7 +77,7 @@ public partial class AzurermCdnFrontdoorSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for security_policies.
@@ -87,13 +87,13 @@ public partial class AzurermCdnFrontdoorSecurityPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SecurityPolicies block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityPolicies block(s) allowed")]
     [TerraformProperty("security_policies")]
-    public TerraformList<TerraformBlock<AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlock>>? SecurityPolicies { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlock>>? SecurityPolicies { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCdnFrontdoorSecurityPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCdnFrontdoorSecurityPolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

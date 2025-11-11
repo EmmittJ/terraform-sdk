@@ -13,14 +13,14 @@ public partial class GoogleGkeHubFeatureMembershipConfigmanagementBlock : Terraf
     /// </summary>
     [TerraformProperty("management")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Management { get; set; }
+    public partial TerraformValue<string> Management { get; set; }
 
     /// <summary>
     /// Optional. Version of ACM to install. Defaults to the latest version.
     /// </summary>
     [TerraformProperty("version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Version { get; set; }
+    public partial TerraformValue<string> Version { get; set; }
 
 }
 
@@ -36,14 +36,14 @@ public partial class GoogleGkeHubFeatureMembershipMeshBlock : TerraformBlockBase
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("control_plane")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ControlPlane { get; set; }
+    public partial TerraformValue<string>? ControlPlane { get; set; }
 
     /// <summary>
     /// Whether to automatically manage Service Mesh. Possible values: MANAGEMENT_UNSPECIFIED, MANAGEMENT_AUTOMATIC, MANAGEMENT_MANUAL
     /// </summary>
     [TerraformProperty("management")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Management { get; set; }
+    public partial TerraformValue<string>? Management { get; set; }
 
 }
 
@@ -58,7 +58,7 @@ public partial class GoogleGkeHubFeatureMembershipPolicycontrollerBlock : Terraf
     /// </summary>
     [TerraformProperty("version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Version { get; set; }
+    public partial TerraformValue<string> Version { get; set; }
 
 }
 
@@ -73,21 +73,21 @@ public partial class GoogleGkeHubFeatureMembershipTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -107,14 +107,14 @@ public partial class GoogleGkeHubFeatureMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Feature is required")]
     [TerraformProperty("feature")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Feature { get; set; }
+    public required partial TerraformValue<string> Feature { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the feature
@@ -122,7 +122,7 @@ public partial class GoogleGkeHubFeatureMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of the membership
@@ -130,21 +130,21 @@ public partial class GoogleGkeHubFeatureMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Membership is required")]
     [TerraformProperty("membership")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Membership { get; set; }
+    public required partial TerraformValue<string> Membership { get; set; }
 
     /// <summary>
     /// The location of the membership
     /// </summary>
     [TerraformProperty("membership_location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MembershipLocation { get; set; }
+    public partial TerraformValue<string>? MembershipLocation { get; set; }
 
     /// <summary>
     /// The project of the feature
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for configmanagement.
@@ -152,7 +152,7 @@ public partial class GoogleGkeHubFeatureMembership : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configmanagement block(s) allowed")]
     [TerraformProperty("configmanagement")]
-    public TerraformList<TerraformBlock<GoogleGkeHubFeatureMembershipConfigmanagementBlock>>? Configmanagement { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeHubFeatureMembershipConfigmanagementBlock>>? Configmanagement { get; set; }
 
     /// <summary>
     /// Block for mesh.
@@ -160,7 +160,7 @@ public partial class GoogleGkeHubFeatureMembership : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Mesh block(s) allowed")]
     [TerraformProperty("mesh")]
-    public TerraformList<TerraformBlock<GoogleGkeHubFeatureMembershipMeshBlock>>? Mesh { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeHubFeatureMembershipMeshBlock>>? Mesh { get; set; }
 
     /// <summary>
     /// Block for policycontroller.
@@ -168,13 +168,13 @@ public partial class GoogleGkeHubFeatureMembership : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Policycontroller block(s) allowed")]
     [TerraformProperty("policycontroller")]
-    public TerraformList<TerraformBlock<GoogleGkeHubFeatureMembershipPolicycontrollerBlock>>? Policycontroller { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeHubFeatureMembershipPolicycontrollerBlock>>? Policycontroller { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleGkeHubFeatureMembershipTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleGkeHubFeatureMembershipTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -14,7 +14,7 @@ public partial class GoogleComputeInterconnectGroupIntentBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("topology_capability")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TopologyCapability { get; set; }
+    public partial TerraformValue<string>? TopologyCapability { get; set; }
 
 }
 
@@ -29,7 +29,7 @@ public partial class GoogleComputeInterconnectGroupInterconnectsBlock : Terrafor
     /// </summary>
     [TerraformProperty("interconnect")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Interconnect { get; set; }
+    public partial TerraformValue<string>? Interconnect { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -37,7 +37,7 @@ public partial class GoogleComputeInterconnectGroupInterconnectsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -52,21 +52,21 @@ public partial class GoogleComputeInterconnectGroupTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -85,14 +85,14 @@ public partial class GoogleComputeInterconnectGroup : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is created. The name must be
@@ -104,14 +104,14 @@ public partial class GoogleComputeInterconnectGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for intent.
@@ -121,21 +121,21 @@ public partial class GoogleComputeInterconnectGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Intent block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Intent block(s) allowed")]
     [TerraformProperty("intent")]
-    public TerraformList<TerraformBlock<GoogleComputeInterconnectGroupIntentBlock>>? Intent { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeInterconnectGroupIntentBlock>>? Intent { get; set; }
 
     /// <summary>
     /// Block for interconnects.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("interconnects")]
-    public TerraformSet<TerraformBlock<GoogleComputeInterconnectGroupInterconnectsBlock>>? Interconnects { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleComputeInterconnectGroupInterconnectsBlock>>? Interconnects { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeInterconnectGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeInterconnectGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The status of the group as configured. This has the same
@@ -145,14 +145,14 @@ public partial class GoogleComputeInterconnectGroup : TerraformResource
     /// </summary>
     [TerraformProperty("configured")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Configured { get; }
+    public partial TerraformList<object> Configured { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// An analysis of the physical layout of Interconnects in this
@@ -160,6 +160,6 @@ public partial class GoogleComputeInterconnectGroup : TerraformResource
     /// </summary>
     [TerraformProperty("physical_structure")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PhysicalStructure { get; }
+    public partial TerraformList<object> PhysicalStructure { get; }
 
 }

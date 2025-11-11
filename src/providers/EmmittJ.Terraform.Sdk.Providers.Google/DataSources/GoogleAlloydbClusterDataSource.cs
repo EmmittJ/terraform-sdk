@@ -17,28 +17,28 @@ public partial class GoogleAlloydbClusterDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     [TerraformProperty("cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterId { get; set; }
+    public required partial TerraformValue<string> ClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location where the alloydb cluster should reside.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Annotations to allow client tools to store small amount of arbitrary data. This is distinct from labels. https://google.aip.dev/128
@@ -50,28 +50,28 @@ public partial class GoogleAlloydbClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Annotations { get; }
+    public partial TerraformMap<string> Annotations { get; }
 
     /// <summary>
     /// The automated backup policy for this cluster. AutomatedBackupPolicy is disabled by default.
     /// </summary>
     [TerraformProperty("automated_backup_policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> AutomatedBackupPolicy { get; }
+    public partial TerraformList<object> AutomatedBackupPolicy { get; }
 
     /// <summary>
     /// Cluster created from backup.
     /// </summary>
     [TerraformProperty("backup_source")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> BackupSource { get; }
+    public partial TerraformList<object> BackupSource { get; }
 
     /// <summary>
     /// The type of cluster. If not set, defaults to PRIMARY. Default value: &amp;quot;PRIMARY&amp;quot; Possible values: [&amp;quot;PRIMARY&amp;quot;, &amp;quot;SECONDARY&amp;quot;]
     /// </summary>
     [TerraformProperty("cluster_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ClusterType { get; }
+    public partial TerraformValue<string> ClusterType { get; }
 
     /// <summary>
     /// The continuous backup config for this cluster.
@@ -80,14 +80,14 @@ public partial class GoogleAlloydbClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("continuous_backup_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ContinuousBackupConfig { get; }
+    public partial TerraformList<object> ContinuousBackupConfig { get; }
 
     /// <summary>
     /// ContinuousBackupInfo describes the continuous backup properties of a cluster.
     /// </summary>
     [TerraformProperty("continuous_backup_info")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ContinuousBackupInfo { get; }
+    public partial TerraformList<object> ContinuousBackupInfo { get; }
 
     /// <summary>
     /// The database engine major version. This is an optional field and it&#39;s populated at the Cluster creation time.
@@ -95,7 +95,7 @@ public partial class GoogleAlloydbClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("database_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DatabaseVersion { get; }
+    public partial TerraformValue<string> DatabaseVersion { get; }
 
     /// <summary>
     /// Policy to determine if the cluster should be deleted forcefully.
@@ -105,7 +105,7 @@ public partial class GoogleAlloydbClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("deletion_policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeletionPolicy { get; }
+    public partial TerraformValue<string> DeletionPolicy { get; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the cluster.
@@ -115,56 +115,56 @@ public partial class GoogleAlloydbClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> DeletionProtection { get; }
+    public partial TerraformValue<bool> DeletionProtection { get; }
 
     /// <summary>
     /// User-settable and human-readable display name for the Cluster.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// EncryptionConfig describes the encryption config of a cluster or a backup that is encrypted with a CMEK (customer-managed encryption key).
     /// </summary>
     [TerraformProperty("encryption_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> EncryptionConfig { get; }
+    public partial TerraformList<object> EncryptionConfig { get; }
 
     /// <summary>
     /// EncryptionInfo describes the encryption information of a cluster or a backup.
     /// </summary>
     [TerraformProperty("encryption_info")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> EncryptionInfo { get; }
+    public partial TerraformList<object> EncryptionInfo { get; }
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Initial user to setup during cluster creation. This must be set for all new Clusters.
     /// </summary>
     [TerraformProperty("initial_user")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> InitialUser { get; }
+    public partial TerraformList<object> InitialUser { get; }
 
     /// <summary>
     /// User-defined labels for the alloydb cluster.
@@ -174,42 +174,42 @@ public partial class GoogleAlloydbClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// MaintenanceUpdatePolicy defines the policy for system updates.
     /// </summary>
     [TerraformProperty("maintenance_update_policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MaintenanceUpdatePolicy { get; }
+    public partial TerraformList<object> MaintenanceUpdatePolicy { get; }
 
     /// <summary>
     /// Cluster created via DMS migration.
     /// </summary>
     [TerraformProperty("migration_source")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MigrationSource { get; }
+    public partial TerraformList<object> MigrationSource { get; }
 
     /// <summary>
     /// The name of the cluster resource.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Metadata related to network configuration.
     /// </summary>
     [TerraformProperty("network_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> NetworkConfig { get; }
+    public partial TerraformList<object> NetworkConfig { get; }
 
     /// <summary>
     /// Configuration for Private Service Connect (PSC) for the cluster.
     /// </summary>
     [TerraformProperty("psc_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PscConfig { get; }
+    public partial TerraformList<object> PscConfig { get; }
 
     /// <summary>
     /// Output only. Reconciling (https://google.aip.dev/128#reconciliation).
@@ -218,28 +218,28 @@ public partial class GoogleAlloydbClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// The source when restoring from a backup. Conflicts with &#39;restore_continuous_backup_source&#39;, both can&#39;t be set together.
     /// </summary>
     [TerraformProperty("restore_backup_source")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> RestoreBackupSource { get; }
+    public partial TerraformList<object> RestoreBackupSource { get; }
 
     /// <summary>
     /// The source when restoring via point in time recovery (PITR). Conflicts with &#39;restore_backup_source&#39;, both can&#39;t be set together.
     /// </summary>
     [TerraformProperty("restore_continuous_backup_source")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> RestoreContinuousBackupSource { get; }
+    public partial TerraformList<object> RestoreContinuousBackupSource { get; }
 
     /// <summary>
     /// Configuration of the secondary cluster for Cross Region Replication. This should be set if and only if the cluster is of type SECONDARY.
     /// </summary>
     [TerraformProperty("secondary_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> SecondaryConfig { get; }
+    public partial TerraformList<object> SecondaryConfig { get; }
 
     /// <summary>
     /// Set to true to skip awaiting on the major version upgrade of the cluster.
@@ -248,21 +248,21 @@ public partial class GoogleAlloydbClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("skip_await_major_version_upgrade")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> SkipAwaitMajorVersionUpgrade { get; }
+    public partial TerraformValue<bool> SkipAwaitMajorVersionUpgrade { get; }
 
     /// <summary>
     /// Output only. The current serving state of the cluster.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The subscrition type of cluster. Possible values: [&amp;quot;TRIAL&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
     [TerraformProperty("subscription_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SubscriptionType { get; }
+    public partial TerraformValue<string> SubscriptionType { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -270,20 +270,20 @@ public partial class GoogleAlloydbClusterDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Contains information and all metadata related to TRIAL clusters.
     /// </summary>
     [TerraformProperty("trial_metadata")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> TrialMetadata { get; }
+    public partial TerraformList<object> TrialMetadata { get; }
 
     /// <summary>
     /// The system-generated UID of the resource.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
 }

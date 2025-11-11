@@ -16,20 +16,20 @@ public partial class AwsBedrockInferenceProfilesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The inference_profile_summaries attribute.
     /// </summary>
     [TerraformProperty("inference_profile_summaries")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> InferenceProfileSummaries { get; }
+    public partial TerraformList<object> InferenceProfileSummaries { get; }
 
 }

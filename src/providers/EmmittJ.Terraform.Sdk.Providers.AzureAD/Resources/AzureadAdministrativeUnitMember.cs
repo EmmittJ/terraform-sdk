@@ -13,21 +13,21 @@ public partial class AzureadAdministrativeUnitMemberTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,27 +45,27 @@ public partial class AzureadAdministrativeUnitMember : TerraformResource
     /// </summary>
     [TerraformProperty("administrative_unit_object_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AdministrativeUnitObjectId { get; set; }
+    public partial TerraformValue<string>? AdministrativeUnitObjectId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The object ID of the member
     /// </summary>
     [TerraformProperty("member_object_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MemberObjectId { get; set; }
+    public partial TerraformValue<string>? MemberObjectId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadAdministrativeUnitMemberTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadAdministrativeUnitMemberTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -17,14 +17,14 @@ public partial class GoogleEndpointsServiceConsumersIamPolicy : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerProject is required")]
     [TerraformProperty("consumer_project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConsumerProject { get; set; }
+    public required partial TerraformValue<string> ConsumerProject { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_data attribute.
@@ -32,7 +32,7 @@ public partial class GoogleEndpointsServiceConsumersIamPolicy : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     [TerraformProperty("policy_data")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyData { get; set; }
+    public required partial TerraformValue<string> PolicyData { get; set; }
 
     /// <summary>
     /// The service_name attribute.
@@ -40,13 +40,13 @@ public partial class GoogleEndpointsServiceConsumersIamPolicy : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     [TerraformProperty("service_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceName { get; set; }
+    public required partial TerraformValue<string> ServiceName { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
 }

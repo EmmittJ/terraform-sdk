@@ -13,7 +13,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfig
     /// </summary>
     [TerraformProperty("fast_tryout_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? FastTryoutEnabled { get; set; }
+    public partial TerraformValue<bool>? FastTryoutEnabled { get; set; }
 
     /// <summary>
     /// System labels for Model Garden deployments.
@@ -21,7 +21,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfig
     /// </summary>
     [TerraformProperty("system_labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? SystemLabels { get; set; }
+    public partial TerraformMap<string>? SystemLabels { get; set; }
 
 }
 
@@ -41,7 +41,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConf
     /// </summary>
     [TerraformProperty("dedicated_endpoint_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DedicatedEndpointEnabled { get; set; }
+    public partial TerraformValue<bool>? DedicatedEndpointEnabled { get; set; }
 
     /// <summary>
     /// The user-specified display name of the endpoint. If not set, a
@@ -49,7 +49,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConf
     /// </summary>
     [TerraformProperty("endpoint_display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EndpointDisplayName { get; set; }
+    public partial TerraformValue<string>? EndpointDisplayName { get; set; }
 
 }
 
@@ -65,7 +65,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigB
     /// </summary>
     [TerraformProperty("accept_eula")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AcceptEula { get; set; }
+    public partial TerraformValue<bool>? AcceptEula { get; set; }
 
     /// <summary>
     /// The Hugging Face read access token used to access the model
@@ -73,7 +73,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigB
     /// </summary>
     [TerraformProperty("hugging_face_access_token")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HuggingFaceAccessToken { get; set; }
+    public partial TerraformValue<string>? HuggingFaceAccessToken { get; set; }
 
     /// <summary>
     /// If true, the model will deploy with a cached version instead of directly
@@ -82,7 +82,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigB
     /// </summary>
     [TerraformProperty("hugging_face_cache_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? HuggingFaceCacheEnabled { get; set; }
+    public partial TerraformValue<bool>? HuggingFaceCacheEnabled { get; set; }
 
     /// <summary>
     /// The user-specified display name of the uploaded model. If not
@@ -90,7 +90,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigB
     /// </summary>
     [TerraformProperty("model_display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ModelDisplayName { get; set; }
+    public partial TerraformValue<string>? ModelDisplayName { get; set; }
 
 }
 
@@ -105,14 +105,14 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeploymentTimeoutsBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -132,14 +132,14 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment : Terraform
     /// </summary>
     [TerraformProperty("hugging_face_model_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HuggingFaceModelId { get; set; }
+    public partial TerraformValue<string>? HuggingFaceModelId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;location&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -147,14 +147,14 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The Model Garden model to deploy.
@@ -164,7 +164,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment : Terraform
     /// </summary>
     [TerraformProperty("publisher_model_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PublisherModelName { get; set; }
+    public partial TerraformValue<string>? PublisherModelName { get; set; }
 
     /// <summary>
     /// Block for deploy_config.
@@ -172,7 +172,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeployConfig block(s) allowed")]
     [TerraformProperty("deploy_config")]
-    public TerraformList<TerraformBlock<GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlock>>? DeployConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlock>>? DeployConfig { get; set; }
 
     /// <summary>
     /// Block for endpoint_config.
@@ -180,7 +180,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointConfig block(s) allowed")]
     [TerraformProperty("endpoint_config")]
-    public TerraformList<TerraformBlock<GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlock>>? EndpointConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlock>>? EndpointConfig { get; set; }
 
     /// <summary>
     /// Block for model_config.
@@ -188,14 +188,14 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ModelConfig block(s) allowed")]
     [TerraformProperty("model_config")]
-    public TerraformList<TerraformBlock<GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlock>>? ModelConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlock>>? ModelConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleVertexAiEndpointWithModelGardenDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleVertexAiEndpointWithModelGardenDeploymentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The display name assigned to the model deployed to the endpoint.
@@ -203,7 +203,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment : Terraform
     /// </summary>
     [TerraformProperty("deployed_model_display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeployedModelDisplayName { get; }
+    public partial TerraformValue<string> DeployedModelDisplayName { get; }
 
     /// <summary>
     /// Output only. The unique numeric ID that Vertex AI assigns to the model at the time it is deployed to the endpoint.
@@ -212,13 +212,13 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment : Terraform
     /// </summary>
     [TerraformProperty("deployed_model_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeployedModelId { get; }
+    public partial TerraformValue<string> DeployedModelId { get; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;endpoint&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     [TerraformProperty("endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Endpoint { get; }
+    public partial TerraformValue<string> Endpoint { get; }
 
 }

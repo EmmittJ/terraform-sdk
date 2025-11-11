@@ -14,7 +14,7 @@ public partial class AzurermContainerRegistryCredentialSetAuthenticationCredenti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasswordSecretId is required")]
     [TerraformProperty("password_secret_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PasswordSecretId { get; set; }
+    public required partial TerraformValue<string> PasswordSecretId { get; set; }
 
     /// <summary>
     /// The username_secret_id attribute.
@@ -22,7 +22,7 @@ public partial class AzurermContainerRegistryCredentialSetAuthenticationCredenti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsernameSecretId is required")]
     [TerraformProperty("username_secret_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UsernameSecretId { get; set; }
+    public required partial TerraformValue<string> UsernameSecretId { get; set; }
 
 }
 
@@ -40,7 +40,7 @@ public partial class AzurermContainerRegistryCredentialSetIdentityBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -55,28 +55,28 @@ public partial class AzurermContainerRegistryCredentialSetTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -96,14 +96,14 @@ public partial class AzurermContainerRegistryCredentialSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     [TerraformProperty("container_registry_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerRegistryId { get; set; }
+    public required partial TerraformValue<string> ContainerRegistryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The login_server attribute.
@@ -111,7 +111,7 @@ public partial class AzurermContainerRegistryCredentialSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginServer is required")]
     [TerraformProperty("login_server")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LoginServer { get; set; }
+    public required partial TerraformValue<string> LoginServer { get; set; }
 
     /// <summary>
     /// The name of the credential set.
@@ -119,7 +119,7 @@ public partial class AzurermContainerRegistryCredentialSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for authentication_credentials.
@@ -129,7 +129,7 @@ public partial class AzurermContainerRegistryCredentialSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuthenticationCredentials block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticationCredentials block(s) allowed")]
     [TerraformProperty("authentication_credentials")]
-    public TerraformList<TerraformBlock<AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock>>? AuthenticationCredentials { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock>>? AuthenticationCredentials { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -139,13 +139,13 @@ public partial class AzurermContainerRegistryCredentialSet : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermContainerRegistryCredentialSetIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermContainerRegistryCredentialSetIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermContainerRegistryCredentialSetTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermContainerRegistryCredentialSetTimeoutsBlock>? Timeouts { get; set; }
 
 }

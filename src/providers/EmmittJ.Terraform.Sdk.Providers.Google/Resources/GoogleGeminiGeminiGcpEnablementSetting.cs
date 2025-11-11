@@ -13,21 +13,21 @@ public partial class GoogleGeminiGeminiGcpEnablementSettingTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("disable_web_grounding")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableWebGrounding { get; set; }
+    public partial TerraformValue<bool>? DisableWebGrounding { get; set; }
 
     /// <summary>
     /// Whether customer data sharing should be enabled.
     /// </summary>
     [TerraformProperty("enable_customer_data_sharing")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableCustomerDataSharing { get; set; }
+    public partial TerraformValue<bool>? EnableCustomerDataSharing { get; set; }
 
     /// <summary>
     /// Id of the Gemini Gcp Enablement setting.
@@ -61,14 +61,14 @@ public partial class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GeminiGcpEnablementSettingId is required")]
     [TerraformProperty("gemini_gcp_enablement_setting_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GeminiGcpEnablementSettingId { get; set; }
+    public required partial TerraformValue<string> GeminiGcpEnablementSettingId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels as key value pairs.
@@ -78,7 +78,7 @@ public partial class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -86,14 +86,14 @@ public partial class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Web grounding type.
@@ -103,28 +103,28 @@ public partial class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     /// </summary>
     [TerraformProperty("web_grounding_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WebGroundingType { get; set; }
+    public partial TerraformValue<string>? WebGroundingType { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleGeminiGeminiGcpEnablementSettingTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleGeminiGeminiGcpEnablementSettingTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Create time stamp.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Identifier. Name of the resource.
@@ -132,7 +132,7 @@ public partial class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -140,13 +140,13 @@ public partial class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Update time stamp.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

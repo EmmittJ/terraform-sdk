@@ -25,7 +25,7 @@ public partial class AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -43,7 +43,7 @@ public partial class AzurermElasticCloudElasticsearchDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -51,7 +51,7 @@ public partial class AzurermElasticCloudElasticsearchDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -59,97 +59,97 @@ public partial class AzurermElasticCloudElasticsearchDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for logs.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("logs")]
-    public TerraformList<TerraformBlock<AzurermElasticCloudElasticsearchDataSourceLogsBlock>>? Logs { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermElasticCloudElasticsearchDataSourceLogsBlock>>? Logs { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The elastic_cloud_deployment_id attribute.
     /// </summary>
     [TerraformProperty("elastic_cloud_deployment_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ElasticCloudDeploymentId { get; }
+    public partial TerraformValue<string> ElasticCloudDeploymentId { get; }
 
     /// <summary>
     /// The elastic_cloud_email_address attribute.
     /// </summary>
     [TerraformProperty("elastic_cloud_email_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ElasticCloudEmailAddress { get; }
+    public partial TerraformValue<string> ElasticCloudEmailAddress { get; }
 
     /// <summary>
     /// The elastic_cloud_sso_default_url attribute.
     /// </summary>
     [TerraformProperty("elastic_cloud_sso_default_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ElasticCloudSsoDefaultUrl { get; }
+    public partial TerraformValue<string> ElasticCloudSsoDefaultUrl { get; }
 
     /// <summary>
     /// The elastic_cloud_user_id attribute.
     /// </summary>
     [TerraformProperty("elastic_cloud_user_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ElasticCloudUserId { get; }
+    public partial TerraformValue<string> ElasticCloudUserId { get; }
 
     /// <summary>
     /// The elasticsearch_service_url attribute.
     /// </summary>
     [TerraformProperty("elasticsearch_service_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ElasticsearchServiceUrl { get; }
+    public partial TerraformValue<string> ElasticsearchServiceUrl { get; }
 
     /// <summary>
     /// The kibana_service_url attribute.
     /// </summary>
     [TerraformProperty("kibana_service_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KibanaServiceUrl { get; }
+    public partial TerraformValue<string> KibanaServiceUrl { get; }
 
     /// <summary>
     /// The kibana_sso_uri attribute.
     /// </summary>
     [TerraformProperty("kibana_sso_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KibanaSsoUri { get; }
+    public partial TerraformValue<string> KibanaSsoUri { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The monitoring_enabled attribute.
     /// </summary>
     [TerraformProperty("monitoring_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> MonitoringEnabled { get; }
+    public partial TerraformValue<bool> MonitoringEnabled { get; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [TerraformProperty("sku_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SkuName { get; }
+    public partial TerraformValue<string> SkuName { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
 }

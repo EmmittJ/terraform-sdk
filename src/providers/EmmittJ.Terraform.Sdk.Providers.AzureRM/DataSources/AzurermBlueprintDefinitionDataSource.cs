@@ -13,7 +13,7 @@ public partial class AzurermBlueprintDefinitionDataSourceTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermBlueprintDefinitionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermBlueprintDefinitionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The scope_id attribute.
@@ -47,55 +47,55 @@ public partial class AzurermBlueprintDefinitionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     [TerraformProperty("scope_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ScopeId { get; set; }
+    public required partial TerraformValue<string> ScopeId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermBlueprintDefinitionDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermBlueprintDefinitionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     [TerraformProperty("last_modified")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastModified { get; }
+    public partial TerraformValue<string> LastModified { get; }
 
     /// <summary>
     /// The target_scope attribute.
     /// </summary>
     [TerraformProperty("target_scope")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TargetScope { get; }
+    public partial TerraformValue<string> TargetScope { get; }
 
     /// <summary>
     /// The time_created attribute.
     /// </summary>
     [TerraformProperty("time_created")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TimeCreated { get; }
+    public partial TerraformValue<string> TimeCreated { get; }
 
     /// <summary>
     /// The versions attribute.
     /// </summary>
     [TerraformProperty("versions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Versions { get; }
+    public partial TerraformList<string> Versions { get; }
 
 }

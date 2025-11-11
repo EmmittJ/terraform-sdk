@@ -13,7 +13,7 @@ public partial class AzurermSearchServiceIdentityBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -23,7 +23,7 @@ public partial class AzurermSearchServiceIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -38,28 +38,28 @@ public partial class AzurermSearchServiceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -78,42 +78,42 @@ public partial class AzurermSearchService : TerraformResource
     /// </summary>
     [TerraformProperty("allowed_ips")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AllowedIps { get; set; }
+    public partial TerraformSet<string>? AllowedIps { get; set; }
 
     /// <summary>
     /// The authentication_failure_mode attribute.
     /// </summary>
     [TerraformProperty("authentication_failure_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthenticationFailureMode { get; set; }
+    public partial TerraformValue<string>? AuthenticationFailureMode { get; set; }
 
     /// <summary>
     /// The customer_managed_key_enforcement_enabled attribute.
     /// </summary>
     [TerraformProperty("customer_managed_key_enforcement_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CustomerManagedKeyEnforcementEnabled { get; set; }
+    public partial TerraformValue<bool>? CustomerManagedKeyEnforcementEnabled { get; set; }
 
     /// <summary>
     /// The hosting_mode attribute.
     /// </summary>
     [TerraformProperty("hosting_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HostingMode { get; set; }
+    public partial TerraformValue<string>? HostingMode { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
     [TerraformProperty("local_authentication_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LocalAuthenticationEnabled { get; set; }
+    public partial TerraformValue<bool>? LocalAuthenticationEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -121,7 +121,7 @@ public partial class AzurermSearchService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -129,35 +129,35 @@ public partial class AzurermSearchService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network_rule_bypass_option attribute.
     /// </summary>
     [TerraformProperty("network_rule_bypass_option")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NetworkRuleBypassOption { get; set; }
+    public partial TerraformValue<string>? NetworkRuleBypassOption { get; set; }
 
     /// <summary>
     /// The partition_count attribute.
     /// </summary>
     [TerraformProperty("partition_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? PartitionCount { get; set; }
+    public partial TerraformValue<double>? PartitionCount { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformProperty("public_network_access_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
+    public partial TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The replica_count attribute.
     /// </summary>
     [TerraformProperty("replica_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ReplicaCount { get; set; }
+    public partial TerraformValue<double>? ReplicaCount { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -165,14 +165,14 @@ public partial class AzurermSearchService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The semantic_search_sku attribute.
     /// </summary>
     [TerraformProperty("semantic_search_sku")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SemanticSearchSku { get; set; }
+    public partial TerraformValue<string>? SemanticSearchSku { get; set; }
 
     /// <summary>
     /// The sku attribute.
@@ -180,14 +180,14 @@ public partial class AzurermSearchService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [TerraformProperty("sku")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Sku { get; set; }
+    public required partial TerraformValue<string> Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -195,41 +195,41 @@ public partial class AzurermSearchService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermSearchServiceIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSearchServiceIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSearchServiceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSearchServiceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The customer_managed_key_encryption_compliance_status attribute.
     /// </summary>
     [TerraformProperty("customer_managed_key_encryption_compliance_status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CustomerManagedKeyEncryptionComplianceStatus { get; }
+    public partial TerraformValue<string> CustomerManagedKeyEncryptionComplianceStatus { get; }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     [TerraformProperty("primary_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryKey { get; }
+    public partial TerraformValue<string> PrimaryKey { get; }
 
     /// <summary>
     /// The query_keys attribute.
     /// </summary>
     [TerraformProperty("query_keys")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> QueryKeys { get; }
+    public partial TerraformList<object> QueryKeys { get; }
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     [TerraformProperty("secondary_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecondaryKey { get; }
+    public partial TerraformValue<string> SecondaryKey { get; }
 
 }

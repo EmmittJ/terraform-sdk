@@ -13,21 +13,21 @@ public partial class GoogleSccV2ProjectMuteConfigTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class GoogleSccV2ProjectMuteConfig : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// An expression that defines the filter to apply across create/update
@@ -57,21 +57,21 @@ public partial class GoogleSccV2ProjectMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [TerraformProperty("filter")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Filter { get; set; }
+    public required partial TerraformValue<string> Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// location Id is provided by project. If not provided, Use global as default.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Unique identifier provided by the client within the parent scope.
@@ -79,14 +79,14 @@ public partial class GoogleSccV2ProjectMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MuteConfigId is required")]
     [TerraformProperty("mute_config_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MuteConfigId { get; set; }
+    public required partial TerraformValue<string> MuteConfigId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The type of the mute config.
@@ -94,14 +94,14 @@ public partial class GoogleSccV2ProjectMuteConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleSccV2ProjectMuteConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleSccV2ProjectMuteConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time at which the mute config was created. This field is set by
@@ -109,7 +109,7 @@ public partial class GoogleSccV2ProjectMuteConfig : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Email address of the user who last edited the mute config. This
@@ -118,7 +118,7 @@ public partial class GoogleSccV2ProjectMuteConfig : TerraformResource
     /// </summary>
     [TerraformProperty("most_recent_editor")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MostRecentEditor { get; }
+    public partial TerraformValue<string> MostRecentEditor { get; }
 
     /// <summary>
     /// Name of the mute config. Its format is
@@ -128,7 +128,7 @@ public partial class GoogleSccV2ProjectMuteConfig : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. The most recent time at which the mute config was
@@ -137,6 +137,6 @@ public partial class GoogleSccV2ProjectMuteConfig : TerraformResource
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

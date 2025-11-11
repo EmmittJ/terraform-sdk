@@ -14,7 +14,7 @@ public partial class GoogleEventarcTriggerDestinationBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("workflow")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Workflow { get; set; }
+    public partial TerraformValue<string>? Workflow { get; set; }
 
 }
 
@@ -30,14 +30,14 @@ public partial class GoogleEventarcTriggerMatchingCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Attribute is required")]
     [TerraformProperty("attribute")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Attribute { get; set; }
+    public required partial TerraformValue<string> Attribute { get; set; }
 
     /// <summary>
     /// Optional. The operator used for matching the events with the value of the filter. If not specified, only events that have an exact key-value pair specified in the filter are matched. The only allowed value is &#39;match-path-pattern&#39;.
     /// </summary>
     [TerraformProperty("operator")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Operator { get; set; }
+    public partial TerraformValue<string>? Operator { get; set; }
 
     /// <summary>
     /// Required. The value for the attribute. See https://cloud.google.com/eventarc/docs/creating-triggers#trigger-gcloud for available values.
@@ -45,7 +45,7 @@ public partial class GoogleEventarcTriggerMatchingCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
 }
 
@@ -60,21 +60,21 @@ public partial class GoogleEventarcTriggerTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -101,21 +101,21 @@ public partial class GoogleEventarcTrigger : TerraformResource
     /// </summary>
     [TerraformProperty("channel")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Channel { get; set; }
+    public partial TerraformValue<string>? Channel { get; set; }
 
     /// <summary>
     /// Optional. EventDataContentType specifies the type of payload in MIME format that is expected from the CloudEvent data field. This is set to &#39;application/json&#39; if the value is not defined.
     /// </summary>
     [TerraformProperty("event_data_content_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> EventDataContentType { get; set; }
+    public partial TerraformValue<string> EventDataContentType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Optional. User labels attached to the triggers that can be used to group resources.
@@ -125,7 +125,7 @@ public partial class GoogleEventarcTrigger : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location for the resource
@@ -133,7 +133,7 @@ public partial class GoogleEventarcTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Required. The resource name of the trigger. Must be unique within the location on the project.
@@ -141,21 +141,21 @@ public partial class GoogleEventarcTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Optional. The IAM service account email associated with the trigger. The service account represents the identity of the trigger. The principal who calls this API must have &#39;iam.serviceAccounts.actAs&#39; permission in the service account. See https://cloud.google.com/iam/docs/understanding-service-accounts#sa_common for more information. For Cloud Run destinations, this service account is used to generate identity tokens when invoking the service. See https://cloud.google.com/run/docs/triggering/pubsub-push#create-service-account for information on how to invoke authenticated Cloud Run services. In order to create Audit Log triggers, the service account should also have &#39;roles/eventarc.eventReceiver&#39; IAM role.
     /// </summary>
     [TerraformProperty("service_account")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServiceAccount { get; set; }
+    public partial TerraformValue<string>? ServiceAccount { get; set; }
 
     /// <summary>
     /// Block for destination.
@@ -165,7 +165,7 @@ public partial class GoogleEventarcTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
     [TerraformProperty("destination")]
-    public TerraformList<TerraformBlock<GoogleEventarcTriggerDestinationBlock>>? Destination { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleEventarcTriggerDestinationBlock>>? Destination { get; set; }
 
     /// <summary>
     /// Block for matching_criteria.
@@ -174,14 +174,14 @@ public partial class GoogleEventarcTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingCriteria is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MatchingCriteria block(s) required")]
     [TerraformProperty("matching_criteria")]
-    public TerraformSet<TerraformBlock<GoogleEventarcTriggerMatchingCriteriaBlock>>? MatchingCriteria { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleEventarcTriggerMatchingCriteriaBlock>>? MatchingCriteria { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleEventarcTriggerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleEventarcTriggerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for transport.
@@ -189,35 +189,35 @@ public partial class GoogleEventarcTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Transport block(s) allowed")]
     [TerraformProperty("transport")]
-    public TerraformList<TerraformBlock<GoogleEventarcTriggerTransportBlock>>? Transport { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleEventarcTriggerTransportBlock>>? Transport { get; set; }
 
     /// <summary>
     /// Output only. The reason(s) why a trigger is in FAILED state.
     /// </summary>
     [TerraformProperty("conditions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Conditions { get; }
+    public partial TerraformMap<string> Conditions { get; }
 
     /// <summary>
     /// Output only. The creation time.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Output only. This checksum is computed by the server based on the value of other fields, and may be sent only on create requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -225,20 +225,20 @@ public partial class GoogleEventarcTrigger : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Output only. Server assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Output only. The last-modified time.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermSentinelAlertRuleDataSourceTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermSentinelAlertRuleDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
@@ -39,7 +39,7 @@ public partial class AzurermSentinelAlertRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     [TerraformProperty("log_analytics_workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
+    public required partial TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,13 +47,13 @@ public partial class AzurermSentinelAlertRuleDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSentinelAlertRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSentinelAlertRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
 }

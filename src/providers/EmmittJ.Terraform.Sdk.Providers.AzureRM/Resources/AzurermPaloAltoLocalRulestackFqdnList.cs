@@ -13,28 +13,28 @@ public partial class AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public partial class AzurermPaloAltoLocalRulestackFqdnList : TerraformResource
     /// </summary>
     [TerraformProperty("audit_comment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuditComment { get; set; }
+    public partial TerraformValue<string>? AuditComment { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The fully_qualified_domain_names attribute.
@@ -67,14 +67,14 @@ public partial class AzurermPaloAltoLocalRulestackFqdnList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullyQualifiedDomainNames is required")]
     [TerraformProperty("fully_qualified_domain_names")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? FullyQualifiedDomainNames { get; set; }
+    public partial TerraformList<string>? FullyQualifiedDomainNames { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -82,7 +82,7 @@ public partial class AzurermPaloAltoLocalRulestackFqdnList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The rulestack_id attribute.
@@ -90,13 +90,13 @@ public partial class AzurermPaloAltoLocalRulestackFqdnList : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
     [TerraformProperty("rulestack_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RulestackId { get; set; }
+    public required partial TerraformValue<string> RulestackId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock>? Timeouts { get; set; }
 
 }

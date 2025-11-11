@@ -13,14 +13,14 @@ public partial class GoogleIapBrandTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -40,21 +40,21 @@ public partial class GoogleIapBrand : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationTitle is required")]
     [TerraformProperty("application_title")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApplicationTitle { get; set; }
+    public required partial TerraformValue<string> ApplicationTitle { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Support email displayed on the OAuth consent screen. Can be either a
@@ -66,14 +66,14 @@ public partial class GoogleIapBrand : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportEmail is required")]
     [TerraformProperty("support_email")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SupportEmail { get; set; }
+    public required partial TerraformValue<string> SupportEmail { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleIapBrandTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleIapBrandTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Identifier of the brand, in the format &#39;projects/{project_number}/brands/{brand_id}&#39;
@@ -83,13 +83,13 @@ public partial class GoogleIapBrand : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Whether the brand is only intended for usage inside the GSuite organization only.
     /// </summary>
     [TerraformProperty("org_internal_only")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> OrgInternalOnly { get; }
+    public partial TerraformValue<bool> OrgInternalOnly { get; }
 
 }

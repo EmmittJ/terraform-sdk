@@ -22,7 +22,7 @@ public partial class GoogleDialogflowCxToolFunctionSpecBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("input_schema")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InputSchema { get; set; }
+    public partial TerraformValue<string>? InputSchema { get; set; }
 
     /// <summary>
     /// Optional. The JSON schema is encapsulated in a [google.protobuf.Struct](https://protobuf.dev/reference/protobuf/google.protobuf/#struct) to describe the output of the function.
@@ -30,7 +30,7 @@ public partial class GoogleDialogflowCxToolFunctionSpecBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("output_schema")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OutputSchema { get; set; }
+    public partial TerraformValue<string>? OutputSchema { get; set; }
 
 }
 
@@ -47,7 +47,7 @@ public partial class GoogleDialogflowCxToolOpenApiSpecBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextSchema is required")]
     [TerraformProperty("text_schema")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TextSchema { get; set; }
+    public required partial TerraformValue<string> TextSchema { get; set; }
 
 }
 
@@ -62,21 +62,21 @@ public partial class GoogleDialogflowCxToolTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -96,7 +96,7 @@ public partial class GoogleDialogflowCxTool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     [TerraformProperty("description")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Description { get; set; }
+    public required partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The human-readable name of the tool, unique within the agent.
@@ -104,14 +104,14 @@ public partial class GoogleDialogflowCxTool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The agent to create a Tool for.
@@ -119,7 +119,7 @@ public partial class GoogleDialogflowCxTool : TerraformResource
     /// </summary>
     [TerraformProperty("parent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Parent { get; set; }
+    public partial TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// Block for data_store_spec.
@@ -127,7 +127,7 @@ public partial class GoogleDialogflowCxTool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataStoreSpec block(s) allowed")]
     [TerraformProperty("data_store_spec")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxToolDataStoreSpecBlock>>? DataStoreSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxToolDataStoreSpecBlock>>? DataStoreSpec { get; set; }
 
     /// <summary>
     /// Block for function_spec.
@@ -135,7 +135,7 @@ public partial class GoogleDialogflowCxTool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FunctionSpec block(s) allowed")]
     [TerraformProperty("function_spec")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxToolFunctionSpecBlock>>? FunctionSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxToolFunctionSpecBlock>>? FunctionSpec { get; set; }
 
     /// <summary>
     /// Block for open_api_spec.
@@ -143,14 +143,14 @@ public partial class GoogleDialogflowCxTool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenApiSpec block(s) allowed")]
     [TerraformProperty("open_api_spec")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxToolOpenApiSpecBlock>>? OpenApiSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxToolOpenApiSpecBlock>>? OpenApiSpec { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDialogflowCxToolTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDialogflowCxToolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique identifier of the Tool.
@@ -158,13 +158,13 @@ public partial class GoogleDialogflowCxTool : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The tool type.
     /// </summary>
     [TerraformProperty("tool_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ToolType { get; }
+    public partial TerraformValue<string> ToolType { get; }
 
 }

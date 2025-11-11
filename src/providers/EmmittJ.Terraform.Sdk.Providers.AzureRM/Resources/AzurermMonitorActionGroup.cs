@@ -14,7 +14,7 @@ public partial class AzurermMonitorActionGroupArmRoleReceiverBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The role_id attribute.
@@ -22,14 +22,14 @@ public partial class AzurermMonitorActionGroupArmRoleReceiverBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     [TerraformProperty("role_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleId { get; set; }
+    public required partial TerraformValue<string> RoleId { get; set; }
 
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
     [TerraformProperty("use_common_alert_schema")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseCommonAlertSchema { get; set; }
+    public partial TerraformValue<bool>? UseCommonAlertSchema { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     [TerraformProperty("automation_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AutomationAccountId { get; set; }
+    public required partial TerraformValue<string> AutomationAccountId { get; set; }
 
     /// <summary>
     /// The is_global_runbook attribute.
@@ -53,7 +53,7 @@ public partial class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsGlobalRunbook is required")]
     [TerraformProperty("is_global_runbook")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> IsGlobalRunbook { get; set; }
+    public required partial TerraformValue<bool> IsGlobalRunbook { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -61,7 +61,7 @@ public partial class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The runbook_name attribute.
@@ -69,7 +69,7 @@ public partial class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RunbookName is required")]
     [TerraformProperty("runbook_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RunbookName { get; set; }
+    public required partial TerraformValue<string> RunbookName { get; set; }
 
     /// <summary>
     /// The service_uri attribute.
@@ -77,14 +77,14 @@ public partial class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
     [TerraformProperty("service_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceUri { get; set; }
+    public required partial TerraformValue<string> ServiceUri { get; set; }
 
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
     [TerraformProperty("use_common_alert_schema")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseCommonAlertSchema { get; set; }
+    public partial TerraformValue<bool>? UseCommonAlertSchema { get; set; }
 
     /// <summary>
     /// The webhook_resource_id attribute.
@@ -92,7 +92,7 @@ public partial class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookResourceId is required")]
     [TerraformProperty("webhook_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WebhookResourceId { get; set; }
+    public required partial TerraformValue<string> WebhookResourceId { get; set; }
 
 }
 
@@ -108,7 +108,7 @@ public partial class AzurermMonitorActionGroupAzureAppPushReceiverBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     [TerraformProperty("email_address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EmailAddress { get; set; }
+    public required partial TerraformValue<string> EmailAddress { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -116,7 +116,7 @@ public partial class AzurermMonitorActionGroupAzureAppPushReceiverBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -132,7 +132,7 @@ public partial class AzurermMonitorActionGroupAzureFunctionReceiverBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppResourceId is required")]
     [TerraformProperty("function_app_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FunctionAppResourceId { get; set; }
+    public required partial TerraformValue<string> FunctionAppResourceId { get; set; }
 
     /// <summary>
     /// The function_name attribute.
@@ -140,7 +140,7 @@ public partial class AzurermMonitorActionGroupAzureFunctionReceiverBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     [TerraformProperty("function_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FunctionName { get; set; }
+    public required partial TerraformValue<string> FunctionName { get; set; }
 
     /// <summary>
     /// The http_trigger_url attribute.
@@ -148,7 +148,7 @@ public partial class AzurermMonitorActionGroupAzureFunctionReceiverBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpTriggerUrl is required")]
     [TerraformProperty("http_trigger_url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HttpTriggerUrl { get; set; }
+    public required partial TerraformValue<string> HttpTriggerUrl { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -156,14 +156,14 @@ public partial class AzurermMonitorActionGroupAzureFunctionReceiverBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
     [TerraformProperty("use_common_alert_schema")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseCommonAlertSchema { get; set; }
+    public partial TerraformValue<bool>? UseCommonAlertSchema { get; set; }
 
 }
 
@@ -179,7 +179,7 @@ public partial class AzurermMonitorActionGroupEmailReceiverBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     [TerraformProperty("email_address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EmailAddress { get; set; }
+    public required partial TerraformValue<string> EmailAddress { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -187,14 +187,14 @@ public partial class AzurermMonitorActionGroupEmailReceiverBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
     [TerraformProperty("use_common_alert_schema")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseCommonAlertSchema { get; set; }
+    public partial TerraformValue<bool>? UseCommonAlertSchema { get; set; }
 
 }
 
@@ -210,7 +210,7 @@ public partial class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventHubName is required")]
     [TerraformProperty("event_hub_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EventHubName { get; set; }
+    public required partial TerraformValue<string> EventHubName { get; set; }
 
     /// <summary>
     /// The event_hub_namespace attribute.
@@ -218,7 +218,7 @@ public partial class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventHubNamespace is required")]
     [TerraformProperty("event_hub_namespace")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EventHubNamespace { get; set; }
+    public required partial TerraformValue<string> EventHubNamespace { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -226,28 +226,28 @@ public partial class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
     [TerraformProperty("subscription_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SubscriptionId { get; set; }
+    public partial TerraformValue<string> SubscriptionId { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [TerraformProperty("tenant_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TenantId { get; set; }
+    public partial TerraformValue<string> TenantId { get; set; }
 
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
     [TerraformProperty("use_common_alert_schema")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseCommonAlertSchema { get; set; }
+    public partial TerraformValue<bool>? UseCommonAlertSchema { get; set; }
 
 }
 
@@ -263,7 +263,7 @@ public partial class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     [TerraformProperty("connection_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConnectionId { get; set; }
+    public required partial TerraformValue<string> ConnectionId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -271,7 +271,7 @@ public partial class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The region attribute.
@@ -279,7 +279,7 @@ public partial class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     [TerraformProperty("region")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Region { get; set; }
+    public required partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The ticket_configuration attribute.
@@ -287,7 +287,7 @@ public partial class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TicketConfiguration is required")]
     [TerraformProperty("ticket_configuration")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TicketConfiguration { get; set; }
+    public required partial TerraformValue<string> TicketConfiguration { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -295,7 +295,7 @@ public partial class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformProperty("workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceId { get; set; }
+    public required partial TerraformValue<string> WorkspaceId { get; set; }
 
 }
 
@@ -311,7 +311,7 @@ public partial class AzurermMonitorActionGroupLogicAppReceiverBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallbackUrl is required")]
     [TerraformProperty("callback_url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CallbackUrl { get; set; }
+    public required partial TerraformValue<string> CallbackUrl { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -319,7 +319,7 @@ public partial class AzurermMonitorActionGroupLogicAppReceiverBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
@@ -327,14 +327,14 @@ public partial class AzurermMonitorActionGroupLogicAppReceiverBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     [TerraformProperty("resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceId { get; set; }
+    public required partial TerraformValue<string> ResourceId { get; set; }
 
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
     [TerraformProperty("use_common_alert_schema")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseCommonAlertSchema { get; set; }
+    public partial TerraformValue<bool>? UseCommonAlertSchema { get; set; }
 
 }
 
@@ -350,7 +350,7 @@ public partial class AzurermMonitorActionGroupSmsReceiverBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountryCode is required")]
     [TerraformProperty("country_code")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CountryCode { get; set; }
+    public required partial TerraformValue<string> CountryCode { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -358,7 +358,7 @@ public partial class AzurermMonitorActionGroupSmsReceiverBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The phone_number attribute.
@@ -366,7 +366,7 @@ public partial class AzurermMonitorActionGroupSmsReceiverBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     [TerraformProperty("phone_number")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PhoneNumber { get; set; }
+    public required partial TerraformValue<string> PhoneNumber { get; set; }
 
 }
 
@@ -381,28 +381,28 @@ public partial class AzurermMonitorActionGroupTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -418,7 +418,7 @@ public partial class AzurermMonitorActionGroupVoiceReceiverBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountryCode is required")]
     [TerraformProperty("country_code")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CountryCode { get; set; }
+    public required partial TerraformValue<string> CountryCode { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -426,7 +426,7 @@ public partial class AzurermMonitorActionGroupVoiceReceiverBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The phone_number attribute.
@@ -434,7 +434,7 @@ public partial class AzurermMonitorActionGroupVoiceReceiverBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     [TerraformProperty("phone_number")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PhoneNumber { get; set; }
+    public required partial TerraformValue<string> PhoneNumber { get; set; }
 
 }
 
@@ -450,7 +450,7 @@ public partial class AzurermMonitorActionGroupWebhookReceiverBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The service_uri attribute.
@@ -458,14 +458,14 @@ public partial class AzurermMonitorActionGroupWebhookReceiverBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
     [TerraformProperty("service_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceUri { get; set; }
+    public required partial TerraformValue<string> ServiceUri { get; set; }
 
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
     [TerraformProperty("use_common_alert_schema")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UseCommonAlertSchema { get; set; }
+    public partial TerraformValue<bool>? UseCommonAlertSchema { get; set; }
 
 }
 
@@ -483,21 +483,21 @@ public partial class AzurermMonitorActionGroup : TerraformResource
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -505,7 +505,7 @@ public partial class AzurermMonitorActionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -513,7 +513,7 @@ public partial class AzurermMonitorActionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The short_name attribute.
@@ -521,97 +521,97 @@ public partial class AzurermMonitorActionGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShortName is required")]
     [TerraformProperty("short_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ShortName { get; set; }
+    public required partial TerraformValue<string> ShortName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for arm_role_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("arm_role_receiver")]
-    public TerraformList<TerraformBlock<AzurermMonitorActionGroupArmRoleReceiverBlock>>? ArmRoleReceiver { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupArmRoleReceiverBlock>>? ArmRoleReceiver { get; set; }
 
     /// <summary>
     /// Block for automation_runbook_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("automation_runbook_receiver")]
-    public TerraformList<TerraformBlock<AzurermMonitorActionGroupAutomationRunbookReceiverBlock>>? AutomationRunbookReceiver { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupAutomationRunbookReceiverBlock>>? AutomationRunbookReceiver { get; set; }
 
     /// <summary>
     /// Block for azure_app_push_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("azure_app_push_receiver")]
-    public TerraformList<TerraformBlock<AzurermMonitorActionGroupAzureAppPushReceiverBlock>>? AzureAppPushReceiver { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupAzureAppPushReceiverBlock>>? AzureAppPushReceiver { get; set; }
 
     /// <summary>
     /// Block for azure_function_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("azure_function_receiver")]
-    public TerraformList<TerraformBlock<AzurermMonitorActionGroupAzureFunctionReceiverBlock>>? AzureFunctionReceiver { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupAzureFunctionReceiverBlock>>? AzureFunctionReceiver { get; set; }
 
     /// <summary>
     /// Block for email_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("email_receiver")]
-    public TerraformList<TerraformBlock<AzurermMonitorActionGroupEmailReceiverBlock>>? EmailReceiver { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupEmailReceiverBlock>>? EmailReceiver { get; set; }
 
     /// <summary>
     /// Block for event_hub_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("event_hub_receiver")]
-    public TerraformList<TerraformBlock<AzurermMonitorActionGroupEventHubReceiverBlock>>? EventHubReceiver { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupEventHubReceiverBlock>>? EventHubReceiver { get; set; }
 
     /// <summary>
     /// Block for itsm_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("itsm_receiver")]
-    public TerraformList<TerraformBlock<AzurermMonitorActionGroupItsmReceiverBlock>>? ItsmReceiver { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupItsmReceiverBlock>>? ItsmReceiver { get; set; }
 
     /// <summary>
     /// Block for logic_app_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("logic_app_receiver")]
-    public TerraformList<TerraformBlock<AzurermMonitorActionGroupLogicAppReceiverBlock>>? LogicAppReceiver { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupLogicAppReceiverBlock>>? LogicAppReceiver { get; set; }
 
     /// <summary>
     /// Block for sms_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("sms_receiver")]
-    public TerraformList<TerraformBlock<AzurermMonitorActionGroupSmsReceiverBlock>>? SmsReceiver { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupSmsReceiverBlock>>? SmsReceiver { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMonitorActionGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMonitorActionGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for voice_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("voice_receiver")]
-    public TerraformList<TerraformBlock<AzurermMonitorActionGroupVoiceReceiverBlock>>? VoiceReceiver { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupVoiceReceiverBlock>>? VoiceReceiver { get; set; }
 
     /// <summary>
     /// Block for webhook_receiver.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("webhook_receiver")]
-    public TerraformList<TerraformBlock<AzurermMonitorActionGroupWebhookReceiverBlock>>? WebhookReceiver { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMonitorActionGroupWebhookReceiverBlock>>? WebhookReceiver { get; set; }
 
 }

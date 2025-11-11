@@ -16,21 +16,21 @@ public partial class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Filter { get; set; }
+    public partial TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
     [TerraformProperty("most_recent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? MostRecent { get; set; }
+    public partial TerraformValue<bool>? MostRecent { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is
@@ -43,14 +43,14 @@ public partial class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Creates the new snapshot in the snapshot chain labeled with the
@@ -62,35 +62,35 @@ public partial class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("chain_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ChainName { get; }
+    public partial TerraformValue<string> ChainName { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// Size of the snapshot, specified in GB.
     /// </summary>
     [TerraformProperty("disk_size_gb")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> DiskSizeGb { get; }
+    public partial TerraformValue<double> DiskSizeGb { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource. Used
@@ -98,7 +98,7 @@ public partial class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("label_fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LabelFingerprint { get; }
+    public partial TerraformValue<string> LabelFingerprint { get; }
 
     /// <summary>
     /// Labels to apply to this Snapshot.
@@ -108,7 +108,7 @@ public partial class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// A list of public visible licenses that apply to this snapshot. This
@@ -118,14 +118,14 @@ public partial class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("licenses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Licenses { get; }
+    public partial TerraformList<string> Licenses { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// Encrypts the snapshot using a customer-supplied encryption key.
@@ -144,21 +144,21 @@ public partial class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("snapshot_encryption_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> SnapshotEncryptionKey { get; }
+    public partial TerraformList<object> SnapshotEncryptionKey { get; }
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     [TerraformProperty("snapshot_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> SnapshotId { get; }
+    public partial TerraformValue<double> SnapshotId { get; }
 
     /// <summary>
     /// A reference to the disk used to create this snapshot.
     /// </summary>
     [TerraformProperty("source_disk")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SourceDisk { get; }
+    public partial TerraformValue<string> SourceDisk { get; }
 
     /// <summary>
     /// The customer-supplied encryption key of the source snapshot. Required
@@ -167,7 +167,7 @@ public partial class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("source_disk_encryption_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> SourceDiskEncryptionKey { get; }
+    public partial TerraformList<object> SourceDiskEncryptionKey { get; }
 
     /// <summary>
     /// A size of the storage used by the snapshot. As snapshots share
@@ -176,14 +176,14 @@ public partial class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("storage_bytes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> StorageBytes { get; }
+    public partial TerraformValue<double> StorageBytes { get; }
 
     /// <summary>
     /// Cloud Storage bucket storage location of the snapshot (regional or multi-regional).
     /// </summary>
     [TerraformProperty("storage_locations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> StorageLocations { get; }
+    public partial TerraformList<string> StorageLocations { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -191,13 +191,13 @@ public partial class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// A reference to the zone where the disk is hosted.
     /// </summary>
     [TerraformProperty("zone")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Zone { get; }
+    public partial TerraformValue<string> Zone { get; }
 
 }

@@ -18,7 +18,7 @@ public partial class GoogleContainerAttachedClusterAuthorizationBlock : Terrafor
     /// </summary>
     [TerraformProperty("admin_groups")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AdminGroups { get; set; }
+    public partial TerraformList<string>? AdminGroups { get; set; }
 
     /// <summary>
     /// Users that can perform operations as a cluster admin. A managed
@@ -30,7 +30,7 @@ public partial class GoogleContainerAttachedClusterAuthorizationBlock : Terrafor
     /// </summary>
     [TerraformProperty("admin_users")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AdminUsers { get; set; }
+    public partial TerraformList<string>? AdminUsers { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class GoogleContainerAttachedClusterBinaryAuthorizationBlock : Te
     /// </summary>
     [TerraformProperty("evaluation_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EvaluationMode { get; set; }
+    public partial TerraformValue<string>? EvaluationMode { get; set; }
 
 }
 
@@ -62,7 +62,7 @@ public partial class GoogleContainerAttachedClusterFleetBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformProperty("project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Project { get; set; }
+    public required partial TerraformValue<string> Project { get; set; }
 
 }
 
@@ -94,14 +94,14 @@ public partial class GoogleContainerAttachedClusterOidcConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUrl is required")]
     [TerraformProperty("issuer_url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IssuerUrl { get; set; }
+    public required partial TerraformValue<string> IssuerUrl { get; set; }
 
     /// <summary>
     /// OIDC verification keys in JWKS format (RFC 7517).
     /// </summary>
     [TerraformProperty("jwks")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Jwks { get; set; }
+    public partial TerraformValue<string>? Jwks { get; set; }
 
 }
 
@@ -126,7 +126,7 @@ public partial class GoogleContainerAttachedClusterSecurityPostureConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VulnerabilityMode is required")]
     [TerraformProperty("vulnerability_mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VulnerabilityMode { get; set; }
+    public required partial TerraformValue<string> VulnerabilityMode { get; set; }
 
 }
 
@@ -141,21 +141,21 @@ public partial class GoogleContainerAttachedClusterTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -183,14 +183,14 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// Policy to determine what flags to send on delete. Possible values: DELETE, DELETE_IGNORE_ERRORS
     /// </summary>
     [TerraformProperty("deletion_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeletionPolicy { get; set; }
+    public partial TerraformValue<string>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// A human readable description of this attached cluster. Cannot be longer
@@ -198,7 +198,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The Kubernetes distribution of the underlying attached cluster. Supported values:
@@ -208,14 +208,14 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Distribution is required")]
     [TerraformProperty("distribution")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Distribution { get; set; }
+    public required partial TerraformValue<string> Distribution { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the resource
@@ -223,7 +223,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of this resource.
@@ -231,7 +231,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The platform version for the cluster (e.g. &#39;1.23.0-gke.1&#39;).
@@ -239,14 +239,14 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformVersion is required")]
     [TerraformProperty("platform_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PlatformVersion { get; set; }
+    public required partial TerraformValue<string> PlatformVersion { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for authorization.
@@ -254,7 +254,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
     [TerraformProperty("authorization")]
-    public TerraformList<TerraformBlock<GoogleContainerAttachedClusterAuthorizationBlock>>? Authorization { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleContainerAttachedClusterAuthorizationBlock>>? Authorization { get; set; }
 
     /// <summary>
     /// Block for binary_authorization.
@@ -262,7 +262,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
     [TerraformProperty("binary_authorization")]
-    public TerraformList<TerraformBlock<GoogleContainerAttachedClusterBinaryAuthorizationBlock>>? BinaryAuthorization { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleContainerAttachedClusterBinaryAuthorizationBlock>>? BinaryAuthorization { get; set; }
 
     /// <summary>
     /// Block for fleet.
@@ -272,7 +272,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fleet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Fleet block(s) allowed")]
     [TerraformProperty("fleet")]
-    public TerraformList<TerraformBlock<GoogleContainerAttachedClusterFleetBlock>>? Fleet { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleContainerAttachedClusterFleetBlock>>? Fleet { get; set; }
 
     /// <summary>
     /// Block for logging_config.
@@ -280,7 +280,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
     [TerraformProperty("logging_config")]
-    public TerraformList<TerraformBlock<GoogleContainerAttachedClusterLoggingConfigBlock>>? LoggingConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleContainerAttachedClusterLoggingConfigBlock>>? LoggingConfig { get; set; }
 
     /// <summary>
     /// Block for monitoring_config.
@@ -288,7 +288,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoringConfig block(s) allowed")]
     [TerraformProperty("monitoring_config")]
-    public TerraformList<TerraformBlock<GoogleContainerAttachedClusterMonitoringConfigBlock>>? MonitoringConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleContainerAttachedClusterMonitoringConfigBlock>>? MonitoringConfig { get; set; }
 
     /// <summary>
     /// Block for oidc_config.
@@ -298,7 +298,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OidcConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OidcConfig block(s) allowed")]
     [TerraformProperty("oidc_config")]
-    public TerraformList<TerraformBlock<GoogleContainerAttachedClusterOidcConfigBlock>>? OidcConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleContainerAttachedClusterOidcConfigBlock>>? OidcConfig { get; set; }
 
     /// <summary>
     /// Block for proxy_config.
@@ -306,7 +306,7 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProxyConfig block(s) allowed")]
     [TerraformProperty("proxy_config")]
-    public TerraformList<TerraformBlock<GoogleContainerAttachedClusterProxyConfigBlock>>? ProxyConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleContainerAttachedClusterProxyConfigBlock>>? ProxyConfig { get; set; }
 
     /// <summary>
     /// Block for security_posture_config.
@@ -315,14 +315,14 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityPostureConfig block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("security_posture_config")]
-    public TerraformList<TerraformBlock<GoogleContainerAttachedClusterSecurityPostureConfigBlock>>? SecurityPostureConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleContainerAttachedClusterSecurityPostureConfigBlock>>? SecurityPostureConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleContainerAttachedClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleContainerAttachedClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The region where this cluster runs.
@@ -332,42 +332,42 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     /// </summary>
     [TerraformProperty("cluster_region")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ClusterRegion { get; }
+    public partial TerraformValue<string> ClusterRegion { get; }
 
     /// <summary>
     /// Output only. The time at which this cluster was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// A set of errors found in the cluster.
     /// </summary>
     [TerraformProperty("errors")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Errors { get; }
+    public partial TerraformList<object> Errors { get; }
 
     /// <summary>
     /// The Kubernetes version of the cluster.
     /// </summary>
     [TerraformProperty("kubernetes_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KubernetesVersion { get; }
+    public partial TerraformValue<string> KubernetesVersion { get; }
 
     /// <summary>
     /// If set, there are currently changes in flight to the cluster.
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// The current state of the cluster. Possible values:
@@ -376,27 +376,27 @@ public partial class GoogleContainerAttachedCluster : TerraformResource
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// A globally unique identifier for the cluster.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// The time at which this cluster was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// Workload Identity settings.
     /// </summary>
     [TerraformProperty("workload_identity_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> WorkloadIdentityConfig { get; }
+    public partial TerraformList<object> WorkloadIdentityConfig { get; }
 
 }

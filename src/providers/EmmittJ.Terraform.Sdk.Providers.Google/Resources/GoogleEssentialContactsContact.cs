@@ -13,21 +13,21 @@ public partial class GoogleEssentialContactsContactTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class GoogleEssentialContactsContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     [TerraformProperty("email")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Email { get; set; }
+    public required partial TerraformValue<string> Email { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The preferred language for notifications, as a ISO 639-1 language code. See Supported languages for a list of supported languages.
@@ -61,7 +61,7 @@ public partial class GoogleEssentialContactsContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageTag is required")]
     [TerraformProperty("language_tag")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LanguageTag { get; set; }
+    public required partial TerraformValue<string> LanguageTag { get; set; }
 
     /// <summary>
     /// The categories of notifications that the contact will receive communications for.
@@ -69,7 +69,7 @@ public partial class GoogleEssentialContactsContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationCategorySubscriptions is required")]
     [TerraformProperty("notification_category_subscriptions")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? NotificationCategorySubscriptions { get; set; }
+    public partial TerraformList<string>? NotificationCategorySubscriptions { get; set; }
 
     /// <summary>
     /// The resource to save this contact for. Format: organizations/{organization_id}, folders/{folder_id} or projects/{project_id}
@@ -77,20 +77,20 @@ public partial class GoogleEssentialContactsContact : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleEssentialContactsContactTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleEssentialContactsContactTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The identifier for the contact. Format: {resourceType}/{resource_id}/contacts/{contact_id}
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermCosmosdbRestorableDatabaseAccountsDataSourceTimeouts
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermCosmosdbRestorableDatabaseAccountsDataSource : Terra
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -39,7 +39,7 @@ public partial class AzurermCosmosdbRestorableDatabaseAccountsDataSource : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,20 +47,20 @@ public partial class AzurermCosmosdbRestorableDatabaseAccountsDataSource : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCosmosdbRestorableDatabaseAccountsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCosmosdbRestorableDatabaseAccountsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The accounts attribute.
     /// </summary>
     [TerraformProperty("accounts")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Accounts { get; }
+    public partial TerraformList<object> Accounts { get; }
 
 }

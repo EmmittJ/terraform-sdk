@@ -14,7 +14,7 @@ public partial class AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyAlgorithm is required")]
     [TerraformProperty("key_algorithm")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyAlgorithm { get; set; }
+    public required partial TerraformValue<string> KeyAlgorithm { get; set; }
 
     /// <summary>
     /// The signing_algorithm attribute.
@@ -22,7 +22,7 @@ public partial class AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningAlgorithm is required")]
     [TerraformProperty("signing_algorithm")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SigningAlgorithm { get; set; }
+    public required partial TerraformValue<string> SigningAlgorithm { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AwsAcmpcaCertificateAuthorityTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -64,63 +64,63 @@ public partial class AwsAcmpcaCertificateAuthority : TerraformResource
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_storage_security_standard attribute.
     /// </summary>
     [TerraformProperty("key_storage_security_standard")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> KeyStorageSecurityStandard { get; set; }
+    public partial TerraformValue<string> KeyStorageSecurityStandard { get; set; }
 
     /// <summary>
     /// The permanent_deletion_time_in_days attribute.
     /// </summary>
     [TerraformProperty("permanent_deletion_time_in_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? PermanentDeletionTimeInDays { get; set; }
+    public partial TerraformValue<double>? PermanentDeletionTimeInDays { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The usage_mode attribute.
     /// </summary>
     [TerraformProperty("usage_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> UsageMode { get; set; }
+    public partial TerraformValue<string> UsageMode { get; set; }
 
     /// <summary>
     /// Block for certificate_authority_configuration.
@@ -130,7 +130,7 @@ public partial class AwsAcmpcaCertificateAuthority : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CertificateAuthorityConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateAuthorityConfiguration block(s) allowed")]
     [TerraformProperty("certificate_authority_configuration")]
-    public TerraformList<TerraformBlock<AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock>>? CertificateAuthorityConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock>>? CertificateAuthorityConfiguration { get; set; }
 
     /// <summary>
     /// Block for revocation_configuration.
@@ -138,62 +138,62 @@ public partial class AwsAcmpcaCertificateAuthority : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RevocationConfiguration block(s) allowed")]
     [TerraformProperty("revocation_configuration")]
-    public TerraformList<TerraformBlock<AwsAcmpcaCertificateAuthorityRevocationConfigurationBlock>>? RevocationConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAcmpcaCertificateAuthorityRevocationConfigurationBlock>>? RevocationConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsAcmpcaCertificateAuthorityTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsAcmpcaCertificateAuthorityTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The certificate attribute.
     /// </summary>
     [TerraformProperty("certificate")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Certificate { get; }
+    public partial TerraformValue<string> Certificate { get; }
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
     [TerraformProperty("certificate_chain")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CertificateChain { get; }
+    public partial TerraformValue<string> CertificateChain { get; }
 
     /// <summary>
     /// The certificate_signing_request attribute.
     /// </summary>
     [TerraformProperty("certificate_signing_request")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CertificateSigningRequest { get; }
+    public partial TerraformValue<string> CertificateSigningRequest { get; }
 
     /// <summary>
     /// The not_after attribute.
     /// </summary>
     [TerraformProperty("not_after")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NotAfter { get; }
+    public partial TerraformValue<string> NotAfter { get; }
 
     /// <summary>
     /// The not_before attribute.
     /// </summary>
     [TerraformProperty("not_before")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NotBefore { get; }
+    public partial TerraformValue<string> NotBefore { get; }
 
     /// <summary>
     /// The serial attribute.
     /// </summary>
     [TerraformProperty("serial")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Serial { get; }
+    public partial TerraformValue<string> Serial { get; }
 
 }

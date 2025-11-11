@@ -13,7 +13,7 @@ public partial class AzurermOracleGiVersionsDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermOracleGiVersionsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -39,34 +39,34 @@ public partial class AzurermOracleGiVersionsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Filter the versions by system shape. Possible values are &#39;ExaDbXS&#39;, &#39;Exadata.X9M&#39;, and &#39;Exadata.X11M&#39;.
     /// </summary>
     [TerraformProperty("shape")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Shape { get; set; }
+    public partial TerraformValue<string>? Shape { get; set; }
 
     /// <summary>
     /// Filter the versions by zone
     /// </summary>
     [TerraformProperty("zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Zone { get; set; }
+    public partial TerraformValue<string>? Zone { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermOracleGiVersionsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermOracleGiVersionsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The versions attribute.
     /// </summary>
     [TerraformProperty("versions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Versions { get; }
+    public partial TerraformList<string> Versions { get; }
 
 }

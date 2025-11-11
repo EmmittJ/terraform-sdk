@@ -13,14 +13,14 @@ public partial class AzurermFirewallPolicyDnsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("proxy_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ProxyEnabled { get; set; }
+    public partial TerraformValue<bool>? ProxyEnabled { get; set; }
 
     /// <summary>
     /// The servers attribute.
     /// </summary>
     [TerraformProperty("servers")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Servers { get; set; }
+    public partial TerraformList<string>? Servers { get; set; }
 
 }
 
@@ -35,42 +35,42 @@ public partial class AzurermFirewallPolicyExplicitProxyBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("enable_pac_file")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnablePacFile { get; set; }
+    public partial TerraformValue<bool>? EnablePacFile { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The http_port attribute.
     /// </summary>
     [TerraformProperty("http_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? HttpPort { get; set; }
+    public partial TerraformValue<double>? HttpPort { get; set; }
 
     /// <summary>
     /// The https_port attribute.
     /// </summary>
     [TerraformProperty("https_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? HttpsPort { get; set; }
+    public partial TerraformValue<double>? HttpsPort { get; set; }
 
     /// <summary>
     /// The pac_file attribute.
     /// </summary>
     [TerraformProperty("pac_file")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PacFile { get; set; }
+    public partial TerraformValue<string>? PacFile { get; set; }
 
     /// <summary>
     /// The pac_file_port attribute.
     /// </summary>
     [TerraformProperty("pac_file_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? PacFilePort { get; set; }
+    public partial TerraformValue<double>? PacFilePort { get; set; }
 
 }
 
@@ -85,7 +85,7 @@ public partial class AzurermFirewallPolicyIdentityBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -95,7 +95,7 @@ public partial class AzurermFirewallPolicyIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -111,7 +111,7 @@ public partial class AzurermFirewallPolicyInsightsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLogAnalyticsWorkspaceId is required")]
     [TerraformProperty("default_log_analytics_workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DefaultLogAnalyticsWorkspaceId { get; set; }
+    public required partial TerraformValue<string> DefaultLogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The enabled attribute.
@@ -119,14 +119,14 @@ public partial class AzurermFirewallPolicyInsightsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
     [TerraformProperty("retention_in_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetentionInDays { get; set; }
+    public partial TerraformValue<double>? RetentionInDays { get; set; }
 
 }
 
@@ -141,14 +141,14 @@ public partial class AzurermFirewallPolicyIntrusionDetectionBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Mode { get; set; }
+    public partial TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The private_ranges attribute.
     /// </summary>
     [TerraformProperty("private_ranges")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? PrivateRanges { get; set; }
+    public partial TerraformList<string>? PrivateRanges { get; set; }
 
 }
 
@@ -163,14 +163,14 @@ public partial class AzurermFirewallPolicyThreatIntelligenceAllowlistBlock : Ter
     /// </summary>
     [TerraformProperty("fqdns")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Fqdns { get; set; }
+    public partial TerraformSet<string>? Fqdns { get; set; }
 
     /// <summary>
     /// The ip_addresses attribute.
     /// </summary>
     [TerraformProperty("ip_addresses")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IpAddresses { get; set; }
+    public partial TerraformSet<string>? IpAddresses { get; set; }
 
 }
 
@@ -185,28 +185,28 @@ public partial class AzurermFirewallPolicyTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -222,7 +222,7 @@ public partial class AzurermFirewallPolicyTlsCertificateBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultSecretId is required")]
     [TerraformProperty("key_vault_secret_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultSecretId { get; set; }
+    public required partial TerraformValue<string> KeyVaultSecretId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -230,7 +230,7 @@ public partial class AzurermFirewallPolicyTlsCertificateBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -249,21 +249,21 @@ public partial class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("auto_learn_private_ranges_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutoLearnPrivateRangesEnabled { get; set; }
+    public partial TerraformValue<bool>? AutoLearnPrivateRangesEnabled { get; set; }
 
     /// <summary>
     /// The base_policy_id attribute.
     /// </summary>
     [TerraformProperty("base_policy_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BasePolicyId { get; set; }
+    public partial TerraformValue<string>? BasePolicyId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -271,7 +271,7 @@ public partial class AzurermFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -279,14 +279,14 @@ public partial class AzurermFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_ip_ranges attribute.
     /// </summary>
     [TerraformProperty("private_ip_ranges")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? PrivateIpRanges { get; set; }
+    public partial TerraformList<string>? PrivateIpRanges { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -294,35 +294,35 @@ public partial class AzurermFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [TerraformProperty("sku")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Sku { get; set; }
+    public partial TerraformValue<string>? Sku { get; set; }
 
     /// <summary>
     /// The sql_redirect_allowed attribute.
     /// </summary>
     [TerraformProperty("sql_redirect_allowed")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SqlRedirectAllowed { get; set; }
+    public partial TerraformValue<bool>? SqlRedirectAllowed { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The threat_intelligence_mode attribute.
     /// </summary>
     [TerraformProperty("threat_intelligence_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ThreatIntelligenceMode { get; set; }
+    public partial TerraformValue<string>? ThreatIntelligenceMode { get; set; }
 
     /// <summary>
     /// Block for dns.
@@ -330,7 +330,7 @@ public partial class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dns block(s) allowed")]
     [TerraformProperty("dns")]
-    public TerraformList<TerraformBlock<AzurermFirewallPolicyDnsBlock>>? Dns { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyDnsBlock>>? Dns { get; set; }
 
     /// <summary>
     /// Block for explicit_proxy.
@@ -338,7 +338,7 @@ public partial class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExplicitProxy block(s) allowed")]
     [TerraformProperty("explicit_proxy")]
-    public TerraformList<TerraformBlock<AzurermFirewallPolicyExplicitProxyBlock>>? ExplicitProxy { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyExplicitProxyBlock>>? ExplicitProxy { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -346,7 +346,7 @@ public partial class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermFirewallPolicyIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for insights.
@@ -354,7 +354,7 @@ public partial class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Insights block(s) allowed")]
     [TerraformProperty("insights")]
-    public TerraformList<TerraformBlock<AzurermFirewallPolicyInsightsBlock>>? Insights { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyInsightsBlock>>? Insights { get; set; }
 
     /// <summary>
     /// Block for intrusion_detection.
@@ -362,7 +362,7 @@ public partial class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IntrusionDetection block(s) allowed")]
     [TerraformProperty("intrusion_detection")]
-    public TerraformList<TerraformBlock<AzurermFirewallPolicyIntrusionDetectionBlock>>? IntrusionDetection { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyIntrusionDetectionBlock>>? IntrusionDetection { get; set; }
 
     /// <summary>
     /// Block for threat_intelligence_allowlist.
@@ -370,14 +370,14 @@ public partial class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreatIntelligenceAllowlist block(s) allowed")]
     [TerraformProperty("threat_intelligence_allowlist")]
-    public TerraformList<TerraformBlock<AzurermFirewallPolicyThreatIntelligenceAllowlistBlock>>? ThreatIntelligenceAllowlist { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyThreatIntelligenceAllowlistBlock>>? ThreatIntelligenceAllowlist { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermFirewallPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermFirewallPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for tls_certificate.
@@ -385,27 +385,27 @@ public partial class AzurermFirewallPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsCertificate block(s) allowed")]
     [TerraformProperty("tls_certificate")]
-    public TerraformList<TerraformBlock<AzurermFirewallPolicyTlsCertificateBlock>>? TlsCertificate { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermFirewallPolicyTlsCertificateBlock>>? TlsCertificate { get; set; }
 
     /// <summary>
     /// The child_policies attribute.
     /// </summary>
     [TerraformProperty("child_policies")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ChildPolicies { get; }
+    public partial TerraformList<string> ChildPolicies { get; }
 
     /// <summary>
     /// The firewalls attribute.
     /// </summary>
     [TerraformProperty("firewalls")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Firewalls { get; }
+    public partial TerraformList<string> Firewalls { get; }
 
     /// <summary>
     /// The rule_collection_groups attribute.
     /// </summary>
     [TerraformProperty("rule_collection_groups")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> RuleCollectionGroups { get; }
+    public partial TerraformList<string> RuleCollectionGroups { get; }
 
 }

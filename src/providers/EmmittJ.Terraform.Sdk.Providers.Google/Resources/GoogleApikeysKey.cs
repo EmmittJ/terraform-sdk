@@ -21,21 +21,21 @@ public partial class GoogleApikeysKeyTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -54,14 +54,14 @@ public partial class GoogleApikeysKey : TerraformResource
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource name of the key. The name must be unique within the project, must conform with RFC-1034, is restricted to lower-cased letters, and has a maximum length of 63 characters. In another word, the name must match the regular expression: `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`.
@@ -69,21 +69,21 @@ public partial class GoogleApikeysKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The email of the service account the key is bound to. If this field is specified, the key is a service account bound key and auth enabled. See [Documentation](https://cloud.devsite.corp.google.com/docs/authentication/api-keys?#api-keys-bound-sa) for more details.
     /// </summary>
     [TerraformProperty("service_account_email")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServiceAccountEmail { get; set; }
+    public partial TerraformValue<string>? ServiceAccountEmail { get; set; }
 
     /// <summary>
     /// Block for restrictions.
@@ -91,27 +91,27 @@ public partial class GoogleApikeysKey : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Restrictions block(s) allowed")]
     [TerraformProperty("restrictions")]
-    public TerraformList<TerraformBlock<GoogleApikeysKeyRestrictionsBlock>>? Restrictions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApikeysKeyRestrictionsBlock>>? Restrictions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApikeysKeyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApikeysKeyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. An encrypted and signed value held by this key. This field can be accessed only through the `GetKeyString` method.
     /// </summary>
     [TerraformProperty("key_string")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KeyString { get; }
+    public partial TerraformValue<string> KeyString { get; }
 
     /// <summary>
     /// Output only. Unique id in UUID4 format.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
 }

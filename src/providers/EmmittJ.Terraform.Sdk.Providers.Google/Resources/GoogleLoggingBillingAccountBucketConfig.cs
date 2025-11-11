@@ -19,7 +19,7 @@ public partial class GoogleLoggingBillingAccountBucketConfigCmekSettingsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     [TerraformProperty("kms_key_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KmsKeyName { get; set; }
+    public required partial TerraformValue<string> KmsKeyName { get; set; }
 
 
 
@@ -38,7 +38,7 @@ public partial class GoogleLoggingBillingAccountBucketConfigIndexConfigsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldPath is required")]
     [TerraformProperty("field_path")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FieldPath { get; set; }
+    public required partial TerraformValue<string> FieldPath { get; set; }
 
     /// <summary>
     /// The type of data in this index
@@ -48,7 +48,7 @@ public partial class GoogleLoggingBillingAccountBucketConfigIndexConfigsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -68,7 +68,7 @@ public partial class GoogleLoggingBillingAccountBucketConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccount is required")]
     [TerraformProperty("billing_account")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BillingAccount { get; set; }
+    public required partial TerraformValue<string> BillingAccount { get; set; }
 
     /// <summary>
     /// The name of the logging bucket. Logging automatically creates two log buckets: _Required and _Default.
@@ -76,21 +76,21 @@ public partial class GoogleLoggingBillingAccountBucketConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketId is required")]
     [TerraformProperty("bucket_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BucketId { get; set; }
+    public required partial TerraformValue<string> BucketId { get; set; }
 
     /// <summary>
     /// An optional description for this bucket.
     /// </summary>
     [TerraformProperty("description")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Description { get; set; }
+    public partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the bucket.
@@ -98,14 +98,14 @@ public partial class GoogleLoggingBillingAccountBucketConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Logs will be retained by default for this amount of time, after which they will automatically be deleted. The minimum retention period is 1 day. If this value is set to zero at bucket creation time, the default time of 30 days will be used.
     /// </summary>
     [TerraformProperty("retention_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetentionDays { get; set; }
+    public partial TerraformValue<double>? RetentionDays { get; set; }
 
     /// <summary>
     /// Block for cmek_settings.
@@ -113,7 +113,7 @@ public partial class GoogleLoggingBillingAccountBucketConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CmekSettings block(s) allowed")]
     [TerraformProperty("cmek_settings")]
-    public TerraformList<TerraformBlock<GoogleLoggingBillingAccountBucketConfigCmekSettingsBlock>>? CmekSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleLoggingBillingAccountBucketConfigCmekSettingsBlock>>? CmekSettings { get; set; }
 
     /// <summary>
     /// Block for index_configs.
@@ -121,20 +121,20 @@ public partial class GoogleLoggingBillingAccountBucketConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 IndexConfigs block(s) allowed")]
     [TerraformProperty("index_configs")]
-    public TerraformSet<TerraformBlock<GoogleLoggingBillingAccountBucketConfigIndexConfigsBlock>>? IndexConfigs { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleLoggingBillingAccountBucketConfigIndexConfigsBlock>>? IndexConfigs { get; set; }
 
     /// <summary>
     /// The bucket&#39;s lifecycle such as active or deleted.
     /// </summary>
     [TerraformProperty("lifecycle_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LifecycleState { get; }
+    public partial TerraformValue<string> LifecycleState { get; }
 
     /// <summary>
     /// The resource name of the bucket
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

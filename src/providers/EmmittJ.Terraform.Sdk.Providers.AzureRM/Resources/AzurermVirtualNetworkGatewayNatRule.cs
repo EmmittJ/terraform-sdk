@@ -14,14 +14,14 @@ public partial class AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     [TerraformProperty("address_space")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AddressSpace { get; set; }
+    public required partial TerraformValue<string> AddressSpace { get; set; }
 
     /// <summary>
     /// The port_range attribute.
     /// </summary>
     [TerraformProperty("port_range")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortRange { get; set; }
+    public partial TerraformValue<string>? PortRange { get; set; }
 
 }
 
@@ -37,14 +37,14 @@ public partial class AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     [TerraformProperty("address_space")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AddressSpace { get; set; }
+    public required partial TerraformValue<string> AddressSpace { get; set; }
 
     /// <summary>
     /// The port_range attribute.
     /// </summary>
     [TerraformProperty("port_range")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortRange { get; set; }
+    public partial TerraformValue<string>? PortRange { get; set; }
 
 }
 
@@ -59,28 +59,28 @@ public partial class AzurermVirtualNetworkGatewayNatRuleTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -99,21 +99,21 @@ public partial class AzurermVirtualNetworkGatewayNatRule : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ip_configuration_id attribute.
     /// </summary>
     [TerraformProperty("ip_configuration_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpConfigurationId { get; set; }
+    public partial TerraformValue<string>? IpConfigurationId { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [TerraformProperty("mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Mode { get; set; }
+    public partial TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -121,7 +121,7 @@ public partial class AzurermVirtualNetworkGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -129,14 +129,14 @@ public partial class AzurermVirtualNetworkGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The virtual_network_gateway_id attribute.
@@ -144,7 +144,7 @@ public partial class AzurermVirtualNetworkGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkGatewayId is required")]
     [TerraformProperty("virtual_network_gateway_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualNetworkGatewayId { get; set; }
+    public required partial TerraformValue<string> VirtualNetworkGatewayId { get; set; }
 
     /// <summary>
     /// Block for external_mapping.
@@ -153,7 +153,7 @@ public partial class AzurermVirtualNetworkGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalMapping is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExternalMapping block(s) required")]
     [TerraformProperty("external_mapping")]
-    public TerraformList<TerraformBlock<AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock>>? ExternalMapping { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock>>? ExternalMapping { get; set; }
 
     /// <summary>
     /// Block for internal_mapping.
@@ -162,13 +162,13 @@ public partial class AzurermVirtualNetworkGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternalMapping is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InternalMapping block(s) required")]
     [TerraformProperty("internal_mapping")]
-    public TerraformList<TerraformBlock<AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock>>? InternalMapping { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock>>? InternalMapping { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVirtualNetworkGatewayNatRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVirtualNetworkGatewayNatRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

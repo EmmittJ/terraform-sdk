@@ -16,7 +16,7 @@ public partial class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeySpec is required")]
     [TerraformProperty("key_spec")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeySpec { get; set; }
+    public required partial TerraformValue<string> KeySpec { get; set; }
 
 
 
@@ -33,14 +33,14 @@ public partial class GoogleIamWorkforcePoolProviderKeyTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -59,7 +59,7 @@ public partial class GoogleIamWorkforcePoolProviderKey : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID to use for the key, which becomes the final component of the resource name. This value must be 4-32 characters, and may contain the characters [a-z0-9-].
@@ -67,7 +67,7 @@ public partial class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     [TerraformProperty("key_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyId { get; set; }
+    public required partial TerraformValue<string> KeyId { get; set; }
 
     /// <summary>
     /// The location for the resource.
@@ -75,7 +75,7 @@ public partial class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The ID of the provider.
@@ -83,7 +83,7 @@ public partial class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
     [TerraformProperty("provider_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProviderId { get; set; }
+    public required partial TerraformValue<string> ProviderId { get; set; }
 
     /// <summary>
     /// The purpose of the key. Possible values: [&amp;quot;ENCRYPTION&amp;quot;]
@@ -91,7 +91,7 @@ public partial class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Use is required")]
     [TerraformProperty("use")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Use { get; set; }
+    public required partial TerraformValue<string> Use { get; set; }
 
     /// <summary>
     /// The ID of the workforce pool.
@@ -99,7 +99,7 @@ public partial class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     [TerraformProperty("workforce_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkforcePoolId { get; set; }
+    public required partial TerraformValue<string> WorkforcePoolId { get; set; }
 
     /// <summary>
     /// Block for key_data.
@@ -109,14 +109,14 @@ public partial class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KeyData block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyData block(s) allowed")]
     [TerraformProperty("key_data")]
-    public TerraformList<TerraformBlock<GoogleIamWorkforcePoolProviderKeyKeyDataBlock>>? KeyData { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleIamWorkforcePoolProviderKeyKeyDataBlock>>? KeyData { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleIamWorkforcePoolProviderKeyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleIamWorkforcePoolProviderKeyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time after which the key will be permanently deleted and cannot be recovered.
@@ -124,7 +124,7 @@ public partial class GoogleIamWorkforcePoolProviderKey : TerraformResource
     /// </summary>
     [TerraformProperty("expire_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpireTime { get; }
+    public partial TerraformValue<string> ExpireTime { get; }
 
     /// <summary>
     /// Identifier. The resource name of the key.
@@ -132,13 +132,13 @@ public partial class GoogleIamWorkforcePoolProviderKey : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The state of the key.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

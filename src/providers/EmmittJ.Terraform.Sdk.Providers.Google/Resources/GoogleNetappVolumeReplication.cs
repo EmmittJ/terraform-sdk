@@ -13,14 +13,14 @@ public partial class GoogleNetappVolumeReplicationDestinationVolumeParametersBlo
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Share name for destination volume. If not specified, name of source volume&#39;s share name will be used.
     /// </summary>
     [TerraformProperty("share_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ShareName { get; set; }
+    public partial TerraformValue<string> ShareName { get; set; }
 
     /// <summary>
     /// Name of an existing storage pool for the destination volume with format: &#39;projects/{{project}}/locations/{{location}}/storagePools/{{poolId}}&#39;
@@ -28,14 +28,14 @@ public partial class GoogleNetappVolumeReplicationDestinationVolumeParametersBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePool is required")]
     [TerraformProperty("storage_pool")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StoragePool { get; set; }
+    public required partial TerraformValue<string> StoragePool { get; set; }
 
     /// <summary>
     /// Name for the destination volume to be created. If not specified, the name of the source volume will be used.
     /// </summary>
     [TerraformProperty("volume_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VolumeId { get; set; }
+    public partial TerraformValue<string> VolumeId { get; set; }
 
 }
 
@@ -50,21 +50,21 @@ public partial class GoogleNetappVolumeReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -89,14 +89,14 @@ public partial class GoogleNetappVolumeReplication : TerraformResource
     /// </summary>
     [TerraformProperty("delete_destination_volume")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeleteDestinationVolume { get; set; }
+    public partial TerraformValue<bool>? DeleteDestinationVolume { get; set; }
 
     /// <summary>
     /// An description of this resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Only replications with mirror_state=MIRRORED can be stopped. A replication in mirror_state=TRANSFERRING
@@ -106,14 +106,14 @@ public partial class GoogleNetappVolumeReplication : TerraformResource
     /// </summary>
     [TerraformProperty("force_stopping")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ForceStopping { get; set; }
+    public partial TerraformValue<bool>? ForceStopping { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels as key value pairs. Example: &#39;{ &amp;quot;owner&amp;quot;: &amp;quot;Bob&amp;quot;, &amp;quot;department&amp;quot;: &amp;quot;finance&amp;quot;, &amp;quot;purpose&amp;quot;: &amp;quot;testing&amp;quot; }&#39;
@@ -124,7 +124,7 @@ public partial class GoogleNetappVolumeReplication : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Name of region for this resource. The resource needs to be created in the region of the destination volume.
@@ -132,7 +132,7 @@ public partial class GoogleNetappVolumeReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of the replication. Needs to be unique per location.
@@ -140,14 +140,14 @@ public partial class GoogleNetappVolumeReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Set to false to stop/break the mirror. Stopping the mirror makes the destination volume read-write
@@ -157,7 +157,7 @@ public partial class GoogleNetappVolumeReplication : TerraformResource
     /// </summary>
     [TerraformProperty("replication_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ReplicationEnabled { get; set; }
+    public partial TerraformValue<bool>? ReplicationEnabled { get; set; }
 
     /// <summary>
     /// Specifies the replication interval. Possible values: [&amp;quot;EVERY_10_MINUTES&amp;quot;, &amp;quot;HOURLY&amp;quot;, &amp;quot;DAILY&amp;quot;]
@@ -165,7 +165,7 @@ public partial class GoogleNetappVolumeReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationSchedule is required")]
     [TerraformProperty("replication_schedule")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ReplicationSchedule { get; set; }
+    public required partial TerraformValue<string> ReplicationSchedule { get; set; }
 
     /// <summary>
     /// The name of the existing source volume.
@@ -173,7 +173,7 @@ public partial class GoogleNetappVolumeReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     [TerraformProperty("volume_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VolumeName { get; set; }
+    public required partial TerraformValue<string> VolumeName { get; set; }
 
     /// <summary>
     /// Replication resource state is independent of mirror_state. With enough data, it can take many hours
@@ -182,7 +182,7 @@ public partial class GoogleNetappVolumeReplication : TerraformResource
     /// </summary>
     [TerraformProperty("wait_for_mirror")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? WaitForMirror { get; set; }
+    public partial TerraformValue<bool>? WaitForMirror { get; set; }
 
     /// <summary>
     /// Block for destination_volume_parameters.
@@ -190,35 +190,35 @@ public partial class GoogleNetappVolumeReplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationVolumeParameters block(s) allowed")]
     [TerraformProperty("destination_volume_parameters")]
-    public TerraformList<TerraformBlock<GoogleNetappVolumeReplicationDestinationVolumeParametersBlock>>? DestinationVolumeParameters { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetappVolumeReplicationDestinationVolumeParametersBlock>>? DestinationVolumeParameters { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetappVolumeReplicationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetappVolumeReplicationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Create time of the active directory. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Full resource name of destination volume with format: &#39;projects/{{project}}/locations/{{location}}/volumes/{{volumeId}}&#39;
     /// </summary>
     [TerraformProperty("destination_volume")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DestinationVolume { get; }
+    public partial TerraformValue<string> DestinationVolume { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Condition of the relationship. Can be one of the following:
@@ -227,28 +227,28 @@ public partial class GoogleNetappVolumeReplication : TerraformResource
     /// </summary>
     [TerraformProperty("healthy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Healthy { get; }
+    public partial TerraformValue<bool> Healthy { get; }
 
     /// <summary>
     /// HybridPeeringDetails contains details about the hybrid peering.
     /// </summary>
     [TerraformProperty("hybrid_peering_details")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> HybridPeeringDetails { get; }
+    public partial TerraformList<object> HybridPeeringDetails { get; }
 
     /// <summary>
     /// Hybrid replication type.
     /// </summary>
     [TerraformProperty("hybrid_replication_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> HybridReplicationType { get; }
+    public partial TerraformValue<string> HybridReplicationType { get; }
 
     /// <summary>
     /// Copy pastable snapmirror commands to be executed on onprem cluster by the customer.
     /// </summary>
     [TerraformProperty("hybrid_replication_user_commands")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> HybridReplicationUserCommands { get; }
+    public partial TerraformList<object> HybridReplicationUserCommands { get; }
 
     /// <summary>
     /// Indicates the state of the mirror between source and destination volumes. Depending on the amount of data
@@ -258,7 +258,7 @@ public partial class GoogleNetappVolumeReplication : TerraformResource
     /// </summary>
     [TerraformProperty("mirror_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MirrorState { get; }
+    public partial TerraformValue<string> MirrorState { get; }
 
     /// <summary>
     /// Reverting a replication can swap source and destination volume roles. This field indicates if the &#39;location&#39; hosts
@@ -267,28 +267,28 @@ public partial class GoogleNetappVolumeReplication : TerraformResource
     /// </summary>
     [TerraformProperty("role")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Role { get; }
+    public partial TerraformValue<string> Role { get; }
 
     /// <summary>
     /// Full resource name of source volume with format: &#39;projects/{{project}}/locations/{{location}}/volumes/{{volumeId}}&#39;
     /// </summary>
     [TerraformProperty("source_volume")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SourceVolume { get; }
+    public partial TerraformValue<string> SourceVolume { get; }
 
     /// <summary>
     /// Indicates the state of replication resource. State of the mirror itself is indicated in mirrorState.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// State details of the replication resource.
     /// </summary>
     [TerraformProperty("state_details")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StateDetails { get; }
+    public partial TerraformValue<string> StateDetails { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -296,13 +296,13 @@ public partial class GoogleNetappVolumeReplication : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Replication transfer statistics. All statistics are updated every 5 minutes.
     /// </summary>
     [TerraformProperty("transfer_stats")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> TransferStats { get; }
+    public partial TerraformList<object> TransferStats { get; }
 
 }

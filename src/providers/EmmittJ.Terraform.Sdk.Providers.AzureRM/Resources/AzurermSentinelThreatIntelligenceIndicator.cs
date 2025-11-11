@@ -13,14 +13,14 @@ public partial class AzurermSentinelThreatIntelligenceIndicatorExternalReference
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The hashes attribute.
     /// </summary>
     [TerraformProperty("hashes")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Hashes { get; set; }
+    public partial TerraformMap<string>? Hashes { get; set; }
 
 
     /// <summary>
@@ -28,14 +28,14 @@ public partial class AzurermSentinelThreatIntelligenceIndicatorExternalReference
     /// </summary>
     [TerraformProperty("source_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SourceName { get; set; }
+    public partial TerraformValue<string>? SourceName { get; set; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     [TerraformProperty("url")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Url { get; set; }
+    public partial TerraformValue<string>? Url { get; set; }
 
 }
 
@@ -50,21 +50,21 @@ public partial class AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBl
     /// </summary>
     [TerraformProperty("language")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Language { get; set; }
+    public partial TerraformValue<string>? Language { get; set; }
 
     /// <summary>
     /// The marking_ref attribute.
     /// </summary>
     [TerraformProperty("marking_ref")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MarkingRef { get; set; }
+    public partial TerraformValue<string>? MarkingRef { get; set; }
 
     /// <summary>
     /// The selectors attribute.
     /// </summary>
     [TerraformProperty("selectors")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Selectors { get; set; }
+    public partial TerraformList<string>? Selectors { get; set; }
 
 }
 
@@ -79,7 +79,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlo
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
 }
 
@@ -94,28 +94,28 @@ public partial class AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -133,21 +133,21 @@ public partial class AzurermSentinelThreatIntelligenceIndicator : TerraformResou
     /// </summary>
     [TerraformProperty("confidence")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Confidence { get; set; }
+    public partial TerraformValue<double>? Confidence { get; set; }
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     [TerraformProperty("created_by")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CreatedBy { get; set; }
+    public partial TerraformValue<string>? CreatedBy { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
@@ -155,35 +155,35 @@ public partial class AzurermSentinelThreatIntelligenceIndicator : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The extension attribute.
     /// </summary>
     [TerraformProperty("extension")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Extension { get; set; }
+    public partial TerraformValue<string> Extension { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The language attribute.
     /// </summary>
     [TerraformProperty("language")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Language { get; set; }
+    public partial TerraformValue<string>? Language { get; set; }
 
     /// <summary>
     /// The object_marking_refs attribute.
     /// </summary>
     [TerraformProperty("object_marking_refs")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ObjectMarkingRefs { get; set; }
+    public partial TerraformList<string>? ObjectMarkingRefs { get; set; }
 
     /// <summary>
     /// The pattern attribute.
@@ -191,7 +191,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     [TerraformProperty("pattern")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Pattern { get; set; }
+    public required partial TerraformValue<string> Pattern { get; set; }
 
     /// <summary>
     /// The pattern_type attribute.
@@ -199,21 +199,21 @@ public partial class AzurermSentinelThreatIntelligenceIndicator : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatternType is required")]
     [TerraformProperty("pattern_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PatternType { get; set; }
+    public required partial TerraformValue<string> PatternType { get; set; }
 
     /// <summary>
     /// The pattern_version attribute.
     /// </summary>
     [TerraformProperty("pattern_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PatternVersion { get; set; }
+    public partial TerraformValue<string>? PatternVersion { get; set; }
 
     /// <summary>
     /// The revoked attribute.
     /// </summary>
     [TerraformProperty("revoked")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Revoked { get; set; }
+    public partial TerraformValue<bool>? Revoked { get; set; }
 
     /// <summary>
     /// The source attribute.
@@ -221,21 +221,21 @@ public partial class AzurermSentinelThreatIntelligenceIndicator : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [TerraformProperty("source")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Source { get; set; }
+    public required partial TerraformValue<string> Source { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Tags { get; set; }
+    public partial TerraformList<string>? Tags { get; set; }
 
     /// <summary>
     /// The threat_types attribute.
     /// </summary>
     [TerraformProperty("threat_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ThreatTypes { get; set; }
+    public partial TerraformList<string>? ThreatTypes { get; set; }
 
     /// <summary>
     /// The validate_from_utc attribute.
@@ -243,14 +243,14 @@ public partial class AzurermSentinelThreatIntelligenceIndicator : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidateFromUtc is required")]
     [TerraformProperty("validate_from_utc")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ValidateFromUtc { get; set; }
+    public required partial TerraformValue<string> ValidateFromUtc { get; set; }
 
     /// <summary>
     /// The validate_until_utc attribute.
     /// </summary>
     [TerraformProperty("validate_until_utc")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ValidateUntilUtc { get; set; }
+    public partial TerraformValue<string>? ValidateUntilUtc { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -258,90 +258,90 @@ public partial class AzurermSentinelThreatIntelligenceIndicator : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformProperty("workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceId { get; set; }
+    public required partial TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for external_reference.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("external_reference")]
-    public TerraformList<TerraformBlock<AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock>>? ExternalReference { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock>>? ExternalReference { get; set; }
 
     /// <summary>
     /// Block for granular_marking.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("granular_marking")]
-    public TerraformList<TerraformBlock<AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock>>? GranularMarking { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock>>? GranularMarking { get; set; }
 
     /// <summary>
     /// Block for kill_chain_phase.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("kill_chain_phase")]
-    public TerraformList<TerraformBlock<AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock>>? KillChainPhase { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock>>? KillChainPhase { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The created_on attribute.
     /// </summary>
     [TerraformProperty("created_on")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedOn { get; }
+    public partial TerraformValue<string> CreatedOn { get; }
 
     /// <summary>
     /// The defanged attribute.
     /// </summary>
     [TerraformProperty("defanged")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Defanged { get; }
+    public partial TerraformValue<bool> Defanged { get; }
 
     /// <summary>
     /// The external_id attribute.
     /// </summary>
     [TerraformProperty("external_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExternalId { get; }
+    public partial TerraformValue<string> ExternalId { get; }
 
     /// <summary>
     /// The external_last_updated_time_utc attribute.
     /// </summary>
     [TerraformProperty("external_last_updated_time_utc")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExternalLastUpdatedTimeUtc { get; }
+    public partial TerraformValue<string> ExternalLastUpdatedTimeUtc { get; }
 
     /// <summary>
     /// The guid attribute.
     /// </summary>
     [TerraformProperty("guid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Guid { get; }
+    public partial TerraformValue<string> Guid { get; }
 
     /// <summary>
     /// The indicator_type attribute.
     /// </summary>
     [TerraformProperty("indicator_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> IndicatorType { get; }
+    public partial TerraformList<string> IndicatorType { get; }
 
     /// <summary>
     /// The last_updated_time_utc attribute.
     /// </summary>
     [TerraformProperty("last_updated_time_utc")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastUpdatedTimeUtc { get; }
+    public partial TerraformValue<string> LastUpdatedTimeUtc { get; }
 
     /// <summary>
     /// The parsed_pattern attribute.
     /// </summary>
     [TerraformProperty("parsed_pattern")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ParsedPattern { get; }
+    public partial TerraformList<object> ParsedPattern { get; }
 
 }

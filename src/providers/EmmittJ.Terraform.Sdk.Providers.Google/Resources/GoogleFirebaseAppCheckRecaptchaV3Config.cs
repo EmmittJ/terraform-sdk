@@ -13,21 +13,21 @@ public partial class GoogleFirebaseAppCheckRecaptchaV3ConfigTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -47,21 +47,21 @@ public partial class GoogleFirebaseAppCheckRecaptchaV3Config : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     [TerraformProperty("app_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AppId { get; set; }
+    public required partial TerraformValue<string> AppId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The site secret used to identify your service for reCAPTCHA v3 verification.
@@ -70,7 +70,7 @@ public partial class GoogleFirebaseAppCheckRecaptchaV3Config : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteSecret is required")]
     [TerraformProperty("site_secret")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SiteSecret { get; set; }
+    public required partial TerraformValue<string> SiteSecret { get; set; }
 
     /// <summary>
     /// Specifies the duration for which App Check tokens exchanged from reCAPTCHA V3 artifacts will be valid.
@@ -80,27 +80,27 @@ public partial class GoogleFirebaseAppCheckRecaptchaV3Config : TerraformResource
     /// </summary>
     [TerraformProperty("token_ttl")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TokenTtl { get; set; }
+    public partial TerraformValue<string> TokenTtl { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleFirebaseAppCheckRecaptchaV3ConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleFirebaseAppCheckRecaptchaV3ConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The relative resource name of the reCAPTCHA V3 configuration object
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Whether the siteSecret was previously set. Since we will never return the siteSecret field, this field is the only way to find out whether it was previously set.
     /// </summary>
     [TerraformProperty("site_secret_set")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> SiteSecretSet { get; }
+    public partial TerraformValue<bool> SiteSecretSet { get; }
 
 }

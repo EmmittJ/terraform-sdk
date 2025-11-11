@@ -16,7 +16,7 @@ public partial class GoogleGkeHubMembershipDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Location of the membership.
@@ -25,7 +25,7 @@ public partial class GoogleGkeHubMembershipDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The client-provided identifier of the membership.
@@ -33,14 +33,14 @@ public partial class GoogleGkeHubMembershipDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipId is required")]
     [TerraformProperty("membership_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MembershipId { get; set; }
+    public required partial TerraformValue<string> MembershipId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Authority encodes how Google will recognize identities from this Membership.
@@ -49,21 +49,21 @@ public partial class GoogleGkeHubMembershipDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("authority")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Authority { get; }
+    public partial TerraformList<object> Authority { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// If this Membership is a Kubernetes API server hosted on GKE, this is a self link to its GCP resource.
     /// </summary>
     [TerraformProperty("endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Endpoint { get; }
+    public partial TerraformList<object> Endpoint { get; }
 
     /// <summary>
     /// Labels to apply to this membership.
@@ -74,14 +74,14 @@ public partial class GoogleGkeHubMembershipDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// The unique identifier of the membership.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -89,6 +89,6 @@ public partial class GoogleGkeHubMembershipDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

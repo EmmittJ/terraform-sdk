@@ -16,14 +16,14 @@ public partial class AwsCloudwatchEventArchive : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The event_pattern attribute.
     /// </summary>
     [TerraformProperty("event_pattern")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EventPattern { get; set; }
+    public partial TerraformValue<string>? EventPattern { get; set; }
 
     /// <summary>
     /// The event_source_arn attribute.
@@ -31,21 +31,21 @@ public partial class AwsCloudwatchEventArchive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventSourceArn is required")]
     [TerraformProperty("event_source_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EventSourceArn { get; set; }
+    public required partial TerraformValue<string> EventSourceArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
     [TerraformProperty("kms_key_identifier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyIdentifier { get; set; }
+    public partial TerraformValue<string>? KmsKeyIdentifier { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -53,27 +53,27 @@ public partial class AwsCloudwatchEventArchive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The retention_days attribute.
     /// </summary>
     [TerraformProperty("retention_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetentionDays { get; set; }
+    public partial TerraformValue<double>? RetentionDays { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

@@ -13,14 +13,14 @@ public partial class AwsQuicksightDataSourceCredentialsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("copy_source_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CopySourceArn { get; set; }
+    public partial TerraformValue<string>? CopySourceArn { get; set; }
 
     /// <summary>
     /// The secret_arn attribute.
     /// </summary>
     [TerraformProperty("secret_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecretArn { get; set; }
+    public partial TerraformValue<string>? SecretArn { get; set; }
 
 }
 
@@ -44,7 +44,7 @@ public partial class AwsQuicksightDataSourcePermissionBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     [TerraformProperty("actions")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Actions { get; set; }
+    public required partial TerraformSet<string> Actions { get; set; }
 
     /// <summary>
     /// The principal attribute.
@@ -52,7 +52,7 @@ public partial class AwsQuicksightDataSourcePermissionBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     [TerraformProperty("principal")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Principal { get; set; }
+    public required partial TerraformValue<string> Principal { get; set; }
 
 }
 
@@ -68,7 +68,7 @@ public partial class AwsQuicksightDataSourceSslPropertiesBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisableSsl is required")]
     [TerraformProperty("disable_ssl")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> DisableSsl { get; set; }
+    public required partial TerraformValue<bool> DisableSsl { get; set; }
 
 }
 
@@ -84,7 +84,7 @@ public partial class AwsQuicksightDataSourceVpcConnectionPropertiesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConnectionArn is required")]
     [TerraformProperty("vpc_connection_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VpcConnectionArn { get; set; }
+    public required partial TerraformValue<string> VpcConnectionArn { get; set; }
 
 }
 
@@ -103,7 +103,7 @@ public partial class AwsQuicksightDataSource : TerraformResource
     /// </summary>
     [TerraformProperty("aws_account_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AwsAccountId { get; set; }
+    public partial TerraformValue<string> AwsAccountId { get; set; }
 
     /// <summary>
     /// The data_source_id attribute.
@@ -111,14 +111,14 @@ public partial class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
     [TerraformProperty("data_source_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataSourceId { get; set; }
+    public required partial TerraformValue<string> DataSourceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -126,28 +126,28 @@ public partial class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -155,7 +155,7 @@ public partial class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for credentials.
@@ -163,7 +163,7 @@ public partial class AwsQuicksightDataSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Credentials block(s) allowed")]
     [TerraformProperty("credentials")]
-    public TerraformList<TerraformBlock<AwsQuicksightDataSourceCredentialsBlock>>? Credentials { get; set; }
+    public partial TerraformList<TerraformBlock<AwsQuicksightDataSourceCredentialsBlock>>? Credentials { get; set; }
 
     /// <summary>
     /// Block for parameters.
@@ -173,7 +173,7 @@ public partial class AwsQuicksightDataSource : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Parameters block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Parameters block(s) allowed")]
     [TerraformProperty("parameters")]
-    public TerraformList<TerraformBlock<AwsQuicksightDataSourceParametersBlock>>? Parameters { get; set; }
+    public partial TerraformList<TerraformBlock<AwsQuicksightDataSourceParametersBlock>>? Parameters { get; set; }
 
     /// <summary>
     /// Block for permission.
@@ -181,7 +181,7 @@ public partial class AwsQuicksightDataSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permission block(s) allowed")]
     [TerraformProperty("permission")]
-    public TerraformSet<TerraformBlock<AwsQuicksightDataSourcePermissionBlock>>? Permission { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsQuicksightDataSourcePermissionBlock>>? Permission { get; set; }
 
     /// <summary>
     /// Block for ssl_properties.
@@ -189,7 +189,7 @@ public partial class AwsQuicksightDataSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslProperties block(s) allowed")]
     [TerraformProperty("ssl_properties")]
-    public TerraformList<TerraformBlock<AwsQuicksightDataSourceSslPropertiesBlock>>? SslProperties { get; set; }
+    public partial TerraformList<TerraformBlock<AwsQuicksightDataSourceSslPropertiesBlock>>? SslProperties { get; set; }
 
     /// <summary>
     /// Block for vpc_connection_properties.
@@ -197,13 +197,13 @@ public partial class AwsQuicksightDataSource : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConnectionProperties block(s) allowed")]
     [TerraformProperty("vpc_connection_properties")]
-    public TerraformList<TerraformBlock<AwsQuicksightDataSourceVpcConnectionPropertiesBlock>>? VpcConnectionProperties { get; set; }
+    public partial TerraformList<TerraformBlock<AwsQuicksightDataSourceVpcConnectionPropertiesBlock>>? VpcConnectionProperties { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

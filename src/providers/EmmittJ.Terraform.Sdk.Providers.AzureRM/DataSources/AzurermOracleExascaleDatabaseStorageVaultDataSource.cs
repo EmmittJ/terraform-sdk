@@ -13,7 +13,7 @@ public partial class AzurermOracleExascaleDatabaseStorageVaultDataSourceTimeouts
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermOracleExascaleDatabaseStorageVaultDataSource : Terra
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermOracleExascaleDatabaseStorageVaultDataSource : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,97 +47,97 @@ public partial class AzurermOracleExascaleDatabaseStorageVaultDataSource : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermOracleExascaleDatabaseStorageVaultDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermOracleExascaleDatabaseStorageVaultDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The additional_flash_cache_percentage attribute.
     /// </summary>
     [TerraformProperty("additional_flash_cache_percentage")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> AdditionalFlashCachePercentage { get; }
+    public partial TerraformValue<double> AdditionalFlashCachePercentage { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The high_capacity_database_storage attribute.
     /// </summary>
     [TerraformProperty("high_capacity_database_storage")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> HighCapacityDatabaseStorage { get; }
+    public partial TerraformList<object> HighCapacityDatabaseStorage { get; }
 
     /// <summary>
     /// The lifecycle_details attribute.
     /// </summary>
     [TerraformProperty("lifecycle_details")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LifecycleDetails { get; }
+    public partial TerraformValue<string> LifecycleDetails { get; }
 
     /// <summary>
     /// The lifecycle_state attribute.
     /// </summary>
     [TerraformProperty("lifecycle_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LifecycleState { get; }
+    public partial TerraformValue<string> LifecycleState { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The oci_url attribute.
     /// </summary>
     [TerraformProperty("oci_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OciUrl { get; }
+    public partial TerraformValue<string> OciUrl { get; }
 
     /// <summary>
     /// The ocid attribute.
     /// </summary>
     [TerraformProperty("ocid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Ocid { get; }
+    public partial TerraformValue<string> Ocid { get; }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
     [TerraformProperty("time_zone")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TimeZone { get; }
+    public partial TerraformValue<string> TimeZone { get; }
 
     /// <summary>
     /// The virtual_machine_cluster_count attribute.
     /// </summary>
     [TerraformProperty("virtual_machine_cluster_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> VirtualMachineClusterCount { get; }
+    public partial TerraformValue<double> VirtualMachineClusterCount { get; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     [TerraformProperty("zones")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Zones { get; }
+    public partial TerraformList<string> Zones { get; }
 
 }

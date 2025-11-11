@@ -13,21 +13,21 @@ public partial class GoogleNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class GoogleNetappVolumeQuotaRule : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The maximum allowed capacity in MiB.
@@ -53,14 +53,14 @@ public partial class GoogleNetappVolumeQuotaRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskLimitMib is required")]
     [TerraformProperty("disk_limit_mib")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> DiskLimitMib { get; set; }
+    public required partial TerraformValue<double> DiskLimitMib { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels as key value pairs of the quota rule. Example: &#39;{ &amp;quot;owner&amp;quot;: &amp;quot;Bob&amp;quot;, &amp;quot;department&amp;quot;: &amp;quot;finance&amp;quot;, &amp;quot;purpose&amp;quot;: &amp;quot;testing&amp;quot; }&#39;.
@@ -71,14 +71,14 @@ public partial class GoogleNetappVolumeQuotaRule : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Loction of the quotaRule. QuotaRules are child resources of volumes and live in the same location.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The resource name of the quotaRule.
@@ -86,14 +86,14 @@ public partial class GoogleNetappVolumeQuotaRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The quota rule applies to the specified user or group.
@@ -106,7 +106,7 @@ public partial class GoogleNetappVolumeQuotaRule : TerraformResource
     /// </summary>
     [TerraformProperty("target")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Target { get; set; }
+    public partial TerraformValue<string>? Target { get; set; }
 
     /// <summary>
     /// Types of Quota Rule. Possible values: [&amp;quot;INDIVIDUAL_USER_QUOTA&amp;quot;, &amp;quot;INDIVIDUAL_GROUP_QUOTA&amp;quot;, &amp;quot;DEFAULT_USER_QUOTA&amp;quot;, &amp;quot;DEFAULT_GROUP_QUOTA&amp;quot;]
@@ -114,7 +114,7 @@ public partial class GoogleNetappVolumeQuotaRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Name of the volume to create the quotaRule in.
@@ -122,42 +122,42 @@ public partial class GoogleNetappVolumeQuotaRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     [TerraformProperty("volume_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VolumeName { get; set; }
+    public required partial TerraformValue<string> VolumeName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetappVolumeQuotaRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetappVolumeQuotaRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Create time of the quota rule. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The state of the quota rule. Possible Values : [STATE_UNSPECIFIED, CREATING, UPDATING, READY, DELETING, ERROR]
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// State details of the quota rule
     /// </summary>
     [TerraformProperty("state_details")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StateDetails { get; }
+    public partial TerraformValue<string> StateDetails { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -165,6 +165,6 @@ public partial class GoogleNetappVolumeQuotaRule : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

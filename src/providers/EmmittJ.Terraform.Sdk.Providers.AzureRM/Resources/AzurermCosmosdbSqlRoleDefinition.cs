@@ -14,7 +14,7 @@ public partial class AzurermCosmosdbSqlRoleDefinitionPermissionsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataActions is required")]
     [TerraformProperty("data_actions")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> DataActions { get; set; }
+    public required partial TerraformSet<string> DataActions { get; set; }
 
 }
 
@@ -29,28 +29,28 @@ public partial class AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -70,7 +70,7 @@ public partial class AzurermCosmosdbSqlRoleDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     [TerraformProperty("account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccountName { get; set; }
+    public required partial TerraformValue<string> AccountName { get; set; }
 
     /// <summary>
     /// The assignable_scopes attribute.
@@ -78,14 +78,14 @@ public partial class AzurermCosmosdbSqlRoleDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignableScopes is required")]
     [TerraformProperty("assignable_scopes")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> AssignableScopes { get; set; }
+    public required partial TerraformSet<string> AssignableScopes { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -93,7 +93,7 @@ public partial class AzurermCosmosdbSqlRoleDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -101,21 +101,21 @@ public partial class AzurermCosmosdbSqlRoleDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
     [TerraformProperty("role_definition_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> RoleDefinitionId { get; set; }
+    public partial TerraformValue<string> RoleDefinitionId { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// Block for permissions.
@@ -124,13 +124,13 @@ public partial class AzurermCosmosdbSqlRoleDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
     [TerraformProperty("permissions")]
-    public TerraformSet<TerraformBlock<AzurermCosmosdbSqlRoleDefinitionPermissionsBlock>>? Permissions { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermCosmosdbSqlRoleDefinitionPermissionsBlock>>? Permissions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock>? Timeouts { get; set; }
 
 }

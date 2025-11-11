@@ -16,7 +16,7 @@ public partial class AwsEmrSupportedInstanceTypesDataSource : TerraformDataSourc
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The release_label attribute.
@@ -24,20 +24,20 @@ public partial class AwsEmrSupportedInstanceTypesDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
     [TerraformProperty("release_label")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ReleaseLabel { get; set; }
+    public required partial TerraformValue<string> ReleaseLabel { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The supported_instance_types attribute.
     /// </summary>
     [TerraformProperty("supported_instance_types")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> SupportedInstanceTypes { get; }
+    public partial TerraformList<object> SupportedInstanceTypes { get; }
 
 }

@@ -15,21 +15,21 @@ public partial class GoogleComposerEnvironmentConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("enable_private_builds_only")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> EnablePrivateBuildsOnly { get; set; }
+    public partial TerraformValue<bool> EnablePrivateBuildsOnly { get; set; }
 
     /// <summary>
     /// Optional. If true, a private Composer environment will be created.
     /// </summary>
     [TerraformProperty("enable_private_environment")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> EnablePrivateEnvironment { get; set; }
+    public partial TerraformValue<bool> EnablePrivateEnvironment { get; set; }
 
     /// <summary>
     /// The size of the Cloud Composer environment. This field is supported for Cloud Composer environments in versions composer-2.*.*-airflow-*.*.* and newer.
     /// </summary>
     [TerraformProperty("environment_size")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> EnvironmentSize { get; set; }
+    public partial TerraformValue<string> EnvironmentSize { get; set; }
 
 
     /// <summary>
@@ -37,14 +37,14 @@ public partial class GoogleComposerEnvironmentConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("node_count")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> NodeCount { get; set; }
+    public partial TerraformValue<double> NodeCount { get; set; }
 
     /// <summary>
     /// Whether high resilience is enabled or not. This field is supported for Cloud Composer environments in versions composer-2.1.15-airflow-*.*.* and newer.
     /// </summary>
     [TerraformProperty("resilience_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ResilienceMode { get; set; }
+    public partial TerraformValue<string> ResilienceMode { get; set; }
 
 }
 
@@ -60,7 +60,7 @@ public partial class GoogleComposerEnvironmentStorageConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
 }
 
@@ -75,21 +75,21 @@ public partial class GoogleComposerEnvironmentTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -108,7 +108,7 @@ public partial class GoogleComposerEnvironment : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// User-defined labels for this environment. The labels map can contain no more than 64 entries. Entries of the labels map are UTF8 strings that comply with the following restrictions: Label keys must be between 1 and 63 characters long and must conform to the following regular expression: [a-z]([-a-z0-9]*[a-z0-9])?. Label values must be between 0 and 63 characters long and must conform to the regular expression ([a-z]([-a-z0-9]*[a-z0-9])?)?. No more than 64 labels can be associated with a given environment. Both keys and values must be &amp;lt;= 128 bytes in size.
@@ -118,7 +118,7 @@ public partial class GoogleComposerEnvironment : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Name of the environment.
@@ -126,21 +126,21 @@ public partial class GoogleComposerEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The location or Compute Engine region for the environment.
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for config.
@@ -148,7 +148,7 @@ public partial class GoogleComposerEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     [TerraformProperty("config")]
-    public TerraformList<TerraformBlock<GoogleComposerEnvironmentConfigBlock>>? Config { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComposerEnvironmentConfigBlock>>? Config { get; set; }
 
     /// <summary>
     /// Block for storage_config.
@@ -156,27 +156,27 @@ public partial class GoogleComposerEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageConfig block(s) allowed")]
     [TerraformProperty("storage_config")]
-    public TerraformList<TerraformBlock<GoogleComposerEnvironmentStorageConfigBlock>>? StorageConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComposerEnvironmentStorageConfigBlock>>? StorageConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComposerEnvironmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComposerEnvironmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

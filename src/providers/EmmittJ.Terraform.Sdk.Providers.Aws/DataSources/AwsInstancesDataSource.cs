@@ -14,7 +14,7 @@ public partial class AwsInstancesDataSourceFilterBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
@@ -22,7 +22,7 @@ public partial class AwsInstancesDataSourceFilterBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     [TerraformProperty("values")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Values { get; set; }
+    public required partial TerraformSet<string> Values { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class AwsInstancesDataSourceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -55,69 +55,69 @@ public partial class AwsInstancesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_state_names attribute.
     /// </summary>
     [TerraformProperty("instance_state_names")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? InstanceStateNames { get; set; }
+    public partial TerraformSet<string>? InstanceStateNames { get; set; }
 
     /// <summary>
     /// The instance_tags attribute.
     /// </summary>
     [TerraformProperty("instance_tags")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> InstanceTags { get; set; }
+    public partial TerraformMap<string> InstanceTags { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public TerraformSet<TerraformBlock<AwsInstancesDataSourceFilterBlock>>? Filter { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsInstancesDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsInstancesDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsInstancesDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The ids attribute.
     /// </summary>
     [TerraformProperty("ids")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Ids { get; }
+    public partial TerraformList<string> Ids { get; }
 
     /// <summary>
     /// The ipv6_addresses attribute.
     /// </summary>
     [TerraformProperty("ipv6_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Ipv6Addresses { get; }
+    public partial TerraformList<string> Ipv6Addresses { get; }
 
     /// <summary>
     /// The private_ips attribute.
     /// </summary>
     [TerraformProperty("private_ips")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> PrivateIps { get; }
+    public partial TerraformList<string> PrivateIps { get; }
 
     /// <summary>
     /// The public_ips attribute.
     /// </summary>
     [TerraformProperty("public_ips")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> PublicIps { get; }
+    public partial TerraformList<string> PublicIps { get; }
 
 }

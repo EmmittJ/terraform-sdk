@@ -13,14 +13,14 @@ public partial class AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,14 +38,14 @@ public partial class AwsEc2ClientVpnAuthorizationRule : TerraformResource
     /// </summary>
     [TerraformProperty("access_group_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AccessGroupId { get; set; }
+    public partial TerraformValue<string>? AccessGroupId { get; set; }
 
     /// <summary>
     /// The authorize_all_groups attribute.
     /// </summary>
     [TerraformProperty("authorize_all_groups")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AuthorizeAllGroups { get; set; }
+    public partial TerraformValue<bool>? AuthorizeAllGroups { get; set; }
 
     /// <summary>
     /// The client_vpn_endpoint_id attribute.
@@ -53,28 +53,28 @@ public partial class AwsEc2ClientVpnAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientVpnEndpointId is required")]
     [TerraformProperty("client_vpn_endpoint_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientVpnEndpointId { get; set; }
+    public required partial TerraformValue<string> ClientVpnEndpointId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The target_network_cidr attribute.
@@ -82,13 +82,13 @@ public partial class AwsEc2ClientVpnAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetNetworkCidr is required")]
     [TerraformProperty("target_network_cidr")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetNetworkCidr { get; set; }
+    public required partial TerraformValue<string> TargetNetworkCidr { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

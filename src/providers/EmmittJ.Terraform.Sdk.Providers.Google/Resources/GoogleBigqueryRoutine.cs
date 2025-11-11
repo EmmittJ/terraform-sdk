@@ -13,7 +13,7 @@ public partial class GoogleBigqueryRoutineArgumentsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("argument_kind")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ArgumentKind { get; set; }
+    public partial TerraformValue<string>? ArgumentKind { get; set; }
 
     /// <summary>
     /// A JSON schema for the data type. Required unless argumentKind = ANY_TYPE.
@@ -26,21 +26,21 @@ public partial class GoogleBigqueryRoutineArgumentsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("data_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DataType { get; set; }
+    public partial TerraformValue<string>? DataType { get; set; }
 
     /// <summary>
     /// Specifies whether the argument is input or output. Can be set for procedures only. Possible values: [&amp;quot;IN&amp;quot;, &amp;quot;OUT&amp;quot;, &amp;quot;INOUT&amp;quot;]
     /// </summary>
     [TerraformProperty("mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Mode { get; set; }
+    public partial TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The name of this argument. Can be absent for function return argument.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
 }
 
@@ -57,7 +57,7 @@ public partial class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : Terraform
     /// </summary>
     [TerraformProperty("connection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Connection { get; set; }
+    public partial TerraformValue<string>? Connection { get; set; }
 
     /// <summary>
     /// Endpoint of the user-provided remote service, e.g.
@@ -65,7 +65,7 @@ public partial class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : Terraform
     /// </summary>
     [TerraformProperty("endpoint")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Endpoint { get; set; }
+    public partial TerraformValue<string>? Endpoint { get; set; }
 
     /// <summary>
     /// Max number of rows in each batch sent to the remote service. If absent or if 0,
@@ -73,7 +73,7 @@ public partial class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : Terraform
     /// </summary>
     [TerraformProperty("max_batching_rows")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MaxBatchingRows { get; set; }
+    public partial TerraformValue<string>? MaxBatchingRows { get; set; }
 
     /// <summary>
     /// User-defined context as a set of key/value pairs, which will be sent as function
@@ -85,7 +85,7 @@ public partial class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : Terraform
     /// </summary>
     [TerraformProperty("user_defined_context")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> UserDefinedContext { get; set; }
+    public partial TerraformMap<string> UserDefinedContext { get; set; }
 
 }
 
@@ -100,7 +100,7 @@ public partial class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("archive_uris")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> ArchiveUris { get; set; }
+    public partial TerraformList<string> ArchiveUris { get; set; }
 
     /// <summary>
     /// Fully qualified name of the user-provided Spark connection object.
@@ -108,28 +108,28 @@ public partial class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("connection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Connection { get; set; }
+    public partial TerraformValue<string>? Connection { get; set; }
 
     /// <summary>
     /// Custom container image for the runtime environment.
     /// </summary>
     [TerraformProperty("container_image")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContainerImage { get; set; }
+    public partial TerraformValue<string>? ContainerImage { get; set; }
 
     /// <summary>
     /// Files to be placed in the working directory of each executor. For more information about Apache Spark, see Apache Spark.
     /// </summary>
     [TerraformProperty("file_uris")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> FileUris { get; set; }
+    public partial TerraformList<string> FileUris { get; set; }
 
     /// <summary>
     /// JARs to include on the driver and executor CLASSPATH. For more information about Apache Spark, see Apache Spark.
     /// </summary>
     [TerraformProperty("jar_uris")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> JarUris { get; set; }
+    public partial TerraformList<string> JarUris { get; set; }
 
     /// <summary>
     /// The fully qualified name of a class in jarUris, for example, com.example.wordcount.
@@ -137,7 +137,7 @@ public partial class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("main_class")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MainClass { get; set; }
+    public partial TerraformValue<string>? MainClass { get; set; }
 
     /// <summary>
     /// The main file/jar URI of the Spark application.
@@ -146,7 +146,7 @@ public partial class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("main_file_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MainFileUri { get; set; }
+    public partial TerraformValue<string>? MainFileUri { get; set; }
 
     /// <summary>
     /// Configuration properties as a set of key/value pairs, which will be passed on to the Spark application.
@@ -155,21 +155,21 @@ public partial class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("properties")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Properties { get; set; }
+    public partial TerraformMap<string> Properties { get; set; }
 
     /// <summary>
     /// Python files to be placed on the PYTHONPATH for PySpark application. Supported file types: .py, .egg, and .zip. For more information about Apache Spark, see Apache Spark.
     /// </summary>
     [TerraformProperty("py_file_uris")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> PyFileUris { get; set; }
+    public partial TerraformList<string> PyFileUris { get; set; }
 
     /// <summary>
     /// Runtime version. If not specified, the default runtime version is used.
     /// </summary>
     [TerraformProperty("runtime_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RuntimeVersion { get; set; }
+    public partial TerraformValue<string>? RuntimeVersion { get; set; }
 
 }
 
@@ -184,21 +184,21 @@ public partial class GoogleBigqueryRoutineTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -217,7 +217,7 @@ public partial class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [TerraformProperty("data_governance_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DataGovernanceType { get; set; }
+    public partial TerraformValue<string>? DataGovernanceType { get; set; }
 
     /// <summary>
     /// The ID of the dataset containing this routine
@@ -225,7 +225,7 @@ public partial class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     [TerraformProperty("dataset_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatasetId { get; set; }
+    public required partial TerraformValue<string> DatasetId { get; set; }
 
     /// <summary>
     /// The body of the routine. For functions, this is the expression in the AS clause.
@@ -234,28 +234,28 @@ public partial class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefinitionBody is required")]
     [TerraformProperty("definition_body")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DefinitionBody { get; set; }
+    public required partial TerraformValue<string> DefinitionBody { get; set; }
 
     /// <summary>
     /// The description of the routine if defined.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The determinism level of the JavaScript UDF if defined. Possible values: [&amp;quot;DETERMINISM_LEVEL_UNSPECIFIED&amp;quot;, &amp;quot;DETERMINISTIC&amp;quot;, &amp;quot;NOT_DETERMINISTIC&amp;quot;]
     /// </summary>
     [TerraformProperty("determinism_level")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeterminismLevel { get; set; }
+    public partial TerraformValue<string>? DeterminismLevel { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Optional. If language = &amp;quot;JAVASCRIPT&amp;quot;, this field stores the path of the
@@ -263,21 +263,21 @@ public partial class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [TerraformProperty("imported_libraries")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ImportedLibraries { get; set; }
+    public partial TerraformList<string>? ImportedLibraries { get; set; }
 
     /// <summary>
     /// The language of the routine. Possible values: [&amp;quot;SQL&amp;quot;, &amp;quot;JAVASCRIPT&amp;quot;, &amp;quot;PYTHON&amp;quot;, &amp;quot;JAVA&amp;quot;, &amp;quot;SCALA&amp;quot;]
     /// </summary>
     [TerraformProperty("language")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Language { get; set; }
+    public partial TerraformValue<string>? Language { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Optional. Can be set only if routineType = &amp;quot;TABLE_VALUED_FUNCTION&amp;quot;.
@@ -288,7 +288,7 @@ public partial class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [TerraformProperty("return_table_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ReturnTableType { get; set; }
+    public partial TerraformValue<string>? ReturnTableType { get; set; }
 
     /// <summary>
     /// A JSON schema for the return type. Optional if language = &amp;quot;SQL&amp;quot;; required otherwise.
@@ -303,7 +303,7 @@ public partial class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [TerraformProperty("return_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ReturnType { get; set; }
+    public partial TerraformValue<string>? ReturnType { get; set; }
 
     /// <summary>
     /// The ID of the the routine. The ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_). The maximum length is 256 characters.
@@ -311,7 +311,7 @@ public partial class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineId is required")]
     [TerraformProperty("routine_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoutineId { get; set; }
+    public required partial TerraformValue<string> RoutineId { get; set; }
 
     /// <summary>
     /// The type of routine. Possible values: [&amp;quot;SCALAR_FUNCTION&amp;quot;, &amp;quot;PROCEDURE&amp;quot;, &amp;quot;TABLE_VALUED_FUNCTION&amp;quot;]
@@ -319,21 +319,21 @@ public partial class GoogleBigqueryRoutine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineType is required")]
     [TerraformProperty("routine_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoutineType { get; set; }
+    public required partial TerraformValue<string> RoutineType { get; set; }
 
     /// <summary>
     /// Optional. The security mode of the routine, if defined. If not defined, the security mode is automatically determined from the routine&#39;s configuration. Possible values: [&amp;quot;DEFINER&amp;quot;, &amp;quot;INVOKER&amp;quot;]
     /// </summary>
     [TerraformProperty("security_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecurityMode { get; set; }
+    public partial TerraformValue<string>? SecurityMode { get; set; }
 
     /// <summary>
     /// Block for arguments.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("arguments")]
-    public TerraformList<TerraformBlock<GoogleBigqueryRoutineArgumentsBlock>>? Arguments { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigqueryRoutineArgumentsBlock>>? Arguments { get; set; }
 
     /// <summary>
     /// Block for remote_function_options.
@@ -341,7 +341,7 @@ public partial class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteFunctionOptions block(s) allowed")]
     [TerraformProperty("remote_function_options")]
-    public TerraformList<TerraformBlock<GoogleBigqueryRoutineRemoteFunctionOptionsBlock>>? RemoteFunctionOptions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigqueryRoutineRemoteFunctionOptionsBlock>>? RemoteFunctionOptions { get; set; }
 
     /// <summary>
     /// Block for spark_options.
@@ -349,14 +349,14 @@ public partial class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkOptions block(s) allowed")]
     [TerraformProperty("spark_options")]
-    public TerraformList<TerraformBlock<GoogleBigqueryRoutineSparkOptionsBlock>>? SparkOptions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigqueryRoutineSparkOptionsBlock>>? SparkOptions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBigqueryRoutineTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBigqueryRoutineTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when this routine was created, in milliseconds since the
@@ -364,7 +364,7 @@ public partial class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [TerraformProperty("creation_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> CreationTime { get; }
+    public partial TerraformValue<double> CreationTime { get; }
 
     /// <summary>
     /// The time when this routine was modified, in milliseconds since the
@@ -372,6 +372,6 @@ public partial class GoogleBigqueryRoutine : TerraformResource
     /// </summary>
     [TerraformProperty("last_modified_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> LastModifiedTime { get; }
+    public partial TerraformValue<double> LastModifiedTime { get; }
 
 }

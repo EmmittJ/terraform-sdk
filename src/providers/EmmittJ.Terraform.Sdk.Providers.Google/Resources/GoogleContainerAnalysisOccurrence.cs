@@ -15,7 +15,7 @@ public partial class GoogleContainerAnalysisOccurrenceAttestationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SerializedPayload is required")]
     [TerraformProperty("serialized_payload")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SerializedPayload { get; set; }
+    public required partial TerraformValue<string> SerializedPayload { get; set; }
 
 }
 
@@ -30,21 +30,21 @@ public partial class GoogleContainerAnalysisOccurrenceTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -63,7 +63,7 @@ public partial class GoogleContainerAnalysisOccurrence : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The analysis note associated with this occurrence, in the form of
@@ -73,21 +73,21 @@ public partial class GoogleContainerAnalysisOccurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoteName is required")]
     [TerraformProperty("note_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NoteName { get; set; }
+    public required partial TerraformValue<string> NoteName { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// A description of actions that can be taken to remedy the note.
     /// </summary>
     [TerraformProperty("remediation")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Remediation { get; set; }
+    public partial TerraformValue<string>? Remediation { get; set; }
 
     /// <summary>
     /// Required. Immutable. A URI that represents the resource for which
@@ -97,7 +97,7 @@ public partial class GoogleContainerAnalysisOccurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceUri is required")]
     [TerraformProperty("resource_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceUri { get; set; }
+    public required partial TerraformValue<string> ResourceUri { get; set; }
 
     /// <summary>
     /// Block for attestation.
@@ -107,21 +107,21 @@ public partial class GoogleContainerAnalysisOccurrence : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Attestation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Attestation block(s) allowed")]
     [TerraformProperty("attestation")]
-    public TerraformList<TerraformBlock<GoogleContainerAnalysisOccurrenceAttestationBlock>>? Attestation { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleContainerAnalysisOccurrenceAttestationBlock>>? Attestation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleContainerAnalysisOccurrenceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleContainerAnalysisOccurrenceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when the repository was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The note kind which explicitly denotes which of the occurrence
@@ -130,20 +130,20 @@ public partial class GoogleContainerAnalysisOccurrence : TerraformResource
     /// </summary>
     [TerraformProperty("kind")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Kind { get; }
+    public partial TerraformValue<string> Kind { get; }
 
     /// <summary>
     /// The name of the occurrence.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The time when the repository was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

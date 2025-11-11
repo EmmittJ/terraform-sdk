@@ -14,7 +14,7 @@ public partial class AwsApiGatewayUsagePlanApiStagesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     [TerraformProperty("api_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApiId { get; set; }
+    public required partial TerraformValue<string> ApiId { get; set; }
 
     /// <summary>
     /// The stage attribute.
@@ -22,7 +22,7 @@ public partial class AwsApiGatewayUsagePlanApiStagesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
     [TerraformProperty("stage")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Stage { get; set; }
+    public required partial TerraformValue<string> Stage { get; set; }
 
 }
 
@@ -38,14 +38,14 @@ public partial class AwsApiGatewayUsagePlanQuotaSettingsBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Limit is required")]
     [TerraformProperty("limit")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Limit { get; set; }
+    public required partial TerraformValue<double> Limit { get; set; }
 
     /// <summary>
     /// The offset attribute.
     /// </summary>
     [TerraformProperty("offset")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Offset { get; set; }
+    public partial TerraformValue<double>? Offset { get; set; }
 
     /// <summary>
     /// The period attribute.
@@ -53,7 +53,7 @@ public partial class AwsApiGatewayUsagePlanQuotaSettingsBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Period is required")]
     [TerraformProperty("period")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Period { get; set; }
+    public required partial TerraformValue<string> Period { get; set; }
 
 }
 
@@ -68,14 +68,14 @@ public partial class AwsApiGatewayUsagePlanThrottleSettingsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("burst_limit")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BurstLimit { get; set; }
+    public partial TerraformValue<double>? BurstLimit { get; set; }
 
     /// <summary>
     /// The rate_limit attribute.
     /// </summary>
     [TerraformProperty("rate_limit")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RateLimit { get; set; }
+    public partial TerraformValue<double>? RateLimit { get; set; }
 
 }
 
@@ -94,14 +94,14 @@ public partial class AwsApiGatewayUsagePlan : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -109,42 +109,42 @@ public partial class AwsApiGatewayUsagePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The product_code attribute.
     /// </summary>
     [TerraformProperty("product_code")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProductCode { get; set; }
+    public partial TerraformValue<string>? ProductCode { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for api_stages.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("api_stages")]
-    public TerraformSet<TerraformBlock<AwsApiGatewayUsagePlanApiStagesBlock>>? ApiStages { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsApiGatewayUsagePlanApiStagesBlock>>? ApiStages { get; set; }
 
     /// <summary>
     /// Block for quota_settings.
@@ -152,7 +152,7 @@ public partial class AwsApiGatewayUsagePlan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QuotaSettings block(s) allowed")]
     [TerraformProperty("quota_settings")]
-    public TerraformList<TerraformBlock<AwsApiGatewayUsagePlanQuotaSettingsBlock>>? QuotaSettings { get; set; }
+    public partial TerraformList<TerraformBlock<AwsApiGatewayUsagePlanQuotaSettingsBlock>>? QuotaSettings { get; set; }
 
     /// <summary>
     /// Block for throttle_settings.
@@ -160,13 +160,13 @@ public partial class AwsApiGatewayUsagePlan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThrottleSettings block(s) allowed")]
     [TerraformProperty("throttle_settings")]
-    public TerraformList<TerraformBlock<AwsApiGatewayUsagePlanThrottleSettingsBlock>>? ThrottleSettings { get; set; }
+    public partial TerraformList<TerraformBlock<AwsApiGatewayUsagePlanThrottleSettingsBlock>>? ThrottleSettings { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

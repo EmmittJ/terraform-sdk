@@ -16,7 +16,7 @@ public partial class GoogleComputeInterconnectLocationDataSource : TerraformData
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -24,83 +24,83 @@ public partial class GoogleComputeInterconnectLocationDataSource : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The address attribute.
     /// </summary>
     [TerraformProperty("address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Address { get; }
+    public partial TerraformValue<string> Address { get; }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     [TerraformProperty("availability_zone")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AvailabilityZone { get; }
+    public partial TerraformValue<string> AvailabilityZone { get; }
 
     /// <summary>
     /// The city attribute.
     /// </summary>
     [TerraformProperty("city")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> City { get; }
+    public partial TerraformValue<string> City { get; }
 
     /// <summary>
     /// The continent attribute.
     /// </summary>
     [TerraformProperty("continent")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Continent { get; }
+    public partial TerraformValue<string> Continent { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The facility_provider attribute.
     /// </summary>
     [TerraformProperty("facility_provider")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> FacilityProvider { get; }
+    public partial TerraformValue<string> FacilityProvider { get; }
 
     /// <summary>
     /// The facility_provider_facility_id attribute.
     /// </summary>
     [TerraformProperty("facility_provider_facility_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> FacilityProviderFacilityId { get; }
+    public partial TerraformValue<string> FacilityProviderFacilityId { get; }
 
     /// <summary>
     /// The peeringdb_facility_id attribute.
     /// </summary>
     [TerraformProperty("peeringdb_facility_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PeeringdbFacilityId { get; }
+    public partial TerraformValue<string> PeeringdbFacilityId { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
 }

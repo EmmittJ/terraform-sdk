@@ -16,7 +16,7 @@ public partial class GoogleServiceNetworkingPeeredDnsDomainDataSource : Terrafor
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -24,7 +24,7 @@ public partial class GoogleServiceNetworkingPeeredDnsDomainDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network attribute.
@@ -32,7 +32,7 @@ public partial class GoogleServiceNetworkingPeeredDnsDomainDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformProperty("network")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Network { get; set; }
+    public required partial TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The project attribute.
@@ -40,7 +40,7 @@ public partial class GoogleServiceNetworkingPeeredDnsDomainDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformProperty("project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Project { get; set; }
+    public required partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The service attribute.
@@ -48,20 +48,20 @@ public partial class GoogleServiceNetworkingPeeredDnsDomainDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformProperty("service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Service { get; set; }
+    public required partial TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// The dns_suffix attribute.
     /// </summary>
     [TerraformProperty("dns_suffix")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DnsSuffix { get; }
+    public partial TerraformValue<string> DnsSuffix { get; }
 
     /// <summary>
     /// The parent attribute.
     /// </summary>
     [TerraformProperty("parent")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Parent { get; }
+    public partial TerraformValue<string> Parent { get; }
 
 }

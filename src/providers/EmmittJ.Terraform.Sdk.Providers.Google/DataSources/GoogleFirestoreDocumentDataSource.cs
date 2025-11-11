@@ -17,7 +17,7 @@ public partial class GoogleFirestoreDocumentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     [TerraformProperty("collection")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Collection { get; set; }
+    public required partial TerraformValue<string> Collection { get; set; }
 
     /// <summary>
     /// The Firestore database id. Defaults to &#39;&amp;quot;(default)&amp;quot;&#39;.
@@ -25,7 +25,7 @@ public partial class GoogleFirestoreDocumentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     [TerraformProperty("database")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Database { get; set; }
+    public required partial TerraformValue<string> Database { get; set; }
 
     /// <summary>
     /// The client-assigned document ID to use for this document during creation.
@@ -33,35 +33,35 @@ public partial class GoogleFirestoreDocumentDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentId is required")]
     [TerraformProperty("document_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DocumentId { get; set; }
+    public required partial TerraformValue<string> DocumentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 format.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The document&#39;s [fields](https://cloud.google.com/firestore/docs/reference/rest/v1/projects.databases.documents) formated as a json string.
     /// </summary>
     [TerraformProperty("fields")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Fields { get; }
+    public partial TerraformValue<string> Fields { get; }
 
     /// <summary>
     /// A server defined name for this document. Format:
@@ -69,20 +69,20 @@ public partial class GoogleFirestoreDocumentDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// A relative path to the collection this document exists within
     /// </summary>
     [TerraformProperty("path")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Path { get; }
+    public partial TerraformValue<string> Path { get; }
 
     /// <summary>
     /// Last update timestamp in RFC3339 format.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class GoogleOracleDatabaseOdbNetworkTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class GoogleOracleDatabaseOdbNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeletionProtection { get; set; }
+    public partial TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// The GCP Oracle zone where OdbNetwork is hosted.
@@ -54,14 +54,14 @@ public partial class GoogleOracleDatabaseOdbNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("gcp_oracle_zone")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> GcpOracleZone { get; set; }
+    public partial TerraformValue<string> GcpOracleZone { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels or tags associated with the resource.
@@ -71,7 +71,7 @@ public partial class GoogleOracleDatabaseOdbNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -79,7 +79,7 @@ public partial class GoogleOracleDatabaseOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of the VPC network in the following format:
@@ -88,7 +88,7 @@ public partial class GoogleOracleDatabaseOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformProperty("network")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Network { get; set; }
+    public required partial TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The ID of the OdbNetwork to create. This value is restricted
@@ -99,42 +99,42 @@ public partial class GoogleOracleDatabaseOdbNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
     [TerraformProperty("odb_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OdbNetworkId { get; set; }
+    public required partial TerraformValue<string> OdbNetworkId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleOracleDatabaseOdbNetworkTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleOracleDatabaseOdbNetworkTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The date and time that the OdbNetwork was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The ID of the subscription entitlement associated with the OdbNetwork.
     /// </summary>
     [TerraformProperty("entitlement_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EntitlementId { get; }
+    public partial TerraformValue<string> EntitlementId { get; }
 
     /// <summary>
     /// Identifier. The name of the OdbNetwork resource in the following format:
@@ -142,7 +142,7 @@ public partial class GoogleOracleDatabaseOdbNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// State of the ODB Network.
@@ -154,7 +154,7 @@ public partial class GoogleOracleDatabaseOdbNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -162,6 +162,6 @@ public partial class GoogleOracleDatabaseOdbNetwork : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

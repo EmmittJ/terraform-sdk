@@ -13,7 +13,7 @@ public partial class AzurermNginxConfigurationDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermNginxConfigurationDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The nginx_deployment_id attribute.
@@ -39,41 +39,41 @@ public partial class AzurermNginxConfigurationDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     [TerraformProperty("nginx_deployment_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NginxDeploymentId { get; set; }
+    public required partial TerraformValue<string> NginxDeploymentId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNginxConfigurationDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNginxConfigurationDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The config_file attribute.
     /// </summary>
     [TerraformProperty("config_file")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> ConfigFile { get; }
+    public partial TerraformSet<object> ConfigFile { get; }
 
     /// <summary>
     /// The package_data attribute.
     /// </summary>
     [TerraformProperty("package_data")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PackageData { get; }
+    public partial TerraformValue<string> PackageData { get; }
 
     /// <summary>
     /// The protected_file attribute.
     /// </summary>
     [TerraformProperty("protected_file")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> ProtectedFile { get; }
+    public partial TerraformSet<object> ProtectedFile { get; }
 
     /// <summary>
     /// The root_file attribute.
     /// </summary>
     [TerraformProperty("root_file")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RootFile { get; }
+    public partial TerraformValue<string> RootFile { get; }
 
 }

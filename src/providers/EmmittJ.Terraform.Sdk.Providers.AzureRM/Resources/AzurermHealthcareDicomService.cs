@@ -13,35 +13,35 @@ public partial class AzurermHealthcareDicomServiceCorsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("allow_credentials")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllowCredentials { get; set; }
+    public partial TerraformValue<bool>? AllowCredentials { get; set; }
 
     /// <summary>
     /// The allowed_headers attribute.
     /// </summary>
     [TerraformProperty("allowed_headers")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AllowedHeaders { get; set; }
+    public partial TerraformList<string>? AllowedHeaders { get; set; }
 
     /// <summary>
     /// The allowed_methods attribute.
     /// </summary>
     [TerraformProperty("allowed_methods")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AllowedMethods { get; set; }
+    public partial TerraformList<string>? AllowedMethods { get; set; }
 
     /// <summary>
     /// The allowed_origins attribute.
     /// </summary>
     [TerraformProperty("allowed_origins")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AllowedOrigins { get; set; }
+    public partial TerraformList<string>? AllowedOrigins { get; set; }
 
     /// <summary>
     /// The max_age_in_seconds attribute.
     /// </summary>
     [TerraformProperty("max_age_in_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxAgeInSeconds { get; set; }
+    public partial TerraformValue<double>? MaxAgeInSeconds { get; set; }
 
 }
 
@@ -56,7 +56,7 @@ public partial class AzurermHealthcareDicomServiceIdentityBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -66,7 +66,7 @@ public partial class AzurermHealthcareDicomServiceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -82,7 +82,7 @@ public partial class AzurermHealthcareDicomServiceStorageBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemName is required")]
     [TerraformProperty("file_system_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FileSystemName { get; set; }
+    public required partial TerraformValue<string> FileSystemName { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -90,7 +90,7 @@ public partial class AzurermHealthcareDicomServiceStorageBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformProperty("storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountId { get; set; }
+    public required partial TerraformValue<string> StorageAccountId { get; set; }
 
 }
 
@@ -105,28 +105,28 @@ public partial class AzurermHealthcareDicomServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -145,21 +145,21 @@ public partial class AzurermHealthcareDicomService : TerraformResource
     /// </summary>
     [TerraformProperty("data_partitions_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DataPartitionsEnabled { get; set; }
+    public partial TerraformValue<bool>? DataPartitionsEnabled { get; set; }
 
     /// <summary>
     /// The encryption_key_url attribute.
     /// </summary>
     [TerraformProperty("encryption_key_url")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EncryptionKeyUrl { get; set; }
+    public partial TerraformValue<string>? EncryptionKeyUrl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -167,7 +167,7 @@ public partial class AzurermHealthcareDicomService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -175,21 +175,21 @@ public partial class AzurermHealthcareDicomService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformProperty("public_network_access_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
+    public partial TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
@@ -197,7 +197,7 @@ public partial class AzurermHealthcareDicomService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     [TerraformProperty("workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceId { get; set; }
+    public required partial TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for cors.
@@ -205,7 +205,7 @@ public partial class AzurermHealthcareDicomService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
     [TerraformProperty("cors")]
-    public TerraformList<TerraformBlock<AzurermHealthcareDicomServiceCorsBlock>>? Cors { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHealthcareDicomServiceCorsBlock>>? Cors { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -213,7 +213,7 @@ public partial class AzurermHealthcareDicomService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermHealthcareDicomServiceIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHealthcareDicomServiceIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for storage.
@@ -221,34 +221,34 @@ public partial class AzurermHealthcareDicomService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
     [TerraformProperty("storage")]
-    public TerraformList<TerraformBlock<AzurermHealthcareDicomServiceStorageBlock>>? Storage { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermHealthcareDicomServiceStorageBlock>>? Storage { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermHealthcareDicomServiceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermHealthcareDicomServiceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The authentication attribute.
     /// </summary>
     [TerraformProperty("authentication")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Authentication { get; }
+    public partial TerraformList<object> Authentication { get; }
 
     /// <summary>
     /// The private_endpoint attribute.
     /// </summary>
     [TerraformProperty("private_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> PrivateEndpoint { get; }
+    public partial TerraformSet<object> PrivateEndpoint { get; }
 
     /// <summary>
     /// The service_url attribute.
     /// </summary>
     [TerraformProperty("service_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServiceUrl { get; }
+    public partial TerraformValue<string> ServiceUrl { get; }
 
 }

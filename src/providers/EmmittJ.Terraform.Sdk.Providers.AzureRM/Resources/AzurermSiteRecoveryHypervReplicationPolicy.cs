@@ -13,28 +13,28 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,14 +53,14 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationConsistentSnapshotFrequencyInHours is required")]
     [TerraformProperty("application_consistent_snapshot_frequency_in_hours")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ApplicationConsistentSnapshotFrequencyInHours { get; set; }
+    public required partial TerraformValue<double> ApplicationConsistentSnapshotFrequencyInHours { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -68,7 +68,7 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recovery_point_retention_in_hours attribute.
@@ -76,7 +76,7 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryPointRetentionInHours is required")]
     [TerraformProperty("recovery_point_retention_in_hours")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> RecoveryPointRetentionInHours { get; set; }
+    public required partial TerraformValue<double> RecoveryPointRetentionInHours { get; set; }
 
     /// <summary>
     /// The recovery_vault_id attribute.
@@ -84,7 +84,7 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     [TerraformProperty("recovery_vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecoveryVaultId { get; set; }
+    public required partial TerraformValue<string> RecoveryVaultId { get; set; }
 
     /// <summary>
     /// The replication_interval_in_seconds attribute.
@@ -92,13 +92,13 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationIntervalInSeconds is required")]
     [TerraformProperty("replication_interval_in_seconds")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ReplicationIntervalInSeconds { get; set; }
+    public required partial TerraformValue<double> ReplicationIntervalInSeconds { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

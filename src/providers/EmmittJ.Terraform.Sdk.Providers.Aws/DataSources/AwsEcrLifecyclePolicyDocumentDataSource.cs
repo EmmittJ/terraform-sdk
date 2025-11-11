@@ -13,7 +13,7 @@ public partial class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock : Terrafor
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The priority attribute.
@@ -21,7 +21,7 @@ public partial class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformProperty("priority")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Priority { get; set; }
+    public required partial TerraformValue<double> Priority { get; set; }
 
 }
 
@@ -39,13 +39,13 @@ public partial class AwsEcrLifecyclePolicyDocumentDataSource : TerraformDataSour
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("rule")]
-    public TerraformList<TerraformBlock<AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock>>? Rule { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock>>? Rule { get; set; }
 
     /// <summary>
     /// The json attribute.
     /// </summary>
     [TerraformProperty("json")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Json { get; }
+    public partial TerraformValue<string> Json { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class GoogleBigqueryRowAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class GoogleBigqueryRowAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     [TerraformProperty("dataset_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatasetId { get; set; }
+    public required partial TerraformValue<string> DatasetId { get; set; }
 
     /// <summary>
     /// A SQL boolean expression that represents the rows defined by this row
@@ -63,7 +63,7 @@ public partial class GoogleBigqueryRowAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterPredicate is required")]
     [TerraformProperty("filter_predicate")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FilterPredicate { get; set; }
+    public required partial TerraformValue<string> FilterPredicate { get; set; }
 
     /// <summary>
     /// Input only. The optional list of iam_member users or groups that specifies the initial
@@ -91,14 +91,14 @@ public partial class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("grantees")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Grantees { get; set; }
+    public partial TerraformList<string>? Grantees { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the row access policy. The ID must contain only
@@ -108,14 +108,14 @@ public partial class GoogleBigqueryRowAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     [TerraformProperty("policy_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyId { get; set; }
+    public required partial TerraformValue<string> PolicyId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The ID of the table containing this row access policy.
@@ -123,14 +123,14 @@ public partial class GoogleBigqueryRowAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     [TerraformProperty("table_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TableId { get; set; }
+    public required partial TerraformValue<string> TableId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBigqueryRowAccessPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBigqueryRowAccessPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when this row access policy was created, in milliseconds since
@@ -138,7 +138,7 @@ public partial class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("creation_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTime { get; }
+    public partial TerraformValue<string> CreationTime { get; }
 
     /// <summary>
     /// The time when this row access policy was last modified, in milliseconds
@@ -146,6 +146,6 @@ public partial class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("last_modified_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastModifiedTime { get; }
+    public partial TerraformValue<string> LastModifiedTime { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class AwsCloudcontrolapiResourceTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,35 +46,35 @@ public partial class AwsCloudcontrolapiResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredState is required")]
     [TerraformProperty("desired_state")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DesiredState { get; set; }
+    public required partial TerraformValue<string> DesiredState { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [TerraformProperty("role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RoleArn { get; set; }
+    public partial TerraformValue<string>? RoleArn { get; set; }
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
     [TerraformProperty("schema")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Schema { get; set; }
+    public partial TerraformValue<string> Schema { get; set; }
 
     /// <summary>
     /// The type_name attribute.
@@ -82,27 +82,27 @@ public partial class AwsCloudcontrolapiResource : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeName is required")]
     [TerraformProperty("type_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TypeName { get; set; }
+    public required partial TerraformValue<string> TypeName { get; set; }
 
     /// <summary>
     /// The type_version_id attribute.
     /// </summary>
     [TerraformProperty("type_version_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TypeVersionId { get; set; }
+    public partial TerraformValue<string>? TypeVersionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsCloudcontrolapiResourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsCloudcontrolapiResourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
     [TerraformProperty("properties")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Properties { get; }
+    public partial TerraformValue<string> Properties { get; }
 
 }

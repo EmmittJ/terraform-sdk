@@ -14,14 +14,14 @@ public partial class AzurermVpnGatewayNatRuleExternalMappingBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     [TerraformProperty("address_space")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AddressSpace { get; set; }
+    public required partial TerraformValue<string> AddressSpace { get; set; }
 
     /// <summary>
     /// The port_range attribute.
     /// </summary>
     [TerraformProperty("port_range")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortRange { get; set; }
+    public partial TerraformValue<string>? PortRange { get; set; }
 
 }
 
@@ -37,14 +37,14 @@ public partial class AzurermVpnGatewayNatRuleInternalMappingBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     [TerraformProperty("address_space")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AddressSpace { get; set; }
+    public required partial TerraformValue<string> AddressSpace { get; set; }
 
     /// <summary>
     /// The port_range attribute.
     /// </summary>
     [TerraformProperty("port_range")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PortRange { get; set; }
+    public partial TerraformValue<string>? PortRange { get; set; }
 
 }
 
@@ -59,28 +59,28 @@ public partial class AzurermVpnGatewayNatRuleTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -98,21 +98,21 @@ public partial class AzurermVpnGatewayNatRule : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ip_configuration_id attribute.
     /// </summary>
     [TerraformProperty("ip_configuration_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpConfigurationId { get; set; }
+    public partial TerraformValue<string>? IpConfigurationId { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [TerraformProperty("mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Mode { get; set; }
+    public partial TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -120,14 +120,14 @@ public partial class AzurermVpnGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The vpn_gateway_id attribute.
@@ -135,27 +135,27 @@ public partial class AzurermVpnGatewayNatRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnGatewayId is required")]
     [TerraformProperty("vpn_gateway_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VpnGatewayId { get; set; }
+    public required partial TerraformValue<string> VpnGatewayId { get; set; }
 
     /// <summary>
     /// Block for external_mapping.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("external_mapping")]
-    public TerraformList<TerraformBlock<AzurermVpnGatewayNatRuleExternalMappingBlock>>? ExternalMapping { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermVpnGatewayNatRuleExternalMappingBlock>>? ExternalMapping { get; set; }
 
     /// <summary>
     /// Block for internal_mapping.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("internal_mapping")]
-    public TerraformList<TerraformBlock<AzurermVpnGatewayNatRuleInternalMappingBlock>>? InternalMapping { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermVpnGatewayNatRuleInternalMappingBlock>>? InternalMapping { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVpnGatewayNatRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVpnGatewayNatRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

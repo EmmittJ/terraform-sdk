@@ -14,7 +14,7 @@ public partial class AwsCodeartifactRepositoryExternalConnectionsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalConnectionName is required")]
     [TerraformProperty("external_connection_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ExternalConnectionName { get; set; }
+    public required partial TerraformValue<string> ExternalConnectionName { get; set; }
 
 
 
@@ -32,7 +32,7 @@ public partial class AwsCodeartifactRepositoryUpstreamBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     [TerraformProperty("repository_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepositoryName { get; set; }
+    public required partial TerraformValue<string> RepositoryName { get; set; }
 
 }
 
@@ -51,7 +51,7 @@ public partial class AwsCodeartifactRepository : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The domain attribute.
@@ -59,28 +59,28 @@ public partial class AwsCodeartifactRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     [TerraformProperty("domain")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Domain { get; set; }
+    public required partial TerraformValue<string> Domain { get; set; }
 
     /// <summary>
     /// The domain_owner attribute.
     /// </summary>
     [TerraformProperty("domain_owner")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DomainOwner { get; set; }
+    public partial TerraformValue<string> DomainOwner { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The repository attribute.
@@ -88,21 +88,21 @@ public partial class AwsCodeartifactRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     [TerraformProperty("repository")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Repository { get; set; }
+    public required partial TerraformValue<string> Repository { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for external_connections.
@@ -110,27 +110,27 @@ public partial class AwsCodeartifactRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalConnections block(s) allowed")]
     [TerraformProperty("external_connections")]
-    public TerraformList<TerraformBlock<AwsCodeartifactRepositoryExternalConnectionsBlock>>? ExternalConnections { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCodeartifactRepositoryExternalConnectionsBlock>>? ExternalConnections { get; set; }
 
     /// <summary>
     /// Block for upstream.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("upstream")]
-    public TerraformList<TerraformBlock<AwsCodeartifactRepositoryUpstreamBlock>>? Upstream { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCodeartifactRepositoryUpstreamBlock>>? Upstream { get; set; }
 
     /// <summary>
     /// The administrator_account attribute.
     /// </summary>
     [TerraformProperty("administrator_account")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AdministratorAccount { get; }
+    public partial TerraformValue<string> AdministratorAccount { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

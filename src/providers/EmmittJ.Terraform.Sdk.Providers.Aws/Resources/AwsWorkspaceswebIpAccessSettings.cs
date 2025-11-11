@@ -13,7 +13,7 @@ public partial class AwsWorkspaceswebIpAccessSettingsIpRuleBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The ip_range attribute.
@@ -21,7 +21,7 @@ public partial class AwsWorkspaceswebIpAccessSettingsIpRuleBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRange is required")]
     [TerraformProperty("ip_range")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IpRange { get; set; }
+    public required partial TerraformValue<string> IpRange { get; set; }
 
 }
 
@@ -39,21 +39,21 @@ public partial class AwsWorkspaceswebIpAccessSettings : TerraformResource
     /// </summary>
     [TerraformProperty("additional_encryption_context")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? AdditionalEncryptionContext { get; set; }
+    public partial TerraformMap<string>? AdditionalEncryptionContext { get; set; }
 
     /// <summary>
     /// The customer_managed_key attribute.
     /// </summary>
     [TerraformProperty("customer_managed_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CustomerManagedKey { get; set; }
+    public partial TerraformValue<string>? CustomerManagedKey { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
@@ -61,48 +61,48 @@ public partial class AwsWorkspaceswebIpAccessSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for ip_rule.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("ip_rule")]
-    public TerraformList<TerraformBlock<AwsWorkspaceswebIpAccessSettingsIpRuleBlock>>? IpRule { get; set; }
+    public partial TerraformList<TerraformBlock<AwsWorkspaceswebIpAccessSettingsIpRuleBlock>>? IpRule { get; set; }
 
     /// <summary>
     /// The associated_portal_arns attribute.
     /// </summary>
     [TerraformProperty("associated_portal_arns")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> AssociatedPortalArns { get; }
+    public partial TerraformList<string> AssociatedPortalArns { get; }
 
     /// <summary>
     /// The ip_access_settings_arn attribute.
     /// </summary>
     [TerraformProperty("ip_access_settings_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IpAccessSettingsArn { get; }
+    public partial TerraformValue<string> IpAccessSettingsArn { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
 }

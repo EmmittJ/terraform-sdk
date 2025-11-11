@@ -13,28 +13,28 @@ public partial class AzurermDataFactoryLinkedServiceCosmosdbMongoapiTimeoutsBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,21 +52,21 @@ public partial class AzurermDataFactoryLinkedServiceCosmosdbMongoapi : Terraform
     /// </summary>
     [TerraformProperty("additional_properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? AdditionalProperties { get; set; }
+    public partial TerraformMap<string>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Annotations { get; set; }
+    public partial TerraformList<string>? Annotations { get; set; }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
     [TerraformProperty("connection_string")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConnectionString { get; set; }
+    public partial TerraformValue<string>? ConnectionString { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
@@ -74,35 +74,35 @@ public partial class AzurermDataFactoryLinkedServiceCosmosdbMongoapi : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformProperty("data_factory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataFactoryId { get; set; }
+    public required partial TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The database attribute.
     /// </summary>
     [TerraformProperty("database")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Database { get; set; }
+    public partial TerraformValue<string>? Database { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The integration_runtime_name attribute.
     /// </summary>
     [TerraformProperty("integration_runtime_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IntegrationRuntimeName { get; set; }
+    public partial TerraformValue<string>? IntegrationRuntimeName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -110,27 +110,27 @@ public partial class AzurermDataFactoryLinkedServiceCosmosdbMongoapi : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// The server_version_is_32_or_higher attribute.
     /// </summary>
     [TerraformProperty("server_version_is_32_or_higher")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ServerVersionIs32OrHigher { get; set; }
+    public partial TerraformValue<bool>? ServerVersionIs32OrHigher { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataFactoryLinkedServiceCosmosdbMongoapiTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataFactoryLinkedServiceCosmosdbMongoapiTimeoutsBlock>? Timeouts { get; set; }
 
 }

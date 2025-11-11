@@ -13,28 +13,28 @@ public partial class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeout
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,28 +52,28 @@ public partial class AzurermMssqlManagedInstanceTransparentDataEncryption : Terr
     /// </summary>
     [TerraformProperty("auto_rotation_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutoRotationEnabled { get; set; }
+    public partial TerraformValue<bool>? AutoRotationEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
     [TerraformProperty("key_vault_key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyVaultKeyId { get; set; }
+    public partial TerraformValue<string>? KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
     [TerraformProperty("managed_hsm_key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ManagedHsmKeyId { get; set; }
+    public partial TerraformValue<string>? ManagedHsmKeyId { get; set; }
 
     /// <summary>
     /// The managed_instance_id attribute.
@@ -81,13 +81,13 @@ public partial class AzurermMssqlManagedInstanceTransparentDataEncryption : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     [TerraformProperty("managed_instance_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ManagedInstanceId { get; set; }
+    public required partial TerraformValue<string> ManagedInstanceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,21 +13,21 @@ public partial class AzurermResourceManagementPrivateLinkAssociationTimeoutsBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermResourceManagementPrivateLinkAssociation : Terraform
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The management_group_id attribute.
@@ -53,14 +53,14 @@ public partial class AzurermResourceManagementPrivateLinkAssociation : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     [TerraformProperty("management_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ManagementGroupId { get; set; }
+    public required partial TerraformValue<string> ManagementGroupId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
@@ -68,7 +68,7 @@ public partial class AzurermResourceManagementPrivateLinkAssociation : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicNetworkAccessEnabled is required")]
     [TerraformProperty("public_network_access_enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> PublicNetworkAccessEnabled { get; set; }
+    public required partial TerraformValue<bool> PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The resource_management_private_link_id attribute.
@@ -76,20 +76,20 @@ public partial class AzurermResourceManagementPrivateLinkAssociation : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceManagementPrivateLinkId is required")]
     [TerraformProperty("resource_management_private_link_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceManagementPrivateLinkId { get; set; }
+    public required partial TerraformValue<string> ResourceManagementPrivateLinkId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermResourceManagementPrivateLinkAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermResourceManagementPrivateLinkAssociationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [TerraformProperty("tenant_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TenantId { get; }
+    public partial TerraformValue<string> TenantId { get; }
 
 }

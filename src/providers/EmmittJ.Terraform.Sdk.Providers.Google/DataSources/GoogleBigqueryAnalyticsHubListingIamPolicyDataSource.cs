@@ -17,14 +17,14 @@ public partial class GoogleBigqueryAnalyticsHubListingIamPolicyDataSource : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
     [TerraformProperty("data_exchange_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataExchangeId { get; set; }
+    public required partial TerraformValue<string> DataExchangeId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The listing_id attribute.
@@ -32,34 +32,34 @@ public partial class GoogleBigqueryAnalyticsHubListingIamPolicyDataSource : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListingId is required")]
     [TerraformProperty("listing_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ListingId { get; set; }
+    public required partial TerraformValue<string> ListingId { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Location { get; set; }
+    public partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     [TerraformProperty("policy_data")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PolicyData { get; }
+    public partial TerraformValue<string> PolicyData { get; }
 
 }

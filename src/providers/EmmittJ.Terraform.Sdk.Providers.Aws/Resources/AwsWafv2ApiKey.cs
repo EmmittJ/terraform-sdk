@@ -16,7 +16,7 @@ public partial class AwsWafv2ApiKey : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
@@ -24,7 +24,7 @@ public partial class AwsWafv2ApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     [TerraformProperty("scope")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Scope { get; set; }
+    public required partial TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
@@ -32,13 +32,13 @@ public partial class AwsWafv2ApiKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenDomains is required")]
     [TerraformProperty("token_domains")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> TokenDomains { get; set; }
+    public required partial TerraformSet<string> TokenDomains { get; set; }
 
     /// <summary>
     /// The API key value. This is sensitive and not included in responses.
     /// </summary>
     [TerraformProperty("api_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ApiKey { get; }
+    public partial TerraformValue<string> ApiKey { get; }
 
 }

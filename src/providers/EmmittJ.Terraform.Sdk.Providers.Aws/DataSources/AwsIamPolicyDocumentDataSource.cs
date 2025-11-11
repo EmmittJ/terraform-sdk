@@ -13,42 +13,42 @@ public partial class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("actions")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Actions { get; set; }
+    public partial TerraformSet<string>? Actions { get; set; }
 
     /// <summary>
     /// The effect attribute.
     /// </summary>
     [TerraformProperty("effect")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Effect { get; set; }
+    public partial TerraformValue<string>? Effect { get; set; }
 
     /// <summary>
     /// The not_actions attribute.
     /// </summary>
     [TerraformProperty("not_actions")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? NotActions { get; set; }
+    public partial TerraformSet<string>? NotActions { get; set; }
 
     /// <summary>
     /// The not_resources attribute.
     /// </summary>
     [TerraformProperty("not_resources")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? NotResources { get; set; }
+    public partial TerraformSet<string>? NotResources { get; set; }
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
     [TerraformProperty("resources")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Resources { get; set; }
+    public partial TerraformSet<string>? Resources { get; set; }
 
     /// <summary>
     /// The sid attribute.
     /// </summary>
     [TerraformProperty("sid")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Sid { get; set; }
+    public partial TerraformValue<string>? Sid { get; set; }
 
 }
 
@@ -66,7 +66,7 @@ public partial class AwsIamPolicyDocumentDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The override_json attribute.
@@ -74,21 +74,21 @@ public partial class AwsIamPolicyDocumentDataSource : TerraformDataSource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("override_json")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OverrideJson { get; set; }
+    public partial TerraformValue<string>? OverrideJson { get; set; }
 
     /// <summary>
     /// The override_policy_documents attribute.
     /// </summary>
     [TerraformProperty("override_policy_documents")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? OverridePolicyDocuments { get; set; }
+    public partial TerraformList<string>? OverridePolicyDocuments { get; set; }
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
     [TerraformProperty("policy_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PolicyId { get; set; }
+    public partial TerraformValue<string>? PolicyId { get; set; }
 
     /// <summary>
     /// The source_json attribute.
@@ -96,41 +96,41 @@ public partial class AwsIamPolicyDocumentDataSource : TerraformDataSource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("source_json")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SourceJson { get; set; }
+    public partial TerraformValue<string>? SourceJson { get; set; }
 
     /// <summary>
     /// The source_policy_documents attribute.
     /// </summary>
     [TerraformProperty("source_policy_documents")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? SourcePolicyDocuments { get; set; }
+    public partial TerraformList<string>? SourcePolicyDocuments { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Version { get; set; }
+    public partial TerraformValue<string>? Version { get; set; }
 
     /// <summary>
     /// Block for statement.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("statement")]
-    public TerraformList<TerraformBlock<AwsIamPolicyDocumentDataSourceStatementBlock>>? Statement { get; set; }
+    public partial TerraformList<TerraformBlock<AwsIamPolicyDocumentDataSourceStatementBlock>>? Statement { get; set; }
 
     /// <summary>
     /// The json attribute.
     /// </summary>
     [TerraformProperty("json")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Json { get; }
+    public partial TerraformValue<string> Json { get; }
 
     /// <summary>
     /// The minified_json attribute.
     /// </summary>
     [TerraformProperty("minified_json")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MinifiedJson { get; }
+    public partial TerraformValue<string> MinifiedJson { get; }
 
 }

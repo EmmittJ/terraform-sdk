@@ -21,14 +21,14 @@ public partial class AwsIvsRecordingConfigurationThumbnailConfigurationBlock : T
     /// </summary>
     [TerraformProperty("recording_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> RecordingMode { get; set; }
+    public partial TerraformValue<string> RecordingMode { get; set; }
 
     /// <summary>
     /// The target_interval_seconds attribute.
     /// </summary>
     [TerraformProperty("target_interval_seconds")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> TargetIntervalSeconds { get; set; }
+    public partial TerraformValue<double> TargetIntervalSeconds { get; set; }
 
 }
 
@@ -43,14 +43,14 @@ public partial class AwsIvsRecordingConfigurationTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -69,42 +69,42 @@ public partial class AwsIvsRecordingConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recording_reconnect_window_seconds attribute.
     /// </summary>
     [TerraformProperty("recording_reconnect_window_seconds")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> RecordingReconnectWindowSeconds { get; set; }
+    public partial TerraformValue<double> RecordingReconnectWindowSeconds { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for destination_configuration.
@@ -114,7 +114,7 @@ public partial class AwsIvsRecordingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationConfiguration block(s) allowed")]
     [TerraformProperty("destination_configuration")]
-    public TerraformList<TerraformBlock<AwsIvsRecordingConfigurationDestinationConfigurationBlock>>? DestinationConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsIvsRecordingConfigurationDestinationConfigurationBlock>>? DestinationConfiguration { get; set; }
 
     /// <summary>
     /// Block for thumbnail_configuration.
@@ -122,27 +122,27 @@ public partial class AwsIvsRecordingConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThumbnailConfiguration block(s) allowed")]
     [TerraformProperty("thumbnail_configuration")]
-    public TerraformList<TerraformBlock<AwsIvsRecordingConfigurationThumbnailConfigurationBlock>>? ThumbnailConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsIvsRecordingConfigurationThumbnailConfigurationBlock>>? ThumbnailConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsIvsRecordingConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsIvsRecordingConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

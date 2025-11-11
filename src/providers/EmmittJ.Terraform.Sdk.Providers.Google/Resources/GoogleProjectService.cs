@@ -13,28 +13,28 @@ public partial class GoogleProjectServiceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,28 +52,28 @@ public partial class GoogleProjectService : TerraformResource
     /// </summary>
     [TerraformProperty("disable_dependent_services")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableDependentServices { get; set; }
+    public partial TerraformValue<bool>? DisableDependentServices { get; set; }
 
     /// <summary>
     /// The disable_on_destroy attribute.
     /// </summary>
     [TerraformProperty("disable_on_destroy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableOnDestroy { get; set; }
+    public partial TerraformValue<bool>? DisableOnDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The service attribute.
@@ -81,13 +81,13 @@ public partial class GoogleProjectService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformProperty("service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Service { get; set; }
+    public required partial TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleProjectServiceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleProjectServiceTimeoutsBlock>? Timeouts { get; set; }
 
 }

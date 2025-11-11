@@ -14,7 +14,7 @@ public partial class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     [TerraformProperty("disk")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Disk { get; set; }
+    public required partial TerraformValue<string> Disk { get; set; }
 
 
 }
@@ -30,14 +30,14 @@ public partial class GoogleComputeDiskAsyncReplicationTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -56,7 +56,7 @@ public partial class GoogleComputeDiskAsyncReplication : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Primary disk for asynchronous replication.
@@ -64,7 +64,7 @@ public partial class GoogleComputeDiskAsyncReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryDisk is required")]
     [TerraformProperty("primary_disk")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrimaryDisk { get; set; }
+    public required partial TerraformValue<string> PrimaryDisk { get; set; }
 
     /// <summary>
     /// Block for secondary_disk.
@@ -74,13 +74,13 @@ public partial class GoogleComputeDiskAsyncReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SecondaryDisk block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecondaryDisk block(s) allowed")]
     [TerraformProperty("secondary_disk")]
-    public TerraformList<TerraformBlock<GoogleComputeDiskAsyncReplicationSecondaryDiskBlock>>? SecondaryDisk { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeDiskAsyncReplicationSecondaryDiskBlock>>? SecondaryDisk { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeDiskAsyncReplicationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeDiskAsyncReplicationTimeoutsBlock>? Timeouts { get; set; }
 
 }

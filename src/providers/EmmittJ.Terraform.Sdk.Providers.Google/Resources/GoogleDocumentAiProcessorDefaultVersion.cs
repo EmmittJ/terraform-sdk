@@ -13,14 +13,14 @@ public partial class GoogleDocumentAiProcessorDefaultVersionTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleDocumentAiProcessorDefaultVersion : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The processor to set the version on.
@@ -46,7 +46,7 @@ public partial class GoogleDocumentAiProcessorDefaultVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Processor is required")]
     [TerraformProperty("processor")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Processor { get; set; }
+    public required partial TerraformValue<string> Processor { get; set; }
 
     /// <summary>
     /// The version to set. Using &#39;stable&#39; or &#39;rc&#39; will cause the API to return the latest version in that release channel.
@@ -55,13 +55,13 @@ public partial class GoogleDocumentAiProcessorDefaultVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformProperty("version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Version { get; set; }
+    public required partial TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDocumentAiProcessorDefaultVersionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDocumentAiProcessorDefaultVersionTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,28 +13,28 @@ public partial class AzurermManagedRedisGeoReplicationTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermManagedRedisGeoReplication : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The linked_managed_redis_ids attribute.
@@ -60,7 +60,7 @@ public partial class AzurermManagedRedisGeoReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedManagedRedisIds is required")]
     [TerraformProperty("linked_managed_redis_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> LinkedManagedRedisIds { get; set; }
+    public required partial TerraformSet<string> LinkedManagedRedisIds { get; set; }
 
     /// <summary>
     /// The managed_redis_id attribute.
@@ -68,13 +68,13 @@ public partial class AzurermManagedRedisGeoReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedRedisId is required")]
     [TerraformProperty("managed_redis_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ManagedRedisId { get; set; }
+    public required partial TerraformValue<string> ManagedRedisId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermManagedRedisGeoReplicationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermManagedRedisGeoReplicationTimeoutsBlock>? Timeouts { get; set; }
 
 }

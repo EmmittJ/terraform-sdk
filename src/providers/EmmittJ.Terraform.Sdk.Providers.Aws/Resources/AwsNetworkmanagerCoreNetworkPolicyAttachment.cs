@@ -13,7 +13,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyAttachmentTimeoutsBlock :
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyAttachment : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     [TerraformProperty("core_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CoreNetworkId { get; set; }
+    public required partial TerraformValue<string> CoreNetworkId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_document attribute.
@@ -47,20 +47,20 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyAttachment : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
     [TerraformProperty("policy_document")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyDocument { get; set; }
+    public required partial TerraformValue<string> PolicyDocument { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermOracleAdbsNationalCharacterSetsDataSourceTimeoutsBlo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermOracleAdbsNationalCharacterSetsDataSource : Terrafor
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -39,20 +39,20 @@ public partial class AzurermOracleAdbsNationalCharacterSetsDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermOracleAdbsNationalCharacterSetsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermOracleAdbsNationalCharacterSetsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The character_sets attribute.
     /// </summary>
     [TerraformProperty("character_sets")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CharacterSets { get; }
+    public partial TerraformList<object> CharacterSets { get; }
 
 }

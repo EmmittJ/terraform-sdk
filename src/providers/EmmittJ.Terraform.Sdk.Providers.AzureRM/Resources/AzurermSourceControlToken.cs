@@ -13,28 +13,28 @@ public partial class AzurermSourceControlTokenTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermSourceControlToken : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The token attribute.
@@ -60,14 +60,14 @@ public partial class AzurermSourceControlToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     [TerraformProperty("token")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Token { get; set; }
+    public required partial TerraformValue<string> Token { get; set; }
 
     /// <summary>
     /// The token_secret attribute.
     /// </summary>
     [TerraformProperty("token_secret")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TokenSecret { get; set; }
+    public partial TerraformValue<string>? TokenSecret { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -75,13 +75,13 @@ public partial class AzurermSourceControlToken : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSourceControlTokenTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSourceControlTokenTimeoutsBlock>? Timeouts { get; set; }
 
 }

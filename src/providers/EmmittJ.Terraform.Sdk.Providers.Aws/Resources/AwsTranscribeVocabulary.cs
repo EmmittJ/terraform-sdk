@@ -13,21 +13,21 @@ public partial class AwsTranscribeVocabularyTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AwsTranscribeVocabulary : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The language_code attribute.
@@ -53,42 +53,42 @@ public partial class AwsTranscribeVocabulary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     [TerraformProperty("language_code")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LanguageCode { get; set; }
+    public required partial TerraformValue<string> LanguageCode { get; set; }
 
     /// <summary>
     /// The phrases attribute.
     /// </summary>
     [TerraformProperty("phrases")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Phrases { get; set; }
+    public partial TerraformList<string>? Phrases { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The vocabulary_file_uri attribute.
     /// </summary>
     [TerraformProperty("vocabulary_file_uri")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VocabularyFileUri { get; set; }
+    public partial TerraformValue<string> VocabularyFileUri { get; set; }
 
     /// <summary>
     /// The vocabulary_name attribute.
@@ -96,27 +96,27 @@ public partial class AwsTranscribeVocabulary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VocabularyName is required")]
     [TerraformProperty("vocabulary_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VocabularyName { get; set; }
+    public required partial TerraformValue<string> VocabularyName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsTranscribeVocabularyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsTranscribeVocabularyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The download_uri attribute.
     /// </summary>
     [TerraformProperty("download_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DownloadUri { get; }
+    public partial TerraformValue<string> DownloadUri { get; }
 
 }

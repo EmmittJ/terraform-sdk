@@ -17,41 +17,41 @@ public partial class AwsIamGroupDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     [TerraformProperty("group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GroupName { get; set; }
+    public required partial TerraformValue<string> GroupName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The group_id attribute.
     /// </summary>
     [TerraformProperty("group_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GroupId { get; }
+    public partial TerraformValue<string> GroupId { get; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [TerraformProperty("path")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Path { get; }
+    public partial TerraformValue<string> Path { get; }
 
     /// <summary>
     /// The users attribute.
     /// </summary>
     [TerraformProperty("users")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Users { get; }
+    public partial TerraformList<object> Users { get; }
 
 }

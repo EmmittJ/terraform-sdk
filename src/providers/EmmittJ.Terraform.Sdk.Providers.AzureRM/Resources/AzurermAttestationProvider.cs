@@ -13,28 +13,28 @@ public partial class AzurermAttestationProviderTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermAttestationProvider : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -60,7 +60,7 @@ public partial class AzurermAttestationProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -68,21 +68,21 @@ public partial class AzurermAttestationProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The open_enclave_policy_base64 attribute.
     /// </summary>
     [TerraformProperty("open_enclave_policy_base64")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OpenEnclavePolicyBase64 { get; set; }
+    public partial TerraformValue<string>? OpenEnclavePolicyBase64 { get; set; }
 
     /// <summary>
     /// The policy_signing_certificate_data attribute.
     /// </summary>
     [TerraformProperty("policy_signing_certificate_data")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PolicySigningCertificateData { get; set; }
+    public partial TerraformValue<string>? PolicySigningCertificateData { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -90,55 +90,55 @@ public partial class AzurermAttestationProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sev_snp_policy_base64 attribute.
     /// </summary>
     [TerraformProperty("sev_snp_policy_base64")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SevSnpPolicyBase64 { get; set; }
+    public partial TerraformValue<string>? SevSnpPolicyBase64 { get; set; }
 
     /// <summary>
     /// The sgx_enclave_policy_base64 attribute.
     /// </summary>
     [TerraformProperty("sgx_enclave_policy_base64")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SgxEnclavePolicyBase64 { get; set; }
+    public partial TerraformValue<string>? SgxEnclavePolicyBase64 { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tpm_policy_base64 attribute.
     /// </summary>
     [TerraformProperty("tpm_policy_base64")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TpmPolicyBase64 { get; set; }
+    public partial TerraformValue<string>? TpmPolicyBase64 { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAttestationProviderTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAttestationProviderTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The attestation_uri attribute.
     /// </summary>
     [TerraformProperty("attestation_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AttestationUri { get; }
+    public partial TerraformValue<string> AttestationUri { get; }
 
     /// <summary>
     /// The trust_model attribute.
     /// </summary>
     [TerraformProperty("trust_model")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TrustModel { get; }
+    public partial TerraformValue<string> TrustModel { get; }
 
 }

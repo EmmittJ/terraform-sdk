@@ -15,7 +15,7 @@ public partial class GoogleComputeManagedSslCertificateManagedBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domains is required")]
     [TerraformProperty("domains")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Domains { get; set; }
+    public partial TerraformList<string>? Domains { get; set; }
 
 }
 
@@ -30,14 +30,14 @@ public partial class GoogleComputeManagedSslCertificateTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -56,14 +56,14 @@ public partial class GoogleComputeManagedSslCertificate : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -78,14 +78,14 @@ public partial class GoogleComputeManagedSslCertificate : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Enum field whose value is always &#39;MANAGED&#39; - used to signal to the API
@@ -93,7 +93,7 @@ public partial class GoogleComputeManagedSslCertificate : TerraformResource
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// Block for managed.
@@ -101,48 +101,48 @@ public partial class GoogleComputeManagedSslCertificate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Managed block(s) allowed")]
     [TerraformProperty("managed")]
-    public TerraformList<TerraformBlock<GoogleComputeManagedSslCertificateManagedBlock>>? Managed { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeManagedSslCertificateManagedBlock>>? Managed { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeManagedSslCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeManagedSslCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     [TerraformProperty("certificate_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> CertificateId { get; }
+    public partial TerraformValue<double> CertificateId { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// Expire time of the certificate in RFC3339 text format.
     /// </summary>
     [TerraformProperty("expire_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpireTime { get; }
+    public partial TerraformValue<string> ExpireTime { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// Domains associated with the certificate via Subject Alternative Name.
     /// </summary>
     [TerraformProperty("subject_alternative_names")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> SubjectAlternativeNames { get; }
+    public partial TerraformList<string> SubjectAlternativeNames { get; }
 
 }

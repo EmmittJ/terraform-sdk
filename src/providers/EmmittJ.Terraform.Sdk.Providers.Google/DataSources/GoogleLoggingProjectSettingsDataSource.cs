@@ -16,7 +16,7 @@ public partial class GoogleLoggingProjectSettingsDataSource : TerraformDataSourc
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project for which to retrieve settings.
@@ -24,14 +24,14 @@ public partial class GoogleLoggingProjectSettingsDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformProperty("project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Project { get; set; }
+    public required partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// If set to true, the _Default sink in newly created projects and folders will created in a disabled state. This can be used to automatically disable log storage if there is already an aggregated sink configured in the hierarchy. The _Default sink can be re-enabled manually if needed.
     /// </summary>
     [TerraformProperty("disable_default_sink")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> DisableDefaultSink { get; }
+    public partial TerraformValue<bool> DisableDefaultSink { get; }
 
     /// <summary>
     /// The resource name for the configured Cloud KMS key.
@@ -43,7 +43,7 @@ public partial class GoogleLoggingProjectSettingsDataSource : TerraformDataSourc
     /// </summary>
     [TerraformProperty("kms_key_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KmsKeyName { get; }
+    public partial TerraformValue<string> KmsKeyName { get; }
 
     /// <summary>
     /// The service account associated with a project for which CMEK will apply.
@@ -52,27 +52,27 @@ public partial class GoogleLoggingProjectSettingsDataSource : TerraformDataSourc
     /// </summary>
     [TerraformProperty("kms_service_account_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KmsServiceAccountId { get; }
+    public partial TerraformValue<string> KmsServiceAccountId { get; }
 
     /// <summary>
     /// The service account for the given container. Sinks use this service account as their writerIdentity if no custom service account is provided.
     /// </summary>
     [TerraformProperty("logging_service_account_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LoggingServiceAccountId { get; }
+    public partial TerraformValue<string> LoggingServiceAccountId { get; }
 
     /// <summary>
     /// The resource name of the CMEK settings.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The storage location that Cloud Logging will use to create new resources when a location is needed but not explicitly provided.
     /// </summary>
     [TerraformProperty("storage_location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StorageLocation { get; }
+    public partial TerraformValue<string> StorageLocation { get; }
 
 }

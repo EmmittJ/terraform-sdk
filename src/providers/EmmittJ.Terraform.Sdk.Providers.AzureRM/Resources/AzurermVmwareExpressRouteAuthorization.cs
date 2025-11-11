@@ -13,21 +13,21 @@ public partial class AzurermVmwareExpressRouteAuthorizationTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermVmwareExpressRouteAuthorization : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -53,7 +53,7 @@ public partial class AzurermVmwareExpressRouteAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_cloud_id attribute.
@@ -61,27 +61,27 @@ public partial class AzurermVmwareExpressRouteAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateCloudId is required")]
     [TerraformProperty("private_cloud_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrivateCloudId { get; set; }
+    public required partial TerraformValue<string> PrivateCloudId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVmwareExpressRouteAuthorizationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVmwareExpressRouteAuthorizationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The express_route_authorization_id attribute.
     /// </summary>
     [TerraformProperty("express_route_authorization_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpressRouteAuthorizationId { get; }
+    public partial TerraformValue<string> ExpressRouteAuthorizationId { get; }
 
     /// <summary>
     /// The express_route_authorization_key attribute.
     /// </summary>
     [TerraformProperty("express_route_authorization_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpressRouteAuthorizationKey { get; }
+    public partial TerraformValue<string> ExpressRouteAuthorizationKey { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AzurermStorageAccountSasDataSourcePermissionsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Add is required")]
     [TerraformProperty("add")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Add { get; set; }
+    public required partial TerraformValue<bool> Add { get; set; }
 
     /// <summary>
     /// The create attribute.
@@ -22,7 +22,7 @@ public partial class AzurermStorageAccountSasDataSourcePermissionsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Create is required")]
     [TerraformProperty("create")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Create { get; set; }
+    public required partial TerraformValue<bool> Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
@@ -30,7 +30,7 @@ public partial class AzurermStorageAccountSasDataSourcePermissionsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delete is required")]
     [TerraformProperty("delete")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Delete { get; set; }
+    public required partial TerraformValue<bool> Delete { get; set; }
 
     /// <summary>
     /// The filter attribute.
@@ -38,7 +38,7 @@ public partial class AzurermStorageAccountSasDataSourcePermissionsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [TerraformProperty("filter")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Filter { get; set; }
+    public required partial TerraformValue<bool> Filter { get; set; }
 
     /// <summary>
     /// The list attribute.
@@ -46,7 +46,7 @@ public partial class AzurermStorageAccountSasDataSourcePermissionsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "List is required")]
     [TerraformProperty("list")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> List { get; set; }
+    public required partial TerraformValue<bool> List { get; set; }
 
     /// <summary>
     /// The process attribute.
@@ -54,7 +54,7 @@ public partial class AzurermStorageAccountSasDataSourcePermissionsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Process is required")]
     [TerraformProperty("process")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Process { get; set; }
+    public required partial TerraformValue<bool> Process { get; set; }
 
     /// <summary>
     /// The read attribute.
@@ -62,7 +62,7 @@ public partial class AzurermStorageAccountSasDataSourcePermissionsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Read is required")]
     [TerraformProperty("read")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Read { get; set; }
+    public required partial TerraformValue<bool> Read { get; set; }
 
     /// <summary>
     /// The tag attribute.
@@ -70,7 +70,7 @@ public partial class AzurermStorageAccountSasDataSourcePermissionsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tag is required")]
     [TerraformProperty("tag")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Tag { get; set; }
+    public required partial TerraformValue<bool> Tag { get; set; }
 
     /// <summary>
     /// The update attribute.
@@ -78,7 +78,7 @@ public partial class AzurermStorageAccountSasDataSourcePermissionsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Update is required")]
     [TerraformProperty("update")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Update { get; set; }
+    public required partial TerraformValue<bool> Update { get; set; }
 
     /// <summary>
     /// The write attribute.
@@ -86,7 +86,7 @@ public partial class AzurermStorageAccountSasDataSourcePermissionsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Write is required")]
     [TerraformProperty("write")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Write { get; set; }
+    public required partial TerraformValue<bool> Write { get; set; }
 
 }
 
@@ -102,7 +102,7 @@ public partial class AzurermStorageAccountSasDataSourceResourceTypesBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     [TerraformProperty("container")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Container { get; set; }
+    public required partial TerraformValue<bool> Container { get; set; }
 
     /// <summary>
     /// The object attribute.
@@ -110,7 +110,7 @@ public partial class AzurermStorageAccountSasDataSourceResourceTypesBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Object is required")]
     [TerraformProperty("object")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Object { get; set; }
+    public required partial TerraformValue<bool> Object { get; set; }
 
     /// <summary>
     /// The service attribute.
@@ -118,7 +118,7 @@ public partial class AzurermStorageAccountSasDataSourceResourceTypesBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformProperty("service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Service { get; set; }
+    public required partial TerraformValue<bool> Service { get; set; }
 
 }
 
@@ -134,7 +134,7 @@ public partial class AzurermStorageAccountSasDataSourceServicesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Blob is required")]
     [TerraformProperty("blob")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Blob { get; set; }
+    public required partial TerraformValue<bool> Blob { get; set; }
 
     /// <summary>
     /// The file attribute.
@@ -142,7 +142,7 @@ public partial class AzurermStorageAccountSasDataSourceServicesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "File is required")]
     [TerraformProperty("file")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> File { get; set; }
+    public required partial TerraformValue<bool> File { get; set; }
 
     /// <summary>
     /// The queue attribute.
@@ -150,7 +150,7 @@ public partial class AzurermStorageAccountSasDataSourceServicesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Queue is required")]
     [TerraformProperty("queue")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Queue { get; set; }
+    public required partial TerraformValue<bool> Queue { get; set; }
 
     /// <summary>
     /// The table attribute.
@@ -158,7 +158,7 @@ public partial class AzurermStorageAccountSasDataSourceServicesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     [TerraformProperty("table")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Table { get; set; }
+    public required partial TerraformValue<bool> Table { get; set; }
 
 }
 
@@ -173,7 +173,7 @@ public partial class AzurermStorageAccountSasDataSourceTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -193,7 +193,7 @@ public partial class AzurermStorageAccountSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     [TerraformProperty("connection_string")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConnectionString { get; set; }
+    public required partial TerraformValue<string> ConnectionString { get; set; }
 
     /// <summary>
     /// The expiry attribute.
@@ -201,35 +201,35 @@ public partial class AzurermStorageAccountSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiry is required")]
     [TerraformProperty("expiry")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Expiry { get; set; }
+    public required partial TerraformValue<string> Expiry { get; set; }
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
     [TerraformProperty("https_only")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? HttpsOnly { get; set; }
+    public partial TerraformValue<bool>? HttpsOnly { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ip_addresses attribute.
     /// </summary>
     [TerraformProperty("ip_addresses")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpAddresses { get; set; }
+    public partial TerraformValue<string>? IpAddresses { get; set; }
 
     /// <summary>
     /// The signed_version attribute.
     /// </summary>
     [TerraformProperty("signed_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SignedVersion { get; set; }
+    public partial TerraformValue<string>? SignedVersion { get; set; }
 
     /// <summary>
     /// The start attribute.
@@ -237,7 +237,7 @@ public partial class AzurermStorageAccountSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     [TerraformProperty("start")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Start { get; set; }
+    public required partial TerraformValue<string> Start { get; set; }
 
     /// <summary>
     /// Block for permissions.
@@ -247,7 +247,7 @@ public partial class AzurermStorageAccountSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Permissions block(s) allowed")]
     [TerraformProperty("permissions")]
-    public TerraformList<TerraformBlock<AzurermStorageAccountSasDataSourcePermissionsBlock>>? Permissions { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermStorageAccountSasDataSourcePermissionsBlock>>? Permissions { get; set; }
 
     /// <summary>
     /// Block for resource_types.
@@ -257,7 +257,7 @@ public partial class AzurermStorageAccountSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ResourceTypes block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceTypes block(s) allowed")]
     [TerraformProperty("resource_types")]
-    public TerraformList<TerraformBlock<AzurermStorageAccountSasDataSourceResourceTypesBlock>>? ResourceTypes { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermStorageAccountSasDataSourceResourceTypesBlock>>? ResourceTypes { get; set; }
 
     /// <summary>
     /// Block for services.
@@ -267,20 +267,20 @@ public partial class AzurermStorageAccountSasDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Services block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Services block(s) allowed")]
     [TerraformProperty("services")]
-    public TerraformList<TerraformBlock<AzurermStorageAccountSasDataSourceServicesBlock>>? Services { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermStorageAccountSasDataSourceServicesBlock>>? Services { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageAccountSasDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageAccountSasDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The sas attribute.
     /// </summary>
     [TerraformProperty("sas")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Sas { get; }
+    public partial TerraformValue<string> Sas { get; }
 
 }

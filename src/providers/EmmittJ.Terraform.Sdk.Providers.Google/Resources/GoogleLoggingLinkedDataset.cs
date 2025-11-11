@@ -22,14 +22,14 @@ public partial class GoogleLoggingLinkedDatasetTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -48,21 +48,21 @@ public partial class GoogleLoggingLinkedDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// Describes this link. The maximum length of the description is 8000 characters.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The id of the linked dataset.
@@ -70,35 +70,35 @@ public partial class GoogleLoggingLinkedDataset : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkId is required")]
     [TerraformProperty("link_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LinkId { get; set; }
+    public required partial TerraformValue<string> LinkId { get; set; }
 
     /// <summary>
     /// The location of the linked dataset.
     /// </summary>
     [TerraformProperty("location")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Location { get; set; }
+    public partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The parent of the linked dataset.
     /// </summary>
     [TerraformProperty("parent")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Parent { get; set; }
+    public partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Block for bigquery_dataset.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("bigquery_dataset")]
-    public TerraformList<TerraformBlock<GoogleLoggingLinkedDatasetBigqueryDatasetBlock>>? BigqueryDataset { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleLoggingLinkedDatasetBigqueryDatasetBlock>>? BigqueryDataset { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleLoggingLinkedDatasetTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleLoggingLinkedDatasetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The creation timestamp of the link. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
@@ -107,14 +107,14 @@ public partial class GoogleLoggingLinkedDataset : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Output only. The linked dataset lifecycle state.
     /// </summary>
     [TerraformProperty("lifecycle_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LifecycleState { get; }
+    public partial TerraformValue<string> LifecycleState { get; }
 
     /// <summary>
     /// The resource name of the linked dataset. The name can have up to 100 characters. A valid link id
@@ -122,6 +122,6 @@ public partial class GoogleLoggingLinkedDataset : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

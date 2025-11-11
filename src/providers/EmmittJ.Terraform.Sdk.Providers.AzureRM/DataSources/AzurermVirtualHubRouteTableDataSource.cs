@@ -13,7 +13,7 @@ public partial class AzurermVirtualHubRouteTableDataSourceTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermVirtualHubRouteTableDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermVirtualHubRouteTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,7 +47,7 @@ public partial class AzurermVirtualHubRouteTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The virtual_hub_name attribute.
@@ -55,34 +55,34 @@ public partial class AzurermVirtualHubRouteTableDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubName is required")]
     [TerraformProperty("virtual_hub_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualHubName { get; set; }
+    public required partial TerraformValue<string> VirtualHubName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVirtualHubRouteTableDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVirtualHubRouteTableDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> Labels { get; }
+    public partial TerraformSet<string> Labels { get; }
 
     /// <summary>
     /// The route attribute.
     /// </summary>
     [TerraformProperty("route")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Route { get; }
+    public partial TerraformList<object> Route { get; }
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
     [TerraformProperty("virtual_hub_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VirtualHubId { get; }
+    public partial TerraformValue<string> VirtualHubId { get; }
 
 }

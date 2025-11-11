@@ -13,28 +13,28 @@ public partial class AzureadAccessPackageCatalogRoleAssignmentTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,14 +53,14 @@ public partial class AzureadAccessPackageCatalogRoleAssignment : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     [TerraformProperty("catalog_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CatalogId { get; set; }
+    public required partial TerraformValue<string> CatalogId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The object ID of the member principal
@@ -68,7 +68,7 @@ public partial class AzureadAccessPackageCatalogRoleAssignment : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalObjectId is required")]
     [TerraformProperty("principal_object_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrincipalObjectId { get; set; }
+    public required partial TerraformValue<string> PrincipalObjectId { get; set; }
 
     /// <summary>
     /// The object ID of the catalog role for this assignment
@@ -76,13 +76,13 @@ public partial class AzureadAccessPackageCatalogRoleAssignment : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     [TerraformProperty("role_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleId { get; set; }
+    public required partial TerraformValue<string> RoleId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadAccessPackageCatalogRoleAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadAccessPackageCatalogRoleAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

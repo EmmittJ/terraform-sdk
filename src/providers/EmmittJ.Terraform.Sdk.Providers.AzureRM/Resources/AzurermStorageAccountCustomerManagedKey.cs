@@ -13,28 +13,28 @@ public partial class AzurermStorageAccountCustomerManagedKeyTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public partial class AzurermStorageAccountCustomerManagedKey : TerraformResource
     /// </summary>
     [TerraformProperty("federated_identity_client_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FederatedIdentityClientId { get; set; }
+    public partial TerraformValue<string>? FederatedIdentityClientId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_name attribute.
@@ -67,35 +67,35 @@ public partial class AzurermStorageAccountCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyName is required")]
     [TerraformProperty("key_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyName { get; set; }
+    public required partial TerraformValue<string> KeyName { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     [TerraformProperty("key_vault_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyVaultId { get; set; }
+    public partial TerraformValue<string>? KeyVaultId { get; set; }
 
     /// <summary>
     /// The key_vault_uri attribute.
     /// </summary>
     [TerraformProperty("key_vault_uri")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> KeyVaultUri { get; set; }
+    public partial TerraformValue<string> KeyVaultUri { get; set; }
 
     /// <summary>
     /// The key_version attribute.
     /// </summary>
     [TerraformProperty("key_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyVersion { get; set; }
+    public partial TerraformValue<string>? KeyVersion { get; set; }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
     [TerraformProperty("managed_hsm_key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ManagedHsmKeyId { get; set; }
+    public partial TerraformValue<string>? ManagedHsmKeyId { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -103,20 +103,20 @@ public partial class AzurermStorageAccountCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformProperty("storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountId { get; set; }
+    public required partial TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
     [TerraformProperty("user_assigned_identity_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserAssignedIdentityId { get; set; }
+    public partial TerraformValue<string>? UserAssignedIdentityId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageAccountCustomerManagedKeyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageAccountCustomerManagedKeyTimeoutsBlock>? Timeouts { get; set; }
 
 }

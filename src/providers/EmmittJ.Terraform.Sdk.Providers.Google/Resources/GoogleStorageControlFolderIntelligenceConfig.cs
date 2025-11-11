@@ -21,21 +21,21 @@ public partial class GoogleStorageControlFolderIntelligenceConfigTimeoutsBlock :
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -54,14 +54,14 @@ public partial class GoogleStorageControlFolderIntelligenceConfig : TerraformRes
     /// </summary>
     [TerraformProperty("edition_config")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> EditionConfig { get; set; }
+    public partial TerraformValue<string> EditionConfig { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Identifier of the GCP Folder. For GCP Folder, this field can be folder number.
@@ -69,7 +69,7 @@ public partial class GoogleStorageControlFolderIntelligenceConfig : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for filter.
@@ -77,34 +77,34 @@ public partial class GoogleStorageControlFolderIntelligenceConfig : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public TerraformList<TerraformBlock<GoogleStorageControlFolderIntelligenceConfigFilterBlock>>? Filter { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageControlFolderIntelligenceConfigFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleStorageControlFolderIntelligenceConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleStorageControlFolderIntelligenceConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The Intelligence config that is effective for the resource.
     /// </summary>
     [TerraformProperty("effective_intelligence_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> EffectiveIntelligenceConfig { get; }
+    public partial TerraformList<object> EffectiveIntelligenceConfig { get; }
 
     /// <summary>
     /// The trial configuration of the Storage Intelligence resource.
     /// </summary>
     [TerraformProperty("trial_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> TrialConfig { get; }
+    public partial TerraformList<object> TrialConfig { get; }
 
     /// <summary>
     /// The time at which the Storage Intelligence Config resource is last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

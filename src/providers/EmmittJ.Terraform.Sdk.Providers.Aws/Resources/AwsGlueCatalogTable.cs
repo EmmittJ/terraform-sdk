@@ -22,7 +22,7 @@ public partial class AwsGlueCatalogTablePartitionIndexBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     [TerraformProperty("index_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IndexName { get; set; }
+    public required partial TerraformValue<string> IndexName { get; set; }
 
 
     /// <summary>
@@ -31,7 +31,7 @@ public partial class AwsGlueCatalogTablePartitionIndexBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keys is required")]
     [TerraformProperty("keys")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Keys { get; set; }
+    public partial TerraformList<string>? Keys { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AwsGlueCatalogTablePartitionKeysBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("comment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Comment { get; set; }
+    public partial TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -54,21 +54,21 @@ public partial class AwsGlueCatalogTablePartitionKeysBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -83,63 +83,63 @@ public partial class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("additional_locations")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AdditionalLocations { get; set; }
+    public partial TerraformList<string>? AdditionalLocations { get; set; }
 
     /// <summary>
     /// The bucket_columns attribute.
     /// </summary>
     [TerraformProperty("bucket_columns")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? BucketColumns { get; set; }
+    public partial TerraformList<string>? BucketColumns { get; set; }
 
     /// <summary>
     /// The compressed attribute.
     /// </summary>
     [TerraformProperty("compressed")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Compressed { get; set; }
+    public partial TerraformValue<bool>? Compressed { get; set; }
 
     /// <summary>
     /// The input_format attribute.
     /// </summary>
     [TerraformProperty("input_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InputFormat { get; set; }
+    public partial TerraformValue<string>? InputFormat { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The number_of_buckets attribute.
     /// </summary>
     [TerraformProperty("number_of_buckets")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? NumberOfBuckets { get; set; }
+    public partial TerraformValue<double>? NumberOfBuckets { get; set; }
 
     /// <summary>
     /// The output_format attribute.
     /// </summary>
     [TerraformProperty("output_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OutputFormat { get; set; }
+    public partial TerraformValue<string>? OutputFormat { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// The stored_as_sub_directories attribute.
     /// </summary>
     [TerraformProperty("stored_as_sub_directories")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? StoredAsSubDirectories { get; set; }
+    public partial TerraformValue<bool>? StoredAsSubDirectories { get; set; }
 
 }
 
@@ -155,7 +155,7 @@ public partial class AwsGlueCatalogTableTargetTableBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     [TerraformProperty("catalog_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CatalogId { get; set; }
+    public required partial TerraformValue<string> CatalogId { get; set; }
 
     /// <summary>
     /// The database_name attribute.
@@ -163,7 +163,7 @@ public partial class AwsGlueCatalogTableTargetTableBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformProperty("database_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatabaseName { get; set; }
+    public required partial TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -171,14 +171,14 @@ public partial class AwsGlueCatalogTableTargetTableBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
 }
 
@@ -197,7 +197,7 @@ public partial class AwsGlueCatalogTable : TerraformResource
     /// </summary>
     [TerraformProperty("catalog_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CatalogId { get; set; }
+    public partial TerraformValue<string> CatalogId { get; set; }
 
     /// <summary>
     /// The database_name attribute.
@@ -205,21 +205,21 @@ public partial class AwsGlueCatalogTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformProperty("database_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatabaseName { get; set; }
+    public required partial TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -227,56 +227,56 @@ public partial class AwsGlueCatalogTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     [TerraformProperty("owner")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Owner { get; set; }
+    public partial TerraformValue<string>? Owner { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The retention attribute.
     /// </summary>
     [TerraformProperty("retention")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Retention { get; set; }
+    public partial TerraformValue<double>? Retention { get; set; }
 
     /// <summary>
     /// The table_type attribute.
     /// </summary>
     [TerraformProperty("table_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TableType { get; set; }
+    public partial TerraformValue<string>? TableType { get; set; }
 
     /// <summary>
     /// The view_expanded_text attribute.
     /// </summary>
     [TerraformProperty("view_expanded_text")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ViewExpandedText { get; set; }
+    public partial TerraformValue<string>? ViewExpandedText { get; set; }
 
     /// <summary>
     /// The view_original_text attribute.
     /// </summary>
     [TerraformProperty("view_original_text")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ViewOriginalText { get; set; }
+    public partial TerraformValue<string>? ViewOriginalText { get; set; }
 
     /// <summary>
     /// Block for open_table_format_input.
@@ -284,7 +284,7 @@ public partial class AwsGlueCatalogTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenTableFormatInput block(s) allowed")]
     [TerraformProperty("open_table_format_input")]
-    public TerraformList<TerraformBlock<AwsGlueCatalogTableOpenTableFormatInputBlock>>? OpenTableFormatInput { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGlueCatalogTableOpenTableFormatInputBlock>>? OpenTableFormatInput { get; set; }
 
     /// <summary>
     /// Block for partition_index.
@@ -292,14 +292,14 @@ public partial class AwsGlueCatalogTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 PartitionIndex block(s) allowed")]
     [TerraformProperty("partition_index")]
-    public TerraformList<TerraformBlock<AwsGlueCatalogTablePartitionIndexBlock>>? PartitionIndex { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGlueCatalogTablePartitionIndexBlock>>? PartitionIndex { get; set; }
 
     /// <summary>
     /// Block for partition_keys.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("partition_keys")]
-    public TerraformList<TerraformBlock<AwsGlueCatalogTablePartitionKeysBlock>>? PartitionKeys { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGlueCatalogTablePartitionKeysBlock>>? PartitionKeys { get; set; }
 
     /// <summary>
     /// Block for storage_descriptor.
@@ -307,7 +307,7 @@ public partial class AwsGlueCatalogTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageDescriptor block(s) allowed")]
     [TerraformProperty("storage_descriptor")]
-    public TerraformList<TerraformBlock<AwsGlueCatalogTableStorageDescriptorBlock>>? StorageDescriptor { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGlueCatalogTableStorageDescriptorBlock>>? StorageDescriptor { get; set; }
 
     /// <summary>
     /// Block for target_table.
@@ -315,13 +315,13 @@ public partial class AwsGlueCatalogTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetTable block(s) allowed")]
     [TerraformProperty("target_table")]
-    public TerraformList<TerraformBlock<AwsGlueCatalogTableTargetTableBlock>>? TargetTable { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGlueCatalogTableTargetTableBlock>>? TargetTable { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

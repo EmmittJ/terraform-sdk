@@ -14,7 +14,7 @@ public partial class AwsEcrRegistryScanningConfigurationRuleBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanFrequency is required")]
     [TerraformProperty("scan_frequency")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ScanFrequency { get; set; }
+    public required partial TerraformValue<string> ScanFrequency { get; set; }
 
 }
 
@@ -33,14 +33,14 @@ public partial class AwsEcrRegistryScanningConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The scan_type attribute.
@@ -48,7 +48,7 @@ public partial class AwsEcrRegistryScanningConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanType is required")]
     [TerraformProperty("scan_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ScanType { get; set; }
+    public required partial TerraformValue<string> ScanType { get; set; }
 
     /// <summary>
     /// Block for rule.
@@ -56,13 +56,13 @@ public partial class AwsEcrRegistryScanningConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Rule block(s) allowed")]
     [TerraformProperty("rule")]
-    public TerraformSet<TerraformBlock<AwsEcrRegistryScanningConfigurationRuleBlock>>? Rule { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsEcrRegistryScanningConfigurationRuleBlock>>? Rule { get; set; }
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
     [TerraformProperty("registry_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RegistryId { get; }
+    public partial TerraformValue<string> RegistryId { get; }
 
 }

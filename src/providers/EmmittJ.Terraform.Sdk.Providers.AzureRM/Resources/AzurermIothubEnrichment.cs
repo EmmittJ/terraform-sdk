@@ -13,28 +13,28 @@ public partial class AzurermIothubEnrichmentTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,14 +53,14 @@ public partial class AzurermIothubEnrichment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointNames is required")]
     [TerraformProperty("endpoint_names")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? EndpointNames { get; set; }
+    public partial TerraformList<string>? EndpointNames { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The iothub_name attribute.
@@ -68,7 +68,7 @@ public partial class AzurermIothubEnrichment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubName is required")]
     [TerraformProperty("iothub_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IothubName { get; set; }
+    public required partial TerraformValue<string> IothubName { get; set; }
 
     /// <summary>
     /// The key attribute.
@@ -76,7 +76,7 @@ public partial class AzurermIothubEnrichment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -84,7 +84,7 @@ public partial class AzurermIothubEnrichment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -92,13 +92,13 @@ public partial class AzurermIothubEnrichment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermIothubEnrichmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermIothubEnrichmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

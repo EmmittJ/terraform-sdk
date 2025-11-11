@@ -14,7 +14,7 @@ public partial class AwsWafRegexMatchSetRegexMatchTupleBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegexPatternSetId is required")]
     [TerraformProperty("regex_pattern_set_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RegexPatternSetId { get; set; }
+    public required partial TerraformValue<string> RegexPatternSetId { get; set; }
 
     /// <summary>
     /// The text_transformation attribute.
@@ -22,7 +22,7 @@ public partial class AwsWafRegexMatchSetRegexMatchTupleBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     [TerraformProperty("text_transformation")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TextTransformation { get; set; }
+    public required partial TerraformValue<string> TextTransformation { get; set; }
 
 }
 
@@ -40,7 +40,7 @@ public partial class AwsWafRegexMatchSet : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -48,20 +48,20 @@ public partial class AwsWafRegexMatchSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for regex_match_tuple.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("regex_match_tuple")]
-    public TerraformSet<TerraformBlock<AwsWafRegexMatchSetRegexMatchTupleBlock>>? RegexMatchTuple { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsWafRegexMatchSetRegexMatchTupleBlock>>? RegexMatchTuple { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

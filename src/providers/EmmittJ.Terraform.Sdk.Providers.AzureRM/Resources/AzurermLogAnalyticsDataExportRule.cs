@@ -13,28 +13,28 @@ public partial class AzurermLogAnalyticsDataExportRuleTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,21 +53,21 @@ public partial class AzurermLogAnalyticsDataExportRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationResourceId is required")]
     [TerraformProperty("destination_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DestinationResourceId { get; set; }
+    public required partial TerraformValue<string> DestinationResourceId { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -75,7 +75,7 @@ public partial class AzurermLogAnalyticsDataExportRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -83,7 +83,7 @@ public partial class AzurermLogAnalyticsDataExportRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The table_names attribute.
@@ -91,7 +91,7 @@ public partial class AzurermLogAnalyticsDataExportRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableNames is required")]
     [TerraformProperty("table_names")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> TableNames { get; set; }
+    public required partial TerraformSet<string> TableNames { get; set; }
 
     /// <summary>
     /// The workspace_resource_id attribute.
@@ -99,20 +99,20 @@ public partial class AzurermLogAnalyticsDataExportRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceResourceId is required")]
     [TerraformProperty("workspace_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceResourceId { get; set; }
+    public required partial TerraformValue<string> WorkspaceResourceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLogAnalyticsDataExportRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLogAnalyticsDataExportRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The export_rule_id attribute.
     /// </summary>
     [TerraformProperty("export_rule_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExportRuleId { get; }
+    public partial TerraformValue<string> ExportRuleId { get; }
 
 }

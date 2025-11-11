@@ -13,14 +13,14 @@ public partial class AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBl
     /// </summary>
     [TerraformProperty("configuration_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConfigurationArn { get; set; }
+    public partial TerraformValue<string>? ConfigurationArn { get; set; }
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
     [TerraformProperty("disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Disabled { get; set; }
+    public partial TerraformValue<bool>? Disabled { get; set; }
 
 }
 
@@ -40,35 +40,35 @@ public partial class AwsChimeVoiceConnectorStreaming : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataRetention is required")]
     [TerraformProperty("data_retention")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> DataRetention { get; set; }
+    public required partial TerraformValue<double> DataRetention { get; set; }
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
     [TerraformProperty("disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Disabled { get; set; }
+    public partial TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The streaming_notification_targets attribute.
     /// </summary>
     [TerraformProperty("streaming_notification_targets")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? StreamingNotificationTargets { get; set; }
+    public partial TerraformSet<string>? StreamingNotificationTargets { get; set; }
 
     /// <summary>
     /// The voice_connector_id attribute.
@@ -76,7 +76,7 @@ public partial class AwsChimeVoiceConnectorStreaming : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     [TerraformProperty("voice_connector_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VoiceConnectorId { get; set; }
+    public required partial TerraformValue<string> VoiceConnectorId { get; set; }
 
     /// <summary>
     /// Block for media_insights_configuration.
@@ -84,6 +84,6 @@ public partial class AwsChimeVoiceConnectorStreaming : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MediaInsightsConfiguration block(s) allowed")]
     [TerraformProperty("media_insights_configuration")]
-    public TerraformList<TerraformBlock<AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock>>? MediaInsightsConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock>>? MediaInsightsConfiguration { get; set; }
 
 }

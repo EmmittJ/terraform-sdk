@@ -13,7 +13,7 @@ public partial class AzurermPointToSiteVpnGatewayConnectionConfigurationBlock : 
     /// </summary>
     [TerraformProperty("internet_security_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? InternetSecurityEnabled { get; set; }
+    public partial TerraformValue<bool>? InternetSecurityEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -21,7 +21,7 @@ public partial class AzurermPointToSiteVpnGatewayConnectionConfigurationBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -36,28 +36,28 @@ public partial class AzurermPointToSiteVpnGatewayTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -76,14 +76,14 @@ public partial class AzurermPointToSiteVpnGateway : TerraformResource
     /// </summary>
     [TerraformProperty("dns_servers")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? DnsServers { get; set; }
+    public partial TerraformList<string>? DnsServers { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -91,7 +91,7 @@ public partial class AzurermPointToSiteVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -99,7 +99,7 @@ public partial class AzurermPointToSiteVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -107,14 +107,14 @@ public partial class AzurermPointToSiteVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The routing_preference_internet_enabled attribute.
     /// </summary>
     [TerraformProperty("routing_preference_internet_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RoutingPreferenceInternetEnabled { get; set; }
+    public partial TerraformValue<bool>? RoutingPreferenceInternetEnabled { get; set; }
 
     /// <summary>
     /// The scale_unit attribute.
@@ -122,14 +122,14 @@ public partial class AzurermPointToSiteVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleUnit is required")]
     [TerraformProperty("scale_unit")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ScaleUnit { get; set; }
+    public required partial TerraformValue<double> ScaleUnit { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The virtual_hub_id attribute.
@@ -137,7 +137,7 @@ public partial class AzurermPointToSiteVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     [TerraformProperty("virtual_hub_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualHubId { get; set; }
+    public required partial TerraformValue<string> VirtualHubId { get; set; }
 
     /// <summary>
     /// The vpn_server_configuration_id attribute.
@@ -145,7 +145,7 @@ public partial class AzurermPointToSiteVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnServerConfigurationId is required")]
     [TerraformProperty("vpn_server_configuration_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VpnServerConfigurationId { get; set; }
+    public required partial TerraformValue<string> VpnServerConfigurationId { get; set; }
 
     /// <summary>
     /// Block for connection_configuration.
@@ -154,13 +154,13 @@ public partial class AzurermPointToSiteVpnGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectionConfiguration block(s) required")]
     [TerraformProperty("connection_configuration")]
-    public TerraformList<TerraformBlock<AzurermPointToSiteVpnGatewayConnectionConfigurationBlock>>? ConnectionConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermPointToSiteVpnGatewayConnectionConfigurationBlock>>? ConnectionConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPointToSiteVpnGatewayTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPointToSiteVpnGatewayTimeoutsBlock>? Timeouts { get; set; }
 
 }

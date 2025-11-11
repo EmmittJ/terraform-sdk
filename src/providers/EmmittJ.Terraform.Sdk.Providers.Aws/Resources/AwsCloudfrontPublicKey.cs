@@ -16,7 +16,7 @@ public partial class AwsCloudfrontPublicKey : TerraformResource
     /// </summary>
     [TerraformProperty("comment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Comment { get; set; }
+    public partial TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The encoded_key attribute.
@@ -24,41 +24,41 @@ public partial class AwsCloudfrontPublicKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncodedKey is required")]
     [TerraformProperty("encoded_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EncodedKey { get; set; }
+    public required partial TerraformValue<string> EncodedKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformProperty("name_prefix")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NamePrefix { get; set; }
+    public partial TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
     [TerraformProperty("caller_reference")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CallerReference { get; }
+    public partial TerraformValue<string> CallerReference { get; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class AwsOpensearchVpcEndpointTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -43,7 +43,7 @@ public partial class AwsOpensearchVpcEndpointVpcOptionsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("security_group_ids")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> SecurityGroupIds { get; set; }
+    public partial TerraformSet<string> SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
@@ -51,7 +51,7 @@ public partial class AwsOpensearchVpcEndpointVpcOptionsBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     [TerraformProperty("subnet_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> SubnetIds { get; set; }
+    public required partial TerraformSet<string> SubnetIds { get; set; }
 
 
 }
@@ -72,28 +72,28 @@ public partial class AwsOpensearchVpcEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainArn is required")]
     [TerraformProperty("domain_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainArn { get; set; }
+    public required partial TerraformValue<string> DomainArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsOpensearchVpcEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsOpensearchVpcEndpointTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vpc_options.
@@ -103,13 +103,13 @@ public partial class AwsOpensearchVpcEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcOptions block(s) allowed")]
     [TerraformProperty("vpc_options")]
-    public TerraformList<TerraformBlock<AwsOpensearchVpcEndpointVpcOptionsBlock>>? VpcOptions { get; set; }
+    public partial TerraformList<TerraformBlock<AwsOpensearchVpcEndpointVpcOptionsBlock>>? VpcOptions { get; set; }
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     [TerraformProperty("endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Endpoint { get; }
+    public partial TerraformValue<string> Endpoint { get; }
 
 }

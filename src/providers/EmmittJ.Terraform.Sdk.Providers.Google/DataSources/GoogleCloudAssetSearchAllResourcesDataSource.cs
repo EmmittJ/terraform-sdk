@@ -16,21 +16,21 @@ public partial class GoogleCloudAssetSearchAllResourcesDataSource : TerraformDat
     /// </summary>
     [TerraformProperty("asset_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AssetTypes { get; set; }
+    public partial TerraformList<string>? AssetTypes { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The query attribute.
     /// </summary>
     [TerraformProperty("query")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Query { get; set; }
+    public partial TerraformValue<string>? Query { get; set; }
 
     /// <summary>
     /// The scope attribute.
@@ -38,13 +38,13 @@ public partial class GoogleCloudAssetSearchAllResourcesDataSource : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     [TerraformProperty("scope")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Scope { get; set; }
+    public required partial TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// The results attribute.
     /// </summary>
     [TerraformProperty("results")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Results { get; }
+    public partial TerraformList<object> Results { get; }
 
 }

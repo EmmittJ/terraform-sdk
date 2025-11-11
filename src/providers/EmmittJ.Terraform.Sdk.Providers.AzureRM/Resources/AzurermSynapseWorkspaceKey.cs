@@ -13,28 +13,28 @@ public partial class AzurermSynapseWorkspaceKeyTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermSynapseWorkspaceKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     [TerraformProperty("active")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Active { get; set; }
+    public required partial TerraformValue<bool> Active { get; set; }
 
     /// <summary>
     /// The customer_managed_key_name attribute.
@@ -61,21 +61,21 @@ public partial class AzurermSynapseWorkspaceKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerManagedKeyName is required")]
     [TerraformProperty("customer_managed_key_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CustomerManagedKeyName { get; set; }
+    public required partial TerraformValue<string> CustomerManagedKeyName { get; set; }
 
     /// <summary>
     /// The customer_managed_key_versionless_id attribute.
     /// </summary>
     [TerraformProperty("customer_managed_key_versionless_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CustomerManagedKeyVersionlessId { get; set; }
+    public partial TerraformValue<string>? CustomerManagedKeyVersionlessId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The synapse_workspace_id attribute.
@@ -83,13 +83,13 @@ public partial class AzurermSynapseWorkspaceKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     [TerraformProperty("synapse_workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SynapseWorkspaceId { get; set; }
+    public required partial TerraformValue<string> SynapseWorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSynapseWorkspaceKeyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSynapseWorkspaceKeyTimeoutsBlock>? Timeouts { get; set; }
 
 }

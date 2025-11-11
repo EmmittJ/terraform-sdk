@@ -15,7 +15,7 @@ public partial class GoogleCesAppAudioProcessingConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("inactivity_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InactivityTimeout { get; set; }
+    public partial TerraformValue<string>? InactivityTimeout { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class GoogleCesAppDefaultChannelProfileBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("channel_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ChannelType { get; set; }
+    public partial TerraformValue<string>? ChannelType { get; set; }
 
     /// <summary>
     /// Whether to disable user barge-in in the conversation.
@@ -55,21 +55,21 @@ public partial class GoogleCesAppDefaultChannelProfileBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("disable_barge_in_control")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableBargeInControl { get; set; }
+    public partial TerraformValue<bool>? DisableBargeInControl { get; set; }
 
     /// <summary>
     /// Whether to disable DTMF (dual-tone multi-frequency).
     /// </summary>
     [TerraformProperty("disable_dtmf")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableDtmf { get; set; }
+    public partial TerraformValue<bool>? DisableDtmf { get; set; }
 
     /// <summary>
     /// The unique identifier of the channel profile.
     /// </summary>
     [TerraformProperty("profile_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProfileId { get; set; }
+    public partial TerraformValue<string>? ProfileId { get; set; }
 
 }
 
@@ -92,7 +92,7 @@ public partial class GoogleCesAppLanguageSettingsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("default_language_code")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultLanguageCode { get; set; }
+    public partial TerraformValue<string>? DefaultLanguageCode { get; set; }
 
     /// <summary>
     /// Enables multilingual support. If true, agents in the app will use pre-built
@@ -100,7 +100,7 @@ public partial class GoogleCesAppLanguageSettingsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("enable_multilingual_support")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableMultilingualSupport { get; set; }
+    public partial TerraformValue<bool>? EnableMultilingualSupport { get; set; }
 
     /// <summary>
     /// The action to perform when an agent receives input in an unsupported
@@ -114,7 +114,7 @@ public partial class GoogleCesAppLanguageSettingsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("fallback_action")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FallbackAction { get; set; }
+    public partial TerraformValue<string>? FallbackAction { get; set; }
 
     /// <summary>
     /// List of languages codes supported by the app, in addition to the
@@ -122,7 +122,7 @@ public partial class GoogleCesAppLanguageSettingsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("supported_language_codes")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? SupportedLanguageCodes { get; set; }
+    public partial TerraformList<string>? SupportedLanguageCodes { get; set; }
 
 }
 
@@ -146,7 +146,7 @@ public partial class GoogleCesAppModelSettingsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("model")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Model { get; set; }
+    public partial TerraformValue<string>? Model { get; set; }
 
     /// <summary>
     /// If set, this temperature will be used for the LLM model. Temperature
@@ -156,7 +156,7 @@ public partial class GoogleCesAppModelSettingsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("temperature")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Temperature { get; set; }
+    public partial TerraformValue<double>? Temperature { get; set; }
 
 }
 
@@ -171,7 +171,7 @@ public partial class GoogleCesAppTimeZoneSettingsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("time_zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TimeZone { get; set; }
+    public partial TerraformValue<string>? TimeZone { get; set; }
 
 }
 
@@ -186,21 +186,21 @@ public partial class GoogleCesAppTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -216,7 +216,7 @@ public partial class GoogleCesAppVariableDeclarationsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     [TerraformProperty("description")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Description { get; set; }
+    public required partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The name of the variable. The name must start with a letter or underscore
@@ -225,7 +225,7 @@ public partial class GoogleCesAppVariableDeclarationsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -247,14 +247,14 @@ public partial class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     [TerraformProperty("app_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AppId { get; set; }
+    public required partial TerraformValue<string> AppId { get; set; }
 
     /// <summary>
     /// Human-readable description of the app.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Display name of the app.
@@ -262,7 +262,7 @@ public partial class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Instructions for all the agents in the app.
@@ -271,7 +271,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [TerraformProperty("global_instruction")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GlobalInstruction { get; set; }
+    public partial TerraformValue<string>? GlobalInstruction { get; set; }
 
     /// <summary>
     /// List of guardrails for the app.
@@ -280,14 +280,14 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [TerraformProperty("guardrails")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Guardrails { get; set; }
+    public partial TerraformList<string>? Guardrails { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -295,7 +295,7 @@ public partial class GoogleCesApp : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Metadata about the app. This field can be used to store additional
@@ -303,14 +303,14 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [TerraformProperty("metadata")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Metadata { get; set; }
+    public partial TerraformMap<string>? Metadata { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The root agent is the entry point of the app.
@@ -318,7 +318,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [TerraformProperty("root_agent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RootAgent { get; set; }
+    public partial TerraformValue<string>? RootAgent { get; set; }
 
     /// <summary>
     /// Block for audio_processing_config.
@@ -326,7 +326,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AudioProcessingConfig block(s) allowed")]
     [TerraformProperty("audio_processing_config")]
-    public TerraformList<TerraformBlock<GoogleCesAppAudioProcessingConfigBlock>>? AudioProcessingConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCesAppAudioProcessingConfigBlock>>? AudioProcessingConfig { get; set; }
 
     /// <summary>
     /// Block for data_store_settings.
@@ -334,7 +334,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataStoreSettings block(s) allowed")]
     [TerraformProperty("data_store_settings")]
-    public TerraformList<TerraformBlock<GoogleCesAppDataStoreSettingsBlock>>? DataStoreSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCesAppDataStoreSettingsBlock>>? DataStoreSettings { get; set; }
 
     /// <summary>
     /// Block for default_channel_profile.
@@ -342,7 +342,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultChannelProfile block(s) allowed")]
     [TerraformProperty("default_channel_profile")]
-    public TerraformList<TerraformBlock<GoogleCesAppDefaultChannelProfileBlock>>? DefaultChannelProfile { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCesAppDefaultChannelProfileBlock>>? DefaultChannelProfile { get; set; }
 
     /// <summary>
     /// Block for evaluation_metrics_thresholds.
@@ -350,7 +350,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EvaluationMetricsThresholds block(s) allowed")]
     [TerraformProperty("evaluation_metrics_thresholds")]
-    public TerraformList<TerraformBlock<GoogleCesAppEvaluationMetricsThresholdsBlock>>? EvaluationMetricsThresholds { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCesAppEvaluationMetricsThresholdsBlock>>? EvaluationMetricsThresholds { get; set; }
 
     /// <summary>
     /// Block for language_settings.
@@ -358,7 +358,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LanguageSettings block(s) allowed")]
     [TerraformProperty("language_settings")]
-    public TerraformList<TerraformBlock<GoogleCesAppLanguageSettingsBlock>>? LanguageSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCesAppLanguageSettingsBlock>>? LanguageSettings { get; set; }
 
     /// <summary>
     /// Block for logging_settings.
@@ -366,7 +366,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingSettings block(s) allowed")]
     [TerraformProperty("logging_settings")]
-    public TerraformList<TerraformBlock<GoogleCesAppLoggingSettingsBlock>>? LoggingSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCesAppLoggingSettingsBlock>>? LoggingSettings { get; set; }
 
     /// <summary>
     /// Block for model_settings.
@@ -374,7 +374,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ModelSettings block(s) allowed")]
     [TerraformProperty("model_settings")]
-    public TerraformList<TerraformBlock<GoogleCesAppModelSettingsBlock>>? ModelSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCesAppModelSettingsBlock>>? ModelSettings { get; set; }
 
     /// <summary>
     /// Block for time_zone_settings.
@@ -382,35 +382,35 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TimeZoneSettings block(s) allowed")]
     [TerraformProperty("time_zone_settings")]
-    public TerraformList<TerraformBlock<GoogleCesAppTimeZoneSettingsBlock>>? TimeZoneSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCesAppTimeZoneSettingsBlock>>? TimeZoneSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleCesAppTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleCesAppTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for variable_declarations.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("variable_declarations")]
-    public TerraformList<TerraformBlock<GoogleCesAppVariableDeclarationsBlock>>? VariableDeclarations { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCesAppVariableDeclarationsBlock>>? VariableDeclarations { get; set; }
 
     /// <summary>
     /// Timestamp when the app was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Number of deployments in the app.
     /// </summary>
     [TerraformProperty("deployment_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> DeploymentCount { get; }
+    public partial TerraformValue<double> DeploymentCount { get; }
 
     /// <summary>
     /// Etag used to ensure the object hasn&#39;t changed during a read-modify-write
@@ -419,7 +419,7 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Identifier. The unique identifier of the app.
@@ -427,13 +427,13 @@ public partial class GoogleCesApp : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Timestamp when the app was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

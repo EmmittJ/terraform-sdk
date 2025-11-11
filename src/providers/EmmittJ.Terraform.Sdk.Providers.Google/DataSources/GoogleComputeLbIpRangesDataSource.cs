@@ -16,20 +16,20 @@ public partial class GoogleComputeLbIpRangesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The http_ssl_tcp_internal attribute.
     /// </summary>
     [TerraformProperty("http_ssl_tcp_internal")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> HttpSslTcpInternal { get; }
+    public partial TerraformList<string> HttpSslTcpInternal { get; }
 
     /// <summary>
     /// The network attribute.
     /// </summary>
     [TerraformProperty("network")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Network { get; }
+    public partial TerraformList<string> Network { get; }
 
 }

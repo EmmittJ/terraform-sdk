@@ -13,28 +13,28 @@ public partial class AzurermCosmosdbSqlTriggerTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermCosmosdbSqlTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     [TerraformProperty("body")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Body { get; set; }
+    public required partial TerraformValue<string> Body { get; set; }
 
     /// <summary>
     /// The container_id attribute.
@@ -61,14 +61,14 @@ public partial class AzurermCosmosdbSqlTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
     [TerraformProperty("container_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerId { get; set; }
+    public required partial TerraformValue<string> ContainerId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -76,7 +76,7 @@ public partial class AzurermCosmosdbSqlTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The operation attribute.
@@ -84,7 +84,7 @@ public partial class AzurermCosmosdbSqlTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operation is required")]
     [TerraformProperty("operation")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Operation { get; set; }
+    public required partial TerraformValue<string> Operation { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -92,13 +92,13 @@ public partial class AzurermCosmosdbSqlTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCosmosdbSqlTriggerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCosmosdbSqlTriggerTimeoutsBlock>? Timeouts { get; set; }
 
 }

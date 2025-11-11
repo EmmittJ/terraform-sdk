@@ -13,28 +13,28 @@ public partial class AzurermKustoClusterCustomerManagedKeyTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,55 +53,55 @@ public partial class AzurermKustoClusterCustomerManagedKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     [TerraformProperty("cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterId { get; set; }
+    public required partial TerraformValue<string> ClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
     [TerraformProperty("key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyName { get; set; }
+    public partial TerraformValue<string>? KeyName { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     [TerraformProperty("key_vault_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyVaultId { get; set; }
+    public partial TerraformValue<string>? KeyVaultId { get; set; }
 
     /// <summary>
     /// The key_version attribute.
     /// </summary>
     [TerraformProperty("key_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyVersion { get; set; }
+    public partial TerraformValue<string>? KeyVersion { get; set; }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
     [TerraformProperty("managed_hsm_key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ManagedHsmKeyId { get; set; }
+    public partial TerraformValue<string>? ManagedHsmKeyId { get; set; }
 
     /// <summary>
     /// The user_identity attribute.
     /// </summary>
     [TerraformProperty("user_identity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserIdentity { get; set; }
+    public partial TerraformValue<string>? UserIdentity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKustoClusterCustomerManagedKeyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKustoClusterCustomerManagedKeyTimeoutsBlock>? Timeouts { get; set; }
 
 }

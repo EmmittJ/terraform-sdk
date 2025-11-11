@@ -13,7 +13,7 @@ public partial class AzurermKeyVaultCertificateIssuerDataSourceTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermKeyVaultCertificateIssuerDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
@@ -39,7 +39,7 @@ public partial class AzurermKeyVaultCertificateIssuerDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformProperty("key_vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultId { get; set; }
+    public required partial TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,41 +47,41 @@ public partial class AzurermKeyVaultCertificateIssuerDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKeyVaultCertificateIssuerDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKeyVaultCertificateIssuerDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
     [TerraformProperty("account_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AccountId { get; }
+    public partial TerraformValue<string> AccountId { get; }
 
     /// <summary>
     /// The admin attribute.
     /// </summary>
     [TerraformProperty("admin")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Admin { get; }
+    public partial TerraformList<object> Admin { get; }
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
     [TerraformProperty("org_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OrgId { get; }
+    public partial TerraformValue<string> OrgId { get; }
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
     [TerraformProperty("provider_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ProviderName { get; }
+    public partial TerraformValue<string> ProviderName { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AwsComputeoptimizerRecommendationPreferencesExternalMetrics
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [TerraformProperty("source")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Source { get; set; }
+    public required partial TerraformValue<string> Source { get; set; }
 
 }
 
@@ -29,14 +29,14 @@ public partial class AwsComputeoptimizerRecommendationPreferencesPreferredResour
     /// </summary>
     [TerraformProperty("exclude_list")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ExcludeList { get; set; }
+    public partial TerraformSet<string>? ExcludeList { get; set; }
 
     /// <summary>
     /// The include_list attribute.
     /// </summary>
     [TerraformProperty("include_list")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IncludeList { get; set; }
+    public partial TerraformSet<string>? IncludeList { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -44,7 +44,7 @@ public partial class AwsComputeoptimizerRecommendationPreferencesPreferredResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -60,7 +60,7 @@ public partial class AwsComputeoptimizerRecommendationPreferencesScopeBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The value attribute.
@@ -68,7 +68,7 @@ public partial class AwsComputeoptimizerRecommendationPreferencesScopeBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
 }
 
@@ -84,7 +84,7 @@ public partial class AwsComputeoptimizerRecommendationPreferencesUtilizationPref
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     [TerraformProperty("metric_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MetricName { get; set; }
+    public required partial TerraformValue<string> MetricName { get; set; }
 
 }
 
@@ -102,28 +102,28 @@ public partial class AwsComputeoptimizerRecommendationPreferences : TerraformRes
     /// </summary>
     [TerraformProperty("enhanced_infrastructure_metrics")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EnhancedInfrastructureMetrics { get; set; }
+    public partial TerraformValue<string>? EnhancedInfrastructureMetrics { get; set; }
 
     /// <summary>
     /// The inferred_workload_types attribute.
     /// </summary>
     [TerraformProperty("inferred_workload_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InferredWorkloadTypes { get; set; }
+    public partial TerraformValue<string>? InferredWorkloadTypes { get; set; }
 
     /// <summary>
     /// The look_back_period attribute.
     /// </summary>
     [TerraformProperty("look_back_period")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> LookBackPeriod { get; set; }
+    public partial TerraformValue<string> LookBackPeriod { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_type attribute.
@@ -131,48 +131,48 @@ public partial class AwsComputeoptimizerRecommendationPreferences : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
     [TerraformProperty("resource_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceType { get; set; }
+    public required partial TerraformValue<string> ResourceType { get; set; }
 
     /// <summary>
     /// The savings_estimation_mode attribute.
     /// </summary>
     [TerraformProperty("savings_estimation_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SavingsEstimationMode { get; set; }
+    public partial TerraformValue<string>? SavingsEstimationMode { get; set; }
 
     /// <summary>
     /// Block for external_metrics_preference.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("external_metrics_preference")]
-    public TerraformList<TerraformBlock<AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferenceBlock>>? ExternalMetricsPreference { get; set; }
+    public partial TerraformList<TerraformBlock<AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferenceBlock>>? ExternalMetricsPreference { get; set; }
 
     /// <summary>
     /// Block for preferred_resource.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("preferred_resource")]
-    public TerraformList<TerraformBlock<AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock>>? PreferredResource { get; set; }
+    public partial TerraformList<TerraformBlock<AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock>>? PreferredResource { get; set; }
 
     /// <summary>
     /// Block for scope.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("scope")]
-    public TerraformList<TerraformBlock<AwsComputeoptimizerRecommendationPreferencesScopeBlock>>? Scope { get; set; }
+    public partial TerraformList<TerraformBlock<AwsComputeoptimizerRecommendationPreferencesScopeBlock>>? Scope { get; set; }
 
     /// <summary>
     /// Block for utilization_preference.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("utilization_preference")]
-    public TerraformList<TerraformBlock<AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBlock>>? UtilizationPreference { get; set; }
+    public partial TerraformList<TerraformBlock<AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBlock>>? UtilizationPreference { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

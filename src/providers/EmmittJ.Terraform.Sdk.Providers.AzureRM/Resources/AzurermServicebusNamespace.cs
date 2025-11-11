@@ -14,14 +14,14 @@ public partial class AzurermServicebusNamespaceCustomerManagedKeyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityId is required")]
     [TerraformProperty("identity_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IdentityId { get; set; }
+    public required partial TerraformValue<string> IdentityId { get; set; }
 
     /// <summary>
     /// The infrastructure_encryption_enabled attribute.
     /// </summary>
     [TerraformProperty("infrastructure_encryption_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? InfrastructureEncryptionEnabled { get; set; }
+    public partial TerraformValue<bool>? InfrastructureEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The key_vault_key_id attribute.
@@ -29,7 +29,7 @@ public partial class AzurermServicebusNamespaceCustomerManagedKeyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     [TerraformProperty("key_vault_key_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultKeyId { get; set; }
+    public required partial TerraformValue<string> KeyVaultKeyId { get; set; }
 
 }
 
@@ -44,7 +44,7 @@ public partial class AzurermServicebusNamespaceIdentityBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -54,7 +54,7 @@ public partial class AzurermServicebusNamespaceIdentityBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -69,28 +69,28 @@ public partial class AzurermServicebusNamespaceNetworkRuleSetBlock : TerraformBl
     /// </summary>
     [TerraformProperty("default_action")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultAction { get; set; }
+    public partial TerraformValue<string>? DefaultAction { get; set; }
 
     /// <summary>
     /// The ip_rules attribute.
     /// </summary>
     [TerraformProperty("ip_rules")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IpRules { get; set; }
+    public partial TerraformSet<string>? IpRules { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformProperty("public_network_access_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
+    public partial TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The trusted_services_allowed attribute.
     /// </summary>
     [TerraformProperty("trusted_services_allowed")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? TrustedServicesAllowed { get; set; }
+    public partial TerraformValue<bool>? TrustedServicesAllowed { get; set; }
 
 }
 
@@ -105,28 +105,28 @@ public partial class AzurermServicebusNamespaceTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -145,21 +145,21 @@ public partial class AzurermServicebusNamespace : TerraformResource
     /// </summary>
     [TerraformProperty("capacity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Capacity { get; set; }
+    public partial TerraformValue<double>? Capacity { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
     [TerraformProperty("local_auth_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LocalAuthEnabled { get; set; }
+    public partial TerraformValue<bool>? LocalAuthEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -167,14 +167,14 @@ public partial class AzurermServicebusNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The minimum_tls_version attribute.
     /// </summary>
     [TerraformProperty("minimum_tls_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MinimumTlsVersion { get; set; }
+    public partial TerraformValue<string>? MinimumTlsVersion { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -182,21 +182,21 @@ public partial class AzurermServicebusNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The premium_messaging_partitions attribute.
     /// </summary>
     [TerraformProperty("premium_messaging_partitions")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? PremiumMessagingPartitions { get; set; }
+    public partial TerraformValue<double>? PremiumMessagingPartitions { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformProperty("public_network_access_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
+    public partial TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -204,7 +204,7 @@ public partial class AzurermServicebusNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
@@ -212,14 +212,14 @@ public partial class AzurermServicebusNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [TerraformProperty("sku")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Sku { get; set; }
+    public required partial TerraformValue<string> Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for customer_managed_key.
@@ -227,7 +227,7 @@ public partial class AzurermServicebusNamespace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
     [TerraformProperty("customer_managed_key")]
-    public TerraformList<TerraformBlock<AzurermServicebusNamespaceCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermServicebusNamespaceCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -235,7 +235,7 @@ public partial class AzurermServicebusNamespace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermServicebusNamespaceIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermServicebusNamespaceIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for network_rule_set.
@@ -243,48 +243,48 @@ public partial class AzurermServicebusNamespace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkRuleSet block(s) allowed")]
     [TerraformProperty("network_rule_set")]
-    public TerraformList<TerraformBlock<AzurermServicebusNamespaceNetworkRuleSetBlock>>? NetworkRuleSet { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermServicebusNamespaceNetworkRuleSetBlock>>? NetworkRuleSet { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermServicebusNamespaceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermServicebusNamespaceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The default_primary_connection_string attribute.
     /// </summary>
     [TerraformProperty("default_primary_connection_string")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DefaultPrimaryConnectionString { get; }
+    public partial TerraformValue<string> DefaultPrimaryConnectionString { get; }
 
     /// <summary>
     /// The default_primary_key attribute.
     /// </summary>
     [TerraformProperty("default_primary_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DefaultPrimaryKey { get; }
+    public partial TerraformValue<string> DefaultPrimaryKey { get; }
 
     /// <summary>
     /// The default_secondary_connection_string attribute.
     /// </summary>
     [TerraformProperty("default_secondary_connection_string")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DefaultSecondaryConnectionString { get; }
+    public partial TerraformValue<string> DefaultSecondaryConnectionString { get; }
 
     /// <summary>
     /// The default_secondary_key attribute.
     /// </summary>
     [TerraformProperty("default_secondary_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DefaultSecondaryKey { get; }
+    public partial TerraformValue<string> DefaultSecondaryKey { get; }
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     [TerraformProperty("endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Endpoint { get; }
+    public partial TerraformValue<string> Endpoint { get; }
 
 }

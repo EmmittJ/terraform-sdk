@@ -14,7 +14,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     [TerraformProperty("linked_service_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LinkedServiceName { get; set; }
+    public required partial TerraformValue<string> LinkedServiceName { get; set; }
 
     /// <summary>
     /// The secret_name attribute.
@@ -22,7 +22,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     [TerraformProperty("secret_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SecretName { get; set; }
+    public required partial TerraformValue<string> SecretName { get; set; }
 
 }
 
@@ -37,28 +37,28 @@ public partial class AzurermDataFactoryLinkedServiceAzureFunctionTimeoutsBlock :
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -77,14 +77,14 @@ public partial class AzurermDataFactoryLinkedServiceAzureFunction : TerraformRes
     /// </summary>
     [TerraformProperty("additional_properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? AdditionalProperties { get; set; }
+    public partial TerraformMap<string>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Annotations { get; set; }
+    public partial TerraformList<string>? Annotations { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
@@ -92,35 +92,35 @@ public partial class AzurermDataFactoryLinkedServiceAzureFunction : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformProperty("data_factory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataFactoryId { get; set; }
+    public required partial TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The integration_runtime_name attribute.
     /// </summary>
     [TerraformProperty("integration_runtime_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IntegrationRuntimeName { get; set; }
+    public partial TerraformValue<string>? IntegrationRuntimeName { get; set; }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     [TerraformProperty("key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Key { get; set; }
+    public partial TerraformValue<string>? Key { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -128,14 +128,14 @@ public partial class AzurermDataFactoryLinkedServiceAzureFunction : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// The url attribute.
@@ -143,7 +143,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureFunction : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     [TerraformProperty("url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Url { get; set; }
+    public required partial TerraformValue<string> Url { get; set; }
 
     /// <summary>
     /// Block for key_vault_key.
@@ -151,13 +151,13 @@ public partial class AzurermDataFactoryLinkedServiceAzureFunction : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultKey block(s) allowed")]
     [TerraformProperty("key_vault_key")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBlock>>? KeyVaultKey { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBlock>>? KeyVaultKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataFactoryLinkedServiceAzureFunctionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataFactoryLinkedServiceAzureFunctionTimeoutsBlock>? Timeouts { get; set; }
 
 }

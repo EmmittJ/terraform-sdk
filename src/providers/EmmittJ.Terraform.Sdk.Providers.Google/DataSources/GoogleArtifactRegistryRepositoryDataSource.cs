@@ -16,7 +16,7 @@ public partial class GoogleArtifactRegistryRepositoryDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the repository&#39;s location. In addition to specific regions,
@@ -29,14 +29,14 @@ public partial class GoogleArtifactRegistryRepositoryDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The last part of the repository name, for example:
@@ -45,7 +45,7 @@ public partial class GoogleArtifactRegistryRepositoryDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     [TerraformProperty("repository_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepositoryId { get; set; }
+    public required partial TerraformValue<string> RepositoryId { get; set; }
 
     /// <summary>
     /// Cleanup policies for this repository. Cleanup policies indicate when
@@ -55,7 +55,7 @@ public partial class GoogleArtifactRegistryRepositoryDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("cleanup_policies")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> CleanupPolicies { get; }
+    public partial TerraformSet<object> CleanupPolicies { get; }
 
     /// <summary>
     /// If true, the cleanup pipeline is prevented from deleting versions in this
@@ -63,35 +63,35 @@ public partial class GoogleArtifactRegistryRepositoryDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("cleanup_policy_dry_run")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> CleanupPolicyDryRun { get; }
+    public partial TerraformValue<bool> CleanupPolicyDryRun { get; }
 
     /// <summary>
     /// The time when the repository was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The user-provided description of the repository.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// Docker repository config contains repository level configuration for the repositories of docker type.
     /// </summary>
     [TerraformProperty("docker_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> DockerConfig { get; }
+    public partial TerraformList<object> DockerConfig { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The format of packages that are stored in the repository. Supported formats
@@ -101,7 +101,7 @@ public partial class GoogleArtifactRegistryRepositoryDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("format")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Format { get; }
+    public partial TerraformValue<string> Format { get; }
 
     /// <summary>
     /// The Cloud KMS resource name of the customer managed encryption key that’s
@@ -111,7 +111,7 @@ public partial class GoogleArtifactRegistryRepositoryDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("kms_key_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KmsKeyName { get; }
+    public partial TerraformValue<string> KmsKeyName { get; }
 
     /// <summary>
     /// Labels with user-defined metadata.
@@ -126,7 +126,7 @@ public partial class GoogleArtifactRegistryRepositoryDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// MavenRepositoryConfig is maven related repository details.
@@ -135,14 +135,14 @@ public partial class GoogleArtifactRegistryRepositoryDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("maven_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MavenConfig { get; }
+    public partial TerraformList<object> MavenConfig { get; }
 
     /// <summary>
     /// The mode configures the repository to serve artifacts from different sources. Default value: &amp;quot;STANDARD_REPOSITORY&amp;quot; Possible values: [&amp;quot;STANDARD_REPOSITORY&amp;quot;, &amp;quot;VIRTUAL_REPOSITORY&amp;quot;, &amp;quot;REMOTE_REPOSITORY&amp;quot;]
     /// </summary>
     [TerraformProperty("mode")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Mode { get; }
+    public partial TerraformValue<string> Mode { get; }
 
     /// <summary>
     /// The name of the repository, for example:
@@ -150,21 +150,21 @@ public partial class GoogleArtifactRegistryRepositoryDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The repository endpoint, for example: us-docker.pkg.dev/my-proj/my-repo.
     /// </summary>
     [TerraformProperty("registry_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RegistryUri { get; }
+    public partial TerraformValue<string> RegistryUri { get; }
 
     /// <summary>
     /// Configuration specific for a Remote Repository.
     /// </summary>
     [TerraformProperty("remote_repository_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> RemoteRepositoryConfig { get; }
+    public partial TerraformList<object> RemoteRepositoryConfig { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -172,27 +172,27 @@ public partial class GoogleArtifactRegistryRepositoryDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The time when the repository was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// Configuration specific for a Virtual Repository.
     /// </summary>
     [TerraformProperty("virtual_repository_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> VirtualRepositoryConfig { get; }
+    public partial TerraformList<object> VirtualRepositoryConfig { get; }
 
     /// <summary>
     /// Configuration for vulnerability scanning of artifacts stored in this repository.
     /// </summary>
     [TerraformProperty("vulnerability_scanning_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> VulnerabilityScanningConfig { get; }
+    public partial TerraformList<object> VulnerabilityScanningConfig { get; }
 
 }

@@ -13,42 +13,42 @@ public partial class AwsEcrpublicRepositoryCatalogDataBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("about_text")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AboutText { get; set; }
+    public partial TerraformValue<string>? AboutText { get; set; }
 
     /// <summary>
     /// The architectures attribute.
     /// </summary>
     [TerraformProperty("architectures")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Architectures { get; set; }
+    public partial TerraformSet<string>? Architectures { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The logo_image_blob attribute.
     /// </summary>
     [TerraformProperty("logo_image_blob")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> LogoImageBlob { get; set; }
+    public partial TerraformValue<string> LogoImageBlob { get; set; }
 
     /// <summary>
     /// The operating_systems attribute.
     /// </summary>
     [TerraformProperty("operating_systems")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? OperatingSystems { get; set; }
+    public partial TerraformSet<string>? OperatingSystems { get; set; }
 
     /// <summary>
     /// The usage_text attribute.
     /// </summary>
     [TerraformProperty("usage_text")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UsageText { get; set; }
+    public partial TerraformValue<string>? UsageText { get; set; }
 
 }
 
@@ -63,7 +63,7 @@ public partial class AwsEcrpublicRepositoryTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -82,21 +82,21 @@ public partial class AwsEcrpublicRepository : TerraformResource
     /// </summary>
     [TerraformProperty("force_destroy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ForceDestroy { get; set; }
+    public partial TerraformValue<bool>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The repository_name attribute.
@@ -104,21 +104,21 @@ public partial class AwsEcrpublicRepository : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     [TerraformProperty("repository_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepositoryName { get; set; }
+    public required partial TerraformValue<string> RepositoryName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for catalog_data.
@@ -126,34 +126,34 @@ public partial class AwsEcrpublicRepository : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogData block(s) allowed")]
     [TerraformProperty("catalog_data")]
-    public TerraformList<TerraformBlock<AwsEcrpublicRepositoryCatalogDataBlock>>? CatalogData { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcrpublicRepositoryCatalogDataBlock>>? CatalogData { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsEcrpublicRepositoryTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsEcrpublicRepositoryTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
     [TerraformProperty("registry_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RegistryId { get; }
+    public partial TerraformValue<string> RegistryId { get; }
 
     /// <summary>
     /// The repository_uri attribute.
     /// </summary>
     [TerraformProperty("repository_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RepositoryUri { get; }
+    public partial TerraformValue<string> RepositoryUri { get; }
 
 }

@@ -14,14 +14,14 @@ public partial class AwsEfsAccessPointPosixUserBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
     [TerraformProperty("gid")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Gid { get; set; }
+    public required partial TerraformValue<double> Gid { get; set; }
 
     /// <summary>
     /// The secondary_gids attribute.
     /// </summary>
     [TerraformProperty("secondary_gids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<double>? SecondaryGids { get; set; }
+    public partial TerraformSet<double>? SecondaryGids { get; set; }
 
     /// <summary>
     /// The uid attribute.
@@ -29,7 +29,7 @@ public partial class AwsEfsAccessPointPosixUserBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
     [TerraformProperty("uid")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Uid { get; set; }
+    public required partial TerraformValue<double> Uid { get; set; }
 
 }
 
@@ -44,7 +44,7 @@ public partial class AwsEfsAccessPointRootDirectoryBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("path")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Path { get; set; }
+    public partial TerraformValue<string> Path { get; set; }
 
 }
 
@@ -64,35 +64,35 @@ public partial class AwsEfsAccessPoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     [TerraformProperty("file_system_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FileSystemId { get; set; }
+    public required partial TerraformValue<string> FileSystemId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for posix_user.
@@ -100,7 +100,7 @@ public partial class AwsEfsAccessPoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PosixUser block(s) allowed")]
     [TerraformProperty("posix_user")]
-    public TerraformList<TerraformBlock<AwsEfsAccessPointPosixUserBlock>>? PosixUser { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEfsAccessPointPosixUserBlock>>? PosixUser { get; set; }
 
     /// <summary>
     /// Block for root_directory.
@@ -108,27 +108,27 @@ public partial class AwsEfsAccessPoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootDirectory block(s) allowed")]
     [TerraformProperty("root_directory")]
-    public TerraformList<TerraformBlock<AwsEfsAccessPointRootDirectoryBlock>>? RootDirectory { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEfsAccessPointRootDirectoryBlock>>? RootDirectory { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The file_system_arn attribute.
     /// </summary>
     [TerraformProperty("file_system_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> FileSystemArn { get; }
+    public partial TerraformValue<string> FileSystemArn { get; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     [TerraformProperty("owner_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OwnerId { get; }
+    public partial TerraformValue<string> OwnerId { get; }
 
 }

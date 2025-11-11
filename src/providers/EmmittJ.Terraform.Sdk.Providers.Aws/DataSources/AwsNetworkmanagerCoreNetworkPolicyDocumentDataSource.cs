@@ -13,14 +13,14 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachm
     /// </summary>
     [TerraformProperty("condition_logic")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConditionLogic { get; set; }
+    public partial TerraformValue<string>? ConditionLogic { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The rule_number attribute.
@@ -28,7 +28,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
     [TerraformProperty("rule_number")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> RuleNumber { get; set; }
+    public required partial TerraformValue<double> RuleNumber { get; set; }
 
 }
 
@@ -44,35 +44,35 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AsnRanges is required")]
     [TerraformProperty("asn_ranges")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> AsnRanges { get; set; }
+    public required partial TerraformSet<string> AsnRanges { get; set; }
 
     /// <summary>
     /// The dns_support attribute.
     /// </summary>
     [TerraformProperty("dns_support")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DnsSupport { get; set; }
+    public partial TerraformValue<bool>? DnsSupport { get; set; }
 
     /// <summary>
     /// The inside_cidr_blocks attribute.
     /// </summary>
     [TerraformProperty("inside_cidr_blocks")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? InsideCidrBlocks { get; set; }
+    public partial TerraformSet<string>? InsideCidrBlocks { get; set; }
 
     /// <summary>
     /// The security_group_referencing_support attribute.
     /// </summary>
     [TerraformProperty("security_group_referencing_support")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SecurityGroupReferencingSupport { get; set; }
+    public partial TerraformValue<bool>? SecurityGroupReferencingSupport { get; set; }
 
     /// <summary>
     /// The vpn_ecmp_support attribute.
     /// </summary>
     [TerraformProperty("vpn_ecmp_support")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? VpnEcmpSupport { get; set; }
+    public partial TerraformValue<bool>? VpnEcmpSupport { get; set; }
 
 }
 
@@ -87,7 +87,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetwork
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -95,7 +95,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetwork
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The require_attachment_acceptance attribute.
@@ -103,7 +103,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetwork
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequireAttachmentAcceptance is required")]
     [TerraformProperty("require_attachment_acceptance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> RequireAttachmentAcceptance { get; set; }
+    public required partial TerraformValue<bool> RequireAttachmentAcceptance { get; set; }
 
 }
 
@@ -119,35 +119,35 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegment
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformProperty("action")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Action { get; set; }
+    public required partial TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The destination_cidr_blocks attribute.
     /// </summary>
     [TerraformProperty("destination_cidr_blocks")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? DestinationCidrBlocks { get; set; }
+    public partial TerraformSet<string>? DestinationCidrBlocks { get; set; }
 
     /// <summary>
     /// The destinations attribute.
     /// </summary>
     [TerraformProperty("destinations")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Destinations { get; set; }
+    public partial TerraformSet<string>? Destinations { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [TerraformProperty("mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Mode { get; set; }
+    public partial TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The segment attribute.
@@ -155,21 +155,21 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegment
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Segment is required")]
     [TerraformProperty("segment")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Segment { get; set; }
+    public required partial TerraformValue<string> Segment { get; set; }
 
     /// <summary>
     /// The share_with attribute.
     /// </summary>
     [TerraformProperty("share_with")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ShareWith { get; set; }
+    public partial TerraformSet<string>? ShareWith { get; set; }
 
     /// <summary>
     /// The share_with_except attribute.
     /// </summary>
     [TerraformProperty("share_with_except")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ShareWithExcept { get; set; }
+    public partial TerraformSet<string>? ShareWithExcept { get; set; }
 
 }
 
@@ -184,35 +184,35 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegment
     /// </summary>
     [TerraformProperty("allow_filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AllowFilter { get; set; }
+    public partial TerraformSet<string>? AllowFilter { get; set; }
 
     /// <summary>
     /// The deny_filter attribute.
     /// </summary>
     [TerraformProperty("deny_filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? DenyFilter { get; set; }
+    public partial TerraformSet<string>? DenyFilter { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The edge_locations attribute.
     /// </summary>
     [TerraformProperty("edge_locations")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? EdgeLocations { get; set; }
+    public partial TerraformSet<string>? EdgeLocations { get; set; }
 
     /// <summary>
     /// The isolate_attachments attribute.
     /// </summary>
     [TerraformProperty("isolate_attachments")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IsolateAttachments { get; set; }
+    public partial TerraformValue<bool>? IsolateAttachments { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -220,14 +220,14 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegment
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The require_attachment_acceptance attribute.
     /// </summary>
     [TerraformProperty("require_attachment_acceptance")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RequireAttachmentAcceptance { get; set; }
+    public partial TerraformValue<bool>? RequireAttachmentAcceptance { get; set; }
 
 }
 
@@ -246,21 +246,21 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource : Terr
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Version { get; set; }
+    public partial TerraformValue<string>? Version { get; set; }
 
     /// <summary>
     /// Block for attachment_policies.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("attachment_policies")]
-    public TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPoliciesBlock>>? AttachmentPolicies { get; set; }
+    public partial TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPoliciesBlock>>? AttachmentPolicies { get; set; }
 
     /// <summary>
     /// Block for core_network_configuration.
@@ -269,21 +269,21 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CoreNetworkConfiguration block(s) required")]
     [TerraformProperty("core_network_configuration")]
-    public TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConfigurationBlock>>? CoreNetworkConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConfigurationBlock>>? CoreNetworkConfiguration { get; set; }
 
     /// <summary>
     /// Block for network_function_groups.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("network_function_groups")]
-    public TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunctionGroupsBlock>>? NetworkFunctionGroups { get; set; }
+    public partial TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunctionGroupsBlock>>? NetworkFunctionGroups { get; set; }
 
     /// <summary>
     /// Block for segment_actions.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("segment_actions")]
-    public TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsBlock>>? SegmentActions { get; set; }
+    public partial TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsBlock>>? SegmentActions { get; set; }
 
     /// <summary>
     /// Block for segments.
@@ -292,13 +292,13 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Segments is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Segments block(s) required")]
     [TerraformProperty("segments")]
-    public TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock>>? Segments { get; set; }
+    public partial TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock>>? Segments { get; set; }
 
     /// <summary>
     /// The json attribute.
     /// </summary>
     [TerraformProperty("json")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Json { get; }
+    public partial TerraformValue<string> Json { get; }
 
 }

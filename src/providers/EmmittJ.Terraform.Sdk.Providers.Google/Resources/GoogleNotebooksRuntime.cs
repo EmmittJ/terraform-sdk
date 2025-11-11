@@ -15,7 +15,7 @@ public partial class GoogleNotebooksRuntimeAccessConfigBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("access_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AccessType { get; set; }
+    public partial TerraformValue<string>? AccessType { get; set; }
 
 
     /// <summary>
@@ -24,7 +24,7 @@ public partial class GoogleNotebooksRuntimeAccessConfigBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("runtime_owner")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RuntimeOwner { get; set; }
+    public partial TerraformValue<string>? RuntimeOwner { get; set; }
 
 }
 
@@ -40,14 +40,14 @@ public partial class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("custom_gpu_driver_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CustomGpuDriverPath { get; set; }
+    public partial TerraformValue<string>? CustomGpuDriverPath { get; set; }
 
     /// <summary>
     /// Verifies core internal services are running. Default: True.
     /// </summary>
     [TerraformProperty("enable_health_monitoring")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableHealthMonitoring { get; set; }
+    public partial TerraformValue<bool>? EnableHealthMonitoring { get; set; }
 
     /// <summary>
     /// Runtime will automatically shutdown after idle_shutdown_time.
@@ -55,7 +55,7 @@ public partial class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("idle_shutdown")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IdleShutdown { get; set; }
+    public partial TerraformValue<bool>? IdleShutdown { get; set; }
 
     /// <summary>
     /// Time in minutes to wait before shuting down runtime.
@@ -63,14 +63,14 @@ public partial class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("idle_shutdown_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? IdleShutdownTimeout { get; set; }
+    public partial TerraformValue<double>? IdleShutdownTimeout { get; set; }
 
     /// <summary>
     /// Install Nvidia Driver automatically.
     /// </summary>
     [TerraformProperty("install_gpu_driver")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? InstallGpuDriver { get; set; }
+    public partial TerraformValue<bool>? InstallGpuDriver { get; set; }
 
     /// <summary>
     /// Cron expression in UTC timezone for schedule instance auto upgrade.
@@ -78,7 +78,7 @@ public partial class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("notebook_upgrade_schedule")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NotebookUpgradeSchedule { get; set; }
+    public partial TerraformValue<string>? NotebookUpgradeSchedule { get; set; }
 
     /// <summary>
     /// Path to a Bash script that automatically runs after a notebook instance
@@ -87,14 +87,14 @@ public partial class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("post_startup_script")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PostStartupScript { get; set; }
+    public partial TerraformValue<string>? PostStartupScript { get; set; }
 
     /// <summary>
     /// Behavior for the post startup script. Possible values: [&amp;quot;POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED&amp;quot;, &amp;quot;RUN_EVERY_START&amp;quot;, &amp;quot;DOWNLOAD_AND_RUN_EVERY_START&amp;quot;]
     /// </summary>
     [TerraformProperty("post_startup_script_behavior")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PostStartupScriptBehavior { get; set; }
+    public partial TerraformValue<string>? PostStartupScriptBehavior { get; set; }
 
 
 }
@@ -110,21 +110,21 @@ public partial class GoogleNotebooksRuntimeTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -154,7 +154,7 @@ public partial class GoogleNotebooksRuntime : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The labels to associate with this runtime. Label **keys** must
@@ -170,7 +170,7 @@ public partial class GoogleNotebooksRuntime : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// A reference to the zone where the machine resides.
@@ -178,7 +178,7 @@ public partial class GoogleNotebooksRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name specified for the Notebook runtime.
@@ -186,14 +186,14 @@ public partial class GoogleNotebooksRuntime : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for access_config.
@@ -201,7 +201,7 @@ public partial class GoogleNotebooksRuntime : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessConfig block(s) allowed")]
     [TerraformProperty("access_config")]
-    public TerraformList<TerraformBlock<GoogleNotebooksRuntimeAccessConfigBlock>>? AccessConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNotebooksRuntimeAccessConfigBlock>>? AccessConfig { get; set; }
 
     /// <summary>
     /// Block for software_config.
@@ -209,14 +209,14 @@ public partial class GoogleNotebooksRuntime : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoftwareConfig block(s) allowed")]
     [TerraformProperty("software_config")]
-    public TerraformList<TerraformBlock<GoogleNotebooksRuntimeSoftwareConfigBlock>>? SoftwareConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNotebooksRuntimeSoftwareConfigBlock>>? SoftwareConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNotebooksRuntimeTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNotebooksRuntimeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for virtual_machine.
@@ -224,14 +224,14 @@ public partial class GoogleNotebooksRuntime : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualMachine block(s) allowed")]
     [TerraformProperty("virtual_machine")]
-    public TerraformList<TerraformBlock<GoogleNotebooksRuntimeVirtualMachineBlock>>? VirtualMachine { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNotebooksRuntimeVirtualMachineBlock>>? VirtualMachine { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The health state of this runtime. For a list of possible output
@@ -240,7 +240,7 @@ public partial class GoogleNotebooksRuntime : TerraformResource
     /// </summary>
     [TerraformProperty("health_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> HealthState { get; }
+    public partial TerraformValue<string> HealthState { get; }
 
     /// <summary>
     /// Contains Runtime daemon metrics such as Service status and JupyterLab
@@ -248,14 +248,14 @@ public partial class GoogleNotebooksRuntime : TerraformResource
     /// </summary>
     [TerraformProperty("metrics")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Metrics { get; }
+    public partial TerraformList<object> Metrics { get; }
 
     /// <summary>
     /// The state of this runtime.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -263,6 +263,6 @@ public partial class GoogleNotebooksRuntime : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

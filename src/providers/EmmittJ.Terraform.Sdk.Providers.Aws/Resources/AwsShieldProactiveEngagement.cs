@@ -13,7 +13,7 @@ public partial class AwsShieldProactiveEngagementEmergencyContactBlock : Terrafo
     /// </summary>
     [TerraformProperty("contact_notes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContactNotes { get; set; }
+    public partial TerraformValue<string>? ContactNotes { get; set; }
 
     /// <summary>
     /// The email_address attribute.
@@ -21,14 +21,14 @@ public partial class AwsShieldProactiveEngagementEmergencyContactBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     [TerraformProperty("email_address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EmailAddress { get; set; }
+    public required partial TerraformValue<string> EmailAddress { get; set; }
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
     [TerraformProperty("phone_number")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PhoneNumber { get; set; }
+    public partial TerraformValue<string>? PhoneNumber { get; set; }
 
 }
 
@@ -47,20 +47,20 @@ public partial class AwsShieldProactiveEngagement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// Block for emergency_contact.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("emergency_contact")]
-    public TerraformList<TerraformBlock<AwsShieldProactiveEngagementEmergencyContactBlock>>? EmergencyContact { get; set; }
+    public partial TerraformList<TerraformBlock<AwsShieldProactiveEngagementEmergencyContactBlock>>? EmergencyContact { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

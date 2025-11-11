@@ -13,7 +13,7 @@ public partial class AwsGameliftFleetCertificateConfigurationBlock : TerraformBl
     /// </summary>
     [TerraformProperty("certificate_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CertificateType { get; set; }
+    public partial TerraformValue<string>? CertificateType { get; set; }
 
 }
 
@@ -29,7 +29,7 @@ public partial class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     [TerraformProperty("from_port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> FromPort { get; set; }
+    public required partial TerraformValue<double> FromPort { get; set; }
 
     /// <summary>
     /// The ip_range attribute.
@@ -37,7 +37,7 @@ public partial class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRange is required")]
     [TerraformProperty("ip_range")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IpRange { get; set; }
+    public required partial TerraformValue<string> IpRange { get; set; }
 
     /// <summary>
     /// The protocol attribute.
@@ -45,7 +45,7 @@ public partial class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [TerraformProperty("protocol")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Protocol { get; set; }
+    public required partial TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// The to_port attribute.
@@ -53,7 +53,7 @@ public partial class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     [TerraformProperty("to_port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ToPort { get; set; }
+    public required partial TerraformValue<double> ToPort { get; set; }
 
 }
 
@@ -68,14 +68,14 @@ public partial class AwsGameliftFleetResourceCreationLimitPolicyBlock : Terrafor
     /// </summary>
     [TerraformProperty("new_game_sessions_per_creator")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? NewGameSessionsPerCreator { get; set; }
+    public partial TerraformValue<double>? NewGameSessionsPerCreator { get; set; }
 
     /// <summary>
     /// The policy_period_in_minutes attribute.
     /// </summary>
     [TerraformProperty("policy_period_in_minutes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? PolicyPeriodInMinutes { get; set; }
+    public partial TerraformValue<double>? PolicyPeriodInMinutes { get; set; }
 
 }
 
@@ -90,14 +90,14 @@ public partial class AwsGameliftFleetRuntimeConfigurationBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("game_session_activation_timeout_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? GameSessionActivationTimeoutSeconds { get; set; }
+    public partial TerraformValue<double>? GameSessionActivationTimeoutSeconds { get; set; }
 
     /// <summary>
     /// The max_concurrent_game_session_activations attribute.
     /// </summary>
     [TerraformProperty("max_concurrent_game_session_activations")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxConcurrentGameSessionActivations { get; set; }
+    public partial TerraformValue<double>? MaxConcurrentGameSessionActivations { get; set; }
 
 }
 
@@ -112,14 +112,14 @@ public partial class AwsGameliftFleetTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -138,14 +138,14 @@ public partial class AwsGameliftFleet : TerraformResource
     /// </summary>
     [TerraformProperty("build_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BuildId { get; set; }
+    public partial TerraformValue<string>? BuildId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The ec2_instance_type attribute.
@@ -153,35 +153,35 @@ public partial class AwsGameliftFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ec2InstanceType is required")]
     [TerraformProperty("ec2_instance_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Ec2InstanceType { get; set; }
+    public required partial TerraformValue<string> Ec2InstanceType { get; set; }
 
     /// <summary>
     /// The fleet_type attribute.
     /// </summary>
     [TerraformProperty("fleet_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FleetType { get; set; }
+    public partial TerraformValue<string>? FleetType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_role_arn attribute.
     /// </summary>
     [TerraformProperty("instance_role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InstanceRoleArn { get; set; }
+    public partial TerraformValue<string>? InstanceRoleArn { get; set; }
 
     /// <summary>
     /// The metric_groups attribute.
     /// </summary>
     [TerraformProperty("metric_groups")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> MetricGroups { get; set; }
+    public partial TerraformList<string> MetricGroups { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -189,42 +189,42 @@ public partial class AwsGameliftFleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The new_game_session_protection_policy attribute.
     /// </summary>
     [TerraformProperty("new_game_session_protection_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NewGameSessionProtectionPolicy { get; set; }
+    public partial TerraformValue<string>? NewGameSessionProtectionPolicy { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The script_id attribute.
     /// </summary>
     [TerraformProperty("script_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ScriptId { get; set; }
+    public partial TerraformValue<string>? ScriptId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for certificate_configuration.
@@ -232,7 +232,7 @@ public partial class AwsGameliftFleet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateConfiguration block(s) allowed")]
     [TerraformProperty("certificate_configuration")]
-    public TerraformList<TerraformBlock<AwsGameliftFleetCertificateConfigurationBlock>>? CertificateConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGameliftFleetCertificateConfigurationBlock>>? CertificateConfiguration { get; set; }
 
     /// <summary>
     /// Block for ec2_inbound_permission.
@@ -240,7 +240,7 @@ public partial class AwsGameliftFleet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 Ec2InboundPermission block(s) allowed")]
     [TerraformProperty("ec2_inbound_permission")]
-    public TerraformSet<TerraformBlock<AwsGameliftFleetEc2InboundPermissionBlock>>? Ec2InboundPermission { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsGameliftFleetEc2InboundPermissionBlock>>? Ec2InboundPermission { get; set; }
 
     /// <summary>
     /// Block for resource_creation_limit_policy.
@@ -248,7 +248,7 @@ public partial class AwsGameliftFleet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceCreationLimitPolicy block(s) allowed")]
     [TerraformProperty("resource_creation_limit_policy")]
-    public TerraformList<TerraformBlock<AwsGameliftFleetResourceCreationLimitPolicyBlock>>? ResourceCreationLimitPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGameliftFleetResourceCreationLimitPolicyBlock>>? ResourceCreationLimitPolicy { get; set; }
 
     /// <summary>
     /// Block for runtime_configuration.
@@ -256,48 +256,48 @@ public partial class AwsGameliftFleet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuntimeConfiguration block(s) allowed")]
     [TerraformProperty("runtime_configuration")]
-    public TerraformList<TerraformBlock<AwsGameliftFleetRuntimeConfigurationBlock>>? RuntimeConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsGameliftFleetRuntimeConfigurationBlock>>? RuntimeConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsGameliftFleetTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsGameliftFleetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The build_arn attribute.
     /// </summary>
     [TerraformProperty("build_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BuildArn { get; }
+    public partial TerraformValue<string> BuildArn { get; }
 
     /// <summary>
     /// The log_paths attribute.
     /// </summary>
     [TerraformProperty("log_paths")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> LogPaths { get; }
+    public partial TerraformList<string> LogPaths { get; }
 
     /// <summary>
     /// The operating_system attribute.
     /// </summary>
     [TerraformProperty("operating_system")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OperatingSystem { get; }
+    public partial TerraformValue<string> OperatingSystem { get; }
 
     /// <summary>
     /// The script_arn attribute.
     /// </summary>
     [TerraformProperty("script_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ScriptArn { get; }
+    public partial TerraformValue<string> ScriptArn { get; }
 
 }

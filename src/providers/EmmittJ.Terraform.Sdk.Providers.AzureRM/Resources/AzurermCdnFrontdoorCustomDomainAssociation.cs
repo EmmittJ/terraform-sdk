@@ -13,28 +13,28 @@ public partial class AzurermCdnFrontdoorCustomDomainAssociationTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermCdnFrontdoorCustomDomainAssociation : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorCustomDomainId is required")]
     [TerraformProperty("cdn_frontdoor_custom_domain_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CdnFrontdoorCustomDomainId { get; set; }
+    public required partial TerraformValue<string> CdnFrontdoorCustomDomainId { get; set; }
 
     /// <summary>
     /// The cdn_frontdoor_route_ids attribute.
@@ -61,20 +61,20 @@ public partial class AzurermCdnFrontdoorCustomDomainAssociation : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorRouteIds is required")]
     [TerraformProperty("cdn_frontdoor_route_ids")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? CdnFrontdoorRouteIds { get; set; }
+    public partial TerraformList<string>? CdnFrontdoorRouteIds { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCdnFrontdoorCustomDomainAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCdnFrontdoorCustomDomainAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

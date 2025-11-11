@@ -15,7 +15,7 @@ public partial class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionLimit is required")]
     [TerraformProperty("connection_limit")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ConnectionLimit { get; set; }
+    public required partial TerraformValue<double> ConnectionLimit { get; set; }
 
     /// <summary>
     /// The network that is allowed to connect to this service attachment.
@@ -23,7 +23,7 @@ public partial class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : Te
     /// </summary>
     [TerraformProperty("network_url")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NetworkUrl { get; set; }
+    public partial TerraformValue<string>? NetworkUrl { get; set; }
 
     /// <summary>
     /// A project that is allowed to connect to this service attachment.
@@ -31,7 +31,7 @@ public partial class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : Te
     /// </summary>
     [TerraformProperty("project_id_or_num")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProjectIdOrNum { get; set; }
+    public partial TerraformValue<string>? ProjectIdOrNum { get; set; }
 
 }
 
@@ -46,21 +46,21 @@ public partial class GoogleComputeServiceAttachmentTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -80,7 +80,7 @@ public partial class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionPreference is required")]
     [TerraformProperty("connection_preference")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConnectionPreference { get; set; }
+    public required partial TerraformValue<string> ConnectionPreference { get; set; }
 
     /// <summary>
     /// An array of projects that are not allowed to connect to this service
@@ -88,14 +88,14 @@ public partial class GoogleComputeServiceAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("consumer_reject_lists")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ConsumerRejectLists { get; set; }
+    public partial TerraformList<string>? ConsumerRejectLists { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// If specified, the domain name will be used during the integration between
@@ -105,7 +105,7 @@ public partial class GoogleComputeServiceAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("domain_names")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? DomainNames { get; set; }
+    public partial TerraformList<string>? DomainNames { get; set; }
 
     /// <summary>
     /// If true, enable the proxy protocol which is for supplying client TCP/IP
@@ -115,14 +115,14 @@ public partial class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableProxyProtocol is required")]
     [TerraformProperty("enable_proxy_protocol")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> EnableProxyProtocol { get; set; }
+    public required partial TerraformValue<bool> EnableProxyProtocol { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. The name must be 1-63 characters long, and
@@ -135,7 +135,7 @@ public partial class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// An array of subnets that is provided for NAT in this service attachment.
@@ -143,14 +143,14 @@ public partial class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatSubnets is required")]
     [TerraformProperty("nat_subnets")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? NatSubnets { get; set; }
+    public partial TerraformList<string>? NatSubnets { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The number of consumer spokes that connected Private Service Connect endpoints can be propagated to through Network Connectivity Center.
@@ -163,7 +163,7 @@ public partial class GoogleComputeServiceAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("propagated_connection_limit")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> PropagatedConnectionLimit { get; set; }
+    public partial TerraformValue<double> PropagatedConnectionLimit { get; set; }
 
     /// <summary>
     /// This flag determines whether a consumer accept/reject list change can reconcile the statuses of existing ACCEPTED or REJECTED PSC endpoints.
@@ -173,14 +173,14 @@ public partial class GoogleComputeServiceAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("reconcile_connections")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> ReconcileConnections { get; set; }
+    public partial TerraformValue<bool> ReconcileConnections { get; set; }
 
     /// <summary>
     /// URL of the region where the resource resides.
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Controls the behavior of propagated_connection_limit.
@@ -190,7 +190,7 @@ public partial class GoogleComputeServiceAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("send_propagated_connection_limit_if_zero")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SendPropagatedConnectionLimitIfZero { get; set; }
+    public partial TerraformValue<bool>? SendPropagatedConnectionLimitIfZero { get; set; }
 
     /// <summary>
     /// The URL of a service serving the endpoint identified by this service attachment.
@@ -198,21 +198,21 @@ public partial class GoogleComputeServiceAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetService is required")]
     [TerraformProperty("target_service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetService { get; set; }
+    public required partial TerraformValue<string> TargetService { get; set; }
 
     /// <summary>
     /// Block for consumer_accept_lists.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("consumer_accept_lists")]
-    public TerraformSet<TerraformBlock<GoogleComputeServiceAttachmentConsumerAcceptListsBlock>>? ConsumerAcceptLists { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleComputeServiceAttachmentConsumerAcceptListsBlock>>? ConsumerAcceptLists { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeServiceAttachmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeServiceAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// An array of the consumer forwarding rules connected to this service
@@ -220,7 +220,7 @@ public partial class GoogleComputeServiceAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("connected_endpoints")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ConnectedEndpoints { get; }
+    public partial TerraformList<object> ConnectedEndpoints { get; }
 
     /// <summary>
     /// Fingerprint of this resource. This field is used internally during
@@ -228,20 +228,20 @@ public partial class GoogleComputeServiceAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Fingerprint { get; }
+    public partial TerraformValue<string> Fingerprint { get; }
 
     /// <summary>
     /// An 128-bit global unique ID of the PSC service attachment.
     /// </summary>
     [TerraformProperty("psc_service_attachment_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PscServiceAttachmentId { get; }
+    public partial TerraformList<object> PscServiceAttachmentId { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
 }

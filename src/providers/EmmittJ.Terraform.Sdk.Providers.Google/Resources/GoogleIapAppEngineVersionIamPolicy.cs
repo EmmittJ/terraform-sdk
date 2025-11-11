@@ -17,14 +17,14 @@ public partial class GoogleIapAppEngineVersionIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     [TerraformProperty("app_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AppId { get; set; }
+    public required partial TerraformValue<string> AppId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_data attribute.
@@ -32,14 +32,14 @@ public partial class GoogleIapAppEngineVersionIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     [TerraformProperty("policy_data")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyData { get; set; }
+    public required partial TerraformValue<string> PolicyData { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The service attribute.
@@ -47,7 +47,7 @@ public partial class GoogleIapAppEngineVersionIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformProperty("service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Service { get; set; }
+    public required partial TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// The version_id attribute.
@@ -55,13 +55,13 @@ public partial class GoogleIapAppEngineVersionIamPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionId is required")]
     [TerraformProperty("version_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VersionId { get; set; }
+    public required partial TerraformValue<string> VersionId { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
 }

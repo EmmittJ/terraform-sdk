@@ -14,7 +14,7 @@ public partial class AzurermMssqlElasticpoolPerDatabaseSettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     [TerraformProperty("max_capacity")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MaxCapacity { get; set; }
+    public required partial TerraformValue<double> MaxCapacity { get; set; }
 
     /// <summary>
     /// The min_capacity attribute.
@@ -22,7 +22,7 @@ public partial class AzurermMssqlElasticpoolPerDatabaseSettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     [TerraformProperty("min_capacity")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MinCapacity { get; set; }
+    public required partial TerraformValue<double> MinCapacity { get; set; }
 
 }
 
@@ -38,14 +38,14 @@ public partial class AzurermMssqlElasticpoolSkuBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     [TerraformProperty("capacity")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Capacity { get; set; }
+    public required partial TerraformValue<double> Capacity { get; set; }
 
     /// <summary>
     /// The family attribute.
     /// </summary>
     [TerraformProperty("family")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Family { get; set; }
+    public partial TerraformValue<string>? Family { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -53,7 +53,7 @@ public partial class AzurermMssqlElasticpoolSkuBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tier attribute.
@@ -61,7 +61,7 @@ public partial class AzurermMssqlElasticpoolSkuBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     [TerraformProperty("tier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Tier { get; set; }
+    public required partial TerraformValue<string> Tier { get; set; }
 
 }
 
@@ -76,28 +76,28 @@ public partial class AzurermMssqlElasticpoolTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -116,21 +116,21 @@ public partial class AzurermMssqlElasticpool : TerraformResource
     /// </summary>
     [TerraformProperty("enclave_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> EnclaveType { get; set; }
+    public partial TerraformValue<string> EnclaveType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
     [TerraformProperty("license_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> LicenseType { get; set; }
+    public partial TerraformValue<string> LicenseType { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -138,28 +138,28 @@ public partial class AzurermMssqlElasticpool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The maintenance_configuration_name attribute.
     /// </summary>
     [TerraformProperty("maintenance_configuration_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MaintenanceConfigurationName { get; set; }
+    public partial TerraformValue<string>? MaintenanceConfigurationName { get; set; }
 
     /// <summary>
     /// The max_size_bytes attribute.
     /// </summary>
     [TerraformProperty("max_size_bytes")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxSizeBytes { get; set; }
+    public partial TerraformValue<double> MaxSizeBytes { get; set; }
 
     /// <summary>
     /// The max_size_gb attribute.
     /// </summary>
     [TerraformProperty("max_size_gb")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxSizeGb { get; set; }
+    public partial TerraformValue<double> MaxSizeGb { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -167,7 +167,7 @@ public partial class AzurermMssqlElasticpool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -175,7 +175,7 @@ public partial class AzurermMssqlElasticpool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The server_name attribute.
@@ -183,21 +183,21 @@ public partial class AzurermMssqlElasticpool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     [TerraformProperty("server_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServerName { get; set; }
+    public required partial TerraformValue<string> ServerName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
     [TerraformProperty("zone_redundant")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ZoneRedundant { get; set; }
+    public partial TerraformValue<bool>? ZoneRedundant { get; set; }
 
     /// <summary>
     /// Block for per_database_settings.
@@ -207,7 +207,7 @@ public partial class AzurermMssqlElasticpool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PerDatabaseSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PerDatabaseSettings block(s) allowed")]
     [TerraformProperty("per_database_settings")]
-    public TerraformList<TerraformBlock<AzurermMssqlElasticpoolPerDatabaseSettingsBlock>>? PerDatabaseSettings { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlElasticpoolPerDatabaseSettingsBlock>>? PerDatabaseSettings { get; set; }
 
     /// <summary>
     /// Block for sku.
@@ -217,13 +217,13 @@ public partial class AzurermMssqlElasticpool : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
     [TerraformProperty("sku")]
-    public TerraformList<TerraformBlock<AzurermMssqlElasticpoolSkuBlock>>? Sku { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlElasticpoolSkuBlock>>? Sku { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMssqlElasticpoolTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMssqlElasticpoolTimeoutsBlock>? Timeouts { get; set; }
 
 }

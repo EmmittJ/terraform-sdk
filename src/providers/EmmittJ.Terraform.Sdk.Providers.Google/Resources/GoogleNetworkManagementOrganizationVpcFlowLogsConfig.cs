@@ -13,21 +13,21 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfigTimeout
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : Terr
     /// </summary>
     [TerraformProperty("aggregation_interval")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AggregationInterval { get; set; }
+    public partial TerraformValue<string> AggregationInterval { get; set; }
 
     /// <summary>
     /// Determines whether to include cross project annotations in the logs.
@@ -58,7 +58,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : Terr
     /// </summary>
     [TerraformProperty("cross_project_metadata")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CrossProjectMetadata { get; set; }
+    public partial TerraformValue<string> CrossProjectMetadata { get; set; }
 
     /// <summary>
     /// Optional. The user-supplied description of the VPC Flow Logs configuration. Maximum
@@ -66,14 +66,14 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : Terr
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Optional. Export filter used to define which VPC Flow Logs should be logged.
     /// </summary>
     [TerraformProperty("filter_expr")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FilterExpr { get; set; }
+    public partial TerraformValue<string>? FilterExpr { get; set; }
 
     /// <summary>
     /// Optional. The value of the field must be in (0, 1]. The sampling rate
@@ -83,14 +83,14 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : Terr
     /// </summary>
     [TerraformProperty("flow_sampling")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> FlowSampling { get; set; }
+    public partial TerraformValue<double> FlowSampling { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Optional. Resource labels to represent the user-provided metadata.
@@ -101,7 +101,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : Terr
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource
@@ -111,7 +111,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Optional. Configures whether all, none or a subset of metadata fields
@@ -120,7 +120,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : Terr
     /// </summary>
     [TerraformProperty("metadata")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Metadata { get; set; }
+    public partial TerraformValue<string> Metadata { get; set; }
 
     /// <summary>
     /// Optional. Custom metadata fields to include in the reported VPC flow
@@ -128,7 +128,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : Terr
     /// </summary>
     [TerraformProperty("metadata_fields")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? MetadataFields { get; set; }
+    public partial TerraformList<string>? MetadataFields { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -136,7 +136,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     [TerraformProperty("organization")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Organization { get; set; }
+    public required partial TerraformValue<string> Organization { get; set; }
 
     /// <summary>
     /// Optional. The state of the VPC Flow Log configuration. Default value
@@ -145,7 +145,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : Terr
     /// </summary>
     [TerraformProperty("state")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> State { get; set; }
+    public partial TerraformValue<string> State { get; set; }
 
     /// <summary>
     /// Required. ID of the &#39;VpcFlowLogsConfig&#39;.
@@ -153,35 +153,35 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcFlowLogsConfigId is required")]
     [TerraformProperty("vpc_flow_logs_config_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VpcFlowLogsConfigId { get; set; }
+    public required partial TerraformValue<string> VpcFlowLogsConfigId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkManagementOrganizationVpcFlowLogsConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkManagementOrganizationVpcFlowLogsConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time the config was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Identifier. Unique name of the configuration using the form:     &#39;organizations/{org_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}&#39;
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -189,13 +189,13 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : Terr
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Output only. The time the config was updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

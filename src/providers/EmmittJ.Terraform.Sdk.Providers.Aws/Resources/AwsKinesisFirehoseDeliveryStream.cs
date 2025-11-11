@@ -13,28 +13,28 @@ public partial class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationB
     /// </summary>
     [TerraformProperty("buffering_interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BufferingInterval { get; set; }
+    public partial TerraformValue<double>? BufferingInterval { get; set; }
 
     /// <summary>
     /// The buffering_size attribute.
     /// </summary>
     [TerraformProperty("buffering_size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BufferingSize { get; set; }
+    public partial TerraformValue<double>? BufferingSize { get; set; }
 
     /// <summary>
     /// The cluster_endpoint attribute.
     /// </summary>
     [TerraformProperty("cluster_endpoint")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClusterEndpoint { get; set; }
+    public partial TerraformValue<string>? ClusterEndpoint { get; set; }
 
     /// <summary>
     /// The domain_arn attribute.
     /// </summary>
     [TerraformProperty("domain_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DomainArn { get; set; }
+    public partial TerraformValue<string>? DomainArn { get; set; }
 
     /// <summary>
     /// The index_name attribute.
@@ -42,21 +42,21 @@ public partial class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     [TerraformProperty("index_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IndexName { get; set; }
+    public required partial TerraformValue<string> IndexName { get; set; }
 
     /// <summary>
     /// The index_rotation_period attribute.
     /// </summary>
     [TerraformProperty("index_rotation_period")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IndexRotationPeriod { get; set; }
+    public partial TerraformValue<string>? IndexRotationPeriod { get; set; }
 
     /// <summary>
     /// The retry_duration attribute.
     /// </summary>
     [TerraformProperty("retry_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetryDuration { get; set; }
+    public partial TerraformValue<double>? RetryDuration { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -64,21 +64,21 @@ public partial class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
     [TerraformProperty("s3_backup_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? S3BackupMode { get; set; }
+    public partial TerraformValue<string>? S3BackupMode { get; set; }
 
     /// <summary>
     /// The type_name attribute.
     /// </summary>
     [TerraformProperty("type_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TypeName { get; set; }
+    public partial TerraformValue<string>? TypeName { get; set; }
 
 }
 
@@ -94,63 +94,63 @@ public partial class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     [TerraformProperty("bucket_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BucketArn { get; set; }
+    public required partial TerraformValue<string> BucketArn { get; set; }
 
     /// <summary>
     /// The buffering_interval attribute.
     /// </summary>
     [TerraformProperty("buffering_interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BufferingInterval { get; set; }
+    public partial TerraformValue<double>? BufferingInterval { get; set; }
 
     /// <summary>
     /// The buffering_size attribute.
     /// </summary>
     [TerraformProperty("buffering_size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BufferingSize { get; set; }
+    public partial TerraformValue<double>? BufferingSize { get; set; }
 
     /// <summary>
     /// The compression_format attribute.
     /// </summary>
     [TerraformProperty("compression_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CompressionFormat { get; set; }
+    public partial TerraformValue<string>? CompressionFormat { get; set; }
 
     /// <summary>
     /// The custom_time_zone attribute.
     /// </summary>
     [TerraformProperty("custom_time_zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CustomTimeZone { get; set; }
+    public partial TerraformValue<string>? CustomTimeZone { get; set; }
 
     /// <summary>
     /// The error_output_prefix attribute.
     /// </summary>
     [TerraformProperty("error_output_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ErrorOutputPrefix { get; set; }
+    public partial TerraformValue<string>? ErrorOutputPrefix { get; set; }
 
     /// <summary>
     /// The file_extension attribute.
     /// </summary>
     [TerraformProperty("file_extension")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FileExtension { get; set; }
+    public partial TerraformValue<string>? FileExtension { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     [TerraformProperty("kms_key_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyArn { get; set; }
+    public partial TerraformValue<string>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
     [TerraformProperty("prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Prefix { get; set; }
+    public partial TerraformValue<string>? Prefix { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -158,14 +158,14 @@ public partial class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
     [TerraformProperty("s3_backup_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? S3BackupMode { get; set; }
+    public partial TerraformValue<string>? S3BackupMode { get; set; }
 
 }
 
@@ -180,49 +180,49 @@ public partial class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBl
     /// </summary>
     [TerraformProperty("access_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AccessKey { get; set; }
+    public partial TerraformValue<string>? AccessKey { get; set; }
 
     /// <summary>
     /// The buffering_interval attribute.
     /// </summary>
     [TerraformProperty("buffering_interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BufferingInterval { get; set; }
+    public partial TerraformValue<double>? BufferingInterval { get; set; }
 
     /// <summary>
     /// The buffering_size attribute.
     /// </summary>
     [TerraformProperty("buffering_size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BufferingSize { get; set; }
+    public partial TerraformValue<double>? BufferingSize { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The retry_duration attribute.
     /// </summary>
     [TerraformProperty("retry_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetryDuration { get; set; }
+    public partial TerraformValue<double>? RetryDuration { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [TerraformProperty("role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RoleArn { get; set; }
+    public partial TerraformValue<string>? RoleArn { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
     [TerraformProperty("s3_backup_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? S3BackupMode { get; set; }
+    public partial TerraformValue<string>? S3BackupMode { get; set; }
 
     /// <summary>
     /// The url attribute.
@@ -230,7 +230,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     [TerraformProperty("url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Url { get; set; }
+    public required partial TerraformValue<string> Url { get; set; }
 
 }
 
@@ -245,21 +245,21 @@ public partial class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock :
     /// </summary>
     [TerraformProperty("append_only")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> AppendOnly { get; set; }
+    public partial TerraformValue<bool> AppendOnly { get; set; }
 
     /// <summary>
     /// The buffering_interval attribute.
     /// </summary>
     [TerraformProperty("buffering_interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BufferingInterval { get; set; }
+    public partial TerraformValue<double>? BufferingInterval { get; set; }
 
     /// <summary>
     /// The buffering_size attribute.
     /// </summary>
     [TerraformProperty("buffering_size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BufferingSize { get; set; }
+    public partial TerraformValue<double>? BufferingSize { get; set; }
 
     /// <summary>
     /// The catalog_arn attribute.
@@ -267,14 +267,14 @@ public partial class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogArn is required")]
     [TerraformProperty("catalog_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CatalogArn { get; set; }
+    public required partial TerraformValue<string> CatalogArn { get; set; }
 
     /// <summary>
     /// The retry_duration attribute.
     /// </summary>
     [TerraformProperty("retry_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetryDuration { get; set; }
+    public partial TerraformValue<double>? RetryDuration { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -282,14 +282,14 @@ public partial class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
     [TerraformProperty("s3_backup_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? S3BackupMode { get; set; }
+    public partial TerraformValue<string>? S3BackupMode { get; set; }
 
 }
 
@@ -305,7 +305,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KinesisStreamArn is required")]
     [TerraformProperty("kinesis_stream_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KinesisStreamArn { get; set; }
+    public required partial TerraformValue<string> KinesisStreamArn { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -313,7 +313,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
 }
 
@@ -329,14 +329,14 @@ public partial class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MskClusterArn is required")]
     [TerraformProperty("msk_cluster_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MskClusterArn { get; set; }
+    public required partial TerraformValue<string> MskClusterArn { get; set; }
 
     /// <summary>
     /// The read_from_timestamp attribute.
     /// </summary>
     [TerraformProperty("read_from_timestamp")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ReadFromTimestamp { get; set; }
+    public partial TerraformValue<string>? ReadFromTimestamp { get; set; }
 
     /// <summary>
     /// The topic_name attribute.
@@ -344,7 +344,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
     [TerraformProperty("topic_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TopicName { get; set; }
+    public required partial TerraformValue<string> TopicName { get; set; }
 
 }
 
@@ -359,28 +359,28 @@ public partial class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBloc
     /// </summary>
     [TerraformProperty("buffering_interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BufferingInterval { get; set; }
+    public partial TerraformValue<double>? BufferingInterval { get; set; }
 
     /// <summary>
     /// The buffering_size attribute.
     /// </summary>
     [TerraformProperty("buffering_size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BufferingSize { get; set; }
+    public partial TerraformValue<double>? BufferingSize { get; set; }
 
     /// <summary>
     /// The cluster_endpoint attribute.
     /// </summary>
     [TerraformProperty("cluster_endpoint")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClusterEndpoint { get; set; }
+    public partial TerraformValue<string>? ClusterEndpoint { get; set; }
 
     /// <summary>
     /// The domain_arn attribute.
     /// </summary>
     [TerraformProperty("domain_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DomainArn { get; set; }
+    public partial TerraformValue<string>? DomainArn { get; set; }
 
     /// <summary>
     /// The index_name attribute.
@@ -388,21 +388,21 @@ public partial class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     [TerraformProperty("index_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IndexName { get; set; }
+    public required partial TerraformValue<string> IndexName { get; set; }
 
     /// <summary>
     /// The index_rotation_period attribute.
     /// </summary>
     [TerraformProperty("index_rotation_period")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IndexRotationPeriod { get; set; }
+    public partial TerraformValue<string>? IndexRotationPeriod { get; set; }
 
     /// <summary>
     /// The retry_duration attribute.
     /// </summary>
     [TerraformProperty("retry_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetryDuration { get; set; }
+    public partial TerraformValue<double>? RetryDuration { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -410,21 +410,21 @@ public partial class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
     [TerraformProperty("s3_backup_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? S3BackupMode { get; set; }
+    public partial TerraformValue<string>? S3BackupMode { get; set; }
 
     /// <summary>
     /// The type_name attribute.
     /// </summary>
     [TerraformProperty("type_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TypeName { get; set; }
+    public partial TerraformValue<string>? TypeName { get; set; }
 
 }
 
@@ -439,14 +439,14 @@ public partial class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigu
     /// </summary>
     [TerraformProperty("buffering_interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BufferingInterval { get; set; }
+    public partial TerraformValue<double>? BufferingInterval { get; set; }
 
     /// <summary>
     /// The buffering_size attribute.
     /// </summary>
     [TerraformProperty("buffering_size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BufferingSize { get; set; }
+    public partial TerraformValue<double>? BufferingSize { get; set; }
 
     /// <summary>
     /// The collection_endpoint attribute.
@@ -454,7 +454,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionEndpoint is required")]
     [TerraformProperty("collection_endpoint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CollectionEndpoint { get; set; }
+    public required partial TerraformValue<string> CollectionEndpoint { get; set; }
 
     /// <summary>
     /// The index_name attribute.
@@ -462,14 +462,14 @@ public partial class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     [TerraformProperty("index_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IndexName { get; set; }
+    public required partial TerraformValue<string> IndexName { get; set; }
 
     /// <summary>
     /// The retry_duration attribute.
     /// </summary>
     [TerraformProperty("retry_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetryDuration { get; set; }
+    public partial TerraformValue<double>? RetryDuration { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -477,14 +477,14 @@ public partial class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
     [TerraformProperty("s3_backup_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? S3BackupMode { get; set; }
+    public partial TerraformValue<string>? S3BackupMode { get; set; }
 
 }
 
@@ -500,21 +500,21 @@ public partial class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterJdbcurl is required")]
     [TerraformProperty("cluster_jdbcurl")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterJdbcurl { get; set; }
+    public required partial TerraformValue<string> ClusterJdbcurl { get; set; }
 
     /// <summary>
     /// The copy_options attribute.
     /// </summary>
     [TerraformProperty("copy_options")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CopyOptions { get; set; }
+    public partial TerraformValue<string>? CopyOptions { get; set; }
 
     /// <summary>
     /// The data_table_columns attribute.
     /// </summary>
     [TerraformProperty("data_table_columns")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DataTableColumns { get; set; }
+    public partial TerraformValue<string>? DataTableColumns { get; set; }
 
     /// <summary>
     /// The data_table_name attribute.
@@ -522,21 +522,21 @@ public partial class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataTableName is required")]
     [TerraformProperty("data_table_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataTableName { get; set; }
+    public required partial TerraformValue<string> DataTableName { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
     [TerraformProperty("password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Password { get; set; }
+    public partial TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// The retry_duration attribute.
     /// </summary>
     [TerraformProperty("retry_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetryDuration { get; set; }
+    public partial TerraformValue<double>? RetryDuration { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -544,21 +544,21 @@ public partial class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
     [TerraformProperty("s3_backup_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? S3BackupMode { get; set; }
+    public partial TerraformValue<string>? S3BackupMode { get; set; }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
     [TerraformProperty("username")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Username { get; set; }
+    public partial TerraformValue<string>? Username { get; set; }
 
 }
 
@@ -573,21 +573,21 @@ public partial class AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock :
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The key_arn attribute.
     /// </summary>
     [TerraformProperty("key_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyArn { get; set; }
+    public partial TerraformValue<string>? KeyArn { get; set; }
 
     /// <summary>
     /// The key_type attribute.
     /// </summary>
     [TerraformProperty("key_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyType { get; set; }
+    public partial TerraformValue<string>? KeyType { get; set; }
 
 }
 
@@ -603,35 +603,35 @@ public partial class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountUrl is required")]
     [TerraformProperty("account_url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccountUrl { get; set; }
+    public required partial TerraformValue<string> AccountUrl { get; set; }
 
     /// <summary>
     /// The buffering_interval attribute.
     /// </summary>
     [TerraformProperty("buffering_interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BufferingInterval { get; set; }
+    public partial TerraformValue<double>? BufferingInterval { get; set; }
 
     /// <summary>
     /// The buffering_size attribute.
     /// </summary>
     [TerraformProperty("buffering_size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BufferingSize { get; set; }
+    public partial TerraformValue<double>? BufferingSize { get; set; }
 
     /// <summary>
     /// The content_column_name attribute.
     /// </summary>
     [TerraformProperty("content_column_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContentColumnName { get; set; }
+    public partial TerraformValue<string>? ContentColumnName { get; set; }
 
     /// <summary>
     /// The data_loading_option attribute.
     /// </summary>
     [TerraformProperty("data_loading_option")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DataLoadingOption { get; set; }
+    public partial TerraformValue<string>? DataLoadingOption { get; set; }
 
     /// <summary>
     /// The database attribute.
@@ -639,35 +639,35 @@ public partial class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     [TerraformProperty("database")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Database { get; set; }
+    public required partial TerraformValue<string> Database { get; set; }
 
     /// <summary>
     /// The key_passphrase attribute.
     /// </summary>
     [TerraformProperty("key_passphrase")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyPassphrase { get; set; }
+    public partial TerraformValue<string>? KeyPassphrase { get; set; }
 
     /// <summary>
     /// The metadata_column_name attribute.
     /// </summary>
     [TerraformProperty("metadata_column_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MetadataColumnName { get; set; }
+    public partial TerraformValue<string>? MetadataColumnName { get; set; }
 
     /// <summary>
     /// The private_key attribute.
     /// </summary>
     [TerraformProperty("private_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrivateKey { get; set; }
+    public partial TerraformValue<string>? PrivateKey { get; set; }
 
     /// <summary>
     /// The retry_duration attribute.
     /// </summary>
     [TerraformProperty("retry_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetryDuration { get; set; }
+    public partial TerraformValue<double>? RetryDuration { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -675,14 +675,14 @@ public partial class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
     [TerraformProperty("s3_backup_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? S3BackupMode { get; set; }
+    public partial TerraformValue<string>? S3BackupMode { get; set; }
 
     /// <summary>
     /// The schema attribute.
@@ -690,7 +690,7 @@ public partial class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     [TerraformProperty("schema")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Schema { get; set; }
+    public required partial TerraformValue<string> Schema { get; set; }
 
     /// <summary>
     /// The table attribute.
@@ -698,14 +698,14 @@ public partial class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     [TerraformProperty("table")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Table { get; set; }
+    public required partial TerraformValue<string> Table { get; set; }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
     [TerraformProperty("user")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? User { get; set; }
+    public partial TerraformValue<string>? User { get; set; }
 
 }
 
@@ -720,21 +720,21 @@ public partial class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : 
     /// </summary>
     [TerraformProperty("buffering_interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BufferingInterval { get; set; }
+    public partial TerraformValue<double>? BufferingInterval { get; set; }
 
     /// <summary>
     /// The buffering_size attribute.
     /// </summary>
     [TerraformProperty("buffering_size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BufferingSize { get; set; }
+    public partial TerraformValue<double>? BufferingSize { get; set; }
 
     /// <summary>
     /// The hec_acknowledgment_timeout attribute.
     /// </summary>
     [TerraformProperty("hec_acknowledgment_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? HecAcknowledgmentTimeout { get; set; }
+    public partial TerraformValue<double>? HecAcknowledgmentTimeout { get; set; }
 
     /// <summary>
     /// The hec_endpoint attribute.
@@ -742,35 +742,35 @@ public partial class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HecEndpoint is required")]
     [TerraformProperty("hec_endpoint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HecEndpoint { get; set; }
+    public required partial TerraformValue<string> HecEndpoint { get; set; }
 
     /// <summary>
     /// The hec_endpoint_type attribute.
     /// </summary>
     [TerraformProperty("hec_endpoint_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HecEndpointType { get; set; }
+    public partial TerraformValue<string>? HecEndpointType { get; set; }
 
     /// <summary>
     /// The hec_token attribute.
     /// </summary>
     [TerraformProperty("hec_token")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HecToken { get; set; }
+    public partial TerraformValue<string>? HecToken { get; set; }
 
     /// <summary>
     /// The retry_duration attribute.
     /// </summary>
     [TerraformProperty("retry_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetryDuration { get; set; }
+    public partial TerraformValue<double>? RetryDuration { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
     [TerraformProperty("s3_backup_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? S3BackupMode { get; set; }
+    public partial TerraformValue<string>? S3BackupMode { get; set; }
 
 }
 
@@ -785,21 +785,21 @@ public partial class AwsKinesisFirehoseDeliveryStreamTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -818,7 +818,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [TerraformProperty("arn")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Arn { get; set; }
+    public partial TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The destination attribute.
@@ -826,21 +826,21 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [TerraformProperty("destination")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Destination { get; set; }
+    public required partial TerraformValue<string> Destination { get; set; }
 
     /// <summary>
     /// The destination_id attribute.
     /// </summary>
     [TerraformProperty("destination_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DestinationId { get; set; }
+    public partial TerraformValue<string> DestinationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -848,35 +848,35 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
     [TerraformProperty("version_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VersionId { get; set; }
+    public partial TerraformValue<string> VersionId { get; set; }
 
     /// <summary>
     /// Block for elasticsearch_configuration.
@@ -884,7 +884,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ElasticsearchConfiguration block(s) allowed")]
     [TerraformProperty("elasticsearch_configuration")]
-    public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock>>? ElasticsearchConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock>>? ElasticsearchConfiguration { get; set; }
 
     /// <summary>
     /// Block for extended_s3_configuration.
@@ -892,7 +892,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExtendedS3Configuration block(s) allowed")]
     [TerraformProperty("extended_s3_configuration")]
-    public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock>>? ExtendedS3Configuration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock>>? ExtendedS3Configuration { get; set; }
 
     /// <summary>
     /// Block for http_endpoint_configuration.
@@ -900,7 +900,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpEndpointConfiguration block(s) allowed")]
     [TerraformProperty("http_endpoint_configuration")]
-    public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock>>? HttpEndpointConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock>>? HttpEndpointConfiguration { get; set; }
 
     /// <summary>
     /// Block for iceberg_configuration.
@@ -908,7 +908,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IcebergConfiguration block(s) allowed")]
     [TerraformProperty("iceberg_configuration")]
-    public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock>>? IcebergConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock>>? IcebergConfiguration { get; set; }
 
     /// <summary>
     /// Block for kinesis_source_configuration.
@@ -916,7 +916,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KinesisSourceConfiguration block(s) allowed")]
     [TerraformProperty("kinesis_source_configuration")]
-    public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock>>? KinesisSourceConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock>>? KinesisSourceConfiguration { get; set; }
 
     /// <summary>
     /// Block for msk_source_configuration.
@@ -924,7 +924,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MskSourceConfiguration block(s) allowed")]
     [TerraformProperty("msk_source_configuration")]
-    public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock>>? MskSourceConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock>>? MskSourceConfiguration { get; set; }
 
     /// <summary>
     /// Block for opensearch_configuration.
@@ -932,7 +932,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpensearchConfiguration block(s) allowed")]
     [TerraformProperty("opensearch_configuration")]
-    public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock>>? OpensearchConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock>>? OpensearchConfiguration { get; set; }
 
     /// <summary>
     /// Block for opensearchserverless_configuration.
@@ -940,7 +940,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpensearchserverlessConfiguration block(s) allowed")]
     [TerraformProperty("opensearchserverless_configuration")]
-    public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBlock>>? OpensearchserverlessConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBlock>>? OpensearchserverlessConfiguration { get; set; }
 
     /// <summary>
     /// Block for redshift_configuration.
@@ -948,7 +948,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedshiftConfiguration block(s) allowed")]
     [TerraformProperty("redshift_configuration")]
-    public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock>>? RedshiftConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock>>? RedshiftConfiguration { get; set; }
 
     /// <summary>
     /// Block for server_side_encryption.
@@ -956,7 +956,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryption block(s) allowed")]
     [TerraformProperty("server_side_encryption")]
-    public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock>>? ServerSideEncryption { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock>>? ServerSideEncryption { get; set; }
 
     /// <summary>
     /// Block for snowflake_configuration.
@@ -964,7 +964,7 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnowflakeConfiguration block(s) allowed")]
     [TerraformProperty("snowflake_configuration")]
-    public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock>>? SnowflakeConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock>>? SnowflakeConfiguration { get; set; }
 
     /// <summary>
     /// Block for splunk_configuration.
@@ -972,13 +972,13 @@ public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SplunkConfiguration block(s) allowed")]
     [TerraformProperty("splunk_configuration")]
-    public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock>>? SplunkConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock>>? SplunkConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsKinesisFirehoseDeliveryStreamTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsKinesisFirehoseDeliveryStreamTimeoutsBlock>? Timeouts { get; set; }
 
 }

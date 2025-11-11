@@ -15,7 +15,7 @@ public partial class GoogleNetworkSecuritySecurityProfileCustomInterceptProfileB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterceptEndpointGroup is required")]
     [TerraformProperty("intercept_endpoint_group")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InterceptEndpointGroup { get; set; }
+    public required partial TerraformValue<string> InterceptEndpointGroup { get; set; }
 
 }
 
@@ -32,7 +32,7 @@ public partial class GoogleNetworkSecuritySecurityProfileCustomMirroringProfileB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringEndpointGroup is required")]
     [TerraformProperty("mirroring_endpoint_group")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MirroringEndpointGroup { get; set; }
+    public required partial TerraformValue<string> MirroringEndpointGroup { get; set; }
 
 }
 
@@ -55,21 +55,21 @@ public partial class GoogleNetworkSecuritySecurityProfileTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -88,14 +88,14 @@ public partial class GoogleNetworkSecuritySecurityProfile : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A map of key/value label pairs to assign to the resource.
@@ -106,7 +106,7 @@ public partial class GoogleNetworkSecuritySecurityProfile : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the security profile.
@@ -114,7 +114,7 @@ public partial class GoogleNetworkSecuritySecurityProfile : TerraformResource
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The name of the security profile resource.
@@ -122,7 +122,7 @@ public partial class GoogleNetworkSecuritySecurityProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name of the parent this security profile belongs to.
@@ -130,7 +130,7 @@ public partial class GoogleNetworkSecuritySecurityProfile : TerraformResource
     /// </summary>
     [TerraformProperty("parent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Parent { get; set; }
+    public partial TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// The type of security profile. Possible values: [&amp;quot;THREAT_PREVENTION&amp;quot;, &amp;quot;URL_FILTERING&amp;quot;, &amp;quot;CUSTOM_MIRRORING&amp;quot;, &amp;quot;CUSTOM_INTERCEPT&amp;quot;]
@@ -138,7 +138,7 @@ public partial class GoogleNetworkSecuritySecurityProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for custom_intercept_profile.
@@ -146,7 +146,7 @@ public partial class GoogleNetworkSecuritySecurityProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomInterceptProfile block(s) allowed")]
     [TerraformProperty("custom_intercept_profile")]
-    public TerraformList<TerraformBlock<GoogleNetworkSecuritySecurityProfileCustomInterceptProfileBlock>>? CustomInterceptProfile { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkSecuritySecurityProfileCustomInterceptProfileBlock>>? CustomInterceptProfile { get; set; }
 
     /// <summary>
     /// Block for custom_mirroring_profile.
@@ -154,7 +154,7 @@ public partial class GoogleNetworkSecuritySecurityProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomMirroringProfile block(s) allowed")]
     [TerraformProperty("custom_mirroring_profile")]
-    public TerraformList<TerraformBlock<GoogleNetworkSecuritySecurityProfileCustomMirroringProfileBlock>>? CustomMirroringProfile { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkSecuritySecurityProfileCustomMirroringProfileBlock>>? CustomMirroringProfile { get; set; }
 
     /// <summary>
     /// Block for threat_prevention_profile.
@@ -162,28 +162,28 @@ public partial class GoogleNetworkSecuritySecurityProfile : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreatPreventionProfile block(s) allowed")]
     [TerraformProperty("threat_prevention_profile")]
-    public TerraformList<TerraformBlock<GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlock>>? ThreatPreventionProfile { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlock>>? ThreatPreventionProfile { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkSecuritySecurityProfileTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkSecuritySecurityProfileTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the security profile was created in UTC.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other fields,
@@ -192,14 +192,14 @@ public partial class GoogleNetworkSecuritySecurityProfile : TerraformResource
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Server-defined URL of this resource.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -207,13 +207,13 @@ public partial class GoogleNetworkSecuritySecurityProfile : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Time the security profile was updated in UTC.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

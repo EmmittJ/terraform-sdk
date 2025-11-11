@@ -13,14 +13,14 @@ public partial class AwsDevopsguruNotificationChannelFiltersBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("message_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? MessageTypes { get; set; }
+    public partial TerraformSet<string>? MessageTypes { get; set; }
 
     /// <summary>
     /// The severities attribute.
     /// </summary>
     [TerraformProperty("severities")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Severities { get; set; }
+    public partial TerraformSet<string>? Severities { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public partial class AwsDevopsguruNotificationChannelSnsBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     [TerraformProperty("topic_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TopicArn { get; set; }
+    public required partial TerraformValue<string> TopicArn { get; set; }
 
 }
 
@@ -54,27 +54,27 @@ public partial class AwsDevopsguruNotificationChannel : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for filters.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("filters")]
-    public TerraformList<TerraformBlock<AwsDevopsguruNotificationChannelFiltersBlock>>? Filters { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDevopsguruNotificationChannelFiltersBlock>>? Filters { get; set; }
 
     /// <summary>
     /// Block for sns.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("sns")]
-    public TerraformList<TerraformBlock<AwsDevopsguruNotificationChannelSnsBlock>>? Sns { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDevopsguruNotificationChannelSnsBlock>>? Sns { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

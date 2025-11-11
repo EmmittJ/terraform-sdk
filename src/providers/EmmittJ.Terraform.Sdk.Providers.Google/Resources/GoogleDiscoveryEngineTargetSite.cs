@@ -13,14 +13,14 @@ public partial class GoogleDiscoveryEngineTargetSiteTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,7 +39,7 @@ public partial class GoogleDiscoveryEngineTargetSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     [TerraformProperty("data_store_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataStoreId { get; set; }
+    public required partial TerraformValue<string> DataStoreId { get; set; }
 
     /// <summary>
     /// If set to false, a uri_pattern is generated to include all pages whose
@@ -51,14 +51,14 @@ public partial class GoogleDiscoveryEngineTargetSite : TerraformResource
     /// </summary>
     [TerraformProperty("exact_match")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ExactMatch { get; set; }
+    public partial TerraformValue<bool>? ExactMatch { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
@@ -67,14 +67,14 @@ public partial class GoogleDiscoveryEngineTargetSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The user provided URI pattern from which the &#39;generated_uri_pattern&#39; is
@@ -83,42 +83,42 @@ public partial class GoogleDiscoveryEngineTargetSite : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvidedUriPattern is required")]
     [TerraformProperty("provided_uri_pattern")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProvidedUriPattern { get; set; }
+    public required partial TerraformValue<string> ProvidedUriPattern { get; set; }
 
     /// <summary>
     /// The possible target site types. Possible values: [&amp;quot;INCLUDE&amp;quot;, &amp;quot;EXCLUDE&amp;quot;]
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDiscoveryEngineTargetSiteTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDiscoveryEngineTargetSiteTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Site search indexing failure reasons.
     /// </summary>
     [TerraformProperty("failure_reason")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> FailureReason { get; }
+    public partial TerraformList<object> FailureReason { get; }
 
     /// <summary>
     /// This is system-generated based on the &#39;provided_uri_pattern&#39;.
     /// </summary>
     [TerraformProperty("generated_uri_pattern")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GeneratedUriPattern { get; }
+    public partial TerraformValue<string> GeneratedUriPattern { get; }
 
     /// <summary>
     /// The indexing status.
     /// </summary>
     [TerraformProperty("indexing_status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IndexingStatus { get; }
+    public partial TerraformValue<string> IndexingStatus { get; }
 
     /// <summary>
     /// The unique full resource name of the target site. Values are of the format
@@ -128,34 +128,34 @@ public partial class GoogleDiscoveryEngineTargetSite : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Root domain of the &#39;provided_uri_pattern&#39;.
     /// </summary>
     [TerraformProperty("root_domain_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RootDomainUri { get; }
+    public partial TerraformValue<string> RootDomainUri { get; }
 
     /// <summary>
     /// Site ownership and validity verification status.
     /// </summary>
     [TerraformProperty("site_verification_info")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> SiteVerificationInfo { get; }
+    public partial TerraformList<object> SiteVerificationInfo { get; }
 
     /// <summary>
     /// The unique id of the target site.
     /// </summary>
     [TerraformProperty("target_site_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TargetSiteId { get; }
+    public partial TerraformValue<string> TargetSiteId { get; }
 
     /// <summary>
     /// The target site&#39;s last updated time.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

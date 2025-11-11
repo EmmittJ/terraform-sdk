@@ -16,7 +16,7 @@ public partial class AzurermPostgresqlServerIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -31,49 +31,49 @@ public partial class AzurermPostgresqlServerThreatDetectionPolicyBlock : Terrafo
     /// </summary>
     [TerraformProperty("disabled_alerts")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? DisabledAlerts { get; set; }
+    public partial TerraformSet<string>? DisabledAlerts { get; set; }
 
     /// <summary>
     /// The email_account_admins attribute.
     /// </summary>
     [TerraformProperty("email_account_admins")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EmailAccountAdmins { get; set; }
+    public partial TerraformValue<bool>? EmailAccountAdmins { get; set; }
 
     /// <summary>
     /// The email_addresses attribute.
     /// </summary>
     [TerraformProperty("email_addresses")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? EmailAddresses { get; set; }
+    public partial TerraformSet<string>? EmailAddresses { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The retention_days attribute.
     /// </summary>
     [TerraformProperty("retention_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetentionDays { get; set; }
+    public partial TerraformValue<double>? RetentionDays { get; set; }
 
     /// <summary>
     /// The storage_account_access_key attribute.
     /// </summary>
     [TerraformProperty("storage_account_access_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountAccessKey { get; set; }
+    public partial TerraformValue<string>? StorageAccountAccessKey { get; set; }
 
     /// <summary>
     /// The storage_endpoint attribute.
     /// </summary>
     [TerraformProperty("storage_endpoint")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageEndpoint { get; set; }
+    public partial TerraformValue<string>? StorageEndpoint { get; set; }
 
 }
 
@@ -88,28 +88,28 @@ public partial class AzurermPostgresqlServerTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -129,77 +129,77 @@ public partial class AzurermPostgresqlServer : TerraformResource
     /// </summary>
     [TerraformProperty("administrator_login")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AdministratorLogin { get; set; }
+    public partial TerraformValue<string> AdministratorLogin { get; set; }
 
     /// <summary>
     /// The administrator_login_password attribute.
     /// </summary>
     [TerraformProperty("administrator_login_password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AdministratorLoginPassword { get; set; }
+    public partial TerraformValue<string>? AdministratorLoginPassword { get; set; }
 
     /// <summary>
     /// The administrator_login_password_wo attribute.
     /// </summary>
     [TerraformProperty("administrator_login_password_wo")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AdministratorLoginPasswordWo { get; set; }
+    public partial TerraformValue<string>? AdministratorLoginPasswordWo { get; set; }
 
     /// <summary>
     /// The administrator_login_password_wo_version attribute.
     /// </summary>
     [TerraformProperty("administrator_login_password_wo_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AdministratorLoginPasswordWoVersion { get; set; }
+    public partial TerraformValue<double>? AdministratorLoginPasswordWoVersion { get; set; }
 
     /// <summary>
     /// The auto_grow_enabled attribute.
     /// </summary>
     [TerraformProperty("auto_grow_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutoGrowEnabled { get; set; }
+    public partial TerraformValue<bool>? AutoGrowEnabled { get; set; }
 
     /// <summary>
     /// The backup_retention_days attribute.
     /// </summary>
     [TerraformProperty("backup_retention_days")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> BackupRetentionDays { get; set; }
+    public partial TerraformValue<double> BackupRetentionDays { get; set; }
 
     /// <summary>
     /// The create_mode attribute.
     /// </summary>
     [TerraformProperty("create_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CreateMode { get; set; }
+    public partial TerraformValue<string>? CreateMode { get; set; }
 
     /// <summary>
     /// The creation_source_server_id attribute.
     /// </summary>
     [TerraformProperty("creation_source_server_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CreationSourceServerId { get; set; }
+    public partial TerraformValue<string>? CreationSourceServerId { get; set; }
 
     /// <summary>
     /// The geo_redundant_backup_enabled attribute.
     /// </summary>
     [TerraformProperty("geo_redundant_backup_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? GeoRedundantBackupEnabled { get; set; }
+    public partial TerraformValue<bool>? GeoRedundantBackupEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The infrastructure_encryption_enabled attribute.
     /// </summary>
     [TerraformProperty("infrastructure_encryption_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? InfrastructureEncryptionEnabled { get; set; }
+    public partial TerraformValue<bool>? InfrastructureEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -207,7 +207,7 @@ public partial class AzurermPostgresqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -215,14 +215,14 @@ public partial class AzurermPostgresqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [TerraformProperty("public_network_access_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
+    public partial TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -230,14 +230,14 @@ public partial class AzurermPostgresqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The restore_point_in_time attribute.
     /// </summary>
     [TerraformProperty("restore_point_in_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RestorePointInTime { get; set; }
+    public partial TerraformValue<string>? RestorePointInTime { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
@@ -245,7 +245,7 @@ public partial class AzurermPostgresqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     [TerraformProperty("sku_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SkuName { get; set; }
+    public required partial TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The ssl_enforcement_enabled attribute.
@@ -253,28 +253,28 @@ public partial class AzurermPostgresqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslEnforcementEnabled is required")]
     [TerraformProperty("ssl_enforcement_enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> SslEnforcementEnabled { get; set; }
+    public required partial TerraformValue<bool> SslEnforcementEnabled { get; set; }
 
     /// <summary>
     /// The ssl_minimal_tls_version_enforced attribute.
     /// </summary>
     [TerraformProperty("ssl_minimal_tls_version_enforced")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SslMinimalTlsVersionEnforced { get; set; }
+    public partial TerraformValue<string>? SslMinimalTlsVersionEnforced { get; set; }
 
     /// <summary>
     /// The storage_mb attribute.
     /// </summary>
     [TerraformProperty("storage_mb")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> StorageMb { get; set; }
+    public partial TerraformValue<double> StorageMb { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The version attribute.
@@ -282,7 +282,7 @@ public partial class AzurermPostgresqlServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformProperty("version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Version { get; set; }
+    public required partial TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -290,7 +290,7 @@ public partial class AzurermPostgresqlServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermPostgresqlServerIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermPostgresqlServerIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for threat_detection_policy.
@@ -298,20 +298,20 @@ public partial class AzurermPostgresqlServer : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreatDetectionPolicy block(s) allowed")]
     [TerraformProperty("threat_detection_policy")]
-    public TerraformList<TerraformBlock<AzurermPostgresqlServerThreatDetectionPolicyBlock>>? ThreatDetectionPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermPostgresqlServerThreatDetectionPolicyBlock>>? ThreatDetectionPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPostgresqlServerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPostgresqlServerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     [TerraformProperty("fqdn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Fqdn { get; }
+    public partial TerraformValue<string> Fqdn { get; }
 
 }

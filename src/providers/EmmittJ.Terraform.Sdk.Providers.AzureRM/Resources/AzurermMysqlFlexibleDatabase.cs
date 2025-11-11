@@ -13,21 +13,21 @@ public partial class AzurermMysqlFlexibleDatabaseTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AzurermMysqlFlexibleDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Charset is required")]
     [TerraformProperty("charset")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Charset { get; set; }
+    public required partial TerraformValue<string> Charset { get; set; }
 
     /// <summary>
     /// The collation attribute.
@@ -54,14 +54,14 @@ public partial class AzurermMysqlFlexibleDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collation is required")]
     [TerraformProperty("collation")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Collation { get; set; }
+    public required partial TerraformValue<string> Collation { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -69,7 +69,7 @@ public partial class AzurermMysqlFlexibleDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -77,7 +77,7 @@ public partial class AzurermMysqlFlexibleDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The server_name attribute.
@@ -85,13 +85,13 @@ public partial class AzurermMysqlFlexibleDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     [TerraformProperty("server_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServerName { get; set; }
+    public required partial TerraformValue<string> ServerName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMysqlFlexibleDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMysqlFlexibleDatabaseTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -14,7 +14,7 @@ public partial class GooglePubsubLiteSubscriptionDeliveryConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryRequirement is required")]
     [TerraformProperty("delivery_requirement")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DeliveryRequirement { get; set; }
+    public required partial TerraformValue<string> DeliveryRequirement { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public partial class GooglePubsubLiteSubscriptionTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -62,7 +62,7 @@ public partial class GooglePubsubLiteSubscription : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the subscription.
@@ -70,21 +70,21 @@ public partial class GooglePubsubLiteSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region of the pubsub lite topic.
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// A reference to a Topic resource.
@@ -92,14 +92,14 @@ public partial class GooglePubsubLiteSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     [TerraformProperty("topic")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Topic { get; set; }
+    public required partial TerraformValue<string> Topic { get; set; }
 
     /// <summary>
     /// The zone of the pubsub lite topic.
     /// </summary>
     [TerraformProperty("zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Zone { get; set; }
+    public partial TerraformValue<string>? Zone { get; set; }
 
     /// <summary>
     /// Block for delivery_config.
@@ -107,13 +107,13 @@ public partial class GooglePubsubLiteSubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryConfig block(s) allowed")]
     [TerraformProperty("delivery_config")]
-    public TerraformList<TerraformBlock<GooglePubsubLiteSubscriptionDeliveryConfigBlock>>? DeliveryConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePubsubLiteSubscriptionDeliveryConfigBlock>>? DeliveryConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GooglePubsubLiteSubscriptionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GooglePubsubLiteSubscriptionTimeoutsBlock>? Timeouts { get; set; }
 
 }

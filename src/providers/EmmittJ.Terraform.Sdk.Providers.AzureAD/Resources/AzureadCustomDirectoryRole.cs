@@ -14,7 +14,7 @@ public partial class AzureadCustomDirectoryRolePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedResourceActions is required")]
     [TerraformProperty("allowed_resource_actions")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> AllowedResourceActions { get; set; }
+    public required partial TerraformSet<string> AllowedResourceActions { get; set; }
 
 }
 
@@ -29,28 +29,28 @@ public partial class AzureadCustomDirectoryRoleTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -69,7 +69,7 @@ public partial class AzureadCustomDirectoryRole : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display name of the custom directory role
@@ -77,7 +77,7 @@ public partial class AzureadCustomDirectoryRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Indicates whether the role is enabled for assignment
@@ -85,21 +85,21 @@ public partial class AzureadCustomDirectoryRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Custom template identifier that is typically used if one needs an identifier to be the same across different directories.
     /// </summary>
     [TerraformProperty("template_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TemplateId { get; set; }
+    public partial TerraformValue<string> TemplateId { get; set; }
 
     /// <summary>
     /// The version of the role definition.
@@ -107,7 +107,7 @@ public partial class AzureadCustomDirectoryRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformProperty("version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Version { get; set; }
+    public required partial TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// Block for permissions.
@@ -116,20 +116,20 @@ public partial class AzureadCustomDirectoryRole : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
     [TerraformProperty("permissions")]
-    public TerraformSet<TerraformBlock<AzureadCustomDirectoryRolePermissionsBlock>>? Permissions { get; set; }
+    public partial TerraformSet<TerraformBlock<AzureadCustomDirectoryRolePermissionsBlock>>? Permissions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadCustomDirectoryRoleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadCustomDirectoryRoleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The object ID of the directory role
     /// </summary>
     [TerraformProperty("object_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ObjectId { get; }
+    public partial TerraformValue<string> ObjectId { get; }
 
 }

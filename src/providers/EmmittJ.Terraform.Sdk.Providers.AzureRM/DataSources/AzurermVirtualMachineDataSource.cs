@@ -13,7 +13,7 @@ public partial class AzurermVirtualMachineDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermVirtualMachineDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermVirtualMachineDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,62 +47,62 @@ public partial class AzurermVirtualMachineDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVirtualMachineDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVirtualMachineDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [TerraformProperty("identity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Identity { get; }
+    public partial TerraformList<object> Identity { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The power_state attribute.
     /// </summary>
     [TerraformProperty("power_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PowerState { get; }
+    public partial TerraformValue<string> PowerState { get; }
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     [TerraformProperty("private_ip_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrivateIpAddress { get; }
+    public partial TerraformValue<string> PrivateIpAddress { get; }
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     [TerraformProperty("private_ip_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> PrivateIpAddresses { get; }
+    public partial TerraformList<string> PrivateIpAddresses { get; }
 
     /// <summary>
     /// The public_ip_address attribute.
     /// </summary>
     [TerraformProperty("public_ip_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PublicIpAddress { get; }
+    public partial TerraformValue<string> PublicIpAddress { get; }
 
     /// <summary>
     /// The public_ip_addresses attribute.
     /// </summary>
     [TerraformProperty("public_ip_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> PublicIpAddresses { get; }
+    public partial TerraformList<string> PublicIpAddresses { get; }
 
 }

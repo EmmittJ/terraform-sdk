@@ -14,7 +14,7 @@ public partial class AwsCeAnomalySubscriptionSubscriberBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     [TerraformProperty("address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Address { get; set; }
+    public required partial TerraformValue<string> Address { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public partial class AwsCeAnomalySubscriptionSubscriberBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -49,7 +49,7 @@ public partial class AwsCeAnomalySubscription : TerraformResource
     /// </summary>
     [TerraformProperty("account_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AccountId { get; set; }
+    public partial TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The frequency attribute.
@@ -57,14 +57,14 @@ public partial class AwsCeAnomalySubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     [TerraformProperty("frequency")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Frequency { get; set; }
+    public required partial TerraformValue<string> Frequency { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The monitor_arn_list attribute.
@@ -72,7 +72,7 @@ public partial class AwsCeAnomalySubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorArnList is required")]
     [TerraformProperty("monitor_arn_list")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? MonitorArnList { get; set; }
+    public partial TerraformList<string>? MonitorArnList { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -80,21 +80,21 @@ public partial class AwsCeAnomalySubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for subscriber.
@@ -103,7 +103,7 @@ public partial class AwsCeAnomalySubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subscriber is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Subscriber block(s) required")]
     [TerraformProperty("subscriber")]
-    public TerraformSet<TerraformBlock<AwsCeAnomalySubscriptionSubscriberBlock>>? Subscriber { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsCeAnomalySubscriptionSubscriberBlock>>? Subscriber { get; set; }
 
     /// <summary>
     /// Block for threshold_expression.
@@ -111,13 +111,13 @@ public partial class AwsCeAnomalySubscription : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThresholdExpression block(s) allowed")]
     [TerraformProperty("threshold_expression")]
-    public TerraformList<TerraformBlock<AwsCeAnomalySubscriptionThresholdExpressionBlock>>? ThresholdExpression { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCeAnomalySubscriptionThresholdExpressionBlock>>? ThresholdExpression { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

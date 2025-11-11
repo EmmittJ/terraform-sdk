@@ -13,7 +13,7 @@ public partial class AwsImagebuilderImagePipelineImageScanningConfigurationBlock
     /// </summary>
     [TerraformProperty("image_scanning_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ImageScanningEnabled { get; set; }
+    public partial TerraformValue<bool>? ImageScanningEnabled { get; set; }
 
 }
 
@@ -28,14 +28,14 @@ public partial class AwsImagebuilderImagePipelineImageTestsConfigurationBlock : 
     /// </summary>
     [TerraformProperty("image_tests_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ImageTestsEnabled { get; set; }
+    public partial TerraformValue<bool>? ImageTestsEnabled { get; set; }
 
     /// <summary>
     /// The timeout_minutes attribute.
     /// </summary>
     [TerraformProperty("timeout_minutes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? TimeoutMinutes { get; set; }
+    public partial TerraformValue<double>? TimeoutMinutes { get; set; }
 
 }
 
@@ -50,7 +50,7 @@ public partial class AwsImagebuilderImagePipelineScheduleBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("pipeline_execution_start_condition")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PipelineExecutionStartCondition { get; set; }
+    public partial TerraformValue<string>? PipelineExecutionStartCondition { get; set; }
 
     /// <summary>
     /// The schedule_expression attribute.
@@ -58,14 +58,14 @@ public partial class AwsImagebuilderImagePipelineScheduleBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     [TerraformProperty("schedule_expression")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ScheduleExpression { get; set; }
+    public required partial TerraformValue<string> ScheduleExpression { get; set; }
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
     [TerraformProperty("timezone")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Timezone { get; set; }
+    public partial TerraformValue<string> Timezone { get; set; }
 
 }
 
@@ -80,14 +80,14 @@ public partial class AwsImagebuilderImagePipelineWorkflowBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("on_failure")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OnFailure { get; set; }
+    public partial TerraformValue<string>? OnFailure { get; set; }
 
     /// <summary>
     /// The parallel_group attribute.
     /// </summary>
     [TerraformProperty("parallel_group")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ParallelGroup { get; set; }
+    public partial TerraformValue<string>? ParallelGroup { get; set; }
 
     /// <summary>
     /// The workflow_arn attribute.
@@ -95,7 +95,7 @@ public partial class AwsImagebuilderImagePipelineWorkflowBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkflowArn is required")]
     [TerraformProperty("workflow_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkflowArn { get; set; }
+    public required partial TerraformValue<string> WorkflowArn { get; set; }
 
 }
 
@@ -114,49 +114,49 @@ public partial class AwsImagebuilderImagePipeline : TerraformResource
     /// </summary>
     [TerraformProperty("container_recipe_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContainerRecipeArn { get; set; }
+    public partial TerraformValue<string>? ContainerRecipeArn { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The distribution_configuration_arn attribute.
     /// </summary>
     [TerraformProperty("distribution_configuration_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DistributionConfigurationArn { get; set; }
+    public partial TerraformValue<string>? DistributionConfigurationArn { get; set; }
 
     /// <summary>
     /// The enhanced_image_metadata_enabled attribute.
     /// </summary>
     [TerraformProperty("enhanced_image_metadata_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnhancedImageMetadataEnabled { get; set; }
+    public partial TerraformValue<bool>? EnhancedImageMetadataEnabled { get; set; }
 
     /// <summary>
     /// The execution_role attribute.
     /// </summary>
     [TerraformProperty("execution_role")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExecutionRole { get; set; }
+    public partial TerraformValue<string>? ExecutionRole { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The image_recipe_arn attribute.
     /// </summary>
     [TerraformProperty("image_recipe_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ImageRecipeArn { get; set; }
+    public partial TerraformValue<string>? ImageRecipeArn { get; set; }
 
     /// <summary>
     /// The infrastructure_configuration_arn attribute.
@@ -164,7 +164,7 @@ public partial class AwsImagebuilderImagePipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureConfigurationArn is required")]
     [TerraformProperty("infrastructure_configuration_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InfrastructureConfigurationArn { get; set; }
+    public required partial TerraformValue<string> InfrastructureConfigurationArn { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -172,35 +172,35 @@ public partial class AwsImagebuilderImagePipeline : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Status { get; set; }
+    public partial TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for image_scanning_configuration.
@@ -208,7 +208,7 @@ public partial class AwsImagebuilderImagePipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageScanningConfiguration block(s) allowed")]
     [TerraformProperty("image_scanning_configuration")]
-    public TerraformList<TerraformBlock<AwsImagebuilderImagePipelineImageScanningConfigurationBlock>>? ImageScanningConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsImagebuilderImagePipelineImageScanningConfigurationBlock>>? ImageScanningConfiguration { get; set; }
 
     /// <summary>
     /// Block for image_tests_configuration.
@@ -216,7 +216,7 @@ public partial class AwsImagebuilderImagePipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageTestsConfiguration block(s) allowed")]
     [TerraformProperty("image_tests_configuration")]
-    public TerraformList<TerraformBlock<AwsImagebuilderImagePipelineImageTestsConfigurationBlock>>? ImageTestsConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsImagebuilderImagePipelineImageTestsConfigurationBlock>>? ImageTestsConfiguration { get; set; }
 
     /// <summary>
     /// Block for schedule.
@@ -224,55 +224,55 @@ public partial class AwsImagebuilderImagePipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public TerraformList<TerraformBlock<AwsImagebuilderImagePipelineScheduleBlock>>? Schedule { get; set; }
+    public partial TerraformList<TerraformBlock<AwsImagebuilderImagePipelineScheduleBlock>>? Schedule { get; set; }
 
     /// <summary>
     /// Block for workflow.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("workflow")]
-    public TerraformList<TerraformBlock<AwsImagebuilderImagePipelineWorkflowBlock>>? Workflow { get; set; }
+    public partial TerraformList<TerraformBlock<AwsImagebuilderImagePipelineWorkflowBlock>>? Workflow { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
     [TerraformProperty("date_created")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DateCreated { get; }
+    public partial TerraformValue<string> DateCreated { get; }
 
     /// <summary>
     /// The date_last_run attribute.
     /// </summary>
     [TerraformProperty("date_last_run")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DateLastRun { get; }
+    public partial TerraformValue<string> DateLastRun { get; }
 
     /// <summary>
     /// The date_next_run attribute.
     /// </summary>
     [TerraformProperty("date_next_run")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DateNextRun { get; }
+    public partial TerraformValue<string> DateNextRun { get; }
 
     /// <summary>
     /// The date_updated attribute.
     /// </summary>
     [TerraformProperty("date_updated")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DateUpdated { get; }
+    public partial TerraformValue<string> DateUpdated { get; }
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     [TerraformProperty("platform")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Platform { get; }
+    public partial TerraformValue<string> Platform { get; }
 
 }

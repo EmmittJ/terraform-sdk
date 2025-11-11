@@ -16,7 +16,7 @@ public partial class AwsConfigRetentionConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The retention_period_in_days attribute.
@@ -24,20 +24,20 @@ public partial class AwsConfigRetentionConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodInDays is required")]
     [TerraformProperty("retention_period_in_days")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> RetentionPeriodInDays { get; set; }
+    public required partial TerraformValue<double> RetentionPeriodInDays { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

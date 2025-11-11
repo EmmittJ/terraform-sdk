@@ -18,7 +18,7 @@ public partial class AzurermKeyVaultCertificateEphemeralResource : TerraformEphe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformProperty("key_vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultId { get; set; }
+    public required partial TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -26,55 +26,55 @@ public partial class AzurermKeyVaultCertificateEphemeralResource : TerraformEphe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Version { get; set; }
+    public partial TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// The certificate_count attribute.
     /// </summary>
     [TerraformProperty("certificate_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> CertificateCount { get; }
+    public partial TerraformValue<double> CertificateCount { get; }
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     [TerraformProperty("expiration_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpirationDate { get; }
+    public partial TerraformValue<string> ExpirationDate { get; }
 
     /// <summary>
     /// The hex attribute.
     /// </summary>
     [TerraformProperty("hex")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Hex { get; }
+    public partial TerraformValue<string> Hex { get; }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     [TerraformProperty("key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Key { get; }
+    public partial TerraformValue<string> Key { get; }
 
     /// <summary>
     /// The not_before_date attribute.
     /// </summary>
     [TerraformProperty("not_before_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NotBeforeDate { get; }
+    public partial TerraformValue<string> NotBeforeDate { get; }
 
     /// <summary>
     /// The pem attribute.
     /// </summary>
     [TerraformProperty("pem")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Pem { get; }
+    public partial TerraformValue<string> Pem { get; }
 
 }

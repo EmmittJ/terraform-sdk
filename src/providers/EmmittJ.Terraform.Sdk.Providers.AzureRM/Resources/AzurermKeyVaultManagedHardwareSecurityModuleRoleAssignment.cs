@@ -13,21 +13,21 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentT
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment 
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The managed_hsm_id attribute.
@@ -53,7 +53,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
     [TerraformProperty("managed_hsm_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ManagedHsmId { get; set; }
+    public required partial TerraformValue<string> ManagedHsmId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -61,7 +61,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
@@ -69,7 +69,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     [TerraformProperty("principal_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrincipalId { get; set; }
+    public required partial TerraformValue<string> PrincipalId { get; set; }
 
     /// <summary>
     /// The role_definition_id attribute.
@@ -77,7 +77,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     [TerraformProperty("role_definition_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleDefinitionId { get; set; }
+    public required partial TerraformValue<string> RoleDefinitionId { get; set; }
 
     /// <summary>
     /// The scope attribute.
@@ -85,20 +85,20 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     [TerraformProperty("scope")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Scope { get; set; }
+    public required partial TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     [TerraformProperty("resource_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceId { get; }
+    public partial TerraformValue<string> ResourceId { get; }
 
 }

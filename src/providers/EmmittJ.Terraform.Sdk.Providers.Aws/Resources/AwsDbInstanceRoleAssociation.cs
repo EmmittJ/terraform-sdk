@@ -13,14 +13,14 @@ public partial class AwsDbInstanceRoleAssociationTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,7 +39,7 @@ public partial class AwsDbInstanceRoleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceIdentifier is required")]
     [TerraformProperty("db_instance_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DbInstanceIdentifier { get; set; }
+    public required partial TerraformValue<string> DbInstanceIdentifier { get; set; }
 
     /// <summary>
     /// The feature_name attribute.
@@ -47,21 +47,21 @@ public partial class AwsDbInstanceRoleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureName is required")]
     [TerraformProperty("feature_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FeatureName { get; set; }
+    public required partial TerraformValue<string> FeatureName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -69,13 +69,13 @@ public partial class AwsDbInstanceRoleAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsDbInstanceRoleAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsDbInstanceRoleAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

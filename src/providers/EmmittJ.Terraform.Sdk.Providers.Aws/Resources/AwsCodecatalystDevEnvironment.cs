@@ -13,14 +13,14 @@ public partial class AwsCodecatalystDevEnvironmentIdesBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The runtime attribute.
     /// </summary>
     [TerraformProperty("runtime")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Runtime { get; set; }
+    public partial TerraformValue<string>? Runtime { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public partial class AwsCodecatalystDevEnvironmentPersistentStorageBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     [TerraformProperty("size")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Size { get; set; }
+    public required partial TerraformValue<double> Size { get; set; }
 
 }
 
@@ -51,7 +51,7 @@ public partial class AwsCodecatalystDevEnvironmentRepositoriesBlock : TerraformB
     /// </summary>
     [TerraformProperty("branch_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BranchName { get; set; }
+    public partial TerraformValue<string>? BranchName { get; set; }
 
     /// <summary>
     /// The repository_name attribute.
@@ -59,7 +59,7 @@ public partial class AwsCodecatalystDevEnvironmentRepositoriesBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     [TerraformProperty("repository_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepositoryName { get; set; }
+    public required partial TerraformValue<string> RepositoryName { get; set; }
 
 }
 
@@ -74,21 +74,21 @@ public partial class AwsCodecatalystDevEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -107,21 +107,21 @@ public partial class AwsCodecatalystDevEnvironment : TerraformResource
     /// </summary>
     [TerraformProperty("alias")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Alias { get; set; }
+    public partial TerraformValue<string>? Alias { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The inactivity_timeout_minutes attribute.
     /// </summary>
     [TerraformProperty("inactivity_timeout_minutes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? InactivityTimeoutMinutes { get; set; }
+    public partial TerraformValue<double>? InactivityTimeoutMinutes { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
@@ -129,7 +129,7 @@ public partial class AwsCodecatalystDevEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     [TerraformProperty("instance_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InstanceType { get; set; }
+    public required partial TerraformValue<string> InstanceType { get; set; }
 
     /// <summary>
     /// The project_name attribute.
@@ -137,14 +137,14 @@ public partial class AwsCodecatalystDevEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     [TerraformProperty("project_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProjectName { get; set; }
+    public required partial TerraformValue<string> ProjectName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The space_name attribute.
@@ -152,7 +152,7 @@ public partial class AwsCodecatalystDevEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpaceName is required")]
     [TerraformProperty("space_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SpaceName { get; set; }
+    public required partial TerraformValue<string> SpaceName { get; set; }
 
     /// <summary>
     /// Block for ides.
@@ -162,7 +162,7 @@ public partial class AwsCodecatalystDevEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Ides block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ides block(s) allowed")]
     [TerraformProperty("ides")]
-    public TerraformList<TerraformBlock<AwsCodecatalystDevEnvironmentIdesBlock>>? Ides { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCodecatalystDevEnvironmentIdesBlock>>? Ides { get; set; }
 
     /// <summary>
     /// Block for persistent_storage.
@@ -172,7 +172,7 @@ public partial class AwsCodecatalystDevEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PersistentStorage block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistentStorage block(s) allowed")]
     [TerraformProperty("persistent_storage")]
-    public TerraformList<TerraformBlock<AwsCodecatalystDevEnvironmentPersistentStorageBlock>>? PersistentStorage { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCodecatalystDevEnvironmentPersistentStorageBlock>>? PersistentStorage { get; set; }
 
     /// <summary>
     /// Block for repositories.
@@ -180,13 +180,13 @@ public partial class AwsCodecatalystDevEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Repositories block(s) allowed")]
     [TerraformProperty("repositories")]
-    public TerraformList<TerraformBlock<AwsCodecatalystDevEnvironmentRepositoriesBlock>>? Repositories { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCodecatalystDevEnvironmentRepositoriesBlock>>? Repositories { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsCodecatalystDevEnvironmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsCodecatalystDevEnvironmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

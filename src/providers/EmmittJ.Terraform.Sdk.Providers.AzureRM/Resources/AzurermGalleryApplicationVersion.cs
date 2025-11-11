@@ -14,7 +14,7 @@ public partial class AzurermGalleryApplicationVersionManageActionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Install is required")]
     [TerraformProperty("install")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Install { get; set; }
+    public required partial TerraformValue<string> Install { get; set; }
 
     /// <summary>
     /// The remove attribute.
@@ -22,14 +22,14 @@ public partial class AzurermGalleryApplicationVersionManageActionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Remove is required")]
     [TerraformProperty("remove")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Remove { get; set; }
+    public required partial TerraformValue<string> Remove { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -44,7 +44,7 @@ public partial class AzurermGalleryApplicationVersionSourceBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("default_configuration_link")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultConfigurationLink { get; set; }
+    public partial TerraformValue<string>? DefaultConfigurationLink { get; set; }
 
     /// <summary>
     /// The media_link attribute.
@@ -52,7 +52,7 @@ public partial class AzurermGalleryApplicationVersionSourceBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MediaLink is required")]
     [TerraformProperty("media_link")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MediaLink { get; set; }
+    public required partial TerraformValue<string> MediaLink { get; set; }
 
 }
 
@@ -67,7 +67,7 @@ public partial class AzurermGalleryApplicationVersionTargetRegionBlock : Terrafo
     /// </summary>
     [TerraformProperty("exclude_from_latest")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ExcludeFromLatest { get; set; }
+    public partial TerraformValue<bool>? ExcludeFromLatest { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -75,7 +75,7 @@ public partial class AzurermGalleryApplicationVersionTargetRegionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The regional_replica_count attribute.
@@ -83,14 +83,14 @@ public partial class AzurermGalleryApplicationVersionTargetRegionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionalReplicaCount is required")]
     [TerraformProperty("regional_replica_count")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> RegionalReplicaCount { get; set; }
+    public required partial TerraformValue<double> RegionalReplicaCount { get; set; }
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
     [TerraformProperty("storage_account_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountType { get; set; }
+    public partial TerraformValue<string>? StorageAccountType { get; set; }
 
 }
 
@@ -105,28 +105,28 @@ public partial class AzurermGalleryApplicationVersionTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -145,28 +145,28 @@ public partial class AzurermGalleryApplicationVersion : TerraformResource
     /// </summary>
     [TerraformProperty("config_file")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConfigFile { get; set; }
+    public partial TerraformValue<string>? ConfigFile { get; set; }
 
     /// <summary>
     /// The enable_health_check attribute.
     /// </summary>
     [TerraformProperty("enable_health_check")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableHealthCheck { get; set; }
+    public partial TerraformValue<bool>? EnableHealthCheck { get; set; }
 
     /// <summary>
     /// The end_of_life_date attribute.
     /// </summary>
     [TerraformProperty("end_of_life_date")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EndOfLifeDate { get; set; }
+    public partial TerraformValue<string>? EndOfLifeDate { get; set; }
 
     /// <summary>
     /// The exclude_from_latest attribute.
     /// </summary>
     [TerraformProperty("exclude_from_latest")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ExcludeFromLatest { get; set; }
+    public partial TerraformValue<bool>? ExcludeFromLatest { get; set; }
 
     /// <summary>
     /// The gallery_application_id attribute.
@@ -174,14 +174,14 @@ public partial class AzurermGalleryApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryApplicationId is required")]
     [TerraformProperty("gallery_application_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GalleryApplicationId { get; set; }
+    public required partial TerraformValue<string> GalleryApplicationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -189,7 +189,7 @@ public partial class AzurermGalleryApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -197,21 +197,21 @@ public partial class AzurermGalleryApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The package_file attribute.
     /// </summary>
     [TerraformProperty("package_file")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PackageFile { get; set; }
+    public partial TerraformValue<string>? PackageFile { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for manage_action.
@@ -221,7 +221,7 @@ public partial class AzurermGalleryApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManageAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManageAction block(s) allowed")]
     [TerraformProperty("manage_action")]
-    public TerraformList<TerraformBlock<AzurermGalleryApplicationVersionManageActionBlock>>? ManageAction { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermGalleryApplicationVersionManageActionBlock>>? ManageAction { get; set; }
 
     /// <summary>
     /// Block for source.
@@ -231,7 +231,7 @@ public partial class AzurermGalleryApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
     [TerraformProperty("source")]
-    public TerraformList<TerraformBlock<AzurermGalleryApplicationVersionSourceBlock>>? Source { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermGalleryApplicationVersionSourceBlock>>? Source { get; set; }
 
     /// <summary>
     /// Block for target_region.
@@ -240,13 +240,13 @@ public partial class AzurermGalleryApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRegion is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetRegion block(s) required")]
     [TerraformProperty("target_region")]
-    public TerraformList<TerraformBlock<AzurermGalleryApplicationVersionTargetRegionBlock>>? TargetRegion { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermGalleryApplicationVersionTargetRegionBlock>>? TargetRegion { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermGalleryApplicationVersionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermGalleryApplicationVersionTimeoutsBlock>? Timeouts { get; set; }
 
 }

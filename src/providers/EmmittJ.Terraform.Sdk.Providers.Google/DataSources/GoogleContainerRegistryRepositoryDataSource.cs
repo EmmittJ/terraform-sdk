@@ -17,27 +17,27 @@ public partial class GoogleContainerRegistryRepositoryDataSource : TerraformData
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The repository_url attribute.
     /// </summary>
     [TerraformProperty("repository_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RepositoryUrl { get; }
+    public partial TerraformValue<string> RepositoryUrl { get; }
 
 }

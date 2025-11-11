@@ -16,27 +16,27 @@ public partial class AwsPartitionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The dns_suffix attribute.
     /// </summary>
     [TerraformProperty("dns_suffix")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DnsSuffix { get; }
+    public partial TerraformValue<string> DnsSuffix { get; }
 
     /// <summary>
     /// The partition attribute.
     /// </summary>
     [TerraformProperty("partition")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Partition { get; }
+    public partial TerraformValue<string> Partition { get; }
 
     /// <summary>
     /// The reverse_dns_prefix attribute.
     /// </summary>
     [TerraformProperty("reverse_dns_prefix")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ReverseDnsPrefix { get; }
+    public partial TerraformValue<string> ReverseDnsPrefix { get; }
 
 }

@@ -16,7 +16,7 @@ public partial class GoogleAlloydbSupportedDatabaseFlagsDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The canonical id for the location. For example: &amp;quot;us-east1&amp;quot;.
@@ -24,20 +24,20 @@ public partial class GoogleAlloydbSupportedDatabaseFlagsDataSource : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Project ID of the project.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The supported_database_flags attribute.
     /// </summary>
     [TerraformProperty("supported_database_flags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> SupportedDatabaseFlags { get; }
+    public partial TerraformList<object> SupportedDatabaseFlags { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermKubernetesServiceVersionsDataSourceTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,14 +31,14 @@ public partial class AzurermKubernetesServiceVersionsDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The include_preview attribute.
     /// </summary>
     [TerraformProperty("include_preview")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IncludePreview { get; set; }
+    public partial TerraformValue<bool>? IncludePreview { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -46,41 +46,41 @@ public partial class AzurermKubernetesServiceVersionsDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The version_prefix attribute.
     /// </summary>
     [TerraformProperty("version_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VersionPrefix { get; set; }
+    public partial TerraformValue<string>? VersionPrefix { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKubernetesServiceVersionsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKubernetesServiceVersionsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The default_version attribute.
     /// </summary>
     [TerraformProperty("default_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DefaultVersion { get; }
+    public partial TerraformValue<string> DefaultVersion { get; }
 
     /// <summary>
     /// The latest_version attribute.
     /// </summary>
     [TerraformProperty("latest_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LatestVersion { get; }
+    public partial TerraformValue<string> LatestVersion { get; }
 
     /// <summary>
     /// The versions attribute.
     /// </summary>
     [TerraformProperty("versions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Versions { get; }
+    public partial TerraformList<string> Versions { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKeyId is required")]
     [TerraformProperty("access_key_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccessKeyId { get; set; }
+    public required partial TerraformValue<string> AccessKeyId { get; set; }
 
     /// <summary>
     /// The name of the AWS region that your origin is in.
@@ -22,7 +22,7 @@ public partial class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginRegion is required")]
     [TerraformProperty("origin_region")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OriginRegion { get; set; }
+    public required partial TerraformValue<string> OriginRegion { get; set; }
 
     /// <summary>
     /// The Secret Manager secret version of the secret access key used by your origin.
@@ -32,7 +32,7 @@ public partial class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretAccessKeyVersion is required")]
     [TerraformProperty("secret_access_key_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SecretAccessKeyVersion { get; set; }
+    public required partial TerraformValue<string> SecretAccessKeyVersion { get; set; }
 
 }
 
@@ -50,7 +50,7 @@ public partial class GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock : Te
     /// </summary>
     [TerraformProperty("flex_shielding_regions")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? FlexShieldingRegions { get; set; }
+    public partial TerraformList<string>? FlexShieldingRegions { get; set; }
 
 }
 
@@ -76,7 +76,7 @@ public partial class GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock : T
     /// </summary>
     [TerraformProperty("redirect_conditions")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? RedirectConditions { get; set; }
+    public partial TerraformList<string>? RedirectConditions { get; set; }
 
 }
 
@@ -95,7 +95,7 @@ public partial class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : Terrafor
     /// </summary>
     [TerraformProperty("connect_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConnectTimeout { get; set; }
+    public partial TerraformValue<string>? ConnectTimeout { get; set; }
 
     /// <summary>
     /// The maximum time across all connection attempts to the origin, including failover origins, before returning an error to the client. A HTTP 504 will be returned if the timeout is reached before a response is returned.
@@ -106,7 +106,7 @@ public partial class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : Terrafor
     /// </summary>
     [TerraformProperty("max_attempts_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MaxAttemptsTimeout { get; set; }
+    public partial TerraformValue<string>? MaxAttemptsTimeout { get; set; }
 
     /// <summary>
     /// The maximum duration to wait between reads of a single HTTP connection/stream.
@@ -119,7 +119,7 @@ public partial class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : Terrafor
     /// </summary>
     [TerraformProperty("read_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ReadTimeout { get; set; }
+    public partial TerraformValue<string>? ReadTimeout { get; set; }
 
     /// <summary>
     /// The maximum duration to wait for the last byte of a response to arrive when reading from the HTTP connection/stream.
@@ -134,7 +134,7 @@ public partial class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : Terrafor
     /// </summary>
     [TerraformProperty("response_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResponseTimeout { get; set; }
+    public partial TerraformValue<string>? ResponseTimeout { get; set; }
 
 }
 
@@ -149,21 +149,21 @@ public partial class GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -182,7 +182,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The Origin resource to try when the current origin cannot be reached.
@@ -193,14 +193,14 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [TerraformProperty("failover_origin")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FailoverOrigin { get; set; }
+    public partial TerraformValue<string>? FailoverOrigin { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Set of label tags associated with the EdgeCache resource.
@@ -210,7 +210,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The maximum number of attempts to cache fill from this origin. Another attempt is made when a cache fill fails with one of the retryConditions.
@@ -228,7 +228,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [TerraformProperty("max_attempts")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxAttempts { get; set; }
+    public partial TerraformValue<double>? MaxAttempts { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is created.
@@ -238,7 +238,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// A fully qualified domain name (FQDN) or IP address reachable over the public Internet, or the address of a Google Cloud Storage bucket.
@@ -251,7 +251,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginAddress is required")]
     [TerraformProperty("origin_address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OriginAddress { get; set; }
+    public required partial TerraformValue<string> OriginAddress { get; set; }
 
     /// <summary>
     /// The port to connect to the origin on.
@@ -259,14 +259,14 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [TerraformProperty("port")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Port { get; set; }
+    public partial TerraformValue<double> Port { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The protocol to use to connect to the configured origin. Defaults to HTTP2, and it is strongly recommended that users use HTTP2 for both security &amp;amp; performance.
@@ -275,7 +275,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [TerraformProperty("protocol")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Protocol { get; set; }
+    public partial TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// Specifies one or more retry conditions for the configured origin.
@@ -299,7 +299,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [TerraformProperty("retry_conditions")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> RetryConditions { get; set; }
+    public partial TerraformList<string> RetryConditions { get; set; }
 
     /// <summary>
     /// Block for aws_v4_authentication.
@@ -307,7 +307,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AwsV4Authentication block(s) allowed")]
     [TerraformProperty("aws_v4_authentication")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock>>? AwsV4Authentication { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock>>? AwsV4Authentication { get; set; }
 
     /// <summary>
     /// Block for flex_shielding.
@@ -315,7 +315,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FlexShielding block(s) allowed")]
     [TerraformProperty("flex_shielding")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock>>? FlexShielding { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock>>? FlexShielding { get; set; }
 
     /// <summary>
     /// Block for origin_override_action.
@@ -323,7 +323,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OriginOverrideAction block(s) allowed")]
     [TerraformProperty("origin_override_action")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlock>>? OriginOverrideAction { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlock>>? OriginOverrideAction { get; set; }
 
     /// <summary>
     /// Block for origin_redirect.
@@ -331,7 +331,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OriginRedirect block(s) allowed")]
     [TerraformProperty("origin_redirect")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock>>? OriginRedirect { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock>>? OriginRedirect { get; set; }
 
     /// <summary>
     /// Block for timeout.
@@ -339,21 +339,21 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Timeout block(s) allowed")]
     [TerraformProperty("timeout")]
-    public TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginTimeoutBlock>>? Timeout { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkServicesEdgeCacheOriginTimeoutBlock>>? Timeout { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -361,6 +361,6 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

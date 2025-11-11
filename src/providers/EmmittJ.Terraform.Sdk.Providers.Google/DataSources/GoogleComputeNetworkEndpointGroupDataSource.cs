@@ -16,7 +16,7 @@ public partial class GoogleComputeNetworkEndpointGroupDataSource : TerraformData
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is
@@ -29,28 +29,28 @@ public partial class GoogleComputeNetworkEndpointGroupDataSource : TerraformData
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SelfLink { get; set; }
+    public partial TerraformValue<string>? SelfLink { get; set; }
 
     /// <summary>
     /// Zone where the network endpoint group is located.
     /// </summary>
     [TerraformProperty("zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Zone { get; set; }
+    public partial TerraformValue<string>? Zone { get; set; }
 
     /// <summary>
     /// The default port used if the port number is not specified in the
@@ -58,7 +58,7 @@ public partial class GoogleComputeNetworkEndpointGroupDataSource : TerraformData
     /// </summary>
     [TerraformProperty("default_port")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> DefaultPort { get; }
+    public partial TerraformValue<double> DefaultPort { get; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
@@ -66,14 +66,14 @@ public partial class GoogleComputeNetworkEndpointGroupDataSource : TerraformData
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The uniquely generated identifier for the resource. This identifier is defined by the server.
     /// </summary>
     [TerraformProperty("generated_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> GeneratedId { get; }
+    public partial TerraformValue<double> GeneratedId { get; }
 
     /// <summary>
     /// The network to which all network endpoints in the NEG belong.
@@ -81,7 +81,7 @@ public partial class GoogleComputeNetworkEndpointGroupDataSource : TerraformData
     /// </summary>
     [TerraformProperty("network")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Network { get; }
+    public partial TerraformValue<string> Network { get; }
 
     /// <summary>
     /// Type of network endpoints in this network endpoint group.
@@ -96,20 +96,20 @@ public partial class GoogleComputeNetworkEndpointGroupDataSource : TerraformData
     /// </summary>
     [TerraformProperty("network_endpoint_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NetworkEndpointType { get; }
+    public partial TerraformValue<string> NetworkEndpointType { get; }
 
     /// <summary>
     /// Number of network endpoints in the network endpoint group.
     /// </summary>
     [TerraformProperty("size")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> Size { get; }
+    public partial TerraformValue<double> Size { get; }
 
     /// <summary>
     /// Optional subnetwork to which all network endpoints in the NEG belong.
     /// </summary>
     [TerraformProperty("subnetwork")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Subnetwork { get; }
+    public partial TerraformValue<string> Subnetwork { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AwsServicecatalogConstraintDataSourceTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,14 +31,14 @@ public partial class AwsServicecatalogConstraintDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("accept_language")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AcceptLanguage { get; set; }
+    public partial TerraformValue<string>? AcceptLanguage { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Description { get; set; }
+    public partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The id attribute.
@@ -46,62 +46,62 @@ public partial class AwsServicecatalogConstraintDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsServicecatalogConstraintDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsServicecatalogConstraintDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     [TerraformProperty("owner")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Owner { get; }
+    public partial TerraformValue<string> Owner { get; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Parameters { get; }
+    public partial TerraformValue<string> Parameters { get; }
 
     /// <summary>
     /// The portfolio_id attribute.
     /// </summary>
     [TerraformProperty("portfolio_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PortfolioId { get; }
+    public partial TerraformValue<string> PortfolioId { get; }
 
     /// <summary>
     /// The product_id attribute.
     /// </summary>
     [TerraformProperty("product_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ProductId { get; }
+    public partial TerraformValue<string> ProductId { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Type { get; }
+    public partial TerraformValue<string> Type { get; }
 
 }

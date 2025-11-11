@@ -15,7 +15,7 @@ public partial class AzurermKubernetesClusterAciConnectorLinuxBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetName is required")]
     [TerraformProperty("subnet_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetName { get; set; }
+    public required partial TerraformValue<string> SubnetName { get; set; }
 
 }
 
@@ -30,21 +30,21 @@ public partial class AzurermKubernetesClusterApiServerAccessProfileBlock : Terra
     /// </summary>
     [TerraformProperty("authorized_ip_ranges")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AuthorizedIpRanges { get; set; }
+    public partial TerraformSet<string>? AuthorizedIpRanges { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [TerraformProperty("subnet_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SubnetId { get; set; }
+    public partial TerraformValue<string>? SubnetId { get; set; }
 
     /// <summary>
     /// The virtual_network_integration_enabled attribute.
     /// </summary>
     [TerraformProperty("virtual_network_integration_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? VirtualNetworkIntegrationEnabled { get; set; }
+    public partial TerraformValue<bool>? VirtualNetworkIntegrationEnabled { get; set; }
 
 }
 
@@ -59,140 +59,140 @@ public partial class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformB
     /// </summary>
     [TerraformProperty("balance_similar_node_groups")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? BalanceSimilarNodeGroups { get; set; }
+    public partial TerraformValue<bool>? BalanceSimilarNodeGroups { get; set; }
 
     /// <summary>
     /// The daemonset_eviction_for_empty_nodes_enabled attribute.
     /// </summary>
     [TerraformProperty("daemonset_eviction_for_empty_nodes_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DaemonsetEvictionForEmptyNodesEnabled { get; set; }
+    public partial TerraformValue<bool>? DaemonsetEvictionForEmptyNodesEnabled { get; set; }
 
     /// <summary>
     /// The daemonset_eviction_for_occupied_nodes_enabled attribute.
     /// </summary>
     [TerraformProperty("daemonset_eviction_for_occupied_nodes_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DaemonsetEvictionForOccupiedNodesEnabled { get; set; }
+    public partial TerraformValue<bool>? DaemonsetEvictionForOccupiedNodesEnabled { get; set; }
 
     /// <summary>
     /// The empty_bulk_delete_max attribute.
     /// </summary>
     [TerraformProperty("empty_bulk_delete_max")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> EmptyBulkDeleteMax { get; set; }
+    public partial TerraformValue<string> EmptyBulkDeleteMax { get; set; }
 
     /// <summary>
     /// The expander attribute.
     /// </summary>
     [TerraformProperty("expander")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Expander { get; set; }
+    public partial TerraformValue<string>? Expander { get; set; }
 
     /// <summary>
     /// The ignore_daemonsets_utilization_enabled attribute.
     /// </summary>
     [TerraformProperty("ignore_daemonsets_utilization_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IgnoreDaemonsetsUtilizationEnabled { get; set; }
+    public partial TerraformValue<bool>? IgnoreDaemonsetsUtilizationEnabled { get; set; }
 
     /// <summary>
     /// The max_graceful_termination_sec attribute.
     /// </summary>
     [TerraformProperty("max_graceful_termination_sec")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> MaxGracefulTerminationSec { get; set; }
+    public partial TerraformValue<string> MaxGracefulTerminationSec { get; set; }
 
     /// <summary>
     /// The max_node_provisioning_time attribute.
     /// </summary>
     [TerraformProperty("max_node_provisioning_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MaxNodeProvisioningTime { get; set; }
+    public partial TerraformValue<string>? MaxNodeProvisioningTime { get; set; }
 
     /// <summary>
     /// The max_unready_nodes attribute.
     /// </summary>
     [TerraformProperty("max_unready_nodes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxUnreadyNodes { get; set; }
+    public partial TerraformValue<double>? MaxUnreadyNodes { get; set; }
 
     /// <summary>
     /// The max_unready_percentage attribute.
     /// </summary>
     [TerraformProperty("max_unready_percentage")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxUnreadyPercentage { get; set; }
+    public partial TerraformValue<double>? MaxUnreadyPercentage { get; set; }
 
     /// <summary>
     /// The new_pod_scale_up_delay attribute.
     /// </summary>
     [TerraformProperty("new_pod_scale_up_delay")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NewPodScaleUpDelay { get; set; }
+    public partial TerraformValue<string> NewPodScaleUpDelay { get; set; }
 
     /// <summary>
     /// The scale_down_delay_after_add attribute.
     /// </summary>
     [TerraformProperty("scale_down_delay_after_add")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ScaleDownDelayAfterAdd { get; set; }
+    public partial TerraformValue<string> ScaleDownDelayAfterAdd { get; set; }
 
     /// <summary>
     /// The scale_down_delay_after_delete attribute.
     /// </summary>
     [TerraformProperty("scale_down_delay_after_delete")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ScaleDownDelayAfterDelete { get; set; }
+    public partial TerraformValue<string> ScaleDownDelayAfterDelete { get; set; }
 
     /// <summary>
     /// The scale_down_delay_after_failure attribute.
     /// </summary>
     [TerraformProperty("scale_down_delay_after_failure")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ScaleDownDelayAfterFailure { get; set; }
+    public partial TerraformValue<string> ScaleDownDelayAfterFailure { get; set; }
 
     /// <summary>
     /// The scale_down_unneeded attribute.
     /// </summary>
     [TerraformProperty("scale_down_unneeded")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ScaleDownUnneeded { get; set; }
+    public partial TerraformValue<string> ScaleDownUnneeded { get; set; }
 
     /// <summary>
     /// The scale_down_unready attribute.
     /// </summary>
     [TerraformProperty("scale_down_unready")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ScaleDownUnready { get; set; }
+    public partial TerraformValue<string> ScaleDownUnready { get; set; }
 
     /// <summary>
     /// The scale_down_utilization_threshold attribute.
     /// </summary>
     [TerraformProperty("scale_down_utilization_threshold")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ScaleDownUtilizationThreshold { get; set; }
+    public partial TerraformValue<string> ScaleDownUtilizationThreshold { get; set; }
 
     /// <summary>
     /// The scan_interval attribute.
     /// </summary>
     [TerraformProperty("scan_interval")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ScanInterval { get; set; }
+    public partial TerraformValue<string> ScanInterval { get; set; }
 
     /// <summary>
     /// The skip_nodes_with_local_storage attribute.
     /// </summary>
     [TerraformProperty("skip_nodes_with_local_storage")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SkipNodesWithLocalStorage { get; set; }
+    public partial TerraformValue<bool>? SkipNodesWithLocalStorage { get; set; }
 
     /// <summary>
     /// The skip_nodes_with_system_pods attribute.
     /// </summary>
     [TerraformProperty("skip_nodes_with_system_pods")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SkipNodesWithSystemPods { get; set; }
+    public partial TerraformValue<bool>? SkipNodesWithSystemPods { get; set; }
 
 }
 
@@ -207,21 +207,21 @@ public partial class AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccess
     /// </summary>
     [TerraformProperty("admin_group_object_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AdminGroupObjectIds { get; set; }
+    public partial TerraformList<string>? AdminGroupObjectIds { get; set; }
 
     /// <summary>
     /// The azure_rbac_enabled attribute.
     /// </summary>
     [TerraformProperty("azure_rbac_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AzureRbacEnabled { get; set; }
+    public partial TerraformValue<bool>? AzureRbacEnabled { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [TerraformProperty("tenant_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TenantId { get; set; }
+    public partial TerraformValue<string> TenantId { get; set; }
 
 }
 
@@ -236,14 +236,14 @@ public partial class AzurermKubernetesClusterBootstrapProfileBlock : TerraformBl
     /// </summary>
     [TerraformProperty("artifact_source")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ArtifactSource { get; set; }
+    public partial TerraformValue<string>? ArtifactSource { get; set; }
 
     /// <summary>
     /// The container_registry_id attribute.
     /// </summary>
     [TerraformProperty("container_registry_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContainerRegistryId { get; set; }
+    public partial TerraformValue<string>? ContainerRegistryId { get; set; }
 
 }
 
@@ -259,7 +259,7 @@ public partial class AzurermKubernetesClusterConfidentialComputingBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SgxQuoteHelperEnabled is required")]
     [TerraformProperty("sgx_quote_helper_enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> SgxQuoteHelperEnabled { get; set; }
+    public required partial TerraformValue<bool> SgxQuoteHelperEnabled { get; set; }
 
 }
 
@@ -274,77 +274,77 @@ public partial class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("auto_scaling_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutoScalingEnabled { get; set; }
+    public partial TerraformValue<bool>? AutoScalingEnabled { get; set; }
 
     /// <summary>
     /// The capacity_reservation_group_id attribute.
     /// </summary>
     [TerraformProperty("capacity_reservation_group_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CapacityReservationGroupId { get; set; }
+    public partial TerraformValue<string>? CapacityReservationGroupId { get; set; }
 
     /// <summary>
     /// The fips_enabled attribute.
     /// </summary>
     [TerraformProperty("fips_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? FipsEnabled { get; set; }
+    public partial TerraformValue<bool>? FipsEnabled { get; set; }
 
     /// <summary>
     /// The gpu_driver attribute.
     /// </summary>
     [TerraformProperty("gpu_driver")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GpuDriver { get; set; }
+    public partial TerraformValue<string>? GpuDriver { get; set; }
 
     /// <summary>
     /// The gpu_instance attribute.
     /// </summary>
     [TerraformProperty("gpu_instance")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GpuInstance { get; set; }
+    public partial TerraformValue<string>? GpuInstance { get; set; }
 
     /// <summary>
     /// The host_encryption_enabled attribute.
     /// </summary>
     [TerraformProperty("host_encryption_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? HostEncryptionEnabled { get; set; }
+    public partial TerraformValue<bool>? HostEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The host_group_id attribute.
     /// </summary>
     [TerraformProperty("host_group_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HostGroupId { get; set; }
+    public partial TerraformValue<string>? HostGroupId { get; set; }
 
     /// <summary>
     /// The kubelet_disk_type attribute.
     /// </summary>
     [TerraformProperty("kubelet_disk_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> KubeletDiskType { get; set; }
+    public partial TerraformValue<string> KubeletDiskType { get; set; }
 
     /// <summary>
     /// The max_count attribute.
     /// </summary>
     [TerraformProperty("max_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxCount { get; set; }
+    public partial TerraformValue<double>? MaxCount { get; set; }
 
     /// <summary>
     /// The max_pods attribute.
     /// </summary>
     [TerraformProperty("max_pods")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxPods { get; set; }
+    public partial TerraformValue<double> MaxPods { get; set; }
 
     /// <summary>
     /// The min_count attribute.
     /// </summary>
     [TerraformProperty("min_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinCount { get; set; }
+    public partial TerraformValue<double>? MinCount { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -352,154 +352,154 @@ public partial class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The node_count attribute.
     /// </summary>
     [TerraformProperty("node_count")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> NodeCount { get; set; }
+    public partial TerraformValue<double> NodeCount { get; set; }
 
     /// <summary>
     /// The node_labels attribute.
     /// </summary>
     [TerraformProperty("node_labels")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> NodeLabels { get; set; }
+    public partial TerraformMap<string> NodeLabels { get; set; }
 
     /// <summary>
     /// The node_public_ip_enabled attribute.
     /// </summary>
     [TerraformProperty("node_public_ip_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? NodePublicIpEnabled { get; set; }
+    public partial TerraformValue<bool>? NodePublicIpEnabled { get; set; }
 
     /// <summary>
     /// The node_public_ip_prefix_id attribute.
     /// </summary>
     [TerraformProperty("node_public_ip_prefix_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NodePublicIpPrefixId { get; set; }
+    public partial TerraformValue<string>? NodePublicIpPrefixId { get; set; }
 
     /// <summary>
     /// The only_critical_addons_enabled attribute.
     /// </summary>
     [TerraformProperty("only_critical_addons_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? OnlyCriticalAddonsEnabled { get; set; }
+    public partial TerraformValue<bool>? OnlyCriticalAddonsEnabled { get; set; }
 
     /// <summary>
     /// The orchestrator_version attribute.
     /// </summary>
     [TerraformProperty("orchestrator_version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> OrchestratorVersion { get; set; }
+    public partial TerraformValue<string> OrchestratorVersion { get; set; }
 
     /// <summary>
     /// The os_disk_size_gb attribute.
     /// </summary>
     [TerraformProperty("os_disk_size_gb")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> OsDiskSizeGb { get; set; }
+    public partial TerraformValue<double> OsDiskSizeGb { get; set; }
 
     /// <summary>
     /// The os_disk_type attribute.
     /// </summary>
     [TerraformProperty("os_disk_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OsDiskType { get; set; }
+    public partial TerraformValue<string>? OsDiskType { get; set; }
 
     /// <summary>
     /// The os_sku attribute.
     /// </summary>
     [TerraformProperty("os_sku")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> OsSku { get; set; }
+    public partial TerraformValue<string> OsSku { get; set; }
 
     /// <summary>
     /// The pod_subnet_id attribute.
     /// </summary>
     [TerraformProperty("pod_subnet_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PodSubnetId { get; set; }
+    public partial TerraformValue<string>? PodSubnetId { get; set; }
 
     /// <summary>
     /// The proximity_placement_group_id attribute.
     /// </summary>
     [TerraformProperty("proximity_placement_group_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProximityPlacementGroupId { get; set; }
+    public partial TerraformValue<string>? ProximityPlacementGroupId { get; set; }
 
     /// <summary>
     /// The scale_down_mode attribute.
     /// </summary>
     [TerraformProperty("scale_down_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ScaleDownMode { get; set; }
+    public partial TerraformValue<string>? ScaleDownMode { get; set; }
 
     /// <summary>
     /// The snapshot_id attribute.
     /// </summary>
     [TerraformProperty("snapshot_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SnapshotId { get; set; }
+    public partial TerraformValue<string>? SnapshotId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The temporary_name_for_rotation attribute.
     /// </summary>
     [TerraformProperty("temporary_name_for_rotation")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TemporaryNameForRotation { get; set; }
+    public partial TerraformValue<string>? TemporaryNameForRotation { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The ultra_ssd_enabled attribute.
     /// </summary>
     [TerraformProperty("ultra_ssd_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? UltraSsdEnabled { get; set; }
+    public partial TerraformValue<bool>? UltraSsdEnabled { get; set; }
 
     /// <summary>
     /// The vm_size attribute.
     /// </summary>
     [TerraformProperty("vm_size")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VmSize { get; set; }
+    public partial TerraformValue<string> VmSize { get; set; }
 
     /// <summary>
     /// The vnet_subnet_id attribute.
     /// </summary>
     [TerraformProperty("vnet_subnet_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VnetSubnetId { get; set; }
+    public partial TerraformValue<string>? VnetSubnetId { get; set; }
 
     /// <summary>
     /// The workload_runtime attribute.
     /// </summary>
     [TerraformProperty("workload_runtime")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> WorkloadRuntime { get; set; }
+    public partial TerraformValue<string> WorkloadRuntime { get; set; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     [TerraformProperty("zones")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Zones { get; set; }
+    public partial TerraformSet<string>? Zones { get; set; }
 
 }
 
@@ -514,28 +514,28 @@ public partial class AzurermKubernetesClusterHttpProxyConfigBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("http_proxy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HttpProxy { get; set; }
+    public partial TerraformValue<string>? HttpProxy { get; set; }
 
     /// <summary>
     /// The https_proxy attribute.
     /// </summary>
     [TerraformProperty("https_proxy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HttpsProxy { get; set; }
+    public partial TerraformValue<string>? HttpsProxy { get; set; }
 
     /// <summary>
     /// The no_proxy attribute.
     /// </summary>
     [TerraformProperty("no_proxy")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? NoProxy { get; set; }
+    public partial TerraformSet<string>? NoProxy { get; set; }
 
     /// <summary>
     /// The trusted_ca attribute.
     /// </summary>
     [TerraformProperty("trusted_ca")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TrustedCa { get; set; }
+    public partial TerraformValue<string>? TrustedCa { get; set; }
 
 }
 
@@ -550,7 +550,7 @@ public partial class AzurermKubernetesClusterIdentityBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -560,7 +560,7 @@ public partial class AzurermKubernetesClusterIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -576,14 +576,14 @@ public partial class AzurermKubernetesClusterIngressApplicationGatewayBlock : Te
     /// </summary>
     [TerraformProperty("gateway_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GatewayId { get; set; }
+    public partial TerraformValue<string>? GatewayId { get; set; }
 
     /// <summary>
     /// The gateway_name attribute.
     /// </summary>
     [TerraformProperty("gateway_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GatewayName { get; set; }
+    public partial TerraformValue<string>? GatewayName { get; set; }
 
 
     /// <summary>
@@ -591,14 +591,14 @@ public partial class AzurermKubernetesClusterIngressApplicationGatewayBlock : Te
     /// </summary>
     [TerraformProperty("subnet_cidr")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SubnetCidr { get; set; }
+    public partial TerraformValue<string>? SubnetCidr { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [TerraformProperty("subnet_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SubnetId { get; set; }
+    public partial TerraformValue<string>? SubnetId { get; set; }
 
 }
 
@@ -614,14 +614,14 @@ public partial class AzurermKubernetesClusterKeyManagementServiceBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     [TerraformProperty("key_vault_key_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultKeyId { get; set; }
+    public required partial TerraformValue<string> KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The key_vault_network_access attribute.
     /// </summary>
     [TerraformProperty("key_vault_network_access")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyVaultNetworkAccess { get; set; }
+    public partial TerraformValue<string>? KeyVaultNetworkAccess { get; set; }
 
 }
 
@@ -637,14 +637,14 @@ public partial class AzurermKubernetesClusterKeyVaultSecretsProviderBlock : Terr
     /// </summary>
     [TerraformProperty("secret_rotation_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SecretRotationEnabled { get; set; }
+    public partial TerraformValue<bool>? SecretRotationEnabled { get; set; }
 
     /// <summary>
     /// The secret_rotation_interval attribute.
     /// </summary>
     [TerraformProperty("secret_rotation_interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecretRotationInterval { get; set; }
+    public partial TerraformValue<string>? SecretRotationInterval { get; set; }
 
 }
 
@@ -659,21 +659,21 @@ public partial class AzurermKubernetesClusterKubeletIdentityBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("client_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ClientId { get; set; }
+    public partial TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The object_id attribute.
     /// </summary>
     [TerraformProperty("object_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ObjectId { get; set; }
+    public partial TerraformValue<string> ObjectId { get; set; }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
     [TerraformProperty("user_assigned_identity_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> UserAssignedIdentityId { get; set; }
+    public partial TerraformValue<string> UserAssignedIdentityId { get; set; }
 
 }
 
@@ -689,7 +689,7 @@ public partial class AzurermKubernetesClusterLinuxProfileBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     [TerraformProperty("admin_username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AdminUsername { get; set; }
+    public required partial TerraformValue<string> AdminUsername { get; set; }
 
 }
 
@@ -712,14 +712,14 @@ public partial class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock :
     /// </summary>
     [TerraformProperty("day_of_month")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DayOfMonth { get; set; }
+    public partial TerraformValue<double>? DayOfMonth { get; set; }
 
     /// <summary>
     /// The day_of_week attribute.
     /// </summary>
     [TerraformProperty("day_of_week")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DayOfWeek { get; set; }
+    public partial TerraformValue<string>? DayOfWeek { get; set; }
 
     /// <summary>
     /// The duration attribute.
@@ -727,7 +727,7 @@ public partial class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     [TerraformProperty("duration")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Duration { get; set; }
+    public required partial TerraformValue<double> Duration { get; set; }
 
     /// <summary>
     /// The frequency attribute.
@@ -735,7 +735,7 @@ public partial class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     [TerraformProperty("frequency")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Frequency { get; set; }
+    public required partial TerraformValue<string> Frequency { get; set; }
 
     /// <summary>
     /// The interval attribute.
@@ -743,35 +743,35 @@ public partial class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     [TerraformProperty("interval")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Interval { get; set; }
+    public required partial TerraformValue<double> Interval { get; set; }
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
     [TerraformProperty("start_date")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> StartDate { get; set; }
+    public partial TerraformValue<string> StartDate { get; set; }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     [TerraformProperty("start_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StartTime { get; set; }
+    public partial TerraformValue<string>? StartTime { get; set; }
 
     /// <summary>
     /// The utc_offset attribute.
     /// </summary>
     [TerraformProperty("utc_offset")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UtcOffset { get; set; }
+    public partial TerraformValue<string>? UtcOffset { get; set; }
 
     /// <summary>
     /// The week_index attribute.
     /// </summary>
     [TerraformProperty("week_index")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WeekIndex { get; set; }
+    public partial TerraformValue<string>? WeekIndex { get; set; }
 
 }
 
@@ -786,14 +786,14 @@ public partial class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : Terr
     /// </summary>
     [TerraformProperty("day_of_month")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DayOfMonth { get; set; }
+    public partial TerraformValue<double>? DayOfMonth { get; set; }
 
     /// <summary>
     /// The day_of_week attribute.
     /// </summary>
     [TerraformProperty("day_of_week")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DayOfWeek { get; set; }
+    public partial TerraformValue<string>? DayOfWeek { get; set; }
 
     /// <summary>
     /// The duration attribute.
@@ -801,7 +801,7 @@ public partial class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     [TerraformProperty("duration")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Duration { get; set; }
+    public required partial TerraformValue<double> Duration { get; set; }
 
     /// <summary>
     /// The frequency attribute.
@@ -809,7 +809,7 @@ public partial class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     [TerraformProperty("frequency")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Frequency { get; set; }
+    public required partial TerraformValue<string> Frequency { get; set; }
 
     /// <summary>
     /// The interval attribute.
@@ -817,35 +817,35 @@ public partial class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     [TerraformProperty("interval")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Interval { get; set; }
+    public required partial TerraformValue<double> Interval { get; set; }
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
     [TerraformProperty("start_date")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> StartDate { get; set; }
+    public partial TerraformValue<string> StartDate { get; set; }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     [TerraformProperty("start_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StartTime { get; set; }
+    public partial TerraformValue<string>? StartTime { get; set; }
 
     /// <summary>
     /// The utc_offset attribute.
     /// </summary>
     [TerraformProperty("utc_offset")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UtcOffset { get; set; }
+    public partial TerraformValue<string>? UtcOffset { get; set; }
 
     /// <summary>
     /// The week_index attribute.
     /// </summary>
     [TerraformProperty("week_index")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WeekIndex { get; set; }
+    public partial TerraformValue<string>? WeekIndex { get; set; }
 
 }
 
@@ -861,7 +861,7 @@ public partial class AzurermKubernetesClusterMicrosoftDefenderBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     [TerraformProperty("log_analytics_workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
+    public required partial TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
 
 }
 
@@ -876,14 +876,14 @@ public partial class AzurermKubernetesClusterMonitorMetricsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("annotations_allowed")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AnnotationsAllowed { get; set; }
+    public partial TerraformValue<string>? AnnotationsAllowed { get; set; }
 
     /// <summary>
     /// The labels_allowed attribute.
     /// </summary>
     [TerraformProperty("labels_allowed")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LabelsAllowed { get; set; }
+    public partial TerraformValue<string>? LabelsAllowed { get; set; }
 
 }
 
@@ -898,35 +898,35 @@ public partial class AzurermKubernetesClusterNetworkProfileBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("dns_service_ip")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DnsServiceIp { get; set; }
+    public partial TerraformValue<string> DnsServiceIp { get; set; }
 
     /// <summary>
     /// The ip_versions attribute.
     /// </summary>
     [TerraformProperty("ip_versions")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> IpVersions { get; set; }
+    public partial TerraformList<string> IpVersions { get; set; }
 
     /// <summary>
     /// The load_balancer_sku attribute.
     /// </summary>
     [TerraformProperty("load_balancer_sku")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LoadBalancerSku { get; set; }
+    public partial TerraformValue<string>? LoadBalancerSku { get; set; }
 
     /// <summary>
     /// The network_data_plane attribute.
     /// </summary>
     [TerraformProperty("network_data_plane")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NetworkDataPlane { get; set; }
+    public partial TerraformValue<string>? NetworkDataPlane { get; set; }
 
     /// <summary>
     /// The network_mode attribute.
     /// </summary>
     [TerraformProperty("network_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NetworkMode { get; set; }
+    public partial TerraformValue<string> NetworkMode { get; set; }
 
     /// <summary>
     /// The network_plugin attribute.
@@ -934,56 +934,56 @@ public partial class AzurermKubernetesClusterNetworkProfileBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkPlugin is required")]
     [TerraformProperty("network_plugin")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NetworkPlugin { get; set; }
+    public required partial TerraformValue<string> NetworkPlugin { get; set; }
 
     /// <summary>
     /// The network_plugin_mode attribute.
     /// </summary>
     [TerraformProperty("network_plugin_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NetworkPluginMode { get; set; }
+    public partial TerraformValue<string>? NetworkPluginMode { get; set; }
 
     /// <summary>
     /// The network_policy attribute.
     /// </summary>
     [TerraformProperty("network_policy")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NetworkPolicy { get; set; }
+    public partial TerraformValue<string> NetworkPolicy { get; set; }
 
     /// <summary>
     /// The outbound_type attribute.
     /// </summary>
     [TerraformProperty("outbound_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OutboundType { get; set; }
+    public partial TerraformValue<string>? OutboundType { get; set; }
 
     /// <summary>
     /// The pod_cidr attribute.
     /// </summary>
     [TerraformProperty("pod_cidr")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PodCidr { get; set; }
+    public partial TerraformValue<string> PodCidr { get; set; }
 
     /// <summary>
     /// The pod_cidrs attribute.
     /// </summary>
     [TerraformProperty("pod_cidrs")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> PodCidrs { get; set; }
+    public partial TerraformList<string> PodCidrs { get; set; }
 
     /// <summary>
     /// The service_cidr attribute.
     /// </summary>
     [TerraformProperty("service_cidr")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ServiceCidr { get; set; }
+    public partial TerraformValue<string> ServiceCidr { get; set; }
 
     /// <summary>
     /// The service_cidrs attribute.
     /// </summary>
     [TerraformProperty("service_cidrs")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> ServiceCidrs { get; set; }
+    public partial TerraformList<string> ServiceCidrs { get; set; }
 
 }
 
@@ -999,14 +999,14 @@ public partial class AzurermKubernetesClusterOmsAgentBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     [TerraformProperty("log_analytics_workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
+    public required partial TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The msi_auth_for_monitoring_enabled attribute.
     /// </summary>
     [TerraformProperty("msi_auth_for_monitoring_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? MsiAuthForMonitoringEnabled { get; set; }
+    public partial TerraformValue<bool>? MsiAuthForMonitoringEnabled { get; set; }
 
 
 }
@@ -1022,14 +1022,14 @@ public partial class AzurermKubernetesClusterServiceMeshProfileBlock : Terraform
     /// </summary>
     [TerraformProperty("external_ingress_gateway_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ExternalIngressGatewayEnabled { get; set; }
+    public partial TerraformValue<bool>? ExternalIngressGatewayEnabled { get; set; }
 
     /// <summary>
     /// The internal_ingress_gateway_enabled attribute.
     /// </summary>
     [TerraformProperty("internal_ingress_gateway_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? InternalIngressGatewayEnabled { get; set; }
+    public partial TerraformValue<bool>? InternalIngressGatewayEnabled { get; set; }
 
     /// <summary>
     /// The mode attribute.
@@ -1037,7 +1037,7 @@ public partial class AzurermKubernetesClusterServiceMeshProfileBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     [TerraformProperty("mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Mode { get; set; }
+    public required partial TerraformValue<string> Mode { get; set; }
 
     /// <summary>
     /// The revisions attribute.
@@ -1045,7 +1045,7 @@ public partial class AzurermKubernetesClusterServiceMeshProfileBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revisions is required")]
     [TerraformProperty("revisions")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Revisions { get; set; }
+    public partial TerraformList<string>? Revisions { get; set; }
 
 }
 
@@ -1061,7 +1061,7 @@ public partial class AzurermKubernetesClusterServicePrincipalBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     [TerraformProperty("client_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientId { get; set; }
+    public required partial TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
@@ -1069,7 +1069,7 @@ public partial class AzurermKubernetesClusterServicePrincipalBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     [TerraformProperty("client_secret")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientSecret { get; set; }
+    public required partial TerraformValue<string> ClientSecret { get; set; }
 
 }
 
@@ -1084,28 +1084,28 @@ public partial class AzurermKubernetesClusterStorageProfileBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("blob_driver_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? BlobDriverEnabled { get; set; }
+    public partial TerraformValue<bool>? BlobDriverEnabled { get; set; }
 
     /// <summary>
     /// The disk_driver_enabled attribute.
     /// </summary>
     [TerraformProperty("disk_driver_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DiskDriverEnabled { get; set; }
+    public partial TerraformValue<bool>? DiskDriverEnabled { get; set; }
 
     /// <summary>
     /// The file_driver_enabled attribute.
     /// </summary>
     [TerraformProperty("file_driver_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? FileDriverEnabled { get; set; }
+    public partial TerraformValue<bool>? FileDriverEnabled { get; set; }
 
     /// <summary>
     /// The snapshot_controller_enabled attribute.
     /// </summary>
     [TerraformProperty("snapshot_controller_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SnapshotControllerEnabled { get; set; }
+    public partial TerraformValue<bool>? SnapshotControllerEnabled { get; set; }
 
 }
 
@@ -1120,28 +1120,28 @@ public partial class AzurermKubernetesClusterTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -1156,7 +1156,7 @@ public partial class AzurermKubernetesClusterUpgradeOverrideBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("effective_until")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EffectiveUntil { get; set; }
+    public partial TerraformValue<string>? EffectiveUntil { get; set; }
 
     /// <summary>
     /// The force_upgrade_enabled attribute.
@@ -1164,7 +1164,7 @@ public partial class AzurermKubernetesClusterUpgradeOverrideBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForceUpgradeEnabled is required")]
     [TerraformProperty("force_upgrade_enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> ForceUpgradeEnabled { get; set; }
+    public required partial TerraformValue<bool> ForceUpgradeEnabled { get; set; }
 
 }
 
@@ -1179,7 +1179,7 @@ public partial class AzurermKubernetesClusterWebAppRoutingBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("default_nginx_controller")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultNginxController { get; set; }
+    public partial TerraformValue<string>? DefaultNginxController { get; set; }
 
     /// <summary>
     /// The dns_zone_ids attribute.
@@ -1187,7 +1187,7 @@ public partial class AzurermKubernetesClusterWebAppRoutingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsZoneIds is required")]
     [TerraformProperty("dns_zone_ids")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? DnsZoneIds { get; set; }
+    public partial TerraformList<string>? DnsZoneIds { get; set; }
 
 
 }
@@ -1204,7 +1204,7 @@ public partial class AzurermKubernetesClusterWindowsProfileBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminPassword is required")]
     [TerraformProperty("admin_password")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AdminPassword { get; set; }
+    public required partial TerraformValue<string> AdminPassword { get; set; }
 
     /// <summary>
     /// The admin_username attribute.
@@ -1212,14 +1212,14 @@ public partial class AzurermKubernetesClusterWindowsProfileBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     [TerraformProperty("admin_username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AdminUsername { get; set; }
+    public required partial TerraformValue<string> AdminUsername { get; set; }
 
     /// <summary>
     /// The license attribute.
     /// </summary>
     [TerraformProperty("license")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? License { get; set; }
+    public partial TerraformValue<string>? License { get; set; }
 
 }
 
@@ -1234,14 +1234,14 @@ public partial class AzurermKubernetesClusterWorkloadAutoscalerProfileBlock : Te
     /// </summary>
     [TerraformProperty("keda_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? KedaEnabled { get; set; }
+    public partial TerraformValue<bool>? KedaEnabled { get; set; }
 
     /// <summary>
     /// The vertical_pod_autoscaler_enabled attribute.
     /// </summary>
     [TerraformProperty("vertical_pod_autoscaler_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? VerticalPodAutoscalerEnabled { get; set; }
+    public partial TerraformValue<bool>? VerticalPodAutoscalerEnabled { get; set; }
 
 }
 
@@ -1260,105 +1260,105 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [TerraformProperty("ai_toolchain_operator_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AiToolchainOperatorEnabled { get; set; }
+    public partial TerraformValue<bool>? AiToolchainOperatorEnabled { get; set; }
 
     /// <summary>
     /// The automatic_upgrade_channel attribute.
     /// </summary>
     [TerraformProperty("automatic_upgrade_channel")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AutomaticUpgradeChannel { get; set; }
+    public partial TerraformValue<string>? AutomaticUpgradeChannel { get; set; }
 
     /// <summary>
     /// The azure_policy_enabled attribute.
     /// </summary>
     [TerraformProperty("azure_policy_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AzurePolicyEnabled { get; set; }
+    public partial TerraformValue<bool>? AzurePolicyEnabled { get; set; }
 
     /// <summary>
     /// The cost_analysis_enabled attribute.
     /// </summary>
     [TerraformProperty("cost_analysis_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CostAnalysisEnabled { get; set; }
+    public partial TerraformValue<bool>? CostAnalysisEnabled { get; set; }
 
     /// <summary>
     /// The custom_ca_trust_certificates_base64 attribute.
     /// </summary>
     [TerraformProperty("custom_ca_trust_certificates_base64")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? CustomCaTrustCertificatesBase64 { get; set; }
+    public partial TerraformList<string>? CustomCaTrustCertificatesBase64 { get; set; }
 
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
     [TerraformProperty("disk_encryption_set_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DiskEncryptionSetId { get; set; }
+    public partial TerraformValue<string>? DiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The dns_prefix attribute.
     /// </summary>
     [TerraformProperty("dns_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DnsPrefix { get; set; }
+    public partial TerraformValue<string>? DnsPrefix { get; set; }
 
     /// <summary>
     /// The dns_prefix_private_cluster attribute.
     /// </summary>
     [TerraformProperty("dns_prefix_private_cluster")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DnsPrefixPrivateCluster { get; set; }
+    public partial TerraformValue<string>? DnsPrefixPrivateCluster { get; set; }
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
     [TerraformProperty("edge_zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EdgeZone { get; set; }
+    public partial TerraformValue<string>? EdgeZone { get; set; }
 
     /// <summary>
     /// The http_application_routing_enabled attribute.
     /// </summary>
     [TerraformProperty("http_application_routing_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? HttpApplicationRoutingEnabled { get; set; }
+    public partial TerraformValue<bool>? HttpApplicationRoutingEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The image_cleaner_enabled attribute.
     /// </summary>
     [TerraformProperty("image_cleaner_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ImageCleanerEnabled { get; set; }
+    public partial TerraformValue<bool>? ImageCleanerEnabled { get; set; }
 
     /// <summary>
     /// The image_cleaner_interval_hours attribute.
     /// </summary>
     [TerraformProperty("image_cleaner_interval_hours")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ImageCleanerIntervalHours { get; set; }
+    public partial TerraformValue<double>? ImageCleanerIntervalHours { get; set; }
 
     /// <summary>
     /// The kubernetes_version attribute.
     /// </summary>
     [TerraformProperty("kubernetes_version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> KubernetesVersion { get; set; }
+    public partial TerraformValue<string> KubernetesVersion { get; set; }
 
     /// <summary>
     /// The local_account_disabled attribute.
     /// </summary>
     [TerraformProperty("local_account_disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LocalAccountDisabled { get; set; }
+    public partial TerraformValue<bool>? LocalAccountDisabled { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -1366,7 +1366,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -1374,56 +1374,56 @@ public partial class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The node_os_upgrade_channel attribute.
     /// </summary>
     [TerraformProperty("node_os_upgrade_channel")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NodeOsUpgradeChannel { get; set; }
+    public partial TerraformValue<string>? NodeOsUpgradeChannel { get; set; }
 
     /// <summary>
     /// The node_resource_group attribute.
     /// </summary>
     [TerraformProperty("node_resource_group")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NodeResourceGroup { get; set; }
+    public partial TerraformValue<string> NodeResourceGroup { get; set; }
 
     /// <summary>
     /// The oidc_issuer_enabled attribute.
     /// </summary>
     [TerraformProperty("oidc_issuer_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? OidcIssuerEnabled { get; set; }
+    public partial TerraformValue<bool>? OidcIssuerEnabled { get; set; }
 
     /// <summary>
     /// The open_service_mesh_enabled attribute.
     /// </summary>
     [TerraformProperty("open_service_mesh_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? OpenServiceMeshEnabled { get; set; }
+    public partial TerraformValue<bool>? OpenServiceMeshEnabled { get; set; }
 
     /// <summary>
     /// The private_cluster_enabled attribute.
     /// </summary>
     [TerraformProperty("private_cluster_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PrivateClusterEnabled { get; set; }
+    public partial TerraformValue<bool>? PrivateClusterEnabled { get; set; }
 
     /// <summary>
     /// The private_cluster_public_fqdn_enabled attribute.
     /// </summary>
     [TerraformProperty("private_cluster_public_fqdn_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PrivateClusterPublicFqdnEnabled { get; set; }
+    public partial TerraformValue<bool>? PrivateClusterPublicFqdnEnabled { get; set; }
 
     /// <summary>
     /// The private_dns_zone_id attribute.
     /// </summary>
     [TerraformProperty("private_dns_zone_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PrivateDnsZoneId { get; set; }
+    public partial TerraformValue<string> PrivateDnsZoneId { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -1431,49 +1431,49 @@ public partial class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The role_based_access_control_enabled attribute.
     /// </summary>
     [TerraformProperty("role_based_access_control_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RoleBasedAccessControlEnabled { get; set; }
+    public partial TerraformValue<bool>? RoleBasedAccessControlEnabled { get; set; }
 
     /// <summary>
     /// The run_command_enabled attribute.
     /// </summary>
     [TerraformProperty("run_command_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RunCommandEnabled { get; set; }
+    public partial TerraformValue<bool>? RunCommandEnabled { get; set; }
 
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
     [TerraformProperty("sku_tier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SkuTier { get; set; }
+    public partial TerraformValue<string>? SkuTier { get; set; }
 
     /// <summary>
     /// The support_plan attribute.
     /// </summary>
     [TerraformProperty("support_plan")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SupportPlan { get; set; }
+    public partial TerraformValue<string>? SupportPlan { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The workload_identity_enabled attribute.
     /// </summary>
     [TerraformProperty("workload_identity_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? WorkloadIdentityEnabled { get; set; }
+    public partial TerraformValue<bool>? WorkloadIdentityEnabled { get; set; }
 
     /// <summary>
     /// Block for aci_connector_linux.
@@ -1481,7 +1481,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AciConnectorLinux block(s) allowed")]
     [TerraformProperty("aci_connector_linux")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterAciConnectorLinuxBlock>>? AciConnectorLinux { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterAciConnectorLinuxBlock>>? AciConnectorLinux { get; set; }
 
     /// <summary>
     /// Block for api_server_access_profile.
@@ -1489,7 +1489,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApiServerAccessProfile block(s) allowed")]
     [TerraformProperty("api_server_access_profile")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterApiServerAccessProfileBlock>>? ApiServerAccessProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterApiServerAccessProfileBlock>>? ApiServerAccessProfile { get; set; }
 
     /// <summary>
     /// Block for auto_scaler_profile.
@@ -1497,7 +1497,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScalerProfile block(s) allowed")]
     [TerraformProperty("auto_scaler_profile")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterAutoScalerProfileBlock>>? AutoScalerProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterAutoScalerProfileBlock>>? AutoScalerProfile { get; set; }
 
     /// <summary>
     /// Block for azure_active_directory_role_based_access_control.
@@ -1505,7 +1505,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectoryRoleBasedAccessControl block(s) allowed")]
     [TerraformProperty("azure_active_directory_role_based_access_control")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlBlock>>? AzureActiveDirectoryRoleBasedAccessControl { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlBlock>>? AzureActiveDirectoryRoleBasedAccessControl { get; set; }
 
     /// <summary>
     /// Block for bootstrap_profile.
@@ -1513,7 +1513,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootstrapProfile block(s) allowed")]
     [TerraformProperty("bootstrap_profile")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterBootstrapProfileBlock>>? BootstrapProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterBootstrapProfileBlock>>? BootstrapProfile { get; set; }
 
     /// <summary>
     /// Block for confidential_computing.
@@ -1521,7 +1521,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfidentialComputing block(s) allowed")]
     [TerraformProperty("confidential_computing")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterConfidentialComputingBlock>>? ConfidentialComputing { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterConfidentialComputingBlock>>? ConfidentialComputing { get; set; }
 
     /// <summary>
     /// Block for default_node_pool.
@@ -1531,7 +1531,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultNodePool block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultNodePool block(s) allowed")]
     [TerraformProperty("default_node_pool")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterDefaultNodePoolBlock>>? DefaultNodePool { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterDefaultNodePoolBlock>>? DefaultNodePool { get; set; }
 
     /// <summary>
     /// Block for http_proxy_config.
@@ -1539,7 +1539,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpProxyConfig block(s) allowed")]
     [TerraformProperty("http_proxy_config")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterHttpProxyConfigBlock>>? HttpProxyConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterHttpProxyConfigBlock>>? HttpProxyConfig { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -1547,7 +1547,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for ingress_application_gateway.
@@ -1555,7 +1555,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressApplicationGateway block(s) allowed")]
     [TerraformProperty("ingress_application_gateway")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterIngressApplicationGatewayBlock>>? IngressApplicationGateway { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterIngressApplicationGatewayBlock>>? IngressApplicationGateway { get; set; }
 
     /// <summary>
     /// Block for key_management_service.
@@ -1563,7 +1563,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyManagementService block(s) allowed")]
     [TerraformProperty("key_management_service")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterKeyManagementServiceBlock>>? KeyManagementService { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterKeyManagementServiceBlock>>? KeyManagementService { get; set; }
 
     /// <summary>
     /// Block for key_vault_secrets_provider.
@@ -1571,7 +1571,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultSecretsProvider block(s) allowed")]
     [TerraformProperty("key_vault_secrets_provider")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterKeyVaultSecretsProviderBlock>>? KeyVaultSecretsProvider { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterKeyVaultSecretsProviderBlock>>? KeyVaultSecretsProvider { get; set; }
 
     /// <summary>
     /// Block for kubelet_identity.
@@ -1579,7 +1579,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KubeletIdentity block(s) allowed")]
     [TerraformProperty("kubelet_identity")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterKubeletIdentityBlock>>? KubeletIdentity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterKubeletIdentityBlock>>? KubeletIdentity { get; set; }
 
     /// <summary>
     /// Block for linux_profile.
@@ -1587,7 +1587,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinuxProfile block(s) allowed")]
     [TerraformProperty("linux_profile")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterLinuxProfileBlock>>? LinuxProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterLinuxProfileBlock>>? LinuxProfile { get; set; }
 
     /// <summary>
     /// Block for maintenance_window.
@@ -1595,7 +1595,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     [TerraformProperty("maintenance_window")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
 
     /// <summary>
     /// Block for maintenance_window_auto_upgrade.
@@ -1603,7 +1603,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindowAutoUpgrade block(s) allowed")]
     [TerraformProperty("maintenance_window_auto_upgrade")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock>>? MaintenanceWindowAutoUpgrade { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock>>? MaintenanceWindowAutoUpgrade { get; set; }
 
     /// <summary>
     /// Block for maintenance_window_node_os.
@@ -1611,7 +1611,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindowNodeOs block(s) allowed")]
     [TerraformProperty("maintenance_window_node_os")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterMaintenanceWindowNodeOsBlock>>? MaintenanceWindowNodeOs { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterMaintenanceWindowNodeOsBlock>>? MaintenanceWindowNodeOs { get; set; }
 
     /// <summary>
     /// Block for microsoft_defender.
@@ -1619,7 +1619,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MicrosoftDefender block(s) allowed")]
     [TerraformProperty("microsoft_defender")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterMicrosoftDefenderBlock>>? MicrosoftDefender { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterMicrosoftDefenderBlock>>? MicrosoftDefender { get; set; }
 
     /// <summary>
     /// Block for monitor_metrics.
@@ -1627,7 +1627,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitorMetrics block(s) allowed")]
     [TerraformProperty("monitor_metrics")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterMonitorMetricsBlock>>? MonitorMetrics { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterMonitorMetricsBlock>>? MonitorMetrics { get; set; }
 
     /// <summary>
     /// Block for network_profile.
@@ -1635,7 +1635,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
     [TerraformProperty("network_profile")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterNetworkProfileBlock>>? NetworkProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterNetworkProfileBlock>>? NetworkProfile { get; set; }
 
     /// <summary>
     /// Block for oms_agent.
@@ -1643,7 +1643,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OmsAgent block(s) allowed")]
     [TerraformProperty("oms_agent")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterOmsAgentBlock>>? OmsAgent { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterOmsAgentBlock>>? OmsAgent { get; set; }
 
     /// <summary>
     /// Block for service_mesh_profile.
@@ -1651,7 +1651,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceMeshProfile block(s) allowed")]
     [TerraformProperty("service_mesh_profile")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterServiceMeshProfileBlock>>? ServiceMeshProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterServiceMeshProfileBlock>>? ServiceMeshProfile { get; set; }
 
     /// <summary>
     /// Block for service_principal.
@@ -1659,7 +1659,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipal block(s) allowed")]
     [TerraformProperty("service_principal")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterServicePrincipalBlock>>? ServicePrincipal { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterServicePrincipalBlock>>? ServicePrincipal { get; set; }
 
     /// <summary>
     /// Block for storage_profile.
@@ -1667,14 +1667,14 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageProfile block(s) allowed")]
     [TerraformProperty("storage_profile")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterStorageProfileBlock>>? StorageProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterStorageProfileBlock>>? StorageProfile { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKubernetesClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKubernetesClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for upgrade_override.
@@ -1682,7 +1682,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradeOverride block(s) allowed")]
     [TerraformProperty("upgrade_override")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterUpgradeOverrideBlock>>? UpgradeOverride { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterUpgradeOverrideBlock>>? UpgradeOverride { get; set; }
 
     /// <summary>
     /// Block for web_app_routing.
@@ -1690,7 +1690,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebAppRouting block(s) allowed")]
     [TerraformProperty("web_app_routing")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterWebAppRoutingBlock>>? WebAppRouting { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterWebAppRoutingBlock>>? WebAppRouting { get; set; }
 
     /// <summary>
     /// Block for windows_profile.
@@ -1698,7 +1698,7 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WindowsProfile block(s) allowed")]
     [TerraformProperty("windows_profile")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterWindowsProfileBlock>>? WindowsProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterWindowsProfileBlock>>? WindowsProfile { get; set; }
 
     /// <summary>
     /// Block for workload_autoscaler_profile.
@@ -1706,83 +1706,83 @@ public partial class AzurermKubernetesCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkloadAutoscalerProfile block(s) allowed")]
     [TerraformProperty("workload_autoscaler_profile")]
-    public TerraformList<TerraformBlock<AzurermKubernetesClusterWorkloadAutoscalerProfileBlock>>? WorkloadAutoscalerProfile { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKubernetesClusterWorkloadAutoscalerProfileBlock>>? WorkloadAutoscalerProfile { get; set; }
 
     /// <summary>
     /// The current_kubernetes_version attribute.
     /// </summary>
     [TerraformProperty("current_kubernetes_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CurrentKubernetesVersion { get; }
+    public partial TerraformValue<string> CurrentKubernetesVersion { get; }
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     [TerraformProperty("fqdn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Fqdn { get; }
+    public partial TerraformValue<string> Fqdn { get; }
 
     /// <summary>
     /// The http_application_routing_zone_name attribute.
     /// </summary>
     [TerraformProperty("http_application_routing_zone_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> HttpApplicationRoutingZoneName { get; }
+    public partial TerraformValue<string> HttpApplicationRoutingZoneName { get; }
 
     /// <summary>
     /// The kube_admin_config attribute.
     /// </summary>
     [TerraformProperty("kube_admin_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> KubeAdminConfig { get; }
+    public partial TerraformList<object> KubeAdminConfig { get; }
 
     /// <summary>
     /// The kube_admin_config_raw attribute.
     /// </summary>
     [TerraformProperty("kube_admin_config_raw")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KubeAdminConfigRaw { get; }
+    public partial TerraformValue<string> KubeAdminConfigRaw { get; }
 
     /// <summary>
     /// The kube_config attribute.
     /// </summary>
     [TerraformProperty("kube_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> KubeConfig { get; }
+    public partial TerraformList<object> KubeConfig { get; }
 
     /// <summary>
     /// The kube_config_raw attribute.
     /// </summary>
     [TerraformProperty("kube_config_raw")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KubeConfigRaw { get; }
+    public partial TerraformValue<string> KubeConfigRaw { get; }
 
     /// <summary>
     /// The node_resource_group_id attribute.
     /// </summary>
     [TerraformProperty("node_resource_group_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NodeResourceGroupId { get; }
+    public partial TerraformValue<string> NodeResourceGroupId { get; }
 
     /// <summary>
     /// The oidc_issuer_url attribute.
     /// </summary>
     [TerraformProperty("oidc_issuer_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OidcIssuerUrl { get; }
+    public partial TerraformValue<string> OidcIssuerUrl { get; }
 
     /// <summary>
     /// The portal_fqdn attribute.
     /// </summary>
     [TerraformProperty("portal_fqdn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PortalFqdn { get; }
+    public partial TerraformValue<string> PortalFqdn { get; }
 
     /// <summary>
     /// The private_fqdn attribute.
     /// </summary>
     [TerraformProperty("private_fqdn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrivateFqdn { get; }
+    public partial TerraformValue<string> PrivateFqdn { get; }
 
 }

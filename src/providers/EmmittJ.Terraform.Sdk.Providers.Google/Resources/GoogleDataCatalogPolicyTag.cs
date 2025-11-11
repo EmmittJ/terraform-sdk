@@ -13,21 +13,21 @@ public partial class GoogleDataCatalogPolicyTagTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -48,7 +48,7 @@ public partial class GoogleDataCatalogPolicyTag : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// User defined name of this policy tag. It must: be unique within the parent
@@ -58,14 +58,14 @@ public partial class GoogleDataCatalogPolicyTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource name of this policy tag&#39;s parent policy tag.
@@ -74,7 +74,7 @@ public partial class GoogleDataCatalogPolicyTag : TerraformResource
     /// </summary>
     [TerraformProperty("parent_policy_tag")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ParentPolicyTag { get; set; }
+    public partial TerraformValue<string>? ParentPolicyTag { get; set; }
 
     /// <summary>
     /// Taxonomy the policy tag is associated with
@@ -82,21 +82,21 @@ public partial class GoogleDataCatalogPolicyTag : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Taxonomy is required")]
     [TerraformProperty("taxonomy")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Taxonomy { get; set; }
+    public required partial TerraformValue<string> Taxonomy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDataCatalogPolicyTagTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDataCatalogPolicyTagTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Resource names of child policy tags of this policy tag.
     /// </summary>
     [TerraformProperty("child_policy_tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ChildPolicyTags { get; }
+    public partial TerraformList<string> ChildPolicyTags { get; }
 
     /// <summary>
     /// Resource name of this policy tag, whose format is:
@@ -104,6 +104,6 @@ public partial class GoogleDataCatalogPolicyTag : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

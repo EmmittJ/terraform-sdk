@@ -13,7 +13,7 @@ public partial class GoogleComputeInterconnectAttachmentGroupAttachmentsBlock : 
     /// </summary>
     [TerraformProperty("attachment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Attachment { get; set; }
+    public partial TerraformValue<string>? Attachment { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -21,7 +21,7 @@ public partial class GoogleComputeInterconnectAttachmentGroupAttachmentsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public partial class GoogleComputeInterconnectAttachmentGroupIntentBlock : Terra
     /// </summary>
     [TerraformProperty("availability_sla")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AvailabilitySla { get; set; }
+    public partial TerraformValue<string>? AvailabilitySla { get; set; }
 
 }
 
@@ -51,21 +51,21 @@ public partial class GoogleComputeInterconnectAttachmentGroupTimeoutsBlock : Ter
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -84,14 +84,14 @@ public partial class GoogleComputeInterconnectAttachmentGroup : TerraformResourc
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The URL of an InterconnectGroup that groups these Attachments&#39;
@@ -100,7 +100,7 @@ public partial class GoogleComputeInterconnectAttachmentGroup : TerraformResourc
     /// </summary>
     [TerraformProperty("interconnect_group")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InterconnectGroup { get; set; }
+    public partial TerraformValue<string>? InterconnectGroup { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is created. The name must be
@@ -112,21 +112,21 @@ public partial class GoogleComputeInterconnectAttachmentGroup : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for attachments.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("attachments")]
-    public TerraformSet<TerraformBlock<GoogleComputeInterconnectAttachmentGroupAttachmentsBlock>>? Attachments { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleComputeInterconnectAttachmentGroupAttachmentsBlock>>? Attachments { get; set; }
 
     /// <summary>
     /// Block for intent.
@@ -136,14 +136,14 @@ public partial class GoogleComputeInterconnectAttachmentGroup : TerraformResourc
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Intent block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Intent block(s) allowed")]
     [TerraformProperty("intent")]
-    public TerraformList<TerraformBlock<GoogleComputeInterconnectAttachmentGroupIntentBlock>>? Intent { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeInterconnectAttachmentGroupIntentBlock>>? Intent { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeInterconnectAttachmentGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeInterconnectAttachmentGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The redundancy this group is configured to support. The way a
@@ -152,14 +152,14 @@ public partial class GoogleComputeInterconnectAttachmentGroup : TerraformResourc
     /// </summary>
     [TerraformProperty("configured")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Configured { get; }
+    public partial TerraformList<object> Configured { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// An analysis of the logical layout of Attachments in this
@@ -167,6 +167,6 @@ public partial class GoogleComputeInterconnectAttachmentGroup : TerraformResourc
     /// </summary>
     [TerraformProperty("logical_structure")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> LogicalStructure { get; }
+    public partial TerraformList<object> LogicalStructure { get; }
 
 }

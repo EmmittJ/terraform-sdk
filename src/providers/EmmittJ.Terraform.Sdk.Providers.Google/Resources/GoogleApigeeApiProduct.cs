@@ -13,14 +13,14 @@ public partial class GoogleApigeeApiProductAttributesBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Value of the attribute.
     /// </summary>
     [TerraformProperty("value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Value { get; set; }
+    public partial TerraformValue<string>? Value { get; set; }
 
 }
 
@@ -35,7 +35,7 @@ public partial class GoogleApigeeApiProductGraphqlOperationGroupBlock : Terrafor
     /// </summary>
     [TerraformProperty("operation_config_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OperationConfigType { get; set; }
+    public partial TerraformValue<string>? OperationConfigType { get; set; }
 
 }
 
@@ -58,7 +58,7 @@ public partial class GoogleApigeeApiProductOperationGroupBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("operation_config_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OperationConfigType { get; set; }
+    public partial TerraformValue<string>? OperationConfigType { get; set; }
 
 }
 
@@ -73,21 +73,21 @@ public partial class GoogleApigeeApiProductTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -107,7 +107,7 @@ public partial class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [TerraformProperty("api_resources")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ApiResources { get; set; }
+    public partial TerraformSet<string>? ApiResources { get; set; }
 
     /// <summary>
     /// Flag that specifies how API keys are approved to access the APIs defined by the API product.
@@ -115,14 +115,14 @@ public partial class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [TerraformProperty("approval_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ApprovalType { get; set; }
+    public partial TerraformValue<string>? ApprovalType { get; set; }
 
     /// <summary>
     /// Description of the API product. Include key information about the API product that is not captured by other fields.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Name displayed in the UI or developer portal to developers registering for API access.
@@ -130,7 +130,7 @@ public partial class GoogleApigeeApiProduct : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Comma-separated list of environment names to which the API product is bound. Requests to environments that are not listed are rejected.
@@ -138,14 +138,14 @@ public partial class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [TerraformProperty("environments")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Environments { get; set; }
+    public partial TerraformSet<string>? Environments { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Internal name of the API product.
@@ -153,7 +153,7 @@ public partial class GoogleApigeeApiProduct : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee API product,
@@ -162,7 +162,7 @@ public partial class GoogleApigeeApiProduct : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformProperty("org_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OrgId { get; set; }
+    public required partial TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Comma-separated list of API proxy names to which this API product is bound. By specifying API proxies, you can associate resources in the API product with specific API proxies, preventing developers from accessing those resources through other API proxies.
@@ -170,7 +170,7 @@ public partial class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [TerraformProperty("proxies")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Proxies { get; set; }
+    public partial TerraformSet<string>? Proxies { get; set; }
 
     /// <summary>
     /// Number of request messages permitted per app by this API product for the specified quotaInterval and quotaTimeUnit.
@@ -178,49 +178,49 @@ public partial class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [TerraformProperty("quota")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Quota { get; set; }
+    public partial TerraformValue<string>? Quota { get; set; }
 
     /// <summary>
     /// Scope of the quota decides how the quota counter gets applied and evaluate for quota violation. If the Scope is set as PROXY, then all the operations defined for the APIproduct that are associated with the same proxy will share the same quota counter set at the APIproduct level, making it a global counter at a proxy level. If the Scope is set as OPERATION, then each operations get the counter set at the API product dedicated, making it a local counter. Note that, the QuotaCounterScope applies only when an operation does not have dedicated quota set for itself. Possible values: [&amp;quot;QUOTA_COUNTER_SCOPE_UNSPECIFIED&amp;quot;, &amp;quot;PROXY&amp;quot;, &amp;quot;OPERATION&amp;quot;]
     /// </summary>
     [TerraformProperty("quota_counter_scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? QuotaCounterScope { get; set; }
+    public partial TerraformValue<string>? QuotaCounterScope { get; set; }
 
     /// <summary>
     /// Time interval over which the number of request messages is calculated.
     /// </summary>
     [TerraformProperty("quota_interval")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? QuotaInterval { get; set; }
+    public partial TerraformValue<string>? QuotaInterval { get; set; }
 
     /// <summary>
     /// Time unit defined for the quotaInterval. Valid values include second, minute, hour, day, month or year.
     /// </summary>
     [TerraformProperty("quota_time_unit")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? QuotaTimeUnit { get; set; }
+    public partial TerraformValue<string>? QuotaTimeUnit { get; set; }
 
     /// <summary>
     /// Comma-separated list of OAuth scopes that are validated at runtime. Apigee validates that the scopes in any access token presented match the scopes defined in the OAuth policy associated with the API product.
     /// </summary>
     [TerraformProperty("scopes")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Scopes { get; set; }
+    public partial TerraformList<string>? Scopes { get; set; }
 
     /// <summary>
     /// Optional. The resource ID of the parent Space. If not set, the parent resource will be the Organization.
     /// </summary>
     [TerraformProperty("space")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Space { get; set; }
+    public partial TerraformValue<string>? Space { get; set; }
 
     /// <summary>
     /// Block for attributes.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("attributes")]
-    public TerraformSet<TerraformBlock<GoogleApigeeApiProductAttributesBlock>>? Attributes { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleApigeeApiProductAttributesBlock>>? Attributes { get; set; }
 
     /// <summary>
     /// Block for graphql_operation_group.
@@ -228,7 +228,7 @@ public partial class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GraphqlOperationGroup block(s) allowed")]
     [TerraformProperty("graphql_operation_group")]
-    public TerraformList<TerraformBlock<GoogleApigeeApiProductGraphqlOperationGroupBlock>>? GraphqlOperationGroup { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApigeeApiProductGraphqlOperationGroupBlock>>? GraphqlOperationGroup { get; set; }
 
     /// <summary>
     /// Block for grpc_operation_group.
@@ -236,7 +236,7 @@ public partial class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrpcOperationGroup block(s) allowed")]
     [TerraformProperty("grpc_operation_group")]
-    public TerraformList<TerraformBlock<GoogleApigeeApiProductGrpcOperationGroupBlock>>? GrpcOperationGroup { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApigeeApiProductGrpcOperationGroupBlock>>? GrpcOperationGroup { get; set; }
 
     /// <summary>
     /// Block for operation_group.
@@ -244,27 +244,27 @@ public partial class GoogleApigeeApiProduct : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OperationGroup block(s) allowed")]
     [TerraformProperty("operation_group")]
-    public TerraformList<TerraformBlock<GoogleApigeeApiProductOperationGroupBlock>>? OperationGroup { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApigeeApiProductOperationGroupBlock>>? OperationGroup { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeApiProductTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeApiProductTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Response only. Creation time of this environment as milliseconds since epoch.
     /// </summary>
     [TerraformProperty("created_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedAt { get; }
+    public partial TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// Response only. Modified time of this environment as milliseconds since epoch.
     /// </summary>
     [TerraformProperty("last_modified_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastModifiedAt { get; }
+    public partial TerraformValue<string> LastModifiedAt { get; }
 
 }

@@ -13,28 +13,28 @@ public partial class AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock : Ter
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,14 +53,14 @@ public partial class AzurermActiveDirectoryDomainServiceTrust : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainServiceId is required")]
     [TerraformProperty("domain_service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainServiceId { get; set; }
+    public required partial TerraformValue<string> DomainServiceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -68,7 +68,7 @@ public partial class AzurermActiveDirectoryDomainServiceTrust : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The password attribute.
@@ -76,7 +76,7 @@ public partial class AzurermActiveDirectoryDomainServiceTrust : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     [TerraformProperty("password")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Password { get; set; }
+    public required partial TerraformValue<string> Password { get; set; }
 
     /// <summary>
     /// The trusted_domain_dns_ips attribute.
@@ -84,7 +84,7 @@ public partial class AzurermActiveDirectoryDomainServiceTrust : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustedDomainDnsIps is required")]
     [TerraformProperty("trusted_domain_dns_ips")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? TrustedDomainDnsIps { get; set; }
+    public partial TerraformList<string>? TrustedDomainDnsIps { get; set; }
 
     /// <summary>
     /// The trusted_domain_fqdn attribute.
@@ -92,13 +92,13 @@ public partial class AzurermActiveDirectoryDomainServiceTrust : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustedDomainFqdn is required")]
     [TerraformProperty("trusted_domain_fqdn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TrustedDomainFqdn { get; set; }
+    public required partial TerraformValue<string> TrustedDomainFqdn { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock>? Timeouts { get; set; }
 
 }

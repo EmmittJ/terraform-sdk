@@ -13,14 +13,14 @@ public partial class GoogleMonitoringAlertPolicyAlertStrategyBlock : TerraformBl
     /// </summary>
     [TerraformProperty("auto_close")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AutoClose { get; set; }
+    public partial TerraformValue<string>? AutoClose { get; set; }
 
     /// <summary>
     /// Control when notifications will be sent out. Possible values: [&amp;quot;NOTIFICATION_PROMPT_UNSPECIFIED&amp;quot;, &amp;quot;OPENED&amp;quot;, &amp;quot;CLOSED&amp;quot;]
     /// </summary>
     [TerraformProperty("notification_prompts")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? NotificationPrompts { get; set; }
+    public partial TerraformList<string>? NotificationPrompts { get; set; }
 
 }
 
@@ -40,7 +40,7 @@ public partial class GoogleMonitoringAlertPolicyConditionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
 
 }
@@ -59,7 +59,7 @@ public partial class GoogleMonitoringAlertPolicyDocumentationBlock : TerraformBl
     /// </summary>
     [TerraformProperty("content")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Content { get; set; }
+    public partial TerraformValue<string>? Content { get; set; }
 
     /// <summary>
     /// The format of the content field. Presently, only the value
@@ -67,7 +67,7 @@ public partial class GoogleMonitoringAlertPolicyDocumentationBlock : TerraformBl
     /// </summary>
     [TerraformProperty("mime_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MimeType { get; set; }
+    public partial TerraformValue<string>? MimeType { get; set; }
 
     /// <summary>
     /// The subject line of the notification. The subject line may not
@@ -77,7 +77,7 @@ public partial class GoogleMonitoringAlertPolicyDocumentationBlock : TerraformBl
     /// </summary>
     [TerraformProperty("subject")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Subject { get; set; }
+    public partial TerraformValue<string>? Subject { get; set; }
 
 }
 
@@ -92,21 +92,21 @@ public partial class GoogleMonitoringAlertPolicyTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -127,7 +127,7 @@ public partial class GoogleMonitoringAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Combiner is required")]
     [TerraformProperty("combiner")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Combiner { get; set; }
+    public required partial TerraformValue<string> Combiner { get; set; }
 
     /// <summary>
     /// A short name or phrase used to identify the policy in
@@ -138,21 +138,21 @@ public partial class GoogleMonitoringAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Whether or not the policy is enabled. The default is true.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Identifies the notification channels to which notifications should be
@@ -165,14 +165,14 @@ public partial class GoogleMonitoringAlertPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("notification_channels")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? NotificationChannels { get; set; }
+    public partial TerraformList<string>? NotificationChannels { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The severity of an alert policy indicates how important incidents generated
@@ -181,7 +181,7 @@ public partial class GoogleMonitoringAlertPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("severity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Severity { get; set; }
+    public partial TerraformValue<string>? Severity { get; set; }
 
     /// <summary>
     /// This field is intended to be used for organizing and identifying the AlertPolicy
@@ -192,7 +192,7 @@ public partial class GoogleMonitoringAlertPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("user_labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? UserLabels { get; set; }
+    public partial TerraformMap<string>? UserLabels { get; set; }
 
     /// <summary>
     /// Block for alert_strategy.
@@ -200,7 +200,7 @@ public partial class GoogleMonitoringAlertPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlertStrategy block(s) allowed")]
     [TerraformProperty("alert_strategy")]
-    public TerraformList<TerraformBlock<GoogleMonitoringAlertPolicyAlertStrategyBlock>>? AlertStrategy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleMonitoringAlertPolicyAlertStrategyBlock>>? AlertStrategy { get; set; }
 
     /// <summary>
     /// Block for conditions.
@@ -209,7 +209,7 @@ public partial class GoogleMonitoringAlertPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Conditions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Conditions block(s) required")]
     [TerraformProperty("conditions")]
-    public TerraformList<TerraformBlock<GoogleMonitoringAlertPolicyConditionsBlock>>? Conditions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleMonitoringAlertPolicyConditionsBlock>>? Conditions { get; set; }
 
     /// <summary>
     /// Block for documentation.
@@ -217,14 +217,14 @@ public partial class GoogleMonitoringAlertPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Documentation block(s) allowed")]
     [TerraformProperty("documentation")]
-    public TerraformList<TerraformBlock<GoogleMonitoringAlertPolicyDocumentationBlock>>? Documentation { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleMonitoringAlertPolicyDocumentationBlock>>? Documentation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleMonitoringAlertPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleMonitoringAlertPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// A read-only record of the creation of the alerting policy.
@@ -233,7 +233,7 @@ public partial class GoogleMonitoringAlertPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("creation_record")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CreationRecord { get; }
+    public partial TerraformList<object> CreationRecord { get; }
 
     /// <summary>
     /// The unique resource name for this policy.
@@ -241,6 +241,6 @@ public partial class GoogleMonitoringAlertPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

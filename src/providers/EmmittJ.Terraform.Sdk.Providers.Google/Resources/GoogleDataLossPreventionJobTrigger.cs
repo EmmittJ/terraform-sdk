@@ -13,7 +13,7 @@ public partial class GoogleDataLossPreventionJobTriggerInspectJobBlock : Terrafo
     /// </summary>
     [TerraformProperty("inspect_template_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InspectTemplateName { get; set; }
+    public partial TerraformValue<string>? InspectTemplateName { get; set; }
 
 }
 
@@ -28,21 +28,21 @@ public partial class GoogleDataLossPreventionJobTriggerTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -69,21 +69,21 @@ public partial class GoogleDataLossPreventionJobTrigger : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// User set display name of the job trigger.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The parent of the trigger, either in the format &#39;projects/{{project}}&#39;
@@ -92,14 +92,14 @@ public partial class GoogleDataLossPreventionJobTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Whether the trigger is currently active. Default value: &amp;quot;HEALTHY&amp;quot; Possible values: [&amp;quot;PAUSED&amp;quot;, &amp;quot;HEALTHY&amp;quot;, &amp;quot;CANCELLED&amp;quot;]
     /// </summary>
     [TerraformProperty("status")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Status { get; set; }
+    public partial TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// The trigger id can contain uppercase and lowercase letters, numbers, and hyphens;
@@ -108,7 +108,7 @@ public partial class GoogleDataLossPreventionJobTrigger : TerraformResource
     /// </summary>
     [TerraformProperty("trigger_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TriggerId { get; set; }
+    public partial TerraformValue<string> TriggerId { get; set; }
 
     /// <summary>
     /// Block for inspect_job.
@@ -116,14 +116,14 @@ public partial class GoogleDataLossPreventionJobTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InspectJob block(s) allowed")]
     [TerraformProperty("inspect_job")]
-    public TerraformList<TerraformBlock<GoogleDataLossPreventionJobTriggerInspectJobBlock>>? InspectJob { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataLossPreventionJobTriggerInspectJobBlock>>? InspectJob { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDataLossPreventionJobTriggerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDataLossPreventionJobTriggerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for triggers.
@@ -132,34 +132,34 @@ public partial class GoogleDataLossPreventionJobTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Triggers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Triggers block(s) required")]
     [TerraformProperty("triggers")]
-    public TerraformList<TerraformBlock<GoogleDataLossPreventionJobTriggerTriggersBlock>>? Triggers { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataLossPreventionJobTriggerTriggersBlock>>? Triggers { get; set; }
 
     /// <summary>
     /// The creation timestamp of an inspectTemplate. Set by the server.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The timestamp of the last time this trigger executed.
     /// </summary>
     [TerraformProperty("last_run_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastRunTime { get; }
+    public partial TerraformValue<string> LastRunTime { get; }
 
     /// <summary>
     /// The resource name of the job trigger. Set by the server.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The last update timestamp of an inspectTemplate. Set by the server.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

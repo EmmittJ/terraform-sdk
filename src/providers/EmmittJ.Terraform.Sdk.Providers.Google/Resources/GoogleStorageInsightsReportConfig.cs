@@ -13,21 +13,21 @@ public partial class GoogleStorageInsightsReportConfigCsvOptionsBlock : Terrafor
     /// </summary>
     [TerraformProperty("delimiter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delimiter { get; set; }
+    public partial TerraformValue<string>? Delimiter { get; set; }
 
     /// <summary>
     /// The boolean that indicates whether or not headers are included in the inventory report CSV file.
     /// </summary>
     [TerraformProperty("header_required")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? HeaderRequired { get; set; }
+    public partial TerraformValue<bool>? HeaderRequired { get; set; }
 
     /// <summary>
     /// The character used to separate the records in the inventory report CSV file.
     /// </summary>
     [TerraformProperty("record_separator")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RecordSeparator { get; set; }
+    public partial TerraformValue<string>? RecordSeparator { get; set; }
 
 }
 
@@ -43,7 +43,7 @@ public partial class GoogleStorageInsightsReportConfigFrequencyOptionsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     [TerraformProperty("frequency")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Frequency { get; set; }
+    public required partial TerraformValue<string> Frequency { get; set; }
 
 }
 
@@ -59,7 +59,7 @@ public partial class GoogleStorageInsightsReportConfigObjectMetadataReportOption
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetadataFields is required")]
     [TerraformProperty("metadata_fields")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? MetadataFields { get; set; }
+    public partial TerraformList<string>? MetadataFields { get; set; }
 
 }
 
@@ -82,21 +82,21 @@ public partial class GoogleStorageInsightsReportConfigTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -115,21 +115,21 @@ public partial class GoogleStorageInsightsReportConfig : TerraformResource
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// If set, all the inventory report details associated with this report configuration are deleted.
     /// </summary>
     [TerraformProperty("force_destroy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ForceDestroy { get; set; }
+    public partial TerraformValue<bool>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the ReportConfig. The source and destination buckets specified in the ReportConfig
@@ -138,14 +138,14 @@ public partial class GoogleStorageInsightsReportConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for csv_options.
@@ -153,7 +153,7 @@ public partial class GoogleStorageInsightsReportConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CsvOptions block(s) allowed")]
     [TerraformProperty("csv_options")]
-    public TerraformList<TerraformBlock<GoogleStorageInsightsReportConfigCsvOptionsBlock>>? CsvOptions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageInsightsReportConfigCsvOptionsBlock>>? CsvOptions { get; set; }
 
     /// <summary>
     /// Block for frequency_options.
@@ -161,7 +161,7 @@ public partial class GoogleStorageInsightsReportConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrequencyOptions block(s) allowed")]
     [TerraformProperty("frequency_options")]
-    public TerraformList<TerraformBlock<GoogleStorageInsightsReportConfigFrequencyOptionsBlock>>? FrequencyOptions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageInsightsReportConfigFrequencyOptionsBlock>>? FrequencyOptions { get; set; }
 
     /// <summary>
     /// Block for object_metadata_report_options.
@@ -169,7 +169,7 @@ public partial class GoogleStorageInsightsReportConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ObjectMetadataReportOptions block(s) allowed")]
     [TerraformProperty("object_metadata_report_options")]
-    public TerraformList<TerraformBlock<GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlock>>? ObjectMetadataReportOptions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlock>>? ObjectMetadataReportOptions { get; set; }
 
     /// <summary>
     /// Block for parquet_options.
@@ -177,20 +177,20 @@ public partial class GoogleStorageInsightsReportConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParquetOptions block(s) allowed")]
     [TerraformProperty("parquet_options")]
-    public TerraformList<TerraformBlock<GoogleStorageInsightsReportConfigParquetOptionsBlock>>? ParquetOptions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleStorageInsightsReportConfigParquetOptionsBlock>>? ParquetOptions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleStorageInsightsReportConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleStorageInsightsReportConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The UUID of the inventory report configuration.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

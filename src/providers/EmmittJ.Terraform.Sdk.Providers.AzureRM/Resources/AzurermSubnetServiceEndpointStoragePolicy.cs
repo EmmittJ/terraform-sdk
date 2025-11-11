@@ -13,7 +13,7 @@ public partial class AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock : 
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -21,14 +21,14 @@ public partial class AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The service attribute.
     /// </summary>
     [TerraformProperty("service")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Service { get; set; }
+    public partial TerraformValue<string>? Service { get; set; }
 
     /// <summary>
     /// The service_resources attribute.
@@ -36,7 +36,7 @@ public partial class AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceResources is required")]
     [TerraformProperty("service_resources")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> ServiceResources { get; set; }
+    public required partial TerraformSet<string> ServiceResources { get; set; }
 
 }
 
@@ -51,28 +51,28 @@ public partial class AzurermSubnetServiceEndpointStoragePolicyTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -91,7 +91,7 @@ public partial class AzurermSubnetServiceEndpointStoragePolicy : TerraformResour
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -99,7 +99,7 @@ public partial class AzurermSubnetServiceEndpointStoragePolicy : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -107,7 +107,7 @@ public partial class AzurermSubnetServiceEndpointStoragePolicy : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -115,14 +115,14 @@ public partial class AzurermSubnetServiceEndpointStoragePolicy : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for definition.
@@ -130,13 +130,13 @@ public partial class AzurermSubnetServiceEndpointStoragePolicy : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 Definition block(s) allowed")]
     [TerraformProperty("definition")]
-    public TerraformList<TerraformBlock<AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock>>? Definition { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock>>? Definition { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSubnetServiceEndpointStoragePolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSubnetServiceEndpointStoragePolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

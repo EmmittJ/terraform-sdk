@@ -13,7 +13,7 @@ public partial class AzurermPrivateDnsResolverVirtualNetworkLinkDataSourceTimeou
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzurermPrivateDnsResolverVirtualNetworkLinkDataSource : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsForwardingRulesetId is required")]
     [TerraformProperty("dns_forwarding_ruleset_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DnsForwardingRulesetId { get; set; }
+    public required partial TerraformValue<string> DnsForwardingRulesetId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,27 +47,27 @@ public partial class AzurermPrivateDnsResolverVirtualNetworkLinkDataSource : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPrivateDnsResolverVirtualNetworkLinkDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPrivateDnsResolverVirtualNetworkLinkDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     [TerraformProperty("metadata")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Metadata { get; }
+    public partial TerraformMap<string> Metadata { get; }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
     [TerraformProperty("virtual_network_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VirtualNetworkId { get; }
+    public partial TerraformValue<string> VirtualNetworkId { get; }
 
 }

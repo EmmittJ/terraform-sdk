@@ -13,21 +13,21 @@ public partial class GoogleChronicleRuleDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class GoogleChronicleRuleDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("alerting")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Alerting { get; set; }
+    public partial TerraformValue<bool>? Alerting { get; set; }
 
     /// <summary>
     /// The archive state of the rule deployment.
@@ -59,21 +59,21 @@ public partial class GoogleChronicleRuleDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("archived")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Archived { get; set; }
+    public partial TerraformValue<bool>? Archived { get; set; }
 
     /// <summary>
     /// Whether the rule is currently deployed continuously against incoming data.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
@@ -81,7 +81,7 @@ public partial class GoogleChronicleRuleDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
@@ -89,14 +89,14 @@ public partial class GoogleChronicleRuleDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The Rule ID of the rule.
@@ -104,7 +104,7 @@ public partial class GoogleChronicleRuleDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [TerraformProperty("rule")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Rule { get; set; }
+    public required partial TerraformValue<string> Rule { get; set; }
 
     /// <summary>
     /// The run frequency of the rule deployment.
@@ -115,21 +115,21 @@ public partial class GoogleChronicleRuleDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("run_frequency")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RunFrequency { get; set; }
+    public partial TerraformValue<string>? RunFrequency { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleChronicleRuleDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleChronicleRuleDeploymentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The timestamp when the rule deployment archive state was last set to true. If the rule deployment&#39;s current archive state is not set to true, the field will be empty.
     /// </summary>
     [TerraformProperty("archive_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ArchiveTime { get; }
+    public partial TerraformValue<string> ArchiveTime { get; }
 
     /// <summary>
     /// Output only. The names of the associated/chained consumer rules. Rules are considered
@@ -139,7 +139,7 @@ public partial class GoogleChronicleRuleDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("consumer_rules")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ConsumerRules { get; }
+    public partial TerraformList<string> ConsumerRules { get; }
 
     /// <summary>
     /// The execution state of the rule deployment.
@@ -150,14 +150,14 @@ public partial class GoogleChronicleRuleDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("execution_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExecutionState { get; }
+    public partial TerraformValue<string> ExecutionState { get; }
 
     /// <summary>
     /// Output only. The timestamp when the rule deployment alert state was lastly changed. This is filled regardless of the current alert state.E.g. if the current alert status is false, this timestamp will be the timestamp when the alert status was changed to false.
     /// </summary>
     [TerraformProperty("last_alert_status_change_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastAlertStatusChangeTime { get; }
+    public partial TerraformValue<string> LastAlertStatusChangeTime { get; }
 
     /// <summary>
     /// The resource name of the rule deployment.
@@ -169,7 +169,7 @@ public partial class GoogleChronicleRuleDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. The names of the associated/chained producer rules. Rules are considered
@@ -179,6 +179,6 @@ public partial class GoogleChronicleRuleDeployment : TerraformResource
     /// </summary>
     [TerraformProperty("producer_rules")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ProducerRules { get; }
+    public partial TerraformList<string> ProducerRules { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AzurermDataShareDatasetBlobStorageStorageAccountBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -22,7 +22,7 @@ public partial class AzurermDataShareDatasetBlobStorageStorageAccountBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
@@ -30,7 +30,7 @@ public partial class AzurermDataShareDatasetBlobStorageStorageAccountBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     [TerraformProperty("subscription_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubscriptionId { get; set; }
+    public required partial TerraformValue<string> SubscriptionId { get; set; }
 
 }
 
@@ -45,21 +45,21 @@ public partial class AzurermDataShareDatasetBlobStorageTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -79,7 +79,7 @@ public partial class AzurermDataShareDatasetBlobStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     [TerraformProperty("container_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerName { get; set; }
+    public required partial TerraformValue<string> ContainerName { get; set; }
 
     /// <summary>
     /// The data_share_id attribute.
@@ -87,28 +87,28 @@ public partial class AzurermDataShareDatasetBlobStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareId is required")]
     [TerraformProperty("data_share_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataShareId { get; set; }
+    public required partial TerraformValue<string> DataShareId { get; set; }
 
     /// <summary>
     /// The file_path attribute.
     /// </summary>
     [TerraformProperty("file_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FilePath { get; set; }
+    public partial TerraformValue<string>? FilePath { get; set; }
 
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
     [TerraformProperty("folder_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FolderPath { get; set; }
+    public partial TerraformValue<string>? FolderPath { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -116,7 +116,7 @@ public partial class AzurermDataShareDatasetBlobStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for storage_account.
@@ -126,20 +126,20 @@ public partial class AzurermDataShareDatasetBlobStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageAccount block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccount block(s) allowed")]
     [TerraformProperty("storage_account")]
-    public TerraformList<TerraformBlock<AzurermDataShareDatasetBlobStorageStorageAccountBlock>>? StorageAccount { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataShareDatasetBlobStorageStorageAccountBlock>>? StorageAccount { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataShareDatasetBlobStorageTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataShareDatasetBlobStorageTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
 }

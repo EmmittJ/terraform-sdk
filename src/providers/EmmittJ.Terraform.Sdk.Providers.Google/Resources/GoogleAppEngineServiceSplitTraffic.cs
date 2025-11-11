@@ -14,14 +14,14 @@ public partial class GoogleAppEngineServiceSplitTrafficSplitBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Allocations is required")]
     [TerraformProperty("allocations")]
     // Required argument - source generator will implement get/set
-    public required TerraformMap<string> Allocations { get; set; }
+    public required partial TerraformMap<string> Allocations { get; set; }
 
     /// <summary>
     /// Mechanism used to determine which version a request is sent to. The traffic selection algorithm will be stable for either type until allocations are changed. Possible values: [&amp;quot;UNSPECIFIED&amp;quot;, &amp;quot;COOKIE&amp;quot;, &amp;quot;IP&amp;quot;, &amp;quot;RANDOM&amp;quot;]
     /// </summary>
     [TerraformProperty("shard_by")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ShardBy { get; set; }
+    public partial TerraformValue<string>? ShardBy { get; set; }
 
 }
 
@@ -36,21 +36,21 @@ public partial class GoogleAppEngineServiceSplitTrafficTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -69,21 +69,21 @@ public partial class GoogleAppEngineServiceSplitTraffic : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// If set to true traffic will be migrated to this version.
     /// </summary>
     [TerraformProperty("migrate_traffic")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? MigrateTraffic { get; set; }
+    public partial TerraformValue<bool>? MigrateTraffic { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The name of the service these settings apply to.
@@ -91,7 +91,7 @@ public partial class GoogleAppEngineServiceSplitTraffic : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformProperty("service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Service { get; set; }
+    public required partial TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// Block for split.
@@ -101,13 +101,13 @@ public partial class GoogleAppEngineServiceSplitTraffic : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Split block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Split block(s) allowed")]
     [TerraformProperty("split")]
-    public TerraformList<TerraformBlock<GoogleAppEngineServiceSplitTrafficSplitBlock>>? Split { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineServiceSplitTrafficSplitBlock>>? Split { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleAppEngineServiceSplitTrafficTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleAppEngineServiceSplitTrafficTimeoutsBlock>? Timeouts { get; set; }
 
 }

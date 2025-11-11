@@ -14,35 +14,35 @@ public partial class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Access is required")]
     [TerraformProperty("access")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Access { get; set; }
+    public required partial TerraformValue<string> Access { get; set; }
 
     /// <summary>
     /// The anonymous_gid attribute.
     /// </summary>
     [TerraformProperty("anonymous_gid")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AnonymousGid { get; set; }
+    public partial TerraformValue<double>? AnonymousGid { get; set; }
 
     /// <summary>
     /// The anonymous_uid attribute.
     /// </summary>
     [TerraformProperty("anonymous_uid")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AnonymousUid { get; set; }
+    public partial TerraformValue<double>? AnonymousUid { get; set; }
 
     /// <summary>
     /// The filter attribute.
     /// </summary>
     [TerraformProperty("filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Filter { get; set; }
+    public partial TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The root_squash_enabled attribute.
     /// </summary>
     [TerraformProperty("root_squash_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? RootSquashEnabled { get; set; }
+    public partial TerraformValue<bool>? RootSquashEnabled { get; set; }
 
     /// <summary>
     /// The scope attribute.
@@ -50,21 +50,21 @@ public partial class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     [TerraformProperty("scope")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Scope { get; set; }
+    public required partial TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// The submount_access_enabled attribute.
     /// </summary>
     [TerraformProperty("submount_access_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SubmountAccessEnabled { get; set; }
+    public partial TerraformValue<bool>? SubmountAccessEnabled { get; set; }
 
     /// <summary>
     /// The suid_enabled attribute.
     /// </summary>
     [TerraformProperty("suid_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SuidEnabled { get; set; }
+    public partial TerraformValue<bool>? SuidEnabled { get; set; }
 
 }
 
@@ -79,28 +79,28 @@ public partial class AzurermHpcCacheAccessPolicyTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -121,14 +121,14 @@ public partial class AzurermHpcCacheAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HpcCacheId is required")]
     [TerraformProperty("hpc_cache_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HpcCacheId { get; set; }
+    public required partial TerraformValue<string> HpcCacheId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -136,7 +136,7 @@ public partial class AzurermHpcCacheAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for access_rule.
@@ -146,13 +146,13 @@ public partial class AzurermHpcCacheAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AccessRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 AccessRule block(s) allowed")]
     [TerraformProperty("access_rule")]
-    public TerraformSet<TerraformBlock<AzurermHpcCacheAccessPolicyAccessRuleBlock>>? AccessRule { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermHpcCacheAccessPolicyAccessRuleBlock>>? AccessRule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermHpcCacheAccessPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermHpcCacheAccessPolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

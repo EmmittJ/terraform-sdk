@@ -13,28 +13,28 @@ public partial class AwsAppautoscalingPolicyPredictiveScalingPolicyConfiguration
     /// </summary>
     [TerraformProperty("max_capacity_breach_behavior")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MaxCapacityBreachBehavior { get; set; }
+    public partial TerraformValue<string>? MaxCapacityBreachBehavior { get; set; }
 
     /// <summary>
     /// The max_capacity_buffer attribute.
     /// </summary>
     [TerraformProperty("max_capacity_buffer")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxCapacityBuffer { get; set; }
+    public partial TerraformValue<double>? MaxCapacityBuffer { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [TerraformProperty("mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Mode { get; set; }
+    public partial TerraformValue<string> Mode { get; set; }
 
     /// <summary>
     /// The scheduling_buffer_time attribute.
     /// </summary>
     [TerraformProperty("scheduling_buffer_time")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> SchedulingBufferTime { get; set; }
+    public partial TerraformValue<double> SchedulingBufferTime { get; set; }
 
 }
 
@@ -49,28 +49,28 @@ public partial class AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock 
     /// </summary>
     [TerraformProperty("adjustment_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AdjustmentType { get; set; }
+    public partial TerraformValue<string>? AdjustmentType { get; set; }
 
     /// <summary>
     /// The cooldown attribute.
     /// </summary>
     [TerraformProperty("cooldown")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Cooldown { get; set; }
+    public partial TerraformValue<double>? Cooldown { get; set; }
 
     /// <summary>
     /// The metric_aggregation_type attribute.
     /// </summary>
     [TerraformProperty("metric_aggregation_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MetricAggregationType { get; set; }
+    public partial TerraformValue<string>? MetricAggregationType { get; set; }
 
     /// <summary>
     /// The min_adjustment_magnitude attribute.
     /// </summary>
     [TerraformProperty("min_adjustment_magnitude")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinAdjustmentMagnitude { get; set; }
+    public partial TerraformValue<double>? MinAdjustmentMagnitude { get; set; }
 
 }
 
@@ -85,21 +85,21 @@ public partial class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigura
     /// </summary>
     [TerraformProperty("disable_scale_in")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableScaleIn { get; set; }
+    public partial TerraformValue<bool>? DisableScaleIn { get; set; }
 
     /// <summary>
     /// The scale_in_cooldown attribute.
     /// </summary>
     [TerraformProperty("scale_in_cooldown")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ScaleInCooldown { get; set; }
+    public partial TerraformValue<double>? ScaleInCooldown { get; set; }
 
     /// <summary>
     /// The scale_out_cooldown attribute.
     /// </summary>
     [TerraformProperty("scale_out_cooldown")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ScaleOutCooldown { get; set; }
+    public partial TerraformValue<double>? ScaleOutCooldown { get; set; }
 
     /// <summary>
     /// The target_value attribute.
@@ -107,7 +107,7 @@ public partial class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigura
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetValue is required")]
     [TerraformProperty("target_value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> TargetValue { get; set; }
+    public required partial TerraformValue<double> TargetValue { get; set; }
 
 }
 
@@ -126,7 +126,7 @@ public partial class AwsAppautoscalingPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -134,21 +134,21 @@ public partial class AwsAppautoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
     [TerraformProperty("policy_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PolicyType { get; set; }
+    public partial TerraformValue<string>? PolicyType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
@@ -156,7 +156,7 @@ public partial class AwsAppautoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     [TerraformProperty("resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceId { get; set; }
+    public required partial TerraformValue<string> ResourceId { get; set; }
 
     /// <summary>
     /// The scalable_dimension attribute.
@@ -164,7 +164,7 @@ public partial class AwsAppautoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalableDimension is required")]
     [TerraformProperty("scalable_dimension")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ScalableDimension { get; set; }
+    public required partial TerraformValue<string> ScalableDimension { get; set; }
 
     /// <summary>
     /// The service_namespace attribute.
@@ -172,7 +172,7 @@ public partial class AwsAppautoscalingPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
     [TerraformProperty("service_namespace")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceNamespace { get; set; }
+    public required partial TerraformValue<string> ServiceNamespace { get; set; }
 
     /// <summary>
     /// Block for predictive_scaling_policy_configuration.
@@ -180,7 +180,7 @@ public partial class AwsAppautoscalingPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PredictiveScalingPolicyConfiguration block(s) allowed")]
     [TerraformProperty("predictive_scaling_policy_configuration")]
-    public TerraformList<TerraformBlock<AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlock>>? PredictiveScalingPolicyConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlock>>? PredictiveScalingPolicyConfiguration { get; set; }
 
     /// <summary>
     /// Block for step_scaling_policy_configuration.
@@ -188,7 +188,7 @@ public partial class AwsAppautoscalingPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StepScalingPolicyConfiguration block(s) allowed")]
     [TerraformProperty("step_scaling_policy_configuration")]
-    public TerraformList<TerraformBlock<AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock>>? StepScalingPolicyConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock>>? StepScalingPolicyConfiguration { get; set; }
 
     /// <summary>
     /// Block for target_tracking_scaling_policy_configuration.
@@ -196,20 +196,20 @@ public partial class AwsAppautoscalingPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetTrackingScalingPolicyConfiguration block(s) allowed")]
     [TerraformProperty("target_tracking_scaling_policy_configuration")]
-    public TerraformList<TerraformBlock<AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBlock>>? TargetTrackingScalingPolicyConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBlock>>? TargetTrackingScalingPolicyConfiguration { get; set; }
 
     /// <summary>
     /// The alarm_arns attribute.
     /// </summary>
     [TerraformProperty("alarm_arns")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> AlarmArns { get; }
+    public partial TerraformList<string> AlarmArns { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AwsLexBotAliasConversationLogsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     [TerraformProperty("iam_role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IamRoleArn { get; set; }
+    public required partial TerraformValue<string> IamRoleArn { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public partial class AwsLexBotAliasTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -63,7 +63,7 @@ public partial class AwsLexBotAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     [TerraformProperty("bot_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BotName { get; set; }
+    public required partial TerraformValue<string> BotName { get; set; }
 
     /// <summary>
     /// The bot_version attribute.
@@ -71,21 +71,21 @@ public partial class AwsLexBotAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
     [TerraformProperty("bot_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BotVersion { get; set; }
+    public required partial TerraformValue<string> BotVersion { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -93,14 +93,14 @@ public partial class AwsLexBotAlias : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for conversation_logs.
@@ -108,41 +108,41 @@ public partial class AwsLexBotAlias : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConversationLogs block(s) allowed")]
     [TerraformProperty("conversation_logs")]
-    public TerraformList<TerraformBlock<AwsLexBotAliasConversationLogsBlock>>? ConversationLogs { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLexBotAliasConversationLogsBlock>>? ConversationLogs { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsLexBotAliasTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsLexBotAliasTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The checksum attribute.
     /// </summary>
     [TerraformProperty("checksum")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Checksum { get; }
+    public partial TerraformValue<string> Checksum { get; }
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     [TerraformProperty("created_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedDate { get; }
+    public partial TerraformValue<string> CreatedDate { get; }
 
     /// <summary>
     /// The last_updated_date attribute.
     /// </summary>
     [TerraformProperty("last_updated_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastUpdatedDate { get; }
+    public partial TerraformValue<string> LastUpdatedDate { get; }
 
 }

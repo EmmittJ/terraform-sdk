@@ -14,7 +14,7 @@ public partial class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerRoleName is required")]
     [TerraformProperty("ledger_role_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LedgerRoleName { get; set; }
+    public required partial TerraformValue<string> LedgerRoleName { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
@@ -22,7 +22,7 @@ public partial class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     [TerraformProperty("principal_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrincipalId { get; set; }
+    public required partial TerraformValue<string> PrincipalId { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
@@ -30,7 +30,7 @@ public partial class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     [TerraformProperty("tenant_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TenantId { get; set; }
+    public required partial TerraformValue<string> TenantId { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AzurermConfidentialLedgerCertificateBasedSecurityPrincipalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerRoleName is required")]
     [TerraformProperty("ledger_role_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LedgerRoleName { get; set; }
+    public required partial TerraformValue<string> LedgerRoleName { get; set; }
 
     /// <summary>
     /// The pem_public_key attribute.
@@ -54,7 +54,7 @@ public partial class AzurermConfidentialLedgerCertificateBasedSecurityPrincipalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PemPublicKey is required")]
     [TerraformProperty("pem_public_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PemPublicKey { get; set; }
+    public required partial TerraformValue<string> PemPublicKey { get; set; }
 
 }
 
@@ -69,28 +69,28 @@ public partial class AzurermConfidentialLedgerTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -109,7 +109,7 @@ public partial class AzurermConfidentialLedger : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ledger_type attribute.
@@ -117,7 +117,7 @@ public partial class AzurermConfidentialLedger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerType is required")]
     [TerraformProperty("ledger_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LedgerType { get; set; }
+    public required partial TerraformValue<string> LedgerType { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -125,7 +125,7 @@ public partial class AzurermConfidentialLedger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -133,7 +133,7 @@ public partial class AzurermConfidentialLedger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -141,14 +141,14 @@ public partial class AzurermConfidentialLedger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for azuread_based_service_principal.
@@ -157,34 +157,34 @@ public partial class AzurermConfidentialLedger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzureadBasedServicePrincipal is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AzureadBasedServicePrincipal block(s) required")]
     [TerraformProperty("azuread_based_service_principal")]
-    public TerraformList<TerraformBlock<AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock>>? AzureadBasedServicePrincipal { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock>>? AzureadBasedServicePrincipal { get; set; }
 
     /// <summary>
     /// Block for certificate_based_security_principal.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("certificate_based_security_principal")]
-    public TerraformList<TerraformBlock<AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock>>? CertificateBasedSecurityPrincipal { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock>>? CertificateBasedSecurityPrincipal { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermConfidentialLedgerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermConfidentialLedgerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The identity_service_endpoint attribute.
     /// </summary>
     [TerraformProperty("identity_service_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IdentityServiceEndpoint { get; }
+    public partial TerraformValue<string> IdentityServiceEndpoint { get; }
 
     /// <summary>
     /// The ledger_endpoint attribute.
     /// </summary>
     [TerraformProperty("ledger_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LedgerEndpoint { get; }
+    public partial TerraformValue<string> LedgerEndpoint { get; }
 
 }

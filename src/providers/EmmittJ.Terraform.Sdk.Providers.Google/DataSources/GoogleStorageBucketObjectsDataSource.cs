@@ -17,34 +17,34 @@ public partial class GoogleStorageBucketObjectsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The match_glob attribute.
     /// </summary>
     [TerraformProperty("match_glob")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MatchGlob { get; set; }
+    public partial TerraformValue<string>? MatchGlob { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
     [TerraformProperty("prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Prefix { get; set; }
+    public partial TerraformValue<string>? Prefix { get; set; }
 
     /// <summary>
     /// The bucket_objects attribute.
     /// </summary>
     [TerraformProperty("bucket_objects")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> BucketObjects { get; }
+    public partial TerraformList<object> BucketObjects { get; }
 
 }

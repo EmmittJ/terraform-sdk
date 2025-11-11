@@ -13,7 +13,7 @@ public partial class AzurermMobileNetworkSimDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermMobileNetworkSimDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The mobile_network_sim_group_id attribute.
@@ -39,7 +39,7 @@ public partial class AzurermMobileNetworkSimDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkSimGroupId is required")]
     [TerraformProperty("mobile_network_sim_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MobileNetworkSimGroupId { get; set; }
+    public required partial TerraformValue<string> MobileNetworkSimGroupId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,69 +47,69 @@ public partial class AzurermMobileNetworkSimDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMobileNetworkSimDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMobileNetworkSimDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The device_type attribute.
     /// </summary>
     [TerraformProperty("device_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeviceType { get; }
+    public partial TerraformValue<string> DeviceType { get; }
 
     /// <summary>
     /// The integrated_circuit_card_identifier attribute.
     /// </summary>
     [TerraformProperty("integrated_circuit_card_identifier")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IntegratedCircuitCardIdentifier { get; }
+    public partial TerraformValue<string> IntegratedCircuitCardIdentifier { get; }
 
     /// <summary>
     /// The international_mobile_subscriber_identity attribute.
     /// </summary>
     [TerraformProperty("international_mobile_subscriber_identity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> InternationalMobileSubscriberIdentity { get; }
+    public partial TerraformValue<string> InternationalMobileSubscriberIdentity { get; }
 
     /// <summary>
     /// The sim_policy_id attribute.
     /// </summary>
     [TerraformProperty("sim_policy_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SimPolicyId { get; }
+    public partial TerraformValue<string> SimPolicyId { get; }
 
     /// <summary>
     /// The sim_state attribute.
     /// </summary>
     [TerraformProperty("sim_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SimState { get; }
+    public partial TerraformValue<string> SimState { get; }
 
     /// <summary>
     /// The static_ip_configuration attribute.
     /// </summary>
     [TerraformProperty("static_ip_configuration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> StaticIpConfiguration { get; }
+    public partial TerraformList<object> StaticIpConfiguration { get; }
 
     /// <summary>
     /// The vendor_key_fingerprint attribute.
     /// </summary>
     [TerraformProperty("vendor_key_fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VendorKeyFingerprint { get; }
+    public partial TerraformValue<string> VendorKeyFingerprint { get; }
 
     /// <summary>
     /// The vendor_name attribute.
     /// </summary>
     [TerraformProperty("vendor_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VendorName { get; }
+    public partial TerraformValue<string> VendorName { get; }
 
 }

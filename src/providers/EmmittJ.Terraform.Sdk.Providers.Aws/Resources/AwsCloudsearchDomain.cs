@@ -13,14 +13,14 @@ public partial class AwsCloudsearchDomainEndpointOptionsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("enforce_https")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> EnforceHttps { get; set; }
+    public partial TerraformValue<bool> EnforceHttps { get; set; }
 
     /// <summary>
     /// The tls_security_policy attribute.
     /// </summary>
     [TerraformProperty("tls_security_policy")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TlsSecurityPolicy { get; set; }
+    public partial TerraformValue<string> TlsSecurityPolicy { get; set; }
 
 }
 
@@ -35,28 +35,28 @@ public partial class AwsCloudsearchDomainIndexFieldBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("analysis_scheme")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AnalysisScheme { get; set; }
+    public partial TerraformValue<string>? AnalysisScheme { get; set; }
 
     /// <summary>
     /// The default_value attribute.
     /// </summary>
     [TerraformProperty("default_value")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultValue { get; set; }
+    public partial TerraformValue<string>? DefaultValue { get; set; }
 
     /// <summary>
     /// The facet attribute.
     /// </summary>
     [TerraformProperty("facet")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Facet { get; set; }
+    public partial TerraformValue<bool>? Facet { get; set; }
 
     /// <summary>
     /// The highlight attribute.
     /// </summary>
     [TerraformProperty("highlight")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Highlight { get; set; }
+    public partial TerraformValue<bool>? Highlight { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -64,35 +64,35 @@ public partial class AwsCloudsearchDomainIndexFieldBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The return attribute.
     /// </summary>
     [TerraformProperty("return")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Return { get; set; }
+    public partial TerraformValue<bool>? Return { get; set; }
 
     /// <summary>
     /// The search attribute.
     /// </summary>
     [TerraformProperty("search")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Search { get; set; }
+    public partial TerraformValue<bool>? Search { get; set; }
 
     /// <summary>
     /// The sort attribute.
     /// </summary>
     [TerraformProperty("sort")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Sort { get; set; }
+    public partial TerraformValue<bool>? Sort { get; set; }
 
     /// <summary>
     /// The source_fields attribute.
     /// </summary>
     [TerraformProperty("source_fields")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SourceFields { get; set; }
+    public partial TerraformValue<string>? SourceFields { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -100,7 +100,7 @@ public partial class AwsCloudsearchDomainIndexFieldBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -115,21 +115,21 @@ public partial class AwsCloudsearchDomainScalingParametersBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("desired_instance_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DesiredInstanceType { get; set; }
+    public partial TerraformValue<string> DesiredInstanceType { get; set; }
 
     /// <summary>
     /// The desired_partition_count attribute.
     /// </summary>
     [TerraformProperty("desired_partition_count")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> DesiredPartitionCount { get; set; }
+    public partial TerraformValue<double> DesiredPartitionCount { get; set; }
 
     /// <summary>
     /// The desired_replication_count attribute.
     /// </summary>
     [TerraformProperty("desired_replication_count")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> DesiredReplicationCount { get; set; }
+    public partial TerraformValue<double> DesiredReplicationCount { get; set; }
 
 }
 
@@ -144,21 +144,21 @@ public partial class AwsCloudsearchDomainTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -177,14 +177,14 @@ public partial class AwsCloudsearchDomain : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
     [TerraformProperty("multi_az")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> MultiAz { get; set; }
+    public partial TerraformValue<bool> MultiAz { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -192,14 +192,14 @@ public partial class AwsCloudsearchDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for endpoint_options.
@@ -207,14 +207,14 @@ public partial class AwsCloudsearchDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointOptions block(s) allowed")]
     [TerraformProperty("endpoint_options")]
-    public TerraformList<TerraformBlock<AwsCloudsearchDomainEndpointOptionsBlock>>? EndpointOptions { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudsearchDomainEndpointOptionsBlock>>? EndpointOptions { get; set; }
 
     /// <summary>
     /// Block for index_field.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("index_field")]
-    public TerraformSet<TerraformBlock<AwsCloudsearchDomainIndexFieldBlock>>? IndexField { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsCloudsearchDomainIndexFieldBlock>>? IndexField { get; set; }
 
     /// <summary>
     /// Block for scaling_parameters.
@@ -222,41 +222,41 @@ public partial class AwsCloudsearchDomain : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingParameters block(s) allowed")]
     [TerraformProperty("scaling_parameters")]
-    public TerraformList<TerraformBlock<AwsCloudsearchDomainScalingParametersBlock>>? ScalingParameters { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudsearchDomainScalingParametersBlock>>? ScalingParameters { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsCloudsearchDomainTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsCloudsearchDomainTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The document_service_endpoint attribute.
     /// </summary>
     [TerraformProperty("document_service_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DocumentServiceEndpoint { get; }
+    public partial TerraformValue<string> DocumentServiceEndpoint { get; }
 
     /// <summary>
     /// The domain_id attribute.
     /// </summary>
     [TerraformProperty("domain_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DomainId { get; }
+    public partial TerraformValue<string> DomainId { get; }
 
     /// <summary>
     /// The search_service_endpoint attribute.
     /// </summary>
     [TerraformProperty("search_service_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SearchServiceEndpoint { get; }
+    public partial TerraformValue<string> SearchServiceEndpoint { get; }
 
 }

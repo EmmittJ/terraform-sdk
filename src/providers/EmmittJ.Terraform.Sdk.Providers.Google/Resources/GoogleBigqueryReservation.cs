@@ -14,7 +14,7 @@ public partial class GoogleBigqueryReservationAutoscaleBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("max_slots")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxSlots { get; set; }
+    public partial TerraformValue<double>? MaxSlots { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public partial class GoogleBigqueryReservationTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -62,21 +62,21 @@ public partial class GoogleBigqueryReservation : TerraformResource
     /// </summary>
     [TerraformProperty("concurrency")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Concurrency { get; set; }
+    public partial TerraformValue<double>? Concurrency { get; set; }
 
     /// <summary>
     /// The edition type. Valid values are STANDARD, ENTERPRISE, ENTERPRISE_PLUS
     /// </summary>
     [TerraformProperty("edition")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Edition { get; set; }
+    public partial TerraformValue<string> Edition { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// If false, any query using this reservation will use idle slots from other reservations within
@@ -85,7 +85,7 @@ public partial class GoogleBigqueryReservation : TerraformResource
     /// </summary>
     [TerraformProperty("ignore_idle_slots")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IgnoreIdleSlots { get; set; }
+    public partial TerraformValue<bool>? IgnoreIdleSlots { get; set; }
 
     /// <summary>
     /// The geographic location where the transfer config should reside.
@@ -93,7 +93,7 @@ public partial class GoogleBigqueryReservation : TerraformResource
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The name of the reservation. This field must only contain alphanumeric characters or dash.
@@ -101,14 +101,14 @@ public partial class GoogleBigqueryReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The current location of the reservation&#39;s secondary replica. This field is only set for
@@ -118,7 +118,7 @@ public partial class GoogleBigqueryReservation : TerraformResource
     /// </summary>
     [TerraformProperty("secondary_location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecondaryLocation { get; set; }
+    public partial TerraformValue<string>? SecondaryLocation { get; set; }
 
     /// <summary>
     /// Minimum slots available to this reservation. A slot is a unit of computational power in BigQuery, and serves as the
@@ -127,7 +127,7 @@ public partial class GoogleBigqueryReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotCapacity is required")]
     [TerraformProperty("slot_capacity")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> SlotCapacity { get; set; }
+    public required partial TerraformValue<double> SlotCapacity { get; set; }
 
     /// <summary>
     /// Block for autoscale.
@@ -135,14 +135,14 @@ public partial class GoogleBigqueryReservation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Autoscale block(s) allowed")]
     [TerraformProperty("autoscale")]
-    public TerraformList<TerraformBlock<GoogleBigqueryReservationAutoscaleBlock>>? Autoscale { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigqueryReservationAutoscaleBlock>>? Autoscale { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBigqueryReservationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBigqueryReservationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The location where the reservation was originally created. This is set only during the
@@ -151,7 +151,7 @@ public partial class GoogleBigqueryReservation : TerraformResource
     /// </summary>
     [TerraformProperty("original_primary_location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OriginalPrimaryLocation { get; }
+    public partial TerraformValue<string> OriginalPrimaryLocation { get; }
 
     /// <summary>
     /// The current location of the reservation&#39;s primary replica. This field is only set for
@@ -159,7 +159,7 @@ public partial class GoogleBigqueryReservation : TerraformResource
     /// </summary>
     [TerraformProperty("primary_location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryLocation { get; }
+    public partial TerraformValue<string> PrimaryLocation { get; }
 
     /// <summary>
     /// The Disaster Recovery(DR) replication status of the reservation. This is only available for
@@ -171,6 +171,6 @@ public partial class GoogleBigqueryReservation : TerraformResource
     /// </summary>
     [TerraformProperty("replication_status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ReplicationStatus { get; }
+    public partial TerraformList<object> ReplicationStatus { get; }
 
 }

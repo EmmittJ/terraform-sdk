@@ -22,7 +22,7 @@ public partial class GoogleDataprocBatchPysparkBatchBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("archive_uris")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ArchiveUris { get; set; }
+    public partial TerraformList<string>? ArchiveUris { get; set; }
 
     /// <summary>
     /// The arguments to pass to the driver. Do not include arguments that can be set as batch
@@ -30,28 +30,28 @@ public partial class GoogleDataprocBatchPysparkBatchBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("args")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Args { get; set; }
+    public partial TerraformList<string>? Args { get; set; }
 
     /// <summary>
     /// HCFS URIs of files to be placed in the working directory of each executor.
     /// </summary>
     [TerraformProperty("file_uris")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? FileUris { get; set; }
+    public partial TerraformList<string>? FileUris { get; set; }
 
     /// <summary>
     /// HCFS URIs of jar files to add to the classpath of the Spark driver and tasks.
     /// </summary>
     [TerraformProperty("jar_file_uris")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? JarFileUris { get; set; }
+    public partial TerraformList<string>? JarFileUris { get; set; }
 
     /// <summary>
     /// The HCFS URI of the main Python file to use as the Spark driver. Must be a .py file.
     /// </summary>
     [TerraformProperty("main_python_file_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MainPythonFileUri { get; set; }
+    public partial TerraformValue<string>? MainPythonFileUri { get; set; }
 
     /// <summary>
     /// HCFS file URIs of Python files to pass to the PySpark framework.
@@ -59,7 +59,7 @@ public partial class GoogleDataprocBatchPysparkBatchBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("python_file_uris")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? PythonFileUris { get; set; }
+    public partial TerraformList<string>? PythonFileUris { get; set; }
 
 }
 
@@ -74,14 +74,14 @@ public partial class GoogleDataprocBatchRuntimeConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("cohort")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Cohort { get; set; }
+    public partial TerraformValue<string>? Cohort { get; set; }
 
     /// <summary>
     /// Optional custom container image for the job runtime environment. If not specified, a default container image will be used.
     /// </summary>
     [TerraformProperty("container_image")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContainerImage { get; set; }
+    public partial TerraformValue<string>? ContainerImage { get; set; }
 
 
     /// <summary>
@@ -89,14 +89,14 @@ public partial class GoogleDataprocBatchRuntimeConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Properties { get; set; }
+    public partial TerraformMap<string>? Properties { get; set; }
 
     /// <summary>
     /// Version of the batch runtime.
     /// </summary>
     [TerraformProperty("version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Version { get; set; }
+    public partial TerraformValue<string> Version { get; set; }
 
 }
 
@@ -112,7 +112,7 @@ public partial class GoogleDataprocBatchSparkBatchBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("archive_uris")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ArchiveUris { get; set; }
+    public partial TerraformList<string>? ArchiveUris { get; set; }
 
     /// <summary>
     /// The arguments to pass to the driver. Do not include arguments that can be set as batch
@@ -120,21 +120,21 @@ public partial class GoogleDataprocBatchSparkBatchBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("args")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Args { get; set; }
+    public partial TerraformList<string>? Args { get; set; }
 
     /// <summary>
     /// HCFS URIs of files to be placed in the working directory of each executor.
     /// </summary>
     [TerraformProperty("file_uris")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? FileUris { get; set; }
+    public partial TerraformList<string>? FileUris { get; set; }
 
     /// <summary>
     /// HCFS URIs of jar files to add to the classpath of the Spark driver and tasks.
     /// </summary>
     [TerraformProperty("jar_file_uris")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? JarFileUris { get; set; }
+    public partial TerraformList<string>? JarFileUris { get; set; }
 
     /// <summary>
     /// The name of the driver main class. The jar file that contains the class must be in the
@@ -142,14 +142,14 @@ public partial class GoogleDataprocBatchSparkBatchBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("main_class")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MainClass { get; set; }
+    public partial TerraformValue<string>? MainClass { get; set; }
 
     /// <summary>
     /// The HCFS URI of the jar file that contains the main class.
     /// </summary>
     [TerraformProperty("main_jar_file_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MainJarFileUri { get; set; }
+    public partial TerraformValue<string>? MainJarFileUri { get; set; }
 
 }
 
@@ -165,7 +165,7 @@ public partial class GoogleDataprocBatchSparkRBatchBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("archive_uris")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ArchiveUris { get; set; }
+    public partial TerraformList<string>? ArchiveUris { get; set; }
 
     /// <summary>
     /// The arguments to pass to the driver. Do not include arguments that can be set as batch
@@ -173,21 +173,21 @@ public partial class GoogleDataprocBatchSparkRBatchBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("args")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Args { get; set; }
+    public partial TerraformList<string>? Args { get; set; }
 
     /// <summary>
     /// HCFS URIs of files to be placed in the working directory of each executor.
     /// </summary>
     [TerraformProperty("file_uris")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? FileUris { get; set; }
+    public partial TerraformList<string>? FileUris { get; set; }
 
     /// <summary>
     /// The HCFS URI of the main R file to use as the driver. Must be a .R or .r file.
     /// </summary>
     [TerraformProperty("main_r_file_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MainRFileUri { get; set; }
+    public partial TerraformValue<string>? MainRFileUri { get; set; }
 
 }
 
@@ -202,21 +202,21 @@ public partial class GoogleDataprocBatchSparkSqlBatchBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("jar_file_uris")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? JarFileUris { get; set; }
+    public partial TerraformList<string>? JarFileUris { get; set; }
 
     /// <summary>
     /// The HCFS URI of the script that contains Spark SQL queries to execute.
     /// </summary>
     [TerraformProperty("query_file_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? QueryFileUri { get; set; }
+    public partial TerraformValue<string>? QueryFileUri { get; set; }
 
     /// <summary>
     /// Mapping of query variable names to values (equivalent to the Spark SQL command: SET name=&amp;quot;value&amp;quot;;).
     /// </summary>
     [TerraformProperty("query_variables")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? QueryVariables { get; set; }
+    public partial TerraformMap<string>? QueryVariables { get; set; }
 
 }
 
@@ -231,21 +231,21 @@ public partial class GoogleDataprocBatchTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -265,14 +265,14 @@ public partial class GoogleDataprocBatch : TerraformResource
     /// </summary>
     [TerraformProperty("batch_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BatchId { get; set; }
+    public partial TerraformValue<string>? BatchId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The labels to associate with this batch.
@@ -283,21 +283,21 @@ public partial class GoogleDataprocBatch : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location in which the batch will be created in.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for environment_config.
@@ -305,7 +305,7 @@ public partial class GoogleDataprocBatch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnvironmentConfig block(s) allowed")]
     [TerraformProperty("environment_config")]
-    public TerraformList<TerraformBlock<GoogleDataprocBatchEnvironmentConfigBlock>>? EnvironmentConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocBatchEnvironmentConfigBlock>>? EnvironmentConfig { get; set; }
 
     /// <summary>
     /// Block for pyspark_batch.
@@ -313,7 +313,7 @@ public partial class GoogleDataprocBatch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PysparkBatch block(s) allowed")]
     [TerraformProperty("pyspark_batch")]
-    public TerraformList<TerraformBlock<GoogleDataprocBatchPysparkBatchBlock>>? PysparkBatch { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocBatchPysparkBatchBlock>>? PysparkBatch { get; set; }
 
     /// <summary>
     /// Block for runtime_config.
@@ -321,7 +321,7 @@ public partial class GoogleDataprocBatch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuntimeConfig block(s) allowed")]
     [TerraformProperty("runtime_config")]
-    public TerraformList<TerraformBlock<GoogleDataprocBatchRuntimeConfigBlock>>? RuntimeConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocBatchRuntimeConfigBlock>>? RuntimeConfig { get; set; }
 
     /// <summary>
     /// Block for spark_batch.
@@ -329,7 +329,7 @@ public partial class GoogleDataprocBatch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkBatch block(s) allowed")]
     [TerraformProperty("spark_batch")]
-    public TerraformList<TerraformBlock<GoogleDataprocBatchSparkBatchBlock>>? SparkBatch { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocBatchSparkBatchBlock>>? SparkBatch { get; set; }
 
     /// <summary>
     /// Block for spark_r_batch.
@@ -337,7 +337,7 @@ public partial class GoogleDataprocBatch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkRBatch block(s) allowed")]
     [TerraformProperty("spark_r_batch")]
-    public TerraformList<TerraformBlock<GoogleDataprocBatchSparkRBatchBlock>>? SparkRBatch { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocBatchSparkRBatchBlock>>? SparkRBatch { get; set; }
 
     /// <summary>
     /// Block for spark_sql_batch.
@@ -345,84 +345,84 @@ public partial class GoogleDataprocBatch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkSqlBatch block(s) allowed")]
     [TerraformProperty("spark_sql_batch")]
-    public TerraformList<TerraformBlock<GoogleDataprocBatchSparkSqlBatchBlock>>? SparkSqlBatch { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocBatchSparkSqlBatchBlock>>? SparkSqlBatch { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDataprocBatchTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDataprocBatchTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when the batch was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The email address of the user who created the batch.
     /// </summary>
     [TerraformProperty("creator")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Creator { get; }
+    public partial TerraformValue<string> Creator { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The resource name of the batch.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The resource name of the operation associated with this batch.
     /// </summary>
     [TerraformProperty("operation")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Operation { get; }
+    public partial TerraformValue<string> Operation { get; }
 
     /// <summary>
     /// Runtime information about batch execution.
     /// </summary>
     [TerraformProperty("runtime_info")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> RuntimeInfo { get; }
+    public partial TerraformList<object> RuntimeInfo { get; }
 
     /// <summary>
     /// The state of the batch. For possible values, see the [API documentation](https://cloud.google.com/dataproc-serverless/docs/reference/rest/v1/projects.locations.batches#State).
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Historical state information for the batch.
     /// </summary>
     [TerraformProperty("state_history")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> StateHistory { get; }
+    public partial TerraformList<object> StateHistory { get; }
 
     /// <summary>
     /// Batch state details, such as a failure description if the state is FAILED.
     /// </summary>
     [TerraformProperty("state_message")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StateMessage { get; }
+    public partial TerraformValue<string> StateMessage { get; }
 
     /// <summary>
     /// Batch state details, such as a failure description if the state is FAILED.
     /// </summary>
     [TerraformProperty("state_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StateTime { get; }
+    public partial TerraformValue<string> StateTime { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -430,13 +430,13 @@ public partial class GoogleDataprocBatch : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// A batch UUID (Unique Universal Identifier). The service generates this value when it creates the batch.
     /// </summary>
     [TerraformProperty("uuid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uuid { get; }
+    public partial TerraformValue<string> Uuid { get; }
 
 }

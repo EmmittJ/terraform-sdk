@@ -13,28 +13,28 @@ public partial class AzurermNginxCertificateTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,14 +53,14 @@ public partial class AzurermNginxCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateVirtualPath is required")]
     [TerraformProperty("certificate_virtual_path")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CertificateVirtualPath { get; set; }
+    public required partial TerraformValue<string> CertificateVirtualPath { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_vault_secret_id attribute.
@@ -68,7 +68,7 @@ public partial class AzurermNginxCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultSecretId is required")]
     [TerraformProperty("key_vault_secret_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultSecretId { get; set; }
+    public required partial TerraformValue<string> KeyVaultSecretId { get; set; }
 
     /// <summary>
     /// The key_virtual_path attribute.
@@ -76,7 +76,7 @@ public partial class AzurermNginxCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVirtualPath is required")]
     [TerraformProperty("key_virtual_path")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVirtualPath { get; set; }
+    public required partial TerraformValue<string> KeyVirtualPath { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -84,7 +84,7 @@ public partial class AzurermNginxCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The nginx_deployment_id attribute.
@@ -92,13 +92,13 @@ public partial class AzurermNginxCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     [TerraformProperty("nginx_deployment_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NginxDeploymentId { get; set; }
+    public required partial TerraformValue<string> NginxDeploymentId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNginxCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNginxCertificateTimeoutsBlock>? Timeouts { get; set; }
 
 }

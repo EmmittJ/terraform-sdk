@@ -13,28 +13,28 @@ public partial class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigur
     /// </summary>
     [TerraformProperty("azure_key_vault_certificate_secret_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AzureKeyVaultCertificateSecretName { get; set; }
+    public partial TerraformValue<string>? AzureKeyVaultCertificateSecretName { get; set; }
 
     /// <summary>
     /// The azure_key_vault_certificate_secret_version attribute.
     /// </summary>
     [TerraformProperty("azure_key_vault_certificate_secret_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AzureKeyVaultCertificateSecretVersion { get; set; }
+    public partial TerraformValue<string>? AzureKeyVaultCertificateSecretVersion { get; set; }
 
     /// <summary>
     /// The azure_key_vault_certificate_vault_id attribute.
     /// </summary>
     [TerraformProperty("azure_key_vault_certificate_vault_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AzureKeyVaultCertificateVaultId { get; set; }
+    public partial TerraformValue<string>? AzureKeyVaultCertificateVaultId { get; set; }
 
     /// <summary>
     /// The certificate_source attribute.
     /// </summary>
     [TerraformProperty("certificate_source")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CertificateSource { get; set; }
+    public partial TerraformValue<string>? CertificateSource { get; set; }
 
 
 
@@ -52,28 +52,28 @@ public partial class AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock : Ter
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -93,7 +93,7 @@ public partial class AzurermFrontdoorCustomHttpsConfiguration : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomHttpsProvisioningEnabled is required")]
     [TerraformProperty("custom_https_provisioning_enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> CustomHttpsProvisioningEnabled { get; set; }
+    public required partial TerraformValue<bool> CustomHttpsProvisioningEnabled { get; set; }
 
     /// <summary>
     /// The frontend_endpoint_id attribute.
@@ -101,14 +101,14 @@ public partial class AzurermFrontdoorCustomHttpsConfiguration : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendEndpointId is required")]
     [TerraformProperty("frontend_endpoint_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FrontendEndpointId { get; set; }
+    public required partial TerraformValue<string> FrontendEndpointId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for custom_https_configuration.
@@ -116,13 +116,13 @@ public partial class AzurermFrontdoorCustomHttpsConfiguration : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomHttpsConfiguration block(s) allowed")]
     [TerraformProperty("custom_https_configuration")]
-    public TerraformList<TerraformBlock<AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock>>? CustomHttpsConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock>>? CustomHttpsConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
 }

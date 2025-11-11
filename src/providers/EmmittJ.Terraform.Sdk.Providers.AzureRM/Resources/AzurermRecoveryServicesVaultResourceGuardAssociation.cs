@@ -13,21 +13,21 @@ public partial class AzurermRecoveryServicesVaultResourceGuardAssociationTimeout
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermRecoveryServicesVaultResourceGuardAssociation : Terr
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource_guard_id attribute.
@@ -53,7 +53,7 @@ public partial class AzurermRecoveryServicesVaultResourceGuardAssociation : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGuardId is required")]
     [TerraformProperty("resource_guard_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGuardId { get; set; }
+    public required partial TerraformValue<string> ResourceGuardId { get; set; }
 
     /// <summary>
     /// The vault_id attribute.
@@ -61,13 +61,13 @@ public partial class AzurermRecoveryServicesVaultResourceGuardAssociation : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
     [TerraformProperty("vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VaultId { get; set; }
+    public required partial TerraformValue<string> VaultId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermRecoveryServicesVaultResourceGuardAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermRecoveryServicesVaultResourceGuardAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

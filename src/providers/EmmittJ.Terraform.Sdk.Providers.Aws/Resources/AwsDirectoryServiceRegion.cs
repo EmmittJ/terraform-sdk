@@ -13,21 +13,21 @@ public partial class AwsDirectoryServiceRegionTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -43,7 +43,7 @@ public partial class AwsDirectoryServiceRegionVpcSettingsBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     [TerraformProperty("subnet_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> SubnetIds { get; set; }
+    public required partial TerraformSet<string> SubnetIds { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
@@ -51,7 +51,7 @@ public partial class AwsDirectoryServiceRegionVpcSettingsBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     [TerraformProperty("vpc_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VpcId { get; set; }
+    public required partial TerraformValue<string> VpcId { get; set; }
 
 }
 
@@ -70,7 +70,7 @@ public partial class AwsDirectoryServiceRegion : TerraformResource
     /// </summary>
     [TerraformProperty("desired_number_of_domain_controllers")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> DesiredNumberOfDomainControllers { get; set; }
+    public partial TerraformValue<double> DesiredNumberOfDomainControllers { get; set; }
 
     /// <summary>
     /// The directory_id attribute.
@@ -78,21 +78,21 @@ public partial class AwsDirectoryServiceRegion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     [TerraformProperty("directory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DirectoryId { get; set; }
+    public required partial TerraformValue<string> DirectoryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The region_name attribute.
@@ -100,28 +100,28 @@ public partial class AwsDirectoryServiceRegion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
     [TerraformProperty("region_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RegionName { get; set; }
+    public required partial TerraformValue<string> RegionName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsDirectoryServiceRegionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsDirectoryServiceRegionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vpc_settings.
@@ -131,6 +131,6 @@ public partial class AwsDirectoryServiceRegion : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcSettings block(s) allowed")]
     [TerraformProperty("vpc_settings")]
-    public TerraformList<TerraformBlock<AwsDirectoryServiceRegionVpcSettingsBlock>>? VpcSettings { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDirectoryServiceRegionVpcSettingsBlock>>? VpcSettings { get; set; }
 
 }

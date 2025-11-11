@@ -14,7 +14,7 @@ public partial class AwsEcsServiceAlarmsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmNames is required")]
     [TerraformProperty("alarm_names")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> AlarmNames { get; set; }
+    public required partial TerraformSet<string> AlarmNames { get; set; }
 
     /// <summary>
     /// The enable attribute.
@@ -22,7 +22,7 @@ public partial class AwsEcsServiceAlarmsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
     [TerraformProperty("enable")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enable { get; set; }
+    public required partial TerraformValue<bool> Enable { get; set; }
 
     /// <summary>
     /// The rollback attribute.
@@ -30,7 +30,7 @@ public partial class AwsEcsServiceAlarmsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rollback is required")]
     [TerraformProperty("rollback")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Rollback { get; set; }
+    public required partial TerraformValue<bool> Rollback { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AwsEcsServiceCapacityProviderStrategyBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("base")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Base { get; set; }
+    public partial TerraformValue<double>? Base { get; set; }
 
     /// <summary>
     /// The capacity_provider attribute.
@@ -53,14 +53,14 @@ public partial class AwsEcsServiceCapacityProviderStrategyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     [TerraformProperty("capacity_provider")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CapacityProvider { get; set; }
+    public required partial TerraformValue<string> CapacityProvider { get; set; }
 
     /// <summary>
     /// The weight attribute.
     /// </summary>
     [TerraformProperty("weight")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Weight { get; set; }
+    public partial TerraformValue<double>? Weight { get; set; }
 
 }
 
@@ -76,7 +76,7 @@ public partial class AwsEcsServiceDeploymentCircuitBreakerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
     [TerraformProperty("enable")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enable { get; set; }
+    public required partial TerraformValue<bool> Enable { get; set; }
 
     /// <summary>
     /// The rollback attribute.
@@ -84,7 +84,7 @@ public partial class AwsEcsServiceDeploymentCircuitBreakerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rollback is required")]
     [TerraformProperty("rollback")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Rollback { get; set; }
+    public required partial TerraformValue<bool> Rollback { get; set; }
 
 }
 
@@ -99,14 +99,14 @@ public partial class AwsEcsServiceDeploymentConfigurationBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("bake_time_in_minutes")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> BakeTimeInMinutes { get; set; }
+    public partial TerraformValue<string> BakeTimeInMinutes { get; set; }
 
     /// <summary>
     /// The strategy attribute.
     /// </summary>
     [TerraformProperty("strategy")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Strategy { get; set; }
+    public partial TerraformValue<string> Strategy { get; set; }
 
 }
 
@@ -121,7 +121,7 @@ public partial class AwsEcsServiceDeploymentControllerBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -137,7 +137,7 @@ public partial class AwsEcsServiceLoadBalancerBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     [TerraformProperty("container_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerName { get; set; }
+    public required partial TerraformValue<string> ContainerName { get; set; }
 
     /// <summary>
     /// The container_port attribute.
@@ -145,21 +145,21 @@ public partial class AwsEcsServiceLoadBalancerBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerPort is required")]
     [TerraformProperty("container_port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ContainerPort { get; set; }
+    public required partial TerraformValue<double> ContainerPort { get; set; }
 
     /// <summary>
     /// The elb_name attribute.
     /// </summary>
     [TerraformProperty("elb_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ElbName { get; set; }
+    public partial TerraformValue<string>? ElbName { get; set; }
 
     /// <summary>
     /// The target_group_arn attribute.
     /// </summary>
     [TerraformProperty("target_group_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TargetGroupArn { get; set; }
+    public partial TerraformValue<string>? TargetGroupArn { get; set; }
 
 }
 
@@ -174,14 +174,14 @@ public partial class AwsEcsServiceNetworkConfigurationBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("assign_public_ip")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AssignPublicIp { get; set; }
+    public partial TerraformValue<bool>? AssignPublicIp { get; set; }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
     [TerraformProperty("security_groups")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? SecurityGroups { get; set; }
+    public partial TerraformSet<string>? SecurityGroups { get; set; }
 
     /// <summary>
     /// The subnets attribute.
@@ -189,7 +189,7 @@ public partial class AwsEcsServiceNetworkConfigurationBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     [TerraformProperty("subnets")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Subnets { get; set; }
+    public required partial TerraformSet<string> Subnets { get; set; }
 
 }
 
@@ -204,7 +204,7 @@ public partial class AwsEcsServiceOrderedPlacementStrategyBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("field")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Field { get; set; }
+    public partial TerraformValue<string>? Field { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -212,7 +212,7 @@ public partial class AwsEcsServiceOrderedPlacementStrategyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -227,7 +227,7 @@ public partial class AwsEcsServicePlacementConstraintsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("expression")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Expression { get; set; }
+    public partial TerraformValue<string>? Expression { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -235,7 +235,7 @@ public partial class AwsEcsServicePlacementConstraintsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -251,14 +251,14 @@ public partial class AwsEcsServiceServiceConnectConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
     [TerraformProperty("namespace")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Namespace { get; set; }
+    public partial TerraformValue<string> Namespace { get; set; }
 
 }
 
@@ -273,21 +273,21 @@ public partial class AwsEcsServiceServiceRegistriesBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("container_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContainerName { get; set; }
+    public partial TerraformValue<string>? ContainerName { get; set; }
 
     /// <summary>
     /// The container_port attribute.
     /// </summary>
     [TerraformProperty("container_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ContainerPort { get; set; }
+    public partial TerraformValue<double>? ContainerPort { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// The registry_arn attribute.
@@ -295,7 +295,7 @@ public partial class AwsEcsServiceServiceRegistriesBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryArn is required")]
     [TerraformProperty("registry_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RegistryArn { get; set; }
+    public required partial TerraformValue<string> RegistryArn { get; set; }
 
 }
 
@@ -310,21 +310,21 @@ public partial class AwsEcsServiceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -340,7 +340,7 @@ public partial class AwsEcsServiceVolumeConfigurationBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -356,7 +356,7 @@ public partial class AwsEcsServiceVpcLatticeConfigurationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortName is required")]
     [TerraformProperty("port_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PortName { get; set; }
+    public required partial TerraformValue<string> PortName { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -364,7 +364,7 @@ public partial class AwsEcsServiceVpcLatticeConfigurationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The target_group_arn attribute.
@@ -372,7 +372,7 @@ public partial class AwsEcsServiceVpcLatticeConfigurationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetGroupArn is required")]
     [TerraformProperty("target_group_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetGroupArn { get; set; }
+    public required partial TerraformValue<string> TargetGroupArn { get; set; }
 
 }
 
@@ -391,91 +391,91 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [TerraformProperty("availability_zone_rebalancing")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AvailabilityZoneRebalancing { get; set; }
+    public partial TerraformValue<string> AvailabilityZoneRebalancing { get; set; }
 
     /// <summary>
     /// The cluster attribute.
     /// </summary>
     [TerraformProperty("cluster")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Cluster { get; set; }
+    public partial TerraformValue<string> Cluster { get; set; }
 
     /// <summary>
     /// The deployment_maximum_percent attribute.
     /// </summary>
     [TerraformProperty("deployment_maximum_percent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DeploymentMaximumPercent { get; set; }
+    public partial TerraformValue<double>? DeploymentMaximumPercent { get; set; }
 
     /// <summary>
     /// The deployment_minimum_healthy_percent attribute.
     /// </summary>
     [TerraformProperty("deployment_minimum_healthy_percent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DeploymentMinimumHealthyPercent { get; set; }
+    public partial TerraformValue<double>? DeploymentMinimumHealthyPercent { get; set; }
 
     /// <summary>
     /// The desired_count attribute.
     /// </summary>
     [TerraformProperty("desired_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DesiredCount { get; set; }
+    public partial TerraformValue<double>? DesiredCount { get; set; }
 
     /// <summary>
     /// The enable_ecs_managed_tags attribute.
     /// </summary>
     [TerraformProperty("enable_ecs_managed_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableEcsManagedTags { get; set; }
+    public partial TerraformValue<bool>? EnableEcsManagedTags { get; set; }
 
     /// <summary>
     /// The enable_execute_command attribute.
     /// </summary>
     [TerraformProperty("enable_execute_command")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableExecuteCommand { get; set; }
+    public partial TerraformValue<bool>? EnableExecuteCommand { get; set; }
 
     /// <summary>
     /// The force_delete attribute.
     /// </summary>
     [TerraformProperty("force_delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ForceDelete { get; set; }
+    public partial TerraformValue<bool>? ForceDelete { get; set; }
 
     /// <summary>
     /// The force_new_deployment attribute.
     /// </summary>
     [TerraformProperty("force_new_deployment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ForceNewDeployment { get; set; }
+    public partial TerraformValue<bool>? ForceNewDeployment { get; set; }
 
     /// <summary>
     /// The health_check_grace_period_seconds attribute.
     /// </summary>
     [TerraformProperty("health_check_grace_period_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? HealthCheckGracePeriodSeconds { get; set; }
+    public partial TerraformValue<double>? HealthCheckGracePeriodSeconds { get; set; }
 
     /// <summary>
     /// The iam_role attribute.
     /// </summary>
     [TerraformProperty("iam_role")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> IamRole { get; set; }
+    public partial TerraformValue<string> IamRole { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The launch_type attribute.
     /// </summary>
     [TerraformProperty("launch_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> LaunchType { get; set; }
+    public partial TerraformValue<string> LaunchType { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -483,77 +483,77 @@ public partial class AwsEcsService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The platform_version attribute.
     /// </summary>
     [TerraformProperty("platform_version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PlatformVersion { get; set; }
+    public partial TerraformValue<string> PlatformVersion { get; set; }
 
     /// <summary>
     /// The propagate_tags attribute.
     /// </summary>
     [TerraformProperty("propagate_tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PropagateTags { get; set; }
+    public partial TerraformValue<string>? PropagateTags { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The scheduling_strategy attribute.
     /// </summary>
     [TerraformProperty("scheduling_strategy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SchedulingStrategy { get; set; }
+    public partial TerraformValue<string>? SchedulingStrategy { get; set; }
 
     /// <summary>
     /// The sigint_rollback attribute.
     /// </summary>
     [TerraformProperty("sigint_rollback")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SigintRollback { get; set; }
+    public partial TerraformValue<bool>? SigintRollback { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The task_definition attribute.
     /// </summary>
     [TerraformProperty("task_definition")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TaskDefinition { get; set; }
+    public partial TerraformValue<string>? TaskDefinition { get; set; }
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
     [TerraformProperty("triggers")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Triggers { get; set; }
+    public partial TerraformMap<string> Triggers { get; set; }
 
     /// <summary>
     /// The wait_for_steady_state attribute.
     /// </summary>
     [TerraformProperty("wait_for_steady_state")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? WaitForSteadyState { get; set; }
+    public partial TerraformValue<bool>? WaitForSteadyState { get; set; }
 
     /// <summary>
     /// Block for alarms.
@@ -561,14 +561,14 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Alarms block(s) allowed")]
     [TerraformProperty("alarms")]
-    public TerraformList<TerraformBlock<AwsEcsServiceAlarmsBlock>>? Alarms { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcsServiceAlarmsBlock>>? Alarms { get; set; }
 
     /// <summary>
     /// Block for capacity_provider_strategy.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("capacity_provider_strategy")]
-    public TerraformSet<TerraformBlock<AwsEcsServiceCapacityProviderStrategyBlock>>? CapacityProviderStrategy { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsEcsServiceCapacityProviderStrategyBlock>>? CapacityProviderStrategy { get; set; }
 
     /// <summary>
     /// Block for deployment_circuit_breaker.
@@ -576,7 +576,7 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeploymentCircuitBreaker block(s) allowed")]
     [TerraformProperty("deployment_circuit_breaker")]
-    public TerraformList<TerraformBlock<AwsEcsServiceDeploymentCircuitBreakerBlock>>? DeploymentCircuitBreaker { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcsServiceDeploymentCircuitBreakerBlock>>? DeploymentCircuitBreaker { get; set; }
 
     /// <summary>
     /// Block for deployment_configuration.
@@ -584,7 +584,7 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeploymentConfiguration block(s) allowed")]
     [TerraformProperty("deployment_configuration")]
-    public TerraformList<TerraformBlock<AwsEcsServiceDeploymentConfigurationBlock>>? DeploymentConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcsServiceDeploymentConfigurationBlock>>? DeploymentConfiguration { get; set; }
 
     /// <summary>
     /// Block for deployment_controller.
@@ -592,14 +592,14 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeploymentController block(s) allowed")]
     [TerraformProperty("deployment_controller")]
-    public TerraformList<TerraformBlock<AwsEcsServiceDeploymentControllerBlock>>? DeploymentController { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcsServiceDeploymentControllerBlock>>? DeploymentController { get; set; }
 
     /// <summary>
     /// Block for load_balancer.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("load_balancer")]
-    public TerraformSet<TerraformBlock<AwsEcsServiceLoadBalancerBlock>>? LoadBalancer { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsEcsServiceLoadBalancerBlock>>? LoadBalancer { get; set; }
 
     /// <summary>
     /// Block for network_configuration.
@@ -607,7 +607,7 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
     [TerraformProperty("network_configuration")]
-    public TerraformList<TerraformBlock<AwsEcsServiceNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcsServiceNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
 
     /// <summary>
     /// Block for ordered_placement_strategy.
@@ -615,7 +615,7 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 OrderedPlacementStrategy block(s) allowed")]
     [TerraformProperty("ordered_placement_strategy")]
-    public TerraformList<TerraformBlock<AwsEcsServiceOrderedPlacementStrategyBlock>>? OrderedPlacementStrategy { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcsServiceOrderedPlacementStrategyBlock>>? OrderedPlacementStrategy { get; set; }
 
     /// <summary>
     /// Block for placement_constraints.
@@ -623,7 +623,7 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PlacementConstraints block(s) allowed")]
     [TerraformProperty("placement_constraints")]
-    public TerraformSet<TerraformBlock<AwsEcsServicePlacementConstraintsBlock>>? PlacementConstraints { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsEcsServicePlacementConstraintsBlock>>? PlacementConstraints { get; set; }
 
     /// <summary>
     /// Block for service_connect_configuration.
@@ -631,7 +631,7 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceConnectConfiguration block(s) allowed")]
     [TerraformProperty("service_connect_configuration")]
-    public TerraformList<TerraformBlock<AwsEcsServiceServiceConnectConfigurationBlock>>? ServiceConnectConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcsServiceServiceConnectConfigurationBlock>>? ServiceConnectConfiguration { get; set; }
 
     /// <summary>
     /// Block for service_registries.
@@ -639,14 +639,14 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceRegistries block(s) allowed")]
     [TerraformProperty("service_registries")]
-    public TerraformList<TerraformBlock<AwsEcsServiceServiceRegistriesBlock>>? ServiceRegistries { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcsServiceServiceRegistriesBlock>>? ServiceRegistries { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsEcsServiceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsEcsServiceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for volume_configuration.
@@ -654,20 +654,20 @@ public partial class AwsEcsService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VolumeConfiguration block(s) allowed")]
     [TerraformProperty("volume_configuration")]
-    public TerraformList<TerraformBlock<AwsEcsServiceVolumeConfigurationBlock>>? VolumeConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEcsServiceVolumeConfigurationBlock>>? VolumeConfiguration { get; set; }
 
     /// <summary>
     /// Block for vpc_lattice_configurations.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("vpc_lattice_configurations")]
-    public TerraformSet<TerraformBlock<AwsEcsServiceVpcLatticeConfigurationsBlock>>? VpcLatticeConfigurations { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsEcsServiceVpcLatticeConfigurationsBlock>>? VpcLatticeConfigurations { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

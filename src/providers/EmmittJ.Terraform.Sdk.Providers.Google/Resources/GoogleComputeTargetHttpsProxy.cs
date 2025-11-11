@@ -13,21 +13,21 @@ public partial class GoogleComputeTargetHttpsProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -49,7 +49,7 @@ public partial class GoogleComputeTargetHttpsProxy : TerraformResource
     /// </summary>
     [TerraformProperty("certificate_manager_certificates")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? CertificateManagerCertificates { get; set; }
+    public partial TerraformList<string>? CertificateManagerCertificates { get; set; }
 
     /// <summary>
     /// A reference to the CertificateMap resource uri that identifies a certificate map
@@ -59,14 +59,14 @@ public partial class GoogleComputeTargetHttpsProxy : TerraformResource
     /// </summary>
     [TerraformProperty("certificate_map")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CertificateMap { get; set; }
+    public partial TerraformValue<string>? CertificateMap { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Specifies how long to keep a connection open, after completing a response,
@@ -81,14 +81,14 @@ public partial class GoogleComputeTargetHttpsProxy : TerraformResource
     /// </summary>
     [TerraformProperty("http_keep_alive_timeout_sec")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? HttpKeepAliveTimeoutSec { get; set; }
+    public partial TerraformValue<double>? HttpKeepAliveTimeoutSec { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -102,14 +102,14 @@ public partial class GoogleComputeTargetHttpsProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// This field only applies when the forwarding rule that references
@@ -117,7 +117,7 @@ public partial class GoogleComputeTargetHttpsProxy : TerraformResource
     /// </summary>
     [TerraformProperty("proxy_bind")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> ProxyBind { get; set; }
+    public partial TerraformValue<bool> ProxyBind { get; set; }
 
     /// <summary>
     /// Specifies the QUIC override policy for this resource. This determines
@@ -127,7 +127,7 @@ public partial class GoogleComputeTargetHttpsProxy : TerraformResource
     /// </summary>
     [TerraformProperty("quic_override")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? QuicOverride { get; set; }
+    public partial TerraformValue<string>? QuicOverride { get; set; }
 
     /// <summary>
     /// A URL referring to a networksecurity.ServerTlsPolicy
@@ -147,7 +147,7 @@ public partial class GoogleComputeTargetHttpsProxy : TerraformResource
     /// </summary>
     [TerraformProperty("server_tls_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServerTlsPolicy { get; set; }
+    public partial TerraformValue<string>? ServerTlsPolicy { get; set; }
 
     /// <summary>
     /// URLs to SslCertificate resources that are used to authenticate connections between users and the load balancer.
@@ -156,7 +156,7 @@ public partial class GoogleComputeTargetHttpsProxy : TerraformResource
     /// </summary>
     [TerraformProperty("ssl_certificates")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? SslCertificates { get; set; }
+    public partial TerraformList<string>? SslCertificates { get; set; }
 
     /// <summary>
     /// A reference to the SslPolicy resource that will be associated with
@@ -165,7 +165,7 @@ public partial class GoogleComputeTargetHttpsProxy : TerraformResource
     /// </summary>
     [TerraformProperty("ssl_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SslPolicy { get; set; }
+    public partial TerraformValue<string>? SslPolicy { get; set; }
 
     /// <summary>
     /// Specifies whether TLS 1.3 0-RTT Data (“Early Data”) should be accepted for this service.
@@ -175,7 +175,7 @@ public partial class GoogleComputeTargetHttpsProxy : TerraformResource
     /// </summary>
     [TerraformProperty("tls_early_data")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TlsEarlyData { get; set; }
+    public partial TerraformValue<string> TlsEarlyData { get; set; }
 
     /// <summary>
     /// A reference to the UrlMap resource that defines the mapping from URL
@@ -184,21 +184,21 @@ public partial class GoogleComputeTargetHttpsProxy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlMap is required")]
     [TerraformProperty("url_map")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UrlMap { get; set; }
+    public required partial TerraformValue<string> UrlMap { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeTargetHttpsProxyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeTargetHttpsProxyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking.
@@ -209,20 +209,20 @@ public partial class GoogleComputeTargetHttpsProxy : TerraformResource
     /// </summary>
     [TerraformProperty("fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Fingerprint { get; }
+    public partial TerraformValue<string> Fingerprint { get; }
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     [TerraformProperty("proxy_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ProxyId { get; }
+    public partial TerraformValue<double> ProxyId { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
 }

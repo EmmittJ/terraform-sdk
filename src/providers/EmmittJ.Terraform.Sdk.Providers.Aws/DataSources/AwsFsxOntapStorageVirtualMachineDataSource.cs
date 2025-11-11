@@ -14,7 +14,7 @@ public partial class AwsFsxOntapStorageVirtualMachineDataSourceFilterBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
@@ -22,7 +22,7 @@ public partial class AwsFsxOntapStorageVirtualMachineDataSourceFilterBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     [TerraformProperty("values")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Values { get; set; }
+    public partial TerraformList<string>? Values { get; set; }
 
 }
 
@@ -40,97 +40,97 @@ public partial class AwsFsxOntapStorageVirtualMachineDataSource : TerraformDataS
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Tags { get; set; }
+    public partial TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public TerraformSet<TerraformBlock<AwsFsxOntapStorageVirtualMachineDataSourceFilterBlock>>? Filter { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsFsxOntapStorageVirtualMachineDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// The active_directory_configuration attribute.
     /// </summary>
     [TerraformProperty("active_directory_configuration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ActiveDirectoryConfiguration { get; }
+    public partial TerraformList<object> ActiveDirectoryConfiguration { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     [TerraformProperty("creation_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTime { get; }
+    public partial TerraformValue<string> CreationTime { get; }
 
     /// <summary>
     /// The endpoints attribute.
     /// </summary>
     [TerraformProperty("endpoints")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Endpoints { get; }
+    public partial TerraformList<object> Endpoints { get; }
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
     [TerraformProperty("file_system_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> FileSystemId { get; }
+    public partial TerraformValue<string> FileSystemId { get; }
 
     /// <summary>
     /// The lifecycle_status attribute.
     /// </summary>
     [TerraformProperty("lifecycle_status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LifecycleStatus { get; }
+    public partial TerraformValue<string> LifecycleStatus { get; }
 
     /// <summary>
     /// The lifecycle_transition_reason attribute.
     /// </summary>
     [TerraformProperty("lifecycle_transition_reason")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> LifecycleTransitionReason { get; }
+    public partial TerraformSet<object> LifecycleTransitionReason { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The subtype attribute.
     /// </summary>
     [TerraformProperty("subtype")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Subtype { get; }
+    public partial TerraformValue<string> Subtype { get; }
 
     /// <summary>
     /// The uuid attribute.
     /// </summary>
     [TerraformProperty("uuid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uuid { get; }
+    public partial TerraformValue<string> Uuid { get; }
 
 }

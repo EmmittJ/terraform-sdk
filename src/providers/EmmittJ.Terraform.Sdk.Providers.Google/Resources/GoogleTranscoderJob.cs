@@ -21,21 +21,21 @@ public partial class GoogleTranscoderJobTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public partial class GoogleTranscoderJob : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The labels associated with this job. You can use these to organize and group your jobs.
@@ -65,7 +65,7 @@ public partial class GoogleTranscoderJob : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the transcoding job resource.
@@ -73,14 +73,14 @@ public partial class GoogleTranscoderJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Specify the templateId to use for populating Job.config.
@@ -88,7 +88,7 @@ public partial class GoogleTranscoderJob : TerraformResource
     /// </summary>
     [TerraformProperty("template_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TemplateId { get; set; }
+    public partial TerraformValue<string> TemplateId { get; set; }
 
     /// <summary>
     /// Block for config.
@@ -96,56 +96,56 @@ public partial class GoogleTranscoderJob : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     [TerraformProperty("config")]
-    public TerraformList<TerraformBlock<GoogleTranscoderJobConfigBlock>>? Config { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleTranscoderJobConfigBlock>>? Config { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleTranscoderJobTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleTranscoderJobTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time the job was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The time the transcoding finished.
     /// </summary>
     [TerraformProperty("end_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EndTime { get; }
+    public partial TerraformValue<string> EndTime { get; }
 
     /// <summary>
     /// The resource name of the job.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The time the transcoding started.
     /// </summary>
     [TerraformProperty("start_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StartTime { get; }
+    public partial TerraformValue<string> StartTime { get; }
 
     /// <summary>
     /// The current state of the job.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -153,6 +153,6 @@ public partial class GoogleTranscoderJob : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

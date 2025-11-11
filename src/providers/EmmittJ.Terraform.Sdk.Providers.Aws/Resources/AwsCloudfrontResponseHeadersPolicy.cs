@@ -14,14 +14,14 @@ public partial class AwsCloudfrontResponseHeadersPolicyCorsConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessControlAllowCredentials is required")]
     [TerraformProperty("access_control_allow_credentials")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> AccessControlAllowCredentials { get; set; }
+    public required partial TerraformValue<bool> AccessControlAllowCredentials { get; set; }
 
     /// <summary>
     /// The access_control_max_age_sec attribute.
     /// </summary>
     [TerraformProperty("access_control_max_age_sec")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AccessControlMaxAgeSec { get; set; }
+    public partial TerraformValue<double>? AccessControlMaxAgeSec { get; set; }
 
     /// <summary>
     /// The origin_override attribute.
@@ -29,7 +29,7 @@ public partial class AwsCloudfrontResponseHeadersPolicyCorsConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginOverride is required")]
     [TerraformProperty("origin_override")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> OriginOverride { get; set; }
+    public required partial TerraformValue<bool> OriginOverride { get; set; }
 
 }
 
@@ -69,7 +69,7 @@ public partial class AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The sampling_rate attribute.
@@ -77,7 +77,7 @@ public partial class AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamplingRate is required")]
     [TerraformProperty("sampling_rate")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> SamplingRate { get; set; }
+    public required partial TerraformValue<double> SamplingRate { get; set; }
 
 }
 
@@ -96,14 +96,14 @@ public partial class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("comment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Comment { get; set; }
+    public partial TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -111,7 +111,7 @@ public partial class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for cors_config.
@@ -119,7 +119,7 @@ public partial class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorsConfig block(s) allowed")]
     [TerraformProperty("cors_config")]
-    public TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicyCorsConfigBlock>>? CorsConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicyCorsConfigBlock>>? CorsConfig { get; set; }
 
     /// <summary>
     /// Block for custom_headers_config.
@@ -127,7 +127,7 @@ public partial class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomHeadersConfig block(s) allowed")]
     [TerraformProperty("custom_headers_config")]
-    public TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlock>>? CustomHeadersConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlock>>? CustomHeadersConfig { get; set; }
 
     /// <summary>
     /// Block for remove_headers_config.
@@ -135,7 +135,7 @@ public partial class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoveHeadersConfig block(s) allowed")]
     [TerraformProperty("remove_headers_config")]
-    public TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicyRemoveHeadersConfigBlock>>? RemoveHeadersConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicyRemoveHeadersConfigBlock>>? RemoveHeadersConfig { get; set; }
 
     /// <summary>
     /// Block for security_headers_config.
@@ -143,7 +143,7 @@ public partial class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityHeadersConfig block(s) allowed")]
     [TerraformProperty("security_headers_config")]
-    public TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlock>>? SecurityHeadersConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlock>>? SecurityHeadersConfig { get; set; }
 
     /// <summary>
     /// Block for server_timing_headers_config.
@@ -151,20 +151,20 @@ public partial class AwsCloudfrontResponseHeadersPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerTimingHeadersConfig block(s) allowed")]
     [TerraformProperty("server_timing_headers_config")]
-    public TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock>>? ServerTimingHeadersConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock>>? ServerTimingHeadersConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermRedisEnterpriseDatabaseDataSourceTimeoutsBlock : Ter
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -33,14 +33,14 @@ public partial class AzurermRedisEnterpriseDatabaseDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     [TerraformProperty("cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterId { get; set; }
+    public required partial TerraformValue<string> ClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -48,41 +48,41 @@ public partial class AzurermRedisEnterpriseDatabaseDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermRedisEnterpriseDatabaseDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermRedisEnterpriseDatabaseDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The linked_database_group_nickname attribute.
     /// </summary>
     [TerraformProperty("linked_database_group_nickname")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LinkedDatabaseGroupNickname { get; }
+    public partial TerraformValue<string> LinkedDatabaseGroupNickname { get; }
 
     /// <summary>
     /// The linked_database_id attribute.
     /// </summary>
     [TerraformProperty("linked_database_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> LinkedDatabaseId { get; }
+    public partial TerraformList<string> LinkedDatabaseId { get; }
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     [TerraformProperty("primary_access_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryAccessKey { get; }
+    public partial TerraformValue<string> PrimaryAccessKey { get; }
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     [TerraformProperty("secondary_access_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecondaryAccessKey { get; }
+    public partial TerraformValue<string> SecondaryAccessKey { get; }
 
 }

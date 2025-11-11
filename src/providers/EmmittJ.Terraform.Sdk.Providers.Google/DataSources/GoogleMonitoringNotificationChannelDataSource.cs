@@ -16,14 +16,14 @@ public partial class GoogleMonitoringNotificationChannelDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Configuration fields that define the channel and its behavior. The
@@ -36,42 +36,42 @@ public partial class GoogleMonitoringNotificationChannelDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The type of the notification channel. This field matches the value of the NotificationChannelDescriptor.type field. See https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.notificationChannelDescriptors/list to get the list of valid values such as &amp;quot;email&amp;quot;, &amp;quot;slack&amp;quot;, etc...
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// User-supplied key/value data that does not need to conform to the corresponding NotificationChannelDescriptor&#39;s schema, unlike the labels field. This field is intended to be used for organizing and identifying the NotificationChannel objects.The field can contain up to 64 entries. Each key and value is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
     /// </summary>
     [TerraformProperty("user_labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? UserLabels { get; set; }
+    public partial TerraformMap<string>? UserLabels { get; set; }
 
     /// <summary>
     /// An optional human-readable description of this notification channel. This description may provide additional details, beyond the display name, for the channel. This may not exceed 1024 Unicode characters.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// Whether notifications are forwarded to the described channel. This makes it possible to disable delivery of notifications to a particular channel without removing the channel from all alerting policies that reference the channel. This is a more convenient approach when the change is temporary and you want to receive notifications from the same set of alerting policies on the channel at some point in the future.
     /// </summary>
     [TerraformProperty("enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Enabled { get; }
+    public partial TerraformValue<bool> Enabled { get; }
 
     /// <summary>
     /// If true, the notification channel will be deleted regardless
@@ -82,7 +82,7 @@ public partial class GoogleMonitoringNotificationChannelDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("force_delete")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> ForceDelete { get; }
+    public partial TerraformValue<bool> ForceDelete { get; }
 
     /// <summary>
     /// The full REST resource name for this channel. The syntax is:
@@ -91,7 +91,7 @@ public partial class GoogleMonitoringNotificationChannelDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Different notification type behaviors are configured primarily using the the &#39;labels&#39; field on this
@@ -104,13 +104,13 @@ public partial class GoogleMonitoringNotificationChannelDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("sensitive_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> SensitiveLabels { get; }
+    public partial TerraformList<object> SensitiveLabels { get; }
 
     /// <summary>
     /// Indicates whether this channel has been verified or not. On a ListNotificationChannels or GetNotificationChannel operation, this field is expected to be populated.If the value is UNVERIFIED, then it indicates that the channel is non-functioning (it both requires verification and lacks verification); otherwise, it is assumed that the channel works.If the channel is neither VERIFIED nor UNVERIFIED, it implies that the channel is of a type that does not require verification or that this specific channel has been exempted from verification because it was created prior to verification being required for channels of this type.This field cannot be modified using a standard UpdateNotificationChannel operation. To change the value of this field, you must call VerifyNotificationChannel.
     /// </summary>
     [TerraformProperty("verification_status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VerificationStatus { get; }
+    public partial TerraformValue<string> VerificationStatus { get; }
 
 }

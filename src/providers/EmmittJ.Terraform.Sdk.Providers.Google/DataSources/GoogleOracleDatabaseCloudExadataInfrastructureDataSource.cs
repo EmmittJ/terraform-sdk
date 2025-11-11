@@ -20,14 +20,14 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     [TerraformProperty("cloud_exadata_infrastructure_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CloudExadataInfrastructureId { get; set; }
+    public required partial TerraformValue<string> CloudExadataInfrastructureId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. See documentation for resource type &#39;oracledatabase.googleapis.com/DbServer&#39;.
@@ -35,42 +35,42 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The date and time that the Exadata Infrastructure was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Whether or not to allow Terraform to destroy the instance. Unless this field is set to false in Terraform state, a terraform destroy or terraform apply that would delete the instance will fail.
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> DeletionProtection { get; }
+    public partial TerraformValue<bool> DeletionProtection { get; }
 
     /// <summary>
     /// User friendly name for this resource.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Entitlement ID of the private offer against which this infrastructure
@@ -78,14 +78,14 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : 
     /// </summary>
     [TerraformProperty("entitlement_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EntitlementId { get; }
+    public partial TerraformValue<string> EntitlementId { get; }
 
     /// <summary>
     /// GCP location where Oracle Exadata is hosted.
     /// </summary>
     [TerraformProperty("gcp_oracle_zone")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GcpOracleZone { get; }
+    public partial TerraformValue<string> GcpOracleZone { get; }
 
     /// <summary>
     /// Labels or tags associated with the resource. 
@@ -95,7 +95,7 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : 
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// Identifier. The name of the Exadata Infrastructure resource with the following format:
@@ -103,14 +103,14 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : 
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Various properties of Exadata Infrastructure.
     /// </summary>
     [TerraformProperty("properties")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Properties { get; }
+    public partial TerraformList<object> Properties { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -118,6 +118,6 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : 
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AzurermMssqlDatabaseIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     [TerraformProperty("identity_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> IdentityIds { get; set; }
+    public required partial TerraformSet<string> IdentityIds { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public partial class AzurermMssqlDatabaseIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class AzurermMssqlDatabaseImportBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministratorLogin is required")]
     [TerraformProperty("administrator_login")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AdministratorLogin { get; set; }
+    public required partial TerraformValue<string> AdministratorLogin { get; set; }
 
     /// <summary>
     /// The administrator_login_password attribute.
@@ -46,7 +46,7 @@ public partial class AzurermMssqlDatabaseImportBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministratorLoginPassword is required")]
     [TerraformProperty("administrator_login_password")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AdministratorLoginPassword { get; set; }
+    public required partial TerraformValue<string> AdministratorLoginPassword { get; set; }
 
     /// <summary>
     /// The authentication_type attribute.
@@ -54,14 +54,14 @@ public partial class AzurermMssqlDatabaseImportBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     [TerraformProperty("authentication_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AuthenticationType { get; set; }
+    public required partial TerraformValue<string> AuthenticationType { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [TerraformProperty("storage_account_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountId { get; set; }
+    public partial TerraformValue<string>? StorageAccountId { get; set; }
 
     /// <summary>
     /// The storage_key attribute.
@@ -69,7 +69,7 @@ public partial class AzurermMssqlDatabaseImportBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageKey is required")]
     [TerraformProperty("storage_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageKey { get; set; }
+    public required partial TerraformValue<string> StorageKey { get; set; }
 
     /// <summary>
     /// The storage_key_type attribute.
@@ -77,7 +77,7 @@ public partial class AzurermMssqlDatabaseImportBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageKeyType is required")]
     [TerraformProperty("storage_key_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageKeyType { get; set; }
+    public required partial TerraformValue<string> StorageKeyType { get; set; }
 
     /// <summary>
     /// The storage_uri attribute.
@@ -85,7 +85,7 @@ public partial class AzurermMssqlDatabaseImportBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageUri is required")]
     [TerraformProperty("storage_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageUri { get; set; }
+    public required partial TerraformValue<string> StorageUri { get; set; }
 
 }
 
@@ -100,35 +100,35 @@ public partial class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : Terrafor
     /// </summary>
     [TerraformProperty("immutable_backups_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ImmutableBackupsEnabled { get; set; }
+    public partial TerraformValue<bool>? ImmutableBackupsEnabled { get; set; }
 
     /// <summary>
     /// The monthly_retention attribute.
     /// </summary>
     [TerraformProperty("monthly_retention")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> MonthlyRetention { get; set; }
+    public partial TerraformValue<string> MonthlyRetention { get; set; }
 
     /// <summary>
     /// The week_of_year attribute.
     /// </summary>
     [TerraformProperty("week_of_year")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> WeekOfYear { get; set; }
+    public partial TerraformValue<double> WeekOfYear { get; set; }
 
     /// <summary>
     /// The weekly_retention attribute.
     /// </summary>
     [TerraformProperty("weekly_retention")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> WeeklyRetention { get; set; }
+    public partial TerraformValue<string> WeeklyRetention { get; set; }
 
     /// <summary>
     /// The yearly_retention attribute.
     /// </summary>
     [TerraformProperty("yearly_retention")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> YearlyRetention { get; set; }
+    public partial TerraformValue<string> YearlyRetention { get; set; }
 
 }
 
@@ -143,7 +143,7 @@ public partial class AzurermMssqlDatabaseShortTermRetentionPolicyBlock : Terrafo
     /// </summary>
     [TerraformProperty("backup_interval_in_hours")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> BackupIntervalInHours { get; set; }
+    public partial TerraformValue<double> BackupIntervalInHours { get; set; }
 
     /// <summary>
     /// The retention_days attribute.
@@ -151,7 +151,7 @@ public partial class AzurermMssqlDatabaseShortTermRetentionPolicyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionDays is required")]
     [TerraformProperty("retention_days")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> RetentionDays { get; set; }
+    public required partial TerraformValue<double> RetentionDays { get; set; }
 
 }
 
@@ -166,49 +166,49 @@ public partial class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformB
     /// </summary>
     [TerraformProperty("disabled_alerts")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? DisabledAlerts { get; set; }
+    public partial TerraformSet<string>? DisabledAlerts { get; set; }
 
     /// <summary>
     /// The email_account_admins attribute.
     /// </summary>
     [TerraformProperty("email_account_admins")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EmailAccountAdmins { get; set; }
+    public partial TerraformValue<string>? EmailAccountAdmins { get; set; }
 
     /// <summary>
     /// The email_addresses attribute.
     /// </summary>
     [TerraformProperty("email_addresses")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? EmailAddresses { get; set; }
+    public partial TerraformSet<string>? EmailAddresses { get; set; }
 
     /// <summary>
     /// The retention_days attribute.
     /// </summary>
     [TerraformProperty("retention_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetentionDays { get; set; }
+    public partial TerraformValue<double>? RetentionDays { get; set; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformProperty("state")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? State { get; set; }
+    public partial TerraformValue<string>? State { get; set; }
 
     /// <summary>
     /// The storage_account_access_key attribute.
     /// </summary>
     [TerraformProperty("storage_account_access_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountAccessKey { get; set; }
+    public partial TerraformValue<string>? StorageAccountAccessKey { get; set; }
 
     /// <summary>
     /// The storage_endpoint attribute.
     /// </summary>
     [TerraformProperty("storage_endpoint")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageEndpoint { get; set; }
+    public partial TerraformValue<string>? StorageEndpoint { get; set; }
 
 }
 
@@ -223,28 +223,28 @@ public partial class AzurermMssqlDatabaseTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -263,91 +263,91 @@ public partial class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     [TerraformProperty("auto_pause_delay_in_minutes")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> AutoPauseDelayInMinutes { get; set; }
+    public partial TerraformValue<double> AutoPauseDelayInMinutes { get; set; }
 
     /// <summary>
     /// The collation attribute.
     /// </summary>
     [TerraformProperty("collation")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Collation { get; set; }
+    public partial TerraformValue<string> Collation { get; set; }
 
     /// <summary>
     /// The create_mode attribute.
     /// </summary>
     [TerraformProperty("create_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CreateMode { get; set; }
+    public partial TerraformValue<string>? CreateMode { get; set; }
 
     /// <summary>
     /// The creation_source_database_id attribute.
     /// </summary>
     [TerraformProperty("creation_source_database_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CreationSourceDatabaseId { get; set; }
+    public partial TerraformValue<string> CreationSourceDatabaseId { get; set; }
 
     /// <summary>
     /// The elastic_pool_id attribute.
     /// </summary>
     [TerraformProperty("elastic_pool_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ElasticPoolId { get; set; }
+    public partial TerraformValue<string>? ElasticPoolId { get; set; }
 
     /// <summary>
     /// The enclave_type attribute.
     /// </summary>
     [TerraformProperty("enclave_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> EnclaveType { get; set; }
+    public partial TerraformValue<string> EnclaveType { get; set; }
 
     /// <summary>
     /// The geo_backup_enabled attribute.
     /// </summary>
     [TerraformProperty("geo_backup_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? GeoBackupEnabled { get; set; }
+    public partial TerraformValue<bool>? GeoBackupEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ledger_enabled attribute.
     /// </summary>
     [TerraformProperty("ledger_enabled")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> LedgerEnabled { get; set; }
+    public partial TerraformValue<bool> LedgerEnabled { get; set; }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
     [TerraformProperty("license_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> LicenseType { get; set; }
+    public partial TerraformValue<string> LicenseType { get; set; }
 
     /// <summary>
     /// The maintenance_configuration_name attribute.
     /// </summary>
     [TerraformProperty("maintenance_configuration_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> MaintenanceConfigurationName { get; set; }
+    public partial TerraformValue<string> MaintenanceConfigurationName { get; set; }
 
     /// <summary>
     /// The max_size_gb attribute.
     /// </summary>
     [TerraformProperty("max_size_gb")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxSizeGb { get; set; }
+    public partial TerraformValue<double> MaxSizeGb { get; set; }
 
     /// <summary>
     /// The min_capacity attribute.
     /// </summary>
     [TerraformProperty("min_capacity")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MinCapacity { get; set; }
+    public partial TerraformValue<double> MinCapacity { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -355,70 +355,70 @@ public partial class AzurermMssqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The read_replica_count attribute.
     /// </summary>
     [TerraformProperty("read_replica_count")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> ReadReplicaCount { get; set; }
+    public partial TerraformValue<double> ReadReplicaCount { get; set; }
 
     /// <summary>
     /// The read_scale attribute.
     /// </summary>
     [TerraformProperty("read_scale")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> ReadScale { get; set; }
+    public partial TerraformValue<bool> ReadScale { get; set; }
 
     /// <summary>
     /// The recover_database_id attribute.
     /// </summary>
     [TerraformProperty("recover_database_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RecoverDatabaseId { get; set; }
+    public partial TerraformValue<string>? RecoverDatabaseId { get; set; }
 
     /// <summary>
     /// The recovery_point_id attribute.
     /// </summary>
     [TerraformProperty("recovery_point_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RecoveryPointId { get; set; }
+    public partial TerraformValue<string>? RecoveryPointId { get; set; }
 
     /// <summary>
     /// The restore_dropped_database_id attribute.
     /// </summary>
     [TerraformProperty("restore_dropped_database_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RestoreDroppedDatabaseId { get; set; }
+    public partial TerraformValue<string>? RestoreDroppedDatabaseId { get; set; }
 
     /// <summary>
     /// The restore_long_term_retention_backup_id attribute.
     /// </summary>
     [TerraformProperty("restore_long_term_retention_backup_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RestoreLongTermRetentionBackupId { get; set; }
+    public partial TerraformValue<string>? RestoreLongTermRetentionBackupId { get; set; }
 
     /// <summary>
     /// The restore_point_in_time attribute.
     /// </summary>
     [TerraformProperty("restore_point_in_time")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> RestorePointInTime { get; set; }
+    public partial TerraformValue<string> RestorePointInTime { get; set; }
 
     /// <summary>
     /// The sample_name attribute.
     /// </summary>
     [TerraformProperty("sample_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SampleName { get; set; }
+    public partial TerraformValue<string> SampleName { get; set; }
 
     /// <summary>
     /// The secondary_type attribute.
     /// </summary>
     [TerraformProperty("secondary_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SecondaryType { get; set; }
+    public partial TerraformValue<string> SecondaryType { get; set; }
 
     /// <summary>
     /// The server_id attribute.
@@ -426,56 +426,56 @@ public partial class AzurermMssqlDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     [TerraformProperty("server_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServerId { get; set; }
+    public required partial TerraformValue<string> ServerId { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [TerraformProperty("sku_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SkuName { get; set; }
+    public partial TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
     [TerraformProperty("storage_account_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountType { get; set; }
+    public partial TerraformValue<string>? StorageAccountType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The transparent_data_encryption_enabled attribute.
     /// </summary>
     [TerraformProperty("transparent_data_encryption_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? TransparentDataEncryptionEnabled { get; set; }
+    public partial TerraformValue<bool>? TransparentDataEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The transparent_data_encryption_key_automatic_rotation_enabled attribute.
     /// </summary>
     [TerraformProperty("transparent_data_encryption_key_automatic_rotation_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? TransparentDataEncryptionKeyAutomaticRotationEnabled { get; set; }
+    public partial TerraformValue<bool>? TransparentDataEncryptionKeyAutomaticRotationEnabled { get; set; }
 
     /// <summary>
     /// The transparent_data_encryption_key_vault_key_id attribute.
     /// </summary>
     [TerraformProperty("transparent_data_encryption_key_vault_key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TransparentDataEncryptionKeyVaultKeyId { get; set; }
+    public partial TerraformValue<string>? TransparentDataEncryptionKeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
     [TerraformProperty("zone_redundant")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> ZoneRedundant { get; set; }
+    public partial TerraformValue<bool> ZoneRedundant { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -483,7 +483,7 @@ public partial class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermMssqlDatabaseIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlDatabaseIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for import.
@@ -491,7 +491,7 @@ public partial class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Import block(s) allowed")]
     [TerraformProperty("import")]
-    public TerraformList<TerraformBlock<AzurermMssqlDatabaseImportBlock>>? Import { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlDatabaseImportBlock>>? Import { get; set; }
 
     /// <summary>
     /// Block for long_term_retention_policy.
@@ -499,7 +499,7 @@ public partial class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LongTermRetentionPolicy block(s) allowed")]
     [TerraformProperty("long_term_retention_policy")]
-    public TerraformList<TerraformBlock<AzurermMssqlDatabaseLongTermRetentionPolicyBlock>>? LongTermRetentionPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlDatabaseLongTermRetentionPolicyBlock>>? LongTermRetentionPolicy { get; set; }
 
     /// <summary>
     /// Block for short_term_retention_policy.
@@ -507,7 +507,7 @@ public partial class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShortTermRetentionPolicy block(s) allowed")]
     [TerraformProperty("short_term_retention_policy")]
-    public TerraformList<TerraformBlock<AzurermMssqlDatabaseShortTermRetentionPolicyBlock>>? ShortTermRetentionPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlDatabaseShortTermRetentionPolicyBlock>>? ShortTermRetentionPolicy { get; set; }
 
     /// <summary>
     /// Block for threat_detection_policy.
@@ -515,13 +515,13 @@ public partial class AzurermMssqlDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreatDetectionPolicy block(s) allowed")]
     [TerraformProperty("threat_detection_policy")]
-    public TerraformList<TerraformBlock<AzurermMssqlDatabaseThreatDetectionPolicyBlock>>? ThreatDetectionPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlDatabaseThreatDetectionPolicyBlock>>? ThreatDetectionPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMssqlDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMssqlDatabaseTimeoutsBlock>? Timeouts { get; set; }
 
 }

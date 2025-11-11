@@ -14,7 +14,7 @@ public partial class AwsVpnGatewayDataSourceFilterBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
@@ -22,7 +22,7 @@ public partial class AwsVpnGatewayDataSourceFilterBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     [TerraformProperty("values")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Values { get; set; }
+    public required partial TerraformSet<string> Values { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class AwsVpnGatewayDataSourceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -55,69 +55,69 @@ public partial class AwsVpnGatewayDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("amazon_side_asn")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AmazonSideAsn { get; set; }
+    public partial TerraformValue<string> AmazonSideAsn { get; set; }
 
     /// <summary>
     /// The attached_vpc_id attribute.
     /// </summary>
     [TerraformProperty("attached_vpc_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AttachedVpcId { get; set; }
+    public partial TerraformValue<string> AttachedVpcId { get; set; }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     [TerraformProperty("availability_zone")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AvailabilityZone { get; set; }
+    public partial TerraformValue<string> AvailabilityZone { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformProperty("state")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> State { get; set; }
+    public partial TerraformValue<string> State { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Tags { get; set; }
+    public partial TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public TerraformSet<TerraformBlock<AwsVpnGatewayDataSourceFilterBlock>>? Filter { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsVpnGatewayDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsVpnGatewayDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsVpnGatewayDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

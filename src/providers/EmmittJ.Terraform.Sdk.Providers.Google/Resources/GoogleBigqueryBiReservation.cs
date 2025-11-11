@@ -13,21 +13,21 @@ public partial class GoogleBigqueryBiReservationPreferredTablesBlock : Terraform
     /// </summary>
     [TerraformProperty("dataset_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DatasetId { get; set; }
+    public partial TerraformValue<string>? DatasetId { get; set; }
 
     /// <summary>
     /// The assigned project ID of the project.
     /// </summary>
     [TerraformProperty("project_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ProjectId { get; set; }
+    public partial TerraformValue<string>? ProjectId { get; set; }
 
     /// <summary>
     /// The ID of the table in the above dataset.
     /// </summary>
     [TerraformProperty("table_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TableId { get; set; }
+    public partial TerraformValue<string>? TableId { get; set; }
 
 }
 
@@ -42,21 +42,21 @@ public partial class GoogleBigqueryBiReservationTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -74,7 +74,7 @@ public partial class GoogleBigqueryBiReservation : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// LOCATION_DESCRIPTION
@@ -82,42 +82,42 @@ public partial class GoogleBigqueryBiReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Size of a reservation, in bytes.
     /// </summary>
     [TerraformProperty("size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Size { get; set; }
+    public partial TerraformValue<double>? Size { get; set; }
 
     /// <summary>
     /// Block for preferred_tables.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("preferred_tables")]
-    public TerraformList<TerraformBlock<GoogleBigqueryBiReservationPreferredTablesBlock>>? PreferredTables { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigqueryBiReservationPreferredTablesBlock>>? PreferredTables { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBigqueryBiReservationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBigqueryBiReservationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The resource name of the singleton BI reservation. Reservation names have the form &#39;projects/{projectId}/locations/{locationId}/biReservation&#39;.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The last update timestamp of a reservation.
@@ -126,6 +126,6 @@ public partial class GoogleBigqueryBiReservation : TerraformResource
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

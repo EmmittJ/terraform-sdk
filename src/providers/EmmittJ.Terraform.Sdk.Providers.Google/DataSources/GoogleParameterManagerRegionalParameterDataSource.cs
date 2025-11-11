@@ -16,7 +16,7 @@ public partial class GoogleParameterManagerRegionalParameterDataSource : Terrafo
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the regional parameter. eg us-central1
@@ -24,7 +24,7 @@ public partial class GoogleParameterManagerRegionalParameterDataSource : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// This must be unique within the project.
@@ -32,35 +32,35 @@ public partial class GoogleParameterManagerRegionalParameterDataSource : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterId is required")]
     [TerraformProperty("parameter_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ParameterId { get; set; }
+    public required partial TerraformValue<string> ParameterId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The time at which the regional Parameter was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The format type of the regional parameter. Default value: &amp;quot;UNFORMATTED&amp;quot; Possible values: [&amp;quot;UNFORMATTED&amp;quot;, &amp;quot;YAML&amp;quot;, &amp;quot;JSON&amp;quot;]
     /// </summary>
     [TerraformProperty("format")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Format { get; }
+    public partial TerraformValue<string> Format { get; }
 
     /// <summary>
     /// The resource name of the Cloud KMS CryptoKey used to encrypt regional parameter version payload. Format
@@ -68,7 +68,7 @@ public partial class GoogleParameterManagerRegionalParameterDataSource : Terrafo
     /// </summary>
     [TerraformProperty("kms_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KmsKey { get; }
+    public partial TerraformValue<string> KmsKey { get; }
 
     /// <summary>
     /// The labels assigned to this regional Parameter.
@@ -90,7 +90,7 @@ public partial class GoogleParameterManagerRegionalParameterDataSource : Terrafo
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// The resource name of the regional Parameter. Format:
@@ -98,14 +98,14 @@ public partial class GoogleParameterManagerRegionalParameterDataSource : Terrafo
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// An object containing a unique resource identity tied to the regional parameter.
     /// </summary>
     [TerraformProperty("policy_member")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PolicyMember { get; }
+    public partial TerraformList<object> PolicyMember { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -113,13 +113,13 @@ public partial class GoogleParameterManagerRegionalParameterDataSource : Terrafo
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The time at which the regional Parameter was updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

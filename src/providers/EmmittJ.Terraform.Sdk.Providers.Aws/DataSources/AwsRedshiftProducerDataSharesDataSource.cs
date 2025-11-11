@@ -17,34 +17,34 @@ public partial class AwsRedshiftProducerDataSharesDataSource : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProducerArn is required")]
     [TerraformProperty("producer_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProducerArn { get; set; }
+    public required partial TerraformValue<string> ProducerArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Status { get; set; }
+    public partial TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// The data_shares attribute.
     /// </summary>
     [TerraformProperty("data_shares")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> DataShares { get; }
+    public partial TerraformList<object> DataShares { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

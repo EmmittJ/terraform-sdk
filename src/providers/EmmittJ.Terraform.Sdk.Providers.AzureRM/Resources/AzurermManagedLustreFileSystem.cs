@@ -14,7 +14,7 @@ public partial class AzurermManagedLustreFileSystemEncryptionKeyBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyUrl is required")]
     [TerraformProperty("key_url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyUrl { get; set; }
+    public required partial TerraformValue<string> KeyUrl { get; set; }
 
     /// <summary>
     /// The source_vault_id attribute.
@@ -22,7 +22,7 @@ public partial class AzurermManagedLustreFileSystemEncryptionKeyBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
     [TerraformProperty("source_vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceVaultId { get; set; }
+    public required partial TerraformValue<string> SourceVaultId { get; set; }
 
 }
 
@@ -38,14 +38,14 @@ public partial class AzurermManagedLustreFileSystemHsmSettingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
     [TerraformProperty("container_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerId { get; set; }
+    public required partial TerraformValue<string> ContainerId { get; set; }
 
     /// <summary>
     /// The import_prefix attribute.
     /// </summary>
     [TerraformProperty("import_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ImportPrefix { get; set; }
+    public partial TerraformValue<string>? ImportPrefix { get; set; }
 
     /// <summary>
     /// The logging_container_id attribute.
@@ -53,7 +53,7 @@ public partial class AzurermManagedLustreFileSystemHsmSettingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoggingContainerId is required")]
     [TerraformProperty("logging_container_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LoggingContainerId { get; set; }
+    public required partial TerraformValue<string> LoggingContainerId { get; set; }
 
 }
 
@@ -69,7 +69,7 @@ public partial class AzurermManagedLustreFileSystemIdentityBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     [TerraformProperty("identity_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> IdentityIds { get; set; }
+    public required partial TerraformSet<string> IdentityIds { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -77,7 +77,7 @@ public partial class AzurermManagedLustreFileSystemIdentityBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -93,7 +93,7 @@ public partial class AzurermManagedLustreFileSystemMaintenanceWindowBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     [TerraformProperty("day_of_week")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DayOfWeek { get; set; }
+    public required partial TerraformValue<string> DayOfWeek { get; set; }
 
     /// <summary>
     /// The time_of_day_in_utc attribute.
@@ -101,7 +101,7 @@ public partial class AzurermManagedLustreFileSystemMaintenanceWindowBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeOfDayInUtc is required")]
     [TerraformProperty("time_of_day_in_utc")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TimeOfDayInUtc { get; set; }
+    public required partial TerraformValue<string> TimeOfDayInUtc { get; set; }
 
 }
 
@@ -117,7 +117,7 @@ public partial class AzurermManagedLustreFileSystemRootSquashBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     [TerraformProperty("mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Mode { get; set; }
+    public required partial TerraformValue<string> Mode { get; set; }
 
     /// <summary>
     /// The no_squash_nids attribute.
@@ -125,21 +125,21 @@ public partial class AzurermManagedLustreFileSystemRootSquashBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoSquashNids is required")]
     [TerraformProperty("no_squash_nids")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NoSquashNids { get; set; }
+    public required partial TerraformValue<string> NoSquashNids { get; set; }
 
     /// <summary>
     /// The squash_gid attribute.
     /// </summary>
     [TerraformProperty("squash_gid")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SquashGid { get; set; }
+    public partial TerraformValue<double>? SquashGid { get; set; }
 
     /// <summary>
     /// The squash_uid attribute.
     /// </summary>
     [TerraformProperty("squash_uid")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SquashUid { get; set; }
+    public partial TerraformValue<double>? SquashUid { get; set; }
 
 }
 
@@ -154,28 +154,28 @@ public partial class AzurermManagedLustreFileSystemTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -194,7 +194,7 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -202,7 +202,7 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -210,7 +210,7 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -218,7 +218,7 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
@@ -226,7 +226,7 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     [TerraformProperty("sku_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SkuName { get; set; }
+    public required partial TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The storage_capacity_in_tb attribute.
@@ -234,7 +234,7 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacityInTb is required")]
     [TerraformProperty("storage_capacity_in_tb")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> StorageCapacityInTb { get; set; }
+    public required partial TerraformValue<double> StorageCapacityInTb { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -242,14 +242,14 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The zones attribute.
@@ -257,7 +257,7 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zones is required")]
     [TerraformProperty("zones")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Zones { get; set; }
+    public required partial TerraformSet<string> Zones { get; set; }
 
     /// <summary>
     /// Block for encryption_key.
@@ -265,7 +265,7 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionKey block(s) allowed")]
     [TerraformProperty("encryption_key")]
-    public TerraformList<TerraformBlock<AzurermManagedLustreFileSystemEncryptionKeyBlock>>? EncryptionKey { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermManagedLustreFileSystemEncryptionKeyBlock>>? EncryptionKey { get; set; }
 
     /// <summary>
     /// Block for hsm_setting.
@@ -273,7 +273,7 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HsmSetting block(s) allowed")]
     [TerraformProperty("hsm_setting")]
-    public TerraformList<TerraformBlock<AzurermManagedLustreFileSystemHsmSettingBlock>>? HsmSetting { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermManagedLustreFileSystemHsmSettingBlock>>? HsmSetting { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -281,7 +281,7 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermManagedLustreFileSystemIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermManagedLustreFileSystemIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for maintenance_window.
@@ -291,7 +291,7 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MaintenanceWindow block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
     [TerraformProperty("maintenance_window")]
-    public TerraformList<TerraformBlock<AzurermManagedLustreFileSystemMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermManagedLustreFileSystemMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
 
     /// <summary>
     /// Block for root_squash.
@@ -299,20 +299,20 @@ public partial class AzurermManagedLustreFileSystem : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootSquash block(s) allowed")]
     [TerraformProperty("root_squash")]
-    public TerraformList<TerraformBlock<AzurermManagedLustreFileSystemRootSquashBlock>>? RootSquash { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermManagedLustreFileSystemRootSquashBlock>>? RootSquash { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermManagedLustreFileSystemTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermManagedLustreFileSystemTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The mgs_address attribute.
     /// </summary>
     [TerraformProperty("mgs_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MgsAddress { get; }
+    public partial TerraformValue<string> MgsAddress { get; }
 
 }

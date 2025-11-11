@@ -16,20 +16,20 @@ public partial class AwsCostoptimizationhubEnrollmentStatus : TerraformResource
     /// </summary>
     [TerraformProperty("include_member_accounts")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> IncludeMemberAccounts { get; set; }
+    public partial TerraformValue<bool> IncludeMemberAccounts { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
 }

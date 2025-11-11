@@ -13,7 +13,7 @@ public partial class AwsEksAccessPolicyAssociationAccessScopeBlock : TerraformBl
     /// </summary>
     [TerraformProperty("namespaces")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Namespaces { get; set; }
+    public partial TerraformSet<string>? Namespaces { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -21,7 +21,7 @@ public partial class AwsEksAccessPolicyAssociationAccessScopeBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -36,14 +36,14 @@ public partial class AwsEksAccessPolicyAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -63,14 +63,14 @@ public partial class AwsEksAccessPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     [TerraformProperty("cluster_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterName { get; set; }
+    public required partial TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_arn attribute.
@@ -78,7 +78,7 @@ public partial class AwsEksAccessPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
     [TerraformProperty("policy_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyArn { get; set; }
+    public required partial TerraformValue<string> PolicyArn { get; set; }
 
     /// <summary>
     /// The principal_arn attribute.
@@ -86,14 +86,14 @@ public partial class AwsEksAccessPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalArn is required")]
     [TerraformProperty("principal_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrincipalArn { get; set; }
+    public required partial TerraformValue<string> PrincipalArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for access_scope.
@@ -103,27 +103,27 @@ public partial class AwsEksAccessPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AccessScope block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessScope block(s) allowed")]
     [TerraformProperty("access_scope")]
-    public TerraformList<TerraformBlock<AwsEksAccessPolicyAssociationAccessScopeBlock>>? AccessScope { get; set; }
+    public partial TerraformList<TerraformBlock<AwsEksAccessPolicyAssociationAccessScopeBlock>>? AccessScope { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsEksAccessPolicyAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsEksAccessPolicyAssociationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The associated_at attribute.
     /// </summary>
     [TerraformProperty("associated_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AssociatedAt { get; }
+    public partial TerraformValue<string> AssociatedAt { get; }
 
     /// <summary>
     /// The modified_at attribute.
     /// </summary>
     [TerraformProperty("modified_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ModifiedAt { get; }
+    public partial TerraformValue<string> ModifiedAt { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class GoogleNetworkSecurityBackendAuthenticationConfigTimeoutsBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,21 +46,21 @@ public partial class GoogleNetworkSecurityBackendAuthenticationConfig : Terrafor
     /// </summary>
     [TerraformProperty("client_certificate")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientCertificate { get; set; }
+    public partial TerraformValue<string>? ClientCertificate { get; set; }
 
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Set of label tags associated with the BackendAuthenticationConfig resource.
@@ -70,7 +70,7 @@ public partial class GoogleNetworkSecurityBackendAuthenticationConfig : Terrafor
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the backend authentication config.
@@ -78,7 +78,7 @@ public partial class GoogleNetworkSecurityBackendAuthenticationConfig : Terrafor
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Name of the BackendAuthenticationConfig resource.
@@ -86,14 +86,14 @@ public partial class GoogleNetworkSecurityBackendAuthenticationConfig : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Reference to a TrustConfig resource from the certificatemanager.googleapis.com namespace.
@@ -101,7 +101,7 @@ public partial class GoogleNetworkSecurityBackendAuthenticationConfig : Terrafor
     /// </summary>
     [TerraformProperty("trust_config")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TrustConfig { get; set; }
+    public partial TerraformValue<string>? TrustConfig { get; set; }
 
     /// <summary>
     /// Well known roots to use for server certificate validation. If set to NONE, the BackendService will only validate server certificates against roots specified in TrustConfig.
@@ -110,28 +110,28 @@ public partial class GoogleNetworkSecurityBackendAuthenticationConfig : Terrafor
     /// </summary>
     [TerraformProperty("well_known_roots")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WellKnownRoots { get; set; }
+    public partial TerraformValue<string>? WellKnownRoots { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkSecurityBackendAuthenticationConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkSecurityBackendAuthenticationConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the BackendAuthenticationConfig was created in UTC.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -139,13 +139,13 @@ public partial class GoogleNetworkSecurityBackendAuthenticationConfig : Terrafor
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Time the BackendAuthenticationConfig was updated in UTC.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

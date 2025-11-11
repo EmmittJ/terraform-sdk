@@ -16,7 +16,7 @@ public partial class AwsCloudwatchContributorManagedInsightRulesDataSource : Ter
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_arn attribute.
@@ -24,13 +24,13 @@ public partial class AwsCloudwatchContributorManagedInsightRulesDataSource : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     [TerraformProperty("resource_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceArn { get; set; }
+    public required partial TerraformValue<string> ResourceArn { get; set; }
 
     /// <summary>
     /// The managed_rules attribute.
     /// </summary>
     [TerraformProperty("managed_rules")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ManagedRules { get; }
+    public partial TerraformList<object> ManagedRules { get; }
 
 }

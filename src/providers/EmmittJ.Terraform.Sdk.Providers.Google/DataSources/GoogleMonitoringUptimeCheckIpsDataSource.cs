@@ -16,13 +16,13 @@ public partial class GoogleMonitoringUptimeCheckIpsDataSource : TerraformDataSou
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The uptime_check_ips attribute.
     /// </summary>
     [TerraformProperty("uptime_check_ips")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> UptimeCheckIps { get; }
+    public partial TerraformList<object> UptimeCheckIps { get; }
 
 }

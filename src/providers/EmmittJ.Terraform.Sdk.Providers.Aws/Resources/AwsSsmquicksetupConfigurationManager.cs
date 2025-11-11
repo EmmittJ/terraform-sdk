@@ -14,14 +14,14 @@ public partial class AwsSsmquicksetupConfigurationManagerConfigurationDefinition
     /// </summary>
     [TerraformProperty("local_deployment_administration_role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LocalDeploymentAdministrationRoleArn { get; set; }
+    public partial TerraformValue<string>? LocalDeploymentAdministrationRoleArn { get; set; }
 
     /// <summary>
     /// The local_deployment_execution_role_name attribute.
     /// </summary>
     [TerraformProperty("local_deployment_execution_role_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LocalDeploymentExecutionRoleName { get; set; }
+    public partial TerraformValue<string>? LocalDeploymentExecutionRoleName { get; set; }
 
     /// <summary>
     /// The parameters attribute.
@@ -29,7 +29,7 @@ public partial class AwsSsmquicksetupConfigurationManagerConfigurationDefinition
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameters is required")]
     [TerraformProperty("parameters")]
     // Required argument - source generator will implement get/set
-    public required TerraformMap<string> Parameters { get; set; }
+    public required partial TerraformMap<string> Parameters { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -37,14 +37,14 @@ public partial class AwsSsmquicksetupConfigurationManagerConfigurationDefinition
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The type_version attribute.
     /// </summary>
     [TerraformProperty("type_version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TypeVersion { get; set; }
+    public partial TerraformValue<string> TypeVersion { get; set; }
 
 }
 
@@ -59,21 +59,21 @@ public partial class AwsSsmquicksetupConfigurationManagerTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -91,7 +91,7 @@ public partial class AwsSsmquicksetupConfigurationManager : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Description { get; set; }
+    public partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -99,55 +99,55 @@ public partial class AwsSsmquicksetupConfigurationManager : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for configuration_definition.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("configuration_definition")]
-    public TerraformList<TerraformBlock<AwsSsmquicksetupConfigurationManagerConfigurationDefinitionBlock>>? ConfigurationDefinition { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSsmquicksetupConfigurationManagerConfigurationDefinitionBlock>>? ConfigurationDefinition { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsSsmquicksetupConfigurationManagerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsSsmquicksetupConfigurationManagerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The manager_arn attribute.
     /// </summary>
     [TerraformProperty("manager_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ManagerArn { get; }
+    public partial TerraformValue<string> ManagerArn { get; }
 
     /// <summary>
     /// The status_summaries attribute.
     /// </summary>
     [TerraformProperty("status_summaries")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> StatusSummaries { get; }
+    public partial TerraformList<object> StatusSummaries { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
 }

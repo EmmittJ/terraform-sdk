@@ -14,7 +14,7 @@ public partial class AwsVpnConnectionDataSourceFilterBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
@@ -22,7 +22,7 @@ public partial class AwsVpnConnectionDataSourceFilterBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     [TerraformProperty("values")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Values { get; set; }
+    public required partial TerraformSet<string> Values { get; set; }
 
 }
 
@@ -40,118 +40,118 @@ public partial class AwsVpnConnectionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The vpn_connection_id attribute.
     /// </summary>
     [TerraformProperty("vpn_connection_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VpnConnectionId { get; set; }
+    public partial TerraformValue<string> VpnConnectionId { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("filter")]
-    public TerraformSet<TerraformBlock<AwsVpnConnectionDataSourceFilterBlock>>? Filter { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsVpnConnectionDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// The category attribute.
     /// </summary>
     [TerraformProperty("category")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Category { get; }
+    public partial TerraformValue<string> Category { get; }
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
     [TerraformProperty("core_network_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CoreNetworkArn { get; }
+    public partial TerraformValue<string> CoreNetworkArn { get; }
 
     /// <summary>
     /// The core_network_attachment_arn attribute.
     /// </summary>
     [TerraformProperty("core_network_attachment_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CoreNetworkAttachmentArn { get; }
+    public partial TerraformValue<string> CoreNetworkAttachmentArn { get; }
 
     /// <summary>
     /// The customer_gateway_configuration attribute.
     /// </summary>
     [TerraformProperty("customer_gateway_configuration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CustomerGatewayConfiguration { get; }
+    public partial TerraformValue<string> CustomerGatewayConfiguration { get; }
 
     /// <summary>
     /// The customer_gateway_id attribute.
     /// </summary>
     [TerraformProperty("customer_gateway_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CustomerGatewayId { get; }
+    public partial TerraformValue<string> CustomerGatewayId { get; }
 
     /// <summary>
     /// The gateway_association_state attribute.
     /// </summary>
     [TerraformProperty("gateway_association_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GatewayAssociationState { get; }
+    public partial TerraformValue<string> GatewayAssociationState { get; }
 
     /// <summary>
     /// The pre_shared_key_arn attribute.
     /// </summary>
     [TerraformProperty("pre_shared_key_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PreSharedKeyArn { get; }
+    public partial TerraformValue<string> PreSharedKeyArn { get; }
 
     /// <summary>
     /// The routes attribute.
     /// </summary>
     [TerraformProperty("routes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Routes { get; }
+    public partial TerraformList<object> Routes { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
     [TerraformProperty("transit_gateway_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TransitGatewayId { get; }
+    public partial TerraformValue<string> TransitGatewayId { get; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Type { get; }
+    public partial TerraformValue<string> Type { get; }
 
     /// <summary>
     /// The vgw_telemetries attribute.
     /// </summary>
     [TerraformProperty("vgw_telemetries")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> VgwTelemetries { get; }
+    public partial TerraformList<object> VgwTelemetries { get; }
 
     /// <summary>
     /// The vpn_gateway_id attribute.
     /// </summary>
     [TerraformProperty("vpn_gateway_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VpnGatewayId { get; }
+    public partial TerraformValue<string> VpnGatewayId { get; }
 
 }

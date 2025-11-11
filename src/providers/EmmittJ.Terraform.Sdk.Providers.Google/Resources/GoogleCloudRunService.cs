@@ -39,7 +39,7 @@ public partial class GoogleCloudRunServiceMetadataBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
 
 
@@ -54,7 +54,7 @@ public partial class GoogleCloudRunServiceMetadataBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// In Cloud Run the namespace must be equal to either the
@@ -62,7 +62,7 @@ public partial class GoogleCloudRunServiceMetadataBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("namespace")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Namespace { get; set; }
+    public partial TerraformValue<string> Namespace { get; set; }
 
 
 
@@ -89,21 +89,21 @@ public partial class GoogleCloudRunServiceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -121,7 +121,7 @@ public partial class GoogleCloudRunServiceTrafficBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("latest_revision")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LatestRevision { get; set; }
+    public partial TerraformValue<bool>? LatestRevision { get; set; }
 
     /// <summary>
     /// Percent specifies percent of the traffic to this Revision or Configuration.
@@ -129,21 +129,21 @@ public partial class GoogleCloudRunServiceTrafficBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Percent is required")]
     [TerraformProperty("percent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Percent { get; set; }
+    public required partial TerraformValue<double> Percent { get; set; }
 
     /// <summary>
     /// RevisionName of a specific revision to which to send this portion of traffic.
     /// </summary>
     [TerraformProperty("revision_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RevisionName { get; set; }
+    public partial TerraformValue<string>? RevisionName { get; set; }
 
     /// <summary>
     /// Tag is optionally used to expose a dedicated url for referencing this target exclusively.
     /// </summary>
     [TerraformProperty("tag")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Tag { get; set; }
+    public partial TerraformValue<string>? Tag { get; set; }
 
 
 }
@@ -167,14 +167,14 @@ public partial class GoogleCloudRunService : TerraformResource
     /// </summary>
     [TerraformProperty("autogenerate_revision_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutogenerateRevisionName { get; set; }
+    public partial TerraformValue<bool>? AutogenerateRevisionName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the cloud run instance. eg us-central1
@@ -182,7 +182,7 @@ public partial class GoogleCloudRunService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Name must be unique within a Google Cloud project and region.
@@ -193,14 +193,14 @@ public partial class GoogleCloudRunService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for metadata.
@@ -208,7 +208,7 @@ public partial class GoogleCloudRunService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
     [TerraformProperty("metadata")]
-    public TerraformList<TerraformBlock<GoogleCloudRunServiceMetadataBlock>>? Metadata { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudRunServiceMetadataBlock>>? Metadata { get; set; }
 
     /// <summary>
     /// Block for template.
@@ -216,27 +216,27 @@ public partial class GoogleCloudRunService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
     [TerraformProperty("template")]
-    public TerraformList<TerraformBlock<GoogleCloudRunServiceTemplateBlock>>? Template { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudRunServiceTemplateBlock>>? Template { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleCloudRunServiceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleCloudRunServiceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for traffic.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("traffic")]
-    public TerraformList<TerraformBlock<GoogleCloudRunServiceTrafficBlock>>? Traffic { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudRunServiceTrafficBlock>>? Traffic { get; set; }
 
     /// <summary>
     /// The current status of the Service.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Status { get; }
+    public partial TerraformList<object> Status { get; }
 
 }

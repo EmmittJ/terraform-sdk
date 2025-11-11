@@ -17,7 +17,7 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPoli
     /// </summary>
     [TerraformProperty("identities")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Identities { get; set; }
+    public partial TerraformList<string>? Identities { get; set; }
 
     /// <summary>
     /// Specifies the type of identities that are allowed access from outside the
@@ -26,7 +26,7 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPoli
     /// </summary>
     [TerraformProperty("identity_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IdentityType { get; set; }
+    public partial TerraformValue<string>? IdentityType { get; set; }
 
 }
 
@@ -48,7 +48,7 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPoli
     /// </summary>
     [TerraformProperty("resources")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Resources { get; set; }
+    public partial TerraformList<string>? Resources { get; set; }
 
     /// <summary>
     /// A list of IAM roles that represent the set of operations that the sources
@@ -57,7 +57,7 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPoli
     /// </summary>
     [TerraformProperty("roles")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Roles { get; set; }
+    public partial TerraformList<string>? Roles { get; set; }
 
 }
 
@@ -72,14 +72,14 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPoli
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -98,7 +98,7 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPoli
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the Service Perimeter to add this resource to.
@@ -106,14 +106,14 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPoli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Perimeter is required")]
     [TerraformProperty("perimeter")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Perimeter { get; set; }
+    public required partial TerraformValue<string> Perimeter { get; set; }
 
     /// <summary>
     /// Human readable title. Must be unique within the perimeter. Does not affect behavior.
     /// </summary>
     [TerraformProperty("title")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Title { get; set; }
+    public partial TerraformValue<string>? Title { get; set; }
 
     /// <summary>
     /// Block for ingress_from.
@@ -121,7 +121,7 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPoli
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressFrom block(s) allowed")]
     [TerraformProperty("ingress_from")]
-    public TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngressFromBlock>>? IngressFrom { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngressFromBlock>>? IngressFrom { get; set; }
 
     /// <summary>
     /// Block for ingress_to.
@@ -129,27 +129,27 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunIngressPoli
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressTo block(s) allowed")]
     [TerraformProperty("ingress_to")]
-    public TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngressToBlock>>? IngressTo { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyIngressToBlock>>? IngressTo { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunIngressPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The name of the Access Policy this resource belongs to.
     /// </summary>
     [TerraformProperty("access_policy_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AccessPolicyId { get; }
+    public partial TerraformValue<string> AccessPolicyId { get; }
 
     /// <summary>
     /// The perimeter etag is internally used to prevent overwriting the list of policies on PATCH calls. It is retrieved from the same GET perimeter API call that&#39;s used to get the current list of policies. The policy defined in this resource is added or removed from that list, and then this etag is sent with the PATCH call along with the updated policies.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
 }

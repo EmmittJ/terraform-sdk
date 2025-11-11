@@ -13,14 +13,14 @@ public partial class GoogleKmsKeyRingImportJobTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleKmsKeyRingImportJob : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// It must be unique within a KeyRing and match the regular expression [a-zA-Z0-9_-]{1,63}
@@ -46,7 +46,7 @@ public partial class GoogleKmsKeyRingImportJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportJobId is required")]
     [TerraformProperty("import_job_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ImportJobId { get; set; }
+    public required partial TerraformValue<string> ImportJobId { get; set; }
 
     /// <summary>
     /// The wrapping method to be used for incoming key material. Possible values: [&amp;quot;RSA_OAEP_3072_SHA1_AES_256&amp;quot;, &amp;quot;RSA_OAEP_4096_SHA1_AES_256&amp;quot;, &amp;quot;RSA_OAEP_3072_SHA256_AES_256&amp;quot;, &amp;quot;RSA_OAEP_4096_SHA256_AES_256&amp;quot;, &amp;quot;RSA_OAEP_3072_SHA256&amp;quot;, &amp;quot;RSA_OAEP_4096_SHA256&amp;quot;]
@@ -54,7 +54,7 @@ public partial class GoogleKmsKeyRingImportJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportMethod is required")]
     [TerraformProperty("import_method")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ImportMethod { get; set; }
+    public required partial TerraformValue<string> ImportMethod { get; set; }
 
     /// <summary>
     /// The KeyRing that this import job belongs to.
@@ -63,7 +63,7 @@ public partial class GoogleKmsKeyRingImportJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     [TerraformProperty("key_ring")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyRing { get; set; }
+    public required partial TerraformValue<string> KeyRing { get; set; }
 
     /// <summary>
     /// The protection level of the ImportJob. This must match the protectionLevel of the
@@ -72,14 +72,14 @@ public partial class GoogleKmsKeyRingImportJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectionLevel is required")]
     [TerraformProperty("protection_level")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProtectionLevel { get; set; }
+    public required partial TerraformValue<string> ProtectionLevel { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleKmsKeyRingImportJobTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleKmsKeyRingImportJobTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Statement that was generated and signed by the key creator (for example, an HSM) at key creation time.
@@ -88,7 +88,7 @@ public partial class GoogleKmsKeyRingImportJob : TerraformResource
     /// </summary>
     [TerraformProperty("attestation")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Attestation { get; }
+    public partial TerraformList<object> Attestation { get; }
 
     /// <summary>
     /// The time at which this resource is scheduled for expiration and can no longer be used.
@@ -96,27 +96,27 @@ public partial class GoogleKmsKeyRingImportJob : TerraformResource
     /// </summary>
     [TerraformProperty("expire_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpireTime { get; }
+    public partial TerraformValue<string> ExpireTime { get; }
 
     /// <summary>
     /// The resource name for this ImportJob in the format projects/*/locations/*/keyRings/*/importJobs/*.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The public key with which to wrap key material prior to import. Only returned if state is &#39;ACTIVE&#39;.
     /// </summary>
     [TerraformProperty("public_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PublicKey { get; }
+    public partial TerraformList<object> PublicKey { get; }
 
     /// <summary>
     /// The current state of the ImportJob, indicating if it can be used.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

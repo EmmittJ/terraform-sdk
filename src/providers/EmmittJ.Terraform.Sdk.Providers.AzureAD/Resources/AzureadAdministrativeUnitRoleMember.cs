@@ -13,21 +13,21 @@ public partial class AzureadAdministrativeUnitRoleMemberTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzureadAdministrativeUnitRoleMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministrativeUnitObjectId is required")]
     [TerraformProperty("administrative_unit_object_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AdministrativeUnitObjectId { get; set; }
+    public required partial TerraformValue<string> AdministrativeUnitObjectId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The object ID of the member
@@ -61,7 +61,7 @@ public partial class AzureadAdministrativeUnitRoleMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberObjectId is required")]
     [TerraformProperty("member_object_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MemberObjectId { get; set; }
+    public required partial TerraformValue<string> MemberObjectId { get; set; }
 
     /// <summary>
     /// The object ID of the directory role
@@ -69,13 +69,13 @@ public partial class AzureadAdministrativeUnitRoleMember : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleObjectId is required")]
     [TerraformProperty("role_object_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleObjectId { get; set; }
+    public required partial TerraformValue<string> RoleObjectId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzureadAdministrativeUnitRoleMemberTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzureadAdministrativeUnitRoleMemberTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermEventgridNamespaceIdentityBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -23,7 +23,7 @@ public partial class AzurermEventgridNamespaceIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class AzurermEventgridNamespaceInboundIpRuleBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("action")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Action { get; set; }
+    public partial TerraformValue<string>? Action { get; set; }
 
     /// <summary>
     /// The ip_mask attribute.
@@ -46,7 +46,7 @@ public partial class AzurermEventgridNamespaceInboundIpRuleBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpMask is required")]
     [TerraformProperty("ip_mask")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IpMask { get; set; }
+    public required partial TerraformValue<string> IpMask { get; set; }
 
 }
 
@@ -61,28 +61,28 @@ public partial class AzurermEventgridNamespaceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -97,28 +97,28 @@ public partial class AzurermEventgridNamespaceTopicSpacesConfigurationBlock : Te
     /// </summary>
     [TerraformProperty("alternative_authentication_name_source")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AlternativeAuthenticationNameSource { get; set; }
+    public partial TerraformList<string>? AlternativeAuthenticationNameSource { get; set; }
 
     /// <summary>
     /// The maximum_client_sessions_per_authentication_name attribute.
     /// </summary>
     [TerraformProperty("maximum_client_sessions_per_authentication_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaximumClientSessionsPerAuthenticationName { get; set; }
+    public partial TerraformValue<double>? MaximumClientSessionsPerAuthenticationName { get; set; }
 
     /// <summary>
     /// The maximum_session_expiry_in_hours attribute.
     /// </summary>
     [TerraformProperty("maximum_session_expiry_in_hours")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaximumSessionExpiryInHours { get; set; }
+    public partial TerraformValue<double>? MaximumSessionExpiryInHours { get; set; }
 
     /// <summary>
     /// The route_topic_id attribute.
     /// </summary>
     [TerraformProperty("route_topic_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RouteTopicId { get; set; }
+    public partial TerraformValue<string>? RouteTopicId { get; set; }
 
 }
 
@@ -137,14 +137,14 @@ public partial class AzurermEventgridNamespace : TerraformResource
     /// </summary>
     [TerraformProperty("capacity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Capacity { get; set; }
+    public partial TerraformValue<double>? Capacity { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -152,7 +152,7 @@ public partial class AzurermEventgridNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -160,14 +160,14 @@ public partial class AzurermEventgridNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
     [TerraformProperty("public_network_access")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PublicNetworkAccess { get; set; }
+    public partial TerraformValue<string>? PublicNetworkAccess { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -175,21 +175,21 @@ public partial class AzurermEventgridNamespace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [TerraformProperty("sku")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Sku { get; set; }
+    public partial TerraformValue<string>? Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -197,7 +197,7 @@ public partial class AzurermEventgridNamespace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermEventgridNamespaceIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermEventgridNamespaceIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for inbound_ip_rule.
@@ -205,20 +205,20 @@ public partial class AzurermEventgridNamespace : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(128, ErrorMessage = "Maximum 128 InboundIpRule block(s) allowed")]
     [TerraformProperty("inbound_ip_rule")]
-    public TerraformList<TerraformBlock<AzurermEventgridNamespaceInboundIpRuleBlock>>? InboundIpRule { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermEventgridNamespaceInboundIpRuleBlock>>? InboundIpRule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermEventgridNamespaceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermEventgridNamespaceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for topic_spaces_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("topic_spaces_configuration")]
-    public TerraformList<TerraformBlock<AzurermEventgridNamespaceTopicSpacesConfigurationBlock>>? TopicSpacesConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermEventgridNamespaceTopicSpacesConfigurationBlock>>? TopicSpacesConfiguration { get; set; }
 
 }

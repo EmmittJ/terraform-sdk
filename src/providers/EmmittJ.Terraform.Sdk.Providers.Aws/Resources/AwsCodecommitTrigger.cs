@@ -13,14 +13,14 @@ public partial class AwsCodecommitTriggerTriggerBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("branches")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Branches { get; set; }
+    public partial TerraformList<string>? Branches { get; set; }
 
     /// <summary>
     /// The custom_data attribute.
     /// </summary>
     [TerraformProperty("custom_data")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CustomData { get; set; }
+    public partial TerraformValue<string>? CustomData { get; set; }
 
     /// <summary>
     /// The destination_arn attribute.
@@ -28,7 +28,7 @@ public partial class AwsCodecommitTriggerTriggerBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     [TerraformProperty("destination_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DestinationArn { get; set; }
+    public required partial TerraformValue<string> DestinationArn { get; set; }
 
     /// <summary>
     /// The events attribute.
@@ -36,7 +36,7 @@ public partial class AwsCodecommitTriggerTriggerBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     [TerraformProperty("events")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Events { get; set; }
+    public partial TerraformList<string>? Events { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -44,7 +44,7 @@ public partial class AwsCodecommitTriggerTriggerBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -63,14 +63,14 @@ public partial class AwsCodecommitTrigger : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The repository_name attribute.
@@ -78,7 +78,7 @@ public partial class AwsCodecommitTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     [TerraformProperty("repository_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepositoryName { get; set; }
+    public required partial TerraformValue<string> RepositoryName { get; set; }
 
     /// <summary>
     /// Block for trigger.
@@ -88,13 +88,13 @@ public partial class AwsCodecommitTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Trigger block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 Trigger block(s) allowed")]
     [TerraformProperty("trigger")]
-    public TerraformSet<TerraformBlock<AwsCodecommitTriggerTriggerBlock>>? Trigger { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsCodecommitTriggerTriggerBlock>>? Trigger { get; set; }
 
     /// <summary>
     /// The configuration_id attribute.
     /// </summary>
     [TerraformProperty("configuration_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ConfigurationId { get; }
+    public partial TerraformValue<string> ConfigurationId { get; }
 
 }

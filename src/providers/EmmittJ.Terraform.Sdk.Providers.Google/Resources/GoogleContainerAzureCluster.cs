@@ -22,7 +22,7 @@ public partial class GoogleContainerAzureClusterAzureServicesAuthenticationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     [TerraformProperty("application_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApplicationId { get; set; }
+    public required partial TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// The Azure Active Directory Tenant ID for Authentication configuration.
@@ -30,7 +30,7 @@ public partial class GoogleContainerAzureClusterAzureServicesAuthenticationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     [TerraformProperty("tenant_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TenantId { get; set; }
+    public required partial TerraformValue<string> TenantId { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class GoogleContainerAzureClusterControlPlaneBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
     /// <summary>
     /// Optional. A set of tags to apply to all underlying control plane Azure resources.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The Kubernetes version to run on control plane replicas (e.g. `1.19.10-gke.1000`). You can list all supported versions on a given Google Cloud region by calling GetAzureServerConfig.
@@ -61,14 +61,14 @@ public partial class GoogleContainerAzureClusterControlPlaneBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     [TerraformProperty("version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Version { get; set; }
+    public required partial TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// Optional. The Azure VM size name. Example: `Standard_DS2_v2`. For available VM sizes, see https://docs.microsoft.com/en-us/azure/virtual-machines/vm-naming-conventions. When unspecified, it defaults to `Standard_DS2_v2`.
     /// </summary>
     [TerraformProperty("vm_size")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VmSize { get; set; }
+    public partial TerraformValue<string> VmSize { get; set; }
 
 }
 
@@ -84,7 +84,7 @@ public partial class GoogleContainerAzureClusterFleetBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
 }
 
@@ -100,7 +100,7 @@ public partial class GoogleContainerAzureClusterNetworkingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PodAddressCidrBlocks is required")]
     [TerraformProperty("pod_address_cidr_blocks")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? PodAddressCidrBlocks { get; set; }
+    public partial TerraformList<string>? PodAddressCidrBlocks { get; set; }
 
     /// <summary>
     /// The IP address range for services in this cluster, in CIDR notation (e.g. `10.96.0.0/14`). All services in the cluster get assigned a unique RFC1918 IPv4 address from these ranges. Only a single range is supported. This field cannot be changed after creating a cluster.
@@ -108,7 +108,7 @@ public partial class GoogleContainerAzureClusterNetworkingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAddressCidrBlocks is required")]
     [TerraformProperty("service_address_cidr_blocks")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? ServiceAddressCidrBlocks { get; set; }
+    public partial TerraformList<string>? ServiceAddressCidrBlocks { get; set; }
 
     /// <summary>
     /// The Azure Resource Manager (ARM) ID of the VNet associated with your cluster. All components in the cluster (i.e. control plane and node pools) run on a single VNet. Example: `/subscriptions/*/resourceGroups/*/providers/Microsoft.Network/virtualNetworks/*` This field cannot be changed after creation.
@@ -116,7 +116,7 @@ public partial class GoogleContainerAzureClusterNetworkingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     [TerraformProperty("virtual_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualNetworkId { get; set; }
+    public required partial TerraformValue<string> VirtualNetworkId { get; set; }
 
 }
 
@@ -131,21 +131,21 @@ public partial class GoogleContainerAzureClusterTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -167,7 +167,7 @@ public partial class GoogleContainerAzureCluster : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// The Azure region where the cluster runs. Each Google Cloud region supports a subset of nearby Azure regions. You can call to list all supported Azure regions within a given Google Cloud region.
@@ -175,28 +175,28 @@ public partial class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzureRegion is required")]
     [TerraformProperty("azure_region")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AzureRegion { get; set; }
+    public required partial TerraformValue<string> AzureRegion { get; set; }
 
     /// <summary>
     /// Name of the AzureClient. The `AzureClient` resource must reside on the same GCP project and region as the `AzureCluster`. `AzureClient` names are formatted as `projects/&amp;lt;project-number&amp;gt;/locations/&amp;lt;region&amp;gt;/azureClients/&amp;lt;client-id&amp;gt;`. See Resource Names (https:cloud.google.com/apis/design/resource_names) for more details on Google Cloud resource names.
     /// </summary>
     [TerraformProperty("client")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Client { get; set; }
+    public partial TerraformValue<string>? Client { get; set; }
 
     /// <summary>
     /// Optional. A human readable description of this cluster. Cannot be longer than 255 UTF-8 encoded bytes.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the resource
@@ -204,7 +204,7 @@ public partial class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of this resource.
@@ -212,14 +212,14 @@ public partial class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The ARM ID of the resource group where the cluster resources are deployed. For example: `/subscriptions/*/resourceGroups/*`
@@ -227,7 +227,7 @@ public partial class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     [TerraformProperty("resource_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupId { get; set; }
+    public required partial TerraformValue<string> ResourceGroupId { get; set; }
 
     /// <summary>
     /// Block for authorization.
@@ -237,7 +237,7 @@ public partial class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authorization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
     [TerraformProperty("authorization")]
-    public TerraformList<TerraformBlock<GoogleContainerAzureClusterAuthorizationBlock>>? Authorization { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleContainerAzureClusterAuthorizationBlock>>? Authorization { get; set; }
 
     /// <summary>
     /// Block for azure_services_authentication.
@@ -245,7 +245,7 @@ public partial class GoogleContainerAzureCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureServicesAuthentication block(s) allowed")]
     [TerraformProperty("azure_services_authentication")]
-    public TerraformList<TerraformBlock<GoogleContainerAzureClusterAzureServicesAuthenticationBlock>>? AzureServicesAuthentication { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleContainerAzureClusterAzureServicesAuthenticationBlock>>? AzureServicesAuthentication { get; set; }
 
     /// <summary>
     /// Block for control_plane.
@@ -255,7 +255,7 @@ public partial class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ControlPlane block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlane block(s) allowed")]
     [TerraformProperty("control_plane")]
-    public TerraformList<TerraformBlock<GoogleContainerAzureClusterControlPlaneBlock>>? ControlPlane { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleContainerAzureClusterControlPlaneBlock>>? ControlPlane { get; set; }
 
     /// <summary>
     /// Block for fleet.
@@ -265,7 +265,7 @@ public partial class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fleet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Fleet block(s) allowed")]
     [TerraformProperty("fleet")]
-    public TerraformList<TerraformBlock<GoogleContainerAzureClusterFleetBlock>>? Fleet { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleContainerAzureClusterFleetBlock>>? Fleet { get; set; }
 
     /// <summary>
     /// Block for networking.
@@ -275,76 +275,76 @@ public partial class GoogleContainerAzureCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Networking block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Networking block(s) allowed")]
     [TerraformProperty("networking")]
-    public TerraformList<TerraformBlock<GoogleContainerAzureClusterNetworkingBlock>>? Networking { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleContainerAzureClusterNetworkingBlock>>? Networking { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleContainerAzureClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleContainerAzureClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time at which this cluster was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// Output only. The endpoint of the cluster&#39;s API server.
     /// </summary>
     [TerraformProperty("endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Endpoint { get; }
+    public partial TerraformValue<string> Endpoint { get; }
 
     /// <summary>
     /// Allows clients to perform consistent read-modify-writes through optimistic concurrency control. May be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Output only. If set, there are currently changes in flight to the cluster.
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// Output only. The current state of the cluster. Possible values: STATE_UNSPECIFIED, PROVISIONING, RUNNING, RECONCILING, STOPPING, ERROR, DEGRADED
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Output only. A globally unique identifier for the cluster.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Output only. The time at which this cluster was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// Output only. Workload Identity settings.
     /// </summary>
     [TerraformProperty("workload_identity_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> WorkloadIdentityConfig { get; }
+    public partial TerraformList<object> WorkloadIdentityConfig { get; }
 
 }

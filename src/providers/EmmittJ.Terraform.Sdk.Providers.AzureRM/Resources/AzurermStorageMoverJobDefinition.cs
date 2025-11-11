@@ -13,28 +13,28 @@ public partial class AzurermStorageMoverJobDefinitionTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermStorageMoverJobDefinition : TerraformResource
     /// </summary>
     [TerraformProperty("agent_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AgentName { get; set; }
+    public partial TerraformValue<string>? AgentName { get; set; }
 
     /// <summary>
     /// The copy_mode attribute.
@@ -60,21 +60,21 @@ public partial class AzurermStorageMoverJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyMode is required")]
     [TerraformProperty("copy_mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CopyMode { get; set; }
+    public required partial TerraformValue<string> CopyMode { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -82,7 +82,7 @@ public partial class AzurermStorageMoverJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The source_name attribute.
@@ -90,14 +90,14 @@ public partial class AzurermStorageMoverJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
     [TerraformProperty("source_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceName { get; set; }
+    public required partial TerraformValue<string> SourceName { get; set; }
 
     /// <summary>
     /// The source_sub_path attribute.
     /// </summary>
     [TerraformProperty("source_sub_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SourceSubPath { get; set; }
+    public partial TerraformValue<string>? SourceSubPath { get; set; }
 
     /// <summary>
     /// The storage_mover_project_id attribute.
@@ -105,7 +105,7 @@ public partial class AzurermStorageMoverJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageMoverProjectId is required")]
     [TerraformProperty("storage_mover_project_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageMoverProjectId { get; set; }
+    public required partial TerraformValue<string> StorageMoverProjectId { get; set; }
 
     /// <summary>
     /// The target_name attribute.
@@ -113,20 +113,20 @@ public partial class AzurermStorageMoverJobDefinition : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetName is required")]
     [TerraformProperty("target_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetName { get; set; }
+    public required partial TerraformValue<string> TargetName { get; set; }
 
     /// <summary>
     /// The target_sub_path attribute.
     /// </summary>
     [TerraformProperty("target_sub_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TargetSubPath { get; set; }
+    public partial TerraformValue<string>? TargetSubPath { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageMoverJobDefinitionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageMoverJobDefinitionTimeoutsBlock>? Timeouts { get; set; }
 
 }

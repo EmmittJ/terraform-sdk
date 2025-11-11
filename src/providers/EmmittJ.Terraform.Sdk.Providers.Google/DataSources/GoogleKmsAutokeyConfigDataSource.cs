@@ -17,21 +17,21 @@ public partial class GoogleKmsAutokeyConfigDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     [TerraformProperty("folder")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Folder { get; set; }
+    public required partial TerraformValue<string> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The etag of the AutokeyConfig for optimistic concurrency control.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The target key project for a given folder where KMS Autokey will provision a
@@ -40,6 +40,6 @@ public partial class GoogleKmsAutokeyConfigDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("key_project")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KeyProject { get; }
+    public partial TerraformValue<string> KeyProject { get; }
 
 }

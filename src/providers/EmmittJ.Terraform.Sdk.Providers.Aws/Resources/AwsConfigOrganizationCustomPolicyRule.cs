@@ -13,21 +13,21 @@ public partial class AwsConfigOrganizationCustomPolicyRuleTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -45,42 +45,42 @@ public partial class AwsConfigOrganizationCustomPolicyRule : TerraformResource
     /// </summary>
     [TerraformProperty("debug_log_delivery_accounts")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? DebugLogDeliveryAccounts { get; set; }
+    public partial TerraformSet<string>? DebugLogDeliveryAccounts { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The excluded_accounts attribute.
     /// </summary>
     [TerraformProperty("excluded_accounts")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ExcludedAccounts { get; set; }
+    public partial TerraformSet<string>? ExcludedAccounts { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The input_parameters attribute.
     /// </summary>
     [TerraformProperty("input_parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InputParameters { get; set; }
+    public partial TerraformValue<string>? InputParameters { get; set; }
 
     /// <summary>
     /// The maximum_execution_frequency attribute.
     /// </summary>
     [TerraformProperty("maximum_execution_frequency")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MaximumExecutionFrequency { get; set; }
+    public partial TerraformValue<string>? MaximumExecutionFrequency { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -88,7 +88,7 @@ public partial class AwsConfigOrganizationCustomPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The policy_runtime attribute.
@@ -96,7 +96,7 @@ public partial class AwsConfigOrganizationCustomPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyRuntime is required")]
     [TerraformProperty("policy_runtime")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyRuntime { get; set; }
+    public required partial TerraformValue<string> PolicyRuntime { get; set; }
 
     /// <summary>
     /// The policy_text attribute.
@@ -104,42 +104,42 @@ public partial class AwsConfigOrganizationCustomPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyText is required")]
     [TerraformProperty("policy_text")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyText { get; set; }
+    public required partial TerraformValue<string> PolicyText { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_id_scope attribute.
     /// </summary>
     [TerraformProperty("resource_id_scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResourceIdScope { get; set; }
+    public partial TerraformValue<string>? ResourceIdScope { get; set; }
 
     /// <summary>
     /// The resource_types_scope attribute.
     /// </summary>
     [TerraformProperty("resource_types_scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ResourceTypesScope { get; set; }
+    public partial TerraformSet<string>? ResourceTypesScope { get; set; }
 
     /// <summary>
     /// The tag_key_scope attribute.
     /// </summary>
     [TerraformProperty("tag_key_scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TagKeyScope { get; set; }
+    public partial TerraformValue<string>? TagKeyScope { get; set; }
 
     /// <summary>
     /// The tag_value_scope attribute.
     /// </summary>
     [TerraformProperty("tag_value_scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TagValueScope { get; set; }
+    public partial TerraformValue<string>? TagValueScope { get; set; }
 
     /// <summary>
     /// The trigger_types attribute.
@@ -147,20 +147,20 @@ public partial class AwsConfigOrganizationCustomPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerTypes is required")]
     [TerraformProperty("trigger_types")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> TriggerTypes { get; set; }
+    public required partial TerraformSet<string> TriggerTypes { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsConfigOrganizationCustomPolicyRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsConfigOrganizationCustomPolicyRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

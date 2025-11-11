@@ -22,7 +22,7 @@ public partial class AwsAppfabricAppAuthorizationTenantBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantDisplayName is required")]
     [TerraformProperty("tenant_display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TenantDisplayName { get; set; }
+    public required partial TerraformValue<string> TenantDisplayName { get; set; }
 
     /// <summary>
     /// The tenant_identifier attribute.
@@ -30,7 +30,7 @@ public partial class AwsAppfabricAppAuthorizationTenantBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantIdentifier is required")]
     [TerraformProperty("tenant_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TenantIdentifier { get; set; }
+    public required partial TerraformValue<string> TenantIdentifier { get; set; }
 
 }
 
@@ -45,21 +45,21 @@ public partial class AwsAppfabricAppAuthorizationTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -78,7 +78,7 @@ public partial class AwsAppfabricAppAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "App is required")]
     [TerraformProperty("app")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> App { get; set; }
+    public required partial TerraformValue<string> App { get; set; }
 
     /// <summary>
     /// The app_bundle_arn attribute.
@@ -86,7 +86,7 @@ public partial class AwsAppfabricAppAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
     [TerraformProperty("app_bundle_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AppBundleArn { get; set; }
+    public required partial TerraformValue<string> AppBundleArn { get; set; }
 
     /// <summary>
     /// The auth_type attribute.
@@ -94,90 +94,90 @@ public partial class AwsAppfabricAppAuthorization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     [TerraformProperty("auth_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AuthType { get; set; }
+    public required partial TerraformValue<string> AuthType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for credential.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("credential")]
-    public TerraformList<TerraformBlock<AwsAppfabricAppAuthorizationCredentialBlock>>? Credential { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAppfabricAppAuthorizationCredentialBlock>>? Credential { get; set; }
 
     /// <summary>
     /// Block for tenant.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("tenant")]
-    public TerraformList<TerraformBlock<AwsAppfabricAppAuthorizationTenantBlock>>? Tenant { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAppfabricAppAuthorizationTenantBlock>>? Tenant { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsAppfabricAppAuthorizationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsAppfabricAppAuthorizationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The auth_url attribute.
     /// </summary>
     [TerraformProperty("auth_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AuthUrl { get; }
+    public partial TerraformValue<string> AuthUrl { get; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformProperty("created_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedAt { get; }
+    public partial TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The persona attribute.
     /// </summary>
     [TerraformProperty("persona")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Persona { get; }
+    public partial TerraformValue<string> Persona { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     [TerraformProperty("updated_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdatedAt { get; }
+    public partial TerraformValue<string> UpdatedAt { get; }
 
 }

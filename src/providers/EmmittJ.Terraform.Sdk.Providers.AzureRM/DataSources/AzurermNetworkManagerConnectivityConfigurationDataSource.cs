@@ -13,7 +13,7 @@ public partial class AzurermNetworkManagerConnectivityConfigurationDataSourceTim
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermNetworkManagerConnectivityConfigurationDataSource : 
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermNetworkManagerConnectivityConfigurationDataSource : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network_manager_id attribute.
@@ -47,55 +47,55 @@ public partial class AzurermNetworkManagerConnectivityConfigurationDataSource : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     [TerraformProperty("network_manager_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NetworkManagerId { get; set; }
+    public required partial TerraformValue<string> NetworkManagerId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetworkManagerConnectivityConfigurationDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetworkManagerConnectivityConfigurationDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The applies_to_group attribute.
     /// </summary>
     [TerraformProperty("applies_to_group")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> AppliesToGroup { get; }
+    public partial TerraformList<object> AppliesToGroup { get; }
 
     /// <summary>
     /// The connectivity_topology attribute.
     /// </summary>
     [TerraformProperty("connectivity_topology")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ConnectivityTopology { get; }
+    public partial TerraformValue<string> ConnectivityTopology { get; }
 
     /// <summary>
     /// The delete_existing_peering_enabled attribute.
     /// </summary>
     [TerraformProperty("delete_existing_peering_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> DeleteExistingPeeringEnabled { get; }
+    public partial TerraformValue<bool> DeleteExistingPeeringEnabled { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The global_mesh_enabled attribute.
     /// </summary>
     [TerraformProperty("global_mesh_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> GlobalMeshEnabled { get; }
+    public partial TerraformValue<bool> GlobalMeshEnabled { get; }
 
     /// <summary>
     /// The hub attribute.
     /// </summary>
     [TerraformProperty("hub")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Hub { get; }
+    public partial TerraformList<object> Hub { get; }
 
 }

@@ -16,41 +16,41 @@ public partial class AwsPrometheusWorkspacesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("alias_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AliasPrefix { get; set; }
+    public partial TerraformValue<string>? AliasPrefix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The aliases attribute.
     /// </summary>
     [TerraformProperty("aliases")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Aliases { get; }
+    public partial TerraformList<string> Aliases { get; }
 
     /// <summary>
     /// The arns attribute.
     /// </summary>
     [TerraformProperty("arns")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Arns { get; }
+    public partial TerraformList<string> Arns { get; }
 
     /// <summary>
     /// The workspace_ids attribute.
     /// </summary>
     [TerraformProperty("workspace_ids")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> WorkspaceIds { get; }
+    public partial TerraformList<string> WorkspaceIds { get; }
 
 }

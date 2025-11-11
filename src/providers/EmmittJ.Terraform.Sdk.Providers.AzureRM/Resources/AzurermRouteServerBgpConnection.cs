@@ -13,21 +13,21 @@ public partial class AzurermRouteServerBgpConnectionTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermRouteServerBgpConnection : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -53,7 +53,7 @@ public partial class AzurermRouteServerBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The peer_asn attribute.
@@ -61,7 +61,7 @@ public partial class AzurermRouteServerBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAsn is required")]
     [TerraformProperty("peer_asn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> PeerAsn { get; set; }
+    public required partial TerraformValue<double> PeerAsn { get; set; }
 
     /// <summary>
     /// The peer_ip attribute.
@@ -69,7 +69,7 @@ public partial class AzurermRouteServerBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerIp is required")]
     [TerraformProperty("peer_ip")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PeerIp { get; set; }
+    public required partial TerraformValue<string> PeerIp { get; set; }
 
     /// <summary>
     /// The route_server_id attribute.
@@ -77,13 +77,13 @@ public partial class AzurermRouteServerBgpConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteServerId is required")]
     [TerraformProperty("route_server_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RouteServerId { get; set; }
+    public required partial TerraformValue<string> RouteServerId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermRouteServerBgpConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermRouteServerBgpConnectionTimeoutsBlock>? Timeouts { get; set; }
 
 }

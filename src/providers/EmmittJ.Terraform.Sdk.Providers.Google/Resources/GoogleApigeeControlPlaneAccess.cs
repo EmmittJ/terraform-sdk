@@ -13,21 +13,21 @@ public partial class GoogleApigeeControlPlaneAccessTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -49,14 +49,14 @@ public partial class GoogleApigeeControlPlaneAccess : TerraformResource
     /// </summary>
     [TerraformProperty("analytics_publisher_identities")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AnalyticsPublisherIdentities { get; set; }
+    public partial TerraformList<string>? AnalyticsPublisherIdentities { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the Apigee organization.
@@ -64,7 +64,7 @@ public partial class GoogleApigeeControlPlaneAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Array of service accounts to grant access to control plane resources (for the Synchronizer component), each specified using the following format: &#39;serviceAccount:service-account-name&#39;.
@@ -77,13 +77,13 @@ public partial class GoogleApigeeControlPlaneAccess : TerraformResource
     /// </summary>
     [TerraformProperty("synchronizer_identities")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? SynchronizerIdentities { get; set; }
+    public partial TerraformList<string>? SynchronizerIdentities { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeControlPlaneAccessTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeControlPlaneAccessTimeoutsBlock>? Timeouts { get; set; }
 
 }

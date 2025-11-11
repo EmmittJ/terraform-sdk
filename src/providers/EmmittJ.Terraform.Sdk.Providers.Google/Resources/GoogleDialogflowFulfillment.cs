@@ -15,7 +15,7 @@ public partial class GoogleDialogflowFulfillmentFeaturesBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -30,14 +30,14 @@ public partial class GoogleDialogflowFulfillmentGenericWebServiceBlock : Terrafo
     /// </summary>
     [TerraformProperty("password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Password { get; set; }
+    public partial TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// The HTTP request headers to send together with fulfillment requests.
     /// </summary>
     [TerraformProperty("request_headers")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? RequestHeaders { get; set; }
+    public partial TerraformMap<string>? RequestHeaders { get; set; }
 
     /// <summary>
     /// The fulfillment URI for receiving POST requests. It must use https protocol.
@@ -45,14 +45,14 @@ public partial class GoogleDialogflowFulfillmentGenericWebServiceBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     [TerraformProperty("uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Uri { get; set; }
+    public required partial TerraformValue<string> Uri { get; set; }
 
     /// <summary>
     /// The user name for HTTP Basic authentication.
     /// </summary>
     [TerraformProperty("username")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Username { get; set; }
+    public partial TerraformValue<string>? Username { get; set; }
 
 }
 
@@ -67,21 +67,21 @@ public partial class GoogleDialogflowFulfillmentTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -101,35 +101,35 @@ public partial class GoogleDialogflowFulfillment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Whether fulfillment is enabled.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for features.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("features")]
-    public TerraformList<TerraformBlock<GoogleDialogflowFulfillmentFeaturesBlock>>? Features { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowFulfillmentFeaturesBlock>>? Features { get; set; }
 
     /// <summary>
     /// Block for generic_web_service.
@@ -137,14 +137,14 @@ public partial class GoogleDialogflowFulfillment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenericWebService block(s) allowed")]
     [TerraformProperty("generic_web_service")]
-    public TerraformList<TerraformBlock<GoogleDialogflowFulfillmentGenericWebServiceBlock>>? GenericWebService { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowFulfillmentGenericWebServiceBlock>>? GenericWebService { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDialogflowFulfillmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDialogflowFulfillmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique identifier of the fulfillment.
@@ -152,6 +152,6 @@ public partial class GoogleDialogflowFulfillment : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermBillingEnrollmentAccountScopeDataSourceTimeoutsBlock
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,7 +32,7 @@ public partial class AzurermBillingEnrollmentAccountScopeDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountName is required")]
     [TerraformProperty("billing_account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BillingAccountName { get; set; }
+    public required partial TerraformValue<string> BillingAccountName { get; set; }
 
     /// <summary>
     /// The enrollment_account_name attribute.
@@ -40,20 +40,20 @@ public partial class AzurermBillingEnrollmentAccountScopeDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnrollmentAccountName is required")]
     [TerraformProperty("enrollment_account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EnrollmentAccountName { get; set; }
+    public required partial TerraformValue<string> EnrollmentAccountName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermBillingEnrollmentAccountScopeDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermBillingEnrollmentAccountScopeDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
 }

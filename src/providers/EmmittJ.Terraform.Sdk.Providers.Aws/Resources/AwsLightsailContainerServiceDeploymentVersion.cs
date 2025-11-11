@@ -13,7 +13,7 @@ public partial class AwsLightsailContainerServiceDeploymentVersionContainerBlock
     /// </summary>
     [TerraformProperty("command")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Command { get; set; }
+    public partial TerraformList<string>? Command { get; set; }
 
     /// <summary>
     /// The container_name attribute.
@@ -21,14 +21,14 @@ public partial class AwsLightsailContainerServiceDeploymentVersionContainerBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     [TerraformProperty("container_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerName { get; set; }
+    public required partial TerraformValue<string> ContainerName { get; set; }
 
     /// <summary>
     /// The environment attribute.
     /// </summary>
     [TerraformProperty("environment")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Environment { get; set; }
+    public partial TerraformMap<string>? Environment { get; set; }
 
     /// <summary>
     /// The image attribute.
@@ -36,14 +36,14 @@ public partial class AwsLightsailContainerServiceDeploymentVersionContainerBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     [TerraformProperty("image")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Image { get; set; }
+    public required partial TerraformValue<string> Image { get; set; }
 
     /// <summary>
     /// The ports attribute.
     /// </summary>
     [TerraformProperty("ports")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Ports { get; set; }
+    public partial TerraformMap<string>? Ports { get; set; }
 
 }
 
@@ -59,7 +59,7 @@ public partial class AwsLightsailContainerServiceDeploymentVersionPublicEndpoint
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     [TerraformProperty("container_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerName { get; set; }
+    public required partial TerraformValue<string> ContainerName { get; set; }
 
     /// <summary>
     /// The container_port attribute.
@@ -67,7 +67,7 @@ public partial class AwsLightsailContainerServiceDeploymentVersionPublicEndpoint
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerPort is required")]
     [TerraformProperty("container_port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ContainerPort { get; set; }
+    public required partial TerraformValue<double> ContainerPort { get; set; }
 
 }
 
@@ -82,7 +82,7 @@ public partial class AwsLightsailContainerServiceDeploymentVersionTimeoutsBlock 
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -101,14 +101,14 @@ public partial class AwsLightsailContainerServiceDeploymentVersion : TerraformRe
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The service_name attribute.
@@ -116,7 +116,7 @@ public partial class AwsLightsailContainerServiceDeploymentVersion : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     [TerraformProperty("service_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceName { get; set; }
+    public required partial TerraformValue<string> ServiceName { get; set; }
 
     /// <summary>
     /// Block for container.
@@ -126,7 +126,7 @@ public partial class AwsLightsailContainerServiceDeploymentVersion : TerraformRe
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Container block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(53, ErrorMessage = "Maximum 53 Container block(s) allowed")]
     [TerraformProperty("container")]
-    public TerraformSet<TerraformBlock<AwsLightsailContainerServiceDeploymentVersionContainerBlock>>? Container { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsLightsailContainerServiceDeploymentVersionContainerBlock>>? Container { get; set; }
 
     /// <summary>
     /// Block for public_endpoint.
@@ -134,34 +134,34 @@ public partial class AwsLightsailContainerServiceDeploymentVersion : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicEndpoint block(s) allowed")]
     [TerraformProperty("public_endpoint")]
-    public TerraformList<TerraformBlock<AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock>>? PublicEndpoint { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock>>? PublicEndpoint { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsLightsailContainerServiceDeploymentVersionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsLightsailContainerServiceDeploymentVersionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformProperty("created_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedAt { get; }
+    public partial TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> Version { get; }
+    public partial TerraformValue<double> Version { get; }
 
 }

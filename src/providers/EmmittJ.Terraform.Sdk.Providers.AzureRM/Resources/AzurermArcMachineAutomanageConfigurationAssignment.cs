@@ -13,21 +13,21 @@ public partial class AzurermArcMachineAutomanageConfigurationAssignmentTimeoutsB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AzurermArcMachineAutomanageConfigurationAssignment : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcMachineId is required")]
     [TerraformProperty("arc_machine_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ArcMachineId { get; set; }
+    public required partial TerraformValue<string> ArcMachineId { get; set; }
 
     /// <summary>
     /// The configuration_id attribute.
@@ -54,20 +54,20 @@ public partial class AzurermArcMachineAutomanageConfigurationAssignment : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationId is required")]
     [TerraformProperty("configuration_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConfigurationId { get; set; }
+    public required partial TerraformValue<string> ConfigurationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermArcMachineAutomanageConfigurationAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermArcMachineAutomanageConfigurationAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -16,28 +16,28 @@ public partial class AwsIamVirtualMfaDevice : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [TerraformProperty("path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Path { get; set; }
+    public partial TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The virtual_mfa_device_name attribute.
@@ -45,41 +45,41 @@ public partial class AwsIamVirtualMfaDevice : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMfaDeviceName is required")]
     [TerraformProperty("virtual_mfa_device_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualMfaDeviceName { get; set; }
+    public required partial TerraformValue<string> VirtualMfaDeviceName { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The base_32_string_seed attribute.
     /// </summary>
     [TerraformProperty("base_32_string_seed")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Base32StringSeed { get; }
+    public partial TerraformValue<string> Base32StringSeed { get; }
 
     /// <summary>
     /// The enable_date attribute.
     /// </summary>
     [TerraformProperty("enable_date")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EnableDate { get; }
+    public partial TerraformValue<string> EnableDate { get; }
 
     /// <summary>
     /// The qr_code_png attribute.
     /// </summary>
     [TerraformProperty("qr_code_png")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> QrCodePng { get; }
+    public partial TerraformValue<string> QrCodePng { get; }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     [TerraformProperty("user_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UserName { get; }
+    public partial TerraformValue<string> UserName { get; }
 
 }

@@ -16,62 +16,62 @@ public partial class AwsCloudfrontCachePolicyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Id { get; set; }
+    public partial TerraformValue<string>? Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     [TerraformProperty("comment")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Comment { get; }
+    public partial TerraformValue<string> Comment { get; }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
     [TerraformProperty("default_ttl")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> DefaultTtl { get; }
+    public partial TerraformValue<double> DefaultTtl { get; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The max_ttl attribute.
     /// </summary>
     [TerraformProperty("max_ttl")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> MaxTtl { get; }
+    public partial TerraformValue<double> MaxTtl { get; }
 
     /// <summary>
     /// The min_ttl attribute.
     /// </summary>
     [TerraformProperty("min_ttl")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> MinTtl { get; }
+    public partial TerraformValue<double> MinTtl { get; }
 
     /// <summary>
     /// The parameters_in_cache_key_and_forwarded_to_origin attribute.
     /// </summary>
     [TerraformProperty("parameters_in_cache_key_and_forwarded_to_origin")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ParametersInCacheKeyAndForwardedToOrigin { get; }
+    public partial TerraformList<object> ParametersInCacheKeyAndForwardedToOrigin { get; }
 
 }

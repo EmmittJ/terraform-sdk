@@ -13,14 +13,14 @@ public partial class AwsSesv2DedicatedIpAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public partial class AwsSesv2DedicatedIpAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationPoolName is required")]
     [TerraformProperty("destination_pool_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DestinationPoolName { get; set; }
+    public required partial TerraformValue<string> DestinationPoolName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ip attribute.
@@ -54,20 +54,20 @@ public partial class AwsSesv2DedicatedIpAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ip is required")]
     [TerraformProperty("ip")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Ip { get; set; }
+    public required partial TerraformValue<string> Ip { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsSesv2DedicatedIpAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsSesv2DedicatedIpAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

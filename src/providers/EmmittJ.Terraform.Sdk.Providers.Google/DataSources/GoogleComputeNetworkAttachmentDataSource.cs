@@ -17,14 +17,14 @@ public partial class GoogleComputeNetworkAttachmentDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// URL of the region where the network attachment resides. This field applies only to the region resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
@@ -32,35 +32,35 @@ public partial class GoogleComputeNetworkAttachmentDataSource : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     [TerraformProperty("region")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Region { get; set; }
+    public required partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// An array of connections for all the producers connected to this network attachment.
     /// </summary>
     [TerraformProperty("connection_endpoints")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ConnectionEndpoints { get; }
+    public partial TerraformList<object> ConnectionEndpoints { get; }
 
     /// <summary>
     /// The connection preference of service attachment. The value can be set to ACCEPT_AUTOMATIC. An ACCEPT_AUTOMATIC service attachment is one that always accepts the connection from consumer forwarding rules. Possible values: [&amp;quot;ACCEPT_AUTOMATIC&amp;quot;, &amp;quot;ACCEPT_MANUAL&amp;quot;, &amp;quot;INVALID&amp;quot;]
     /// </summary>
     [TerraformProperty("connection_preference")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ConnectionPreference { get; }
+    public partial TerraformValue<string> ConnectionPreference { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this object. This
@@ -68,21 +68,21 @@ public partial class GoogleComputeNetworkAttachmentDataSource : TerraformDataSou
     /// </summary>
     [TerraformProperty("fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Fingerprint { get; }
+    public partial TerraformValue<string> Fingerprint { get; }
 
     /// <summary>
     /// The unique identifier for the resource type. The server generates this identifier.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// Type of the resource.
     /// </summary>
     [TerraformProperty("kind")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Kind { get; }
+    public partial TerraformValue<string> Kind { get; }
 
     /// <summary>
     /// The URL of the network which the Network Attachment belongs to. Practically it is inferred by fetching the network of the first subnetwork associated.
@@ -90,41 +90,41 @@ public partial class GoogleComputeNetworkAttachmentDataSource : TerraformDataSou
     /// </summary>
     [TerraformProperty("network")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Network { get; }
+    public partial TerraformValue<string> Network { get; }
 
     /// <summary>
     /// Projects that are allowed to connect to this network attachment. The project can be specified using its id or number.
     /// </summary>
     [TerraformProperty("producer_accept_lists")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ProducerAcceptLists { get; }
+    public partial TerraformList<string> ProducerAcceptLists { get; }
 
     /// <summary>
     /// Projects that are not allowed to connect to this network attachment. The project can be specified using its id or number.
     /// </summary>
     [TerraformProperty("producer_reject_lists")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ProducerRejectLists { get; }
+    public partial TerraformList<string> ProducerRejectLists { get; }
 
     /// <summary>
     /// Server-defined URL for the resource.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// Server-defined URL for this resource&#39;s resource id.
     /// </summary>
     [TerraformProperty("self_link_with_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLinkWithId { get; }
+    public partial TerraformValue<string> SelfLinkWithId { get; }
 
     /// <summary>
     /// An array of URLs where each entry is the URL of a subnet provided by the service consumer to use for endpoints in the producers that connect to this network attachment.
     /// </summary>
     [TerraformProperty("subnetworks")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Subnetworks { get; }
+    public partial TerraformList<string> Subnetworks { get; }
 
 }

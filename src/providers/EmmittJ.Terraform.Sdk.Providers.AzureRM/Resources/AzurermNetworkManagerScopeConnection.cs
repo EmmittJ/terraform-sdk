@@ -13,28 +13,28 @@ public partial class AzurermNetworkManagerScopeConnectionTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public partial class AzurermNetworkManagerScopeConnection : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -67,7 +67,7 @@ public partial class AzurermNetworkManagerScopeConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network_manager_id attribute.
@@ -75,7 +75,7 @@ public partial class AzurermNetworkManagerScopeConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     [TerraformProperty("network_manager_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NetworkManagerId { get; set; }
+    public required partial TerraformValue<string> NetworkManagerId { get; set; }
 
     /// <summary>
     /// The target_scope_id attribute.
@@ -83,7 +83,7 @@ public partial class AzurermNetworkManagerScopeConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetScopeId is required")]
     [TerraformProperty("target_scope_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetScopeId { get; set; }
+    public required partial TerraformValue<string> TargetScopeId { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
@@ -91,20 +91,20 @@ public partial class AzurermNetworkManagerScopeConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     [TerraformProperty("tenant_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TenantId { get; set; }
+    public required partial TerraformValue<string> TenantId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetworkManagerScopeConnectionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetworkManagerScopeConnectionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The connection_state attribute.
     /// </summary>
     [TerraformProperty("connection_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ConnectionState { get; }
+    public partial TerraformValue<string> ConnectionState { get; }
 
 }

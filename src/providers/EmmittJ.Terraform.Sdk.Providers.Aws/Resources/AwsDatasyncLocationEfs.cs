@@ -14,7 +14,7 @@ public partial class AwsDatasyncLocationEfsEc2ConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupArns is required")]
     [TerraformProperty("security_group_arns")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> SecurityGroupArns { get; set; }
+    public required partial TerraformSet<string> SecurityGroupArns { get; set; }
 
     /// <summary>
     /// The subnet_arn attribute.
@@ -22,7 +22,7 @@ public partial class AwsDatasyncLocationEfsEc2ConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetArn is required")]
     [TerraformProperty("subnet_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetArn { get; set; }
+    public required partial TerraformValue<string> SubnetArn { get; set; }
 
 }
 
@@ -41,7 +41,7 @@ public partial class AwsDatasyncLocationEfs : TerraformResource
     /// </summary>
     [TerraformProperty("access_point_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AccessPointArn { get; set; }
+    public partial TerraformValue<string>? AccessPointArn { get; set; }
 
     /// <summary>
     /// The efs_file_system_arn attribute.
@@ -49,56 +49,56 @@ public partial class AwsDatasyncLocationEfs : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EfsFileSystemArn is required")]
     [TerraformProperty("efs_file_system_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EfsFileSystemArn { get; set; }
+    public required partial TerraformValue<string> EfsFileSystemArn { get; set; }
 
     /// <summary>
     /// The file_system_access_role_arn attribute.
     /// </summary>
     [TerraformProperty("file_system_access_role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FileSystemAccessRoleArn { get; set; }
+    public partial TerraformValue<string>? FileSystemAccessRoleArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The in_transit_encryption attribute.
     /// </summary>
     [TerraformProperty("in_transit_encryption")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InTransitEncryption { get; set; }
+    public partial TerraformValue<string>? InTransitEncryption { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
     [TerraformProperty("subdirectory")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Subdirectory { get; set; }
+    public partial TerraformValue<string>? Subdirectory { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for ec2_config.
@@ -108,20 +108,20 @@ public partial class AwsDatasyncLocationEfs : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Ec2Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ec2Config block(s) allowed")]
     [TerraformProperty("ec2_config")]
-    public TerraformList<TerraformBlock<AwsDatasyncLocationEfsEc2ConfigBlock>>? Ec2Config { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDatasyncLocationEfsEc2ConfigBlock>>? Ec2Config { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     [TerraformProperty("uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uri { get; }
+    public partial TerraformValue<string> Uri { get; }
 
 }

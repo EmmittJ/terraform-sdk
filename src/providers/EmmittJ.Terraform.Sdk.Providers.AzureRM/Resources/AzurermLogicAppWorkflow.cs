@@ -21,7 +21,7 @@ public partial class AzurermLogicAppWorkflowIdentityBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("identity_ids")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IdentityIds { get; set; }
+    public partial TerraformSet<string>? IdentityIds { get; set; }
 
 
 
@@ -31,7 +31,7 @@ public partial class AzurermLogicAppWorkflowIdentityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -46,28 +46,28 @@ public partial class AzurermLogicAppWorkflowTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -86,21 +86,21 @@ public partial class AzurermLogicAppWorkflow : TerraformResource
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The integration_service_environment_id attribute.
     /// </summary>
     [TerraformProperty("integration_service_environment_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IntegrationServiceEnvironmentId { get; set; }
+    public partial TerraformValue<string>? IntegrationServiceEnvironmentId { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -108,14 +108,14 @@ public partial class AzurermLogicAppWorkflow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The logic_app_integration_account_id attribute.
     /// </summary>
     [TerraformProperty("logic_app_integration_account_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LogicAppIntegrationAccountId { get; set; }
+    public partial TerraformValue<string>? LogicAppIntegrationAccountId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -123,14 +123,14 @@ public partial class AzurermLogicAppWorkflow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Parameters { get; set; }
+    public partial TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -138,35 +138,35 @@ public partial class AzurermLogicAppWorkflow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The workflow_parameters attribute.
     /// </summary>
     [TerraformProperty("workflow_parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? WorkflowParameters { get; set; }
+    public partial TerraformMap<string>? WorkflowParameters { get; set; }
 
     /// <summary>
     /// The workflow_schema attribute.
     /// </summary>
     [TerraformProperty("workflow_schema")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WorkflowSchema { get; set; }
+    public partial TerraformValue<string>? WorkflowSchema { get; set; }
 
     /// <summary>
     /// The workflow_version attribute.
     /// </summary>
     [TerraformProperty("workflow_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WorkflowVersion { get; set; }
+    public partial TerraformValue<string>? WorkflowVersion { get; set; }
 
     /// <summary>
     /// Block for access_control.
@@ -174,7 +174,7 @@ public partial class AzurermLogicAppWorkflow : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessControl block(s) allowed")]
     [TerraformProperty("access_control")]
-    public TerraformList<TerraformBlock<AzurermLogicAppWorkflowAccessControlBlock>>? AccessControl { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermLogicAppWorkflowAccessControlBlock>>? AccessControl { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -182,48 +182,48 @@ public partial class AzurermLogicAppWorkflow : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
     [TerraformProperty("identity")]
-    public TerraformList<TerraformBlock<AzurermLogicAppWorkflowIdentityBlock>>? Identity { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermLogicAppWorkflowIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLogicAppWorkflowTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLogicAppWorkflowTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The access_endpoint attribute.
     /// </summary>
     [TerraformProperty("access_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AccessEndpoint { get; }
+    public partial TerraformValue<string> AccessEndpoint { get; }
 
     /// <summary>
     /// The connector_endpoint_ip_addresses attribute.
     /// </summary>
     [TerraformProperty("connector_endpoint_ip_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ConnectorEndpointIpAddresses { get; }
+    public partial TerraformList<string> ConnectorEndpointIpAddresses { get; }
 
     /// <summary>
     /// The connector_outbound_ip_addresses attribute.
     /// </summary>
     [TerraformProperty("connector_outbound_ip_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ConnectorOutboundIpAddresses { get; }
+    public partial TerraformList<string> ConnectorOutboundIpAddresses { get; }
 
     /// <summary>
     /// The workflow_endpoint_ip_addresses attribute.
     /// </summary>
     [TerraformProperty("workflow_endpoint_ip_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> WorkflowEndpointIpAddresses { get; }
+    public partial TerraformList<string> WorkflowEndpointIpAddresses { get; }
 
     /// <summary>
     /// The workflow_outbound_ip_addresses attribute.
     /// </summary>
     [TerraformProperty("workflow_outbound_ip_addresses")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> WorkflowOutboundIpAddresses { get; }
+    public partial TerraformList<string> WorkflowOutboundIpAddresses { get; }
 
 }

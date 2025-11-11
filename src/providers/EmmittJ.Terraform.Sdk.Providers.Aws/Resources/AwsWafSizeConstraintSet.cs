@@ -14,7 +14,7 @@ public partial class AwsWafSizeConstraintSetSizeConstraintsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComparisonOperator is required")]
     [TerraformProperty("comparison_operator")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ComparisonOperator { get; set; }
+    public required partial TerraformValue<string> ComparisonOperator { get; set; }
 
     /// <summary>
     /// The size attribute.
@@ -22,7 +22,7 @@ public partial class AwsWafSizeConstraintSetSizeConstraintsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     [TerraformProperty("size")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Size { get; set; }
+    public required partial TerraformValue<double> Size { get; set; }
 
     /// <summary>
     /// The text_transformation attribute.
@@ -30,7 +30,7 @@ public partial class AwsWafSizeConstraintSetSizeConstraintsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     [TerraformProperty("text_transformation")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TextTransformation { get; set; }
+    public required partial TerraformValue<string> TextTransformation { get; set; }
 
 }
 
@@ -48,7 +48,7 @@ public partial class AwsWafSizeConstraintSet : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -56,20 +56,20 @@ public partial class AwsWafSizeConstraintSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for size_constraints.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("size_constraints")]
-    public TerraformSet<TerraformBlock<AwsWafSizeConstraintSetSizeConstraintsBlock>>? SizeConstraints { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsWafSizeConstraintSetSizeConstraintsBlock>>? SizeConstraints { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

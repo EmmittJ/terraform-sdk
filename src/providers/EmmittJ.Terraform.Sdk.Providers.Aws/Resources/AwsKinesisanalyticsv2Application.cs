@@ -23,7 +23,7 @@ public partial class AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogStreamArn is required")]
     [TerraformProperty("log_stream_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LogStreamArn { get; set; }
+    public required partial TerraformValue<string> LogStreamArn { get; set; }
 
 }
 
@@ -38,21 +38,21 @@ public partial class AwsKinesisanalyticsv2ApplicationTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -71,28 +71,28 @@ public partial class AwsKinesisanalyticsv2Application : TerraformResource
     /// </summary>
     [TerraformProperty("application_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ApplicationMode { get; set; }
+    public partial TerraformValue<string> ApplicationMode { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The force_stop attribute.
     /// </summary>
     [TerraformProperty("force_stop")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ForceStop { get; set; }
+    public partial TerraformValue<bool>? ForceStop { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -100,14 +100,14 @@ public partial class AwsKinesisanalyticsv2Application : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The runtime_environment attribute.
@@ -115,7 +115,7 @@ public partial class AwsKinesisanalyticsv2Application : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeEnvironment is required")]
     [TerraformProperty("runtime_environment")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RuntimeEnvironment { get; set; }
+    public required partial TerraformValue<string> RuntimeEnvironment { get; set; }
 
     /// <summary>
     /// The service_execution_role attribute.
@@ -123,28 +123,28 @@ public partial class AwsKinesisanalyticsv2Application : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceExecutionRole is required")]
     [TerraformProperty("service_execution_role")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceExecutionRole { get; set; }
+    public required partial TerraformValue<string> ServiceExecutionRole { get; set; }
 
     /// <summary>
     /// The start_application attribute.
     /// </summary>
     [TerraformProperty("start_application")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? StartApplication { get; set; }
+    public partial TerraformValue<bool>? StartApplication { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for application_configuration.
@@ -152,7 +152,7 @@ public partial class AwsKinesisanalyticsv2Application : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationConfiguration block(s) allowed")]
     [TerraformProperty("application_configuration")]
-    public TerraformList<TerraformBlock<AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlock>>? ApplicationConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlock>>? ApplicationConfiguration { get; set; }
 
     /// <summary>
     /// Block for cloudwatch_logging_options.
@@ -160,48 +160,48 @@ public partial class AwsKinesisanalyticsv2Application : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudwatchLoggingOptions block(s) allowed")]
     [TerraformProperty("cloudwatch_logging_options")]
-    public TerraformList<TerraformBlock<AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock>>? CloudwatchLoggingOptions { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock>>? CloudwatchLoggingOptions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsKinesisanalyticsv2ApplicationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsKinesisanalyticsv2ApplicationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The create_timestamp attribute.
     /// </summary>
     [TerraformProperty("create_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTimestamp { get; }
+    public partial TerraformValue<string> CreateTimestamp { get; }
 
     /// <summary>
     /// The last_update_timestamp attribute.
     /// </summary>
     [TerraformProperty("last_update_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastUpdateTimestamp { get; }
+    public partial TerraformValue<string> LastUpdateTimestamp { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
     [TerraformProperty("version_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> VersionId { get; }
+    public partial TerraformValue<double> VersionId { get; }
 
 }

@@ -13,14 +13,14 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDat
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A descriptive name for the dataset.
     /// </summary>
     [TerraformProperty("friendly_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FriendlyName { get; set; }
+    public partial TerraformValue<string>? FriendlyName { get; set; }
 
     /// <summary>
     /// The labels associated with this dataset. You can use these to
@@ -28,7 +28,7 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDat
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The geographic location where the dataset should reside.
@@ -37,7 +37,7 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock 
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -79,14 +79,14 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscription : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
     [TerraformProperty("data_exchange_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataExchangeId { get; set; }
+    public required partial TerraformValue<string> DataExchangeId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the listing. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
@@ -94,7 +94,7 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscription : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListingId is required")]
     [TerraformProperty("listing_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ListingId { get; set; }
+    public required partial TerraformValue<string> ListingId { get; set; }
 
     /// <summary>
     /// The name of the location of the data exchange. Distinct from the location of the destination data set.
@@ -102,14 +102,14 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscription : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for destination_dataset.
@@ -119,35 +119,35 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscription : TerraformRe
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationDataset block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationDataset block(s) allowed")]
     [TerraformProperty("destination_dataset")]
-    public TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock>>? DestinationDataset { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock>>? DestinationDataset { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Commercial info metadata for this subscription. This is set if this is a commercial subscription i.e. if this subscription was created from subscribing to a commercial listing.
     /// </summary>
     [TerraformProperty("commercial_info")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CommercialInfo { get; }
+    public partial TerraformList<object> CommercialInfo { get; }
 
     /// <summary>
     /// Timestamp when the subscription was created.
     /// </summary>
     [TerraformProperty("creation_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTime { get; }
+    public partial TerraformValue<string> CreationTime { get; }
 
     /// <summary>
     /// Timestamp when the subscription was last modified.
     /// </summary>
     [TerraformProperty("last_modify_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastModifyTime { get; }
+    public partial TerraformValue<string> LastModifyTime { get; }
 
     /// <summary>
     /// Output only. Map of listing resource names to associated linked resource,
@@ -155,69 +155,69 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscription : TerraformRe
     /// </summary>
     [TerraformProperty("linked_dataset_map")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> LinkedDatasetMap { get; }
+    public partial TerraformSet<object> LinkedDatasetMap { get; }
 
     /// <summary>
     /// Output only. Linked resources created in the subscription. Only contains values if state = STATE_ACTIVE.
     /// </summary>
     [TerraformProperty("linked_resources")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> LinkedResources { get; }
+    public partial TerraformList<object> LinkedResources { get; }
 
     /// <summary>
     /// Output only. By default, false. If true, the Subscriber agreed to the email sharing mandate that is enabled for Listing.
     /// </summary>
     [TerraformProperty("log_linked_dataset_query_user_email")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> LogLinkedDatasetQueryUserEmail { get; }
+    public partial TerraformValue<bool> LogLinkedDatasetQueryUserEmail { get; }
 
     /// <summary>
     /// The resource name of the subscription. e.g. &amp;quot;projects/myproject/locations/US/subscriptions/123&amp;quot;
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Display name of the project of this subscription.
     /// </summary>
     [TerraformProperty("organization_display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OrganizationDisplayName { get; }
+    public partial TerraformValue<string> OrganizationDisplayName { get; }
 
     /// <summary>
     /// Organization of the project this subscription belongs to.
     /// </summary>
     [TerraformProperty("organization_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OrganizationId { get; }
+    public partial TerraformValue<string> OrganizationId { get; }
 
     /// <summary>
     /// Listing shared asset type.
     /// </summary>
     [TerraformProperty("resource_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceType { get; }
+    public partial TerraformValue<string> ResourceType { get; }
 
     /// <summary>
     /// Current state of the subscription.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Email of the subscriber.
     /// </summary>
     [TerraformProperty("subscriber_contact")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SubscriberContact { get; }
+    public partial TerraformValue<string> SubscriberContact { get; }
 
     /// <summary>
     /// The subscription id used to reference the subscription.
     /// </summary>
     [TerraformProperty("subscription_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SubscriptionId { get; }
+    public partial TerraformValue<string> SubscriptionId { get; }
 
 }

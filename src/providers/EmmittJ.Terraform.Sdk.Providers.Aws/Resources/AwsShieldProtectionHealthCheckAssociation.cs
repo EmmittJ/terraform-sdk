@@ -17,14 +17,14 @@ public partial class AwsShieldProtectionHealthCheckAssociation : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthCheckArn is required")]
     [TerraformProperty("health_check_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HealthCheckArn { get; set; }
+    public required partial TerraformValue<string> HealthCheckArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The shield_protection_id attribute.
@@ -32,6 +32,6 @@ public partial class AwsShieldProtectionHealthCheckAssociation : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShieldProtectionId is required")]
     [TerraformProperty("shield_protection_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ShieldProtectionId { get; set; }
+    public required partial TerraformValue<string> ShieldProtectionId { get; set; }
 
 }

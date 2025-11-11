@@ -16,20 +16,20 @@ public partial class GoogleDnsManagedZonesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The managed_zones attribute.
     /// </summary>
     [TerraformProperty("managed_zones")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ManagedZones { get; }
+    public partial TerraformList<object> ManagedZones { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AwsLocationMapConfigurationBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Style is required")]
     [TerraformProperty("style")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Style { get; set; }
+    public required partial TerraformValue<string> Style { get; set; }
 
 }
 
@@ -33,14 +33,14 @@ public partial class AwsLocationMap : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The map_name attribute.
@@ -48,28 +48,28 @@ public partial class AwsLocationMap : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapName is required")]
     [TerraformProperty("map_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MapName { get; set; }
+    public required partial TerraformValue<string> MapName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for configuration.
@@ -79,27 +79,27 @@ public partial class AwsLocationMap : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Configuration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
     [TerraformProperty("configuration")]
-    public TerraformList<TerraformBlock<AwsLocationMapConfigurationBlock>>? Configuration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLocationMapConfigurationBlock>>? Configuration { get; set; }
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The map_arn attribute.
     /// </summary>
     [TerraformProperty("map_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MapArn { get; }
+    public partial TerraformValue<string> MapArn { get; }
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

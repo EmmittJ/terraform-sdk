@@ -13,21 +13,21 @@ public partial class AwsKeyspacesTableCapacitySpecificationBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("read_capacity_units")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ReadCapacityUnits { get; set; }
+    public partial TerraformValue<double>? ReadCapacityUnits { get; set; }
 
     /// <summary>
     /// The throughput_mode attribute.
     /// </summary>
     [TerraformProperty("throughput_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ThroughputMode { get; set; }
+    public partial TerraformValue<string> ThroughputMode { get; set; }
 
     /// <summary>
     /// The write_capacity_units attribute.
     /// </summary>
     [TerraformProperty("write_capacity_units")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? WriteCapacityUnits { get; set; }
+    public partial TerraformValue<double>? WriteCapacityUnits { get; set; }
 
 }
 
@@ -43,7 +43,7 @@ public partial class AwsKeyspacesTableClientSideTimestampsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     [TerraformProperty("status")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Status { get; set; }
+    public required partial TerraformValue<string> Status { get; set; }
 
 }
 
@@ -58,7 +58,7 @@ public partial class AwsKeyspacesTableCommentBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("message")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Message { get; set; }
+    public partial TerraformValue<string> Message { get; set; }
 
 }
 
@@ -73,14 +73,14 @@ public partial class AwsKeyspacesTableEncryptionSpecificationBlock : TerraformBl
     /// </summary>
     [TerraformProperty("kms_key_identifier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyIdentifier { get; set; }
+    public partial TerraformValue<string>? KmsKeyIdentifier { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [TerraformProperty("type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Type { get; set; }
+    public partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -95,7 +95,7 @@ public partial class AwsKeyspacesTablePointInTimeRecoveryBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("status")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Status { get; set; }
+    public partial TerraformValue<string> Status { get; set; }
 
 }
 
@@ -118,21 +118,21 @@ public partial class AwsKeyspacesTableTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -148,7 +148,7 @@ public partial class AwsKeyspacesTableTtlBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     [TerraformProperty("status")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Status { get; set; }
+    public required partial TerraformValue<string> Status { get; set; }
 
 }
 
@@ -167,14 +167,14 @@ public partial class AwsKeyspacesTable : TerraformResource
     /// </summary>
     [TerraformProperty("default_time_to_live")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DefaultTimeToLive { get; set; }
+    public partial TerraformValue<double>? DefaultTimeToLive { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The keyspace_name attribute.
@@ -182,14 +182,14 @@ public partial class AwsKeyspacesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyspaceName is required")]
     [TerraformProperty("keyspace_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyspaceName { get; set; }
+    public required partial TerraformValue<string> KeyspaceName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The table_name attribute.
@@ -197,21 +197,21 @@ public partial class AwsKeyspacesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     [TerraformProperty("table_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TableName { get; set; }
+    public required partial TerraformValue<string> TableName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for capacity_specification.
@@ -219,7 +219,7 @@ public partial class AwsKeyspacesTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacitySpecification block(s) allowed")]
     [TerraformProperty("capacity_specification")]
-    public TerraformList<TerraformBlock<AwsKeyspacesTableCapacitySpecificationBlock>>? CapacitySpecification { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKeyspacesTableCapacitySpecificationBlock>>? CapacitySpecification { get; set; }
 
     /// <summary>
     /// Block for client_side_timestamps.
@@ -227,7 +227,7 @@ public partial class AwsKeyspacesTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientSideTimestamps block(s) allowed")]
     [TerraformProperty("client_side_timestamps")]
-    public TerraformList<TerraformBlock<AwsKeyspacesTableClientSideTimestampsBlock>>? ClientSideTimestamps { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKeyspacesTableClientSideTimestampsBlock>>? ClientSideTimestamps { get; set; }
 
     /// <summary>
     /// Block for comment.
@@ -235,7 +235,7 @@ public partial class AwsKeyspacesTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Comment block(s) allowed")]
     [TerraformProperty("comment")]
-    public TerraformList<TerraformBlock<AwsKeyspacesTableCommentBlock>>? Comment { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKeyspacesTableCommentBlock>>? Comment { get; set; }
 
     /// <summary>
     /// Block for encryption_specification.
@@ -243,7 +243,7 @@ public partial class AwsKeyspacesTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpecification block(s) allowed")]
     [TerraformProperty("encryption_specification")]
-    public TerraformList<TerraformBlock<AwsKeyspacesTableEncryptionSpecificationBlock>>? EncryptionSpecification { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKeyspacesTableEncryptionSpecificationBlock>>? EncryptionSpecification { get; set; }
 
     /// <summary>
     /// Block for point_in_time_recovery.
@@ -251,7 +251,7 @@ public partial class AwsKeyspacesTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PointInTimeRecovery block(s) allowed")]
     [TerraformProperty("point_in_time_recovery")]
-    public TerraformList<TerraformBlock<AwsKeyspacesTablePointInTimeRecoveryBlock>>? PointInTimeRecovery { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKeyspacesTablePointInTimeRecoveryBlock>>? PointInTimeRecovery { get; set; }
 
     /// <summary>
     /// Block for schema_definition.
@@ -261,14 +261,14 @@ public partial class AwsKeyspacesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SchemaDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchemaDefinition block(s) allowed")]
     [TerraformProperty("schema_definition")]
-    public TerraformList<TerraformBlock<AwsKeyspacesTableSchemaDefinitionBlock>>? SchemaDefinition { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKeyspacesTableSchemaDefinitionBlock>>? SchemaDefinition { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsKeyspacesTableTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsKeyspacesTableTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for ttl.
@@ -276,13 +276,13 @@ public partial class AwsKeyspacesTable : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ttl block(s) allowed")]
     [TerraformProperty("ttl")]
-    public TerraformList<TerraformBlock<AwsKeyspacesTableTtlBlock>>? Ttl { get; set; }
+    public partial TerraformList<TerraformBlock<AwsKeyspacesTableTtlBlock>>? Ttl { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

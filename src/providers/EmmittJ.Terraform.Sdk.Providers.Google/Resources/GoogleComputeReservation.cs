@@ -13,14 +13,14 @@ public partial class GoogleComputeReservationDeleteAfterDurationBlock : Terrafor
     /// </summary>
     [TerraformProperty("nanos")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Nanos { get; set; }
+    public partial TerraformValue<double>? Nanos { get; set; }
 
     /// <summary>
     /// Number of seconds for the auto-delete duration.
     /// </summary>
     [TerraformProperty("seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Seconds { get; set; }
+    public partial TerraformValue<string>? Seconds { get; set; }
 
 }
 
@@ -35,7 +35,7 @@ public partial class GoogleComputeReservationReservationSharingPolicyBlock : Ter
     /// </summary>
     [TerraformProperty("service_share_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ServiceShareType { get; set; }
+    public partial TerraformValue<string> ServiceShareType { get; set; }
 
 }
 
@@ -50,7 +50,7 @@ public partial class GoogleComputeReservationShareSettingsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("share_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ShareType { get; set; }
+    public partial TerraformValue<string> ShareType { get; set; }
 
 }
 
@@ -66,7 +66,7 @@ public partial class GoogleComputeReservationSpecificReservationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
     [TerraformProperty("count")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Count { get; set; }
+    public required partial TerraformValue<double> Count { get; set; }
 
 
     /// <summary>
@@ -75,7 +75,7 @@ public partial class GoogleComputeReservationSpecificReservationBlock : Terrafor
     /// </summary>
     [TerraformProperty("source_instance_template")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SourceInstanceTemplate { get; set; }
+    public partial TerraformValue<string>? SourceInstanceTemplate { get; set; }
 
 }
 
@@ -90,21 +90,21 @@ public partial class GoogleComputeReservationTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -124,21 +124,21 @@ public partial class GoogleComputeReservation : TerraformResource
     /// </summary>
     [TerraformProperty("delete_at_time")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DeleteAtTime { get; set; }
+    public partial TerraformValue<string> DeleteAtTime { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -152,14 +152,14 @@ public partial class GoogleComputeReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// When set to true, only VMs that target this reservation by name can
@@ -168,7 +168,7 @@ public partial class GoogleComputeReservation : TerraformResource
     /// </summary>
     [TerraformProperty("specific_reservation_required")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SpecificReservationRequired { get; set; }
+    public partial TerraformValue<bool>? SpecificReservationRequired { get; set; }
 
     /// <summary>
     /// The zone where the reservation is made.
@@ -176,7 +176,7 @@ public partial class GoogleComputeReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     [TerraformProperty("zone")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Zone { get; set; }
+    public required partial TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Block for delete_after_duration.
@@ -184,7 +184,7 @@ public partial class GoogleComputeReservation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeleteAfterDuration block(s) allowed")]
     [TerraformProperty("delete_after_duration")]
-    public TerraformList<TerraformBlock<GoogleComputeReservationDeleteAfterDurationBlock>>? DeleteAfterDuration { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeReservationDeleteAfterDurationBlock>>? DeleteAfterDuration { get; set; }
 
     /// <summary>
     /// Block for reservation_sharing_policy.
@@ -192,7 +192,7 @@ public partial class GoogleComputeReservation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationSharingPolicy block(s) allowed")]
     [TerraformProperty("reservation_sharing_policy")]
-    public TerraformList<TerraformBlock<GoogleComputeReservationReservationSharingPolicyBlock>>? ReservationSharingPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeReservationReservationSharingPolicyBlock>>? ReservationSharingPolicy { get; set; }
 
     /// <summary>
     /// Block for share_settings.
@@ -200,7 +200,7 @@ public partial class GoogleComputeReservation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShareSettings block(s) allowed")]
     [TerraformProperty("share_settings")]
-    public TerraformList<TerraformBlock<GoogleComputeReservationShareSettingsBlock>>? ShareSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeReservationShareSettingsBlock>>? ShareSettings { get; set; }
 
     /// <summary>
     /// Block for specific_reservation.
@@ -210,14 +210,14 @@ public partial class GoogleComputeReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SpecificReservation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpecificReservation block(s) allowed")]
     [TerraformProperty("specific_reservation")]
-    public TerraformList<TerraformBlock<GoogleComputeReservationSpecificReservationBlock>>? SpecificReservation { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeReservationSpecificReservationBlock>>? SpecificReservation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeReservationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeReservationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Full or partial URL to a parent commitment. This field displays for
@@ -225,27 +225,27 @@ public partial class GoogleComputeReservation : TerraformResource
     /// </summary>
     [TerraformProperty("commitment")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Commitment { get; }
+    public partial TerraformValue<string> Commitment { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("creation_timestamp")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreationTimestamp { get; }
+    public partial TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The status of the reservation.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
 }

@@ -13,21 +13,21 @@ public partial class AzurermEventhubNamespaceSchemaGroupTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,7 +45,7 @@ public partial class AzurermEventhubNamespaceSchemaGroup : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -53,7 +53,7 @@ public partial class AzurermEventhubNamespaceSchemaGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The namespace_id attribute.
@@ -61,7 +61,7 @@ public partial class AzurermEventhubNamespaceSchemaGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceId is required")]
     [TerraformProperty("namespace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NamespaceId { get; set; }
+    public required partial TerraformValue<string> NamespaceId { get; set; }
 
     /// <summary>
     /// The schema_compatibility attribute.
@@ -69,7 +69,7 @@ public partial class AzurermEventhubNamespaceSchemaGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaCompatibility is required")]
     [TerraformProperty("schema_compatibility")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SchemaCompatibility { get; set; }
+    public required partial TerraformValue<string> SchemaCompatibility { get; set; }
 
     /// <summary>
     /// The schema_type attribute.
@@ -77,13 +77,13 @@ public partial class AzurermEventhubNamespaceSchemaGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaType is required")]
     [TerraformProperty("schema_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SchemaType { get; set; }
+    public required partial TerraformValue<string> SchemaType { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermEventhubNamespaceSchemaGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermEventhubNamespaceSchemaGroupTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -15,7 +15,7 @@ public partial class GoogleDataplexEntryLinkEntryReferencesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The path in the Entry that is referenced in the Entry Link.
@@ -23,14 +23,14 @@ public partial class GoogleDataplexEntryLinkEntryReferencesBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Path { get; set; }
+    public partial TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The reference type of the Entry. Possible values: [&amp;quot;SOURCE&amp;quot;, &amp;quot;TARGET&amp;quot;]
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
 }
 
@@ -45,14 +45,14 @@ public partial class GoogleDataplexEntryLinkTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -72,7 +72,7 @@ public partial class GoogleDataplexEntryLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroupId is required")]
     [TerraformProperty("entry_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EntryGroupId { get; set; }
+    public required partial TerraformValue<string> EntryGroupId { get; set; }
 
     /// <summary>
     /// The id of the entry link to create.
@@ -80,7 +80,7 @@ public partial class GoogleDataplexEntryLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryLinkId is required")]
     [TerraformProperty("entry_link_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EntryLinkId { get; set; }
+    public required partial TerraformValue<string> EntryLinkId { get; set; }
 
     /// <summary>
     /// Relative resource name of the Entry Link Type used to create this Entry Link. For example:
@@ -89,14 +89,14 @@ public partial class GoogleDataplexEntryLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryLinkType is required")]
     [TerraformProperty("entry_link_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EntryLinkType { get; set; }
+    public required partial TerraformValue<string> EntryLinkType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the entry.
@@ -104,14 +104,14 @@ public partial class GoogleDataplexEntryLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for entry_references.
@@ -120,21 +120,21 @@ public partial class GoogleDataplexEntryLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryReferences is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EntryReferences block(s) required")]
     [TerraformProperty("entry_references")]
-    public TerraformList<TerraformBlock<GoogleDataplexEntryLinkEntryReferencesBlock>>? EntryReferences { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataplexEntryLinkEntryReferencesBlock>>? EntryReferences { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDataplexEntryLinkTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDataplexEntryLinkTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when the Entry Link was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The relative resource name of the Entry Link, of the form:
@@ -142,13 +142,13 @@ public partial class GoogleDataplexEntryLink : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The time when the Entry Link was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

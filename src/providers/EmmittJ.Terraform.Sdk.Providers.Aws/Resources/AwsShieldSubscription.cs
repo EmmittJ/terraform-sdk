@@ -16,20 +16,20 @@ public partial class AwsShieldSubscription : TerraformResource
     /// </summary>
     [TerraformProperty("auto_renew")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AutoRenew { get; set; }
+    public partial TerraformValue<string> AutoRenew { get; set; }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
     [TerraformProperty("skip_destroy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SkipDestroy { get; set; }
+    public partial TerraformValue<bool>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

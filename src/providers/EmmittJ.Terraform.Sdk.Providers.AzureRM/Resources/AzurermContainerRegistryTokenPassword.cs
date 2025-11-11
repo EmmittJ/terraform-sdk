@@ -13,7 +13,7 @@ public partial class AzurermContainerRegistryTokenPasswordPassword1Block : Terra
     /// </summary>
     [TerraformProperty("expiry")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Expiry { get; set; }
+    public partial TerraformValue<string>? Expiry { get; set; }
 
 
 }
@@ -29,7 +29,7 @@ public partial class AzurermContainerRegistryTokenPasswordPassword2Block : Terra
     /// </summary>
     [TerraformProperty("expiry")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Expiry { get; set; }
+    public partial TerraformValue<string>? Expiry { get; set; }
 
 
 }
@@ -45,28 +45,28 @@ public partial class AzurermContainerRegistryTokenPasswordTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -86,14 +86,14 @@ public partial class AzurermContainerRegistryTokenPassword : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryTokenId is required")]
     [TerraformProperty("container_registry_token_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContainerRegistryTokenId { get; set; }
+    public required partial TerraformValue<string> ContainerRegistryTokenId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for password1.
@@ -103,7 +103,7 @@ public partial class AzurermContainerRegistryTokenPassword : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Password1 block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Password1 block(s) allowed")]
     [TerraformProperty("password1")]
-    public TerraformList<TerraformBlock<AzurermContainerRegistryTokenPasswordPassword1Block>>? Password1 { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermContainerRegistryTokenPasswordPassword1Block>>? Password1 { get; set; }
 
     /// <summary>
     /// Block for password2.
@@ -111,13 +111,13 @@ public partial class AzurermContainerRegistryTokenPassword : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Password2 block(s) allowed")]
     [TerraformProperty("password2")]
-    public TerraformList<TerraformBlock<AzurermContainerRegistryTokenPasswordPassword2Block>>? Password2 { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermContainerRegistryTokenPasswordPassword2Block>>? Password2 { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermContainerRegistryTokenPasswordTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermContainerRegistryTokenPasswordTimeoutsBlock>? Timeouts { get; set; }
 
 }

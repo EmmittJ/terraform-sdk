@@ -14,7 +14,7 @@ public partial class GoogleSpannerDatabaseEncryptionConfigBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("kms_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyName { get; set; }
+    public partial TerraformValue<string>? KmsKeyName { get; set; }
 
     /// <summary>
     /// Fully qualified name of the KMS keys to use to encrypt this database. The keys must exist
@@ -22,7 +22,7 @@ public partial class GoogleSpannerDatabaseEncryptionConfigBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("kms_key_names")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? KmsKeyNames { get; set; }
+    public partial TerraformList<string>? KmsKeyNames { get; set; }
 
 }
 
@@ -37,21 +37,21 @@ public partial class GoogleSpannerDatabaseTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -71,7 +71,7 @@ public partial class GoogleSpannerDatabase : TerraformResource
     /// </summary>
     [TerraformProperty("database_dialect")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DatabaseDialect { get; set; }
+    public partial TerraformValue<string> DatabaseDialect { get; set; }
 
     /// <summary>
     /// An optional list of DDL statements to run inside the database. Statements can create
@@ -87,7 +87,7 @@ public partial class GoogleSpannerDatabase : TerraformResource
     /// </summary>
     [TerraformProperty("ddl")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Ddl { get; set; }
+    public partial TerraformList<string>? Ddl { get; set; }
 
     /// <summary>
     /// The default time zone for the database. The default time zone must be a valid name
@@ -95,7 +95,7 @@ public partial class GoogleSpannerDatabase : TerraformResource
     /// </summary>
     [TerraformProperty("default_time_zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultTimeZone { get; set; }
+    public partial TerraformValue<string>? DefaultTimeZone { get; set; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the database. Defaults to true.
@@ -107,7 +107,7 @@ public partial class GoogleSpannerDatabase : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeletionProtection { get; set; }
+    public partial TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// Whether drop protection is enabled for this database. Defaults to false.
@@ -120,14 +120,14 @@ public partial class GoogleSpannerDatabase : TerraformResource
     /// </summary>
     [TerraformProperty("enable_drop_protection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableDropProtection { get; set; }
+    public partial TerraformValue<bool>? EnableDropProtection { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance to create the database on.
@@ -135,7 +135,7 @@ public partial class GoogleSpannerDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// A unique identifier for the database, which cannot be changed after the
@@ -144,14 +144,14 @@ public partial class GoogleSpannerDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The retention period for the database. The retention period must be between 1 hour
@@ -162,7 +162,7 @@ public partial class GoogleSpannerDatabase : TerraformResource
     /// </summary>
     [TerraformProperty("version_retention_period")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> VersionRetentionPeriod { get; set; }
+    public partial TerraformValue<string> VersionRetentionPeriod { get; set; }
 
     /// <summary>
     /// Block for encryption_config.
@@ -170,20 +170,20 @@ public partial class GoogleSpannerDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     [TerraformProperty("encryption_config")]
-    public TerraformList<TerraformBlock<GoogleSpannerDatabaseEncryptionConfigBlock>>? EncryptionConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleSpannerDatabaseEncryptionConfigBlock>>? EncryptionConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleSpannerDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleSpannerDatabaseTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// An explanation of the status of the database.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

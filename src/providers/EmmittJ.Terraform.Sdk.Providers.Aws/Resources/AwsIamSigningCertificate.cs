@@ -17,21 +17,21 @@ public partial class AwsIamSigningCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBody is required")]
     [TerraformProperty("certificate_body")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CertificateBody { get; set; }
+    public required partial TerraformValue<string> CertificateBody { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Status { get; set; }
+    public partial TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// The user_name attribute.
@@ -39,13 +39,13 @@ public partial class AwsIamSigningCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     [TerraformProperty("user_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UserName { get; set; }
+    public required partial TerraformValue<string> UserName { get; set; }
 
     /// <summary>
     /// The certificate_id attribute.
     /// </summary>
     [TerraformProperty("certificate_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CertificateId { get; }
+    public partial TerraformValue<string> CertificateId { get; }
 
 }

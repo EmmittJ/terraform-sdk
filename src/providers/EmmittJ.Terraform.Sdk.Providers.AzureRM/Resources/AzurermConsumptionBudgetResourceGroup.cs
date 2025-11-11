@@ -21,28 +21,28 @@ public partial class AzurermConsumptionBudgetResourceGroupNotificationBlock : Te
     /// </summary>
     [TerraformProperty("contact_emails")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ContactEmails { get; set; }
+    public partial TerraformList<string>? ContactEmails { get; set; }
 
     /// <summary>
     /// The contact_groups attribute.
     /// </summary>
     [TerraformProperty("contact_groups")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ContactGroups { get; set; }
+    public partial TerraformList<string>? ContactGroups { get; set; }
 
     /// <summary>
     /// The contact_roles attribute.
     /// </summary>
     [TerraformProperty("contact_roles")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ContactRoles { get; set; }
+    public partial TerraformList<string>? ContactRoles { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The operator attribute.
@@ -50,7 +50,7 @@ public partial class AzurermConsumptionBudgetResourceGroupNotificationBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operator is required")]
     [TerraformProperty("operator")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Operator { get; set; }
+    public required partial TerraformValue<string> Operator { get; set; }
 
     /// <summary>
     /// The threshold attribute.
@@ -58,14 +58,14 @@ public partial class AzurermConsumptionBudgetResourceGroupNotificationBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     [TerraformProperty("threshold")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Threshold { get; set; }
+    public required partial TerraformValue<double> Threshold { get; set; }
 
     /// <summary>
     /// The threshold_type attribute.
     /// </summary>
     [TerraformProperty("threshold_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ThresholdType { get; set; }
+    public partial TerraformValue<string>? ThresholdType { get; set; }
 
 }
 
@@ -80,7 +80,7 @@ public partial class AzurermConsumptionBudgetResourceGroupTimePeriodBlock : Terr
     /// </summary>
     [TerraformProperty("end_date")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> EndDate { get; set; }
+    public partial TerraformValue<string> EndDate { get; set; }
 
     /// <summary>
     /// The start_date attribute.
@@ -88,7 +88,7 @@ public partial class AzurermConsumptionBudgetResourceGroupTimePeriodBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDate is required")]
     [TerraformProperty("start_date")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StartDate { get; set; }
+    public required partial TerraformValue<string> StartDate { get; set; }
 
 }
 
@@ -103,28 +103,28 @@ public partial class AzurermConsumptionBudgetResourceGroupTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -144,21 +144,21 @@ public partial class AzurermConsumptionBudgetResourceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
     [TerraformProperty("amount")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Amount { get; set; }
+    public required partial TerraformValue<double> Amount { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Etag { get; set; }
+    public partial TerraformValue<string> Etag { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -166,7 +166,7 @@ public partial class AzurermConsumptionBudgetResourceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_id attribute.
@@ -174,14 +174,14 @@ public partial class AzurermConsumptionBudgetResourceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     [TerraformProperty("resource_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupId { get; set; }
+    public required partial TerraformValue<string> ResourceGroupId { get; set; }
 
     /// <summary>
     /// The time_grain attribute.
     /// </summary>
     [TerraformProperty("time_grain")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TimeGrain { get; set; }
+    public partial TerraformValue<string>? TimeGrain { get; set; }
 
     /// <summary>
     /// Block for filter.
@@ -189,7 +189,7 @@ public partial class AzurermConsumptionBudgetResourceGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public TerraformList<TerraformBlock<AzurermConsumptionBudgetResourceGroupFilterBlock>>? Filter { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermConsumptionBudgetResourceGroupFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for notification.
@@ -198,7 +198,7 @@ public partial class AzurermConsumptionBudgetResourceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Notification is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Notification block(s) required")]
     [TerraformProperty("notification")]
-    public TerraformSet<TerraformBlock<AzurermConsumptionBudgetResourceGroupNotificationBlock>>? Notification { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermConsumptionBudgetResourceGroupNotificationBlock>>? Notification { get; set; }
 
     /// <summary>
     /// Block for time_period.
@@ -208,13 +208,13 @@ public partial class AzurermConsumptionBudgetResourceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TimePeriod block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TimePeriod block(s) allowed")]
     [TerraformProperty("time_period")]
-    public TerraformList<TerraformBlock<AzurermConsumptionBudgetResourceGroupTimePeriodBlock>>? TimePeriod { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermConsumptionBudgetResourceGroupTimePeriodBlock>>? TimePeriod { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermConsumptionBudgetResourceGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermConsumptionBudgetResourceGroupTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -21,21 +21,21 @@ public partial class AwsTimestreaminfluxdbDbClusterTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public partial class AwsTimestreaminfluxdbDbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocatedStorage is required")]
     [TerraformProperty("allocated_storage")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> AllocatedStorage { get; set; }
+    public required partial TerraformValue<double> AllocatedStorage { get; set; }
 
     /// <summary>
     /// The name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. 
@@ -64,7 +64,7 @@ public partial class AwsTimestreaminfluxdbDbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The Timestream for InfluxDB DB instance type to run InfluxDB on.
@@ -72,7 +72,7 @@ public partial class AwsTimestreaminfluxdbDbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceType is required")]
     [TerraformProperty("db_instance_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DbInstanceType { get; set; }
+    public required partial TerraformValue<string> DbInstanceType { get; set; }
 
     /// <summary>
     /// The ID of the DB parameter group to assign to your DB cluster. 
@@ -81,7 +81,7 @@ public partial class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// </summary>
     [TerraformProperty("db_parameter_group_identifier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DbParameterGroupIdentifier { get; set; }
+    public partial TerraformValue<string>? DbParameterGroupIdentifier { get; set; }
 
     /// <summary>
     /// The Timestream for InfluxDB DB storage type to read and write InfluxDB data. 
@@ -91,14 +91,14 @@ public partial class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// </summary>
     [TerraformProperty("db_storage_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DbStorageType { get; set; }
+    public partial TerraformValue<string> DbStorageType { get; set; }
 
     /// <summary>
     /// Specifies the type of cluster to create.
     /// </summary>
     [TerraformProperty("deployment_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DeploymentType { get; set; }
+    public partial TerraformValue<string> DeploymentType { get; set; }
 
     /// <summary>
     /// Specifies the behavior of failure recovery when the primary node of the cluster
@@ -106,7 +106,7 @@ public partial class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// </summary>
     [TerraformProperty("failover_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> FailoverMode { get; set; }
+    public partial TerraformValue<string> FailoverMode { get; set; }
 
     /// <summary>
     /// The name that uniquely identifies the DB cluster when interacting with the 
@@ -117,7 +117,7 @@ public partial class AwsTimestreaminfluxdbDbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Specifies whether the networkType of the Timestream for InfluxDB cluster is 
@@ -126,7 +126,7 @@ public partial class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// </summary>
     [TerraformProperty("network_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NetworkType { get; set; }
+    public partial TerraformValue<string> NetworkType { get; set; }
 
     /// <summary>
     /// The name of the initial organization for the initial admin user in InfluxDB. An 
@@ -135,7 +135,7 @@ public partial class AwsTimestreaminfluxdbDbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     [TerraformProperty("organization")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Organization { get; set; }
+    public required partial TerraformValue<string> Organization { get; set; }
 
     /// <summary>
     /// The password of the initial admin user created in InfluxDB. This password will 
@@ -146,35 +146,35 @@ public partial class AwsTimestreaminfluxdbDbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     [TerraformProperty("password")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Password { get; set; }
+    public required partial TerraformValue<string> Password { get; set; }
 
     /// <summary>
     /// The port number on which InfluxDB accepts connections.
     /// </summary>
     [TerraformProperty("port")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Port { get; set; }
+    public partial TerraformValue<double> Port { get; set; }
 
     /// <summary>
     /// Configures the Timestream for InfluxDB cluster with a public IP to facilitate access.
     /// </summary>
     [TerraformProperty("publicly_accessible")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> PubliclyAccessible { get; set; }
+    public partial TerraformValue<bool> PubliclyAccessible { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The username of the initial admin user created in InfluxDB. 
@@ -188,7 +188,7 @@ public partial class AwsTimestreaminfluxdbDbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     [TerraformProperty("username")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Username { get; set; }
+    public required partial TerraformValue<string> Username { get; set; }
 
     /// <summary>
     /// A list of VPC security group IDs to associate with the Timestream for InfluxDB cluster.
@@ -196,7 +196,7 @@ public partial class AwsTimestreaminfluxdbDbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSecurityGroupIds is required")]
     [TerraformProperty("vpc_security_group_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> VpcSecurityGroupIds { get; set; }
+    public required partial TerraformSet<string> VpcSecurityGroupIds { get; set; }
 
     /// <summary>
     /// A list of VPC subnet IDs to associate with the DB cluster. Provide at least 
@@ -205,42 +205,42 @@ public partial class AwsTimestreaminfluxdbDbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSubnetIds is required")]
     [TerraformProperty("vpc_subnet_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> VpcSubnetIds { get; set; }
+    public required partial TerraformSet<string> VpcSubnetIds { get; set; }
 
     /// <summary>
     /// Block for log_delivery_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("log_delivery_configuration")]
-    public TerraformList<TerraformBlock<AwsTimestreaminfluxdbDbClusterLogDeliveryConfigurationBlock>>? LogDeliveryConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsTimestreaminfluxdbDbClusterLogDeliveryConfigurationBlock>>? LogDeliveryConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsTimestreaminfluxdbDbClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsTimestreaminfluxdbDbClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
     /// </summary>
     [TerraformProperty("endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Endpoint { get; }
+    public partial TerraformValue<string> Endpoint { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the 
@@ -250,7 +250,7 @@ public partial class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// </summary>
     [TerraformProperty("influx_auth_parameters_secret_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> InfluxAuthParametersSecretArn { get; }
+    public partial TerraformValue<string> InfluxAuthParametersSecretArn { get; }
 
     /// <summary>
     /// The endpoint used to connect to the Timestream for InfluxDB cluster for 
@@ -258,13 +258,13 @@ public partial class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// </summary>
     [TerraformProperty("reader_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ReaderEndpoint { get; }
+    public partial TerraformValue<string> ReaderEndpoint { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
 }

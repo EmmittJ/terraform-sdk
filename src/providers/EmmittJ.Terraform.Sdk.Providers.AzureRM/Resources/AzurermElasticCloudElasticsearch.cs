@@ -13,21 +13,21 @@ public partial class AzurermElasticCloudElasticsearchLogsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("send_activity_logs")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SendActivityLogs { get; set; }
+    public partial TerraformValue<bool>? SendActivityLogs { get; set; }
 
     /// <summary>
     /// The send_azuread_logs attribute.
     /// </summary>
     [TerraformProperty("send_azuread_logs")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SendAzureadLogs { get; set; }
+    public partial TerraformValue<bool>? SendAzureadLogs { get; set; }
 
     /// <summary>
     /// The send_subscription_logs attribute.
     /// </summary>
     [TerraformProperty("send_subscription_logs")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SendSubscriptionLogs { get; set; }
+    public partial TerraformValue<bool>? SendSubscriptionLogs { get; set; }
 
 }
 
@@ -42,28 +42,28 @@ public partial class AzurermElasticCloudElasticsearchTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -83,14 +83,14 @@ public partial class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticCloudEmailAddress is required")]
     [TerraformProperty("elastic_cloud_email_address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ElasticCloudEmailAddress { get; set; }
+    public required partial TerraformValue<string> ElasticCloudEmailAddress { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -98,14 +98,14 @@ public partial class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The monitoring_enabled attribute.
     /// </summary>
     [TerraformProperty("monitoring_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? MonitoringEnabled { get; set; }
+    public partial TerraformValue<bool>? MonitoringEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -113,7 +113,7 @@ public partial class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -121,7 +121,7 @@ public partial class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
@@ -129,14 +129,14 @@ public partial class AzurermElasticCloudElasticsearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     [TerraformProperty("sku_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SkuName { get; set; }
+    public required partial TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for logs.
@@ -144,55 +144,55 @@ public partial class AzurermElasticCloudElasticsearch : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
     [TerraformProperty("logs")]
-    public TerraformList<TerraformBlock<AzurermElasticCloudElasticsearchLogsBlock>>? Logs { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermElasticCloudElasticsearchLogsBlock>>? Logs { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermElasticCloudElasticsearchTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermElasticCloudElasticsearchTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The elastic_cloud_deployment_id attribute.
     /// </summary>
     [TerraformProperty("elastic_cloud_deployment_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ElasticCloudDeploymentId { get; }
+    public partial TerraformValue<string> ElasticCloudDeploymentId { get; }
 
     /// <summary>
     /// The elastic_cloud_sso_default_url attribute.
     /// </summary>
     [TerraformProperty("elastic_cloud_sso_default_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ElasticCloudSsoDefaultUrl { get; }
+    public partial TerraformValue<string> ElasticCloudSsoDefaultUrl { get; }
 
     /// <summary>
     /// The elastic_cloud_user_id attribute.
     /// </summary>
     [TerraformProperty("elastic_cloud_user_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ElasticCloudUserId { get; }
+    public partial TerraformValue<string> ElasticCloudUserId { get; }
 
     /// <summary>
     /// The elasticsearch_service_url attribute.
     /// </summary>
     [TerraformProperty("elasticsearch_service_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ElasticsearchServiceUrl { get; }
+    public partial TerraformValue<string> ElasticsearchServiceUrl { get; }
 
     /// <summary>
     /// The kibana_service_url attribute.
     /// </summary>
     [TerraformProperty("kibana_service_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KibanaServiceUrl { get; }
+    public partial TerraformValue<string> KibanaServiceUrl { get; }
 
     /// <summary>
     /// The kibana_sso_uri attribute.
     /// </summary>
     [TerraformProperty("kibana_sso_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KibanaSsoUri { get; }
+    public partial TerraformValue<string> KibanaSsoUri { get; }
 
 }

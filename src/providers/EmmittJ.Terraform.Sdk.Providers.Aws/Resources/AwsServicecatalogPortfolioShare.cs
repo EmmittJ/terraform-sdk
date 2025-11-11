@@ -13,28 +13,28 @@ public partial class AwsServicecatalogPortfolioShareTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,14 +52,14 @@ public partial class AwsServicecatalogPortfolioShare : TerraformResource
     /// </summary>
     [TerraformProperty("accept_language")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AcceptLanguage { get; set; }
+    public partial TerraformValue<string>? AcceptLanguage { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The portfolio_id attribute.
@@ -67,7 +67,7 @@ public partial class AwsServicecatalogPortfolioShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortfolioId is required")]
     [TerraformProperty("portfolio_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PortfolioId { get; set; }
+    public required partial TerraformValue<string> PortfolioId { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
@@ -75,28 +75,28 @@ public partial class AwsServicecatalogPortfolioShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     [TerraformProperty("principal_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrincipalId { get; set; }
+    public required partial TerraformValue<string> PrincipalId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The share_principals attribute.
     /// </summary>
     [TerraformProperty("share_principals")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SharePrincipals { get; set; }
+    public partial TerraformValue<bool>? SharePrincipals { get; set; }
 
     /// <summary>
     /// The share_tag_options attribute.
     /// </summary>
     [TerraformProperty("share_tag_options")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ShareTagOptions { get; set; }
+    public partial TerraformValue<bool>? ShareTagOptions { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -104,27 +104,27 @@ public partial class AwsServicecatalogPortfolioShare : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The wait_for_acceptance attribute.
     /// </summary>
     [TerraformProperty("wait_for_acceptance")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? WaitForAcceptance { get; set; }
+    public partial TerraformValue<bool>? WaitForAcceptance { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsServicecatalogPortfolioShareTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsServicecatalogPortfolioShareTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The accepted attribute.
     /// </summary>
     [TerraformProperty("accepted")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Accepted { get; }
+    public partial TerraformValue<bool> Accepted { get; }
 
 }

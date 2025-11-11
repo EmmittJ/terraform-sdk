@@ -14,7 +14,7 @@ public partial class GooglePrivatecaCaPoolEncryptionSpecBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("cloud_kms_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CloudKmsKey { get; set; }
+    public partial TerraformValue<string>? CloudKmsKey { get; set; }
 
 }
 
@@ -33,7 +33,7 @@ public partial class GooglePrivatecaCaPoolIssuancePolicyBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("backdate_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BackdateDuration { get; set; }
+    public partial TerraformValue<string>? BackdateDuration { get; set; }
 
     /// <summary>
     /// The maximum lifetime allowed for issued Certificates. Note that if the issuing CertificateAuthority
@@ -41,7 +41,7 @@ public partial class GooglePrivatecaCaPoolIssuancePolicyBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("maximum_lifetime")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MaximumLifetime { get; set; }
+    public partial TerraformValue<string>? MaximumLifetime { get; set; }
 
 }
 
@@ -58,7 +58,7 @@ public partial class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("encoding_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EncodingFormat { get; set; }
+    public partial TerraformValue<string>? EncodingFormat { get; set; }
 
     /// <summary>
     /// When true, publishes each CertificateAuthority&#39;s CA certificate and includes its URL in the &amp;quot;Authority Information Access&amp;quot;
@@ -68,7 +68,7 @@ public partial class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublishCaCert is required")]
     [TerraformProperty("publish_ca_cert")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> PublishCaCert { get; set; }
+    public required partial TerraformValue<bool> PublishCaCert { get; set; }
 
     /// <summary>
     /// When true, publishes each CertificateAuthority&#39;s CRL and includes its URL in the &amp;quot;CRL Distribution Points&amp;quot; X.509 extension
@@ -79,7 +79,7 @@ public partial class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublishCrl is required")]
     [TerraformProperty("publish_crl")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> PublishCrl { get; set; }
+    public required partial TerraformValue<bool> PublishCrl { get; set; }
 
 }
 
@@ -94,21 +94,21 @@ public partial class GooglePrivatecaCaPoolTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -127,7 +127,7 @@ public partial class GooglePrivatecaCaPool : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels with user-defined metadata.
@@ -141,7 +141,7 @@ public partial class GooglePrivatecaCaPool : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Location of the CaPool. A full list of valid locations can be found by
@@ -150,7 +150,7 @@ public partial class GooglePrivatecaCaPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name for this CaPool.
@@ -158,14 +158,14 @@ public partial class GooglePrivatecaCaPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The Tier of this CaPool. Possible values: [&amp;quot;ENTERPRISE&amp;quot;, &amp;quot;DEVOPS&amp;quot;]
@@ -173,7 +173,7 @@ public partial class GooglePrivatecaCaPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     [TerraformProperty("tier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Tier { get; set; }
+    public required partial TerraformValue<string> Tier { get; set; }
 
     /// <summary>
     /// Block for encryption_spec.
@@ -181,7 +181,7 @@ public partial class GooglePrivatecaCaPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
     [TerraformProperty("encryption_spec")]
-    public TerraformList<TerraformBlock<GooglePrivatecaCaPoolEncryptionSpecBlock>>? EncryptionSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePrivatecaCaPoolEncryptionSpecBlock>>? EncryptionSpec { get; set; }
 
     /// <summary>
     /// Block for issuance_policy.
@@ -189,7 +189,7 @@ public partial class GooglePrivatecaCaPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IssuancePolicy block(s) allowed")]
     [TerraformProperty("issuance_policy")]
-    public TerraformList<TerraformBlock<GooglePrivatecaCaPoolIssuancePolicyBlock>>? IssuancePolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePrivatecaCaPoolIssuancePolicyBlock>>? IssuancePolicy { get; set; }
 
     /// <summary>
     /// Block for publishing_options.
@@ -197,21 +197,21 @@ public partial class GooglePrivatecaCaPool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublishingOptions block(s) allowed")]
     [TerraformProperty("publishing_options")]
-    public TerraformList<TerraformBlock<GooglePrivatecaCaPoolPublishingOptionsBlock>>? PublishingOptions { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePrivatecaCaPoolPublishingOptionsBlock>>? PublishingOptions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GooglePrivatecaCaPoolTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GooglePrivatecaCaPoolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -219,6 +219,6 @@ public partial class GooglePrivatecaCaPool : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

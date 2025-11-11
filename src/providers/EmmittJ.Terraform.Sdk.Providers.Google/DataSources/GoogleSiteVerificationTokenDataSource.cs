@@ -13,7 +13,7 @@ public partial class GoogleSiteVerificationTokenDataSourceTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class GoogleSiteVerificationTokenDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The site identifier. If the type is set to SITE, the identifier is a URL. If the type is
@@ -40,7 +40,7 @@ public partial class GoogleSiteVerificationTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     [TerraformProperty("identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Identifier { get; set; }
+    public required partial TerraformValue<string> Identifier { get; set; }
 
     /// <summary>
     /// The type of resource to be verified, either a domain or a web site. Possible values: [&amp;quot;INET_DOMAIN&amp;quot;, &amp;quot;SITE&amp;quot;]
@@ -48,7 +48,7 @@ public partial class GoogleSiteVerificationTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The verification method for the Site Verification system to use to verify
@@ -57,20 +57,20 @@ public partial class GoogleSiteVerificationTokenDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerificationMethod is required")]
     [TerraformProperty("verification_method")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VerificationMethod { get; set; }
+    public required partial TerraformValue<string> VerificationMethod { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleSiteVerificationTokenDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleSiteVerificationTokenDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The returned token for use in subsequent verification steps.
     /// </summary>
     [TerraformProperty("token")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Token { get; }
+    public partial TerraformValue<string> Token { get; }
 
 }

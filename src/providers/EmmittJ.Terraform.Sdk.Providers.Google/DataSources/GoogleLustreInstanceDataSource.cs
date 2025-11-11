@@ -16,7 +16,7 @@ public partial class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the Managed Lustre instance.
@@ -29,21 +29,21 @@ public partial class GoogleLustreInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     [TerraformProperty("instance_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InstanceId { get; set; }
+    public required partial TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Zone of Lustre instance
     /// </summary>
     [TerraformProperty("zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Zone { get; set; }
+    public partial TerraformValue<string>? Zone { get; set; }
 
     /// <summary>
     /// The storage capacity of the instance in gibibytes (GiB). Allowed values
@@ -51,28 +51,28 @@ public partial class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("capacity_gib")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CapacityGib { get; }
+    public partial TerraformValue<string> CapacityGib { get; }
 
     /// <summary>
     /// Timestamp when the instance was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// A user-readable description of the instance.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The filesystem name for this instance. This name is used by client-side
@@ -81,7 +81,7 @@ public partial class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("filesystem")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Filesystem { get; }
+    public partial TerraformValue<string> Filesystem { get; }
 
     /// <summary>
     /// Indicates whether you want to enable support for GKE clients. By default,
@@ -89,7 +89,7 @@ public partial class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("gke_support_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> GkeSupportEnabled { get; }
+    public partial TerraformValue<bool> GkeSupportEnabled { get; }
 
     /// <summary>
     /// Labels as key value pairs.
@@ -99,28 +99,28 @@ public partial class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// Mount point of the instance in the format &#39;IP_ADDRESS@tcp:/FILESYSTEM&#39;.
     /// </summary>
     [TerraformProperty("mount_point")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MountPoint { get; }
+    public partial TerraformValue<string> MountPoint { get; }
 
     /// <summary>
     /// Identifier. The name of the instance.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The full name of the VPC network to which the instance is connected.
@@ -129,7 +129,7 @@ public partial class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("network")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Network { get; }
+    public partial TerraformValue<string> Network { get; }
 
     /// <summary>
     /// The throughput of the instance in MB/s/TiB.
@@ -137,7 +137,7 @@ public partial class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("per_unit_storage_throughput")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PerUnitStorageThroughput { get; }
+    public partial TerraformValue<string> PerUnitStorageThroughput { get; }
 
     /// <summary>
     /// The state of the instance.
@@ -152,7 +152,7 @@ public partial class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -160,13 +160,13 @@ public partial class GoogleLustreInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Timestamp when the instance was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -14,14 +14,14 @@ public partial class AwsRoute53recoveryreadinessResourceSetResourcesBlock : Terr
     /// </summary>
     [TerraformProperty("readiness_scopes")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? ReadinessScopes { get; set; }
+    public partial TerraformList<string>? ReadinessScopes { get; set; }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     [TerraformProperty("resource_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResourceArn { get; set; }
+    public partial TerraformValue<string>? ResourceArn { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public partial class AwsRoute53recoveryreadinessResourceSetTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -55,7 +55,7 @@ public partial class AwsRoute53recoveryreadinessResourceSet : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource_set_name attribute.
@@ -63,7 +63,7 @@ public partial class AwsRoute53recoveryreadinessResourceSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceSetName is required")]
     [TerraformProperty("resource_set_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceSetName { get; set; }
+    public required partial TerraformValue<string> ResourceSetName { get; set; }
 
     /// <summary>
     /// The resource_set_type attribute.
@@ -71,21 +71,21 @@ public partial class AwsRoute53recoveryreadinessResourceSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceSetType is required")]
     [TerraformProperty("resource_set_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceSetType { get; set; }
+    public required partial TerraformValue<string> ResourceSetType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for resources.
@@ -94,20 +94,20 @@ public partial class AwsRoute53recoveryreadinessResourceSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resources is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Resources block(s) required")]
     [TerraformProperty("resources")]
-    public TerraformList<TerraformBlock<AwsRoute53recoveryreadinessResourceSetResourcesBlock>>? Resources { get; set; }
+    public partial TerraformList<TerraformBlock<AwsRoute53recoveryreadinessResourceSetResourcesBlock>>? Resources { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsRoute53recoveryreadinessResourceSetTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsRoute53recoveryreadinessResourceSetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

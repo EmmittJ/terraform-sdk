@@ -14,7 +14,7 @@ public partial class GoogleLoggingFolderSinkBigqueryOptionsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsePartitionedTables is required")]
     [TerraformProperty("use_partitioned_tables")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> UsePartitionedTables { get; set; }
+    public required partial TerraformValue<bool> UsePartitionedTables { get; set; }
 
 }
 
@@ -29,14 +29,14 @@ public partial class GoogleLoggingFolderSinkExclusionsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// If set to True, then this exclusion is disabled and it does not exclude any log entries
     /// </summary>
     [TerraformProperty("disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Disabled { get; set; }
+    public partial TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// An advanced logs filter that matches the log entries to be excluded. By using the sample function, you can exclude less than 100% of the matching log entries
@@ -44,7 +44,7 @@ public partial class GoogleLoggingFolderSinkExclusionsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [TerraformProperty("filter")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Filter { get; set; }
+    public required partial TerraformValue<string> Filter { get; set; }
 
     /// <summary>
     /// A client-assigned identifier, such as &amp;quot;load-balancer-exclusion&amp;quot;. Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. First character has to be alphanumeric.
@@ -52,7 +52,7 @@ public partial class GoogleLoggingFolderSinkExclusionsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -71,7 +71,7 @@ public partial class GoogleLoggingFolderSink : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The destination of the sink (or, in other words, where logs are written to). Can be a Cloud Storage bucket, a PubSub topic, or a BigQuery dataset. Examples: &amp;quot;storage.googleapis.com/[GCS_BUCKET]&amp;quot; &amp;quot;bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET]&amp;quot; &amp;quot;pubsub.googleapis.com/projects/[PROJECT_ID]/topics/[TOPIC_ID]&amp;quot; The writer associated with the sink must have access to write to the above resource.
@@ -79,21 +79,21 @@ public partial class GoogleLoggingFolderSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [TerraformProperty("destination")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Destination { get; set; }
+    public required partial TerraformValue<string> Destination { get; set; }
 
     /// <summary>
     /// If set to True, then this sink is disabled and it does not export any log entries.
     /// </summary>
     [TerraformProperty("disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Disabled { get; set; }
+    public partial TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The filter to apply when exporting logs. Only log entries that match the filter are exported.
     /// </summary>
     [TerraformProperty("filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Filter { get; set; }
+    public partial TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The folder to be exported to the sink. Note that either [FOLDER_ID] or &amp;quot;folders/[FOLDER_ID]&amp;quot; is accepted.
@@ -101,28 +101,28 @@ public partial class GoogleLoggingFolderSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     [TerraformProperty("folder")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Folder { get; set; }
+    public required partial TerraformValue<string> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Whether or not to include children folders in the sink export. If true, logs associated with child projects are also exported; otherwise only logs relating to the provided folder are included.
     /// </summary>
     [TerraformProperty("include_children")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IncludeChildren { get; set; }
+    public partial TerraformValue<bool>? IncludeChildren { get; set; }
 
     /// <summary>
     /// Whether or not to intercept logs from child projects. If true, matching logs will not match with sinks in child resources, except _Required sinks. This sink will be visible to child resources when listing sinks.
     /// </summary>
     [TerraformProperty("intercept_children")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? InterceptChildren { get; set; }
+    public partial TerraformValue<bool>? InterceptChildren { get; set; }
 
     /// <summary>
     /// The name of the logging sink.
@@ -130,7 +130,7 @@ public partial class GoogleLoggingFolderSink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for bigquery_options.
@@ -138,20 +138,20 @@ public partial class GoogleLoggingFolderSink : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigqueryOptions block(s) allowed")]
     [TerraformProperty("bigquery_options")]
-    public TerraformList<TerraformBlock<GoogleLoggingFolderSinkBigqueryOptionsBlock>>? BigqueryOptions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleLoggingFolderSinkBigqueryOptionsBlock>>? BigqueryOptions { get; set; }
 
     /// <summary>
     /// Block for exclusions.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("exclusions")]
-    public TerraformList<TerraformBlock<GoogleLoggingFolderSinkExclusionsBlock>>? Exclusions { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleLoggingFolderSinkExclusionsBlock>>? Exclusions { get; set; }
 
     /// <summary>
     /// The identity associated with this sink. This identity must be granted write access to the configured destination.
     /// </summary>
     [TerraformProperty("writer_identity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> WriterIdentity { get; }
+    public partial TerraformValue<string> WriterIdentity { get; }
 
 }

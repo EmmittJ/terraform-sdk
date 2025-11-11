@@ -13,14 +13,14 @@ public partial class GoogleComputeGlobalNetworkEndpointTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,7 +39,7 @@ public partial class GoogleComputeGlobalNetworkEndpoint : TerraformResource
     /// </summary>
     [TerraformProperty("fqdn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Fqdn { get; set; }
+    public partial TerraformValue<string>? Fqdn { get; set; }
 
     /// <summary>
     /// The global network endpoint group this endpoint is part of.
@@ -47,21 +47,21 @@ public partial class GoogleComputeGlobalNetworkEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkEndpointGroup is required")]
     [TerraformProperty("global_network_endpoint_group")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GlobalNetworkEndpointGroup { get; set; }
+    public required partial TerraformValue<string> GlobalNetworkEndpointGroup { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// IPv4 address external endpoint.
     /// </summary>
     [TerraformProperty("ip_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpAddress { get; set; }
+    public partial TerraformValue<string>? IpAddress { get; set; }
 
     /// <summary>
     /// Port number of the external endpoint.
@@ -69,20 +69,20 @@ public partial class GoogleComputeGlobalNetworkEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     [TerraformProperty("port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Port { get; set; }
+    public required partial TerraformValue<double> Port { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeGlobalNetworkEndpointTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeGlobalNetworkEndpointTimeoutsBlock>? Timeouts { get; set; }
 
 }

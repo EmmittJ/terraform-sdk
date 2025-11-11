@@ -13,21 +13,21 @@ public partial class GoogleSccFolderSccBigQueryExportTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BigQueryExportId is required")]
     [TerraformProperty("big_query_export_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BigQueryExportId { get; set; }
+    public required partial TerraformValue<string> BigQueryExportId { get; set; }
 
     /// <summary>
     /// The dataset to write findings&#39; updates to.
@@ -56,7 +56,7 @@ public partial class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     [TerraformProperty("dataset")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Dataset { get; set; }
+    public required partial TerraformValue<string> Dataset { get; set; }
 
     /// <summary>
     /// The description of the export (max of 1024 characters).
@@ -64,7 +64,7 @@ public partial class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     [TerraformProperty("description")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Description { get; set; }
+    public required partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// Expression that defines the filter to apply across create/update
@@ -96,7 +96,7 @@ public partial class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [TerraformProperty("filter")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Filter { get; set; }
+    public required partial TerraformValue<string> Filter { get; set; }
 
     /// <summary>
     /// The folder where Cloud Security Command Center Big Query Export
@@ -105,21 +105,21 @@ public partial class GoogleSccFolderSccBigQueryExport : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     [TerraformProperty("folder")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Folder { get; set; }
+    public required partial TerraformValue<string> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleSccFolderSccBigQueryExportTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleSccFolderSccBigQueryExportTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time at which the BigQuery export was created.
@@ -128,14 +128,14 @@ public partial class GoogleSccFolderSccBigQueryExport : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Email address of the user who last edited the BigQuery export.
     /// </summary>
     [TerraformProperty("most_recent_editor")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MostRecentEditor { get; }
+    public partial TerraformValue<string> MostRecentEditor { get; }
 
     /// <summary>
     /// The resource name of this export, in the format
@@ -144,14 +144,14 @@ public partial class GoogleSccFolderSccBigQueryExport : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The service account that needs permission to create table and upload data to the BigQuery dataset.
     /// </summary>
     [TerraformProperty("principal")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Principal { get; }
+    public partial TerraformValue<string> Principal { get; }
 
     /// <summary>
     /// The most recent time at which the BigQuery export was updated.
@@ -160,6 +160,6 @@ public partial class GoogleSccFolderSccBigQueryExport : TerraformResource
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

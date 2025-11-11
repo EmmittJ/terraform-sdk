@@ -14,7 +14,7 @@ public partial class AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyName is required")]
     [TerraformProperty("key_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyName { get; set; }
+    public required partial TerraformValue<string> KeyName { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
@@ -22,14 +22,14 @@ public partial class AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     [TerraformProperty("key_vault_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultId { get; set; }
+    public required partial TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The key_version attribute.
     /// </summary>
     [TerraformProperty("key_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyVersion { get; set; }
+    public partial TerraformValue<string>? KeyVersion { get; set; }
 
 }
 
@@ -44,28 +44,28 @@ public partial class AzurermLogicAppIntegrationAccountCertificateTimeoutsBlock :
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -84,7 +84,7 @@ public partial class AzurermLogicAppIntegrationAccountCertificate : TerraformRes
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The integration_account_name attribute.
@@ -92,14 +92,14 @@ public partial class AzurermLogicAppIntegrationAccountCertificate : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationAccountName is required")]
     [TerraformProperty("integration_account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IntegrationAccountName { get; set; }
+    public required partial TerraformValue<string> IntegrationAccountName { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     [TerraformProperty("metadata")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Metadata { get; set; }
+    public partial TerraformValue<string>? Metadata { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -107,14 +107,14 @@ public partial class AzurermLogicAppIntegrationAccountCertificate : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_certificate attribute.
     /// </summary>
     [TerraformProperty("public_certificate")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PublicCertificate { get; set; }
+    public partial TerraformValue<string>? PublicCertificate { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -122,7 +122,7 @@ public partial class AzurermLogicAppIntegrationAccountCertificate : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for key_vault_key.
@@ -130,13 +130,13 @@ public partial class AzurermLogicAppIntegrationAccountCertificate : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultKey block(s) allowed")]
     [TerraformProperty("key_vault_key")]
-    public TerraformList<TerraformBlock<AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock>>? KeyVaultKey { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock>>? KeyVaultKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLogicAppIntegrationAccountCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLogicAppIntegrationAccountCertificateTimeoutsBlock>? Timeouts { get; set; }
 
 }

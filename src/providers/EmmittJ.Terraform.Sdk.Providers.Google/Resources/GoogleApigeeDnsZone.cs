@@ -14,7 +14,7 @@ public partial class GoogleApigeeDnsZonePeeringConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetNetworkId is required")]
     [TerraformProperty("target_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetNetworkId { get; set; }
+    public required partial TerraformValue<string> TargetNetworkId { get; set; }
 
     /// <summary>
     /// The ID of the project that contains the producer VPC network.
@@ -22,7 +22,7 @@ public partial class GoogleApigeeDnsZonePeeringConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetProjectId is required")]
     [TerraformProperty("target_project_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetProjectId { get; set; }
+    public required partial TerraformValue<string> TargetProjectId { get; set; }
 
 }
 
@@ -37,14 +37,14 @@ public partial class GoogleApigeeDnsZoneTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -64,7 +64,7 @@ public partial class GoogleApigeeDnsZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     [TerraformProperty("description")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Description { get; set; }
+    public required partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// ID of the dns zone.
@@ -72,7 +72,7 @@ public partial class GoogleApigeeDnsZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsZoneId is required")]
     [TerraformProperty("dns_zone_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DnsZoneId { get; set; }
+    public required partial TerraformValue<string> DnsZoneId { get; set; }
 
     /// <summary>
     /// Doamin for the zone.
@@ -80,14 +80,14 @@ public partial class GoogleApigeeDnsZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     [TerraformProperty("domain")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Domain { get; set; }
+    public required partial TerraformValue<string> Domain { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee instance,
@@ -96,7 +96,7 @@ public partial class GoogleApigeeDnsZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformProperty("org_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OrgId { get; set; }
+    public required partial TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Block for peering_config.
@@ -106,14 +106,14 @@ public partial class GoogleApigeeDnsZone : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PeeringConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PeeringConfig block(s) allowed")]
     [TerraformProperty("peering_config")]
-    public TerraformList<TerraformBlock<GoogleApigeeDnsZonePeeringConfigBlock>>? PeeringConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApigeeDnsZonePeeringConfigBlock>>? PeeringConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeDnsZoneTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeDnsZoneTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Name of the Dns Zone in the following format:
@@ -121,6 +121,6 @@ public partial class GoogleApigeeDnsZone : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

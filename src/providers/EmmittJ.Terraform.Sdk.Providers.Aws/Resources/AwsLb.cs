@@ -14,21 +14,21 @@ public partial class AwsLbAccessLogsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
     [TerraformProperty("prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Prefix { get; set; }
+    public partial TerraformValue<string>? Prefix { get; set; }
 
 }
 
@@ -44,21 +44,21 @@ public partial class AwsLbConnectionLogsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
     [TerraformProperty("prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Prefix { get; set; }
+    public partial TerraformValue<string>? Prefix { get; set; }
 
 }
 
@@ -74,7 +74,7 @@ public partial class AwsLbIpamPoolsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ipv4IpamPoolId is required")]
     [TerraformProperty("ipv4_ipam_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Ipv4IpamPoolId { get; set; }
+    public required partial TerraformValue<string> Ipv4IpamPoolId { get; set; }
 
 }
 
@@ -90,7 +90,7 @@ public partial class AwsLbMinimumLoadBalancerCapacityBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityUnits is required")]
     [TerraformProperty("capacity_units")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> CapacityUnits { get; set; }
+    public required partial TerraformValue<double> CapacityUnits { get; set; }
 
 }
 
@@ -105,14 +105,14 @@ public partial class AwsLbSubnetMappingBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("allocation_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AllocationId { get; set; }
+    public partial TerraformValue<string>? AllocationId { get; set; }
 
     /// <summary>
     /// The ipv6_address attribute.
     /// </summary>
     [TerraformProperty("ipv6_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Ipv6Address { get; set; }
+    public partial TerraformValue<string>? Ipv6Address { get; set; }
 
 
     /// <summary>
@@ -120,7 +120,7 @@ public partial class AwsLbSubnetMappingBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("private_ipv4_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrivateIpv4Address { get; set; }
+    public partial TerraformValue<string>? PrivateIpv4Address { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -128,7 +128,7 @@ public partial class AwsLbSubnetMappingBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
 }
 
@@ -143,21 +143,21 @@ public partial class AwsLbTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -176,196 +176,196 @@ public partial class AwsLb : TerraformResource
     /// </summary>
     [TerraformProperty("client_keep_alive")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ClientKeepAlive { get; set; }
+    public partial TerraformValue<double>? ClientKeepAlive { get; set; }
 
     /// <summary>
     /// The customer_owned_ipv4_pool attribute.
     /// </summary>
     [TerraformProperty("customer_owned_ipv4_pool")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CustomerOwnedIpv4Pool { get; set; }
+    public partial TerraformValue<string>? CustomerOwnedIpv4Pool { get; set; }
 
     /// <summary>
     /// The desync_mitigation_mode attribute.
     /// </summary>
     [TerraformProperty("desync_mitigation_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DesyncMitigationMode { get; set; }
+    public partial TerraformValue<string>? DesyncMitigationMode { get; set; }
 
     /// <summary>
     /// The dns_record_client_routing_policy attribute.
     /// </summary>
     [TerraformProperty("dns_record_client_routing_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DnsRecordClientRoutingPolicy { get; set; }
+    public partial TerraformValue<string>? DnsRecordClientRoutingPolicy { get; set; }
 
     /// <summary>
     /// The drop_invalid_header_fields attribute.
     /// </summary>
     [TerraformProperty("drop_invalid_header_fields")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DropInvalidHeaderFields { get; set; }
+    public partial TerraformValue<bool>? DropInvalidHeaderFields { get; set; }
 
     /// <summary>
     /// The enable_cross_zone_load_balancing attribute.
     /// </summary>
     [TerraformProperty("enable_cross_zone_load_balancing")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableCrossZoneLoadBalancing { get; set; }
+    public partial TerraformValue<bool>? EnableCrossZoneLoadBalancing { get; set; }
 
     /// <summary>
     /// The enable_deletion_protection attribute.
     /// </summary>
     [TerraformProperty("enable_deletion_protection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableDeletionProtection { get; set; }
+    public partial TerraformValue<bool>? EnableDeletionProtection { get; set; }
 
     /// <summary>
     /// The enable_http2 attribute.
     /// </summary>
     [TerraformProperty("enable_http2")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableHttp2 { get; set; }
+    public partial TerraformValue<bool>? EnableHttp2 { get; set; }
 
     /// <summary>
     /// The enable_tls_version_and_cipher_suite_headers attribute.
     /// </summary>
     [TerraformProperty("enable_tls_version_and_cipher_suite_headers")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableTlsVersionAndCipherSuiteHeaders { get; set; }
+    public partial TerraformValue<bool>? EnableTlsVersionAndCipherSuiteHeaders { get; set; }
 
     /// <summary>
     /// The enable_waf_fail_open attribute.
     /// </summary>
     [TerraformProperty("enable_waf_fail_open")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableWafFailOpen { get; set; }
+    public partial TerraformValue<bool>? EnableWafFailOpen { get; set; }
 
     /// <summary>
     /// The enable_xff_client_port attribute.
     /// </summary>
     [TerraformProperty("enable_xff_client_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableXffClientPort { get; set; }
+    public partial TerraformValue<bool>? EnableXffClientPort { get; set; }
 
     /// <summary>
     /// The enable_zonal_shift attribute.
     /// </summary>
     [TerraformProperty("enable_zonal_shift")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableZonalShift { get; set; }
+    public partial TerraformValue<bool>? EnableZonalShift { get; set; }
 
     /// <summary>
     /// The enforce_security_group_inbound_rules_on_private_link_traffic attribute.
     /// </summary>
     [TerraformProperty("enforce_security_group_inbound_rules_on_private_link_traffic")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; set; }
+    public partial TerraformValue<string> EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The idle_timeout attribute.
     /// </summary>
     [TerraformProperty("idle_timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? IdleTimeout { get; set; }
+    public partial TerraformValue<double>? IdleTimeout { get; set; }
 
     /// <summary>
     /// The internal attribute.
     /// </summary>
     [TerraformProperty("internal")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> Internal { get; set; }
+    public partial TerraformValue<bool> Internal { get; set; }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
     [TerraformProperty("ip_address_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> IpAddressType { get; set; }
+    public partial TerraformValue<string> IpAddressType { get; set; }
 
     /// <summary>
     /// The load_balancer_type attribute.
     /// </summary>
     [TerraformProperty("load_balancer_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LoadBalancerType { get; set; }
+    public partial TerraformValue<string>? LoadBalancerType { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformProperty("name_prefix")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NamePrefix { get; set; }
+    public partial TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The preserve_host_header attribute.
     /// </summary>
     [TerraformProperty("preserve_host_header")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PreserveHostHeader { get; set; }
+    public partial TerraformValue<bool>? PreserveHostHeader { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The secondary_ips_auto_assigned_per_subnet attribute.
     /// </summary>
     [TerraformProperty("secondary_ips_auto_assigned_per_subnet")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> SecondaryIpsAutoAssignedPerSubnet { get; set; }
+    public partial TerraformValue<double> SecondaryIpsAutoAssignedPerSubnet { get; set; }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
     [TerraformProperty("security_groups")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> SecurityGroups { get; set; }
+    public partial TerraformSet<string> SecurityGroups { get; set; }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
     [TerraformProperty("subnets")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> Subnets { get; set; }
+    public partial TerraformSet<string> Subnets { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The xff_header_processing_mode attribute.
     /// </summary>
     [TerraformProperty("xff_header_processing_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? XffHeaderProcessingMode { get; set; }
+    public partial TerraformValue<string>? XffHeaderProcessingMode { get; set; }
 
     /// <summary>
     /// Block for access_logs.
@@ -373,7 +373,7 @@ public partial class AwsLb : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLogs block(s) allowed")]
     [TerraformProperty("access_logs")]
-    public TerraformList<TerraformBlock<AwsLbAccessLogsBlock>>? AccessLogs { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLbAccessLogsBlock>>? AccessLogs { get; set; }
 
     /// <summary>
     /// Block for connection_logs.
@@ -381,7 +381,7 @@ public partial class AwsLb : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionLogs block(s) allowed")]
     [TerraformProperty("connection_logs")]
-    public TerraformList<TerraformBlock<AwsLbConnectionLogsBlock>>? ConnectionLogs { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLbConnectionLogsBlock>>? ConnectionLogs { get; set; }
 
     /// <summary>
     /// Block for ipam_pools.
@@ -389,7 +389,7 @@ public partial class AwsLb : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpamPools block(s) allowed")]
     [TerraformProperty("ipam_pools")]
-    public TerraformList<TerraformBlock<AwsLbIpamPoolsBlock>>? IpamPools { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLbIpamPoolsBlock>>? IpamPools { get; set; }
 
     /// <summary>
     /// Block for minimum_load_balancer_capacity.
@@ -397,55 +397,55 @@ public partial class AwsLb : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MinimumLoadBalancerCapacity block(s) allowed")]
     [TerraformProperty("minimum_load_balancer_capacity")]
-    public TerraformList<TerraformBlock<AwsLbMinimumLoadBalancerCapacityBlock>>? MinimumLoadBalancerCapacity { get; set; }
+    public partial TerraformList<TerraformBlock<AwsLbMinimumLoadBalancerCapacityBlock>>? MinimumLoadBalancerCapacity { get; set; }
 
     /// <summary>
     /// Block for subnet_mapping.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("subnet_mapping")]
-    public TerraformSet<TerraformBlock<AwsLbSubnetMappingBlock>>? SubnetMapping { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsLbSubnetMappingBlock>>? SubnetMapping { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsLbTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsLbTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The arn_suffix attribute.
     /// </summary>
     [TerraformProperty("arn_suffix")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ArnSuffix { get; }
+    public partial TerraformValue<string> ArnSuffix { get; }
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     [TerraformProperty("dns_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DnsName { get; }
+    public partial TerraformValue<string> DnsName { get; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [TerraformProperty("vpc_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VpcId { get; }
+    public partial TerraformValue<string> VpcId { get; }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
     [TerraformProperty("zone_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ZoneId { get; }
+    public partial TerraformValue<string> ZoneId { get; }
 
 }

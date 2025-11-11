@@ -13,28 +13,28 @@ public partial class AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermHealthcareMedtechServiceFhirDestination : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationFhirMappingJson is required")]
     [TerraformProperty("destination_fhir_mapping_json")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DestinationFhirMappingJson { get; set; }
+    public required partial TerraformValue<string> DestinationFhirMappingJson { get; set; }
 
     /// <summary>
     /// The destination_fhir_service_id attribute.
@@ -61,7 +61,7 @@ public partial class AzurermHealthcareMedtechServiceFhirDestination : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationFhirServiceId is required")]
     [TerraformProperty("destination_fhir_service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DestinationFhirServiceId { get; set; }
+    public required partial TerraformValue<string> DestinationFhirServiceId { get; set; }
 
     /// <summary>
     /// The destination_identity_resolution_type attribute.
@@ -69,14 +69,14 @@ public partial class AzurermHealthcareMedtechServiceFhirDestination : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationIdentityResolutionType is required")]
     [TerraformProperty("destination_identity_resolution_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DestinationIdentityResolutionType { get; set; }
+    public required partial TerraformValue<string> DestinationIdentityResolutionType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -84,7 +84,7 @@ public partial class AzurermHealthcareMedtechServiceFhirDestination : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The medtech_service_id attribute.
@@ -92,7 +92,7 @@ public partial class AzurermHealthcareMedtechServiceFhirDestination : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MedtechServiceId is required")]
     [TerraformProperty("medtech_service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MedtechServiceId { get; set; }
+    public required partial TerraformValue<string> MedtechServiceId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -100,13 +100,13 @@ public partial class AzurermHealthcareMedtechServiceFhirDestination : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock>? Timeouts { get; set; }
 
 }

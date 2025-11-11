@@ -20,14 +20,14 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
     [TerraformProperty("autonomous_database_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AutonomousDatabaseId { get; set; }
+    public required partial TerraformValue<string> AutonomousDatabaseId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. See documentation for resource type &#39;oracledatabase.googleapis.com/AutonomousDatabaseBackup&#39;.
@@ -35,35 +35,35 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The password for the default ADMIN user.
     /// </summary>
     [TerraformProperty("admin_password")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AdminPassword { get; }
+    public partial TerraformValue<string> AdminPassword { get; }
 
     /// <summary>
     /// The subnet CIDR range for the Autonmous Database.
     /// </summary>
     [TerraformProperty("cidr")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Cidr { get; }
+    public partial TerraformValue<string> Cidr { get; }
 
     /// <summary>
     /// The date and time that the Autonomous Database was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The name of the Autonomous Database. The database name must be unique in
@@ -72,14 +72,14 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource : Terrafor
     /// </summary>
     [TerraformProperty("database")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Database { get; }
+    public partial TerraformValue<string> Database { get; }
 
     /// <summary>
     /// Whether or not to allow Terraform to destroy the instance. Unless this field is set to false in Terraform state, a terraform destroy or terraform apply that would delete the instance will fail.
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> DeletionProtection { get; }
+    public partial TerraformValue<bool> DeletionProtection { get; }
 
     /// <summary>
     /// The display name for the Autonomous Database. The name does not have to
@@ -87,14 +87,14 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource : Terrafor
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The ID of the subscription entitlement associated with the Autonomous
@@ -102,7 +102,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource : Terrafor
     /// </summary>
     [TerraformProperty("entitlement_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EntitlementId { get; }
+    public partial TerraformValue<string> EntitlementId { get; }
 
     /// <summary>
     /// The labels or tags associated with the Autonomous Database. 
@@ -112,7 +112,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource : Terrafor
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// Identifier. The name of the Autonomous Database resource in the following format:
@@ -120,7 +120,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource : Terrafor
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The name of the VPC network used by the Autonomous Database.
@@ -128,7 +128,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource : Terrafor
     /// </summary>
     [TerraformProperty("network")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Network { get; }
+    public partial TerraformValue<string> Network { get; }
 
     /// <summary>
     /// The name of the OdbNetwork associated with the Autonomous Database.
@@ -139,7 +139,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource : Terrafor
     /// </summary>
     [TerraformProperty("odb_network")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OdbNetwork { get; }
+    public partial TerraformValue<string> OdbNetwork { get; }
 
     /// <summary>
     /// The name of the OdbSubnet associated with the Autonomous Database for
@@ -148,14 +148,14 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource : Terrafor
     /// </summary>
     [TerraformProperty("odb_subnet")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OdbSubnet { get; }
+    public partial TerraformValue<string> OdbSubnet { get; }
 
     /// <summary>
     /// The properties of an Autonomous Database.
     /// </summary>
     [TerraformProperty("properties")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Properties { get; }
+    public partial TerraformList<object> Properties { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -163,6 +163,6 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource : Terrafor
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

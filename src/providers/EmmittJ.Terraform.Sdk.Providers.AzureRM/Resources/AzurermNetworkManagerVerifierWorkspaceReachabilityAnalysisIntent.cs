@@ -14,7 +14,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationIps is required")]
     [TerraformProperty("destination_ips")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? DestinationIps { get; set; }
+    public partial TerraformList<string>? DestinationIps { get; set; }
 
     /// <summary>
     /// The destination_ports attribute.
@@ -22,7 +22,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationPorts is required")]
     [TerraformProperty("destination_ports")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? DestinationPorts { get; set; }
+    public partial TerraformList<string>? DestinationPorts { get; set; }
 
     /// <summary>
     /// The protocols attribute.
@@ -30,7 +30,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
     [TerraformProperty("protocols")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Protocols { get; set; }
+    public partial TerraformList<string>? Protocols { get; set; }
 
     /// <summary>
     /// The source_ips attribute.
@@ -38,7 +38,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIps is required")]
     [TerraformProperty("source_ips")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? SourceIps { get; set; }
+    public partial TerraformList<string>? SourceIps { get; set; }
 
     /// <summary>
     /// The source_ports attribute.
@@ -46,7 +46,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePorts is required")]
     [TerraformProperty("source_ports")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? SourcePorts { get; set; }
+    public partial TerraformList<string>? SourcePorts { get; set; }
 
 }
 
@@ -61,21 +61,21 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -94,7 +94,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The destination_resource_id attribute.
@@ -102,14 +102,14 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationResourceId is required")]
     [TerraformProperty("destination_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DestinationResourceId { get; set; }
+    public required partial TerraformValue<string> DestinationResourceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -117,7 +117,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The source_resource_id attribute.
@@ -125,7 +125,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceId is required")]
     [TerraformProperty("source_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SourceResourceId { get; set; }
+    public required partial TerraformValue<string> SourceResourceId { get; set; }
 
     /// <summary>
     /// The verifier_workspace_id attribute.
@@ -133,7 +133,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifierWorkspaceId is required")]
     [TerraformProperty("verifier_workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VerifierWorkspaceId { get; set; }
+    public required partial TerraformValue<string> VerifierWorkspaceId { get; set; }
 
     /// <summary>
     /// Block for ip_traffic.
@@ -143,13 +143,13 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpTraffic block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpTraffic block(s) allowed")]
     [TerraformProperty("ip_traffic")]
-    public TerraformList<TerraformBlock<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock>>? IpTraffic { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock>>? IpTraffic { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTimeoutsBlock>? Timeouts { get; set; }
 
 }

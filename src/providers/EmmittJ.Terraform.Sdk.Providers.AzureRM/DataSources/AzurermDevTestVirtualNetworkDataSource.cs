@@ -13,7 +13,7 @@ public partial class AzurermDevTestVirtualNetworkDataSourceTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermDevTestVirtualNetworkDataSource : TerraformDataSourc
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The lab_name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermDevTestVirtualNetworkDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
     [TerraformProperty("lab_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LabName { get; set; }
+    public required partial TerraformValue<string> LabName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,7 +47,7 @@ public partial class AzurermDevTestVirtualNetworkDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -55,34 +55,34 @@ public partial class AzurermDevTestVirtualNetworkDataSource : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDevTestVirtualNetworkDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDevTestVirtualNetworkDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The allowed_subnets attribute.
     /// </summary>
     [TerraformProperty("allowed_subnets")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> AllowedSubnets { get; }
+    public partial TerraformList<object> AllowedSubnets { get; }
 
     /// <summary>
     /// The subnet_overrides attribute.
     /// </summary>
     [TerraformProperty("subnet_overrides")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> SubnetOverrides { get; }
+    public partial TerraformList<object> SubnetOverrides { get; }
 
     /// <summary>
     /// The unique_identifier attribute.
     /// </summary>
     [TerraformProperty("unique_identifier")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UniqueIdentifier { get; }
+    public partial TerraformValue<string> UniqueIdentifier { get; }
 
 }

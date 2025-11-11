@@ -17,7 +17,7 @@ public partial class GoogleApihubApiHubInstanceConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("cmek_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CmekKeyName { get; set; }
+    public partial TerraformValue<string>? CmekKeyName { get; set; }
 
     /// <summary>
     /// Optional. If true, the search will be disabled for the instance. The default value
@@ -25,7 +25,7 @@ public partial class GoogleApihubApiHubInstanceConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("disable_search")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableSearch { get; set; }
+    public partial TerraformValue<bool>? DisableSearch { get; set; }
 
     /// <summary>
     /// Optional. Encryption type for the region. If the encryption type is CMEK, the
@@ -38,14 +38,14 @@ public partial class GoogleApihubApiHubInstanceConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("encryption_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> EncryptionType { get; set; }
+    public partial TerraformValue<string> EncryptionType { get; set; }
 
     /// <summary>
     /// Optional. The name of the Vertex AI location where the data store is stored.
     /// </summary>
     [TerraformProperty("vertex_location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VertexLocation { get; set; }
+    public partial TerraformValue<string>? VertexLocation { get; set; }
 
 }
 
@@ -60,21 +60,21 @@ public partial class GoogleApihubApiHubInstanceTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -98,21 +98,21 @@ public partial class GoogleApihubApiHubInstance : TerraformResource
     /// </summary>
     [TerraformProperty("api_hub_instance_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ApiHubInstanceId { get; set; }
+    public partial TerraformValue<string>? ApiHubInstanceId { get; set; }
 
     /// <summary>
     /// Optional. Description of the ApiHub instance.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Optional. Instance labels to represent user-provided metadata.
@@ -124,7 +124,7 @@ public partial class GoogleApihubApiHubInstance : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
@@ -132,14 +132,14 @@ public partial class GoogleApihubApiHubInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for config.
@@ -149,28 +149,28 @@ public partial class GoogleApihubApiHubInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
     [TerraformProperty("config")]
-    public TerraformList<TerraformBlock<GoogleApihubApiHubInstanceConfigBlock>>? Config { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApihubApiHubInstanceConfigBlock>>? Config { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApihubApiHubInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApihubApiHubInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Creation timestamp.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Identifier. Format:
@@ -178,7 +178,7 @@ public partial class GoogleApihubApiHubInstance : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. The current state of the ApiHub instance.
@@ -193,7 +193,7 @@ public partial class GoogleApihubApiHubInstance : TerraformResource
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Output only. Extra information about ApiHub instance state. Currently the message
@@ -201,7 +201,7 @@ public partial class GoogleApihubApiHubInstance : TerraformResource
     /// </summary>
     [TerraformProperty("state_message")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StateMessage { get; }
+    public partial TerraformValue<string> StateMessage { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -209,13 +209,13 @@ public partial class GoogleApihubApiHubInstance : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Output only. Last update timestamp.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -16,7 +16,7 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the subscription.
@@ -24,14 +24,14 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// This value is the maximum time after a subscriber receives a message
@@ -55,7 +55,7 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("ack_deadline_seconds")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> AckDeadlineSeconds { get; }
+    public partial TerraformValue<double> AckDeadlineSeconds { get; }
 
     /// <summary>
     /// If delivery to BigQuery is used with this subscription, this field is used to configure it.
@@ -64,7 +64,7 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("bigquery_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> BigqueryConfig { get; }
+    public partial TerraformList<object> BigqueryConfig { get; }
 
     /// <summary>
     /// If delivery to Cloud Storage is used with this subscription, this field is used to configure it.
@@ -73,7 +73,7 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("cloud_storage_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CloudStorageConfig { get; }
+    public partial TerraformList<object> CloudStorageConfig { get; }
 
     /// <summary>
     /// A policy that specifies the conditions for dead lettering messages in
@@ -87,14 +87,14 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("dead_letter_policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> DeadLetterPolicy { get; }
+    public partial TerraformList<object> DeadLetterPolicy { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// If &#39;true&#39;, Pub/Sub provides the following guarantees for the delivery
@@ -109,7 +109,7 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("enable_exactly_once_delivery")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> EnableExactlyOnceDelivery { get; }
+    public partial TerraformValue<bool> EnableExactlyOnceDelivery { get; }
 
     /// <summary>
     /// If &#39;true&#39;, messages published with the same orderingKey in PubsubMessage will be delivered to
@@ -118,7 +118,7 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("enable_message_ordering")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> EnableMessageOrdering { get; }
+    public partial TerraformValue<bool> EnableMessageOrdering { get; }
 
     /// <summary>
     /// A policy that specifies the conditions for this subscription&#39;s expiration.
@@ -131,7 +131,7 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("expiration_policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ExpirationPolicy { get; }
+    public partial TerraformList<object> ExpirationPolicy { get; }
 
     /// <summary>
     /// The subscription only delivers the messages that match the filter.
@@ -141,7 +141,7 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("filter")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Filter { get; }
+    public partial TerraformValue<string> Filter { get; }
 
     /// <summary>
     /// A set of key/value label pairs to assign to this Subscription.
@@ -152,7 +152,7 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// How long to retain unacknowledged messages in the subscription&#39;s
@@ -167,7 +167,7 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("message_retention_duration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MessageRetentionDuration { get; }
+    public partial TerraformValue<string> MessageRetentionDuration { get; }
 
     /// <summary>
     /// Transforms to be applied to messages published to the topic. Transforms are applied in the
@@ -175,7 +175,7 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("message_transforms")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MessageTransforms { get; }
+    public partial TerraformList<object> MessageTransforms { get; }
 
     /// <summary>
     /// If push delivery is used with this subscription, this field is used to
@@ -184,7 +184,7 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("push_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PushConfig { get; }
+    public partial TerraformList<object> PushConfig { get; }
 
     /// <summary>
     /// Indicates whether to retain acknowledged messages. If &#39;true&#39;, then
@@ -194,7 +194,7 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("retain_acked_messages")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> RetainAckedMessages { get; }
+    public partial TerraformValue<bool> RetainAckedMessages { get; }
 
     /// <summary>
     /// A policy that specifies how Pub/Sub retries message delivery for this subscription.
@@ -204,7 +204,7 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("retry_policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> RetryPolicy { get; }
+    public partial TerraformList<object> RetryPolicy { get; }
 
     /// <summary>
     /// Input only. Resource manager tags to be bound to the subscription. Tag
@@ -218,7 +218,7 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -226,7 +226,7 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// A reference to a Topic resource, of the form projects/{project}/topics/{{name}}
@@ -235,6 +235,6 @@ public partial class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("topic")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Topic { get; }
+    public partial TerraformValue<string> Topic { get; }
 
 }

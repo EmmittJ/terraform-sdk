@@ -13,7 +13,7 @@ public partial class AwsInspector2OrganizationConfigurationAutoEnableBlock : Ter
     /// </summary>
     [TerraformProperty("code_repository")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CodeRepository { get; set; }
+    public partial TerraformValue<bool>? CodeRepository { get; set; }
 
     /// <summary>
     /// The ec2 attribute.
@@ -21,7 +21,7 @@ public partial class AwsInspector2OrganizationConfigurationAutoEnableBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ec2 is required")]
     [TerraformProperty("ec2")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Ec2 { get; set; }
+    public required partial TerraformValue<bool> Ec2 { get; set; }
 
     /// <summary>
     /// The ecr attribute.
@@ -29,21 +29,21 @@ public partial class AwsInspector2OrganizationConfigurationAutoEnableBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ecr is required")]
     [TerraformProperty("ecr")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Ecr { get; set; }
+    public required partial TerraformValue<bool> Ecr { get; set; }
 
     /// <summary>
     /// The lambda attribute.
     /// </summary>
     [TerraformProperty("lambda")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Lambda { get; set; }
+    public partial TerraformValue<bool>? Lambda { get; set; }
 
     /// <summary>
     /// The lambda_code attribute.
     /// </summary>
     [TerraformProperty("lambda_code")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LambdaCode { get; set; }
+    public partial TerraformValue<bool>? LambdaCode { get; set; }
 
 }
 
@@ -58,21 +58,21 @@ public partial class AwsInspector2OrganizationConfigurationTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -91,14 +91,14 @@ public partial class AwsInspector2OrganizationConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for auto_enable.
@@ -108,20 +108,20 @@ public partial class AwsInspector2OrganizationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AutoEnable block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoEnable block(s) allowed")]
     [TerraformProperty("auto_enable")]
-    public TerraformList<TerraformBlock<AwsInspector2OrganizationConfigurationAutoEnableBlock>>? AutoEnable { get; set; }
+    public partial TerraformList<TerraformBlock<AwsInspector2OrganizationConfigurationAutoEnableBlock>>? AutoEnable { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsInspector2OrganizationConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsInspector2OrganizationConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The max_account_limit_reached attribute.
     /// </summary>
     [TerraformProperty("max_account_limit_reached")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> MaxAccountLimitReached { get; }
+    public partial TerraformValue<bool> MaxAccountLimitReached { get; }
 
 }

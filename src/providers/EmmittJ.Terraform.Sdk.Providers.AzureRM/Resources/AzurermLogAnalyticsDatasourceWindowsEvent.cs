@@ -13,28 +13,28 @@ public partial class AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventLogName is required")]
     [TerraformProperty("event_log_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> EventLogName { get; set; }
+    public required partial TerraformValue<string> EventLogName { get; set; }
 
     /// <summary>
     /// The event_types attribute.
@@ -61,14 +61,14 @@ public partial class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTypes is required")]
     [TerraformProperty("event_types")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> EventTypes { get; set; }
+    public required partial TerraformSet<string> EventTypes { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -76,7 +76,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -84,7 +84,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The workspace_name attribute.
@@ -92,13 +92,13 @@ public partial class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceName is required")]
     [TerraformProperty("workspace_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkspaceName { get; set; }
+    public required partial TerraformValue<string> WorkspaceName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock>? Timeouts { get; set; }
 
 }

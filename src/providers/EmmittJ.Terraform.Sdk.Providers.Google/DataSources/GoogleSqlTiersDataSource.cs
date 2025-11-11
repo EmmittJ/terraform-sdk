@@ -16,20 +16,20 @@ public partial class GoogleSqlTiersDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Project ID of the project for which to list tiers.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The tiers attribute.
     /// </summary>
     [TerraformProperty("tiers")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Tiers { get; }
+    public partial TerraformList<object> Tiers { get; }
 
 }

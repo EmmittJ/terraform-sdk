@@ -13,14 +13,14 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseC
     /// </summary>
     [TerraformProperty("batch_size")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BatchSize { get; set; }
+    public partial TerraformValue<double>? BatchSize { get; set; }
 
     /// <summary>
     /// The message_count attribute.
     /// </summary>
     [TerraformProperty("message_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MessageCount { get; set; }
+    public partial TerraformValue<double>? MessageCount { get; set; }
 
 }
 
@@ -35,28 +35,28 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfigurationTimeouts
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -76,14 +76,14 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfiguration : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchGroupName is required")]
     [TerraformProperty("batch_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BatchGroupName { get; set; }
+    public required partial TerraformValue<string> BatchGroupName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The integration_account_name attribute.
@@ -91,14 +91,14 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfiguration : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationAccountName is required")]
     [TerraformProperty("integration_account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IntegrationAccountName { get; set; }
+    public required partial TerraformValue<string> IntegrationAccountName { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     [TerraformProperty("metadata")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Metadata { get; set; }
+    public partial TerraformMap<string>? Metadata { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -106,7 +106,7 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfiguration : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -114,7 +114,7 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfiguration : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for release_criteria.
@@ -124,13 +124,13 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfiguration : Terra
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReleaseCriteria block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReleaseCriteria block(s) allowed")]
     [TerraformProperty("release_criteria")]
-    public TerraformList<TerraformBlock<AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaBlock>>? ReleaseCriteria { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaBlock>>? ReleaseCriteria { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLogicAppIntegrationAccountBatchConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLogicAppIntegrationAccountBatchConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
 }

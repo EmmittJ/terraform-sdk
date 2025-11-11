@@ -13,28 +13,28 @@ public partial class AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,35 +52,35 @@ public partial class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     /// </summary>
     [TerraformProperty("context")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Context { get; set; }
+    public partial TerraformValue<string>? Context { get; set; }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
     [TerraformProperty("end_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EndTime { get; set; }
+    public partial TerraformValue<string>? EndTime { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The importance attribute.
     /// </summary>
     [TerraformProperty("importance")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Importance { get; set; }
+    public partial TerraformValue<string>? Importance { get; set; }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
     [TerraformProperty("label")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Label { get; set; }
+    public partial TerraformValue<string>? Label { get; set; }
 
     /// <summary>
     /// The member_name attribute.
@@ -88,7 +88,7 @@ public partial class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberName is required")]
     [TerraformProperty("member_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MemberName { get; set; }
+    public required partial TerraformValue<string> MemberName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -96,14 +96,14 @@ public partial class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     [TerraformProperty("start_time")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StartTime { get; set; }
+    public partial TerraformValue<string>? StartTime { get; set; }
 
     /// <summary>
     /// The workload_group_id attribute.
@@ -111,13 +111,13 @@ public partial class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadGroupId is required")]
     [TerraformProperty("workload_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> WorkloadGroupId { get; set; }
+    public required partial TerraformValue<string> WorkloadGroupId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock>? Timeouts { get; set; }
 
 }

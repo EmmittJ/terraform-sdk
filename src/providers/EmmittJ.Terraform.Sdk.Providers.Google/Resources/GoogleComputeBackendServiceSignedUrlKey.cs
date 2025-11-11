@@ -13,14 +13,14 @@ public partial class GoogleComputeBackendServiceSignedUrlKeyTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public partial class GoogleComputeBackendServiceSignedUrlKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     [TerraformProperty("backend_service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackendService { get; set; }
+    public required partial TerraformValue<string> BackendService { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// 128-bit key value used for signing the URL. The key value must be a
@@ -55,7 +55,7 @@ public partial class GoogleComputeBackendServiceSignedUrlKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyValue is required")]
     [TerraformProperty("key_value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyValue { get; set; }
+    public required partial TerraformValue<string> KeyValue { get; set; }
 
     /// <summary>
     /// Name of the signed URL key.
@@ -63,20 +63,20 @@ public partial class GoogleComputeBackendServiceSignedUrlKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeBackendServiceSignedUrlKeyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeBackendServiceSignedUrlKeyTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -21,7 +21,7 @@ public partial class AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfig
     /// </summary>
     [TerraformProperty("event_filter")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformSet<string> EventFilter { get; set; }
+    public partial TerraformSet<string> EventFilter { get; set; }
 
 }
 
@@ -36,14 +36,14 @@ public partial class AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock 
     /// </summary>
     [TerraformProperty("blocked_ip_range_list")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? BlockedIpRangeList { get; set; }
+    public partial TerraformSet<string>? BlockedIpRangeList { get; set; }
 
     /// <summary>
     /// The skipped_ip_range_list attribute.
     /// </summary>
     [TerraformProperty("skipped_ip_range_list")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? SkippedIpRangeList { get; set; }
+    public partial TerraformSet<string>? SkippedIpRangeList { get; set; }
 
 }
 
@@ -62,21 +62,21 @@ public partial class AwsCognitoRiskConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("client_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientId { get; set; }
+    public partial TerraformValue<string>? ClientId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The user_pool_id attribute.
@@ -84,7 +84,7 @@ public partial class AwsCognitoRiskConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     [TerraformProperty("user_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UserPoolId { get; set; }
+    public required partial TerraformValue<string> UserPoolId { get; set; }
 
     /// <summary>
     /// Block for account_takeover_risk_configuration.
@@ -92,7 +92,7 @@ public partial class AwsCognitoRiskConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccountTakeoverRiskConfiguration block(s) allowed")]
     [TerraformProperty("account_takeover_risk_configuration")]
-    public TerraformList<TerraformBlock<AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlock>>? AccountTakeoverRiskConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlock>>? AccountTakeoverRiskConfiguration { get; set; }
 
     /// <summary>
     /// Block for compromised_credentials_risk_configuration.
@@ -100,7 +100,7 @@ public partial class AwsCognitoRiskConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CompromisedCredentialsRiskConfiguration block(s) allowed")]
     [TerraformProperty("compromised_credentials_risk_configuration")]
-    public TerraformList<TerraformBlock<AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationBlock>>? CompromisedCredentialsRiskConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationBlock>>? CompromisedCredentialsRiskConfiguration { get; set; }
 
     /// <summary>
     /// Block for risk_exception_configuration.
@@ -108,6 +108,6 @@ public partial class AwsCognitoRiskConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RiskExceptionConfiguration block(s) allowed")]
     [TerraformProperty("risk_exception_configuration")]
-    public TerraformList<TerraformBlock<AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock>>? RiskExceptionConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock>>? RiskExceptionConfiguration { get; set; }
 
 }

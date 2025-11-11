@@ -21,21 +21,21 @@ public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsTimeout
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpoints : Terr
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the Memorystore instance these endpoints should be added to.
@@ -61,14 +61,14 @@ public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpoints : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The name of the region of the Memorystore instance these endpoints should be added to.
@@ -76,20 +76,20 @@ public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpoints : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     [TerraformProperty("region")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Region { get; set; }
+    public required partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for desired_user_created_endpoints.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("desired_user_created_endpoints")]
-    public TerraformList<TerraformBlock<GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCreatedEndpointsBlock>>? DesiredUserCreatedEndpoints { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCreatedEndpointsBlock>>? DesiredUserCreatedEndpoints { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleMemorystoreInstanceDesiredUserCreatedEndpointsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleMemorystoreInstanceDesiredUserCreatedEndpointsTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,14 +13,14 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock :
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,7 +39,7 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Api is required")]
     [TerraformProperty("api")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Api { get; set; }
+    public required partial TerraformValue<string> Api { get; set; }
 
     /// <summary>
     /// Apigee environment name.
@@ -47,14 +47,14 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     [TerraformProperty("environment")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Environment { get; set; }
+    public required partial TerraformValue<string> Environment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Apigee organization ID.
@@ -62,14 +62,14 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformProperty("org_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OrgId { get; set; }
+    public required partial TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// If true, replaces other deployed revisions of this proxy in the environment.
     /// </summary>
     [TerraformProperty("override")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Override { get; set; }
+    public partial TerraformValue<bool>? Override { get; set; }
 
     /// <summary>
     /// API proxy revision number to deploy.
@@ -77,48 +77,48 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     [TerraformProperty("revision")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Revision { get; set; }
+    public required partial TerraformValue<double> Revision { get; set; }
 
     /// <summary>
     /// If true, enables sequenced rollout for safe traffic switching.
     /// </summary>
     [TerraformProperty("sequenced_rollout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SequencedRollout { get; set; }
+    public partial TerraformValue<bool>? SequencedRollout { get; set; }
 
     /// <summary>
     /// Optional service account the deployed proxy runs as.
     /// </summary>
     [TerraformProperty("service_account")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServiceAccount { get; set; }
+    public partial TerraformValue<string>? ServiceAccount { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Basepaths associated with the deployed proxy.
     /// </summary>
     [TerraformProperty("basepaths")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Basepaths { get; }
+    public partial TerraformList<string> Basepaths { get; }
 
     /// <summary>
     /// RFC3339 timestamp when deployment started.
     /// </summary>
     [TerraformProperty("deploy_start_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeployStartTime { get; }
+    public partial TerraformValue<string> DeployStartTime { get; }
 
     /// <summary>
     /// Deployment state reported by Apigee.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

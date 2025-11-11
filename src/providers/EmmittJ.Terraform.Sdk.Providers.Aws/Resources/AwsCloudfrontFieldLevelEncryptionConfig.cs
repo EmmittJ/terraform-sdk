@@ -14,7 +14,7 @@ public partial class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardWhenContentTypeIsUnknown is required")]
     [TerraformProperty("forward_when_content_type_is_unknown")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> ForwardWhenContentTypeIsUnknown { get; set; }
+    public required partial TerraformValue<bool> ForwardWhenContentTypeIsUnknown { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public partial class AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardWhenQueryArgProfileIsUnknown is required")]
     [TerraformProperty("forward_when_query_arg_profile_is_unknown")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> ForwardWhenQueryArgProfileIsUnknown { get; set; }
+    public required partial TerraformValue<bool> ForwardWhenQueryArgProfileIsUnknown { get; set; }
 
 }
 
@@ -49,14 +49,14 @@ public partial class AwsCloudfrontFieldLevelEncryptionConfig : TerraformResource
     /// </summary>
     [TerraformProperty("comment")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Comment { get; set; }
+    public partial TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for content_type_profile_config.
@@ -66,7 +66,7 @@ public partial class AwsCloudfrontFieldLevelEncryptionConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContentTypeProfileConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContentTypeProfileConfig block(s) allowed")]
     [TerraformProperty("content_type_profile_config")]
-    public TerraformList<TerraformBlock<AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBlock>>? ContentTypeProfileConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBlock>>? ContentTypeProfileConfig { get; set; }
 
     /// <summary>
     /// Block for query_arg_profile_config.
@@ -76,27 +76,27 @@ public partial class AwsCloudfrontFieldLevelEncryptionConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 QueryArgProfileConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueryArgProfileConfig block(s) allowed")]
     [TerraformProperty("query_arg_profile_config")]
-    public TerraformList<TerraformBlock<AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock>>? QueryArgProfileConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock>>? QueryArgProfileConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
     [TerraformProperty("caller_reference")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CallerReference { get; }
+    public partial TerraformValue<string> CallerReference { get; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
 }

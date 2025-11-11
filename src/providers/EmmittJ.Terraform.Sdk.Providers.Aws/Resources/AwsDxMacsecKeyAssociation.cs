@@ -16,14 +16,14 @@ public partial class AwsDxMacsecKeyAssociation : TerraformResource
     /// </summary>
     [TerraformProperty("cak")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Cak { get; set; }
+    public partial TerraformValue<string>? Cak { get; set; }
 
     /// <summary>
     /// The ckn attribute.
     /// </summary>
     [TerraformProperty("ckn")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Ckn { get; set; }
+    public partial TerraformValue<string> Ckn { get; set; }
 
     /// <summary>
     /// The connection_id attribute.
@@ -31,41 +31,41 @@ public partial class AwsDxMacsecKeyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     [TerraformProperty("connection_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConnectionId { get; set; }
+    public required partial TerraformValue<string> ConnectionId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The secret_arn attribute.
     /// </summary>
     [TerraformProperty("secret_arn")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SecretArn { get; set; }
+    public partial TerraformValue<string> SecretArn { get; set; }
 
     /// <summary>
     /// The start_on attribute.
     /// </summary>
     [TerraformProperty("start_on")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StartOn { get; }
+    public partial TerraformValue<string> StartOn { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

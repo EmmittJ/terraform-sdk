@@ -18,7 +18,7 @@ public partial class GoogleAppEngineDomainMappingSslSettingsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("certificate_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CertificateId { get; set; }
+    public partial TerraformValue<string> CertificateId { get; set; }
 
 
     /// <summary>
@@ -28,7 +28,7 @@ public partial class GoogleAppEngineDomainMappingSslSettingsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslManagementType is required")]
     [TerraformProperty("ssl_management_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SslManagementType { get; set; }
+    public required partial TerraformValue<string> SslManagementType { get; set; }
 
 }
 
@@ -43,21 +43,21 @@ public partial class GoogleAppEngineDomainMappingTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -77,14 +77,14 @@ public partial class GoogleAppEngineDomainMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     [TerraformProperty("domain_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DomainName { get; set; }
+    public required partial TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Whether the domain creation should override any existing mappings for this domain.
@@ -92,14 +92,14 @@ public partial class GoogleAppEngineDomainMapping : TerraformResource
     /// </summary>
     [TerraformProperty("override_strategy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OverrideStrategy { get; set; }
+    public partial TerraformValue<string>? OverrideStrategy { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for ssl_settings.
@@ -107,21 +107,21 @@ public partial class GoogleAppEngineDomainMapping : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslSettings block(s) allowed")]
     [TerraformProperty("ssl_settings")]
-    public TerraformList<TerraformBlock<GoogleAppEngineDomainMappingSslSettingsBlock>>? SslSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAppEngineDomainMappingSslSettingsBlock>>? SslSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleAppEngineDomainMappingTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleAppEngineDomainMappingTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Full path to the DomainMapping resource in the API. Example: apps/myapp/domainMapping/example.com.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The resource records required to configure this domain mapping. These records must be added to the domain&#39;s DNS
@@ -129,6 +129,6 @@ public partial class GoogleAppEngineDomainMapping : TerraformResource
     /// </summary>
     [TerraformProperty("resource_records")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ResourceRecords { get; }
+    public partial TerraformList<object> ResourceRecords { get; }
 
 }

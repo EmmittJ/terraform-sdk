@@ -14,7 +14,7 @@ public partial class AwsMemorydbUserAuthenticationModeBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("passwords")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Passwords { get; set; }
+    public partial TerraformSet<string>? Passwords { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -22,7 +22,7 @@ public partial class AwsMemorydbUserAuthenticationModeBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -42,35 +42,35 @@ public partial class AwsMemorydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessString is required")]
     [TerraformProperty("access_string")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccessString { get; set; }
+    public required partial TerraformValue<string> AccessString { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The user_name attribute.
@@ -78,7 +78,7 @@ public partial class AwsMemorydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     [TerraformProperty("user_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UserName { get; set; }
+    public required partial TerraformValue<string> UserName { get; set; }
 
     /// <summary>
     /// Block for authentication_mode.
@@ -88,20 +88,20 @@ public partial class AwsMemorydbUser : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuthenticationMode block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticationMode block(s) allowed")]
     [TerraformProperty("authentication_mode")]
-    public TerraformList<TerraformBlock<AwsMemorydbUserAuthenticationModeBlock>>? AuthenticationMode { get; set; }
+    public partial TerraformList<TerraformBlock<AwsMemorydbUserAuthenticationModeBlock>>? AuthenticationMode { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The minimum_engine_version attribute.
     /// </summary>
     [TerraformProperty("minimum_engine_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MinimumEngineVersion { get; }
+    public partial TerraformValue<string> MinimumEngineVersion { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class GoogleBigtableSchemaBundleProtoSchemaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtoDescriptors is required")]
     [TerraformProperty("proto_descriptors")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProtoDescriptors { get; set; }
+    public required partial TerraformValue<string> ProtoDescriptors { get; set; }
 
 }
 
@@ -29,21 +29,21 @@ public partial class GoogleBigtableSchemaBundleTimeoutsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -62,28 +62,28 @@ public partial class GoogleBigtableSchemaBundle : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// If true, allow backwards incompatible changes.
     /// </summary>
     [TerraformProperty("ignore_warnings")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IgnoreWarnings { get; set; }
+    public partial TerraformValue<bool>? IgnoreWarnings { get; set; }
 
     /// <summary>
     /// The name of the instance to create the schema bundle within.
     /// </summary>
     [TerraformProperty("instance")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Instance { get; set; }
+    public partial TerraformValue<string>? Instance { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The unique name of the schema bundle in the form &#39;[_a-zA-Z0-9][-_.a-zA-Z0-9]*&#39;.
@@ -91,14 +91,14 @@ public partial class GoogleBigtableSchemaBundle : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaBundleId is required")]
     [TerraformProperty("schema_bundle_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SchemaBundleId { get; set; }
+    public required partial TerraformValue<string> SchemaBundleId { get; set; }
 
     /// <summary>
     /// The name of the table to create the schema bundle within.
     /// </summary>
     [TerraformProperty("table")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Table { get; set; }
+    public partial TerraformValue<string>? Table { get; set; }
 
     /// <summary>
     /// Block for proto_schema.
@@ -108,20 +108,20 @@ public partial class GoogleBigtableSchemaBundle : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProtoSchema block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProtoSchema block(s) allowed")]
     [TerraformProperty("proto_schema")]
-    public TerraformList<TerraformBlock<GoogleBigtableSchemaBundleProtoSchemaBlock>>? ProtoSchema { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigtableSchemaBundleProtoSchemaBlock>>? ProtoSchema { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBigtableSchemaBundleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBigtableSchemaBundleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique name of the requested schema bundle. Values are of the form &#39;projects/&amp;lt;project&amp;gt;/instances/&amp;lt;instance&amp;gt;/tables/&amp;lt;table&amp;gt;/schemaBundles/&amp;lt;schemaBundleId&amp;gt;&#39;.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

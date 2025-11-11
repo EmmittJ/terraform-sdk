@@ -13,7 +13,7 @@ public partial class AzurermStorageContainersDataSourceTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,14 +31,14 @@ public partial class AzurermStorageContainersDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformProperty("name_prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NamePrefix { get; set; }
+    public partial TerraformValue<string>? NamePrefix { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
@@ -46,20 +46,20 @@ public partial class AzurermStorageContainersDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     [TerraformProperty("storage_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageAccountId { get; set; }
+    public required partial TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageContainersDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageContainersDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The containers attribute.
     /// </summary>
     [TerraformProperty("containers")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Containers { get; }
+    public partial TerraformList<object> Containers { get; }
 
 }

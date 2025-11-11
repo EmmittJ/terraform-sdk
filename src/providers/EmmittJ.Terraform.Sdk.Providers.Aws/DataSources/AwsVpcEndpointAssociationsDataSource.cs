@@ -16,7 +16,7 @@ public partial class AwsVpcEndpointAssociationsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The vpc_endpoint_id attribute.
@@ -24,13 +24,13 @@ public partial class AwsVpcEndpointAssociationsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcEndpointId is required")]
     [TerraformProperty("vpc_endpoint_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VpcEndpointId { get; set; }
+    public required partial TerraformValue<string> VpcEndpointId { get; set; }
 
     /// <summary>
     /// The associations attribute.
     /// </summary>
     [TerraformProperty("associations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Associations { get; }
+    public partial TerraformList<object> Associations { get; }
 
 }

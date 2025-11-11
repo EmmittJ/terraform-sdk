@@ -16,34 +16,34 @@ public partial class GoogleStorageProjectServiceAccountDataSource : TerraformDat
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The user_project attribute.
     /// </summary>
     [TerraformProperty("user_project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserProject { get; set; }
+    public partial TerraformValue<string>? UserProject { get; set; }
 
     /// <summary>
     /// The email_address attribute.
     /// </summary>
     [TerraformProperty("email_address")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EmailAddress { get; }
+    public partial TerraformValue<string> EmailAddress { get; }
 
     /// <summary>
     /// The member attribute.
     /// </summary>
     [TerraformProperty("member")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Member { get; }
+    public partial TerraformValue<string> Member { get; }
 
 }

@@ -16,20 +16,20 @@ public partial class AwsRedshiftDataSharesDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The data_shares attribute.
     /// </summary>
     [TerraformProperty("data_shares")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> DataShares { get; }
+    public partial TerraformList<object> DataShares { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

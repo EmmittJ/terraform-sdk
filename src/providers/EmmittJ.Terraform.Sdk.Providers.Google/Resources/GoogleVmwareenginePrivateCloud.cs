@@ -19,7 +19,7 @@ public partial class GoogleVmwareenginePrivateCloudManagementClusterBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     [TerraformProperty("cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterId { get; set; }
+    public required partial TerraformValue<string> ClusterId { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public partial class GoogleVmwareenginePrivateCloudNetworkConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementCidr is required")]
     [TerraformProperty("management_cidr")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ManagementCidr { get; set; }
+    public required partial TerraformValue<string> ManagementCidr { get; set; }
 
 
     /// <summary>
@@ -46,7 +46,7 @@ public partial class GoogleVmwareenginePrivateCloudNetworkConfigBlock : Terrafor
     /// </summary>
     [TerraformProperty("vmware_engine_network")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VmwareEngineNetwork { get; set; }
+    public partial TerraformValue<string>? VmwareEngineNetwork { get; set; }
 
 
 }
@@ -62,21 +62,21 @@ public partial class GoogleVmwareenginePrivateCloudTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -95,21 +95,21 @@ public partial class GoogleVmwareenginePrivateCloud : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_delay_hours")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DeletionDelayHours { get; set; }
+    public partial TerraformValue<double>? DeletionDelayHours { get; set; }
 
     /// <summary>
     /// User-provided description for this private cloud.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location where the PrivateCloud should reside.
@@ -117,7 +117,7 @@ public partial class GoogleVmwareenginePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The ID of the PrivateCloud.
@@ -125,28 +125,28 @@ public partial class GoogleVmwareenginePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// While set true, deletion_delay_hours value will be sent in the request even for zero value of the field. This field is only useful for setting 0 value to the deletion_delay_hours field. It can be used both alone and together with deletion_delay_hours.
     /// </summary>
     [TerraformProperty("send_deletion_delay_hours_if_zero")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SendDeletionDelayHoursIfZero { get; set; }
+    public partial TerraformValue<bool>? SendDeletionDelayHoursIfZero { get; set; }
 
     /// <summary>
     /// Initial type of the private cloud. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;TIME_LIMITED&amp;quot;, &amp;quot;STRETCHED&amp;quot;]
     /// </summary>
     [TerraformProperty("type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Type { get; set; }
+    public partial TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// Block for management_cluster.
@@ -156,7 +156,7 @@ public partial class GoogleVmwareenginePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManagementCluster block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementCluster block(s) allowed")]
     [TerraformProperty("management_cluster")]
-    public TerraformList<TerraformBlock<GoogleVmwareenginePrivateCloudManagementClusterBlock>>? ManagementCluster { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleVmwareenginePrivateCloudManagementClusterBlock>>? ManagementCluster { get; set; }
 
     /// <summary>
     /// Block for network_config.
@@ -166,14 +166,14 @@ public partial class GoogleVmwareenginePrivateCloud : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public TerraformList<TerraformBlock<GoogleVmwareenginePrivateCloudNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleVmwareenginePrivateCloudNetworkConfigBlock>>? NetworkConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleVmwareenginePrivateCloudTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleVmwareenginePrivateCloudTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation time of this resource.
@@ -182,7 +182,7 @@ public partial class GoogleVmwareenginePrivateCloud : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Time when the resource was scheduled for deletion.
@@ -191,7 +191,7 @@ public partial class GoogleVmwareenginePrivateCloud : TerraformResource
     /// </summary>
     [TerraformProperty("delete_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DeleteTime { get; }
+    public partial TerraformValue<string> DeleteTime { get; }
 
     /// <summary>
     /// Time when the resource will be irreversibly deleted.
@@ -200,35 +200,35 @@ public partial class GoogleVmwareenginePrivateCloud : TerraformResource
     /// </summary>
     [TerraformProperty("expire_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ExpireTime { get; }
+    public partial TerraformValue<string> ExpireTime { get; }
 
     /// <summary>
     /// Details about a HCX Cloud Manager appliance.
     /// </summary>
     [TerraformProperty("hcx")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Hcx { get; }
+    public partial TerraformList<object> Hcx { get; }
 
     /// <summary>
     /// Details about a NSX Manager appliance.
     /// </summary>
     [TerraformProperty("nsx")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Nsx { get; }
+    public partial TerraformList<object> Nsx { get; }
 
     /// <summary>
     /// State of the resource. New values may be added to this enum when appropriate.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Last update time of this resource.
@@ -237,13 +237,13 @@ public partial class GoogleVmwareenginePrivateCloud : TerraformResource
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// Details about a vCenter Server management appliance.
     /// </summary>
     [TerraformProperty("vcenter")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Vcenter { get; }
+    public partial TerraformList<object> Vcenter { get; }
 
 }

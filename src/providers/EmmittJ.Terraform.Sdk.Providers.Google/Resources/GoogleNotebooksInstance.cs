@@ -14,7 +14,7 @@ public partial class GoogleNotebooksInstanceAcceleratorConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreCount is required")]
     [TerraformProperty("core_count")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> CoreCount { get; set; }
+    public required partial TerraformValue<double> CoreCount { get; set; }
 
     /// <summary>
     /// Type of this accelerator. Possible values: [&amp;quot;ACCELERATOR_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;NVIDIA_TESLA_K80&amp;quot;, &amp;quot;NVIDIA_TESLA_P100&amp;quot;, &amp;quot;NVIDIA_TESLA_V100&amp;quot;, &amp;quot;NVIDIA_TESLA_P4&amp;quot;, &amp;quot;NVIDIA_TESLA_T4&amp;quot;, &amp;quot;NVIDIA_TESLA_T4_VWS&amp;quot;, &amp;quot;NVIDIA_TESLA_P100_VWS&amp;quot;, &amp;quot;NVIDIA_TESLA_P4_VWS&amp;quot;, &amp;quot;NVIDIA_TESLA_A100&amp;quot;, &amp;quot;TPU_V2&amp;quot;, &amp;quot;TPU_V3&amp;quot;]
@@ -22,7 +22,7 @@ public partial class GoogleNotebooksInstanceAcceleratorConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -39,14 +39,14 @@ public partial class GoogleNotebooksInstanceContainerImageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     [TerraformProperty("repository")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Repository { get; set; }
+    public required partial TerraformValue<string> Repository { get; set; }
 
     /// <summary>
     /// The tag of the container image. If not specified, this defaults to the latest tag.
     /// </summary>
     [TerraformProperty("tag")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Tag { get; set; }
+    public partial TerraformValue<string>? Tag { get; set; }
 
 }
 
@@ -62,21 +62,21 @@ public partial class GoogleNotebooksInstanceReservationAffinityBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumeReservationType is required")]
     [TerraformProperty("consume_reservation_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ConsumeReservationType { get; set; }
+    public required partial TerraformValue<string> ConsumeReservationType { get; set; }
 
     /// <summary>
     /// Corresponds to the label key of reservation resource.
     /// </summary>
     [TerraformProperty("key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Key { get; set; }
+    public partial TerraformValue<string>? Key { get; set; }
 
     /// <summary>
     /// Corresponds to the label values of reservation resource.
     /// </summary>
     [TerraformProperty("values")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Values { get; set; }
+    public partial TerraformList<string>? Values { get; set; }
 
 }
 
@@ -94,7 +94,7 @@ public partial class GoogleNotebooksInstanceShieldedInstanceConfigBlock : Terraf
     /// </summary>
     [TerraformProperty("enable_integrity_monitoring")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableIntegrityMonitoring { get; set; }
+    public partial TerraformValue<bool>? EnableIntegrityMonitoring { get; set; }
 
     /// <summary>
     /// Defines whether the instance has Secure Boot enabled. Secure Boot helps ensure that the system only runs
@@ -104,7 +104,7 @@ public partial class GoogleNotebooksInstanceShieldedInstanceConfigBlock : Terraf
     /// </summary>
     [TerraformProperty("enable_secure_boot")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableSecureBoot { get; set; }
+    public partial TerraformValue<bool>? EnableSecureBoot { get; set; }
 
     /// <summary>
     /// Defines whether the instance has the vTPM enabled.
@@ -112,7 +112,7 @@ public partial class GoogleNotebooksInstanceShieldedInstanceConfigBlock : Terraf
     /// </summary>
     [TerraformProperty("enable_vtpm")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableVtpm { get; set; }
+    public partial TerraformValue<bool>? EnableVtpm { get; set; }
 
 }
 
@@ -127,21 +127,21 @@ public partial class GoogleNotebooksInstanceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -156,14 +156,14 @@ public partial class GoogleNotebooksInstanceVmImageBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("image_family")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ImageFamily { get; set; }
+    public partial TerraformValue<string>? ImageFamily { get; set; }
 
     /// <summary>
     /// Use VM image name to find the image.
     /// </summary>
     [TerraformProperty("image_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ImageName { get; set; }
+    public partial TerraformValue<string>? ImageName { get; set; }
 
     /// <summary>
     /// The name of the Google Cloud project that this VM image belongs to.
@@ -172,7 +172,7 @@ public partial class GoogleNotebooksInstanceVmImageBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     [TerraformProperty("project")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Project { get; set; }
+    public required partial TerraformValue<string> Project { get; set; }
 
 }
 
@@ -194,21 +194,21 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [TerraformProperty("boot_disk_size_gb")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? BootDiskSizeGb { get; set; }
+    public partial TerraformValue<double>? BootDiskSizeGb { get; set; }
 
     /// <summary>
     /// Possible disk types for notebook instances. Possible values: [&amp;quot;DISK_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;PD_STANDARD&amp;quot;, &amp;quot;PD_SSD&amp;quot;, &amp;quot;PD_BALANCED&amp;quot;, &amp;quot;PD_EXTREME&amp;quot;]
     /// </summary>
     [TerraformProperty("boot_disk_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BootDiskType { get; set; }
+    public partial TerraformValue<string>? BootDiskType { get; set; }
 
     /// <summary>
     /// Instance creation time
     /// </summary>
     [TerraformProperty("create_time")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> CreateTime { get; set; }
+    public partial TerraformValue<string> CreateTime { get; set; }
 
     /// <summary>
     /// Specify a custom Cloud Storage path where the GPU driver is stored.
@@ -216,7 +216,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [TerraformProperty("custom_gpu_driver_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CustomGpuDriverPath { get; set; }
+    public partial TerraformValue<string>? CustomGpuDriverPath { get; set; }
 
     /// <summary>
     /// The size of the data disk in GB attached to this instance,
@@ -226,35 +226,35 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [TerraformProperty("data_disk_size_gb")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DataDiskSizeGb { get; set; }
+    public partial TerraformValue<double>? DataDiskSizeGb { get; set; }
 
     /// <summary>
     /// Possible disk types for notebook instances. Possible values: [&amp;quot;DISK_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;PD_STANDARD&amp;quot;, &amp;quot;PD_SSD&amp;quot;, &amp;quot;PD_BALANCED&amp;quot;, &amp;quot;PD_EXTREME&amp;quot;]
     /// </summary>
     [TerraformProperty("data_disk_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DataDiskType { get; set; }
+    public partial TerraformValue<string>? DataDiskType { get; set; }
 
     /// <summary>
     /// Desired state of the Notebook Instance. Set this field to &#39;ACTIVE&#39; to start the Instance, and &#39;STOPPED&#39; to stop the Instance.
     /// </summary>
     [TerraformProperty("desired_state")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DesiredState { get; set; }
+    public partial TerraformValue<string>? DesiredState { get; set; }
 
     /// <summary>
     /// Disk encryption method used on the boot and data disks, defaults to GMEK. Possible values: [&amp;quot;DISK_ENCRYPTION_UNSPECIFIED&amp;quot;, &amp;quot;GMEK&amp;quot;, &amp;quot;CMEK&amp;quot;]
     /// </summary>
     [TerraformProperty("disk_encryption")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DiskEncryption { get; set; }
+    public partial TerraformValue<string> DiskEncryption { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Whether the end user authorizes Google Cloud to install GPU driver
@@ -263,7 +263,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [TerraformProperty("install_gpu_driver")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? InstallGpuDriver { get; set; }
+    public partial TerraformValue<bool>? InstallGpuDriver { get; set; }
 
     /// <summary>
     /// The list of owners of this instance after creation.
@@ -274,7 +274,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [TerraformProperty("instance_owners")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? InstanceOwners { get; set; }
+    public partial TerraformList<string>? InstanceOwners { get; set; }
 
     /// <summary>
     /// The KMS key used to encrypt the disks, only applicable if diskEncryption is CMEK.
@@ -282,7 +282,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [TerraformProperty("kms_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKey { get; set; }
+    public partial TerraformValue<string>? KmsKey { get; set; }
 
     /// <summary>
     /// Labels to apply to this instance. These can be later modified by the setLabels method.
@@ -294,7 +294,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// A reference to the zone where the machine resides.
@@ -302,7 +302,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// A reference to a machine type which defines VM kind.
@@ -310,7 +310,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineType is required")]
     [TerraformProperty("machine_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MachineType { get; set; }
+    public required partial TerraformValue<string> MachineType { get; set; }
 
     /// <summary>
     /// Custom metadata to apply to this instance.
@@ -318,7 +318,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [TerraformProperty("metadata")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Metadata { get; set; }
+    public partial TerraformMap<string>? Metadata { get; set; }
 
     /// <summary>
     /// The name specified for the Notebook instance.
@@ -326,7 +326,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name of the VPC that this instance is in.
@@ -334,35 +334,35 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [TerraformProperty("network")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Network { get; set; }
+    public partial TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The type of vNIC driver. Possible values: [&amp;quot;UNSPECIFIED_NIC_TYPE&amp;quot;, &amp;quot;VIRTIO_NET&amp;quot;, &amp;quot;GVNIC&amp;quot;]
     /// </summary>
     [TerraformProperty("nic_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NicType { get; set; }
+    public partial TerraformValue<string>? NicType { get; set; }
 
     /// <summary>
     /// The notebook instance will not register with the proxy..
     /// </summary>
     [TerraformProperty("no_proxy_access")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? NoProxyAccess { get; set; }
+    public partial TerraformValue<bool>? NoProxyAccess { get; set; }
 
     /// <summary>
     /// No public IP will be assigned to this instance.
     /// </summary>
     [TerraformProperty("no_public_ip")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? NoPublicIp { get; set; }
+    public partial TerraformValue<bool>? NoPublicIp { get; set; }
 
     /// <summary>
     /// If true, the data disk will not be auto deleted when deleting the instance.
     /// </summary>
     [TerraformProperty("no_remove_data_disk")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? NoRemoveDataDisk { get; set; }
+    public partial TerraformValue<bool>? NoRemoveDataDisk { get; set; }
 
     /// <summary>
     /// Path to a Bash script that automatically runs after a
@@ -371,14 +371,14 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [TerraformProperty("post_startup_script")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PostStartupScript { get; set; }
+    public partial TerraformValue<string>? PostStartupScript { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The service account on this instance, giving access to other
@@ -389,7 +389,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [TerraformProperty("service_account")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ServiceAccount { get; set; }
+    public partial TerraformValue<string> ServiceAccount { get; set; }
 
     /// <summary>
     /// Optional. The URIs of service account scopes to be included in Compute Engine instances.
@@ -399,7 +399,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [TerraformProperty("service_account_scopes")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> ServiceAccountScopes { get; set; }
+    public partial TerraformList<string> ServiceAccountScopes { get; set; }
 
     /// <summary>
     /// The name of the subnet that this instance is in.
@@ -407,21 +407,21 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [TerraformProperty("subnet")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Subnet { get; set; }
+    public partial TerraformValue<string> Subnet { get; set; }
 
     /// <summary>
     /// The Compute Engine tags to add to instance.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformList<string> Tags { get; set; }
+    public partial TerraformList<string> Tags { get; set; }
 
     /// <summary>
     /// Instance update time.
     /// </summary>
     [TerraformProperty("update_time")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> UpdateTime { get; set; }
+    public partial TerraformValue<string> UpdateTime { get; set; }
 
     /// <summary>
     /// Block for accelerator_config.
@@ -429,7 +429,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AcceleratorConfig block(s) allowed")]
     [TerraformProperty("accelerator_config")]
-    public TerraformList<TerraformBlock<GoogleNotebooksInstanceAcceleratorConfigBlock>>? AcceleratorConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNotebooksInstanceAcceleratorConfigBlock>>? AcceleratorConfig { get; set; }
 
     /// <summary>
     /// Block for container_image.
@@ -437,7 +437,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerImage block(s) allowed")]
     [TerraformProperty("container_image")]
-    public TerraformList<TerraformBlock<GoogleNotebooksInstanceContainerImageBlock>>? ContainerImage { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNotebooksInstanceContainerImageBlock>>? ContainerImage { get; set; }
 
     /// <summary>
     /// Block for reservation_affinity.
@@ -445,7 +445,7 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationAffinity block(s) allowed")]
     [TerraformProperty("reservation_affinity")]
-    public TerraformList<TerraformBlock<GoogleNotebooksInstanceReservationAffinityBlock>>? ReservationAffinity { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNotebooksInstanceReservationAffinityBlock>>? ReservationAffinity { get; set; }
 
     /// <summary>
     /// Block for shielded_instance_config.
@@ -453,14 +453,14 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShieldedInstanceConfig block(s) allowed")]
     [TerraformProperty("shielded_instance_config")]
-    public TerraformList<TerraformBlock<GoogleNotebooksInstanceShieldedInstanceConfigBlock>>? ShieldedInstanceConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNotebooksInstanceShieldedInstanceConfigBlock>>? ShieldedInstanceConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNotebooksInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNotebooksInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vm_image.
@@ -468,14 +468,14 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VmImage block(s) allowed")]
     [TerraformProperty("vm_image")]
-    public TerraformList<TerraformBlock<GoogleNotebooksInstanceVmImageBlock>>? VmImage { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNotebooksInstanceVmImageBlock>>? VmImage { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The proxy endpoint that is used to access the Jupyter notebook.
@@ -485,14 +485,14 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [TerraformProperty("proxy_uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ProxyUri { get; }
+    public partial TerraformValue<string> ProxyUri { get; }
 
     /// <summary>
     /// The state of this instance.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -500,6 +500,6 @@ public partial class GoogleNotebooksInstance : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

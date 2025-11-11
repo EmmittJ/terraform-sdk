@@ -14,7 +14,7 @@ public partial class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The range_end attribute.
@@ -22,7 +22,7 @@ public partial class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeEnd is required")]
     [TerraformProperty("range_end")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RangeEnd { get; set; }
+    public required partial TerraformValue<string> RangeEnd { get; set; }
 
     /// <summary>
     /// The range_start attribute.
@@ -30,7 +30,7 @@ public partial class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeStart is required")]
     [TerraformProperty("range_start")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RangeStart { get; set; }
+    public required partial TerraformValue<string> RangeStart { get; set; }
 
 }
 
@@ -45,28 +45,28 @@ public partial class AzurermAnalysisServicesServerTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -84,21 +84,21 @@ public partial class AzurermAnalysisServicesServer : TerraformResource
     /// </summary>
     [TerraformProperty("admin_users")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? AdminUsers { get; set; }
+    public partial TerraformSet<string>? AdminUsers { get; set; }
 
     /// <summary>
     /// The backup_blob_container_uri attribute.
     /// </summary>
     [TerraformProperty("backup_blob_container_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BackupBlobContainerUri { get; set; }
+    public partial TerraformValue<string>? BackupBlobContainerUri { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -106,7 +106,7 @@ public partial class AzurermAnalysisServicesServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -114,21 +114,21 @@ public partial class AzurermAnalysisServicesServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The power_bi_service_enabled attribute.
     /// </summary>
     [TerraformProperty("power_bi_service_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PowerBiServiceEnabled { get; set; }
+    public partial TerraformValue<bool>? PowerBiServiceEnabled { get; set; }
 
     /// <summary>
     /// The querypool_connection_mode attribute.
     /// </summary>
     [TerraformProperty("querypool_connection_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? QuerypoolConnectionMode { get; set; }
+    public partial TerraformValue<string>? QuerypoolConnectionMode { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -136,7 +136,7 @@ public partial class AzurermAnalysisServicesServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
@@ -144,34 +144,34 @@ public partial class AzurermAnalysisServicesServer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [TerraformProperty("sku")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Sku { get; set; }
+    public required partial TerraformValue<string> Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for ipv4_firewall_rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("ipv4_firewall_rule")]
-    public TerraformSet<TerraformBlock<AzurermAnalysisServicesServerIpv4FirewallRuleBlock>>? Ipv4FirewallRule { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermAnalysisServicesServerIpv4FirewallRuleBlock>>? Ipv4FirewallRule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermAnalysisServicesServerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermAnalysisServicesServerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The server_full_name attribute.
     /// </summary>
     [TerraformProperty("server_full_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ServerFullName { get; }
+    public partial TerraformValue<string> ServerFullName { get; }
 
 }

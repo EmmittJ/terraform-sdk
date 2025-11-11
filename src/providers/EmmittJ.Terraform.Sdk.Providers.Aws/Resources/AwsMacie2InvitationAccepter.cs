@@ -13,7 +13,7 @@ public partial class AwsMacie2InvitationAccepterTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -32,34 +32,34 @@ public partial class AwsMacie2InvitationAccepter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministratorAccountId is required")]
     [TerraformProperty("administrator_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AdministratorAccountId { get; set; }
+    public required partial TerraformValue<string> AdministratorAccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsMacie2InvitationAccepterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsMacie2InvitationAccepterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The invitation_id attribute.
     /// </summary>
     [TerraformProperty("invitation_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> InvitationId { get; }
+    public partial TerraformValue<string> InvitationId { get; }
 
 }

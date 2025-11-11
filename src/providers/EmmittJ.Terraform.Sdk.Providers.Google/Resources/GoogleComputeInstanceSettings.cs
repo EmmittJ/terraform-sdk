@@ -13,7 +13,7 @@ public partial class GoogleComputeInstanceSettingsMetadataBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("items")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Items { get; set; }
+    public partial TerraformMap<string>? Items { get; set; }
 
 }
 
@@ -28,21 +28,21 @@ public partial class GoogleComputeInstanceSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -61,14 +61,14 @@ public partial class GoogleComputeInstanceSettings : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// A reference to the zone where the machine resides.
@@ -76,7 +76,7 @@ public partial class GoogleComputeInstanceSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     [TerraformProperty("zone")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Zone { get; set; }
+    public required partial TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Block for metadata.
@@ -84,14 +84,14 @@ public partial class GoogleComputeInstanceSettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
     [TerraformProperty("metadata")]
-    public TerraformList<TerraformBlock<GoogleComputeInstanceSettingsMetadataBlock>>? Metadata { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleComputeInstanceSettingsMetadataBlock>>? Metadata { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleComputeInstanceSettingsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleComputeInstanceSettingsTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
@@ -99,6 +99,6 @@ public partial class GoogleComputeInstanceSettings : TerraformResource
     /// </summary>
     [TerraformProperty("fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Fingerprint { get; }
+    public partial TerraformValue<string> Fingerprint { get; }
 
 }

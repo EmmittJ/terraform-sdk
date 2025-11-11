@@ -13,14 +13,14 @@ public partial class AwsDatazoneGlossaryTermTermRelationsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("classifies")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Classifies { get; set; }
+    public partial TerraformSet<string>? Classifies { get; set; }
 
     /// <summary>
     /// The is_a attribute.
     /// </summary>
     [TerraformProperty("is_a")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? IsA { get; set; }
+    public partial TerraformSet<string>? IsA { get; set; }
 
 }
 
@@ -35,7 +35,7 @@ public partial class AwsDatazoneGlossaryTermTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AwsDatazoneGlossaryTerm : TerraformResource
     /// </summary>
     [TerraformProperty("domain_identifier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DomainIdentifier { get; set; }
+    public partial TerraformValue<string>? DomainIdentifier { get; set; }
 
     /// <summary>
     /// The glossary_identifier attribute.
@@ -61,14 +61,14 @@ public partial class AwsDatazoneGlossaryTerm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlossaryIdentifier is required")]
     [TerraformProperty("glossary_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GlossaryIdentifier { get; set; }
+    public required partial TerraformValue<string> GlossaryIdentifier { get; set; }
 
     /// <summary>
     /// The long_description attribute.
     /// </summary>
     [TerraformProperty("long_description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LongDescription { get; set; }
+    public partial TerraformValue<string>? LongDescription { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -76,62 +76,62 @@ public partial class AwsDatazoneGlossaryTerm : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The short_description attribute.
     /// </summary>
     [TerraformProperty("short_description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ShortDescription { get; set; }
+    public partial TerraformValue<string>? ShortDescription { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Status { get; set; }
+    public partial TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// Block for term_relations.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("term_relations")]
-    public TerraformList<TerraformBlock<AwsDatazoneGlossaryTermTermRelationsBlock>>? TermRelations { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDatazoneGlossaryTermTermRelationsBlock>>? TermRelations { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsDatazoneGlossaryTermTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsDatazoneGlossaryTermTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     [TerraformProperty("created_at")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedAt { get; }
+    public partial TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     [TerraformProperty("created_by")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreatedBy { get; }
+    public partial TerraformValue<string> CreatedBy { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePair
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The value to put.
@@ -22,7 +22,7 @@ public partial class AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePair
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     [TerraformProperty("value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Value { get; set; }
+    public required partial TerraformValue<string> Value { get; set; }
 
 }
 
@@ -41,27 +41,27 @@ public partial class AwsCloudfrontkeyvaluestoreKeysExclusive : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyValueStoreArn is required")]
     [TerraformProperty("key_value_store_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyValueStoreArn { get; set; }
+    public required partial TerraformValue<string> KeyValueStoreArn { get; set; }
 
     /// <summary>
     /// Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
     /// </summary>
     [TerraformProperty("max_batch_size")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxBatchSize { get; set; }
+    public partial TerraformValue<double> MaxBatchSize { get; set; }
 
     /// <summary>
     /// Block for resource_key_value_pair.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("resource_key_value_pair")]
-    public TerraformSet<TerraformBlock<AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePairBlock>>? ResourceKeyValuePair { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePairBlock>>? ResourceKeyValuePair { get; set; }
 
     /// <summary>
     /// Total size of the Key Value Store in bytes.
     /// </summary>
     [TerraformProperty("total_size_in_bytes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> TotalSizeInBytes { get; }
+    public partial TerraformValue<double> TotalSizeInBytes { get; }
 
 }

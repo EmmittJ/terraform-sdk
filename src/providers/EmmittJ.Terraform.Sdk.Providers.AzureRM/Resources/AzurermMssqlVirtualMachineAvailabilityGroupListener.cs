@@ -14,7 +14,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBala
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerId is required")]
     [TerraformProperty("load_balancer_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LoadBalancerId { get; set; }
+    public required partial TerraformValue<string> LoadBalancerId { get; set; }
 
     /// <summary>
     /// The private_ip_address attribute.
@@ -22,7 +22,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBala
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddress is required")]
     [TerraformProperty("private_ip_address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrivateIpAddress { get; set; }
+    public required partial TerraformValue<string> PrivateIpAddress { get; set; }
 
     /// <summary>
     /// The probe_port attribute.
@@ -30,7 +30,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBala
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProbePort is required")]
     [TerraformProperty("probe_port")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ProbePort { get; set; }
+    public required partial TerraformValue<double> ProbePort { get; set; }
 
     /// <summary>
     /// The sql_virtual_machine_ids attribute.
@@ -38,7 +38,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBala
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlVirtualMachineIds is required")]
     [TerraformProperty("sql_virtual_machine_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> SqlVirtualMachineIds { get; set; }
+    public required partial TerraformSet<string> SqlVirtualMachineIds { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -46,7 +46,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBala
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
 }
 
@@ -62,7 +62,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSub
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddress is required")]
     [TerraformProperty("private_ip_address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrivateIpAddress { get; set; }
+    public required partial TerraformValue<string> PrivateIpAddress { get; set; }
 
     /// <summary>
     /// The sql_virtual_machine_id attribute.
@@ -70,7 +70,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSub
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlVirtualMachineId is required")]
     [TerraformProperty("sql_virtual_machine_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SqlVirtualMachineId { get; set; }
+    public required partial TerraformValue<string> SqlVirtualMachineId { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
@@ -78,7 +78,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSub
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
 }
 
@@ -94,7 +94,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Commit is required")]
     [TerraformProperty("commit")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Commit { get; set; }
+    public required partial TerraformValue<string> Commit { get; set; }
 
     /// <summary>
     /// The failover_mode attribute.
@@ -102,7 +102,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailoverMode is required")]
     [TerraformProperty("failover_mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FailoverMode { get; set; }
+    public required partial TerraformValue<string> FailoverMode { get; set; }
 
     /// <summary>
     /// The readable_secondary attribute.
@@ -110,7 +110,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadableSecondary is required")]
     [TerraformProperty("readable_secondary")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ReadableSecondary { get; set; }
+    public required partial TerraformValue<string> ReadableSecondary { get; set; }
 
     /// <summary>
     /// The role attribute.
@@ -118,7 +118,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     [TerraformProperty("role")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Role { get; set; }
+    public required partial TerraformValue<string> Role { get; set; }
 
     /// <summary>
     /// The sql_virtual_machine_id attribute.
@@ -126,7 +126,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlVirtualMachineId is required")]
     [TerraformProperty("sql_virtual_machine_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SqlVirtualMachineId { get; set; }
+    public required partial TerraformValue<string> SqlVirtualMachineId { get; set; }
 
 }
 
@@ -141,21 +141,21 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeouts
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -174,14 +174,14 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListener : Terra
     /// </summary>
     [TerraformProperty("availability_group_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AvailabilityGroupName { get; set; }
+    public partial TerraformValue<string>? AvailabilityGroupName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -189,14 +189,14 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListener : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     [TerraformProperty("port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Port { get; set; }
+    public partial TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// The sql_virtual_machine_group_id attribute.
@@ -204,7 +204,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListener : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlVirtualMachineGroupId is required")]
     [TerraformProperty("sql_virtual_machine_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SqlVirtualMachineGroupId { get; set; }
+    public required partial TerraformValue<string> SqlVirtualMachineGroupId { get; set; }
 
     /// <summary>
     /// Block for load_balancer_configuration.
@@ -212,14 +212,14 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListener : Terra
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancerConfiguration block(s) allowed")]
     [TerraformProperty("load_balancer_configuration")]
-    public TerraformList<TerraformBlock<AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationBlock>>? LoadBalancerConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationBlock>>? LoadBalancerConfiguration { get; set; }
 
     /// <summary>
     /// Block for multi_subnet_ip_configuration.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("multi_subnet_ip_configuration")]
-    public TerraformSet<TerraformBlock<AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationBlock>>? MultiSubnetIpConfiguration { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationBlock>>? MultiSubnetIpConfiguration { get; set; }
 
     /// <summary>
     /// Block for replica.
@@ -228,13 +228,13 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListener : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replica is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Replica block(s) required")]
     [TerraformProperty("replica")]
-    public TerraformSet<TerraformBlock<AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock>>? Replica { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock>>? Replica { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock>? Timeouts { get; set; }
 
 }

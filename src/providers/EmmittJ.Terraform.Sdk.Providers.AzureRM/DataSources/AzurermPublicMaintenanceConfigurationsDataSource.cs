@@ -13,7 +13,7 @@ public partial class AzurermPublicMaintenanceConfigurationsDataSourceTimeoutsBlo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,41 +31,41 @@ public partial class AzurermPublicMaintenanceConfigurationsDataSource : Terrafor
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The recur_every attribute.
     /// </summary>
     [TerraformProperty("recur_every")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RecurEvery { get; set; }
+    public partial TerraformValue<string>? RecurEvery { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [TerraformProperty("scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Scope { get; set; }
+    public partial TerraformValue<string>? Scope { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPublicMaintenanceConfigurationsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPublicMaintenanceConfigurationsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The configs attribute.
     /// </summary>
     [TerraformProperty("configs")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Configs { get; }
+    public partial TerraformList<object> Configs { get; }
 
 }

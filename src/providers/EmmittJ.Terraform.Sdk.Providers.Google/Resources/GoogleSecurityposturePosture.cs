@@ -13,7 +13,7 @@ public partial class GoogleSecurityposturePosturePolicySetsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// ID of the policy set.
@@ -21,7 +21,7 @@ public partial class GoogleSecurityposturePosturePolicySetsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicySetId is required")]
     [TerraformProperty("policy_set_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicySetId { get; set; }
+    public required partial TerraformValue<string> PolicySetId { get; set; }
 
 }
 
@@ -36,21 +36,21 @@ public partial class GoogleSecurityposturePostureTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -69,14 +69,14 @@ public partial class GoogleSecurityposturePosture : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Location of the resource, eg: global.
@@ -84,7 +84,7 @@ public partial class GoogleSecurityposturePosture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The parent of the resource, an organization. Format should be &#39;organizations/{organization_id}&#39;.
@@ -92,7 +92,7 @@ public partial class GoogleSecurityposturePosture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Id of the posture. It is an immutable field.
@@ -100,7 +100,7 @@ public partial class GoogleSecurityposturePosture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureId is required")]
     [TerraformProperty("posture_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PostureId { get; set; }
+    public required partial TerraformValue<string> PostureId { get; set; }
 
     /// <summary>
     /// State of the posture. Update to state field should not be triggered along with
@@ -109,7 +109,7 @@ public partial class GoogleSecurityposturePosture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     [TerraformProperty("state")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> State { get; set; }
+    public required partial TerraformValue<string> State { get; set; }
 
     /// <summary>
     /// Block for policy_sets.
@@ -118,55 +118,55 @@ public partial class GoogleSecurityposturePosture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicySets is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PolicySets block(s) required")]
     [TerraformProperty("policy_sets")]
-    public TerraformList<TerraformBlock<GoogleSecurityposturePosturePolicySetsBlock>>? PolicySets { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleSecurityposturePosturePolicySetsBlock>>? PolicySets { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleSecurityposturePostureTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleSecurityposturePostureTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the Posture was created in UTC.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Name of the posture.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// If set, there are currently changes in flight to the posture.
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// Revision_id of the posture.
     /// </summary>
     [TerraformProperty("revision_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RevisionId { get; }
+    public partial TerraformValue<string> RevisionId { get; }
 
     /// <summary>
     /// Time the Posture was updated in UTC.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -22,7 +22,7 @@ public partial class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The namespace in which the entity exists.
@@ -36,7 +36,7 @@ public partial class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock :
     /// </summary>
     [TerraformProperty("namespace")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Namespace { get; set; }
+    public partial TerraformValue<string>? Namespace { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class GoogleCloudIdentityGroupMembershipRolesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -67,21 +67,21 @@ public partial class GoogleCloudIdentityGroupMembershipTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -100,7 +100,7 @@ public partial class GoogleCloudIdentityGroupMembership : TerraformResource
     /// </summary>
     [TerraformProperty("create_ignore_already_exists")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CreateIgnoreAlreadyExists { get; set; }
+    public partial TerraformValue<bool>? CreateIgnoreAlreadyExists { get; set; }
 
     /// <summary>
     /// The name of the Group to create this membership in.
@@ -108,14 +108,14 @@ public partial class GoogleCloudIdentityGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     [TerraformProperty("group")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Group { get; set; }
+    public required partial TerraformValue<string> Group { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for preferred_member_key.
@@ -123,7 +123,7 @@ public partial class GoogleCloudIdentityGroupMembership : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreferredMemberKey block(s) allowed")]
     [TerraformProperty("preferred_member_key")]
-    public TerraformList<TerraformBlock<GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock>>? PreferredMemberKey { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock>>? PreferredMemberKey { get; set; }
 
     /// <summary>
     /// Block for roles.
@@ -132,41 +132,41 @@ public partial class GoogleCloudIdentityGroupMembership : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Roles block(s) required")]
     [TerraformProperty("roles")]
-    public TerraformSet<TerraformBlock<GoogleCloudIdentityGroupMembershipRolesBlock>>? Roles { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleCloudIdentityGroupMembershipRolesBlock>>? Roles { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleCloudIdentityGroupMembershipTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleCloudIdentityGroupMembershipTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when the Membership was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The resource name of the Membership, of the form groups/{group_id}/memberships/{membership_id}.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The type of the membership.
     /// </summary>
     [TerraformProperty("type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Type { get; }
+    public partial TerraformValue<string> Type { get; }
 
     /// <summary>
     /// The time when the Membership was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

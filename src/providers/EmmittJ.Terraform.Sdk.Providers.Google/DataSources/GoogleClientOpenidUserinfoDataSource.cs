@@ -19,13 +19,13 @@ public partial class GoogleClientOpenidUserinfoDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("email")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Email { get; }
+    public partial TerraformValue<string> Email { get; }
 
     /// <summary>
     /// The ID of this data source in Terraform state. Its value is the same as the `email` attribute. Do not use this field, use the `email` attribute instead.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

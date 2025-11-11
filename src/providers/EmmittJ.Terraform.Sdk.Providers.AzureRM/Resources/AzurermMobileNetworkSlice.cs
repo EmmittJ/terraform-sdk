@@ -15,7 +15,7 @@ public partial class AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssista
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("slice_differentiator")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SliceDifferentiator { get; set; }
+    public partial TerraformValue<string>? SliceDifferentiator { get; set; }
 
     /// <summary>
     /// The slice_service_type attribute.
@@ -24,7 +24,7 @@ public partial class AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssista
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("slice_service_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> SliceServiceType { get; set; }
+    public required partial TerraformValue<double> SliceServiceType { get; set; }
 
 }
 
@@ -39,28 +39,28 @@ public partial class AzurermMobileNetworkSliceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -79,14 +79,14 @@ public partial class AzurermMobileNetworkSlice : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -94,7 +94,7 @@ public partial class AzurermMobileNetworkSlice : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The mobile_network_id attribute.
@@ -102,7 +102,7 @@ public partial class AzurermMobileNetworkSlice : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
     [TerraformProperty("mobile_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MobileNetworkId { get; set; }
+    public required partial TerraformValue<string> MobileNetworkId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -110,28 +110,28 @@ public partial class AzurermMobileNetworkSlice : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The slice_differentiator attribute.
     /// </summary>
     [TerraformProperty("slice_differentiator")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SliceDifferentiator { get; set; }
+    public partial TerraformValue<string> SliceDifferentiator { get; set; }
 
     /// <summary>
     /// The slice_service_type attribute.
     /// </summary>
     [TerraformProperty("slice_service_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> SliceServiceType { get; set; }
+    public partial TerraformValue<double> SliceServiceType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for single_network_slice_selection_assistance_information.
@@ -140,13 +140,13 @@ public partial class AzurermMobileNetworkSlice : TerraformResource
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SingleNetworkSliceSelectionAssistanceInformation block(s) allowed")]
     [Obsolete("This block is deprecated.")]
     [TerraformProperty("single_network_slice_selection_assistance_information")]
-    public TerraformList<TerraformBlock<AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock>>? SingleNetworkSliceSelectionAssistanceInformation { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock>>? SingleNetworkSliceSelectionAssistanceInformation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMobileNetworkSliceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMobileNetworkSliceTimeoutsBlock>? Timeouts { get; set; }
 
 }

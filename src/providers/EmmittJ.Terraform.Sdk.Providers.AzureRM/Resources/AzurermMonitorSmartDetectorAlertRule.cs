@@ -13,7 +13,7 @@ public partial class AzurermMonitorSmartDetectorAlertRuleActionGroupBlock : Terr
     /// </summary>
     [TerraformProperty("email_subject")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EmailSubject { get; set; }
+    public partial TerraformValue<string>? EmailSubject { get; set; }
 
     /// <summary>
     /// The ids attribute.
@@ -21,14 +21,14 @@ public partial class AzurermMonitorSmartDetectorAlertRuleActionGroupBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ids is required")]
     [TerraformProperty("ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Ids { get; set; }
+    public required partial TerraformSet<string> Ids { get; set; }
 
     /// <summary>
     /// The webhook_payload attribute.
     /// </summary>
     [TerraformProperty("webhook_payload")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WebhookPayload { get; set; }
+    public partial TerraformValue<string>? WebhookPayload { get; set; }
 
 }
 
@@ -43,28 +43,28 @@ public partial class AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -83,7 +83,7 @@ public partial class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The detector_type attribute.
@@ -91,14 +91,14 @@ public partial class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorType is required")]
     [TerraformProperty("detector_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DetectorType { get; set; }
+    public required partial TerraformValue<string> DetectorType { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The frequency attribute.
@@ -106,14 +106,14 @@ public partial class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     [TerraformProperty("frequency")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Frequency { get; set; }
+    public required partial TerraformValue<string> Frequency { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -121,7 +121,7 @@ public partial class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -129,7 +129,7 @@ public partial class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The scope_resource_ids attribute.
@@ -137,7 +137,7 @@ public partial class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeResourceIds is required")]
     [TerraformProperty("scope_resource_ids")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> ScopeResourceIds { get; set; }
+    public required partial TerraformSet<string> ScopeResourceIds { get; set; }
 
     /// <summary>
     /// The severity attribute.
@@ -145,21 +145,21 @@ public partial class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     [TerraformProperty("severity")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Severity { get; set; }
+    public required partial TerraformValue<string> Severity { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The throttling_duration attribute.
     /// </summary>
     [TerraformProperty("throttling_duration")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ThrottlingDuration { get; set; }
+    public partial TerraformValue<string>? ThrottlingDuration { get; set; }
 
     /// <summary>
     /// Block for action_group.
@@ -169,13 +169,13 @@ public partial class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ActionGroup block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActionGroup block(s) allowed")]
     [TerraformProperty("action_group")]
-    public TerraformList<TerraformBlock<AzurermMonitorSmartDetectorAlertRuleActionGroupBlock>>? ActionGroup { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMonitorSmartDetectorAlertRuleActionGroupBlock>>? ActionGroup { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

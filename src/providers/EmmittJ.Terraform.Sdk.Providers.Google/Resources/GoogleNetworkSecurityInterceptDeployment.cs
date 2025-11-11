@@ -13,21 +13,21 @@ public partial class GoogleNetworkSecurityInterceptDeploymentTimeoutsBlock : Ter
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class GoogleNetworkSecurityInterceptDeployment : TerraformResourc
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The regional forwarding rule that fronts the interceptors, for example:
@@ -56,14 +56,14 @@ public partial class GoogleNetworkSecurityInterceptDeployment : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardingRule is required")]
     [TerraformProperty("forwarding_rule")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ForwardingRule { get; set; }
+    public required partial TerraformValue<string> ForwardingRule { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The deployment group that this deployment is a part of, for example:
@@ -73,7 +73,7 @@ public partial class GoogleNetworkSecurityInterceptDeployment : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterceptDeploymentGroup is required")]
     [TerraformProperty("intercept_deployment_group")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InterceptDeploymentGroup { get; set; }
+    public required partial TerraformValue<string> InterceptDeploymentGroup { get; set; }
 
     /// <summary>
     /// The ID to use for the new deployment, which will become the final
@@ -82,7 +82,7 @@ public partial class GoogleNetworkSecurityInterceptDeployment : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterceptDeploymentId is required")]
     [TerraformProperty("intercept_deployment_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InterceptDeploymentId { get; set; }
+    public required partial TerraformValue<string> InterceptDeploymentId { get; set; }
 
     /// <summary>
     /// Labels are key/value pairs that help to organize and filter resources.
@@ -92,7 +92,7 @@ public partial class GoogleNetworkSecurityInterceptDeployment : TerraformResourc
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The cloud location of the deployment, e.g. &#39;us-central1-a&#39; or &#39;asia-south1-b&#39;.
@@ -100,21 +100,21 @@ public partial class GoogleNetworkSecurityInterceptDeployment : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkSecurityInterceptDeploymentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkSecurityInterceptDeploymentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp when the resource was created.
@@ -122,14 +122,14 @@ public partial class GoogleNetworkSecurityInterceptDeployment : TerraformResourc
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The resource name of this deployment, for example:
@@ -138,7 +138,7 @@ public partial class GoogleNetworkSecurityInterceptDeployment : TerraformResourc
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The current state of the resource does not match the user&#39;s intended state,
@@ -148,7 +148,7 @@ public partial class GoogleNetworkSecurityInterceptDeployment : TerraformResourc
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// The current state of the deployment.
@@ -163,7 +163,7 @@ public partial class GoogleNetworkSecurityInterceptDeployment : TerraformResourc
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -171,7 +171,7 @@ public partial class GoogleNetworkSecurityInterceptDeployment : TerraformResourc
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The timestamp when the resource was most recently updated.
@@ -179,6 +179,6 @@ public partial class GoogleNetworkSecurityInterceptDeployment : TerraformResourc
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

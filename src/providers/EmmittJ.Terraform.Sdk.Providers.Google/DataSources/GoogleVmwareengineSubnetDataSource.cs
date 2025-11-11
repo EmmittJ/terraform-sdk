@@ -16,7 +16,7 @@ public partial class GoogleVmwareengineSubnetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the subnet. For userDefined subnets, this name should be in the format of &amp;quot;service-n&amp;quot;,
@@ -25,7 +25,7 @@ public partial class GoogleVmwareengineSubnetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource name of the private cloud to create a new subnet in.
@@ -35,7 +35,7 @@ public partial class GoogleVmwareengineSubnetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Creation time of this resource.
@@ -44,35 +44,35 @@ public partial class GoogleVmwareengineSubnetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// DHCP address ranges.
     /// </summary>
     [TerraformProperty("dhcp_address_ranges")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> DhcpAddressRanges { get; }
+    public partial TerraformList<object> DhcpAddressRanges { get; }
 
     /// <summary>
     /// The canonical identifier of the logical router that this subnet is attached to.
     /// </summary>
     [TerraformProperty("gateway_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GatewayId { get; }
+    public partial TerraformValue<string> GatewayId { get; }
 
     /// <summary>
     /// The IP address of the gateway of this subnet. Must fall within the IP prefix defined above.
     /// </summary>
     [TerraformProperty("gateway_ip")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GatewayIp { get; }
+    public partial TerraformValue<string> GatewayIp { get; }
 
     /// <summary>
     /// The IP address range of the subnet in CIDR format.
     /// </summary>
     [TerraformProperty("ip_cidr_range")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> IpCidrRange { get; }
+    public partial TerraformValue<string> IpCidrRange { get; }
 
     /// <summary>
     /// Whether the NSX-T configuration in the backend follows the standard configuration supported by Google Cloud.
@@ -80,28 +80,28 @@ public partial class GoogleVmwareengineSubnetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("standard_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> StandardConfig { get; }
+    public partial TerraformValue<bool> StandardConfig { get; }
 
     /// <summary>
     /// State of the subnet.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The type of the subnet.
     /// </summary>
     [TerraformProperty("type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Type { get; }
+    public partial TerraformValue<string> Type { get; }
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Last updated time of this resource.
@@ -110,13 +110,13 @@ public partial class GoogleVmwareengineSubnetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// VLAN ID of the VLAN on which the subnet is configured.
     /// </summary>
     [TerraformProperty("vlan_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> VlanId { get; }
+    public partial TerraformValue<double> VlanId { get; }
 
 }

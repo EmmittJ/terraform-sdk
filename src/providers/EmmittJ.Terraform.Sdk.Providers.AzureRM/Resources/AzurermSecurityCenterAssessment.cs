@@ -13,7 +13,7 @@ public partial class AzurermSecurityCenterAssessmentStatusBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("cause")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Cause { get; set; }
+    public partial TerraformValue<string>? Cause { get; set; }
 
     /// <summary>
     /// The code attribute.
@@ -21,14 +21,14 @@ public partial class AzurermSecurityCenterAssessmentStatusBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     [TerraformProperty("code")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Code { get; set; }
+    public required partial TerraformValue<string> Code { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
 }
 
@@ -43,28 +43,28 @@ public partial class AzurermSecurityCenterAssessmentTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -83,7 +83,7 @@ public partial class AzurermSecurityCenterAssessment : TerraformResource
     /// </summary>
     [TerraformProperty("additional_data")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? AdditionalData { get; set; }
+    public partial TerraformMap<string>? AdditionalData { get; set; }
 
     /// <summary>
     /// The assessment_policy_id attribute.
@@ -91,14 +91,14 @@ public partial class AzurermSecurityCenterAssessment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssessmentPolicyId is required")]
     [TerraformProperty("assessment_policy_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AssessmentPolicyId { get; set; }
+    public required partial TerraformValue<string> AssessmentPolicyId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The target_resource_id attribute.
@@ -106,7 +106,7 @@ public partial class AzurermSecurityCenterAssessment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     [TerraformProperty("target_resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TargetResourceId { get; set; }
+    public required partial TerraformValue<string> TargetResourceId { get; set; }
 
     /// <summary>
     /// Block for status.
@@ -116,13 +116,13 @@ public partial class AzurermSecurityCenterAssessment : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Status block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Status block(s) allowed")]
     [TerraformProperty("status")]
-    public TerraformList<TerraformBlock<AzurermSecurityCenterAssessmentStatusBlock>>? Status { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermSecurityCenterAssessmentStatusBlock>>? Status { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSecurityCenterAssessmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSecurityCenterAssessmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

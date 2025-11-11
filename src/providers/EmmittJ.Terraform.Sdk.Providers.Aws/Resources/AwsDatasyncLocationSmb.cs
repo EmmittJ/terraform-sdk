@@ -13,7 +13,7 @@ public partial class AwsDatasyncLocationSmbMountOptionsBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Version { get; set; }
+    public partial TerraformValue<string>? Version { get; set; }
 
 }
 
@@ -33,21 +33,21 @@ public partial class AwsDatasyncLocationSmb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentArns is required")]
     [TerraformProperty("agent_arns")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> AgentArns { get; set; }
+    public required partial TerraformSet<string> AgentArns { get; set; }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
     [TerraformProperty("domain")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Domain { get; set; }
+    public partial TerraformValue<string> Domain { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The password attribute.
@@ -55,14 +55,14 @@ public partial class AwsDatasyncLocationSmb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     [TerraformProperty("password")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Password { get; set; }
+    public required partial TerraformValue<string> Password { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The server_hostname attribute.
@@ -70,7 +70,7 @@ public partial class AwsDatasyncLocationSmb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerHostname is required")]
     [TerraformProperty("server_hostname")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServerHostname { get; set; }
+    public required partial TerraformValue<string> ServerHostname { get; set; }
 
     /// <summary>
     /// The subdirectory attribute.
@@ -78,21 +78,21 @@ public partial class AwsDatasyncLocationSmb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subdirectory is required")]
     [TerraformProperty("subdirectory")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Subdirectory { get; set; }
+    public required partial TerraformValue<string> Subdirectory { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The user attribute.
@@ -100,7 +100,7 @@ public partial class AwsDatasyncLocationSmb : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     [TerraformProperty("user")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> User { get; set; }
+    public required partial TerraformValue<string> User { get; set; }
 
     /// <summary>
     /// Block for mount_options.
@@ -108,20 +108,20 @@ public partial class AwsDatasyncLocationSmb : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MountOptions block(s) allowed")]
     [TerraformProperty("mount_options")]
-    public TerraformList<TerraformBlock<AwsDatasyncLocationSmbMountOptionsBlock>>? MountOptions { get; set; }
+    public partial TerraformList<TerraformBlock<AwsDatasyncLocationSmbMountOptionsBlock>>? MountOptions { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     [TerraformProperty("uri")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uri { get; }
+    public partial TerraformValue<string> Uri { get; }
 
 }

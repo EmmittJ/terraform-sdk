@@ -27,24 +27,24 @@ public partial class {{ClassName}} : TerraformBlockBase
 {{#IsRequiredArgument}}
     // Required argument - source generator will implement get/set
 {{#UseRequiredKeyword}}
-    public required {{{PropertyWrapper}}} {{Name}} { get; set; }
+    public required partial {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public {{{PropertyWrapper}}}? {{Name}} { get; set; }
+    public partial {{{PropertyWrapper}}}? {{Name}} { get; set; }
 {{/UseNullable}}
 {{/IsRequiredArgument}}
 {{#IsOptionalArgument}}
     // Optional argument - source generator will implement get/set
 {{#UseRequiredKeyword}}
-    public required {{{PropertyWrapper}}} {{Name}} { get; set; }
+    public required partial {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public {{{PropertyWrapper}}}? {{Name}} { get; set; }
+    public partial {{{PropertyWrapper}}}? {{Name}} { get; set; }
 {{/UseNullable}}
 {{/IsOptionalArgument}}
 {{#IsOptionalAndComputed}}
     // Optional+Computed - source generator will implement get/set
-    public {{{PropertyWrapper}}} {{Name}} { get; set; }
+    public partial {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/IsOptionalAndComputed}}
 {{/IsComputedAttribute}}
 
@@ -82,28 +82,28 @@ public partial class {{ClassName}} : {{BaseClassName}}
 {{#IsRequiredArgument}}
     // Required argument - source generator will implement get/set
 {{#UseRequiredKeyword}}
-    public required {{{PropertyWrapper}}} {{Name}} { get; set; }
+    public required partial {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public {{{PropertyWrapper}}}? {{Name}} { get; set; }
+    public partial {{{PropertyWrapper}}}? {{Name}} { get; set; }
 {{/UseNullable}}
 {{/IsRequiredArgument}}
 {{#IsOptionalArgument}}
     // Optional argument - source generator will implement get/set
 {{#UseRequiredKeyword}}
-    public required {{{PropertyWrapper}}} {{Name}} { get; set; }
+    public required partial {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public {{{PropertyWrapper}}}? {{Name}} { get; set; }
+    public partial {{{PropertyWrapper}}}? {{Name}} { get; set; }
 {{/UseNullable}}
 {{/IsOptionalArgument}}
 {{#IsOptionalAndComputed}}
     // Optional+Computed - source generator will implement get/set
-    public {{{PropertyWrapper}}} {{Name}} { get; set; }
+    public partial {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/IsOptionalAndComputed}}
 {{#IsComputedAttribute}}
     // Computed attribute - source generator will implement read-only get
-    public {{{PropertyWrapper}}} {{Name}} { get; }
+    public partial {{{PropertyWrapper}}} {{Name}} { get; }
 {{/IsComputedAttribute}}
 
 {{/Properties}}
@@ -120,10 +120,10 @@ public partial class {{ClassName}} : {{BaseClassName}}
 {{/IsDeprecated}}
     [TerraformProperty("{{TerraformName}}")]
 {{#UseRequiredKeyword}}
-    public required {{{BlockPropertyType}}} {{Name}} { get; set; }
+    public required partial {{{BlockPropertyType}}} {{Name}} { get; set; }
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
-    public {{{BlockPropertyType}}}? {{Name}} { get; set; }
+    public partial {{{BlockPropertyType}}}? {{Name}} { get; set; }
 {{/UseNullable}}
 
 {{/BlockTypes}}
@@ -133,7 +133,7 @@ public partial class {{ClassName}} : {{BaseClassName}}
     /// </summary>
     [TerraformProperty("{{TerraformName}}")]
     // Output-only attribute - source generator will implement read-only get
-    public {{{PropertyWrapper}}} {{Name}} { get; }
+    public partial {{{PropertyWrapper}}} {{Name}} { get; }
 
 {{/OutputAttributes}}
 }

@@ -16,14 +16,14 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("certificate_authority_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CertificateAuthorityId { get; set; }
+    public partial TerraformValue<string>? CertificateAuthorityId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Location of the CertificateAuthority. A full list of valid locations can be found by
@@ -31,35 +31,35 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The name of the CaPool this Certificate Authority belongs to.
     /// </summary>
     [TerraformProperty("pool")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Pool { get; set; }
+    public partial TerraformValue<string>? Pool { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// URLs for accessing content published by this CA, such as the CA certificate and CRLs.
     /// </summary>
     [TerraformProperty("access_urls")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> AccessUrls { get; }
+    public partial TerraformList<object> AccessUrls { get; }
 
     /// <summary>
     /// The config used to create a self-signed X.509 certificate or CSR.
     /// </summary>
     [TerraformProperty("config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Config { get; }
+    public partial TerraformList<object> Config { get; }
 
     /// <summary>
     /// The time at which this CertificateAuthority was created.
@@ -69,7 +69,7 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the CertificateAuthority.
@@ -79,7 +79,7 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> DeletionProtection { get; }
+    public partial TerraformValue<bool> DeletionProtection { get; }
 
     /// <summary>
     /// Desired state of the CertificateAuthority. Set this field to &#39;STAGED&#39; to create a &#39;STAGED&#39; root CA.
@@ -87,14 +87,14 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("desired_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DesiredState { get; }
+    public partial TerraformValue<string> DesiredState { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The name of a Cloud Storage bucket where this CertificateAuthority will publish content,
@@ -105,7 +105,7 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("gcs_bucket")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> GcsBucket { get; }
+    public partial TerraformValue<string> GcsBucket { get; }
 
     /// <summary>
     /// This field allows the CA to be deleted even if the CA has active certs. Active certs include both unrevoked and unexpired certs.
@@ -113,7 +113,7 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("ignore_active_certificates_on_deletion")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> IgnoreActiveCertificatesOnDeletion { get; }
+    public partial TerraformValue<bool> IgnoreActiveCertificatesOnDeletion { get; }
 
     /// <summary>
     /// Used when issuing certificates for this CertificateAuthority. If this CertificateAuthority
@@ -122,7 +122,7 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("key_spec")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> KeySpec { get; }
+    public partial TerraformList<object> KeySpec { get; }
 
     /// <summary>
     /// Labels with user-defined metadata.
@@ -136,7 +136,7 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// The desired lifetime of the CA certificate. Used to create the &amp;quot;notBeforeTime&amp;quot; and
@@ -145,7 +145,7 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("lifetime")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Lifetime { get; }
+    public partial TerraformValue<string> Lifetime { get; }
 
     /// <summary>
     /// The resource name for this CertificateAuthority in the format
@@ -153,14 +153,14 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The signed CA certificate issued from the subordinated CA&#39;s CSR. This is needed when activating the subordiante CA with a third party issuer.
     /// </summary>
     [TerraformProperty("pem_ca_certificate")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PemCaCertificate { get; }
+    public partial TerraformValue<string> PemCaCertificate { get; }
 
     /// <summary>
     /// This CertificateAuthority&#39;s certificate chain, including the current
@@ -170,14 +170,14 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("pem_ca_certificates")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> PemCaCertificates { get; }
+    public partial TerraformList<string> PemCaCertificates { get; }
 
     /// <summary>
     /// The pem_csr attribute.
     /// </summary>
     [TerraformProperty("pem_csr")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PemCsr { get; }
+    public partial TerraformValue<string> PemCsr { get; }
 
     /// <summary>
     /// If this flag is set, the Certificate Authority will be deleted as soon as
@@ -187,14 +187,14 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("skip_grace_period")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> SkipGracePeriod { get; }
+    public partial TerraformValue<bool> SkipGracePeriod { get; }
 
     /// <summary>
     /// The State for this CertificateAuthority.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// If this is a subordinate CertificateAuthority, this field will be set
@@ -202,7 +202,7 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("subordinate_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> SubordinateConfig { get; }
+    public partial TerraformList<object> SubordinateConfig { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -210,7 +210,7 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The Type of this CertificateAuthority.
@@ -220,7 +220,7 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Type { get; }
+    public partial TerraformValue<string> Type { get; }
 
     /// <summary>
     /// The time at which this CertificateAuthority was updated.
@@ -230,7 +230,7 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// Custom URLs for accessing content published by this CA, such as the CA certificate and CRLs,
@@ -238,6 +238,6 @@ public partial class GooglePrivatecaCertificateAuthorityDataSource : TerraformDa
     /// </summary>
     [TerraformProperty("user_defined_access_urls")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> UserDefinedAccessUrls { get; }
+    public partial TerraformList<object> UserDefinedAccessUrls { get; }
 
 }

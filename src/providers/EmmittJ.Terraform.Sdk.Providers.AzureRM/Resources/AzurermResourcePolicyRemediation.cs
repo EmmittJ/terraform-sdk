@@ -13,28 +13,28 @@ public partial class AzurermResourcePolicyRemediationTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,21 +52,21 @@ public partial class AzurermResourcePolicyRemediation : TerraformResource
     /// </summary>
     [TerraformProperty("failure_percentage")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? FailurePercentage { get; set; }
+    public partial TerraformValue<double>? FailurePercentage { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location_filters attribute.
     /// </summary>
     [TerraformProperty("location_filters")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? LocationFilters { get; set; }
+    public partial TerraformList<string>? LocationFilters { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -74,14 +74,14 @@ public partial class AzurermResourcePolicyRemediation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parallel_deployments attribute.
     /// </summary>
     [TerraformProperty("parallel_deployments")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ParallelDeployments { get; set; }
+    public partial TerraformValue<double>? ParallelDeployments { get; set; }
 
     /// <summary>
     /// The policy_assignment_id attribute.
@@ -89,28 +89,28 @@ public partial class AzurermResourcePolicyRemediation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyAssignmentId is required")]
     [TerraformProperty("policy_assignment_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyAssignmentId { get; set; }
+    public required partial TerraformValue<string> PolicyAssignmentId { get; set; }
 
     /// <summary>
     /// The policy_definition_reference_id attribute.
     /// </summary>
     [TerraformProperty("policy_definition_reference_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PolicyDefinitionReferenceId { get; set; }
+    public partial TerraformValue<string>? PolicyDefinitionReferenceId { get; set; }
 
     /// <summary>
     /// The resource_count attribute.
     /// </summary>
     [TerraformProperty("resource_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ResourceCount { get; set; }
+    public partial TerraformValue<double>? ResourceCount { get; set; }
 
     /// <summary>
     /// The resource_discovery_mode attribute.
     /// </summary>
     [TerraformProperty("resource_discovery_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResourceDiscoveryMode { get; set; }
+    public partial TerraformValue<string>? ResourceDiscoveryMode { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
@@ -118,13 +118,13 @@ public partial class AzurermResourcePolicyRemediation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     [TerraformProperty("resource_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceId { get; set; }
+    public required partial TerraformValue<string> ResourceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermResourcePolicyRemediationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermResourcePolicyRemediationTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -19,28 +19,28 @@ public partial class GoogleBigqueryDatasetDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     [TerraformProperty("dataset_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatasetId { get; set; }
+    public required partial TerraformValue<string> DatasetId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// An array of objects that define dataset access for one or more entities.
     /// </summary>
     [TerraformProperty("access")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> Access { get; }
+    public partial TerraformSet<object> Access { get; }
 
     /// <summary>
     /// The time when this dataset was created, in milliseconds since the
@@ -48,7 +48,7 @@ public partial class GoogleBigqueryDatasetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("creation_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> CreationTime { get; }
+    public partial TerraformValue<double> CreationTime { get; }
 
     /// <summary>
     /// Defines the default collation specification of future tables created
@@ -64,7 +64,7 @@ public partial class GoogleBigqueryDatasetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("default_collation")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DefaultCollation { get; }
+    public partial TerraformValue<string> DefaultCollation { get; }
 
     /// <summary>
     /// The default encryption key for all tables in the dataset. Once this property is set,
@@ -73,7 +73,7 @@ public partial class GoogleBigqueryDatasetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("default_encryption_configuration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> DefaultEncryptionConfiguration { get; }
+    public partial TerraformList<object> DefaultEncryptionConfiguration { get; }
 
     /// <summary>
     /// The default partition expiration for all partitioned tables in
@@ -92,7 +92,7 @@ public partial class GoogleBigqueryDatasetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("default_partition_expiration_ms")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> DefaultPartitionExpirationMs { get; }
+    public partial TerraformValue<double> DefaultPartitionExpirationMs { get; }
 
     /// <summary>
     /// The default lifetime of all tables in the dataset, in milliseconds.
@@ -109,7 +109,7 @@ public partial class GoogleBigqueryDatasetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("default_table_expiration_ms")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> DefaultTableExpirationMs { get; }
+    public partial TerraformValue<double> DefaultTableExpirationMs { get; }
 
     /// <summary>
     /// If set to &#39;true&#39;, delete all the tables in the
@@ -118,28 +118,28 @@ public partial class GoogleBigqueryDatasetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("delete_contents_on_destroy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> DeleteContentsOnDestroy { get; }
+    public partial TerraformValue<bool> DeleteContentsOnDestroy { get; }
 
     /// <summary>
     /// A user-friendly description of the dataset
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// A hash of the resource.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Options defining open source compatible datasets living in the BigQuery catalog. Contains
@@ -147,21 +147,21 @@ public partial class GoogleBigqueryDatasetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("external_catalog_dataset_options")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ExternalCatalogDatasetOptions { get; }
+    public partial TerraformList<object> ExternalCatalogDatasetOptions { get; }
 
     /// <summary>
     /// Information about the external metadata storage where the dataset is defined.
     /// </summary>
     [TerraformProperty("external_dataset_reference")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ExternalDatasetReference { get; }
+    public partial TerraformList<object> ExternalDatasetReference { get; }
 
     /// <summary>
     /// A descriptive name for the dataset
     /// </summary>
     [TerraformProperty("friendly_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> FriendlyName { get; }
+    public partial TerraformValue<string> FriendlyName { get; }
 
     /// <summary>
     /// TRUE if the dataset and its table names are case-insensitive, otherwise FALSE.
@@ -170,7 +170,7 @@ public partial class GoogleBigqueryDatasetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("is_case_insensitive")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> IsCaseInsensitive { get; }
+    public partial TerraformValue<bool> IsCaseInsensitive { get; }
 
     /// <summary>
     /// The labels associated with this dataset. You can use these to
@@ -182,7 +182,7 @@ public partial class GoogleBigqueryDatasetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// The date when this dataset or any of its tables was last modified, in
@@ -190,7 +190,7 @@ public partial class GoogleBigqueryDatasetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("last_modified_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> LastModifiedTime { get; }
+    public partial TerraformValue<double> LastModifiedTime { get; }
 
     /// <summary>
     /// The geographic location where the dataset should reside.
@@ -204,14 +204,14 @@ public partial class GoogleBigqueryDatasetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// Defines the time travel window in hours. The value can be from 48 to 168 hours (2 to 7 days).
     /// </summary>
     [TerraformProperty("max_time_travel_hours")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MaxTimeTravelHours { get; }
+    public partial TerraformValue<string> MaxTimeTravelHours { get; }
 
     /// <summary>
     /// The tags attached to this table. Tag keys are globally unique. Tag key is expected to be
@@ -222,14 +222,14 @@ public partial class GoogleBigqueryDatasetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("resource_tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> ResourceTags { get; }
+    public partial TerraformMap<string> ResourceTags { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     [TerraformProperty("self_link")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SelfLink { get; }
+    public partial TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// Specifies the storage billing model for the dataset.
@@ -240,7 +240,7 @@ public partial class GoogleBigqueryDatasetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("storage_billing_model")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StorageBillingModel { get; }
+    public partial TerraformValue<string> StorageBillingModel { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -248,6 +248,6 @@ public partial class GoogleBigqueryDatasetDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

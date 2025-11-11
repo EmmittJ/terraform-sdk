@@ -13,21 +13,21 @@ public partial class GoogleSccV2OrganizationSccBigQueryExportsTimeoutsBlock : Te
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -47,7 +47,7 @@ public partial class GoogleSccV2OrganizationSccBigQueryExports : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BigQueryExportId is required")]
     [TerraformProperty("big_query_export_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BigQueryExportId { get; set; }
+    public required partial TerraformValue<string> BigQueryExportId { get; set; }
 
     /// <summary>
     /// The dataset to write findings&#39; updates to.
@@ -56,14 +56,14 @@ public partial class GoogleSccV2OrganizationSccBigQueryExports : TerraformResour
     /// </summary>
     [TerraformProperty("dataset")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Dataset { get; set; }
+    public partial TerraformValue<string>? Dataset { get; set; }
 
     /// <summary>
     /// The description of the notification config (max of 1024 characters).
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Expression that defines the filter to apply across create/update
@@ -94,21 +94,21 @@ public partial class GoogleSccV2OrganizationSccBigQueryExports : TerraformResour
     /// </summary>
     [TerraformProperty("filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Filter { get; set; }
+    public partial TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// location Id is provided by organization. If not provided, Use global as default.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The resource name of this export, in the format
@@ -117,7 +117,7 @@ public partial class GoogleSccV2OrganizationSccBigQueryExports : TerraformResour
     /// </summary>
     [TerraformProperty("name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Name { get; set; }
+    public partial TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The organization whose Cloud Security Command Center the Big Query Export
@@ -126,14 +126,14 @@ public partial class GoogleSccV2OrganizationSccBigQueryExports : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     [TerraformProperty("organization")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Organization { get; set; }
+    public required partial TerraformValue<string> Organization { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleSccV2OrganizationSccBigQueryExportsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleSccV2OrganizationSccBigQueryExportsTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time at which the BigQuery export was created. This field is set by the server and will be ignored if provided on export on creation.
@@ -142,7 +142,7 @@ public partial class GoogleSccV2OrganizationSccBigQueryExports : TerraformResour
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Email address of the user who last edited the BigQuery export.
@@ -150,14 +150,14 @@ public partial class GoogleSccV2OrganizationSccBigQueryExports : TerraformResour
     /// </summary>
     [TerraformProperty("most_recent_editor")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MostRecentEditor { get; }
+    public partial TerraformValue<string> MostRecentEditor { get; }
 
     /// <summary>
     /// The service account that needs permission to create table and upload data to the BigQuery dataset.
     /// </summary>
     [TerraformProperty("principal")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Principal { get; }
+    public partial TerraformValue<string> Principal { get; }
 
     /// <summary>
     /// The most recent time at which the BigQuery export was updated. This field is set by the server and will be ignored if provided on export creation or update.
@@ -166,6 +166,6 @@ public partial class GoogleSccV2OrganizationSccBigQueryExports : TerraformResour
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

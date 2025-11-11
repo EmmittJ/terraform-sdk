@@ -16,7 +16,7 @@ public partial class GoogleRedisClusterAutomatedBackupConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Retention is required")]
     [TerraformProperty("retention")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Retention { get; set; }
+    public required partial TerraformValue<string> Retention { get; set; }
 
 }
 
@@ -39,7 +39,7 @@ public partial class GoogleRedisClusterCrossClusterReplicationConfigBlock : Terr
     /// </summary>
     [TerraformProperty("cluster_role")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClusterRole { get; set; }
+    public partial TerraformValue<string>? ClusterRole { get; set; }
 
 
 
@@ -57,7 +57,7 @@ public partial class GoogleRedisClusterGcsSourceBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
     [TerraformProperty("uris")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Uris { get; set; }
+    public required partial TerraformSet<string> Uris { get; set; }
 
 }
 
@@ -83,7 +83,7 @@ public partial class GoogleRedisClusterManagedBackupSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backup is required")]
     [TerraformProperty("backup")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Backup { get; set; }
+    public required partial TerraformValue<string> Backup { get; set; }
 
 }
 
@@ -102,7 +102,7 @@ public partial class GoogleRedisClusterPersistenceConfigBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Mode { get; set; }
+    public partial TerraformValue<string> Mode { get; set; }
 
 }
 
@@ -120,7 +120,7 @@ public partial class GoogleRedisClusterPscConfigsBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     [TerraformProperty("network")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Network { get; set; }
+    public required partial TerraformValue<string> Network { get; set; }
 
 }
 
@@ -135,21 +135,21 @@ public partial class GoogleRedisClusterTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -165,14 +165,14 @@ public partial class GoogleRedisClusterZoneDistributionConfigBlock : TerraformBl
     /// </summary>
     [TerraformProperty("mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Mode { get; set; }
+    public partial TerraformValue<string> Mode { get; set; }
 
     /// <summary>
     /// Immutable. The zone for single zone Memorystore Redis cluster.
     /// </summary>
     [TerraformProperty("zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Zone { get; set; }
+    public partial TerraformValue<string>? Zone { get; set; }
 
 }
 
@@ -191,7 +191,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformProperty("authorization_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthorizationMode { get; set; }
+    public partial TerraformValue<string>? AuthorizationMode { get; set; }
 
     /// <summary>
     /// Optional. Indicates if the cluster is deletion protected or not.
@@ -200,21 +200,21 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_protection_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeletionProtectionEnabled { get; set; }
+    public partial TerraformValue<bool>? DeletionProtectionEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The KMS key used to encrypt the at-rest data of the cluster.
     /// </summary>
     [TerraformProperty("kms_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKey { get; set; }
+    public partial TerraformValue<string>? KmsKey { get; set; }
 
     /// <summary>
     /// This field can be used to trigger self service update to indicate the desired maintenance version. The input to this field can be determined by the available_maintenance_versions field.
@@ -222,7 +222,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformProperty("maintenance_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MaintenanceVersion { get; set; }
+    public partial TerraformValue<string>? MaintenanceVersion { get; set; }
 
     /// <summary>
     /// Unique name of the resource in this scope including project and location using the form:
@@ -230,7 +230,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The nodeType for the Redis cluster.
@@ -238,14 +238,14 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformProperty("node_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NodeType { get; set; }
+    public partial TerraformValue<string> NodeType { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Configure Redis Cluster behavior using a subset of native Redis configuration parameters.
@@ -254,21 +254,21 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformProperty("redis_configs")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? RedisConfigs { get; set; }
+    public partial TerraformMap<string>? RedisConfigs { get; set; }
 
     /// <summary>
     /// The name of the region of the Redis cluster.
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Optional. The number of replica nodes per shard.
     /// </summary>
     [TerraformProperty("replica_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ReplicaCount { get; set; }
+    public partial TerraformValue<double>? ReplicaCount { get; set; }
 
     /// <summary>
     /// Required. Number of shards for the Redis cluster.
@@ -276,7 +276,7 @@ public partial class GoogleRedisCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCount is required")]
     [TerraformProperty("shard_count")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ShardCount { get; set; }
+    public required partial TerraformValue<double> ShardCount { get; set; }
 
     /// <summary>
     /// Optional. The in-transit encryption for the Redis cluster.
@@ -284,7 +284,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformProperty("transit_encryption_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TransitEncryptionMode { get; set; }
+    public partial TerraformValue<string>? TransitEncryptionMode { get; set; }
 
     /// <summary>
     /// Block for automated_backup_config.
@@ -292,7 +292,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedBackupConfig block(s) allowed")]
     [TerraformProperty("automated_backup_config")]
-    public TerraformList<TerraformBlock<GoogleRedisClusterAutomatedBackupConfigBlock>>? AutomatedBackupConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleRedisClusterAutomatedBackupConfigBlock>>? AutomatedBackupConfig { get; set; }
 
     /// <summary>
     /// Block for cross_cluster_replication_config.
@@ -300,7 +300,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CrossClusterReplicationConfig block(s) allowed")]
     [TerraformProperty("cross_cluster_replication_config")]
-    public TerraformList<TerraformBlock<GoogleRedisClusterCrossClusterReplicationConfigBlock>>? CrossClusterReplicationConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleRedisClusterCrossClusterReplicationConfigBlock>>? CrossClusterReplicationConfig { get; set; }
 
     /// <summary>
     /// Block for gcs_source.
@@ -308,7 +308,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcsSource block(s) allowed")]
     [TerraformProperty("gcs_source")]
-    public TerraformList<TerraformBlock<GoogleRedisClusterGcsSourceBlock>>? GcsSource { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleRedisClusterGcsSourceBlock>>? GcsSource { get; set; }
 
     /// <summary>
     /// Block for maintenance_policy.
@@ -316,7 +316,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     [TerraformProperty("maintenance_policy")]
-    public TerraformList<TerraformBlock<GoogleRedisClusterMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleRedisClusterMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
 
     /// <summary>
     /// Block for managed_backup_source.
@@ -324,7 +324,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedBackupSource block(s) allowed")]
     [TerraformProperty("managed_backup_source")]
-    public TerraformList<TerraformBlock<GoogleRedisClusterManagedBackupSourceBlock>>? ManagedBackupSource { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleRedisClusterManagedBackupSourceBlock>>? ManagedBackupSource { get; set; }
 
     /// <summary>
     /// Block for persistence_config.
@@ -332,21 +332,21 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistenceConfig block(s) allowed")]
     [TerraformProperty("persistence_config")]
-    public TerraformList<TerraformBlock<GoogleRedisClusterPersistenceConfigBlock>>? PersistenceConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleRedisClusterPersistenceConfigBlock>>? PersistenceConfig { get; set; }
 
     /// <summary>
     /// Block for psc_configs.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("psc_configs")]
-    public TerraformList<TerraformBlock<GoogleRedisClusterPscConfigsBlock>>? PscConfigs { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleRedisClusterPscConfigsBlock>>? PscConfigs { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleRedisClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleRedisClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for zone_distribution_config.
@@ -354,14 +354,14 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ZoneDistributionConfig block(s) allowed")]
     [TerraformProperty("zone_distribution_config")]
-    public TerraformList<TerraformBlock<GoogleRedisClusterZoneDistributionConfigBlock>>? ZoneDistributionConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleRedisClusterZoneDistributionConfigBlock>>? ZoneDistributionConfig { get; set; }
 
     /// <summary>
     /// This field is used to determine the available maintenance versions for the self service update.
     /// </summary>
     [TerraformProperty("available_maintenance_versions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> AvailableMaintenanceVersions { get; }
+    public partial TerraformList<string> AvailableMaintenanceVersions { get; }
 
     /// <summary>
     /// The backup collection full resource name.
@@ -369,7 +369,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformProperty("backup_collection")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BackupCollection { get; }
+    public partial TerraformValue<string> BackupCollection { get; }
 
     /// <summary>
     /// The timestamp associated with the cluster creation request. A timestamp in
@@ -378,7 +378,7 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Output only. Endpoints created on each given network,
@@ -387,76 +387,76 @@ public partial class GoogleRedisCluster : TerraformResource
     /// </summary>
     [TerraformProperty("discovery_endpoints")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> DiscoveryEndpoints { get; }
+    public partial TerraformList<object> DiscoveryEndpoints { get; }
 
     /// <summary>
     /// This field represents the actual maintenance version of the cluster.
     /// </summary>
     [TerraformProperty("effective_maintenance_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EffectiveMaintenanceVersion { get; }
+    public partial TerraformValue<string> EffectiveMaintenanceVersion { get; }
 
     /// <summary>
     /// Upcoming maintenance schedule.
     /// </summary>
     [TerraformProperty("maintenance_schedule")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MaintenanceSchedule { get; }
+    public partial TerraformList<object> MaintenanceSchedule { get; }
 
     /// <summary>
     /// Cluster&#39;s Certificate Authority. This field will only be populated if Redis Cluster&#39;s transit_encryption_mode is TRANSIT_ENCRYPTION_MODE_SERVER_AUTHENTICATION
     /// </summary>
     [TerraformProperty("managed_server_ca")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ManagedServerCa { get; }
+    public partial TerraformList<object> ManagedServerCa { get; }
 
     /// <summary>
     /// Output only. Redis memory precise size in GB for the entire cluster.
     /// </summary>
     [TerraformProperty("precise_size_gb")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> PreciseSizeGb { get; }
+    public partial TerraformValue<double> PreciseSizeGb { get; }
 
     /// <summary>
     /// Output only. PSC connections for discovery of the cluster topology and accessing the cluster.
     /// </summary>
     [TerraformProperty("psc_connections")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PscConnections { get; }
+    public partial TerraformList<object> PscConnections { get; }
 
     /// <summary>
     /// Service attachment details to configure Psc connections.
     /// </summary>
     [TerraformProperty("psc_service_attachments")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PscServiceAttachments { get; }
+    public partial TerraformList<object> PscServiceAttachments { get; }
 
     /// <summary>
     /// Output only. Redis memory size in GB for the entire cluster.
     /// </summary>
     [TerraformProperty("size_gb")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> SizeGb { get; }
+    public partial TerraformValue<double> SizeGb { get; }
 
     /// <summary>
     /// The current state of this cluster. Can be CREATING, READY, UPDATING, DELETING and SUSPENDED
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// Output only. Additional information about the current state of the cluster.
     /// </summary>
     [TerraformProperty("state_info")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> StateInfo { get; }
+    public partial TerraformList<object> StateInfo { get; }
 
     /// <summary>
     /// System assigned, unique identifier for the cluster.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
 }

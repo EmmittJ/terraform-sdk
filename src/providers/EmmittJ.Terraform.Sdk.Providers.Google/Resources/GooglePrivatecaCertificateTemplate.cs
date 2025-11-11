@@ -14,7 +14,7 @@ public partial class GooglePrivatecaCertificateTemplateIdentityConstraintsBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowSubjectAltNamesPassthrough is required")]
     [TerraformProperty("allow_subject_alt_names_passthrough")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> AllowSubjectAltNamesPassthrough { get; set; }
+    public required partial TerraformValue<bool> AllowSubjectAltNamesPassthrough { get; set; }
 
     /// <summary>
     /// Required. If this is true, the Subject field may be copied from a certificate request into the signed certificate. Otherwise, the requested Subject will be discarded.
@@ -22,7 +22,7 @@ public partial class GooglePrivatecaCertificateTemplateIdentityConstraintsBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowSubjectPassthrough is required")]
     [TerraformProperty("allow_subject_passthrough")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> AllowSubjectPassthrough { get; set; }
+    public required partial TerraformValue<bool> AllowSubjectPassthrough { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class GooglePrivatecaCertificateTemplatePassthroughExtensionsBloc
     /// </summary>
     [TerraformProperty("known_extensions")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? KnownExtensions { get; set; }
+    public partial TerraformList<string>? KnownExtensions { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class GooglePrivatecaCertificateTemplatePredefinedValuesBlock : T
     /// </summary>
     [TerraformProperty("aia_ocsp_servers")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AiaOcspServers { get; set; }
+    public partial TerraformList<string>? AiaOcspServers { get; set; }
 
 }
 
@@ -67,21 +67,21 @@ public partial class GooglePrivatecaCertificateTemplateTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -100,14 +100,14 @@ public partial class GooglePrivatecaCertificateTemplate : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Optional. Labels with user-defined metadata.
@@ -117,7 +117,7 @@ public partial class GooglePrivatecaCertificateTemplate : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location for the resource
@@ -125,14 +125,14 @@ public partial class GooglePrivatecaCertificateTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Optional. The maximum lifetime allowed for all issued certificates that use this template. If the issuing CaPool&#39;s IssuancePolicy specifies a maximum lifetime the minimum of the two durations will be the maximum lifetime for issued. Note that if the issuing CertificateAuthority expires before a Certificate&#39;s requested maximum_lifetime, the effective lifetime will be explicitly truncated to match it.
     /// </summary>
     [TerraformProperty("maximum_lifetime")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MaximumLifetime { get; set; }
+    public partial TerraformValue<string>? MaximumLifetime { get; set; }
 
     /// <summary>
     /// The resource name for this CertificateTemplate in the format &#39;projects/*/locations/*/certificateTemplates/*&#39;.
@@ -140,14 +140,14 @@ public partial class GooglePrivatecaCertificateTemplate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for identity_constraints.
@@ -155,7 +155,7 @@ public partial class GooglePrivatecaCertificateTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdentityConstraints block(s) allowed")]
     [TerraformProperty("identity_constraints")]
-    public TerraformList<TerraformBlock<GooglePrivatecaCertificateTemplateIdentityConstraintsBlock>>? IdentityConstraints { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePrivatecaCertificateTemplateIdentityConstraintsBlock>>? IdentityConstraints { get; set; }
 
     /// <summary>
     /// Block for passthrough_extensions.
@@ -163,7 +163,7 @@ public partial class GooglePrivatecaCertificateTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PassthroughExtensions block(s) allowed")]
     [TerraformProperty("passthrough_extensions")]
-    public TerraformList<TerraformBlock<GooglePrivatecaCertificateTemplatePassthroughExtensionsBlock>>? PassthroughExtensions { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePrivatecaCertificateTemplatePassthroughExtensionsBlock>>? PassthroughExtensions { get; set; }
 
     /// <summary>
     /// Block for predefined_values.
@@ -171,28 +171,28 @@ public partial class GooglePrivatecaCertificateTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PredefinedValues block(s) allowed")]
     [TerraformProperty("predefined_values")]
-    public TerraformList<TerraformBlock<GooglePrivatecaCertificateTemplatePredefinedValuesBlock>>? PredefinedValues { get; set; }
+    public partial TerraformList<TerraformBlock<GooglePrivatecaCertificateTemplatePredefinedValuesBlock>>? PredefinedValues { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GooglePrivatecaCertificateTemplateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GooglePrivatecaCertificateTemplateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time at which this CertificateTemplate was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -200,13 +200,13 @@ public partial class GooglePrivatecaCertificateTemplate : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Output only. The time at which this CertificateTemplate was updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -16,13 +16,13 @@ public partial class AwsPrometheusDefaultScraperConfigurationDataSource : Terraf
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The configuration attribute.
     /// </summary>
     [TerraformProperty("configuration")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Configuration { get; }
+    public partial TerraformValue<string> Configuration { get; }
 
 }

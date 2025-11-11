@@ -13,28 +13,28 @@ public partial class AzurermIothubEndpointServicebusQueueTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,42 +52,42 @@ public partial class AzurermIothubEndpointServicebusQueue : TerraformResource
     /// </summary>
     [TerraformProperty("authentication_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthenticationType { get; set; }
+    public partial TerraformValue<string>? AuthenticationType { get; set; }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
     [TerraformProperty("connection_string")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConnectionString { get; set; }
+    public partial TerraformValue<string>? ConnectionString { get; set; }
 
     /// <summary>
     /// The endpoint_uri attribute.
     /// </summary>
     [TerraformProperty("endpoint_uri")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EndpointUri { get; set; }
+    public partial TerraformValue<string>? EndpointUri { get; set; }
 
     /// <summary>
     /// The entity_path attribute.
     /// </summary>
     [TerraformProperty("entity_path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EntityPath { get; set; }
+    public partial TerraformValue<string>? EntityPath { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
     [TerraformProperty("identity_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IdentityId { get; set; }
+    public partial TerraformValue<string>? IdentityId { get; set; }
 
     /// <summary>
     /// The iothub_id attribute.
@@ -95,7 +95,7 @@ public partial class AzurermIothubEndpointServicebusQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     [TerraformProperty("iothub_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IothubId { get; set; }
+    public required partial TerraformValue<string> IothubId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -103,7 +103,7 @@ public partial class AzurermIothubEndpointServicebusQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -111,20 +111,20 @@ public partial class AzurermIothubEndpointServicebusQueue : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
     [TerraformProperty("subscription_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SubscriptionId { get; set; }
+    public partial TerraformValue<string> SubscriptionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermIothubEndpointServicebusQueueTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermIothubEndpointServicebusQueueTimeoutsBlock>? Timeouts { get; set; }
 
 }

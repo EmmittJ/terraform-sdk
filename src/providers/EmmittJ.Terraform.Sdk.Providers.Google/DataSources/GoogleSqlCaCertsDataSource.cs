@@ -16,7 +16,7 @@ public partial class GoogleSqlCaCertsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance attribute.
@@ -24,27 +24,27 @@ public partial class GoogleSqlCaCertsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     [TerraformProperty("instance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Instance { get; set; }
+    public required partial TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The active_version attribute.
     /// </summary>
     [TerraformProperty("active_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ActiveVersion { get; }
+    public partial TerraformValue<string> ActiveVersion { get; }
 
     /// <summary>
     /// The certs attribute.
     /// </summary>
     [TerraformProperty("certs")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Certs { get; }
+    public partial TerraformList<object> Certs { get; }
 
 }

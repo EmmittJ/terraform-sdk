@@ -13,28 +13,28 @@ public partial class AzurermPostgresqlActiveDirectoryAdministratorTimeoutsBlock 
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermPostgresqlActiveDirectoryAdministrator : TerraformRe
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The login attribute.
@@ -61,7 +61,7 @@ public partial class AzurermPostgresqlActiveDirectoryAdministrator : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Login is required")]
     [TerraformProperty("login")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Login { get; set; }
+    public required partial TerraformValue<string> Login { get; set; }
 
     /// <summary>
     /// The object_id attribute.
@@ -69,7 +69,7 @@ public partial class AzurermPostgresqlActiveDirectoryAdministrator : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     [TerraformProperty("object_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ObjectId { get; set; }
+    public required partial TerraformValue<string> ObjectId { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -77,7 +77,7 @@ public partial class AzurermPostgresqlActiveDirectoryAdministrator : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The server_name attribute.
@@ -85,7 +85,7 @@ public partial class AzurermPostgresqlActiveDirectoryAdministrator : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     [TerraformProperty("server_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServerName { get; set; }
+    public required partial TerraformValue<string> ServerName { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
@@ -93,13 +93,13 @@ public partial class AzurermPostgresqlActiveDirectoryAdministrator : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     [TerraformProperty("tenant_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TenantId { get; set; }
+    public required partial TerraformValue<string> TenantId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPostgresqlActiveDirectoryAdministratorTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPostgresqlActiveDirectoryAdministratorTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -14,7 +14,7 @@ public partial class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
     [TerraformProperty("branch")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Branch { get; set; }
+    public required partial TerraformValue<string> Branch { get; set; }
 
     /// <summary>
     /// The key_vault_key_url attribute.
@@ -22,7 +22,7 @@ public partial class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyUrl is required")]
     [TerraformProperty("key_vault_key_url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultKeyUrl { get; set; }
+    public required partial TerraformValue<string> KeyVaultKeyUrl { get; set; }
 
     /// <summary>
     /// The path attribute.
@@ -30,7 +30,7 @@ public partial class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     [TerraformProperty("path")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Path { get; set; }
+    public required partial TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// The uri attribute.
@@ -38,7 +38,7 @@ public partial class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     [TerraformProperty("uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Uri { get; set; }
+    public required partial TerraformValue<string> Uri { get; set; }
 
 }
 
@@ -54,7 +54,7 @@ public partial class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
     [TerraformProperty("branch")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Branch { get; set; }
+    public required partial TerraformValue<string> Branch { get; set; }
 
     /// <summary>
     /// The key_vault_key_url attribute.
@@ -62,7 +62,7 @@ public partial class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyUrl is required")]
     [TerraformProperty("key_vault_key_url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyVaultKeyUrl { get; set; }
+    public required partial TerraformValue<string> KeyVaultKeyUrl { get; set; }
 
     /// <summary>
     /// The path attribute.
@@ -70,7 +70,7 @@ public partial class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     [TerraformProperty("path")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Path { get; set; }
+    public required partial TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// The uri attribute.
@@ -78,7 +78,7 @@ public partial class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     [TerraformProperty("uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Uri { get; set; }
+    public required partial TerraformValue<string> Uri { get; set; }
 
 }
 
@@ -93,28 +93,28 @@ public partial class AzurermDevCenterCatalogTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -134,14 +134,14 @@ public partial class AzurermDevCenterCatalog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
     [TerraformProperty("dev_center_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DevCenterId { get; set; }
+    public required partial TerraformValue<string> DevCenterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -149,7 +149,7 @@ public partial class AzurermDevCenterCatalog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -157,7 +157,7 @@ public partial class AzurermDevCenterCatalog : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for catalog_adogit.
@@ -165,7 +165,7 @@ public partial class AzurermDevCenterCatalog : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogAdogit block(s) allowed")]
     [TerraformProperty("catalog_adogit")]
-    public TerraformList<TerraformBlock<AzurermDevCenterCatalogCatalogAdogitBlock>>? CatalogAdogit { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDevCenterCatalogCatalogAdogitBlock>>? CatalogAdogit { get; set; }
 
     /// <summary>
     /// Block for catalog_github.
@@ -173,13 +173,13 @@ public partial class AzurermDevCenterCatalog : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogGithub block(s) allowed")]
     [TerraformProperty("catalog_github")]
-    public TerraformList<TerraformBlock<AzurermDevCenterCatalogCatalogGithubBlock>>? CatalogGithub { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDevCenterCatalogCatalogGithubBlock>>? CatalogGithub { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDevCenterCatalogTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDevCenterCatalogTimeoutsBlock>? Timeouts { get; set; }
 
 }

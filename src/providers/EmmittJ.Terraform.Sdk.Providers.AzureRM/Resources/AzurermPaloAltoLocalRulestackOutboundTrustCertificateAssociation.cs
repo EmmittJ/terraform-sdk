@@ -13,21 +13,21 @@ public partial class AzurermPaloAltoLocalRulestackOutboundTrustCertificateAssoci
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,20 +46,20 @@ public partial class AzurermPaloAltoLocalRulestackOutboundTrustCertificateAssoci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
     [TerraformProperty("certificate_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CertificateId { get; set; }
+    public required partial TerraformValue<string> CertificateId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPaloAltoLocalRulestackOutboundTrustCertificateAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPaloAltoLocalRulestackOutboundTrustCertificateAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

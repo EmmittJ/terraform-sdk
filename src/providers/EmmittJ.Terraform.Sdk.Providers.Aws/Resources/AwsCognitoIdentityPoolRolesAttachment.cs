@@ -13,7 +13,7 @@ public partial class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock : Ter
     /// </summary>
     [TerraformProperty("ambiguous_role_resolution")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AmbiguousRoleResolution { get; set; }
+    public partial TerraformValue<string>? AmbiguousRoleResolution { get; set; }
 
     /// <summary>
     /// The identity_provider attribute.
@@ -21,7 +21,7 @@ public partial class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProvider is required")]
     [TerraformProperty("identity_provider")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IdentityProvider { get; set; }
+    public required partial TerraformValue<string> IdentityProvider { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -29,7 +29,7 @@ public partial class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
 }
 
@@ -47,7 +47,7 @@ public partial class AwsCognitoIdentityPoolRolesAttachment : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The identity_pool_id attribute.
@@ -55,14 +55,14 @@ public partial class AwsCognitoIdentityPoolRolesAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
     [TerraformProperty("identity_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IdentityPoolId { get; set; }
+    public required partial TerraformValue<string> IdentityPoolId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The roles attribute.
@@ -70,13 +70,13 @@ public partial class AwsCognitoIdentityPoolRolesAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     [TerraformProperty("roles")]
     // Required argument - source generator will implement get/set
-    public required TerraformMap<string> Roles { get; set; }
+    public required partial TerraformMap<string> Roles { get; set; }
 
     /// <summary>
     /// Block for role_mapping.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("role_mapping")]
-    public TerraformSet<TerraformBlock<AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock>>? RoleMapping { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock>>? RoleMapping { get; set; }
 
 }

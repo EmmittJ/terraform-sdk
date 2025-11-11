@@ -16,7 +16,7 @@ public partial class AwsDevopsguruResourceCollectionDataSource : TerraformDataSo
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -24,27 +24,27 @@ public partial class AwsDevopsguruResourceCollectionDataSource : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The cloudformation attribute.
     /// </summary>
     [TerraformProperty("cloudformation")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Cloudformation { get; }
+    public partial TerraformList<object> Cloudformation { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Tags { get; }
+    public partial TerraformList<object> Tags { get; }
 
 }

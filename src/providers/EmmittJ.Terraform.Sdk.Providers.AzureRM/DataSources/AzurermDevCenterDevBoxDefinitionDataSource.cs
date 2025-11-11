@@ -13,7 +13,7 @@ public partial class AzurermDevCenterDevBoxDefinitionDataSourceTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,14 +32,14 @@ public partial class AzurermDevCenterDevBoxDefinitionDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
     [TerraformProperty("dev_center_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DevCenterId { get; set; }
+    public required partial TerraformValue<string> DevCenterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -47,48 +47,48 @@ public partial class AzurermDevCenterDevBoxDefinitionDataSource : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDevCenterDevBoxDefinitionDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDevCenterDevBoxDefinitionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The hibernate_support_enabled attribute.
     /// </summary>
     [TerraformProperty("hibernate_support_enabled")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> HibernateSupportEnabled { get; }
+    public partial TerraformValue<bool> HibernateSupportEnabled { get; }
 
     /// <summary>
     /// The image_reference_id attribute.
     /// </summary>
     [TerraformProperty("image_reference_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ImageReferenceId { get; }
+    public partial TerraformValue<string> ImageReferenceId { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [TerraformProperty("sku_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SkuName { get; }
+    public partial TerraformValue<string> SkuName { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
 }

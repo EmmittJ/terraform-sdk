@@ -14,7 +14,7 @@ public partial class GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     [TerraformProperty("hostname")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Hostname { get; set; }
+    public required partial TerraformValue<string> Hostname { get; set; }
 
     /// <summary>
     /// Optional. Ports of the application.
@@ -22,7 +22,7 @@ public partial class GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ports is required")]
     [TerraformProperty("ports")]
     // Required argument - source generator will implement get/set
-    public TerraformList<double>? Ports { get; set; }
+    public partial TerraformList<double>? Ports { get; set; }
 
 }
 
@@ -37,21 +37,21 @@ public partial class GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock : T
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -81,7 +81,7 @@ public partial class GoogleBeyondcorpSecurityGatewayApplication : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     [TerraformProperty("application_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApplicationId { get; set; }
+    public required partial TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// Optional. An arbitrary user-provided name for the Application resource.
@@ -89,28 +89,28 @@ public partial class GoogleBeyondcorpSecurityGatewayApplication : TerraformResou
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Type of the external application. Possible values: [&amp;quot;PROXY_GATEWAY&amp;quot;, &amp;quot;API_GATEWAY&amp;quot;]
     /// </summary>
     [TerraformProperty("schema")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Schema { get; set; }
+    public partial TerraformValue<string>? Schema { get; set; }
 
     /// <summary>
     /// ID of the Security Gateway resource this belongs to.
@@ -118,48 +118,48 @@ public partial class GoogleBeyondcorpSecurityGatewayApplication : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
     [TerraformProperty("security_gateway_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SecurityGatewayId { get; set; }
+    public required partial TerraformValue<string> SecurityGatewayId { get; set; }
 
     /// <summary>
     /// Block for endpoint_matchers.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("endpoint_matchers")]
-    public TerraformList<TerraformBlock<GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock>>? EndpointMatchers { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock>>? EndpointMatchers { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for upstreams.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("upstreams")]
-    public TerraformList<TerraformBlock<GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlock>>? Upstreams { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlock>>? Upstreams { get; set; }
 
     /// <summary>
     /// Output only. Timestamp when the resource was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Identifier. Name of the resource.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. Timestamp when the resource was last modified.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

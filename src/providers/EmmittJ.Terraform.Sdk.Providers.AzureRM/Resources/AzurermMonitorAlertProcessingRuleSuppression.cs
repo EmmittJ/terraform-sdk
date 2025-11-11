@@ -21,21 +21,21 @@ public partial class AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock :
     /// </summary>
     [TerraformProperty("effective_from")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EffectiveFrom { get; set; }
+    public partial TerraformValue<string>? EffectiveFrom { get; set; }
 
     /// <summary>
     /// The effective_until attribute.
     /// </summary>
     [TerraformProperty("effective_until")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EffectiveUntil { get; set; }
+    public partial TerraformValue<string>? EffectiveUntil { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
     [TerraformProperty("time_zone")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TimeZone { get; set; }
+    public partial TerraformValue<string>? TimeZone { get; set; }
 
 }
 
@@ -50,28 +50,28 @@ public partial class AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock :
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -90,21 +90,21 @@ public partial class AzurermMonitorAlertProcessingRuleSuppression : TerraformRes
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -112,7 +112,7 @@ public partial class AzurermMonitorAlertProcessingRuleSuppression : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -120,7 +120,7 @@ public partial class AzurermMonitorAlertProcessingRuleSuppression : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The scopes attribute.
@@ -128,14 +128,14 @@ public partial class AzurermMonitorAlertProcessingRuleSuppression : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     [TerraformProperty("scopes")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? Scopes { get; set; }
+    public partial TerraformList<string>? Scopes { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for condition.
@@ -143,7 +143,7 @@ public partial class AzurermMonitorAlertProcessingRuleSuppression : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
     [TerraformProperty("condition")]
-    public TerraformList<TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionConditionBlock>>? Condition { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionConditionBlock>>? Condition { get; set; }
 
     /// <summary>
     /// Block for schedule.
@@ -151,13 +151,13 @@ public partial class AzurermMonitorAlertProcessingRuleSuppression : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public TerraformList<TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock>>? Schedule { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock>>? Schedule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock>? Timeouts { get; set; }
 
 }

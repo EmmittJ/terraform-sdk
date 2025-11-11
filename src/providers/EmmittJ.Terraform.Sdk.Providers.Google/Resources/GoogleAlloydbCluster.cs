@@ -17,28 +17,28 @@ public partial class GoogleAlloydbClusterAutomatedBackupPolicyBlock : TerraformB
     /// </summary>
     [TerraformProperty("backup_window")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> BackupWindow { get; set; }
+    public partial TerraformValue<string> BackupWindow { get; set; }
 
     /// <summary>
     /// Whether automated backups are enabled.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> Enabled { get; set; }
+    public partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// Labels to apply to backups created using this configuration.
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location where the backup will be stored. Currently, the only supported option is to store the backup in the same region as the cluster.
     /// </summary>
     [TerraformProperty("location")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Location { get; set; }
+    public partial TerraformValue<string> Location { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class GoogleAlloydbClusterContinuousBackupConfigBlock : Terraform
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The numbers of days that are eligible to restore from using PITR. To support the entire recovery window, backups and logs are retained for one day more than the recovery window.
@@ -62,7 +62,7 @@ public partial class GoogleAlloydbClusterContinuousBackupConfigBlock : Terraform
     /// </summary>
     [TerraformProperty("recovery_window_days")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> RecoveryWindowDays { get; set; }
+    public partial TerraformValue<double> RecoveryWindowDays { get; set; }
 
 }
 
@@ -77,7 +77,7 @@ public partial class GoogleAlloydbClusterEncryptionConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("kms_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyName { get; set; }
+    public partial TerraformValue<string>? KmsKeyName { get; set; }
 
 }
 
@@ -93,14 +93,14 @@ public partial class GoogleAlloydbClusterInitialUserBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     [TerraformProperty("password")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Password { get; set; }
+    public required partial TerraformValue<string> Password { get; set; }
 
     /// <summary>
     /// The database username.
     /// </summary>
     [TerraformProperty("user")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? User { get; set; }
+    public partial TerraformValue<string>? User { get; set; }
 
 }
 
@@ -124,7 +124,7 @@ public partial class GoogleAlloydbClusterNetworkConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("allocated_ip_range")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AllocatedIpRange { get; set; }
+    public partial TerraformValue<string>? AllocatedIpRange { get; set; }
 
     /// <summary>
     /// The resource link for the VPC network in which cluster resources are created and from which they are accessible via Private IP. The network must belong to the same project as the cluster.
@@ -132,7 +132,7 @@ public partial class GoogleAlloydbClusterNetworkConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("network")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Network { get; set; }
+    public partial TerraformValue<string>? Network { get; set; }
 
 }
 
@@ -147,7 +147,7 @@ public partial class GoogleAlloydbClusterPscConfigBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("psc_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? PscEnabled { get; set; }
+    public partial TerraformValue<bool>? PscEnabled { get; set; }
 
 
 }
@@ -164,7 +164,7 @@ public partial class GoogleAlloydbClusterRestoreBackupSourceBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupName is required")]
     [TerraformProperty("backup_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BackupName { get; set; }
+    public required partial TerraformValue<string> BackupName { get; set; }
 
 }
 
@@ -180,7 +180,7 @@ public partial class GoogleAlloydbClusterRestoreContinuousBackupSourceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     [TerraformProperty("cluster")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Cluster { get; set; }
+    public required partial TerraformValue<string> Cluster { get; set; }
 
     /// <summary>
     /// The point in time that this cluster is restored to, in RFC 3339 format.
@@ -188,7 +188,7 @@ public partial class GoogleAlloydbClusterRestoreContinuousBackupSourceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PointInTime is required")]
     [TerraformProperty("point_in_time")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PointInTime { get; set; }
+    public required partial TerraformValue<string> PointInTime { get; set; }
 
 }
 
@@ -205,7 +205,7 @@ public partial class GoogleAlloydbClusterSecondaryConfigBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryClusterName is required")]
     [TerraformProperty("primary_cluster_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrimaryClusterName { get; set; }
+    public required partial TerraformValue<string> PrimaryClusterName { get; set; }
 
 }
 
@@ -220,21 +220,21 @@ public partial class GoogleAlloydbClusterTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -258,7 +258,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// The ID of the alloydb cluster.
@@ -266,14 +266,14 @@ public partial class GoogleAlloydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     [TerraformProperty("cluster_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterId { get; set; }
+    public required partial TerraformValue<string> ClusterId { get; set; }
 
     /// <summary>
     /// The type of cluster. If not set, defaults to PRIMARY. Default value: &amp;quot;PRIMARY&amp;quot; Possible values: [&amp;quot;PRIMARY&amp;quot;, &amp;quot;SECONDARY&amp;quot;]
     /// </summary>
     [TerraformProperty("cluster_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClusterType { get; set; }
+    public partial TerraformValue<string>? ClusterType { get; set; }
 
     /// <summary>
     /// The database engine major version. This is an optional field and it&#39;s populated at the Cluster creation time.
@@ -281,7 +281,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [TerraformProperty("database_version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DatabaseVersion { get; set; }
+    public partial TerraformValue<string> DatabaseVersion { get; set; }
 
     /// <summary>
     /// Policy to determine if the cluster should be deleted forcefully.
@@ -291,7 +291,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeletionPolicy { get; set; }
+    public partial TerraformValue<string>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the cluster.
@@ -301,28 +301,28 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeletionProtection { get; set; }
+    public partial TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// User-settable and human-readable display name for the Cluster.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
     [TerraformProperty("etag")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Etag { get; set; }
+    public partial TerraformValue<string>? Etag { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// User-defined labels for the alloydb cluster.
@@ -332,7 +332,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location where the alloydb cluster should reside.
@@ -340,14 +340,14 @@ public partial class GoogleAlloydbCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Set to true to skip awaiting on the major version upgrade of the cluster.
@@ -356,14 +356,14 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [TerraformProperty("skip_await_major_version_upgrade")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SkipAwaitMajorVersionUpgrade { get; set; }
+    public partial TerraformValue<bool>? SkipAwaitMajorVersionUpgrade { get; set; }
 
     /// <summary>
     /// The subscrition type of cluster. Possible values: [&amp;quot;TRIAL&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
     [TerraformProperty("subscription_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SubscriptionType { get; set; }
+    public partial TerraformValue<string> SubscriptionType { get; set; }
 
     /// <summary>
     /// Block for automated_backup_policy.
@@ -371,7 +371,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedBackupPolicy block(s) allowed")]
     [TerraformProperty("automated_backup_policy")]
-    public TerraformList<TerraformBlock<GoogleAlloydbClusterAutomatedBackupPolicyBlock>>? AutomatedBackupPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterAutomatedBackupPolicyBlock>>? AutomatedBackupPolicy { get; set; }
 
     /// <summary>
     /// Block for continuous_backup_config.
@@ -379,7 +379,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContinuousBackupConfig block(s) allowed")]
     [TerraformProperty("continuous_backup_config")]
-    public TerraformList<TerraformBlock<GoogleAlloydbClusterContinuousBackupConfigBlock>>? ContinuousBackupConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterContinuousBackupConfigBlock>>? ContinuousBackupConfig { get; set; }
 
     /// <summary>
     /// Block for encryption_config.
@@ -387,7 +387,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
     [TerraformProperty("encryption_config")]
-    public TerraformList<TerraformBlock<GoogleAlloydbClusterEncryptionConfigBlock>>? EncryptionConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterEncryptionConfigBlock>>? EncryptionConfig { get; set; }
 
     /// <summary>
     /// Block for initial_user.
@@ -395,7 +395,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InitialUser block(s) allowed")]
     [TerraformProperty("initial_user")]
-    public TerraformList<TerraformBlock<GoogleAlloydbClusterInitialUserBlock>>? InitialUser { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterInitialUserBlock>>? InitialUser { get; set; }
 
     /// <summary>
     /// Block for maintenance_update_policy.
@@ -403,7 +403,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceUpdatePolicy block(s) allowed")]
     [TerraformProperty("maintenance_update_policy")]
-    public TerraformList<TerraformBlock<GoogleAlloydbClusterMaintenanceUpdatePolicyBlock>>? MaintenanceUpdatePolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterMaintenanceUpdatePolicyBlock>>? MaintenanceUpdatePolicy { get; set; }
 
     /// <summary>
     /// Block for network_config.
@@ -411,7 +411,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public TerraformList<TerraformBlock<GoogleAlloydbClusterNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterNetworkConfigBlock>>? NetworkConfig { get; set; }
 
     /// <summary>
     /// Block for psc_config.
@@ -419,7 +419,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscConfig block(s) allowed")]
     [TerraformProperty("psc_config")]
-    public TerraformList<TerraformBlock<GoogleAlloydbClusterPscConfigBlock>>? PscConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterPscConfigBlock>>? PscConfig { get; set; }
 
     /// <summary>
     /// Block for restore_backup_source.
@@ -427,7 +427,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreBackupSource block(s) allowed")]
     [TerraformProperty("restore_backup_source")]
-    public TerraformList<TerraformBlock<GoogleAlloydbClusterRestoreBackupSourceBlock>>? RestoreBackupSource { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterRestoreBackupSourceBlock>>? RestoreBackupSource { get; set; }
 
     /// <summary>
     /// Block for restore_continuous_backup_source.
@@ -435,7 +435,7 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreContinuousBackupSource block(s) allowed")]
     [TerraformProperty("restore_continuous_backup_source")]
-    public TerraformList<TerraformBlock<GoogleAlloydbClusterRestoreContinuousBackupSourceBlock>>? RestoreContinuousBackupSource { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterRestoreContinuousBackupSourceBlock>>? RestoreContinuousBackupSource { get; set; }
 
     /// <summary>
     /// Block for secondary_config.
@@ -443,63 +443,63 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecondaryConfig block(s) allowed")]
     [TerraformProperty("secondary_config")]
-    public TerraformList<TerraformBlock<GoogleAlloydbClusterSecondaryConfigBlock>>? SecondaryConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleAlloydbClusterSecondaryConfigBlock>>? SecondaryConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleAlloydbClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleAlloydbClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Cluster created from backup.
     /// </summary>
     [TerraformProperty("backup_source")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> BackupSource { get; }
+    public partial TerraformList<object> BackupSource { get; }
 
     /// <summary>
     /// ContinuousBackupInfo describes the continuous backup properties of a cluster.
     /// </summary>
     [TerraformProperty("continuous_backup_info")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ContinuousBackupInfo { get; }
+    public partial TerraformList<object> ContinuousBackupInfo { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// EncryptionInfo describes the encryption information of a cluster or a backup.
     /// </summary>
     [TerraformProperty("encryption_info")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> EncryptionInfo { get; }
+    public partial TerraformList<object> EncryptionInfo { get; }
 
     /// <summary>
     /// Cluster created via DMS migration.
     /// </summary>
     [TerraformProperty("migration_source")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MigrationSource { get; }
+    public partial TerraformList<object> MigrationSource { get; }
 
     /// <summary>
     /// The name of the cluster resource.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. Reconciling (https://google.aip.dev/128#reconciliation).
@@ -508,14 +508,14 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// Output only. The current serving state of the cluster.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -523,20 +523,20 @@ public partial class GoogleAlloydbCluster : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Contains information and all metadata related to TRIAL clusters.
     /// </summary>
     [TerraformProperty("trial_metadata")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> TrialMetadata { get; }
+    public partial TerraformList<object> TrialMetadata { get; }
 
     /// <summary>
     /// The system-generated UID of the resource.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
 }

@@ -13,28 +13,28 @@ public partial class AzurermMobileNetworkPacketCoreDataPlaneTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermMobileNetworkPacketCoreDataPlane : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -60,7 +60,7 @@ public partial class AzurermMobileNetworkPacketCoreDataPlane : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The mobile_network_packet_core_control_plane_id attribute.
@@ -68,7 +68,7 @@ public partial class AzurermMobileNetworkPacketCoreDataPlane : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkPacketCoreControlPlaneId is required")]
     [TerraformProperty("mobile_network_packet_core_control_plane_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MobileNetworkPacketCoreControlPlaneId { get; set; }
+    public required partial TerraformValue<string> MobileNetworkPacketCoreControlPlaneId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -76,48 +76,48 @@ public partial class AzurermMobileNetworkPacketCoreDataPlane : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The user_plane_access_ipv4_address attribute.
     /// </summary>
     [TerraformProperty("user_plane_access_ipv4_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserPlaneAccessIpv4Address { get; set; }
+    public partial TerraformValue<string>? UserPlaneAccessIpv4Address { get; set; }
 
     /// <summary>
     /// The user_plane_access_ipv4_gateway attribute.
     /// </summary>
     [TerraformProperty("user_plane_access_ipv4_gateway")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserPlaneAccessIpv4Gateway { get; set; }
+    public partial TerraformValue<string>? UserPlaneAccessIpv4Gateway { get; set; }
 
     /// <summary>
     /// The user_plane_access_ipv4_subnet attribute.
     /// </summary>
     [TerraformProperty("user_plane_access_ipv4_subnet")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserPlaneAccessIpv4Subnet { get; set; }
+    public partial TerraformValue<string>? UserPlaneAccessIpv4Subnet { get; set; }
 
     /// <summary>
     /// The user_plane_access_name attribute.
     /// </summary>
     [TerraformProperty("user_plane_access_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserPlaneAccessName { get; set; }
+    public partial TerraformValue<string>? UserPlaneAccessName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMobileNetworkPacketCoreDataPlaneTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMobileNetworkPacketCoreDataPlaneTimeoutsBlock>? Timeouts { get; set; }
 
 }

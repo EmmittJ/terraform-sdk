@@ -38,7 +38,7 @@ public partial class AwsWafv2WebAclCustomResponseBodyBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     [TerraformProperty("content")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Content { get; set; }
+    public required partial TerraformValue<string> Content { get; set; }
 
     /// <summary>
     /// The content_type attribute.
@@ -46,7 +46,7 @@ public partial class AwsWafv2WebAclCustomResponseBodyBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     [TerraformProperty("content_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ContentType { get; set; }
+    public required partial TerraformValue<string> ContentType { get; set; }
 
     /// <summary>
     /// The key attribute.
@@ -54,7 +54,7 @@ public partial class AwsWafv2WebAclCustomResponseBodyBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
 }
 
@@ -86,7 +86,7 @@ public partial class AwsWafv2WebAclRuleBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
@@ -94,7 +94,7 @@ public partial class AwsWafv2WebAclRuleBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformProperty("priority")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Priority { get; set; }
+    public required partial TerraformValue<double> Priority { get; set; }
 
 }
 
@@ -110,7 +110,7 @@ public partial class AwsWafv2WebAclVisibilityConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchMetricsEnabled is required")]
     [TerraformProperty("cloudwatch_metrics_enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> CloudwatchMetricsEnabled { get; set; }
+    public required partial TerraformValue<bool> CloudwatchMetricsEnabled { get; set; }
 
     /// <summary>
     /// The metric_name attribute.
@@ -118,7 +118,7 @@ public partial class AwsWafv2WebAclVisibilityConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     [TerraformProperty("metric_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MetricName { get; set; }
+    public required partial TerraformValue<string> MetricName { get; set; }
 
     /// <summary>
     /// The sampled_requests_enabled attribute.
@@ -126,7 +126,7 @@ public partial class AwsWafv2WebAclVisibilityConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SampledRequestsEnabled is required")]
     [TerraformProperty("sampled_requests_enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> SampledRequestsEnabled { get; set; }
+    public required partial TerraformValue<bool> SampledRequestsEnabled { get; set; }
 
 }
 
@@ -145,42 +145,42 @@ public partial class AwsWafv2WebAcl : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [TerraformProperty("name_prefix")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> NamePrefix { get; set; }
+    public partial TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The rule_json attribute.
     /// </summary>
     [TerraformProperty("rule_json")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RuleJson { get; set; }
+    public partial TerraformValue<string>? RuleJson { get; set; }
 
     /// <summary>
     /// The scope attribute.
@@ -188,28 +188,28 @@ public partial class AwsWafv2WebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     [TerraformProperty("scope")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Scope { get; set; }
+    public required partial TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The token_domains attribute.
     /// </summary>
     [TerraformProperty("token_domains")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? TokenDomains { get; set; }
+    public partial TerraformSet<string>? TokenDomains { get; set; }
 
     /// <summary>
     /// Block for association_config.
@@ -217,7 +217,7 @@ public partial class AwsWafv2WebAcl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AssociationConfig block(s) allowed")]
     [TerraformProperty("association_config")]
-    public TerraformList<TerraformBlock<AwsWafv2WebAclAssociationConfigBlock>>? AssociationConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsWafv2WebAclAssociationConfigBlock>>? AssociationConfig { get; set; }
 
     /// <summary>
     /// Block for captcha_config.
@@ -225,7 +225,7 @@ public partial class AwsWafv2WebAcl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CaptchaConfig block(s) allowed")]
     [TerraformProperty("captcha_config")]
-    public TerraformList<TerraformBlock<AwsWafv2WebAclCaptchaConfigBlock>>? CaptchaConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsWafv2WebAclCaptchaConfigBlock>>? CaptchaConfig { get; set; }
 
     /// <summary>
     /// Block for challenge_config.
@@ -233,14 +233,14 @@ public partial class AwsWafv2WebAcl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ChallengeConfig block(s) allowed")]
     [TerraformProperty("challenge_config")]
-    public TerraformList<TerraformBlock<AwsWafv2WebAclChallengeConfigBlock>>? ChallengeConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsWafv2WebAclChallengeConfigBlock>>? ChallengeConfig { get; set; }
 
     /// <summary>
     /// Block for custom_response_body.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("custom_response_body")]
-    public TerraformSet<TerraformBlock<AwsWafv2WebAclCustomResponseBodyBlock>>? CustomResponseBody { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsWafv2WebAclCustomResponseBodyBlock>>? CustomResponseBody { get; set; }
 
     /// <summary>
     /// Block for data_protection_config.
@@ -248,7 +248,7 @@ public partial class AwsWafv2WebAcl : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionConfig block(s) allowed")]
     [TerraformProperty("data_protection_config")]
-    public TerraformList<TerraformBlock<AwsWafv2WebAclDataProtectionConfigBlock>>? DataProtectionConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsWafv2WebAclDataProtectionConfigBlock>>? DataProtectionConfig { get; set; }
 
     /// <summary>
     /// Block for default_action.
@@ -258,14 +258,14 @@ public partial class AwsWafv2WebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultAction block(s) allowed")]
     [TerraformProperty("default_action")]
-    public TerraformList<TerraformBlock<AwsWafv2WebAclDefaultActionBlock>>? DefaultAction { get; set; }
+    public partial TerraformList<TerraformBlock<AwsWafv2WebAclDefaultActionBlock>>? DefaultAction { get; set; }
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("rule")]
-    public TerraformSet<TerraformBlock<AwsWafv2WebAclRuleBlock>>? Rule { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsWafv2WebAclRuleBlock>>? Rule { get; set; }
 
     /// <summary>
     /// Block for visibility_config.
@@ -275,34 +275,34 @@ public partial class AwsWafv2WebAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VisibilityConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VisibilityConfig block(s) allowed")]
     [TerraformProperty("visibility_config")]
-    public TerraformList<TerraformBlock<AwsWafv2WebAclVisibilityConfigBlock>>? VisibilityConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsWafv2WebAclVisibilityConfigBlock>>? VisibilityConfig { get; set; }
 
     /// <summary>
     /// The application_integration_url attribute.
     /// </summary>
     [TerraformProperty("application_integration_url")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ApplicationIntegrationUrl { get; }
+    public partial TerraformValue<string> ApplicationIntegrationUrl { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
     [TerraformProperty("capacity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> Capacity { get; }
+    public partial TerraformValue<double> Capacity { get; }
 
     /// <summary>
     /// The lock_token attribute.
     /// </summary>
     [TerraformProperty("lock_token")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LockToken { get; }
+    public partial TerraformValue<string> LockToken { get; }
 
 }

@@ -14,14 +14,14 @@ public partial class AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     [TerraformProperty("key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Key { get; set; }
+    public required partial TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [TerraformProperty("values")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Values { get; set; }
+    public partial TerraformSet<string>? Values { get; set; }
 
 }
 
@@ -40,42 +40,42 @@ public partial class AwsResourcegroupstaggingapiResourcesDataSource : TerraformD
     /// </summary>
     [TerraformProperty("exclude_compliant_resources")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ExcludeCompliantResources { get; set; }
+    public partial TerraformValue<bool>? ExcludeCompliantResources { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The include_compliance_details attribute.
     /// </summary>
     [TerraformProperty("include_compliance_details")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? IncludeComplianceDetails { get; set; }
+    public partial TerraformValue<bool>? IncludeComplianceDetails { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_arn_list attribute.
     /// </summary>
     [TerraformProperty("resource_arn_list")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ResourceArnList { get; set; }
+    public partial TerraformSet<string>? ResourceArnList { get; set; }
 
     /// <summary>
     /// The resource_type_filters attribute.
     /// </summary>
     [TerraformProperty("resource_type_filters")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ResourceTypeFilters { get; set; }
+    public partial TerraformSet<string>? ResourceTypeFilters { get; set; }
 
     /// <summary>
     /// Block for tag_filter.
@@ -83,13 +83,13 @@ public partial class AwsResourcegroupstaggingapiResourcesDataSource : TerraformD
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 TagFilter block(s) allowed")]
     [TerraformProperty("tag_filter")]
-    public TerraformList<TerraformBlock<AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock>>? TagFilter { get; set; }
+    public partial TerraformList<TerraformBlock<AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock>>? TagFilter { get; set; }
 
     /// <summary>
     /// The resource_tag_mapping_list attribute.
     /// </summary>
     [TerraformProperty("resource_tag_mapping_list")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ResourceTagMappingList { get; }
+    public partial TerraformList<object> ResourceTagMappingList { get; }
 
 }

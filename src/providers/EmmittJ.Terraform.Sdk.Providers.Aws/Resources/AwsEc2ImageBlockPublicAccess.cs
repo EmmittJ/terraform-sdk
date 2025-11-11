@@ -13,7 +13,7 @@ public partial class AwsEc2ImageBlockPublicAccessTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AwsEc2ImageBlockPublicAccess : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The state attribute.
@@ -39,13 +39,13 @@ public partial class AwsEc2ImageBlockPublicAccess : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     [TerraformProperty("state")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> State { get; set; }
+    public required partial TerraformValue<string> State { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsEc2ImageBlockPublicAccessTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsEc2ImageBlockPublicAccessTimeoutsBlock>? Timeouts { get; set; }
 
 }

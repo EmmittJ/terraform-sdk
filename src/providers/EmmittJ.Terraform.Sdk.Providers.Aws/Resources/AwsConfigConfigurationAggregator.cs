@@ -14,21 +14,21 @@ public partial class AwsConfigConfigurationAggregatorAccountAggregationSourceBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountIds is required")]
     [TerraformProperty("account_ids")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? AccountIds { get; set; }
+    public partial TerraformList<string>? AccountIds { get; set; }
 
     /// <summary>
     /// The all_regions attribute.
     /// </summary>
     [TerraformProperty("all_regions")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllRegions { get; set; }
+    public partial TerraformValue<bool>? AllRegions { get; set; }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
     [TerraformProperty("regions")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Regions { get; set; }
+    public partial TerraformList<string>? Regions { get; set; }
 
 }
 
@@ -43,14 +43,14 @@ public partial class AwsConfigConfigurationAggregatorOrganizationAggregationSour
     /// </summary>
     [TerraformProperty("all_regions")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AllRegions { get; set; }
+    public partial TerraformValue<bool>? AllRegions { get; set; }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
     [TerraformProperty("regions")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Regions { get; set; }
+    public partial TerraformList<string>? Regions { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
@@ -58,7 +58,7 @@ public partial class AwsConfigConfigurationAggregatorOrganizationAggregationSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     [TerraformProperty("role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RoleArn { get; set; }
+    public required partial TerraformValue<string> RoleArn { get; set; }
 
 }
 
@@ -77,7 +77,7 @@ public partial class AwsConfigConfigurationAggregator : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -85,28 +85,28 @@ public partial class AwsConfigConfigurationAggregator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for account_aggregation_source.
@@ -114,7 +114,7 @@ public partial class AwsConfigConfigurationAggregator : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccountAggregationSource block(s) allowed")]
     [TerraformProperty("account_aggregation_source")]
-    public TerraformList<TerraformBlock<AwsConfigConfigurationAggregatorAccountAggregationSourceBlock>>? AccountAggregationSource { get; set; }
+    public partial TerraformList<TerraformBlock<AwsConfigConfigurationAggregatorAccountAggregationSourceBlock>>? AccountAggregationSource { get; set; }
 
     /// <summary>
     /// Block for organization_aggregation_source.
@@ -122,13 +122,13 @@ public partial class AwsConfigConfigurationAggregator : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrganizationAggregationSource block(s) allowed")]
     [TerraformProperty("organization_aggregation_source")]
-    public TerraformList<TerraformBlock<AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock>>? OrganizationAggregationSource { get; set; }
+    public partial TerraformList<TerraformBlock<AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock>>? OrganizationAggregationSource { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

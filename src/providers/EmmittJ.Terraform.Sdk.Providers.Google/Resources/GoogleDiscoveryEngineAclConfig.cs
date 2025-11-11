@@ -13,7 +13,7 @@ public partial class GoogleDiscoveryEngineAclConfigIdpConfigBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("idp_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IdpType { get; set; }
+    public partial TerraformValue<string>? IdpType { get; set; }
 
 }
 
@@ -28,21 +28,21 @@ public partial class GoogleDiscoveryEngineAclConfigTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -61,7 +61,7 @@ public partial class GoogleDiscoveryEngineAclConfig : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
@@ -70,14 +70,14 @@ public partial class GoogleDiscoveryEngineAclConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for idp_config.
@@ -85,14 +85,14 @@ public partial class GoogleDiscoveryEngineAclConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdpConfig block(s) allowed")]
     [TerraformProperty("idp_config")]
-    public TerraformList<TerraformBlock<GoogleDiscoveryEngineAclConfigIdpConfigBlock>>? IdpConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineAclConfigIdpConfigBlock>>? IdpConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDiscoveryEngineAclConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDiscoveryEngineAclConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique full resource name of the aclConfig. Values are of the format
@@ -100,6 +100,6 @@ public partial class GoogleDiscoveryEngineAclConfig : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

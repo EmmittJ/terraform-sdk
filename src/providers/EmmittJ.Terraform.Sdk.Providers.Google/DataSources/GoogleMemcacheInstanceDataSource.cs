@@ -16,7 +16,7 @@ public partial class GoogleMemcacheInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource name of the instance.
@@ -24,21 +24,21 @@ public partial class GoogleMemcacheInstanceDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The region of the Memcache instance. If it is not provided, the provider region is used.
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The full name of the GCE network to connect the instance to.  If not provided,
@@ -46,14 +46,14 @@ public partial class GoogleMemcacheInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("authorized_network")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AuthorizedNetwork { get; }
+    public partial TerraformValue<string> AuthorizedNetwork { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the instance.
@@ -65,28 +65,28 @@ public partial class GoogleMemcacheInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> DeletionProtection { get; }
+    public partial TerraformValue<bool> DeletionProtection { get; }
 
     /// <summary>
     /// Endpoint for Discovery API
     /// </summary>
     [TerraformProperty("discovery_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DiscoveryEndpoint { get; }
+    public partial TerraformValue<string> DiscoveryEndpoint { get; }
 
     /// <summary>
     /// A user-visible name for the instance.
     /// </summary>
     [TerraformProperty("display_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> DisplayName { get; }
+    public partial TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Resource labels to represent user-provided metadata.
@@ -97,42 +97,42 @@ public partial class GoogleMemcacheInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Labels { get; }
+    public partial TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// Maintenance policy for an instance.
     /// </summary>
     [TerraformProperty("maintenance_policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MaintenancePolicy { get; }
+    public partial TerraformList<object> MaintenancePolicy { get; }
 
     /// <summary>
     /// Output only. Published maintenance schedule.
     /// </summary>
     [TerraformProperty("maintenance_schedule")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MaintenanceSchedule { get; }
+    public partial TerraformList<object> MaintenanceSchedule { get; }
 
     /// <summary>
     /// The full version of memcached server running on this instance.
     /// </summary>
     [TerraformProperty("memcache_full_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MemcacheFullVersion { get; }
+    public partial TerraformValue<string> MemcacheFullVersion { get; }
 
     /// <summary>
     /// Additional information about the instance state, if available.
     /// </summary>
     [TerraformProperty("memcache_nodes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MemcacheNodes { get; }
+    public partial TerraformList<object> MemcacheNodes { get; }
 
     /// <summary>
     /// User-specified parameters for this memcache instance.
     /// </summary>
     [TerraformProperty("memcache_parameters")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MemcacheParameters { get; }
+    public partial TerraformList<object> MemcacheParameters { get; }
 
     /// <summary>
     /// The major version of Memcached software. If not provided, latest supported version will be used.
@@ -141,21 +141,21 @@ public partial class GoogleMemcacheInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("memcache_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> MemcacheVersion { get; }
+    public partial TerraformValue<string> MemcacheVersion { get; }
 
     /// <summary>
     /// Configuration for memcache nodes.
     /// </summary>
     [TerraformProperty("node_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> NodeConfig { get; }
+    public partial TerraformList<object> NodeConfig { get; }
 
     /// <summary>
     /// Number of nodes in the memcache instance.
     /// </summary>
     [TerraformProperty("node_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> NodeCount { get; }
+    public partial TerraformValue<double> NodeCount { get; }
 
     /// <summary>
     /// Contains the name of allocated IP address ranges associated with
@@ -164,7 +164,7 @@ public partial class GoogleMemcacheInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("reserved_ip_range_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ReservedIpRangeId { get; }
+    public partial TerraformList<string> ReservedIpRangeId { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -172,7 +172,7 @@ public partial class GoogleMemcacheInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Zones where memcache nodes should be provisioned.  If not
@@ -180,6 +180,6 @@ public partial class GoogleMemcacheInstanceDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("zones")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> Zones { get; }
+    public partial TerraformSet<string> Zones { get; }
 
 }

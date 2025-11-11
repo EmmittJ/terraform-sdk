@@ -13,14 +13,14 @@ public partial class GoogleKmsKeyHandleTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleKmsKeyHandle : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the KeyHandle.
@@ -47,7 +47,7 @@ public partial class GoogleKmsKeyHandle : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource name for the KeyHandle.
@@ -55,14 +55,14 @@ public partial class GoogleKmsKeyHandle : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Selector of the resource type where we want to protect resources.
@@ -71,14 +71,14 @@ public partial class GoogleKmsKeyHandle : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeSelector is required")]
     [TerraformProperty("resource_type_selector")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceTypeSelector { get; set; }
+    public required partial TerraformValue<string> ResourceTypeSelector { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleKmsKeyHandleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleKmsKeyHandleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// A reference to a Cloud KMS CryptoKey that can be used for CMEK in the requested
@@ -87,6 +87,6 @@ public partial class GoogleKmsKeyHandle : TerraformResource
     /// </summary>
     [TerraformProperty("kms_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KmsKey { get; }
+    public partial TerraformValue<string> KmsKey { get; }
 
 }

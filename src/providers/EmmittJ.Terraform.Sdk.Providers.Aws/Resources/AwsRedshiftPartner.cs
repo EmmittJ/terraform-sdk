@@ -17,7 +17,7 @@ public partial class AwsRedshiftPartner : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     [TerraformProperty("account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccountId { get; set; }
+    public required partial TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The cluster_identifier attribute.
@@ -25,7 +25,7 @@ public partial class AwsRedshiftPartner : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     [TerraformProperty("cluster_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterIdentifier { get; set; }
+    public required partial TerraformValue<string> ClusterIdentifier { get; set; }
 
     /// <summary>
     /// The database_name attribute.
@@ -33,14 +33,14 @@ public partial class AwsRedshiftPartner : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     [TerraformProperty("database_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DatabaseName { get; set; }
+    public required partial TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The partner_name attribute.
@@ -48,27 +48,27 @@ public partial class AwsRedshiftPartner : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerName is required")]
     [TerraformProperty("partner_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PartnerName { get; set; }
+    public required partial TerraformValue<string> PartnerName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
     [TerraformProperty("status_message")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StatusMessage { get; }
+    public partial TerraformValue<string> StatusMessage { get; }
 
 }

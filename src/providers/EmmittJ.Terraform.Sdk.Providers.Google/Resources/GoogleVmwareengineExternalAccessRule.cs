@@ -13,14 +13,14 @@ public partial class GoogleVmwareengineExternalAccessRuleDestinationIpRangesBloc
     /// </summary>
     [TerraformProperty("external_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExternalAddress { get; set; }
+    public partial TerraformValue<string>? ExternalAddress { get; set; }
 
     /// <summary>
     /// An IP address range in the CIDR format.
     /// </summary>
     [TerraformProperty("ip_address_range")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpAddressRange { get; set; }
+    public partial TerraformValue<string>? IpAddressRange { get; set; }
 
 }
 
@@ -35,14 +35,14 @@ public partial class GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock : T
     /// </summary>
     [TerraformProperty("ip_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpAddress { get; set; }
+    public partial TerraformValue<string>? IpAddress { get; set; }
 
     /// <summary>
     /// An IP address range in the CIDR format.
     /// </summary>
     [TerraformProperty("ip_address_range")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IpAddressRange { get; set; }
+    public partial TerraformValue<string>? IpAddressRange { get; set; }
 
 }
 
@@ -57,21 +57,21 @@ public partial class GoogleVmwareengineExternalAccessRuleTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -91,14 +91,14 @@ public partial class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [TerraformProperty("action")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Action { get; set; }
+    public required partial TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// User-provided description for the external access rule.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A list of destination ports to which the external access rule applies.
@@ -106,14 +106,14 @@ public partial class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationPorts is required")]
     [TerraformProperty("destination_ports")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? DestinationPorts { get; set; }
+    public partial TerraformList<string>? DestinationPorts { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The IP protocol to which the external access rule applies.
@@ -121,7 +121,7 @@ public partial class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpProtocol is required")]
     [TerraformProperty("ip_protocol")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IpProtocol { get; set; }
+    public required partial TerraformValue<string> IpProtocol { get; set; }
 
     /// <summary>
     /// The ID of the external access rule.
@@ -129,7 +129,7 @@ public partial class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource name of the network policy.
@@ -139,7 +139,7 @@ public partial class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// External access rule priority, which determines the external access rule to use when multiple rules apply.
@@ -147,7 +147,7 @@ public partial class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     [TerraformProperty("priority")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Priority { get; set; }
+    public required partial TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// A list of source ports to which the external access rule applies.
@@ -155,7 +155,7 @@ public partial class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePorts is required")]
     [TerraformProperty("source_ports")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? SourcePorts { get; set; }
+    public partial TerraformList<string>? SourcePorts { get; set; }
 
     /// <summary>
     /// Block for destination_ip_ranges.
@@ -164,7 +164,7 @@ public partial class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationIpRanges is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationIpRanges block(s) required")]
     [TerraformProperty("destination_ip_ranges")]
-    public TerraformList<TerraformBlock<GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock>>? DestinationIpRanges { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock>>? DestinationIpRanges { get; set; }
 
     /// <summary>
     /// Block for source_ip_ranges.
@@ -173,14 +173,14 @@ public partial class GoogleVmwareengineExternalAccessRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIpRanges is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SourceIpRanges block(s) required")]
     [TerraformProperty("source_ip_ranges")]
-    public TerraformList<TerraformBlock<GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock>>? SourceIpRanges { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock>>? SourceIpRanges { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleVmwareengineExternalAccessRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleVmwareengineExternalAccessRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation time of this resource.
@@ -189,21 +189,21 @@ public partial class GoogleVmwareengineExternalAccessRule : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// State of the Cluster.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Last updated time of this resource.
@@ -212,6 +212,6 @@ public partial class GoogleVmwareengineExternalAccessRule : TerraformResource
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

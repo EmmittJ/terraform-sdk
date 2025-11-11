@@ -16,41 +16,41 @@ public partial class GoogleProjectAncestryDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The ancestors attribute.
     /// </summary>
     [TerraformProperty("ancestors")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Ancestors { get; }
+    public partial TerraformList<object> Ancestors { get; }
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
     [TerraformProperty("org_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> OrgId { get; }
+    public partial TerraformValue<string> OrgId { get; }
 
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
     [TerraformProperty("parent_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ParentId { get; }
+    public partial TerraformValue<string> ParentId { get; }
 
     /// <summary>
     /// The parent_type attribute.
     /// </summary>
     [TerraformProperty("parent_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ParentType { get; }
+    public partial TerraformValue<string> ParentType { get; }
 
 }

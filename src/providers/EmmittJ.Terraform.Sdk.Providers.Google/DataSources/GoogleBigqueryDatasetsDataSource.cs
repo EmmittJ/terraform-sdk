@@ -16,20 +16,20 @@ public partial class GoogleBigqueryDatasetsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the project in which the datasets are located. If it is not provided, the provider project is used.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The datasets attribute.
     /// </summary>
     [TerraformProperty("datasets")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Datasets { get; }
+    public partial TerraformList<object> Datasets { get; }
 
 }

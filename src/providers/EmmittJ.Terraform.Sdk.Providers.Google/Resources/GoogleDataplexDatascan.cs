@@ -13,7 +13,7 @@ public partial class GoogleDataplexDatascanDataBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("entity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Entity { get; set; }
+    public partial TerraformValue<string>? Entity { get; set; }
 
     /// <summary>
     /// The service-qualified full resource name of the cloud resource for a DataScan job to scan against. The field could be:
@@ -21,7 +21,7 @@ public partial class GoogleDataplexDatascanDataBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("resource")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Resource { get; set; }
+    public partial TerraformValue<string>? Resource { get; set; }
 
 }
 
@@ -44,7 +44,7 @@ public partial class GoogleDataplexDatascanDataProfileSpecBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("row_filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RowFilter { get; set; }
+    public partial TerraformValue<string>? RowFilter { get; set; }
 
     /// <summary>
     /// The percentage of the records to be selected from the dataset for DataScan.
@@ -53,7 +53,7 @@ public partial class GoogleDataplexDatascanDataProfileSpecBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("sampling_percent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SamplingPercent { get; set; }
+    public partial TerraformValue<double>? SamplingPercent { get; set; }
 
 }
 
@@ -68,14 +68,14 @@ public partial class GoogleDataplexDatascanDataQualitySpecBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("catalog_publishing_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CatalogPublishingEnabled { get; set; }
+    public partial TerraformValue<bool>? CatalogPublishingEnabled { get; set; }
 
     /// <summary>
     /// A filter applied to all rows in a single DataScan job. The filter needs to be a valid SQL expression for a WHERE clause in BigQuery standard SQL syntax. Example: col1 &amp;gt;= 0 AND col2 &amp;lt; 10
     /// </summary>
     [TerraformProperty("row_filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RowFilter { get; set; }
+    public partial TerraformValue<string>? RowFilter { get; set; }
 
     /// <summary>
     /// The percentage of the records to be selected from the dataset for DataScan.
@@ -84,7 +84,7 @@ public partial class GoogleDataplexDatascanDataQualitySpecBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("sampling_percent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? SamplingPercent { get; set; }
+    public partial TerraformValue<double>? SamplingPercent { get; set; }
 
 }
 
@@ -99,7 +99,7 @@ public partial class GoogleDataplexDatascanExecutionSpecBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("field")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Field { get; set; }
+    public partial TerraformValue<string>? Field { get; set; }
 
 }
 
@@ -114,21 +114,21 @@ public partial class GoogleDataplexDatascanTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -148,28 +148,28 @@ public partial class GoogleDataplexDatascan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataScanId is required")]
     [TerraformProperty("data_scan_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataScanId { get; set; }
+    public required partial TerraformValue<string> DataScanId { get; set; }
 
     /// <summary>
     /// Description of the scan.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// User friendly display name.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// User-defined labels for the scan. A list of key-&amp;gt;value pairs.
@@ -180,7 +180,7 @@ public partial class GoogleDataplexDatascan : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location where the data scan should reside.
@@ -188,14 +188,14 @@ public partial class GoogleDataplexDatascan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for data.
@@ -205,7 +205,7 @@ public partial class GoogleDataplexDatascan : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Data block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Data block(s) allowed")]
     [TerraformProperty("data")]
-    public TerraformList<TerraformBlock<GoogleDataplexDatascanDataBlock>>? Data { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataplexDatascanDataBlock>>? Data { get; set; }
 
     /// <summary>
     /// Block for data_discovery_spec.
@@ -213,7 +213,7 @@ public partial class GoogleDataplexDatascan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataDiscoverySpec block(s) allowed")]
     [TerraformProperty("data_discovery_spec")]
-    public TerraformList<TerraformBlock<GoogleDataplexDatascanDataDiscoverySpecBlock>>? DataDiscoverySpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataplexDatascanDataDiscoverySpecBlock>>? DataDiscoverySpec { get; set; }
 
     /// <summary>
     /// Block for data_profile_spec.
@@ -221,7 +221,7 @@ public partial class GoogleDataplexDatascan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProfileSpec block(s) allowed")]
     [TerraformProperty("data_profile_spec")]
-    public TerraformList<TerraformBlock<GoogleDataplexDatascanDataProfileSpecBlock>>? DataProfileSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataplexDatascanDataProfileSpecBlock>>? DataProfileSpec { get; set; }
 
     /// <summary>
     /// Block for data_quality_spec.
@@ -229,7 +229,7 @@ public partial class GoogleDataplexDatascan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataQualitySpec block(s) allowed")]
     [TerraformProperty("data_quality_spec")]
-    public TerraformList<TerraformBlock<GoogleDataplexDatascanDataQualitySpecBlock>>? DataQualitySpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataplexDatascanDataQualitySpecBlock>>? DataQualitySpec { get; set; }
 
     /// <summary>
     /// Block for execution_spec.
@@ -239,49 +239,49 @@ public partial class GoogleDataplexDatascan : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExecutionSpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExecutionSpec block(s) allowed")]
     [TerraformProperty("execution_spec")]
-    public TerraformList<TerraformBlock<GoogleDataplexDatascanExecutionSpecBlock>>? ExecutionSpec { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataplexDatascanExecutionSpecBlock>>? ExecutionSpec { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDataplexDatascanTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDataplexDatascanTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when the scan was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Status of the data scan execution.
     /// </summary>
     [TerraformProperty("execution_status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ExecutionStatus { get; }
+    public partial TerraformList<object> ExecutionStatus { get; }
 
     /// <summary>
     /// The relative resource name of the scan, of the form: projects/{project}/locations/{locationId}/dataScans/{datascan_id}, where project refers to a project_id or project_number and locationId refers to a GCP region.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Current state of the DataScan.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -289,27 +289,27 @@ public partial class GoogleDataplexDatascan : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The type of DataScan.
     /// </summary>
     [TerraformProperty("type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Type { get; }
+    public partial TerraformValue<string> Type { get; }
 
     /// <summary>
     /// System generated globally unique ID for the scan. This ID will be different if the scan is deleted and re-created with the same name.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// The time when the scan was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

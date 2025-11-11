@@ -16,27 +16,27 @@ public partial class AwsRoute53DelegationSet : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The reference_name attribute.
     /// </summary>
     [TerraformProperty("reference_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ReferenceName { get; set; }
+    public partial TerraformValue<string>? ReferenceName { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
     [TerraformProperty("name_servers")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> NameServers { get; }
+    public partial TerraformList<string> NameServers { get; }
 
 }

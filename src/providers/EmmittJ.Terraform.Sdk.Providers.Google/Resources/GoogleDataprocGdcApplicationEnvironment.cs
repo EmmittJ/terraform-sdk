@@ -13,14 +13,14 @@ public partial class GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvi
     /// </summary>
     [TerraformProperty("default_properties")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? DefaultProperties { get; set; }
+    public partial TerraformMap<string>? DefaultProperties { get; set; }
 
     /// <summary>
     /// The default Dataproc version to use for applications submitted to this application environment
     /// </summary>
     [TerraformProperty("default_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultVersion { get; set; }
+    public partial TerraformValue<string>? DefaultVersion { get; set; }
 
 }
 
@@ -35,21 +35,21 @@ public partial class GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -71,28 +71,28 @@ public partial class GoogleDataprocGdcApplicationEnvironment : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Annotations { get; set; }
+    public partial TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// The id of the application environment
     /// </summary>
     [TerraformProperty("application_environment_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ApplicationEnvironmentId { get; set; }
+    public partial TerraformValue<string>? ApplicationEnvironmentId { get; set; }
 
     /// <summary>
     /// User-provided human-readable name to be used in user interfaces.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The labels to associate with this application environment. Labels may be used for filtering and billing tracking. 
@@ -102,7 +102,7 @@ public partial class GoogleDataprocGdcApplicationEnvironment : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the application environment
@@ -110,21 +110,21 @@ public partial class GoogleDataprocGdcApplicationEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of the namespace in which to create this ApplicationEnvironment. This namespace must already exist in the cluster
     /// </summary>
     [TerraformProperty("namespace")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Namespace { get; set; }
+    public partial TerraformValue<string>? Namespace { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The id of the service instance to which this application environment belongs.
@@ -132,7 +132,7 @@ public partial class GoogleDataprocGdcApplicationEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serviceinstance is required")]
     [TerraformProperty("serviceinstance")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Serviceinstance { get; set; }
+    public required partial TerraformValue<string> Serviceinstance { get; set; }
 
     /// <summary>
     /// Block for spark_application_environment_config.
@@ -140,42 +140,42 @@ public partial class GoogleDataprocGdcApplicationEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkApplicationEnvironmentConfig block(s) allowed")]
     [TerraformProperty("spark_application_environment_config")]
-    public TerraformList<TerraformBlock<GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvironmentConfigBlock>>? SparkApplicationEnvironmentConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvironmentConfigBlock>>? SparkApplicationEnvironmentConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp when the resource was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Identifier. The name of the application environment. Format: projects/{project}/locations/{location}/serviceInstances/{service_instance}/applicationEnvironments/{application_environment_id}
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -183,20 +183,20 @@ public partial class GoogleDataprocGdcApplicationEnvironment : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// System generated unique identifier for this application environment, formatted as UUID4.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// The timestamp when the resource was most recently updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

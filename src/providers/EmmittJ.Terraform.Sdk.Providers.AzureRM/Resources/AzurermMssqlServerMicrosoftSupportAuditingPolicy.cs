@@ -13,28 +13,28 @@ public partial class AzurermMssqlServerMicrosoftSupportAuditingPolicyTimeoutsBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,28 +52,28 @@ public partial class AzurermMssqlServerMicrosoftSupportAuditingPolicy : Terrafor
     /// </summary>
     [TerraformProperty("blob_storage_endpoint")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BlobStorageEndpoint { get; set; }
+    public partial TerraformValue<string>? BlobStorageEndpoint { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The log_monitoring_enabled attribute.
     /// </summary>
     [TerraformProperty("log_monitoring_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LogMonitoringEnabled { get; set; }
+    public partial TerraformValue<bool>? LogMonitoringEnabled { get; set; }
 
     /// <summary>
     /// The server_id attribute.
@@ -81,27 +81,27 @@ public partial class AzurermMssqlServerMicrosoftSupportAuditingPolicy : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     [TerraformProperty("server_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServerId { get; set; }
+    public required partial TerraformValue<string> ServerId { get; set; }
 
     /// <summary>
     /// The storage_account_access_key attribute.
     /// </summary>
     [TerraformProperty("storage_account_access_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountAccessKey { get; set; }
+    public partial TerraformValue<string>? StorageAccountAccessKey { get; set; }
 
     /// <summary>
     /// The storage_account_subscription_id attribute.
     /// </summary>
     [TerraformProperty("storage_account_subscription_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountSubscriptionId { get; set; }
+    public partial TerraformValue<string>? StorageAccountSubscriptionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMssqlServerMicrosoftSupportAuditingPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMssqlServerMicrosoftSupportAuditingPolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

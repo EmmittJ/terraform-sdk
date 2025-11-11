@@ -24,7 +24,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterAntiAffinityGroupsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AagConfigDisabled is required")]
     [TerraformProperty("aag_config_disabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> AagConfigDisabled { get; set; }
+    public required partial TerraformValue<bool> AagConfigDisabled { get; set; }
 
 }
 
@@ -48,7 +48,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterAutoRepairConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
 }
 
@@ -63,21 +63,21 @@ public partial class GoogleGkeonpremVmwareAdminClusterControlPlaneNodeBlock : Te
     /// </summary>
     [TerraformProperty("cpus")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Cpus { get; set; }
+    public partial TerraformValue<double>? Cpus { get; set; }
 
     /// <summary>
     /// The number of mebibytes of memory for the control-plane node of the admin cluster.
     /// </summary>
     [TerraformProperty("memory")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Memory { get; set; }
+    public partial TerraformValue<double>? Memory { get; set; }
 
     /// <summary>
     /// The number of control plane nodes for this VMware admin cluster.
     /// </summary>
     [TerraformProperty("replicas")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? Replicas { get; set; }
+    public partial TerraformValue<double>? Replicas { get; set; }
 
 }
 
@@ -102,7 +102,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterNetworkConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PodAddressCidrBlocks is required")]
     [TerraformProperty("pod_address_cidr_blocks")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? PodAddressCidrBlocks { get; set; }
+    public partial TerraformList<string>? PodAddressCidrBlocks { get; set; }
 
     /// <summary>
     /// All services in the cluster are assigned an RFC1918 IPv4 address
@@ -112,14 +112,14 @@ public partial class GoogleGkeonpremVmwareAdminClusterNetworkConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAddressCidrBlocks is required")]
     [TerraformProperty("service_address_cidr_blocks")]
     // Required argument - source generator will implement get/set
-    public TerraformList<string>? ServiceAddressCidrBlocks { get; set; }
+    public partial TerraformList<string>? ServiceAddressCidrBlocks { get; set; }
 
     /// <summary>
     /// vcenter_network specifies vCenter network name.
     /// </summary>
     [TerraformProperty("vcenter_network")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VcenterNetwork { get; set; }
+    public partial TerraformValue<string>? VcenterNetwork { get; set; }
 
 }
 
@@ -140,7 +140,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterPlatformConfigBlock : Terr
     /// </summary>
     [TerraformProperty("required_platform_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RequiredPlatformVersion { get; set; }
+    public partial TerraformValue<string>? RequiredPlatformVersion { get; set; }
 
 
 }
@@ -156,14 +156,14 @@ public partial class GoogleGkeonpremVmwareAdminClusterPrivateRegistryConfigBlock
     /// </summary>
     [TerraformProperty("address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Address { get; set; }
+    public partial TerraformValue<string>? Address { get; set; }
 
     /// <summary>
     /// The CA certificate public key for private registry.
     /// </summary>
     [TerraformProperty("ca_cert")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CaCert { get; set; }
+    public partial TerraformValue<string>? CaCert { get; set; }
 
 }
 
@@ -179,7 +179,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterProxyBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("no_proxy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? NoProxy { get; set; }
+    public partial TerraformValue<string>? NoProxy { get; set; }
 
     /// <summary>
     /// The proxy url.
@@ -187,7 +187,7 @@ public partial class GoogleGkeonpremVmwareAdminClusterProxyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     [TerraformProperty("url")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Url { get; set; }
+    public required partial TerraformValue<string> Url { get; set; }
 
 }
 
@@ -202,21 +202,21 @@ public partial class GoogleGkeonpremVmwareAdminClusterTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -231,63 +231,63 @@ public partial class GoogleGkeonpremVmwareAdminClusterVcenterBlock : TerraformBl
     /// </summary>
     [TerraformProperty("address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Address { get; set; }
+    public partial TerraformValue<string>? Address { get; set; }
 
     /// <summary>
     /// Contains the vCenter CA certificate public key for SSL verification.
     /// </summary>
     [TerraformProperty("ca_cert_data")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CaCertData { get; set; }
+    public partial TerraformValue<string>? CaCertData { get; set; }
 
     /// <summary>
     /// The name of the vCenter cluster for the admin cluster.
     /// </summary>
     [TerraformProperty("cluster")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Cluster { get; set; }
+    public partial TerraformValue<string>? Cluster { get; set; }
 
     /// <summary>
     /// The name of the virtual machine disk (VMDK) for the admin cluster.
     /// </summary>
     [TerraformProperty("data_disk")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DataDisk { get; set; }
+    public partial TerraformValue<string>? DataDisk { get; set; }
 
     /// <summary>
     /// The name of the vCenter datacenter for the admin cluster.
     /// </summary>
     [TerraformProperty("datacenter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Datacenter { get; set; }
+    public partial TerraformValue<string>? Datacenter { get; set; }
 
     /// <summary>
     /// The name of the vCenter datastore for the admin cluster.
     /// </summary>
     [TerraformProperty("datastore")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Datastore { get; set; }
+    public partial TerraformValue<string>? Datastore { get; set; }
 
     /// <summary>
     /// The name of the vCenter folder for the admin cluster.
     /// </summary>
     [TerraformProperty("folder")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Folder { get; set; }
+    public partial TerraformValue<string>? Folder { get; set; }
 
     /// <summary>
     /// The name of the vCenter resource pool for the admin cluster.
     /// </summary>
     [TerraformProperty("resource_pool")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ResourcePool { get; set; }
+    public partial TerraformValue<string>? ResourcePool { get; set; }
 
     /// <summary>
     /// The name of the vCenter storage policy for the user cluster.
     /// </summary>
     [TerraformProperty("storage_policy_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StoragePolicyName { get; set; }
+    public partial TerraformValue<string>? StoragePolicyName { get; set; }
 
 }
 
@@ -317,42 +317,42 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [TerraformProperty("annotations")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Annotations { get; set; }
+    public partial TerraformMap<string> Annotations { get; set; }
 
     /// <summary>
     /// The bootstrap cluster this VMware admin cluster belongs to.
     /// </summary>
     [TerraformProperty("bootstrap_cluster_membership")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> BootstrapClusterMembership { get; set; }
+    public partial TerraformValue<string> BootstrapClusterMembership { get; set; }
 
     /// <summary>
     /// A human readable description of this VMware admin cluster.
     /// </summary>
     [TerraformProperty("description")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Description { get; set; }
+    public partial TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// If set, the advanced cluster feature is enabled.
     /// </summary>
     [TerraformProperty("enable_advanced_cluster")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> EnableAdvancedCluster { get; set; }
+    public partial TerraformValue<bool> EnableAdvancedCluster { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The OS image type for the VMware admin cluster.
     /// </summary>
     [TerraformProperty("image_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ImageType { get; set; }
+    public partial TerraformValue<string> ImageType { get; set; }
 
     /// <summary>
     /// The location of the resource.
@@ -360,7 +360,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The VMware admin cluster resource name.
@@ -368,21 +368,21 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The Anthos clusters on the VMware version for the admin cluster.
     /// </summary>
     [TerraformProperty("on_prem_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? OnPremVersion { get; set; }
+    public partial TerraformValue<string>? OnPremVersion { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for addon_node.
@@ -390,7 +390,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AddonNode block(s) allowed")]
     [TerraformProperty("addon_node")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterAddonNodeBlock>>? AddonNode { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterAddonNodeBlock>>? AddonNode { get; set; }
 
     /// <summary>
     /// Block for anti_affinity_groups.
@@ -398,7 +398,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AntiAffinityGroups block(s) allowed")]
     [TerraformProperty("anti_affinity_groups")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterAntiAffinityGroupsBlock>>? AntiAffinityGroups { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterAntiAffinityGroupsBlock>>? AntiAffinityGroups { get; set; }
 
     /// <summary>
     /// Block for authorization.
@@ -406,7 +406,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
     [TerraformProperty("authorization")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterAuthorizationBlock>>? Authorization { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterAuthorizationBlock>>? Authorization { get; set; }
 
     /// <summary>
     /// Block for auto_repair_config.
@@ -414,7 +414,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoRepairConfig block(s) allowed")]
     [TerraformProperty("auto_repair_config")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterAutoRepairConfigBlock>>? AutoRepairConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterAutoRepairConfigBlock>>? AutoRepairConfig { get; set; }
 
     /// <summary>
     /// Block for control_plane_node.
@@ -422,7 +422,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlaneNode block(s) allowed")]
     [TerraformProperty("control_plane_node")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterControlPlaneNodeBlock>>? ControlPlaneNode { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterControlPlaneNodeBlock>>? ControlPlaneNode { get; set; }
 
     /// <summary>
     /// Block for load_balancer.
@@ -430,7 +430,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancer block(s) allowed")]
     [TerraformProperty("load_balancer")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterLoadBalancerBlock>>? LoadBalancer { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterLoadBalancerBlock>>? LoadBalancer { get; set; }
 
     /// <summary>
     /// Block for network_config.
@@ -440,7 +440,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
     [TerraformProperty("network_config")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterNetworkConfigBlock>>? NetworkConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterNetworkConfigBlock>>? NetworkConfig { get; set; }
 
     /// <summary>
     /// Block for platform_config.
@@ -448,7 +448,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PlatformConfig block(s) allowed")]
     [TerraformProperty("platform_config")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterPlatformConfigBlock>>? PlatformConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterPlatformConfigBlock>>? PlatformConfig { get; set; }
 
     /// <summary>
     /// Block for private_registry_config.
@@ -456,7 +456,7 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateRegistryConfig block(s) allowed")]
     [TerraformProperty("private_registry_config")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterPrivateRegistryConfigBlock>>? PrivateRegistryConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterPrivateRegistryConfigBlock>>? PrivateRegistryConfig { get; set; }
 
     /// <summary>
     /// Block for proxy.
@@ -464,14 +464,14 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
     [TerraformProperty("proxy")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterProxyBlock>>? Proxy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterProxyBlock>>? Proxy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleGkeonpremVmwareAdminClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleGkeonpremVmwareAdminClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vcenter.
@@ -479,28 +479,28 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Vcenter block(s) allowed")]
     [TerraformProperty("vcenter")]
-    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterVcenterBlock>>? Vcenter { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterVcenterBlock>>? Vcenter { get; set; }
 
     /// <summary>
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_annotations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveAnnotations { get; }
+    public partial TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// The DNS name of VMware admin cluster&#39;s API server.
     /// </summary>
     [TerraformProperty("endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Endpoint { get; }
+    public partial TerraformValue<string> Endpoint { get; }
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -511,14 +511,14 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Fleet configuration for the cluster.
     /// </summary>
     [TerraformProperty("fleet")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Fleet { get; }
+    public partial TerraformList<object> Fleet { get; }
 
     /// <summary>
     /// The object name of the VMwareAdminCluster custom resource on the
@@ -534,41 +534,41 @@ public partial class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// </summary>
     [TerraformProperty("local_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LocalName { get; }
+    public partial TerraformValue<string> LocalName { get; }
 
     /// <summary>
     /// If set, there are currently changes in flight to the VMware admin cluster.
     /// </summary>
     [TerraformProperty("reconciling")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Reconciling { get; }
+    public partial TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// The lifecycle state of the VMware admin cluster.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// ResourceStatus representing detailed cluster state.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Status { get; }
+    public partial TerraformList<object> Status { get; }
 
     /// <summary>
     /// The unique identifier of the VMware Admin Cluster.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -13,28 +13,28 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoringT
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring 
     /// </summary>
     [TerraformProperty("agent_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AgentEnabled { get; set; }
+    public partial TerraformValue<bool>? AgentEnabled { get; set; }
 
     /// <summary>
     /// The app_name attribute.
@@ -60,63 +60,63 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppName is required")]
     [TerraformProperty("app_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AppName { get; set; }
+    public required partial TerraformValue<string> AppName { get; set; }
 
     /// <summary>
     /// The app_server_port attribute.
     /// </summary>
     [TerraformProperty("app_server_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AppServerPort { get; set; }
+    public partial TerraformValue<double>? AppServerPort { get; set; }
 
     /// <summary>
     /// The audit_mode_enabled attribute.
     /// </summary>
     [TerraformProperty("audit_mode_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AuditModeEnabled { get; set; }
+    public partial TerraformValue<bool>? AuditModeEnabled { get; set; }
 
     /// <summary>
     /// The auto_app_naming_enabled attribute.
     /// </summary>
     [TerraformProperty("auto_app_naming_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutoAppNamingEnabled { get; set; }
+    public partial TerraformValue<bool>? AutoAppNamingEnabled { get; set; }
 
     /// <summary>
     /// The auto_transaction_naming_enabled attribute.
     /// </summary>
     [TerraformProperty("auto_transaction_naming_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AutoTransactionNamingEnabled { get; set; }
+    public partial TerraformValue<bool>? AutoTransactionNamingEnabled { get; set; }
 
     /// <summary>
     /// The custom_tracing_enabled attribute.
     /// </summary>
     [TerraformProperty("custom_tracing_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CustomTracingEnabled { get; set; }
+    public partial TerraformValue<bool>? CustomTracingEnabled { get; set; }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
     [TerraformProperty("globally_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? GloballyEnabled { get; set; }
+    public partial TerraformValue<bool>? GloballyEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The license_key attribute.
@@ -124,7 +124,7 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseKey is required")]
     [TerraformProperty("license_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LicenseKey { get; set; }
+    public required partial TerraformValue<string> LicenseKey { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -132,7 +132,7 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
@@ -140,13 +140,13 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     [TerraformProperty("spring_cloud_service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SpringCloudServiceId { get; set; }
+    public required partial TerraformValue<string> SpringCloudServiceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsBlock>? Timeouts { get; set; }
 
 }

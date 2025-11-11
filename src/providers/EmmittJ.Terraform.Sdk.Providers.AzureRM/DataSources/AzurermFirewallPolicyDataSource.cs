@@ -13,7 +13,7 @@ public partial class AzurermFirewallPolicyDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermFirewallPolicyDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermFirewallPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,76 +47,76 @@ public partial class AzurermFirewallPolicyDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermFirewallPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermFirewallPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The base_policy_id attribute.
     /// </summary>
     [TerraformProperty("base_policy_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BasePolicyId { get; }
+    public partial TerraformValue<string> BasePolicyId { get; }
 
     /// <summary>
     /// The child_policies attribute.
     /// </summary>
     [TerraformProperty("child_policies")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ChildPolicies { get; }
+    public partial TerraformList<string> ChildPolicies { get; }
 
     /// <summary>
     /// The dns attribute.
     /// </summary>
     [TerraformProperty("dns")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Dns { get; }
+    public partial TerraformList<object> Dns { get; }
 
     /// <summary>
     /// The firewalls attribute.
     /// </summary>
     [TerraformProperty("firewalls")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> Firewalls { get; }
+    public partial TerraformList<string> Firewalls { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [TerraformProperty("location")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Location { get; }
+    public partial TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The rule_collection_groups attribute.
     /// </summary>
     [TerraformProperty("rule_collection_groups")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> RuleCollectionGroups { get; }
+    public partial TerraformList<string> RuleCollectionGroups { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The threat_intelligence_allowlist attribute.
     /// </summary>
     [TerraformProperty("threat_intelligence_allowlist")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ThreatIntelligenceAllowlist { get; }
+    public partial TerraformList<object> ThreatIntelligenceAllowlist { get; }
 
     /// <summary>
     /// The threat_intelligence_mode attribute.
     /// </summary>
     [TerraformProperty("threat_intelligence_mode")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ThreatIntelligenceMode { get; }
+    public partial TerraformValue<string> ThreatIntelligenceMode { get; }
 
 }

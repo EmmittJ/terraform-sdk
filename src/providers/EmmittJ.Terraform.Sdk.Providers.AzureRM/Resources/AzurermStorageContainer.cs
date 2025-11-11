@@ -13,28 +13,28 @@ public partial class AzurermStorageContainerTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,35 +52,35 @@ public partial class AzurermStorageContainer : TerraformResource
     /// </summary>
     [TerraformProperty("container_access_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ContainerAccessType { get; set; }
+    public partial TerraformValue<string>? ContainerAccessType { get; set; }
 
     /// <summary>
     /// The default_encryption_scope attribute.
     /// </summary>
     [TerraformProperty("default_encryption_scope")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DefaultEncryptionScope { get; set; }
+    public partial TerraformValue<string> DefaultEncryptionScope { get; set; }
 
     /// <summary>
     /// The encryption_scope_override_enabled attribute.
     /// </summary>
     [TerraformProperty("encryption_scope_override_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EncryptionScopeOverrideEnabled { get; set; }
+    public partial TerraformValue<bool>? EncryptionScopeOverrideEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     [TerraformProperty("metadata")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Metadata { get; set; }
+    public partial TerraformMap<string> Metadata { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -88,14 +88,14 @@ public partial class AzurermStorageContainer : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [TerraformProperty("storage_account_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountId { get; set; }
+    public partial TerraformValue<string>? StorageAccountId { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
@@ -103,34 +103,34 @@ public partial class AzurermStorageContainer : TerraformResource
     [Obsolete("This property is deprecated.")]
     [TerraformProperty("storage_account_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StorageAccountName { get; set; }
+    public partial TerraformValue<string>? StorageAccountName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageContainerTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageContainerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The has_immutability_policy attribute.
     /// </summary>
     [TerraformProperty("has_immutability_policy")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> HasImmutabilityPolicy { get; }
+    public partial TerraformValue<bool> HasImmutabilityPolicy { get; }
 
     /// <summary>
     /// The has_legal_hold attribute.
     /// </summary>
     [TerraformProperty("has_legal_hold")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> HasLegalHold { get; }
+    public partial TerraformValue<bool> HasLegalHold { get; }
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     [TerraformProperty("resource_manager_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceManagerId { get; }
+    public partial TerraformValue<string> ResourceManagerId { get; }
 
 }

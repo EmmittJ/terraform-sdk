@@ -14,7 +14,7 @@ public partial class AwsBedrockagentcoreCodeInterpreterNetworkConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkMode is required")]
     [TerraformProperty("network_mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NetworkMode { get; set; }
+    public required partial TerraformValue<string> NetworkMode { get; set; }
 
 }
 
@@ -29,14 +29,14 @@ public partial class AwsBedrockagentcoreCodeInterpreterTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -54,14 +54,14 @@ public partial class AwsBedrockagentcoreCodeInterpreter : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
     [TerraformProperty("execution_role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ExecutionRoleArn { get; set; }
+    public partial TerraformValue<string>? ExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -69,55 +69,55 @@ public partial class AwsBedrockagentcoreCodeInterpreter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for network_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("network_configuration")]
-    public TerraformList<TerraformBlock<AwsBedrockagentcoreCodeInterpreterNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AwsBedrockagentcoreCodeInterpreterNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsBedrockagentcoreCodeInterpreterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsBedrockagentcoreCodeInterpreterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The code_interpreter_arn attribute.
     /// </summary>
     [TerraformProperty("code_interpreter_arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CodeInterpreterArn { get; }
+    public partial TerraformValue<string> CodeInterpreterArn { get; }
 
     /// <summary>
     /// The code_interpreter_id attribute.
     /// </summary>
     [TerraformProperty("code_interpreter_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CodeInterpreterId { get; }
+    public partial TerraformValue<string> CodeInterpreterId { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TagsAll { get; }
+    public partial TerraformMap<string> TagsAll { get; }
 
 }

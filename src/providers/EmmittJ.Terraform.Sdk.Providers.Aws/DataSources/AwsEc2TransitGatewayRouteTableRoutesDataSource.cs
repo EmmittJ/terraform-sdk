@@ -14,7 +14,7 @@ public partial class AwsEc2TransitGatewayRouteTableRoutesDataSourceFilterBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
@@ -22,7 +22,7 @@ public partial class AwsEc2TransitGatewayRouteTableRoutesDataSourceFilterBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
     [TerraformProperty("values")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> Values { get; set; }
+    public required partial TerraformSet<string> Values { get; set; }
 
 }
 
@@ -41,14 +41,14 @@ public partial class AwsEc2TransitGatewayRouteTableRoutesDataSource : TerraformD
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The transit_gateway_route_table_id attribute.
@@ -56,7 +56,7 @@ public partial class AwsEc2TransitGatewayRouteTableRoutesDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayRouteTableId is required")]
     [TerraformProperty("transit_gateway_route_table_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TransitGatewayRouteTableId { get; set; }
+    public required partial TerraformValue<string> TransitGatewayRouteTableId { get; set; }
 
     /// <summary>
     /// Block for filter.
@@ -65,13 +65,13 @@ public partial class AwsEc2TransitGatewayRouteTableRoutesDataSource : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
     [TerraformProperty("filter")]
-    public TerraformSet<TerraformBlock<AwsEc2TransitGatewayRouteTableRoutesDataSourceFilterBlock>>? Filter { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsEc2TransitGatewayRouteTableRoutesDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// The routes attribute.
     /// </summary>
     [TerraformProperty("routes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Routes { get; }
+    public partial TerraformList<object> Routes { get; }
 
 }

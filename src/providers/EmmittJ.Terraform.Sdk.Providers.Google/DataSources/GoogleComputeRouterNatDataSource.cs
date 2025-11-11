@@ -16,7 +16,7 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the NAT service. The name must be 1-63 characters long and
@@ -25,21 +25,21 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Project { get; set; }
+    public partial TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Region where the router and NAT reside.
     /// </summary>
     [TerraformProperty("region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Region { get; set; }
+    public partial TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The name of the Cloud Router in which this NAT will be configured.
@@ -47,7 +47,7 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     [TerraformProperty("router")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Router { get; set; }
+    public required partial TerraformValue<string> Router { get; set; }
 
     /// <summary>
     /// The network tier to use when automatically reserving NAT IP addresses.
@@ -56,7 +56,7 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("auto_network_tier")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AutoNetworkTier { get; }
+    public partial TerraformValue<string> AutoNetworkTier { get; }
 
     /// <summary>
     /// A list of URLs of the IP resources to be drained. These IPs must be
@@ -64,7 +64,7 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("drain_nat_ips")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> DrainNatIps { get; }
+    public partial TerraformSet<string> DrainNatIps { get; }
 
     /// <summary>
     /// Enable Dynamic Port Allocation.
@@ -77,7 +77,7 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("enable_dynamic_port_allocation")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> EnableDynamicPortAllocation { get; }
+    public partial TerraformValue<bool> EnableDynamicPortAllocation { get; }
 
     /// <summary>
     /// Enable endpoint independent mapping.
@@ -85,7 +85,7 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("enable_endpoint_independent_mapping")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> EnableEndpointIndependentMapping { get; }
+    public partial TerraformValue<bool> EnableEndpointIndependentMapping { get; }
 
     /// <summary>
     /// Specifies the endpoint Types supported by the NAT Gateway.
@@ -95,14 +95,14 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("endpoint_types")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> EndpointTypes { get; }
+    public partial TerraformList<string> EndpointTypes { get; }
 
     /// <summary>
     /// Timeout (in seconds) for ICMP connections. Defaults to 30s if not set.
     /// </summary>
     [TerraformProperty("icmp_idle_timeout_sec")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> IcmpIdleTimeoutSec { get; }
+    public partial TerraformValue<double> IcmpIdleTimeoutSec { get; }
 
     /// <summary>
     /// Self-links of NAT IPs to be used as initial value for creation alongside a RouterNatAddress resource.
@@ -110,14 +110,14 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("initial_nat_ips")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> InitialNatIps { get; }
+    public partial TerraformSet<string> InitialNatIps { get; }
 
     /// <summary>
     /// Configuration for logging on NAT
     /// </summary>
     [TerraformProperty("log_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> LogConfig { get; }
+    public partial TerraformList<object> LogConfig { get; }
 
     /// <summary>
     /// Maximum number of ports allocated to a VM from this NAT.
@@ -125,14 +125,14 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("max_ports_per_vm")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> MaxPortsPerVm { get; }
+    public partial TerraformValue<double> MaxPortsPerVm { get; }
 
     /// <summary>
     /// Minimum number of ports allocated to a VM from this NAT. Defaults to 64 for static port allocation and 32 dynamic port allocation if not set.
     /// </summary>
     [TerraformProperty("min_ports_per_vm")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> MinPortsPerVm { get; }
+    public partial TerraformValue<double> MinPortsPerVm { get; }
 
     /// <summary>
     /// One or more subnetwork NAT configurations whose traffic should be translated by NAT64 Gateway.
@@ -140,7 +140,7 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("nat64_subnetwork")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> Nat64Subnetwork { get; }
+    public partial TerraformSet<object> Nat64Subnetwork { get; }
 
     /// <summary>
     /// How external IPs should be allocated for this NAT. Valid values are
@@ -149,7 +149,7 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("nat_ip_allocate_option")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NatIpAllocateOption { get; }
+    public partial TerraformValue<string> NatIpAllocateOption { get; }
 
     /// <summary>
     /// Self-links of NAT IPs. Only valid if natIpAllocateOption
@@ -160,14 +160,14 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("nat_ips")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<string> NatIps { get; }
+    public partial TerraformSet<string> NatIps { get; }
 
     /// <summary>
     /// A list of rules associated with this NAT.
     /// </summary>
     [TerraformProperty("rules")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> Rules { get; }
+    public partial TerraformSet<object> Rules { get; }
 
     /// <summary>
     /// How NAT should be configured per Subnetwork.
@@ -183,7 +183,7 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("source_subnetwork_ip_ranges_to_nat")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SourceSubnetworkIpRangesToNat { get; }
+    public partial TerraformValue<string> SourceSubnetworkIpRangesToNat { get; }
 
     /// <summary>
     /// Specify the Nat option for NAT64, which can take one of the following values:
@@ -194,7 +194,7 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("source_subnetwork_ip_ranges_to_nat64")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SourceSubnetworkIpRangesToNat64 { get; }
+    public partial TerraformValue<string> SourceSubnetworkIpRangesToNat64 { get; }
 
     /// <summary>
     /// One or more subnetwork NAT configurations. Only used if
@@ -202,7 +202,7 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("subnetwork")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> Subnetwork { get; }
+    public partial TerraformSet<object> Subnetwork { get; }
 
     /// <summary>
     /// Timeout (in seconds) for TCP established connections.
@@ -210,7 +210,7 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("tcp_established_idle_timeout_sec")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> TcpEstablishedIdleTimeoutSec { get; }
+    public partial TerraformValue<double> TcpEstablishedIdleTimeoutSec { get; }
 
     /// <summary>
     /// Timeout (in seconds) for TCP connections that are in TIME_WAIT state.
@@ -218,7 +218,7 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("tcp_time_wait_timeout_sec")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> TcpTimeWaitTimeoutSec { get; }
+    public partial TerraformValue<double> TcpTimeWaitTimeoutSec { get; }
 
     /// <summary>
     /// Timeout (in seconds) for TCP transitory connections.
@@ -226,7 +226,7 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("tcp_transitory_idle_timeout_sec")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> TcpTransitoryIdleTimeoutSec { get; }
+    public partial TerraformValue<double> TcpTransitoryIdleTimeoutSec { get; }
 
     /// <summary>
     /// Indicates whether this NAT is used for public or private IP translation.
@@ -236,13 +236,13 @@ public partial class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Type { get; }
+    public partial TerraformValue<string> Type { get; }
 
     /// <summary>
     /// Timeout (in seconds) for UDP connections. Defaults to 30s if not set.
     /// </summary>
     [TerraformProperty("udp_idle_timeout_sec")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> UdpIdleTimeoutSec { get; }
+    public partial TerraformValue<double> UdpIdleTimeoutSec { get; }
 
 }

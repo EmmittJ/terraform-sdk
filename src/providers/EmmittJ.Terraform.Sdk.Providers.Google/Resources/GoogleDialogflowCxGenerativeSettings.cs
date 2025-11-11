@@ -13,7 +13,7 @@ public partial class GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock :
     /// </summary>
     [TerraformProperty("selected_prompt")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SelectedPrompt { get; set; }
+    public partial TerraformValue<string>? SelectedPrompt { get; set; }
 
 }
 
@@ -29,7 +29,7 @@ public partial class GoogleDialogflowCxGenerativeSettingsGenerativeSafetySetting
     /// </summary>
     [TerraformProperty("default_banned_phrase_match_strategy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DefaultBannedPhraseMatchStrategy { get; set; }
+    public partial TerraformValue<string>? DefaultBannedPhraseMatchStrategy { get; set; }
 
 }
 
@@ -44,42 +44,42 @@ public partial class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSetti
     /// </summary>
     [TerraformProperty("agent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Agent { get; set; }
+    public partial TerraformValue<string>? Agent { get; set; }
 
     /// <summary>
     /// Identity of the agent, e.g. &amp;quot;virtual agent&amp;quot;, &amp;quot;AI assistant&amp;quot;.
     /// </summary>
     [TerraformProperty("agent_identity")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AgentIdentity { get; set; }
+    public partial TerraformValue<string>? AgentIdentity { get; set; }
 
     /// <summary>
     /// Agent scope, e.g. &amp;quot;Example company website&amp;quot;, &amp;quot;internal Example company website for employees&amp;quot;, &amp;quot;manual of car owner&amp;quot;.
     /// </summary>
     [TerraformProperty("agent_scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AgentScope { get; set; }
+    public partial TerraformValue<string>? AgentScope { get; set; }
 
     /// <summary>
     /// Name of the company, organization or other entity that the agent represents. Used for knowledge connector LLM prompt and for knowledge search.
     /// </summary>
     [TerraformProperty("business")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Business { get; set; }
+    public partial TerraformValue<string>? Business { get; set; }
 
     /// <summary>
     /// Company description, used for LLM prompt, e.g. &amp;quot;a family company selling freshly roasted coffee beans&amp;quot;.&#39;&#39;
     /// </summary>
     [TerraformProperty("business_description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? BusinessDescription { get; set; }
+    public partial TerraformValue<string>? BusinessDescription { get; set; }
 
     /// <summary>
     /// Whether to disable fallback to Data Store search results (in case the LLM couldn&#39;t pick a proper answer). Per default the feature is enabled.
     /// </summary>
     [TerraformProperty("disable_data_store_fallback")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableDataStoreFallback { get; set; }
+    public partial TerraformValue<bool>? DisableDataStoreFallback { get; set; }
 
 }
 
@@ -94,14 +94,14 @@ public partial class GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock :
     /// </summary>
     [TerraformProperty("model")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Model { get; set; }
+    public partial TerraformValue<string>? Model { get; set; }
 
     /// <summary>
     /// The custom prompt to use.
     /// </summary>
     [TerraformProperty("prompt_text")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PromptText { get; set; }
+    public partial TerraformValue<string>? PromptText { get; set; }
 
 }
 
@@ -116,21 +116,21 @@ public partial class GoogleDialogflowCxGenerativeSettingsTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -149,7 +149,7 @@ public partial class GoogleDialogflowCxGenerativeSettings : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Language for this settings.
@@ -157,7 +157,7 @@ public partial class GoogleDialogflowCxGenerativeSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     [TerraformProperty("language_code")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LanguageCode { get; set; }
+    public required partial TerraformValue<string> LanguageCode { get; set; }
 
     /// <summary>
     /// The agent to create a flow for.
@@ -165,7 +165,7 @@ public partial class GoogleDialogflowCxGenerativeSettings : TerraformResource
     /// </summary>
     [TerraformProperty("parent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Parent { get; set; }
+    public partial TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// Block for fallback_settings.
@@ -173,7 +173,7 @@ public partial class GoogleDialogflowCxGenerativeSettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FallbackSettings block(s) allowed")]
     [TerraformProperty("fallback_settings")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock>>? FallbackSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock>>? FallbackSettings { get; set; }
 
     /// <summary>
     /// Block for generative_safety_settings.
@@ -181,7 +181,7 @@ public partial class GoogleDialogflowCxGenerativeSettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenerativeSafetySettings block(s) allowed")]
     [TerraformProperty("generative_safety_settings")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlock>>? GenerativeSafetySettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlock>>? GenerativeSafetySettings { get; set; }
 
     /// <summary>
     /// Block for knowledge_connector_settings.
@@ -189,7 +189,7 @@ public partial class GoogleDialogflowCxGenerativeSettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KnowledgeConnectorSettings block(s) allowed")]
     [TerraformProperty("knowledge_connector_settings")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock>>? KnowledgeConnectorSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock>>? KnowledgeConnectorSettings { get; set; }
 
     /// <summary>
     /// Block for llm_model_settings.
@@ -197,14 +197,14 @@ public partial class GoogleDialogflowCxGenerativeSettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LlmModelSettings block(s) allowed")]
     [TerraformProperty("llm_model_settings")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock>>? LlmModelSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock>>? LlmModelSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDialogflowCxGenerativeSettingsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDialogflowCxGenerativeSettingsTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique identifier of the generativeSettings.
@@ -212,6 +212,6 @@ public partial class GoogleDialogflowCxGenerativeSettings : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

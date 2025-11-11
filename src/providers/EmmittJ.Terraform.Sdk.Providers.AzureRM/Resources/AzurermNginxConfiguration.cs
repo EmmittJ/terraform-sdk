@@ -14,7 +14,7 @@ public partial class AzurermNginxConfigurationConfigFileBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     [TerraformProperty("content")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Content { get; set; }
+    public required partial TerraformValue<string> Content { get; set; }
 
     /// <summary>
     /// The virtual_path attribute.
@@ -22,7 +22,7 @@ public partial class AzurermNginxConfigurationConfigFileBlock : TerraformBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualPath is required")]
     [TerraformProperty("virtual_path")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualPath { get; set; }
+    public required partial TerraformValue<string> VirtualPath { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class AzurermNginxConfigurationProtectedFileBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     [TerraformProperty("content")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Content { get; set; }
+    public required partial TerraformValue<string> Content { get; set; }
 
 
     /// <summary>
@@ -47,7 +47,7 @@ public partial class AzurermNginxConfigurationProtectedFileBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualPath is required")]
     [TerraformProperty("virtual_path")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualPath { get; set; }
+    public required partial TerraformValue<string> VirtualPath { get; set; }
 
 }
 
@@ -62,28 +62,28 @@ public partial class AzurermNginxConfigurationTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -101,7 +101,7 @@ public partial class AzurermNginxConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The nginx_deployment_id attribute.
@@ -109,14 +109,14 @@ public partial class AzurermNginxConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     [TerraformProperty("nginx_deployment_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NginxDeploymentId { get; set; }
+    public required partial TerraformValue<string> NginxDeploymentId { get; set; }
 
     /// <summary>
     /// The package_data attribute.
     /// </summary>
     [TerraformProperty("package_data")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PackageData { get; set; }
+    public partial TerraformValue<string>? PackageData { get; set; }
 
     /// <summary>
     /// The root_file attribute.
@@ -124,27 +124,27 @@ public partial class AzurermNginxConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFile is required")]
     [TerraformProperty("root_file")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RootFile { get; set; }
+    public required partial TerraformValue<string> RootFile { get; set; }
 
     /// <summary>
     /// Block for config_file.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("config_file")]
-    public TerraformSet<TerraformBlock<AzurermNginxConfigurationConfigFileBlock>>? ConfigFile { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermNginxConfigurationConfigFileBlock>>? ConfigFile { get; set; }
 
     /// <summary>
     /// Block for protected_file.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("protected_file")]
-    public TerraformSet<TerraformBlock<AzurermNginxConfigurationProtectedFileBlock>>? ProtectedFile { get; set; }
+    public partial TerraformSet<TerraformBlock<AzurermNginxConfigurationProtectedFileBlock>>? ProtectedFile { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNginxConfigurationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNginxConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
 }

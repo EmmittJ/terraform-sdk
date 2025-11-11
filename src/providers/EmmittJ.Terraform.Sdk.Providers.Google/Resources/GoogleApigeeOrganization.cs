@@ -21,21 +21,21 @@ public partial class GoogleApigeeOrganizationTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -54,14 +54,14 @@ public partial class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformProperty("analytics_region")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AnalyticsRegion { get; set; }
+    public partial TerraformValue<string>? AnalyticsRegion { get; set; }
 
     /// <summary>
     /// Cloud KMS key name used for encrypting API consumer data.
     /// </summary>
     [TerraformProperty("api_consumer_data_encryption_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ApiConsumerDataEncryptionKeyName { get; set; }
+    public partial TerraformValue<string>? ApiConsumerDataEncryptionKeyName { get; set; }
 
     /// <summary>
     /// This field is needed only for customers using non-default data residency regions.
@@ -70,7 +70,7 @@ public partial class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformProperty("api_consumer_data_location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ApiConsumerDataLocation { get; set; }
+    public partial TerraformValue<string>? ApiConsumerDataLocation { get; set; }
 
     /// <summary>
     /// Compute Engine network used for Service Networking to be peered with Apigee runtime instances.
@@ -79,14 +79,14 @@ public partial class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformProperty("authorized_network")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthorizedNetwork { get; set; }
+    public partial TerraformValue<string>? AuthorizedNetwork { get; set; }
 
     /// <summary>
     /// Billing type of the Apigee organization. See [Apigee pricing](https://cloud.google.com/apigee/pricing).
     /// </summary>
     [TerraformProperty("billing_type")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> BillingType { get; set; }
+    public partial TerraformValue<string> BillingType { get; set; }
 
     /// <summary>
     /// Cloud KMS key name used for encrypting control plane data that is stored in a multi region.
@@ -94,14 +94,14 @@ public partial class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformProperty("control_plane_encryption_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ControlPlaneEncryptionKeyName { get; set; }
+    public partial TerraformValue<string>? ControlPlaneEncryptionKeyName { get; set; }
 
     /// <summary>
     /// Description of the Apigee organization.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Flag that specifies whether the VPC Peering through Private Google Access should be
@@ -112,21 +112,21 @@ public partial class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformProperty("disable_vpc_peering")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DisableVpcPeering { get; set; }
+    public partial TerraformValue<bool>? DisableVpcPeering { get; set; }
 
     /// <summary>
     /// The display name of the Apigee organization.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project ID associated with the Apigee organization.
@@ -134,7 +134,7 @@ public partial class GoogleApigeeOrganization : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     [TerraformProperty("project_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProjectId { get; set; }
+    public required partial TerraformValue<string> ProjectId { get; set; }
 
     /// <summary>
     /// Optional. This setting is applicable only for organizations that are soft-deleted (i.e., BillingType
@@ -144,7 +144,7 @@ public partial class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformProperty("retention")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Retention { get; set; }
+    public partial TerraformValue<string>? Retention { get; set; }
 
     /// <summary>
     /// Cloud KMS key name used for encrypting the data that is stored and replicated across runtime instances.
@@ -154,14 +154,14 @@ public partial class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformProperty("runtime_database_encryption_key_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RuntimeDatabaseEncryptionKeyName { get; set; }
+    public partial TerraformValue<string>? RuntimeDatabaseEncryptionKeyName { get; set; }
 
     /// <summary>
     /// Runtime type of the Apigee organization based on the Apigee subscription purchased. Default value: &amp;quot;CLOUD&amp;quot; Possible values: [&amp;quot;CLOUD&amp;quot;, &amp;quot;HYBRID&amp;quot;]
     /// </summary>
     [TerraformProperty("runtime_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RuntimeType { get; set; }
+    public partial TerraformValue<string>? RuntimeType { get; set; }
 
     /// <summary>
     /// Block for properties.
@@ -169,21 +169,21 @@ public partial class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
     [TerraformProperty("properties")]
-    public TerraformList<TerraformBlock<GoogleApigeeOrganizationPropertiesBlock>>? Properties { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleApigeeOrganizationPropertiesBlock>>? Properties { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeOrganizationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeOrganizationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Project ID of the Apigee Tenant Project.
     /// </summary>
     [TerraformProperty("apigee_project_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ApigeeProjectId { get; }
+    public partial TerraformValue<string> ApigeeProjectId { get; }
 
     /// <summary>
     /// Output only. Base64-encoded public certificate for the root CA of the Apigee organization.
@@ -191,14 +191,14 @@ public partial class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformProperty("ca_certificate")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CaCertificate { get; }
+    public partial TerraformValue<string> CaCertificate { get; }
 
     /// <summary>
     /// Output only. Name of the Apigee organization.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. Subscription type of the Apigee organization.
@@ -206,6 +206,6 @@ public partial class GoogleApigeeOrganization : TerraformResource
     /// </summary>
     [TerraformProperty("subscription_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SubscriptionType { get; }
+    public partial TerraformValue<string> SubscriptionType { get; }
 
 }

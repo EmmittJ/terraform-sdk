@@ -13,14 +13,14 @@ public partial class AwsNetworkmanagerTransitGatewayConnectPeerAssociationTimeou
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -39,7 +39,7 @@ public partial class AwsNetworkmanagerTransitGatewayConnectPeerAssociation : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceId is required")]
     [TerraformProperty("device_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DeviceId { get; set; }
+    public required partial TerraformValue<string> DeviceId { get; set; }
 
     /// <summary>
     /// The global_network_id attribute.
@@ -47,21 +47,21 @@ public partial class AwsNetworkmanagerTransitGatewayConnectPeerAssociation : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     [TerraformProperty("global_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> GlobalNetworkId { get; set; }
+    public required partial TerraformValue<string> GlobalNetworkId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The link_id attribute.
     /// </summary>
     [TerraformProperty("link_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LinkId { get; set; }
+    public partial TerraformValue<string>? LinkId { get; set; }
 
     /// <summary>
     /// The transit_gateway_connect_peer_arn attribute.
@@ -69,13 +69,13 @@ public partial class AwsNetworkmanagerTransitGatewayConnectPeerAssociation : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayConnectPeerArn is required")]
     [TerraformProperty("transit_gateway_connect_peer_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TransitGatewayConnectPeerArn { get; set; }
+    public required partial TerraformValue<string> TransitGatewayConnectPeerArn { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsNetworkmanagerTransitGatewayConnectPeerAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsNetworkmanagerTransitGatewayConnectPeerAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

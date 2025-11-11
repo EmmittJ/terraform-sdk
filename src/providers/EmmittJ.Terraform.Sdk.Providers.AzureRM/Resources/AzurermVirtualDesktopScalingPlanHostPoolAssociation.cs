@@ -13,28 +13,28 @@ public partial class AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeouts
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermVirtualDesktopScalingPlanHostPoolAssociation : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     [TerraformProperty("enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> Enabled { get; set; }
+    public required partial TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The host_pool_id attribute.
@@ -61,14 +61,14 @@ public partial class AzurermVirtualDesktopScalingPlanHostPoolAssociation : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostPoolId is required")]
     [TerraformProperty("host_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> HostPoolId { get; set; }
+    public required partial TerraformValue<string> HostPoolId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The scaling_plan_id attribute.
@@ -76,13 +76,13 @@ public partial class AzurermVirtualDesktopScalingPlanHostPoolAssociation : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingPlanId is required")]
     [TerraformProperty("scaling_plan_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ScalingPlanId { get; set; }
+    public required partial TerraformValue<string> ScalingPlanId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

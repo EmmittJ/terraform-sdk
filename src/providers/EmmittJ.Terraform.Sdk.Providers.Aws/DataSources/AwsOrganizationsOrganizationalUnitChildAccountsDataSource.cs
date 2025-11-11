@@ -16,7 +16,7 @@ public partial class AwsOrganizationsOrganizationalUnitChildAccountsDataSource :
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The parent_id attribute.
@@ -24,13 +24,13 @@ public partial class AwsOrganizationsOrganizationalUnitChildAccountsDataSource :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
     [TerraformProperty("parent_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ParentId { get; set; }
+    public required partial TerraformValue<string> ParentId { get; set; }
 
     /// <summary>
     /// The accounts attribute.
     /// </summary>
     [TerraformProperty("accounts")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Accounts { get; }
+    public partial TerraformList<object> Accounts { get; }
 
 }

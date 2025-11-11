@@ -13,7 +13,7 @@ public partial class AwsMskClusterBrokerNodeGroupInfoBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("az_distribution")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AzDistribution { get; set; }
+    public partial TerraformValue<string>? AzDistribution { get; set; }
 
     /// <summary>
     /// The client_subnets attribute.
@@ -21,7 +21,7 @@ public partial class AwsMskClusterBrokerNodeGroupInfoBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSubnets is required")]
     [TerraformProperty("client_subnets")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> ClientSubnets { get; set; }
+    public required partial TerraformSet<string> ClientSubnets { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
@@ -29,7 +29,7 @@ public partial class AwsMskClusterBrokerNodeGroupInfoBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     [TerraformProperty("instance_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InstanceType { get; set; }
+    public required partial TerraformValue<string> InstanceType { get; set; }
 
     /// <summary>
     /// The security_groups attribute.
@@ -37,7 +37,7 @@ public partial class AwsMskClusterBrokerNodeGroupInfoBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroups is required")]
     [TerraformProperty("security_groups")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> SecurityGroups { get; set; }
+    public required partial TerraformSet<string> SecurityGroups { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public partial class AwsMskClusterClientAuthenticationBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("unauthenticated")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Unauthenticated { get; set; }
+    public partial TerraformValue<bool>? Unauthenticated { get; set; }
 
 }
 
@@ -68,7 +68,7 @@ public partial class AwsMskClusterConfigurationInfoBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     [TerraformProperty("arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Arn { get; set; }
+    public required partial TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The revision attribute.
@@ -76,7 +76,7 @@ public partial class AwsMskClusterConfigurationInfoBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     [TerraformProperty("revision")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> Revision { get; set; }
+    public required partial TerraformValue<double> Revision { get; set; }
 
 }
 
@@ -91,7 +91,7 @@ public partial class AwsMskClusterEncryptionInfoBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("encryption_at_rest_kms_key_arn")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> EncryptionAtRestKmsKeyArn { get; set; }
+    public partial TerraformValue<string> EncryptionAtRestKmsKeyArn { get; set; }
 
 }
 
@@ -122,21 +122,21 @@ public partial class AwsMskClusterTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -156,21 +156,21 @@ public partial class AwsMskCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     [TerraformProperty("cluster_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterName { get; set; }
+    public required partial TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The enhanced_monitoring attribute.
     /// </summary>
     [TerraformProperty("enhanced_monitoring")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EnhancedMonitoring { get; set; }
+    public partial TerraformValue<string>? EnhancedMonitoring { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kafka_version attribute.
@@ -178,7 +178,7 @@ public partial class AwsMskCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaVersion is required")]
     [TerraformProperty("kafka_version")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KafkaVersion { get; set; }
+    public required partial TerraformValue<string> KafkaVersion { get; set; }
 
     /// <summary>
     /// The number_of_broker_nodes attribute.
@@ -186,35 +186,35 @@ public partial class AwsMskCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfBrokerNodes is required")]
     [TerraformProperty("number_of_broker_nodes")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> NumberOfBrokerNodes { get; set; }
+    public required partial TerraformValue<double> NumberOfBrokerNodes { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The storage_mode attribute.
     /// </summary>
     [TerraformProperty("storage_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> StorageMode { get; set; }
+    public partial TerraformValue<string> StorageMode { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for broker_node_group_info.
@@ -224,7 +224,7 @@ public partial class AwsMskCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BrokerNodeGroupInfo block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BrokerNodeGroupInfo block(s) allowed")]
     [TerraformProperty("broker_node_group_info")]
-    public TerraformList<TerraformBlock<AwsMskClusterBrokerNodeGroupInfoBlock>>? BrokerNodeGroupInfo { get; set; }
+    public partial TerraformList<TerraformBlock<AwsMskClusterBrokerNodeGroupInfoBlock>>? BrokerNodeGroupInfo { get; set; }
 
     /// <summary>
     /// Block for client_authentication.
@@ -232,7 +232,7 @@ public partial class AwsMskCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientAuthentication block(s) allowed")]
     [TerraformProperty("client_authentication")]
-    public TerraformList<TerraformBlock<AwsMskClusterClientAuthenticationBlock>>? ClientAuthentication { get; set; }
+    public partial TerraformList<TerraformBlock<AwsMskClusterClientAuthenticationBlock>>? ClientAuthentication { get; set; }
 
     /// <summary>
     /// Block for configuration_info.
@@ -240,7 +240,7 @@ public partial class AwsMskCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfigurationInfo block(s) allowed")]
     [TerraformProperty("configuration_info")]
-    public TerraformList<TerraformBlock<AwsMskClusterConfigurationInfoBlock>>? ConfigurationInfo { get; set; }
+    public partial TerraformList<TerraformBlock<AwsMskClusterConfigurationInfoBlock>>? ConfigurationInfo { get; set; }
 
     /// <summary>
     /// Block for encryption_info.
@@ -248,7 +248,7 @@ public partial class AwsMskCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionInfo block(s) allowed")]
     [TerraformProperty("encryption_info")]
-    public TerraformList<TerraformBlock<AwsMskClusterEncryptionInfoBlock>>? EncryptionInfo { get; set; }
+    public partial TerraformList<TerraformBlock<AwsMskClusterEncryptionInfoBlock>>? EncryptionInfo { get; set; }
 
     /// <summary>
     /// Block for logging_info.
@@ -256,7 +256,7 @@ public partial class AwsMskCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingInfo block(s) allowed")]
     [TerraformProperty("logging_info")]
-    public TerraformList<TerraformBlock<AwsMskClusterLoggingInfoBlock>>? LoggingInfo { get; set; }
+    public partial TerraformList<TerraformBlock<AwsMskClusterLoggingInfoBlock>>? LoggingInfo { get; set; }
 
     /// <summary>
     /// Block for open_monitoring.
@@ -264,118 +264,118 @@ public partial class AwsMskCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenMonitoring block(s) allowed")]
     [TerraformProperty("open_monitoring")]
-    public TerraformList<TerraformBlock<AwsMskClusterOpenMonitoringBlock>>? OpenMonitoring { get; set; }
+    public partial TerraformList<TerraformBlock<AwsMskClusterOpenMonitoringBlock>>? OpenMonitoring { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsMskClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsMskClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The bootstrap_brokers attribute.
     /// </summary>
     [TerraformProperty("bootstrap_brokers")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BootstrapBrokers { get; }
+    public partial TerraformValue<string> BootstrapBrokers { get; }
 
     /// <summary>
     /// The bootstrap_brokers_public_sasl_iam attribute.
     /// </summary>
     [TerraformProperty("bootstrap_brokers_public_sasl_iam")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BootstrapBrokersPublicSaslIam { get; }
+    public partial TerraformValue<string> BootstrapBrokersPublicSaslIam { get; }
 
     /// <summary>
     /// The bootstrap_brokers_public_sasl_scram attribute.
     /// </summary>
     [TerraformProperty("bootstrap_brokers_public_sasl_scram")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BootstrapBrokersPublicSaslScram { get; }
+    public partial TerraformValue<string> BootstrapBrokersPublicSaslScram { get; }
 
     /// <summary>
     /// The bootstrap_brokers_public_tls attribute.
     /// </summary>
     [TerraformProperty("bootstrap_brokers_public_tls")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BootstrapBrokersPublicTls { get; }
+    public partial TerraformValue<string> BootstrapBrokersPublicTls { get; }
 
     /// <summary>
     /// The bootstrap_brokers_sasl_iam attribute.
     /// </summary>
     [TerraformProperty("bootstrap_brokers_sasl_iam")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BootstrapBrokersSaslIam { get; }
+    public partial TerraformValue<string> BootstrapBrokersSaslIam { get; }
 
     /// <summary>
     /// The bootstrap_brokers_sasl_scram attribute.
     /// </summary>
     [TerraformProperty("bootstrap_brokers_sasl_scram")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BootstrapBrokersSaslScram { get; }
+    public partial TerraformValue<string> BootstrapBrokersSaslScram { get; }
 
     /// <summary>
     /// The bootstrap_brokers_tls attribute.
     /// </summary>
     [TerraformProperty("bootstrap_brokers_tls")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BootstrapBrokersTls { get; }
+    public partial TerraformValue<string> BootstrapBrokersTls { get; }
 
     /// <summary>
     /// The bootstrap_brokers_vpc_connectivity_sasl_iam attribute.
     /// </summary>
     [TerraformProperty("bootstrap_brokers_vpc_connectivity_sasl_iam")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BootstrapBrokersVpcConnectivitySaslIam { get; }
+    public partial TerraformValue<string> BootstrapBrokersVpcConnectivitySaslIam { get; }
 
     /// <summary>
     /// The bootstrap_brokers_vpc_connectivity_sasl_scram attribute.
     /// </summary>
     [TerraformProperty("bootstrap_brokers_vpc_connectivity_sasl_scram")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BootstrapBrokersVpcConnectivitySaslScram { get; }
+    public partial TerraformValue<string> BootstrapBrokersVpcConnectivitySaslScram { get; }
 
     /// <summary>
     /// The bootstrap_brokers_vpc_connectivity_tls attribute.
     /// </summary>
     [TerraformProperty("bootstrap_brokers_vpc_connectivity_tls")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> BootstrapBrokersVpcConnectivityTls { get; }
+    public partial TerraformValue<string> BootstrapBrokersVpcConnectivityTls { get; }
 
     /// <summary>
     /// The cluster_uuid attribute.
     /// </summary>
     [TerraformProperty("cluster_uuid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ClusterUuid { get; }
+    public partial TerraformValue<string> ClusterUuid { get; }
 
     /// <summary>
     /// The current_version attribute.
     /// </summary>
     [TerraformProperty("current_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CurrentVersion { get; }
+    public partial TerraformValue<string> CurrentVersion { get; }
 
     /// <summary>
     /// The zookeeper_connect_string attribute.
     /// </summary>
     [TerraformProperty("zookeeper_connect_string")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ZookeeperConnectString { get; }
+    public partial TerraformValue<string> ZookeeperConnectString { get; }
 
     /// <summary>
     /// The zookeeper_connect_string_tls attribute.
     /// </summary>
     [TerraformProperty("zookeeper_connect_string_tls")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ZookeeperConnectStringTls { get; }
+    public partial TerraformValue<string> ZookeeperConnectStringTls { get; }
 
 }

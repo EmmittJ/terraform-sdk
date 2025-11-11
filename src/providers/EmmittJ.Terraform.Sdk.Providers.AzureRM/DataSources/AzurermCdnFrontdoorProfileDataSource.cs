@@ -13,7 +13,7 @@ public partial class AzurermCdnFrontdoorProfileDataSourceTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermCdnFrontdoorProfileDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermCdnFrontdoorProfileDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -47,55 +47,55 @@ public partial class AzurermCdnFrontdoorProfileDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCdnFrontdoorProfileDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCdnFrontdoorProfileDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [TerraformProperty("identity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Identity { get; }
+    public partial TerraformList<object> Identity { get; }
 
     /// <summary>
     /// The log_scrubbing_rule attribute.
     /// </summary>
     [TerraformProperty("log_scrubbing_rule")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformSet<object> LogScrubbingRule { get; }
+    public partial TerraformSet<object> LogScrubbingRule { get; }
 
     /// <summary>
     /// The resource_guid attribute.
     /// </summary>
     [TerraformProperty("resource_guid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceGuid { get; }
+    public partial TerraformValue<string> ResourceGuid { get; }
 
     /// <summary>
     /// The response_timeout_seconds attribute.
     /// </summary>
     [TerraformProperty("response_timeout_seconds")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ResponseTimeoutSeconds { get; }
+    public partial TerraformValue<double> ResponseTimeoutSeconds { get; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [TerraformProperty("sku_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SkuName { get; }
+    public partial TerraformValue<string> SkuName { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Tags { get; }
+    public partial TerraformMap<string> Tags { get; }
 
 }

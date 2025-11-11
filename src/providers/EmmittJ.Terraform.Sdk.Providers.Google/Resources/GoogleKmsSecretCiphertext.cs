@@ -13,14 +13,14 @@ public partial class GoogleKmsSecretCiphertextTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -38,7 +38,7 @@ public partial class GoogleKmsSecretCiphertext : TerraformResource
     /// </summary>
     [TerraformProperty("additional_authenticated_data")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AdditionalAuthenticatedData { get; set; }
+    public partial TerraformValue<string>? AdditionalAuthenticatedData { get; set; }
 
     /// <summary>
     /// The full name of the CryptoKey that will be used to encrypt the provided plaintext.
@@ -47,14 +47,14 @@ public partial class GoogleKmsSecretCiphertext : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     [TerraformProperty("crypto_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CryptoKey { get; set; }
+    public required partial TerraformValue<string> CryptoKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The plaintext to be encrypted.
@@ -62,20 +62,20 @@ public partial class GoogleKmsSecretCiphertext : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plaintext is required")]
     [TerraformProperty("plaintext")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Plaintext { get; set; }
+    public required partial TerraformValue<string> Plaintext { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleKmsSecretCiphertextTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleKmsSecretCiphertextTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Contains the result of encrypting the provided plaintext, encoded in base64.
     /// </summary>
     [TerraformProperty("ciphertext")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Ciphertext { get; }
+    public partial TerraformValue<string> Ciphertext { get; }
 
 }

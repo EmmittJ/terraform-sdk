@@ -13,28 +13,28 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionP
     /// </summary>
     [TerraformProperty("actions")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Actions { get; set; }
+    public partial TerraformList<string>? Actions { get; set; }
 
     /// <summary>
     /// The data_actions attribute.
     /// </summary>
     [TerraformProperty("data_actions")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? DataActions { get; set; }
+    public partial TerraformSet<string>? DataActions { get; set; }
 
     /// <summary>
     /// The not_actions attribute.
     /// </summary>
     [TerraformProperty("not_actions")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? NotActions { get; set; }
+    public partial TerraformList<string>? NotActions { get; set; }
 
     /// <summary>
     /// The not_data_actions attribute.
     /// </summary>
     [TerraformProperty("not_data_actions")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? NotDataActions { get; set; }
+    public partial TerraformSet<string>? NotDataActions { get; set; }
 
 }
 
@@ -49,28 +49,28 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionT
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -88,14 +88,14 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition 
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The managed_hsm_id attribute.
@@ -103,7 +103,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
     [TerraformProperty("managed_hsm_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ManagedHsmId { get; set; }
+    public required partial TerraformValue<string> ManagedHsmId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -111,41 +111,41 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
     [TerraformProperty("role_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RoleName { get; set; }
+    public partial TerraformValue<string>? RoleName { get; set; }
 
     /// <summary>
     /// Block for permission.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("permission")]
-    public TerraformList<TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock>>? Permission { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock>>? Permission { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     [TerraformProperty("resource_manager_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ResourceManagerId { get; }
+    public partial TerraformValue<string> ResourceManagerId { get; }
 
     /// <summary>
     /// The role_type attribute.
     /// </summary>
     [TerraformProperty("role_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RoleType { get; }
+    public partial TerraformValue<string> RoleType { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferredChannelPipeline is required")]
     [TerraformProperty("preferred_channel_pipeline")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PreferredChannelPipeline { get; set; }
+    public required partial TerraformValue<string> PreferredChannelPipeline { get; set; }
 
     /// <summary>
     /// The program_number attribute.
@@ -22,7 +22,7 @@ public partial class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProgramNumber is required")]
     [TerraformProperty("program_number")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ProgramNumber { get; set; }
+    public required partial TerraformValue<double> ProgramNumber { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class AwsMedialiveMultiplexProgramTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
 }
 
@@ -56,7 +56,7 @@ public partial class AwsMedialiveMultiplexProgram : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MultiplexId is required")]
     [TerraformProperty("multiplex_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MultiplexId { get; set; }
+    public required partial TerraformValue<string> MultiplexId { get; set; }
 
     /// <summary>
     /// The program_name attribute.
@@ -64,34 +64,34 @@ public partial class AwsMedialiveMultiplexProgram : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProgramName is required")]
     [TerraformProperty("program_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProgramName { get; set; }
+    public required partial TerraformValue<string> ProgramName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for multiplex_program_settings.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("multiplex_program_settings")]
-    public TerraformList<TerraformBlock<AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock>>? MultiplexProgramSettings { get; set; }
+    public partial TerraformList<TerraformBlock<AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock>>? MultiplexProgramSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsMedialiveMultiplexProgramTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsMedialiveMultiplexProgramTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Id { get; }
+    public partial TerraformValue<string> Id { get; }
 
 }

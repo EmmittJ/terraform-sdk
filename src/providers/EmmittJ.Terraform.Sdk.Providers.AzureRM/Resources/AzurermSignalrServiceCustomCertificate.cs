@@ -13,21 +13,21 @@ public partial class AzurermSignalrServiceCustomCertificateTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzurermSignalrServiceCustomCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomCertificateId is required")]
     [TerraformProperty("custom_certificate_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CustomCertificateId { get; set; }
+    public required partial TerraformValue<string> CustomCertificateId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -61,7 +61,7 @@ public partial class AzurermSignalrServiceCustomCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The signalr_service_id attribute.
@@ -69,20 +69,20 @@ public partial class AzurermSignalrServiceCustomCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrServiceId is required")]
     [TerraformProperty("signalr_service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SignalrServiceId { get; set; }
+    public required partial TerraformValue<string> SignalrServiceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSignalrServiceCustomCertificateTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSignalrServiceCustomCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The certificate_version attribute.
     /// </summary>
     [TerraformProperty("certificate_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CertificateVersion { get; }
+    public partial TerraformValue<string> CertificateVersion { get; }
 
 }

@@ -14,7 +14,7 @@ public partial class AwsBudgetsBudgetActionActionThresholdBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionThresholdType is required")]
     [TerraformProperty("action_threshold_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ActionThresholdType { get; set; }
+    public required partial TerraformValue<string> ActionThresholdType { get; set; }
 
     /// <summary>
     /// The action_threshold_value attribute.
@@ -22,7 +22,7 @@ public partial class AwsBudgetsBudgetActionActionThresholdBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionThresholdValue is required")]
     [TerraformProperty("action_threshold_value")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> ActionThresholdValue { get; set; }
+    public required partial TerraformValue<double> ActionThresholdValue { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AwsBudgetsBudgetActionSubscriberBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     [TerraformProperty("address")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Address { get; set; }
+    public required partial TerraformValue<string> Address { get; set; }
 
     /// <summary>
     /// The subscription_type attribute.
@@ -54,7 +54,7 @@ public partial class AwsBudgetsBudgetActionSubscriberBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionType is required")]
     [TerraformProperty("subscription_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubscriptionType { get; set; }
+    public required partial TerraformValue<string> SubscriptionType { get; set; }
 
 }
 
@@ -69,21 +69,21 @@ public partial class AwsBudgetsBudgetActionTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -102,7 +102,7 @@ public partial class AwsBudgetsBudgetAction : TerraformResource
     /// </summary>
     [TerraformProperty("account_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AccountId { get; set; }
+    public partial TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The action_type attribute.
@@ -110,7 +110,7 @@ public partial class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionType is required")]
     [TerraformProperty("action_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ActionType { get; set; }
+    public required partial TerraformValue<string> ActionType { get; set; }
 
     /// <summary>
     /// The approval_model attribute.
@@ -118,7 +118,7 @@ public partial class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApprovalModel is required")]
     [TerraformProperty("approval_model")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApprovalModel { get; set; }
+    public required partial TerraformValue<string> ApprovalModel { get; set; }
 
     /// <summary>
     /// The budget_name attribute.
@@ -126,7 +126,7 @@ public partial class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BudgetName is required")]
     [TerraformProperty("budget_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BudgetName { get; set; }
+    public required partial TerraformValue<string> BudgetName { get; set; }
 
     /// <summary>
     /// The execution_role_arn attribute.
@@ -134,14 +134,14 @@ public partial class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     [TerraformProperty("execution_role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ExecutionRoleArn { get; set; }
+    public required partial TerraformValue<string> ExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The notification_type attribute.
@@ -149,21 +149,21 @@ public partial class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
     [TerraformProperty("notification_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NotificationType { get; set; }
+    public required partial TerraformValue<string> NotificationType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for action_threshold.
@@ -173,7 +173,7 @@ public partial class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ActionThreshold block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActionThreshold block(s) allowed")]
     [TerraformProperty("action_threshold")]
-    public TerraformList<TerraformBlock<AwsBudgetsBudgetActionActionThresholdBlock>>? ActionThreshold { get; set; }
+    public partial TerraformList<TerraformBlock<AwsBudgetsBudgetActionActionThresholdBlock>>? ActionThreshold { get; set; }
 
     /// <summary>
     /// Block for definition.
@@ -183,7 +183,7 @@ public partial class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Definition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Definition block(s) allowed")]
     [TerraformProperty("definition")]
-    public TerraformList<TerraformBlock<AwsBudgetsBudgetActionDefinitionBlock>>? Definition { get; set; }
+    public partial TerraformList<TerraformBlock<AwsBudgetsBudgetActionDefinitionBlock>>? Definition { get; set; }
 
     /// <summary>
     /// Block for subscriber.
@@ -193,34 +193,34 @@ public partial class AwsBudgetsBudgetAction : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Subscriber block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(11, ErrorMessage = "Maximum 11 Subscriber block(s) allowed")]
     [TerraformProperty("subscriber")]
-    public TerraformSet<TerraformBlock<AwsBudgetsBudgetActionSubscriberBlock>>? Subscriber { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsBudgetsBudgetActionSubscriberBlock>>? Subscriber { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsBudgetsBudgetActionTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsBudgetsBudgetActionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The action_id attribute.
     /// </summary>
     [TerraformProperty("action_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ActionId { get; }
+    public partial TerraformValue<string> ActionId { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [TerraformProperty("status")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Status { get; }
+    public partial TerraformValue<string> Status { get; }
 
 }

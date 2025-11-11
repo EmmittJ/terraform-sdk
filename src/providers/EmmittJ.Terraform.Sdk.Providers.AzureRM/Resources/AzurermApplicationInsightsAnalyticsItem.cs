@@ -13,28 +13,28 @@ public partial class AzurermApplicationInsightsAnalyticsItemTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
     [TerraformProperty("application_insights_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ApplicationInsightsId { get; set; }
+    public required partial TerraformValue<string> ApplicationInsightsId { get; set; }
 
     /// <summary>
     /// The content attribute.
@@ -61,21 +61,21 @@ public partial class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     [TerraformProperty("content")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Content { get; set; }
+    public required partial TerraformValue<string> Content { get; set; }
 
     /// <summary>
     /// The function_alias attribute.
     /// </summary>
     [TerraformProperty("function_alias")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FunctionAlias { get; set; }
+    public partial TerraformValue<string>? FunctionAlias { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -83,7 +83,7 @@ public partial class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The scope attribute.
@@ -91,7 +91,7 @@ public partial class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     [TerraformProperty("scope")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Scope { get; set; }
+    public required partial TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// The type attribute.
@@ -99,34 +99,34 @@ public partial class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     [TerraformProperty("type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Type { get; set; }
+    public required partial TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermApplicationInsightsAnalyticsItemTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermApplicationInsightsAnalyticsItemTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time_created attribute.
     /// </summary>
     [TerraformProperty("time_created")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TimeCreated { get; }
+    public partial TerraformValue<string> TimeCreated { get; }
 
     /// <summary>
     /// The time_modified attribute.
     /// </summary>
     [TerraformProperty("time_modified")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TimeModified { get; }
+    public partial TerraformValue<string> TimeModified { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [TerraformProperty("version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Version { get; }
+    public partial TerraformValue<string> Version { get; }
 
 }

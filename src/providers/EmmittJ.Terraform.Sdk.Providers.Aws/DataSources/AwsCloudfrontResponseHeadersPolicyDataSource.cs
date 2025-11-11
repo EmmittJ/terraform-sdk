@@ -16,69 +16,69 @@ public partial class AwsCloudfrontResponseHeadersPolicyDataSource : TerraformDat
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     [TerraformProperty("comment")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Comment { get; }
+    public partial TerraformValue<string> Comment { get; }
 
     /// <summary>
     /// The cors_config attribute.
     /// </summary>
     [TerraformProperty("cors_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CorsConfig { get; }
+    public partial TerraformList<object> CorsConfig { get; }
 
     /// <summary>
     /// The custom_headers_config attribute.
     /// </summary>
     [TerraformProperty("custom_headers_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> CustomHeadersConfig { get; }
+    public partial TerraformList<object> CustomHeadersConfig { get; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     [TerraformProperty("etag")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Etag { get; }
+    public partial TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The remove_headers_config attribute.
     /// </summary>
     [TerraformProperty("remove_headers_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> RemoveHeadersConfig { get; }
+    public partial TerraformList<object> RemoveHeadersConfig { get; }
 
     /// <summary>
     /// The security_headers_config attribute.
     /// </summary>
     [TerraformProperty("security_headers_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> SecurityHeadersConfig { get; }
+    public partial TerraformList<object> SecurityHeadersConfig { get; }
 
     /// <summary>
     /// The server_timing_headers_config attribute.
     /// </summary>
     [TerraformProperty("server_timing_headers_config")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ServerTimingHeadersConfig { get; }
+    public partial TerraformList<object> ServerTimingHeadersConfig { get; }
 
 }

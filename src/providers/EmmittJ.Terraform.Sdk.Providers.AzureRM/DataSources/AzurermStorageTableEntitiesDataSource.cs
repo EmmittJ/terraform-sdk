@@ -13,7 +13,7 @@ public partial class AzurermStorageTableEntitiesDataSourceTimeoutsBlock : Terraf
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -32,21 +32,21 @@ public partial class AzurermStorageTableEntitiesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [TerraformProperty("filter")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Filter { get; set; }
+    public required partial TerraformValue<string> Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The select attribute.
     /// </summary>
     [TerraformProperty("select")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Select { get; set; }
+    public partial TerraformList<string>? Select { get; set; }
 
     /// <summary>
     /// The storage_table_id attribute.
@@ -54,20 +54,20 @@ public partial class AzurermStorageTableEntitiesDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageTableId is required")]
     [TerraformProperty("storage_table_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StorageTableId { get; set; }
+    public required partial TerraformValue<string> StorageTableId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermStorageTableEntitiesDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermStorageTableEntitiesDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The items attribute.
     /// </summary>
     [TerraformProperty("items")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Items { get; }
+    public partial TerraformList<object> Items { get; }
 
 }

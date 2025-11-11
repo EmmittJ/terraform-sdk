@@ -16,7 +16,7 @@ public partial class GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     [TerraformProperty("kms_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KmsKey { get; set; }
+    public required partial TerraformValue<string> KmsKey { get; set; }
 
 }
 
@@ -31,21 +31,21 @@ public partial class GoogleDiscoveryEngineCmekConfigTimeoutsBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -63,14 +63,14 @@ public partial class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// </summary>
     [TerraformProperty("cmek_config_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CmekConfigId { get; set; }
+    public partial TerraformValue<string>? CmekConfigId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// KMS key resource name which will be used to encrypt resources
@@ -79,7 +79,7 @@ public partial class GoogleDiscoveryEngineCmekConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     [TerraformProperty("kms_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KmsKey { get; set; }
+    public required partial TerraformValue<string> KmsKey { get; set; }
 
     /// <summary>
     /// The geographic location where the CMEK config should reside. The value can
@@ -88,14 +88,14 @@ public partial class GoogleDiscoveryEngineCmekConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Set the following CmekConfig as the default to be used for child resources
@@ -103,28 +103,28 @@ public partial class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// </summary>
     [TerraformProperty("set_default")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SetDefault { get; set; }
+    public partial TerraformValue<bool>? SetDefault { get; set; }
 
     /// <summary>
     /// Block for single_region_keys.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("single_region_keys")]
-    public TerraformList<TerraformBlock<GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock>>? SingleRegionKeys { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock>>? SingleRegionKeys { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDiscoveryEngineCmekConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDiscoveryEngineCmekConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The default CmekConfig for the Customer.
     /// </summary>
     [TerraformProperty("is_default")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> IsDefault { get; }
+    public partial TerraformValue<bool> IsDefault { get; }
 
     /// <summary>
     /// KMS key version resource name which will be used to encrypt resources
@@ -132,14 +132,14 @@ public partial class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// </summary>
     [TerraformProperty("kms_key_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KmsKeyVersion { get; }
+    public partial TerraformValue<string> KmsKeyVersion { get; }
 
     /// <summary>
     /// The timestamp of the last key rotation.
     /// </summary>
     [TerraformProperty("last_rotation_timestamp_micros")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> LastRotationTimestampMicros { get; }
+    public partial TerraformValue<double> LastRotationTimestampMicros { get; }
 
     /// <summary>
     /// The unique full resource name of the cmek config. Values are of the format
@@ -149,20 +149,20 @@ public partial class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Whether the NotebookLM Corpus is ready to be used.
     /// </summary>
     [TerraformProperty("notebooklm_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NotebooklmState { get; }
+    public partial TerraformValue<string> NotebooklmState { get; }
 
     /// <summary>
     /// The state of the CmekConfig.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
 }

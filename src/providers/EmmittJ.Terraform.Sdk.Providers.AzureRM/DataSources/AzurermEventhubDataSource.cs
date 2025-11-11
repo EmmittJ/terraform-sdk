@@ -13,7 +13,7 @@ public partial class AzurermEventhubDataSourceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,7 +31,7 @@ public partial class AzurermEventhubDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -39,7 +39,7 @@ public partial class AzurermEventhubDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The namespace_name attribute.
@@ -47,7 +47,7 @@ public partial class AzurermEventhubDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     [TerraformProperty("namespace_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NamespaceName { get; set; }
+    public required partial TerraformValue<string> NamespaceName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -55,27 +55,27 @@ public partial class AzurermEventhubDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermEventhubDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermEventhubDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The partition_count attribute.
     /// </summary>
     [TerraformProperty("partition_count")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> PartitionCount { get; }
+    public partial TerraformValue<double> PartitionCount { get; }
 
     /// <summary>
     /// The partition_ids attribute.
     /// </summary>
     [TerraformProperty("partition_ids")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> PartitionIds { get; }
+    public partial TerraformList<string> PartitionIds { get; }
 
 }

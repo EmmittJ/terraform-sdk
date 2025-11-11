@@ -14,7 +14,7 @@ public partial class GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock : Terra
     /// </summary>
     [TerraformProperty("kms_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKey { get; set; }
+    public partial TerraformValue<string>? KmsKey { get; set; }
 
 
 
@@ -31,7 +31,7 @@ public partial class GoogleEdgecontainerNodePoolNodeConfigBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("labels")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> Labels { get; set; }
+    public partial TerraformMap<string> Labels { get; set; }
 
 }
 
@@ -46,21 +46,21 @@ public partial class GoogleEdgecontainerNodePoolTimeoutsBlock : TerraformBlockBa
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -80,14 +80,14 @@ public partial class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     [TerraformProperty("cluster")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Cluster { get; set; }
+    public required partial TerraformValue<string> Cluster { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels associated with this resource.
@@ -97,7 +97,7 @@ public partial class GoogleEdgecontainerNodePool : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the resource.
@@ -105,7 +105,7 @@ public partial class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Only machines matching this filter will be allowed to join the node pool.
@@ -114,7 +114,7 @@ public partial class GoogleEdgecontainerNodePool : TerraformResource
     /// </summary>
     [TerraformProperty("machine_filter")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> MachineFilter { get; set; }
+    public partial TerraformValue<string> MachineFilter { get; set; }
 
     /// <summary>
     /// The resource name of the node pool.
@@ -122,7 +122,7 @@ public partial class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The number of nodes in the pool.
@@ -130,7 +130,7 @@ public partial class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     [TerraformProperty("node_count")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> NodeCount { get; set; }
+    public required partial TerraformValue<double> NodeCount { get; set; }
 
     /// <summary>
     /// Name of the Google Distributed Cloud Edge zone where this node pool will be created. For example: &#39;us-central1-edge-customer-a&#39;.
@@ -138,14 +138,14 @@ public partial class GoogleEdgecontainerNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeLocation is required")]
     [TerraformProperty("node_location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NodeLocation { get; set; }
+    public required partial TerraformValue<string> NodeLocation { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for local_disk_encryption.
@@ -153,7 +153,7 @@ public partial class GoogleEdgecontainerNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalDiskEncryption block(s) allowed")]
     [TerraformProperty("local_disk_encryption")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock>>? LocalDiskEncryption { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock>>? LocalDiskEncryption { get; set; }
 
     /// <summary>
     /// Block for node_config.
@@ -161,35 +161,35 @@ public partial class GoogleEdgecontainerNodePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
     [TerraformProperty("node_config")]
-    public TerraformList<TerraformBlock<GoogleEdgecontainerNodePoolNodeConfigBlock>>? NodeConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleEdgecontainerNodePoolNodeConfigBlock>>? NodeConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleEdgecontainerNodePoolTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleEdgecontainerNodePoolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when the node pool was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The lowest release version among all worker nodes.
     /// </summary>
     [TerraformProperty("node_version")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> NodeVersion { get; }
+    public partial TerraformValue<string> NodeVersion { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -197,13 +197,13 @@ public partial class GoogleEdgecontainerNodePool : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The time when the node pool was last updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

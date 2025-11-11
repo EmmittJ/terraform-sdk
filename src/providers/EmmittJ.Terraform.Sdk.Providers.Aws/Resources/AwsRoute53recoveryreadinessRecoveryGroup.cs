@@ -13,7 +13,7 @@ public partial class AwsRoute53recoveryreadinessRecoveryGroupTimeoutsBlock : Ter
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
 }
 
@@ -31,14 +31,14 @@ public partial class AwsRoute53recoveryreadinessRecoveryGroup : TerraformResourc
     /// </summary>
     [TerraformProperty("cells")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? Cells { get; set; }
+    public partial TerraformList<string>? Cells { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The recovery_group_name attribute.
@@ -46,34 +46,34 @@ public partial class AwsRoute53recoveryreadinessRecoveryGroup : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryGroupName is required")]
     [TerraformProperty("recovery_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RecoveryGroupName { get; set; }
+    public required partial TerraformValue<string> RecoveryGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsRoute53recoveryreadinessRecoveryGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsRoute53recoveryreadinessRecoveryGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
 }

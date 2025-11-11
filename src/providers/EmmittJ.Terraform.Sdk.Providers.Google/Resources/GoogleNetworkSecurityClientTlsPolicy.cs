@@ -29,21 +29,21 @@ public partial class GoogleNetworkSecurityClientTlsPolicyTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -62,14 +62,14 @@ public partial class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Set of label tags associated with the ClientTlsPolicy resource.
@@ -79,7 +79,7 @@ public partial class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the client tls policy.
@@ -87,7 +87,7 @@ public partial class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Name of the ClientTlsPolicy resource.
@@ -95,21 +95,21 @@ public partial class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Server Name Indication string to present to the server during TLS handshake. E.g: &amp;quot;secure.example.com&amp;quot;.
     /// </summary>
     [TerraformProperty("sni")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Sni { get; set; }
+    public partial TerraformValue<string>? Sni { get; set; }
 
     /// <summary>
     /// Block for client_certificate.
@@ -117,35 +117,35 @@ public partial class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientCertificate block(s) allowed")]
     [TerraformProperty("client_certificate")]
-    public TerraformList<TerraformBlock<GoogleNetworkSecurityClientTlsPolicyClientCertificateBlock>>? ClientCertificate { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkSecurityClientTlsPolicyClientCertificateBlock>>? ClientCertificate { get; set; }
 
     /// <summary>
     /// Block for server_validation_ca.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("server_validation_ca")]
-    public TerraformList<TerraformBlock<GoogleNetworkSecurityClientTlsPolicyServerValidationCaBlock>>? ServerValidationCa { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleNetworkSecurityClientTlsPolicyServerValidationCaBlock>>? ServerValidationCa { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleNetworkSecurityClientTlsPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleNetworkSecurityClientTlsPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the ClientTlsPolicy was created in UTC.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -153,13 +153,13 @@ public partial class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Time the ClientTlsPolicy was updated in UTC.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

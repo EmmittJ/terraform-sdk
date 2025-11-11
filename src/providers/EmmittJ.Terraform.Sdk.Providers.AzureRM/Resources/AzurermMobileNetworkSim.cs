@@ -14,7 +14,7 @@ public partial class AzurermMobileNetworkSimStaticIpConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachedDataNetworkId is required")]
     [TerraformProperty("attached_data_network_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AttachedDataNetworkId { get; set; }
+    public required partial TerraformValue<string> AttachedDataNetworkId { get; set; }
 
     /// <summary>
     /// The slice_id attribute.
@@ -22,14 +22,14 @@ public partial class AzurermMobileNetworkSimStaticIpConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SliceId is required")]
     [TerraformProperty("slice_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SliceId { get; set; }
+    public required partial TerraformValue<string> SliceId { get; set; }
 
     /// <summary>
     /// The static_ipv4_address attribute.
     /// </summary>
     [TerraformProperty("static_ipv4_address")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? StaticIpv4Address { get; set; }
+    public partial TerraformValue<string>? StaticIpv4Address { get; set; }
 
 }
 
@@ -44,28 +44,28 @@ public partial class AzurermMobileNetworkSimTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -84,21 +84,21 @@ public partial class AzurermMobileNetworkSim : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationKey is required")]
     [TerraformProperty("authentication_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AuthenticationKey { get; set; }
+    public required partial TerraformValue<string> AuthenticationKey { get; set; }
 
     /// <summary>
     /// The device_type attribute.
     /// </summary>
     [TerraformProperty("device_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeviceType { get; set; }
+    public partial TerraformValue<string>? DeviceType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The integrated_circuit_card_identifier attribute.
@@ -106,7 +106,7 @@ public partial class AzurermMobileNetworkSim : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegratedCircuitCardIdentifier is required")]
     [TerraformProperty("integrated_circuit_card_identifier")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IntegratedCircuitCardIdentifier { get; set; }
+    public required partial TerraformValue<string> IntegratedCircuitCardIdentifier { get; set; }
 
     /// <summary>
     /// The international_mobile_subscriber_identity attribute.
@@ -114,7 +114,7 @@ public partial class AzurermMobileNetworkSim : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternationalMobileSubscriberIdentity is required")]
     [TerraformProperty("international_mobile_subscriber_identity")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InternationalMobileSubscriberIdentity { get; set; }
+    public required partial TerraformValue<string> InternationalMobileSubscriberIdentity { get; set; }
 
     /// <summary>
     /// The mobile_network_sim_group_id attribute.
@@ -122,7 +122,7 @@ public partial class AzurermMobileNetworkSim : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkSimGroupId is required")]
     [TerraformProperty("mobile_network_sim_group_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> MobileNetworkSimGroupId { get; set; }
+    public required partial TerraformValue<string> MobileNetworkSimGroupId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -130,7 +130,7 @@ public partial class AzurermMobileNetworkSim : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The operator_key_code attribute.
@@ -138,48 +138,48 @@ public partial class AzurermMobileNetworkSim : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorKeyCode is required")]
     [TerraformProperty("operator_key_code")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OperatorKeyCode { get; set; }
+    public required partial TerraformValue<string> OperatorKeyCode { get; set; }
 
     /// <summary>
     /// The sim_policy_id attribute.
     /// </summary>
     [TerraformProperty("sim_policy_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SimPolicyId { get; set; }
+    public partial TerraformValue<string>? SimPolicyId { get; set; }
 
     /// <summary>
     /// Block for static_ip_configuration.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("static_ip_configuration")]
-    public TerraformList<TerraformBlock<AzurermMobileNetworkSimStaticIpConfigurationBlock>>? StaticIpConfiguration { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMobileNetworkSimStaticIpConfigurationBlock>>? StaticIpConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMobileNetworkSimTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMobileNetworkSimTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The sim_state attribute.
     /// </summary>
     [TerraformProperty("sim_state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SimState { get; }
+    public partial TerraformValue<string> SimState { get; }
 
     /// <summary>
     /// The vendor_key_fingerprint attribute.
     /// </summary>
     [TerraformProperty("vendor_key_fingerprint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VendorKeyFingerprint { get; }
+    public partial TerraformValue<string> VendorKeyFingerprint { get; }
 
     /// <summary>
     /// The vendor_name attribute.
     /// </summary>
     [TerraformProperty("vendor_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> VendorName { get; }
+    public partial TerraformValue<string> VendorName { get; }
 
 }

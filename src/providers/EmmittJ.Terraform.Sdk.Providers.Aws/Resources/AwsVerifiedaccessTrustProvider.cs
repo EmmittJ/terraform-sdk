@@ -13,7 +13,7 @@ public partial class AwsVerifiedaccessTrustProviderDeviceOptionsBlock : Terrafor
     /// </summary>
     [TerraformProperty("tenant_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TenantId { get; set; }
+    public partial TerraformValue<string>? TenantId { get; set; }
 
 }
 
@@ -28,14 +28,14 @@ public partial class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsB
     /// </summary>
     [TerraformProperty("authorization_endpoint")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthorizationEndpoint { get; set; }
+    public partial TerraformValue<string>? AuthorizationEndpoint { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [TerraformProperty("client_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientId { get; set; }
+    public partial TerraformValue<string>? ClientId { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
@@ -43,42 +43,42 @@ public partial class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     [TerraformProperty("client_secret")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientSecret { get; set; }
+    public required partial TerraformValue<string> ClientSecret { get; set; }
 
     /// <summary>
     /// The issuer attribute.
     /// </summary>
     [TerraformProperty("issuer")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Issuer { get; set; }
+    public partial TerraformValue<string>? Issuer { get; set; }
 
     /// <summary>
     /// The public_signing_key_endpoint attribute.
     /// </summary>
     [TerraformProperty("public_signing_key_endpoint")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PublicSigningKeyEndpoint { get; set; }
+    public partial TerraformValue<string>? PublicSigningKeyEndpoint { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [TerraformProperty("scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Scope { get; set; }
+    public partial TerraformValue<string>? Scope { get; set; }
 
     /// <summary>
     /// The token_endpoint attribute.
     /// </summary>
     [TerraformProperty("token_endpoint")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TokenEndpoint { get; set; }
+    public partial TerraformValue<string>? TokenEndpoint { get; set; }
 
     /// <summary>
     /// The user_info_endpoint attribute.
     /// </summary>
     [TerraformProperty("user_info_endpoint")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserInfoEndpoint { get; set; }
+    public partial TerraformValue<string>? UserInfoEndpoint { get; set; }
 
 }
 
@@ -93,14 +93,14 @@ public partial class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformB
     /// </summary>
     [TerraformProperty("authorization_endpoint")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AuthorizationEndpoint { get; set; }
+    public partial TerraformValue<string>? AuthorizationEndpoint { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [TerraformProperty("client_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientId { get; set; }
+    public partial TerraformValue<string>? ClientId { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
@@ -108,35 +108,35 @@ public partial class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     [TerraformProperty("client_secret")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClientSecret { get; set; }
+    public required partial TerraformValue<string> ClientSecret { get; set; }
 
     /// <summary>
     /// The issuer attribute.
     /// </summary>
     [TerraformProperty("issuer")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Issuer { get; set; }
+    public partial TerraformValue<string>? Issuer { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [TerraformProperty("scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Scope { get; set; }
+    public partial TerraformValue<string>? Scope { get; set; }
 
     /// <summary>
     /// The token_endpoint attribute.
     /// </summary>
     [TerraformProperty("token_endpoint")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TokenEndpoint { get; set; }
+    public partial TerraformValue<string>? TokenEndpoint { get; set; }
 
     /// <summary>
     /// The user_info_endpoint attribute.
     /// </summary>
     [TerraformProperty("user_info_endpoint")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserInfoEndpoint { get; set; }
+    public partial TerraformValue<string>? UserInfoEndpoint { get; set; }
 
 }
 
@@ -151,14 +151,14 @@ public partial class AwsVerifiedaccessTrustProviderSseSpecificationBlock : Terra
     /// </summary>
     [TerraformProperty("customer_managed_key_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CustomerManagedKeyEnabled { get; set; }
+    public partial TerraformValue<bool>? CustomerManagedKeyEnabled { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     [TerraformProperty("kms_key_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KmsKeyArn { get; set; }
+    public partial TerraformValue<string>? KmsKeyArn { get; set; }
 
 }
 
@@ -173,21 +173,21 @@ public partial class AwsVerifiedaccessTrustProviderTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -206,21 +206,21 @@ public partial class AwsVerifiedaccessTrustProvider : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The device_trust_provider_type attribute.
     /// </summary>
     [TerraformProperty("device_trust_provider_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeviceTrustProviderType { get; set; }
+    public partial TerraformValue<string>? DeviceTrustProviderType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_reference_name attribute.
@@ -228,28 +228,28 @@ public partial class AwsVerifiedaccessTrustProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyReferenceName is required")]
     [TerraformProperty("policy_reference_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PolicyReferenceName { get; set; }
+    public required partial TerraformValue<string> PolicyReferenceName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The trust_provider_type attribute.
@@ -257,14 +257,14 @@ public partial class AwsVerifiedaccessTrustProvider : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustProviderType is required")]
     [TerraformProperty("trust_provider_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TrustProviderType { get; set; }
+    public required partial TerraformValue<string> TrustProviderType { get; set; }
 
     /// <summary>
     /// The user_trust_provider_type attribute.
     /// </summary>
     [TerraformProperty("user_trust_provider_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? UserTrustProviderType { get; set; }
+    public partial TerraformValue<string>? UserTrustProviderType { get; set; }
 
     /// <summary>
     /// Block for device_options.
@@ -272,7 +272,7 @@ public partial class AwsVerifiedaccessTrustProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeviceOptions block(s) allowed")]
     [TerraformProperty("device_options")]
-    public TerraformList<TerraformBlock<AwsVerifiedaccessTrustProviderDeviceOptionsBlock>>? DeviceOptions { get; set; }
+    public partial TerraformList<TerraformBlock<AwsVerifiedaccessTrustProviderDeviceOptionsBlock>>? DeviceOptions { get; set; }
 
     /// <summary>
     /// Block for native_application_oidc_options.
@@ -280,7 +280,7 @@ public partial class AwsVerifiedaccessTrustProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NativeApplicationOidcOptions block(s) allowed")]
     [TerraformProperty("native_application_oidc_options")]
-    public TerraformList<TerraformBlock<AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock>>? NativeApplicationOidcOptions { get; set; }
+    public partial TerraformList<TerraformBlock<AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock>>? NativeApplicationOidcOptions { get; set; }
 
     /// <summary>
     /// Block for oidc_options.
@@ -288,7 +288,7 @@ public partial class AwsVerifiedaccessTrustProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OidcOptions block(s) allowed")]
     [TerraformProperty("oidc_options")]
-    public TerraformList<TerraformBlock<AwsVerifiedaccessTrustProviderOidcOptionsBlock>>? OidcOptions { get; set; }
+    public partial TerraformList<TerraformBlock<AwsVerifiedaccessTrustProviderOidcOptionsBlock>>? OidcOptions { get; set; }
 
     /// <summary>
     /// Block for sse_specification.
@@ -296,13 +296,13 @@ public partial class AwsVerifiedaccessTrustProvider : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SseSpecification block(s) allowed")]
     [TerraformProperty("sse_specification")]
-    public TerraformList<TerraformBlock<AwsVerifiedaccessTrustProviderSseSpecificationBlock>>? SseSpecification { get; set; }
+    public partial TerraformList<TerraformBlock<AwsVerifiedaccessTrustProviderSseSpecificationBlock>>? SseSpecification { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AwsVerifiedaccessTrustProviderTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AwsVerifiedaccessTrustProviderTimeoutsBlock>? Timeouts { get; set; }
 
 }

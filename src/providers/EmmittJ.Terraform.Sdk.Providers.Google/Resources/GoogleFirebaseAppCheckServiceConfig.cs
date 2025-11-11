@@ -13,21 +13,21 @@ public partial class GoogleFirebaseAppCheckServiceConfigTimeoutsBlock : Terrafor
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -74,21 +74,21 @@ public partial class GoogleFirebaseAppCheckServiceConfig : TerraformResource
     /// </summary>
     [TerraformProperty("enforcement_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EnforcementMode { get; set; }
+    public partial TerraformValue<string>? EnforcementMode { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The identifier of the service to configure enforcement. Currently, the following service IDs are supported:
@@ -100,20 +100,20 @@ public partial class GoogleFirebaseAppCheckServiceConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     [TerraformProperty("service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServiceId { get; set; }
+    public required partial TerraformValue<string> ServiceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleFirebaseAppCheckServiceConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleFirebaseAppCheckServiceConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fully-qualified resource name of the service enforcement configuration.
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

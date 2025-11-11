@@ -14,7 +14,7 @@ public partial class AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultBehavior is required")]
     [TerraformProperty("default_behavior")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DefaultBehavior { get; set; }
+    public required partial TerraformValue<string> DefaultBehavior { get; set; }
 
 }
 
@@ -41,7 +41,7 @@ public partial class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// AWS Kinesis Firehose Delivery Stream ARNs
@@ -49,14 +49,14 @@ public partial class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogDestinationConfigs is required")]
     [TerraformProperty("log_destination_configs")]
     // Required argument - source generator will implement get/set
-    public required TerraformSet<string> LogDestinationConfigs { get; set; }
+    public required partial TerraformSet<string> LogDestinationConfigs { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// AWS WebACL ARN
@@ -64,7 +64,7 @@ public partial class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     [TerraformProperty("resource_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceArn { get; set; }
+    public required partial TerraformValue<string> ResourceArn { get; set; }
 
     /// <summary>
     /// Block for logging_filter.
@@ -72,7 +72,7 @@ public partial class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingFilter block(s) allowed")]
     [TerraformProperty("logging_filter")]
-    public TerraformList<TerraformBlock<AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock>>? LoggingFilter { get; set; }
+    public partial TerraformList<TerraformBlock<AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock>>? LoggingFilter { get; set; }
 
     /// <summary>
     /// Block for redacted_fields.
@@ -80,6 +80,6 @@ public partial class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 RedactedFields block(s) allowed")]
     [TerraformProperty("redacted_fields")]
-    public TerraformList<TerraformBlock<AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlock>>? RedactedFields { get; set; }
+    public partial TerraformList<TerraformBlock<AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlock>>? RedactedFields { get; set; }
 
 }

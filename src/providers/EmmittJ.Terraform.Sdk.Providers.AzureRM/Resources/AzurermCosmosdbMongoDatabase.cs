@@ -13,7 +13,7 @@ public partial class AzurermCosmosdbMongoDatabaseAutoscaleSettingsBlock : Terraf
     /// </summary>
     [TerraformProperty("max_throughput")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> MaxThroughput { get; set; }
+    public partial TerraformValue<double> MaxThroughput { get; set; }
 
 }
 
@@ -28,28 +28,28 @@ public partial class AzurermCosmosdbMongoDatabaseTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -69,14 +69,14 @@ public partial class AzurermCosmosdbMongoDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     [TerraformProperty("account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AccountName { get; set; }
+    public required partial TerraformValue<string> AccountName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -84,7 +84,7 @@ public partial class AzurermCosmosdbMongoDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -92,14 +92,14 @@ public partial class AzurermCosmosdbMongoDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
     [TerraformProperty("throughput")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> Throughput { get; set; }
+    public partial TerraformValue<double> Throughput { get; set; }
 
     /// <summary>
     /// Block for autoscale_settings.
@@ -107,13 +107,13 @@ public partial class AzurermCosmosdbMongoDatabase : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
     [TerraformProperty("autoscale_settings")]
-    public TerraformList<TerraformBlock<AzurermCosmosdbMongoDatabaseAutoscaleSettingsBlock>>? AutoscaleSettings { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermCosmosdbMongoDatabaseAutoscaleSettingsBlock>>? AutoscaleSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCosmosdbMongoDatabaseTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCosmosdbMongoDatabaseTimeoutsBlock>? Timeouts { get; set; }
 
 }

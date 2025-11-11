@@ -13,35 +13,35 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlo
     /// </summary>
     [TerraformProperty("administrator_login")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AdministratorLogin { get; set; }
+    public partial TerraformValue<string>? AdministratorLogin { get; set; }
 
     /// <summary>
     /// The administrator_password attribute.
     /// </summary>
     [TerraformProperty("administrator_password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AdministratorPassword { get; set; }
+    public partial TerraformValue<string>? AdministratorPassword { get; set; }
 
     /// <summary>
     /// The dual_standby_pair_name attribute.
     /// </summary>
     [TerraformProperty("dual_standby_pair_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DualStandbyPairName { get; set; }
+    public partial TerraformValue<string>? DualStandbyPairName { get; set; }
 
     /// <summary>
     /// The elastic_pool_name attribute.
     /// </summary>
     [TerraformProperty("elastic_pool_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ElasticPoolName { get; set; }
+    public partial TerraformValue<string>? ElasticPoolName { get; set; }
 
     /// <summary>
     /// The pricing_tier attribute.
     /// </summary>
     [TerraformProperty("pricing_tier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PricingTier { get; set; }
+    public partial TerraformValue<string>? PricingTier { get; set; }
 
     /// <summary>
     /// The server_endpoint attribute.
@@ -49,7 +49,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerEndpoint is required")]
     [TerraformProperty("server_endpoint")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServerEndpoint { get; set; }
+    public required partial TerraformValue<string> ServerEndpoint { get; set; }
 
 }
 
@@ -64,14 +64,14 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeSca
     /// </summary>
     [TerraformProperty("data_integration_unit")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? DataIntegrationUnit { get; set; }
+    public partial TerraformValue<double>? DataIntegrationUnit { get; set; }
 
     /// <summary>
     /// The time_to_live attribute.
     /// </summary>
     [TerraformProperty("time_to_live")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? TimeToLive { get; set; }
+    public partial TerraformValue<double>? TimeToLive { get; set; }
 
 }
 
@@ -87,7 +87,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlobContainerUri is required")]
     [TerraformProperty("blob_container_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BlobContainerUri { get; set; }
+    public required partial TerraformValue<string> BlobContainerUri { get; set; }
 
     /// <summary>
     /// The sas_token attribute.
@@ -95,7 +95,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasToken is required")]
     [TerraformProperty("sas_token")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SasToken { get; set; }
+    public required partial TerraformValue<string> SasToken { get; set; }
 
 }
 
@@ -110,14 +110,14 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomS
     /// </summary>
     [TerraformProperty("environment")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Environment { get; set; }
+    public partial TerraformMap<string>? Environment { get; set; }
 
     /// <summary>
     /// The powershell_version attribute.
     /// </summary>
     [TerraformProperty("powershell_version")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PowershellVersion { get; set; }
+    public partial TerraformValue<string>? PowershellVersion { get; set; }
 
 }
 
@@ -133,7 +133,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetInt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     [TerraformProperty("subnet_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SubnetId { get; set; }
+    public required partial TerraformValue<string> SubnetId { get; set; }
 
 }
 
@@ -149,7 +149,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     [TerraformProperty("linked_service_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LinkedServiceName { get; set; }
+    public required partial TerraformValue<string> LinkedServiceName { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -157,7 +157,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
 }
 
@@ -172,21 +172,21 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExtern
     /// </summary>
     [TerraformProperty("number_of_external_nodes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? NumberOfExternalNodes { get; set; }
+    public partial TerraformValue<double>? NumberOfExternalNodes { get; set; }
 
     /// <summary>
     /// The number_of_pipeline_nodes attribute.
     /// </summary>
     [TerraformProperty("number_of_pipeline_nodes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? NumberOfPipelineNodes { get; set; }
+    public partial TerraformValue<double>? NumberOfPipelineNodes { get; set; }
 
     /// <summary>
     /// The time_to_live attribute.
     /// </summary>
     [TerraformProperty("time_to_live")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? TimeToLive { get; set; }
+    public partial TerraformValue<double>? TimeToLive { get; set; }
 
 }
 
@@ -201,7 +201,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : T
     /// </summary>
     [TerraformProperty("path")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Path { get; set; }
+    public partial TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The self_hosted_integration_runtime_name attribute.
@@ -209,7 +209,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SelfHostedIntegrationRuntimeName is required")]
     [TerraformProperty("self_hosted_integration_runtime_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SelfHostedIntegrationRuntimeName { get; set; }
+    public required partial TerraformValue<string> SelfHostedIntegrationRuntimeName { get; set; }
 
     /// <summary>
     /// The staging_storage_linked_service_name attribute.
@@ -217,7 +217,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StagingStorageLinkedServiceName is required")]
     [TerraformProperty("staging_storage_linked_service_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> StagingStorageLinkedServiceName { get; set; }
+    public required partial TerraformValue<string> StagingStorageLinkedServiceName { get; set; }
 
 }
 
@@ -232,28 +232,28 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock 
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -268,28 +268,28 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegratio
     /// </summary>
     [TerraformProperty("public_ips")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? PublicIps { get; set; }
+    public partial TerraformList<string>? PublicIps { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [TerraformProperty("subnet_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SubnetId { get; set; }
+    public partial TerraformValue<string>? SubnetId { get; set; }
 
     /// <summary>
     /// The subnet_name attribute.
     /// </summary>
     [TerraformProperty("subnet_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SubnetName { get; set; }
+    public partial TerraformValue<string>? SubnetName { get; set; }
 
     /// <summary>
     /// The vnet_id attribute.
     /// </summary>
     [TerraformProperty("vnet_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? VnetId { get; set; }
+    public partial TerraformValue<string>? VnetId { get; set; }
 
 }
 
@@ -308,7 +308,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [TerraformProperty("credential_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CredentialName { get; set; }
+    public partial TerraformValue<string>? CredentialName { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
@@ -316,35 +316,35 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     [TerraformProperty("data_factory_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataFactoryId { get; set; }
+    public required partial TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The edition attribute.
     /// </summary>
     [TerraformProperty("edition")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Edition { get; set; }
+    public partial TerraformValue<string>? Edition { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
     [TerraformProperty("license_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? LicenseType { get; set; }
+    public partial TerraformValue<string>? LicenseType { get; set; }
 
     /// <summary>
     /// The location attribute.
@@ -352,14 +352,14 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The max_parallel_executions_per_node attribute.
     /// </summary>
     [TerraformProperty("max_parallel_executions_per_node")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxParallelExecutionsPerNode { get; set; }
+    public partial TerraformValue<double>? MaxParallelExecutionsPerNode { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -367,7 +367,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The node_size attribute.
@@ -375,14 +375,14 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeSize is required")]
     [TerraformProperty("node_size")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NodeSize { get; set; }
+    public required partial TerraformValue<string> NodeSize { get; set; }
 
     /// <summary>
     /// The number_of_nodes attribute.
     /// </summary>
     [TerraformProperty("number_of_nodes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? NumberOfNodes { get; set; }
+    public partial TerraformValue<double>? NumberOfNodes { get; set; }
 
     /// <summary>
     /// Block for catalog_info.
@@ -390,7 +390,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogInfo block(s) allowed")]
     [TerraformProperty("catalog_info")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock>>? CatalogInfo { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock>>? CatalogInfo { get; set; }
 
     /// <summary>
     /// Block for copy_compute_scale.
@@ -398,7 +398,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CopyComputeScale block(s) allowed")]
     [TerraformProperty("copy_compute_scale")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock>>? CopyComputeScale { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock>>? CopyComputeScale { get; set; }
 
     /// <summary>
     /// Block for custom_setup_script.
@@ -406,7 +406,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomSetupScript block(s) allowed")]
     [TerraformProperty("custom_setup_script")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock>>? CustomSetupScript { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock>>? CustomSetupScript { get; set; }
 
     /// <summary>
     /// Block for express_custom_setup.
@@ -414,7 +414,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExpressCustomSetup block(s) allowed")]
     [TerraformProperty("express_custom_setup")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock>>? ExpressCustomSetup { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock>>? ExpressCustomSetup { get; set; }
 
     /// <summary>
     /// Block for express_vnet_integration.
@@ -422,14 +422,14 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExpressVnetIntegration block(s) allowed")]
     [TerraformProperty("express_vnet_integration")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock>>? ExpressVnetIntegration { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock>>? ExpressVnetIntegration { get; set; }
 
     /// <summary>
     /// Block for package_store.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("package_store")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock>>? PackageStore { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock>>? PackageStore { get; set; }
 
     /// <summary>
     /// Block for pipeline_external_compute_scale.
@@ -437,7 +437,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PipelineExternalComputeScale block(s) allowed")]
     [TerraformProperty("pipeline_external_compute_scale")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock>>? PipelineExternalComputeScale { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock>>? PipelineExternalComputeScale { get; set; }
 
     /// <summary>
     /// Block for proxy.
@@ -445,14 +445,14 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
     [TerraformProperty("proxy")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock>>? Proxy { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock>>? Proxy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vnet_integration.
@@ -460,6 +460,6 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VnetIntegration block(s) allowed")]
     [TerraformProperty("vnet_integration")]
-    public TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock>>? VnetIntegration { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock>>? VnetIntegration { get; set; }
 
 }

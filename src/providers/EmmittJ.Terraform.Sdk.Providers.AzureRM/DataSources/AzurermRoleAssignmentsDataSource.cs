@@ -13,7 +13,7 @@ public partial class AzurermRoleAssignmentsDataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,21 +31,21 @@ public partial class AzurermRoleAssignmentsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The limit_at_scope attribute.
     /// </summary>
     [TerraformProperty("limit_at_scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? LimitAtScope { get; set; }
+    public partial TerraformValue<bool>? LimitAtScope { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
     [TerraformProperty("principal_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? PrincipalId { get; set; }
+    public partial TerraformValue<string>? PrincipalId { get; set; }
 
     /// <summary>
     /// The scope attribute.
@@ -53,27 +53,27 @@ public partial class AzurermRoleAssignmentsDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     [TerraformProperty("scope")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Scope { get; set; }
+    public required partial TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [TerraformProperty("tenant_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TenantId { get; set; }
+    public partial TerraformValue<string>? TenantId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermRoleAssignmentsDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermRoleAssignmentsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The role_assignments attribute.
     /// </summary>
     [TerraformProperty("role_assignments")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> RoleAssignments { get; }
+    public partial TerraformList<object> RoleAssignments { get; }
 
 }

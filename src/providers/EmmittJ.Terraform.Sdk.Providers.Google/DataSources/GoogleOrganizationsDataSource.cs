@@ -16,20 +16,20 @@ public partial class GoogleOrganizationsDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("filter")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Filter { get; set; }
+    public partial TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The organizations attribute.
     /// </summary>
     [TerraformProperty("organizations")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Organizations { get; }
+    public partial TerraformList<object> Organizations { get; }
 
 }

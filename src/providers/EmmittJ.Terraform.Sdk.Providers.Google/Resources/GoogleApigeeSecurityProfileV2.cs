@@ -14,7 +14,7 @@ public partial class GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Assessment is required")]
     [TerraformProperty("assessment")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Assessment { get; set; }
+    public required partial TerraformValue<string> Assessment { get; set; }
 
     /// <summary>
     /// The weight of the assessment. Possible values: [&amp;quot;MINOR&amp;quot;, &amp;quot;MODERATE&amp;quot;, &amp;quot;MAJOR&amp;quot;]
@@ -22,7 +22,7 @@ public partial class GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     [TerraformProperty("weight")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Weight { get; set; }
+    public required partial TerraformValue<string> Weight { get; set; }
 
 }
 
@@ -37,21 +37,21 @@ public partial class GoogleApigeeSecurityProfileV2TimeoutsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -70,14 +70,14 @@ public partial class GoogleApigeeSecurityProfileV2 : TerraformResource
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee Security Profile V2,
@@ -86,7 +86,7 @@ public partial class GoogleApigeeSecurityProfileV2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     [TerraformProperty("org_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OrgId { get; set; }
+    public required partial TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Resource ID of the security profile.
@@ -94,7 +94,7 @@ public partial class GoogleApigeeSecurityProfileV2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileId is required")]
     [TerraformProperty("profile_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ProfileId { get; set; }
+    public required partial TerraformValue<string> ProfileId { get; set; }
 
     /// <summary>
     /// Block for profile_assessment_configs.
@@ -103,21 +103,21 @@ public partial class GoogleApigeeSecurityProfileV2 : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileAssessmentConfigs is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProfileAssessmentConfigs block(s) required")]
     [TerraformProperty("profile_assessment_configs")]
-    public TerraformSet<TerraformBlock<GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock>>? ProfileAssessmentConfigs { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock>>? ProfileAssessmentConfigs { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleApigeeSecurityProfileV2TimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleApigeeSecurityProfileV2TimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp at which this profile was created.
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Name of the security profile v2 resource,
@@ -125,13 +125,13 @@ public partial class GoogleApigeeSecurityProfileV2 : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The timestamp at which this profile was most recently updated.
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

@@ -13,7 +13,7 @@ public partial class AzurermPolicySetDefinitionDataSourceTimeoutsBlock : Terrafo
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -31,83 +31,83 @@ public partial class AzurermPolicySetDefinitionDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DisplayName { get; set; }
+    public partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The management_group_name attribute.
     /// </summary>
     [TerraformProperty("management_group_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ManagementGroupName { get; set; }
+    public partial TerraformValue<string>? ManagementGroupName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [TerraformProperty("name")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Name { get; set; }
+    public partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermPolicySetDefinitionDataSourceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermPolicySetDefinitionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [TerraformProperty("description")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Description { get; }
+    public partial TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     [TerraformProperty("metadata")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Metadata { get; }
+    public partial TerraformValue<string> Metadata { get; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     [TerraformProperty("parameters")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Parameters { get; }
+    public partial TerraformValue<string> Parameters { get; }
 
     /// <summary>
     /// The policy_definition_group attribute.
     /// </summary>
     [TerraformProperty("policy_definition_group")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PolicyDefinitionGroup { get; }
+    public partial TerraformList<object> PolicyDefinitionGroup { get; }
 
     /// <summary>
     /// The policy_definition_reference attribute.
     /// </summary>
     [TerraformProperty("policy_definition_reference")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> PolicyDefinitionReference { get; }
+    public partial TerraformList<object> PolicyDefinitionReference { get; }
 
     /// <summary>
     /// The policy_definitions attribute.
     /// </summary>
     [TerraformProperty("policy_definitions")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PolicyDefinitions { get; }
+    public partial TerraformValue<string> PolicyDefinitions { get; }
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
     [TerraformProperty("policy_type")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PolicyType { get; }
+    public partial TerraformValue<string> PolicyType { get; }
 
 }

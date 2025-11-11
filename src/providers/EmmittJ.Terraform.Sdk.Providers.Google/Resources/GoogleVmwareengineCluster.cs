@@ -17,7 +17,7 @@ public partial class GoogleVmwareengineClusterAutoscalingSettingsBlock : Terrafo
     /// </summary>
     [TerraformProperty("cool_down_period")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CoolDownPeriod { get; set; }
+    public partial TerraformValue<string>? CoolDownPeriod { get; set; }
 
     /// <summary>
     /// Maximum number of nodes of any type in a cluster.
@@ -25,7 +25,7 @@ public partial class GoogleVmwareengineClusterAutoscalingSettingsBlock : Terrafo
     /// </summary>
     [TerraformProperty("max_cluster_node_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MaxClusterNodeCount { get; set; }
+    public partial TerraformValue<double>? MaxClusterNodeCount { get; set; }
 
     /// <summary>
     /// Minimum number of nodes of any type in a cluster.
@@ -33,7 +33,7 @@ public partial class GoogleVmwareengineClusterAutoscalingSettingsBlock : Terrafo
     /// </summary>
     [TerraformProperty("min_cluster_node_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? MinClusterNodeCount { get; set; }
+    public partial TerraformValue<double>? MinClusterNodeCount { get; set; }
 
 }
 
@@ -51,7 +51,7 @@ public partial class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("custom_core_count")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? CustomCoreCount { get; set; }
+    public partial TerraformValue<double>? CustomCoreCount { get; set; }
 
     /// <summary>
     /// The number of nodes of this type in the cluster.
@@ -59,7 +59,7 @@ public partial class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     [TerraformProperty("node_count")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> NodeCount { get; set; }
+    public required partial TerraformValue<double> NodeCount { get; set; }
 
     /// <summary>
     /// The node_type_id attribute.
@@ -67,7 +67,7 @@ public partial class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeTypeId is required")]
     [TerraformProperty("node_type_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NodeTypeId { get; set; }
+    public required partial TerraformValue<string> NodeTypeId { get; set; }
 
 }
 
@@ -82,21 +82,21 @@ public partial class GoogleVmwareengineClusterTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -115,7 +115,7 @@ public partial class GoogleVmwareengineCluster : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the Cluster.
@@ -123,7 +123,7 @@ public partial class GoogleVmwareengineCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource name of the private cloud to create a new cluster in.
@@ -133,7 +133,7 @@ public partial class GoogleVmwareengineCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     [TerraformProperty("parent")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Parent { get; set; }
+    public required partial TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Block for autoscaling_settings.
@@ -141,21 +141,21 @@ public partial class GoogleVmwareengineCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscalingSettings block(s) allowed")]
     [TerraformProperty("autoscaling_settings")]
-    public TerraformList<TerraformBlock<GoogleVmwareengineClusterAutoscalingSettingsBlock>>? AutoscalingSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleVmwareengineClusterAutoscalingSettingsBlock>>? AutoscalingSettings { get; set; }
 
     /// <summary>
     /// Block for node_type_configs.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("node_type_configs")]
-    public TerraformSet<TerraformBlock<GoogleVmwareengineClusterNodeTypeConfigsBlock>>? NodeTypeConfigs { get; set; }
+    public partial TerraformSet<TerraformBlock<GoogleVmwareengineClusterNodeTypeConfigsBlock>>? NodeTypeConfigs { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleVmwareengineClusterTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleVmwareengineClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation time of this resource.
@@ -164,7 +164,7 @@ public partial class GoogleVmwareengineCluster : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// True if the cluster is a management cluster; false otherwise.
@@ -172,21 +172,21 @@ public partial class GoogleVmwareengineCluster : TerraformResource
     /// </summary>
     [TerraformProperty("management")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> Management { get; }
+    public partial TerraformValue<bool> Management { get; }
 
     /// <summary>
     /// State of the Cluster.
     /// </summary>
     [TerraformProperty("state")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> State { get; }
+    public partial TerraformValue<string> State { get; }
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     [TerraformProperty("uid")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Uid { get; }
+    public partial TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Last updated time of this resource.
@@ -195,6 +195,6 @@ public partial class GoogleVmwareengineCluster : TerraformResource
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

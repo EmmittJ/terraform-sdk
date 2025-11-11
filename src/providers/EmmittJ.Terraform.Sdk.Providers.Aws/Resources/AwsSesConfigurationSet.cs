@@ -13,7 +13,7 @@ public partial class AwsSesConfigurationSetDeliveryOptionsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("tls_policy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TlsPolicy { get; set; }
+    public partial TerraformValue<string>? TlsPolicy { get; set; }
 
 }
 
@@ -28,7 +28,7 @@ public partial class AwsSesConfigurationSetTrackingOptionsBlock : TerraformBlock
     /// </summary>
     [TerraformProperty("custom_redirect_domain")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CustomRedirectDomain { get; set; }
+    public partial TerraformValue<string>? CustomRedirectDomain { get; set; }
 
 }
 
@@ -47,7 +47,7 @@ public partial class AwsSesConfigurationSet : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -55,28 +55,28 @@ public partial class AwsSesConfigurationSet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The reputation_metrics_enabled attribute.
     /// </summary>
     [TerraformProperty("reputation_metrics_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ReputationMetricsEnabled { get; set; }
+    public partial TerraformValue<bool>? ReputationMetricsEnabled { get; set; }
 
     /// <summary>
     /// The sending_enabled attribute.
     /// </summary>
     [TerraformProperty("sending_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? SendingEnabled { get; set; }
+    public partial TerraformValue<bool>? SendingEnabled { get; set; }
 
     /// <summary>
     /// Block for delivery_options.
@@ -84,7 +84,7 @@ public partial class AwsSesConfigurationSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryOptions block(s) allowed")]
     [TerraformProperty("delivery_options")]
-    public TerraformList<TerraformBlock<AwsSesConfigurationSetDeliveryOptionsBlock>>? DeliveryOptions { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSesConfigurationSetDeliveryOptionsBlock>>? DeliveryOptions { get; set; }
 
     /// <summary>
     /// Block for tracking_options.
@@ -92,20 +92,20 @@ public partial class AwsSesConfigurationSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrackingOptions block(s) allowed")]
     [TerraformProperty("tracking_options")]
-    public TerraformList<TerraformBlock<AwsSesConfigurationSetTrackingOptionsBlock>>? TrackingOptions { get; set; }
+    public partial TerraformList<TerraformBlock<AwsSesConfigurationSetTrackingOptionsBlock>>? TrackingOptions { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The last_fresh_start attribute.
     /// </summary>
     [TerraformProperty("last_fresh_start")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> LastFreshStart { get; }
+    public partial TerraformValue<string> LastFreshStart { get; }
 
 }

@@ -16,14 +16,14 @@ public partial class AwsKmsCiphertext : TerraformResource
     /// </summary>
     [TerraformProperty("context")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Context { get; set; }
+    public partial TerraformMap<string>? Context { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_id attribute.
@@ -31,7 +31,7 @@ public partial class AwsKmsCiphertext : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     [TerraformProperty("key_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyId { get; set; }
+    public required partial TerraformValue<string> KeyId { get; set; }
 
     /// <summary>
     /// The plaintext attribute.
@@ -39,20 +39,20 @@ public partial class AwsKmsCiphertext : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plaintext is required")]
     [TerraformProperty("plaintext")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Plaintext { get; set; }
+    public required partial TerraformValue<string> Plaintext { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The ciphertext_blob attribute.
     /// </summary>
     [TerraformProperty("ciphertext_blob")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CiphertextBlob { get; }
+    public partial TerraformValue<string> CiphertextBlob { get; }
 
 }

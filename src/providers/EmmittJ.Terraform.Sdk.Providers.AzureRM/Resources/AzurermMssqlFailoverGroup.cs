@@ -14,7 +14,7 @@ public partial class AzurermMssqlFailoverGroupPartnerServerBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     [TerraformProperty("id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Id { get; set; }
+    public required partial TerraformValue<string> Id { get; set; }
 
 
 
@@ -31,7 +31,7 @@ public partial class AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlo
     /// </summary>
     [TerraformProperty("grace_minutes")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? GraceMinutes { get; set; }
+    public partial TerraformValue<double>? GraceMinutes { get; set; }
 
     /// <summary>
     /// The mode attribute.
@@ -39,7 +39,7 @@ public partial class AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     [TerraformProperty("mode")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Mode { get; set; }
+    public required partial TerraformValue<string> Mode { get; set; }
 
 }
 
@@ -54,28 +54,28 @@ public partial class AzurermMssqlFailoverGroupTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -94,14 +94,14 @@ public partial class AzurermMssqlFailoverGroup : TerraformResource
     /// </summary>
     [TerraformProperty("databases")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? Databases { get; set; }
+    public partial TerraformSet<string>? Databases { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -109,14 +109,14 @@ public partial class AzurermMssqlFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The readonly_endpoint_failover_policy_enabled attribute.
     /// </summary>
     [TerraformProperty("readonly_endpoint_failover_policy_enabled")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<bool> ReadonlyEndpointFailoverPolicyEnabled { get; set; }
+    public partial TerraformValue<bool> ReadonlyEndpointFailoverPolicyEnabled { get; set; }
 
     /// <summary>
     /// The server_id attribute.
@@ -124,14 +124,14 @@ public partial class AzurermMssqlFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     [TerraformProperty("server_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ServerId { get; set; }
+    public required partial TerraformValue<string> ServerId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for partner_server.
@@ -140,7 +140,7 @@ public partial class AzurermMssqlFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerServer is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PartnerServer block(s) required")]
     [TerraformProperty("partner_server")]
-    public TerraformList<TerraformBlock<AzurermMssqlFailoverGroupPartnerServerBlock>>? PartnerServer { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlFailoverGroupPartnerServerBlock>>? PartnerServer { get; set; }
 
     /// <summary>
     /// Block for read_write_endpoint_failover_policy.
@@ -150,13 +150,13 @@ public partial class AzurermMssqlFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReadWriteEndpointFailoverPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadWriteEndpointFailoverPolicy block(s) allowed")]
     [TerraformProperty("read_write_endpoint_failover_policy")]
-    public TerraformList<TerraformBlock<AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock>>? ReadWriteEndpointFailoverPolicy { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock>>? ReadWriteEndpointFailoverPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermMssqlFailoverGroupTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermMssqlFailoverGroupTimeoutsBlock>? Timeouts { get; set; }
 
 }

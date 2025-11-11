@@ -13,28 +13,28 @@ public partial class AwsKmsSecretsEphemeralResourceSecretBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("context")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Context { get; set; }
+    public partial TerraformMap<string>? Context { get; set; }
 
     /// <summary>
     /// The encryption_algorithm attribute.
     /// </summary>
     [TerraformProperty("encryption_algorithm")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? EncryptionAlgorithm { get; set; }
+    public partial TerraformValue<string>? EncryptionAlgorithm { get; set; }
 
     /// <summary>
     /// The grant_tokens attribute.
     /// </summary>
     [TerraformProperty("grant_tokens")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? GrantTokens { get; set; }
+    public partial TerraformList<string>? GrantTokens { get; set; }
 
     /// <summary>
     /// The key_id attribute.
     /// </summary>
     [TerraformProperty("key_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? KeyId { get; set; }
+    public partial TerraformValue<string>? KeyId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -42,7 +42,7 @@ public partial class AwsKmsSecretsEphemeralResourceSecretBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The payload attribute.
@@ -50,7 +50,7 @@ public partial class AwsKmsSecretsEphemeralResourceSecretBlock : TerraformBlockB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Payload is required")]
     [TerraformProperty("payload")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Payload { get; set; }
+    public required partial TerraformValue<string> Payload { get; set; }
 
 }
 
@@ -69,20 +69,20 @@ public partial class AwsKmsSecretsEphemeralResource : TerraformEphemeralResource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for secret.
     /// Nesting mode: set
     /// </summary>
     [TerraformProperty("secret")]
-    public TerraformSet<TerraformBlock<AwsKmsSecretsEphemeralResourceSecretBlock>>? Secret { get; set; }
+    public partial TerraformSet<TerraformBlock<AwsKmsSecretsEphemeralResourceSecretBlock>>? Secret { get; set; }
 
     /// <summary>
     /// The plaintext attribute.
     /// </summary>
     [TerraformProperty("plaintext")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Plaintext { get; }
+    public partial TerraformMap<string> Plaintext { get; }
 
 }

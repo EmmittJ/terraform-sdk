@@ -13,7 +13,7 @@ public partial class GoogleBigtableAuthorizedViewSubsetViewBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("row_prefixes")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? RowPrefixes { get; set; }
+    public partial TerraformSet<string>? RowPrefixes { get; set; }
 
 }
 
@@ -28,14 +28,14 @@ public partial class GoogleBigtableAuthorizedViewTimeoutsBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -55,14 +55,14 @@ public partial class GoogleBigtableAuthorizedView : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> DeletionProtection { get; set; }
+    public partial TerraformValue<string> DeletionProtection { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the Bigtable instance in which the authorized view belongs.
@@ -70,7 +70,7 @@ public partial class GoogleBigtableAuthorizedView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     [TerraformProperty("instance_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> InstanceName { get; set; }
+    public required partial TerraformValue<string> InstanceName { get; set; }
 
     /// <summary>
     /// The name of the authorized view. Must be 1-50 characters and must only contain hyphens, underscores, periods, letters and numbers.
@@ -78,14 +78,14 @@ public partial class GoogleBigtableAuthorizedView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The name of the Bigtable table in which the authorized view belongs.
@@ -93,7 +93,7 @@ public partial class GoogleBigtableAuthorizedView : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     [TerraformProperty("table_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TableName { get; set; }
+    public required partial TerraformValue<string> TableName { get; set; }
 
     /// <summary>
     /// Block for subset_view.
@@ -101,13 +101,13 @@ public partial class GoogleBigtableAuthorizedView : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubsetView block(s) allowed")]
     [TerraformProperty("subset_view")]
-    public TerraformList<TerraformBlock<GoogleBigtableAuthorizedViewSubsetViewBlock>>? SubsetView { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleBigtableAuthorizedViewSubsetViewBlock>>? SubsetView { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleBigtableAuthorizedViewTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleBigtableAuthorizedViewTimeoutsBlock>? Timeouts { get; set; }
 
 }

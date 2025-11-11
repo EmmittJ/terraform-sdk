@@ -13,21 +13,21 @@ public partial class AzurermLogAnalyticsSavedSearchTimeoutsBlock : TerraformBloc
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,7 +46,7 @@ public partial class AzurermLogAnalyticsSavedSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     [TerraformProperty("category")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Category { get; set; }
+    public required partial TerraformValue<string> Category { get; set; }
 
     /// <summary>
     /// The display_name attribute.
@@ -54,28 +54,28 @@ public partial class AzurermLogAnalyticsSavedSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The function_alias attribute.
     /// </summary>
     [TerraformProperty("function_alias")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? FunctionAlias { get; set; }
+    public partial TerraformValue<string>? FunctionAlias { get; set; }
 
     /// <summary>
     /// The function_parameters attribute.
     /// </summary>
     [TerraformProperty("function_parameters")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? FunctionParameters { get; set; }
+    public partial TerraformList<string>? FunctionParameters { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
@@ -83,7 +83,7 @@ public partial class AzurermLogAnalyticsSavedSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     [TerraformProperty("log_analytics_workspace_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
+    public required partial TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -91,7 +91,7 @@ public partial class AzurermLogAnalyticsSavedSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The query attribute.
@@ -99,20 +99,20 @@ public partial class AzurermLogAnalyticsSavedSearch : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     [TerraformProperty("query")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Query { get; set; }
+    public required partial TerraformValue<string> Query { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermLogAnalyticsSavedSearchTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermLogAnalyticsSavedSearchTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -13,28 +13,28 @@ public partial class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitori
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitori
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAccountAccessKey is required")]
     [TerraformProperty("agent_account_access_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AgentAccountAccessKey { get; set; }
+    public required partial TerraformValue<string> AgentAccountAccessKey { get; set; }
 
     /// <summary>
     /// The agent_account_name attribute.
@@ -61,35 +61,35 @@ public partial class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitori
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAccountName is required")]
     [TerraformProperty("agent_account_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AgentAccountName { get; set; }
+    public required partial TerraformValue<string> AgentAccountName { get; set; }
 
     /// <summary>
     /// The agent_application_name attribute.
     /// </summary>
     [TerraformProperty("agent_application_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AgentApplicationName { get; set; }
+    public partial TerraformValue<string>? AgentApplicationName { get; set; }
 
     /// <summary>
     /// The agent_node_name attribute.
     /// </summary>
     [TerraformProperty("agent_node_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AgentNodeName { get; set; }
+    public partial TerraformValue<string>? AgentNodeName { get; set; }
 
     /// <summary>
     /// The agent_tier_name attribute.
     /// </summary>
     [TerraformProperty("agent_tier_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AgentTierName { get; set; }
+    public partial TerraformValue<string>? AgentTierName { get; set; }
 
     /// <summary>
     /// The agent_unique_host_id attribute.
     /// </summary>
     [TerraformProperty("agent_unique_host_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AgentUniqueHostId { get; set; }
+    public partial TerraformValue<string>? AgentUniqueHostId { get; set; }
 
     /// <summary>
     /// The controller_host_name attribute.
@@ -97,35 +97,35 @@ public partial class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitori
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControllerHostName is required")]
     [TerraformProperty("controller_host_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ControllerHostName { get; set; }
+    public required partial TerraformValue<string> ControllerHostName { get; set; }
 
     /// <summary>
     /// The controller_port attribute.
     /// </summary>
     [TerraformProperty("controller_port")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ControllerPort { get; set; }
+    public partial TerraformValue<double>? ControllerPort { get; set; }
 
     /// <summary>
     /// The controller_ssl_enabled attribute.
     /// </summary>
     [TerraformProperty("controller_ssl_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ControllerSslEnabled { get; set; }
+    public partial TerraformValue<bool>? ControllerSslEnabled { get; set; }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
     [TerraformProperty("globally_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? GloballyEnabled { get; set; }
+    public partial TerraformValue<bool>? GloballyEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -133,7 +133,7 @@ public partial class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitori
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
@@ -141,13 +141,13 @@ public partial class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitori
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     [TerraformProperty("spring_cloud_service_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SpringCloudServiceId { get; set; }
+    public required partial TerraformValue<string> SpringCloudServiceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeoutsBlock>? Timeouts { get; set; }
 
 }

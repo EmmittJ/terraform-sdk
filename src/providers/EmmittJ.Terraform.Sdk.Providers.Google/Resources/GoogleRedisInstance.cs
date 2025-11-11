@@ -16,7 +16,7 @@ public partial class GoogleRedisInstanceMaintenancePolicyBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
 
 }
@@ -35,7 +35,7 @@ public partial class GoogleRedisInstancePersistenceConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("persistence_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> PersistenceMode { get; set; }
+    public partial TerraformValue<string> PersistenceMode { get; set; }
 
 
     /// <summary>
@@ -48,7 +48,7 @@ public partial class GoogleRedisInstancePersistenceConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("rdb_snapshot_period")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RdbSnapshotPeriod { get; set; }
+    public partial TerraformValue<string>? RdbSnapshotPeriod { get; set; }
 
     /// <summary>
     /// Optional. Date and time that the first snapshot was/will be attempted,
@@ -60,7 +60,7 @@ public partial class GoogleRedisInstancePersistenceConfigBlock : TerraformBlockB
     /// </summary>
     [TerraformProperty("rdb_snapshot_start_time")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> RdbSnapshotStartTime { get; set; }
+    public partial TerraformValue<string> RdbSnapshotStartTime { get; set; }
 
 }
 
@@ -75,21 +75,21 @@ public partial class GoogleRedisInstanceTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -111,7 +111,7 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("alternative_location_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AlternativeLocationId { get; set; }
+    public partial TerraformValue<string> AlternativeLocationId { get; set; }
 
     /// <summary>
     /// Optional. Indicates whether OSS Redis AUTH is enabled for the
@@ -120,7 +120,7 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("auth_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? AuthEnabled { get; set; }
+    public partial TerraformValue<bool>? AuthEnabled { get; set; }
 
     /// <summary>
     /// The full name of the Google Compute Engine network to which the
@@ -129,14 +129,14 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("authorized_network")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AuthorizedNetwork { get; set; }
+    public partial TerraformValue<string> AuthorizedNetwork { get; set; }
 
     /// <summary>
     /// The connection mode of the Redis instance. Default value: &amp;quot;DIRECT_PEERING&amp;quot; Possible values: [&amp;quot;DIRECT_PEERING&amp;quot;, &amp;quot;PRIVATE_SERVICE_ACCESS&amp;quot;]
     /// </summary>
     [TerraformProperty("connect_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ConnectMode { get; set; }
+    public partial TerraformValue<string>? ConnectMode { get; set; }
 
     /// <summary>
     /// Optional. The KMS key reference that you want to use to encrypt the data at rest for this Redis
@@ -144,7 +144,7 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("customer_managed_key")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? CustomerManagedKey { get; set; }
+    public partial TerraformValue<string>? CustomerManagedKey { get; set; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the instance.
@@ -156,21 +156,21 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("deletion_protection")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? DeletionProtection { get; set; }
+    public partial TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// An arbitrary and optional user-provided name for the instance.
     /// </summary>
     [TerraformProperty("display_name")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DisplayName { get; set; }
+    public partial TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource labels to represent user provided metadata.
@@ -180,7 +180,7 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The zone where the instance will be provisioned. If not provided,
@@ -191,14 +191,14 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("location_id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> LocationId { get; set; }
+    public partial TerraformValue<string> LocationId { get; set; }
 
     /// <summary>
     /// The self service update maintenance version.
     /// </summary>
     [TerraformProperty("maintenance_version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> MaintenanceVersion { get; set; }
+    public partial TerraformValue<string> MaintenanceVersion { get; set; }
 
     /// <summary>
     /// Redis memory size in GiB.
@@ -206,7 +206,7 @@ public partial class GoogleRedisInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemorySizeGb is required")]
     [TerraformProperty("memory_size_gb")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> MemorySizeGb { get; set; }
+    public required partial TerraformValue<double> MemorySizeGb { get; set; }
 
     /// <summary>
     /// The ID of the instance or a fully qualified identifier for the instance.
@@ -214,14 +214,14 @@ public partial class GoogleRedisInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Optional. Read replica mode. Can only be specified when trying to create the instance.
@@ -233,7 +233,7 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("read_replicas_mode")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ReadReplicasMode { get; set; }
+    public partial TerraformValue<string> ReadReplicasMode { get; set; }
 
     /// <summary>
     /// Redis configuration parameters, according to http://redis.io/topics/config.
@@ -242,7 +242,7 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("redis_configs")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? RedisConfigs { get; set; }
+    public partial TerraformMap<string>? RedisConfigs { get; set; }
 
     /// <summary>
     /// The version of Redis software. If not provided, latest supported
@@ -251,14 +251,14 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("redis_version")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> RedisVersion { get; set; }
+    public partial TerraformValue<string> RedisVersion { get; set; }
 
     /// <summary>
     /// The name of the Redis region of the instance.
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Optional. The number of replica nodes. The valid range for the Standard Tier with
@@ -268,7 +268,7 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("replica_count")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<double> ReplicaCount { get; set; }
+    public partial TerraformValue<double> ReplicaCount { get; set; }
 
     /// <summary>
     /// The CIDR range of internal addresses that are reserved for this
@@ -279,7 +279,7 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("reserved_ip_range")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> ReservedIpRange { get; set; }
+    public partial TerraformValue<string> ReservedIpRange { get; set; }
 
     /// <summary>
     /// Optional. Additional IP range for node placement. Required when enabling read replicas on
@@ -289,7 +289,7 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("secondary_ip_range")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> SecondaryIpRange { get; set; }
+    public partial TerraformValue<string> SecondaryIpRange { get; set; }
 
     /// <summary>
     /// The service tier of the instance. Must be one of these values:
@@ -299,7 +299,7 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("tier")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Tier { get; set; }
+    public partial TerraformValue<string>? Tier { get; set; }
 
     /// <summary>
     /// The TLS mode of the Redis instance, If not provided, TLS is disabled for the instance.
@@ -308,7 +308,7 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("transit_encryption_mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? TransitEncryptionMode { get; set; }
+    public partial TerraformValue<string>? TransitEncryptionMode { get; set; }
 
     /// <summary>
     /// Block for maintenance_policy.
@@ -316,7 +316,7 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
     [TerraformProperty("maintenance_policy")]
-    public TerraformList<TerraformBlock<GoogleRedisInstanceMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleRedisInstanceMaintenancePolicyBlock>>? MaintenancePolicy { get; set; }
 
     /// <summary>
     /// Block for persistence_config.
@@ -324,21 +324,21 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistenceConfig block(s) allowed")]
     [TerraformProperty("persistence_config")]
-    public TerraformList<TerraformBlock<GoogleRedisInstancePersistenceConfigBlock>>? PersistenceConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleRedisInstancePersistenceConfigBlock>>? PersistenceConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleRedisInstanceTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleRedisInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// AUTH String set on the instance. This field will only be populated if auth_enabled is true.
     /// </summary>
     [TerraformProperty("auth_string")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> AuthString { get; }
+    public partial TerraformValue<string> AuthString { get; }
 
     /// <summary>
     /// The time the instance was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
@@ -346,7 +346,7 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The current zone where the Redis endpoint is placed.
@@ -357,14 +357,14 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("current_location_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CurrentLocationId { get; }
+    public partial TerraformValue<string> CurrentLocationId { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The CIDR range of internal addresses that are reserved for this
@@ -375,7 +375,7 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("effective_reserved_ip_range")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> EffectiveReservedIpRange { get; }
+    public partial TerraformValue<string> EffectiveReservedIpRange { get; }
 
     /// <summary>
     /// Hostname or IP address of the exposed Redis endpoint used by clients
@@ -383,21 +383,21 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("host")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Host { get; }
+    public partial TerraformValue<string> Host { get; }
 
     /// <summary>
     /// Upcoming maintenance schedule.
     /// </summary>
     [TerraformProperty("maintenance_schedule")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> MaintenanceSchedule { get; }
+    public partial TerraformList<object> MaintenanceSchedule { get; }
 
     /// <summary>
     /// Output only. Info per node.
     /// </summary>
     [TerraformProperty("nodes")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> Nodes { get; }
+    public partial TerraformList<object> Nodes { get; }
 
     /// <summary>
     /// Output only. Cloud IAM identity used by import / export operations
@@ -407,14 +407,14 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("persistence_iam_identity")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PersistenceIamIdentity { get; }
+    public partial TerraformValue<string> PersistenceIamIdentity { get; }
 
     /// <summary>
     /// The port number of the exposed Redis endpoint.
     /// </summary>
     [TerraformProperty("port")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> Port { get; }
+    public partial TerraformValue<double> Port { get; }
 
     /// <summary>
     /// Output only. Hostname or IP address of the exposed readonly Redis endpoint. Standard tier only.
@@ -423,7 +423,7 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("read_endpoint")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> ReadEndpoint { get; }
+    public partial TerraformValue<string> ReadEndpoint { get; }
 
     /// <summary>
     /// Output only. The port number of the exposed readonly redis endpoint. Standard tier only.
@@ -431,14 +431,14 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("read_endpoint_port")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<double> ReadEndpointPort { get; }
+    public partial TerraformValue<double> ReadEndpointPort { get; }
 
     /// <summary>
     /// List of server CA certificates for the instance.
     /// </summary>
     [TerraformProperty("server_ca_certs")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<object> ServerCaCerts { get; }
+    public partial TerraformList<object> ServerCaCerts { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -446,6 +446,6 @@ public partial class GoogleRedisInstance : TerraformResource
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
 }

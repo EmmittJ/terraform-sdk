@@ -13,21 +13,21 @@ public partial class AzurermKustoClusterPrincipalAssignmentTimeoutsBlock : Terra
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -46,14 +46,14 @@ public partial class AzurermKustoClusterPrincipalAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     [TerraformProperty("cluster_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ClusterName { get; set; }
+    public required partial TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -61,7 +61,7 @@ public partial class AzurermKustoClusterPrincipalAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
@@ -69,7 +69,7 @@ public partial class AzurermKustoClusterPrincipalAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     [TerraformProperty("principal_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrincipalId { get; set; }
+    public required partial TerraformValue<string> PrincipalId { get; set; }
 
     /// <summary>
     /// The principal_type attribute.
@@ -77,7 +77,7 @@ public partial class AzurermKustoClusterPrincipalAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
     [TerraformProperty("principal_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrincipalType { get; set; }
+    public required partial TerraformValue<string> PrincipalType { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -85,7 +85,7 @@ public partial class AzurermKustoClusterPrincipalAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The role attribute.
@@ -93,7 +93,7 @@ public partial class AzurermKustoClusterPrincipalAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     [TerraformProperty("role")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Role { get; set; }
+    public required partial TerraformValue<string> Role { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
@@ -101,27 +101,27 @@ public partial class AzurermKustoClusterPrincipalAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     [TerraformProperty("tenant_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> TenantId { get; set; }
+    public required partial TerraformValue<string> TenantId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermKustoClusterPrincipalAssignmentTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermKustoClusterPrincipalAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The principal_name attribute.
     /// </summary>
     [TerraformProperty("principal_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrincipalName { get; }
+    public partial TerraformValue<string> PrincipalName { get; }
 
     /// <summary>
     /// The tenant_name attribute.
     /// </summary>
     [TerraformProperty("tenant_name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> TenantName { get; }
+    public partial TerraformValue<string> TenantName { get; }
 
 }

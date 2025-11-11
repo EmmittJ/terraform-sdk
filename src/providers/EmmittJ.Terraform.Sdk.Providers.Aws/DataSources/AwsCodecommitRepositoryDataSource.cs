@@ -16,14 +16,14 @@ public partial class AwsCodecommitRepositoryDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The repository_name attribute.
@@ -31,41 +31,41 @@ public partial class AwsCodecommitRepositoryDataSource : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     [TerraformProperty("repository_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> RepositoryName { get; set; }
+    public required partial TerraformValue<string> RepositoryName { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The clone_url_http attribute.
     /// </summary>
     [TerraformProperty("clone_url_http")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CloneUrlHttp { get; }
+    public partial TerraformValue<string> CloneUrlHttp { get; }
 
     /// <summary>
     /// The clone_url_ssh attribute.
     /// </summary>
     [TerraformProperty("clone_url_ssh")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CloneUrlSsh { get; }
+    public partial TerraformValue<string> CloneUrlSsh { get; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [TerraformProperty("kms_key_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> KmsKeyId { get; }
+    public partial TerraformValue<string> KmsKeyId { get; }
 
     /// <summary>
     /// The repository_id attribute.
     /// </summary>
     [TerraformProperty("repository_id")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> RepositoryId { get; }
+    public partial TerraformValue<string> RepositoryId { get; }
 
 }

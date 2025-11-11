@@ -16,13 +16,13 @@ public partial class AwsEcsClustersDataSource : TerraformDataSource
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The cluster_arns attribute.
     /// </summary>
     [TerraformProperty("cluster_arns")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformList<string> ClusterArns { get; }
+    public partial TerraformList<string> ClusterArns { get; }
 
 }

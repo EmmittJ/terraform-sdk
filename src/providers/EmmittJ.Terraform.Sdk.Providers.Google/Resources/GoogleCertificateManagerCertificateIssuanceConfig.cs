@@ -21,21 +21,21 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -54,14 +54,14 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfig : Terrafo
     /// </summary>
     [TerraformProperty("description")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Description { get; set; }
+    public partial TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Key algorithm to use when generating the private key. Possible values: [&amp;quot;RSA_2048&amp;quot;, &amp;quot;ECDSA_P256&amp;quot;]
@@ -69,7 +69,7 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfig : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyAlgorithm is required")]
     [TerraformProperty("key_algorithm")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyAlgorithm { get; set; }
+    public required partial TerraformValue<string> KeyAlgorithm { get; set; }
 
     /// <summary>
     /// &#39;Set of label tags associated with the CertificateIssuanceConfig resource.
@@ -81,7 +81,7 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfig : Terrafo
     /// </summary>
     [TerraformProperty("labels")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Labels { get; set; }
+    public partial TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Lifetime of issued certificates. A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;.
@@ -90,14 +90,14 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfig : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lifetime is required")]
     [TerraformProperty("lifetime")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Lifetime { get; set; }
+    public required partial TerraformValue<string> Lifetime { get; set; }
 
     /// <summary>
     /// The Certificate Manager location. If not specified, &amp;quot;global&amp;quot; is used.
     /// </summary>
     [TerraformProperty("location")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Location { get; set; }
+    public partial TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// A user-defined name of the certificate issuance config.
@@ -106,14 +106,14 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfig : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// It specifies the percentage of elapsed time of the certificate lifetime to wait before renewing the certificate.
@@ -124,7 +124,7 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfig : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RotationWindowPercentage is required")]
     [TerraformProperty("rotation_window_percentage")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<double> RotationWindowPercentage { get; set; }
+    public required partial TerraformValue<double> RotationWindowPercentage { get; set; }
 
     /// <summary>
     /// Block for certificate_authority_config.
@@ -134,14 +134,14 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfig : Terrafo
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CertificateAuthorityConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateAuthorityConfig block(s) allowed")]
     [TerraformProperty("certificate_authority_config")]
-    public TerraformList<TerraformBlock<GoogleCertificateManagerCertificateIssuanceConfigCertificateAuthorityConfigBlock>>? CertificateAuthorityConfig { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleCertificateManagerCertificateIssuanceConfigCertificateAuthorityConfigBlock>>? CertificateAuthorityConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The creation timestamp of a CertificateIssuanceConfig. Timestamp is in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
@@ -150,14 +150,14 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfig : Terrafo
     /// </summary>
     [TerraformProperty("create_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> CreateTime { get; }
+    public partial TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     [TerraformProperty("effective_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> EffectiveLabels { get; }
+    public partial TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
@@ -165,7 +165,7 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfig : Terrafo
     /// </summary>
     [TerraformProperty("terraform_labels")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> TerraformLabels { get; }
+    public partial TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The last update timestamp of a CertificateIssuanceConfig. Timestamp is in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
@@ -174,6 +174,6 @@ public partial class GoogleCertificateManagerCertificateIssuanceConfig : Terrafo
     /// </summary>
     [TerraformProperty("update_time")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> UpdateTime { get; }
+    public partial TerraformValue<string> UpdateTime { get; }
 
 }

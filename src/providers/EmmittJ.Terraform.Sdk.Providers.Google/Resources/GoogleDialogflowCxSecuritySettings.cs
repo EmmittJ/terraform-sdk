@@ -13,7 +13,7 @@ public partial class GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock 
     /// </summary>
     [TerraformProperty("audio_export_pattern")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AudioExportPattern { get; set; }
+    public partial TerraformValue<string>? AudioExportPattern { get; set; }
 
     /// <summary>
     /// File format for exported audio file. Currently only in telephony recordings.
@@ -23,21 +23,21 @@ public partial class GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock 
     /// </summary>
     [TerraformProperty("audio_format")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AudioFormat { get; set; }
+    public partial TerraformValue<string>? AudioFormat { get; set; }
 
     /// <summary>
     /// Enable audio redaction if it is true.
     /// </summary>
     [TerraformProperty("enable_audio_redaction")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableAudioRedaction { get; set; }
+    public partial TerraformValue<bool>? EnableAudioRedaction { get; set; }
 
     /// <summary>
     /// Cloud Storage bucket to export audio record to. Setting this field would grant the Storage Object Creator role to the Dialogflow Service Agent. API caller that tries to modify this field should have the permission of storage.buckets.setIamPolicy.
     /// </summary>
     [TerraformProperty("gcs_bucket")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? GcsBucket { get; set; }
+    public partial TerraformValue<string>? GcsBucket { get; set; }
 
 }
 
@@ -53,7 +53,7 @@ public partial class GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableInsightsExport is required")]
     [TerraformProperty("enable_insights_export")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> EnableInsightsExport { get; set; }
+    public required partial TerraformValue<bool> EnableInsightsExport { get; set; }
 
 }
 
@@ -68,21 +68,21 @@ public partial class GoogleDialogflowCxSecuritySettingsTimeoutsBlock : Terraform
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -103,7 +103,7 @@ public partial class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// </summary>
     [TerraformProperty("deidentify_template")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? DeidentifyTemplate { get; set; }
+    public partial TerraformValue<string>? DeidentifyTemplate { get; set; }
 
     /// <summary>
     /// The human-readable name of the security settings, unique within the location.
@@ -111,14 +111,14 @@ public partial class GoogleDialogflowCxSecuritySettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// [DLP](https://cloud.google.com/dlp/docs) inspect template name. Use this template to define inspect base settings. If empty, we use the default DLP inspect config.
@@ -127,7 +127,7 @@ public partial class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// </summary>
     [TerraformProperty("inspect_template")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? InspectTemplate { get; set; }
+    public partial TerraformValue<string>? InspectTemplate { get; set; }
 
     /// <summary>
     /// The location these settings are located in. Settings can only be applied to an agent in the same location.
@@ -136,21 +136,21 @@ public partial class GoogleDialogflowCxSecuritySettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [TerraformProperty("location")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Location { get; set; }
+    public required partial TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// List of types of data to remove when retention settings triggers purge. Possible values: [&amp;quot;DIALOGFLOW_HISTORY&amp;quot;]
     /// </summary>
     [TerraformProperty("purge_data_types")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? PurgeDataTypes { get; set; }
+    public partial TerraformList<string>? PurgeDataTypes { get; set; }
 
     /// <summary>
     /// Defines what types of data to redact. If not set, defaults to not redacting any kind of data.
@@ -158,7 +158,7 @@ public partial class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// </summary>
     [TerraformProperty("redaction_scope")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RedactionScope { get; set; }
+    public partial TerraformValue<string>? RedactionScope { get; set; }
 
     /// <summary>
     /// Defines how we redact data. If not set, defaults to not redacting.
@@ -166,7 +166,7 @@ public partial class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// </summary>
     [TerraformProperty("redaction_strategy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RedactionStrategy { get; set; }
+    public partial TerraformValue<string>? RedactionStrategy { get; set; }
 
     /// <summary>
     /// Defines how long we retain persisted data that contains sensitive info. Only one of &#39;retention_window_days&#39; and &#39;retention_strategy&#39; may be set.
@@ -174,7 +174,7 @@ public partial class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// </summary>
     [TerraformProperty("retention_strategy")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RetentionStrategy { get; set; }
+    public partial TerraformValue<string>? RetentionStrategy { get; set; }
 
     /// <summary>
     /// Retains the data for the specified number of days. User must set a value lower than Dialogflow&#39;s default 365d TTL (30 days for Agent Assist traffic), higher value will be ignored and use default. Setting a value higher than that has no effect. A missing value or setting to 0 also means we use default TTL.
@@ -182,7 +182,7 @@ public partial class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// </summary>
     [TerraformProperty("retention_window_days")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? RetentionWindowDays { get; set; }
+    public partial TerraformValue<double>? RetentionWindowDays { get; set; }
 
     /// <summary>
     /// Block for audio_export_settings.
@@ -190,7 +190,7 @@ public partial class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AudioExportSettings block(s) allowed")]
     [TerraformProperty("audio_export_settings")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock>>? AudioExportSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock>>? AudioExportSettings { get; set; }
 
     /// <summary>
     /// Block for insights_export_settings.
@@ -198,14 +198,14 @@ public partial class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InsightsExportSettings block(s) allowed")]
     [TerraformProperty("insights_export_settings")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlock>>? InsightsExportSettings { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlock>>? InsightsExportSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDialogflowCxSecuritySettingsTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDialogflowCxSecuritySettingsTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique identifier of the settings.
@@ -213,6 +213,6 @@ public partial class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
 }

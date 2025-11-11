@@ -14,7 +14,7 @@ public partial class AzurermCognitiveAccountRaiPolicyContentFilterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockEnabled is required")]
     [TerraformProperty("block_enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> BlockEnabled { get; set; }
+    public required partial TerraformValue<bool> BlockEnabled { get; set; }
 
     /// <summary>
     /// The filter_enabled attribute.
@@ -22,7 +22,7 @@ public partial class AzurermCognitiveAccountRaiPolicyContentFilterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterEnabled is required")]
     [TerraformProperty("filter_enabled")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<bool> FilterEnabled { get; set; }
+    public required partial TerraformValue<bool> FilterEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -30,7 +30,7 @@ public partial class AzurermCognitiveAccountRaiPolicyContentFilterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The severity_threshold attribute.
@@ -38,7 +38,7 @@ public partial class AzurermCognitiveAccountRaiPolicyContentFilterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SeverityThreshold is required")]
     [TerraformProperty("severity_threshold")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> SeverityThreshold { get; set; }
+    public required partial TerraformValue<string> SeverityThreshold { get; set; }
 
     /// <summary>
     /// The source attribute.
@@ -46,7 +46,7 @@ public partial class AzurermCognitiveAccountRaiPolicyContentFilterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [TerraformProperty("source")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Source { get; set; }
+    public required partial TerraformValue<string> Source { get; set; }
 
 }
 
@@ -61,28 +61,28 @@ public partial class AzurermCognitiveAccountRaiPolicyTimeoutsBlock : TerraformBl
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -102,7 +102,7 @@ public partial class AzurermCognitiveAccountRaiPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BasePolicyName is required")]
     [TerraformProperty("base_policy_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> BasePolicyName { get; set; }
+    public required partial TerraformValue<string> BasePolicyName { get; set; }
 
     /// <summary>
     /// The cognitive_account_id attribute.
@@ -110,21 +110,21 @@ public partial class AzurermCognitiveAccountRaiPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveAccountId is required")]
     [TerraformProperty("cognitive_account_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CognitiveAccountId { get; set; }
+    public required partial TerraformValue<string> CognitiveAccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [TerraformProperty("mode")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Mode { get; set; }
+    public partial TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -132,14 +132,14 @@ public partial class AzurermCognitiveAccountRaiPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for content_filter.
@@ -148,13 +148,13 @@ public partial class AzurermCognitiveAccountRaiPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentFilter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContentFilter block(s) required")]
     [TerraformProperty("content_filter")]
-    public TerraformList<TerraformBlock<AzurermCognitiveAccountRaiPolicyContentFilterBlock>>? ContentFilter { get; set; }
+    public partial TerraformList<TerraformBlock<AzurermCognitiveAccountRaiPolicyContentFilterBlock>>? ContentFilter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermCognitiveAccountRaiPolicyTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermCognitiveAccountRaiPolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

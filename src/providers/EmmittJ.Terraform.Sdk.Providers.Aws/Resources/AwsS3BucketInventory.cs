@@ -21,7 +21,7 @@ public partial class AwsS3BucketInventoryFilterBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("prefix")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Prefix { get; set; }
+    public partial TerraformValue<string>? Prefix { get; set; }
 
 }
 
@@ -37,7 +37,7 @@ public partial class AwsS3BucketInventoryScheduleBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     [TerraformProperty("frequency")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Frequency { get; set; }
+    public required partial TerraformValue<string> Frequency { get; set; }
 
 }
 
@@ -57,21 +57,21 @@ public partial class AwsS3BucketInventory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [TerraformProperty("bucket")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Bucket { get; set; }
+    public required partial TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [TerraformProperty("enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Enabled { get; set; }
+    public partial TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The included_object_versions attribute.
@@ -79,7 +79,7 @@ public partial class AwsS3BucketInventory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IncludedObjectVersions is required")]
     [TerraformProperty("included_object_versions")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> IncludedObjectVersions { get; set; }
+    public required partial TerraformValue<string> IncludedObjectVersions { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -87,21 +87,21 @@ public partial class AwsS3BucketInventory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The optional_fields attribute.
     /// </summary>
     [TerraformProperty("optional_fields")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? OptionalFields { get; set; }
+    public partial TerraformSet<string>? OptionalFields { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for destination.
@@ -111,7 +111,7 @@ public partial class AwsS3BucketInventory : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
     [TerraformProperty("destination")]
-    public TerraformList<TerraformBlock<AwsS3BucketInventoryDestinationBlock>>? Destination { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3BucketInventoryDestinationBlock>>? Destination { get; set; }
 
     /// <summary>
     /// Block for filter.
@@ -119,7 +119,7 @@ public partial class AwsS3BucketInventory : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
     [TerraformProperty("filter")]
-    public TerraformList<TerraformBlock<AwsS3BucketInventoryFilterBlock>>? Filter { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3BucketInventoryFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for schedule.
@@ -129,6 +129,6 @@ public partial class AwsS3BucketInventory : TerraformResource
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
     [TerraformProperty("schedule")]
-    public TerraformList<TerraformBlock<AwsS3BucketInventoryScheduleBlock>>? Schedule { get; set; }
+    public partial TerraformList<TerraformBlock<AwsS3BucketInventoryScheduleBlock>>? Schedule { get; set; }
 
 }

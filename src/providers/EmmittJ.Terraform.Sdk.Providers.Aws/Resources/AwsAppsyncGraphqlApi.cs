@@ -14,7 +14,7 @@ public partial class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     [TerraformProperty("authentication_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AuthenticationType { get; set; }
+    public required partial TerraformValue<string> AuthenticationType { get; set; }
 
 }
 
@@ -30,7 +30,7 @@ public partial class AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceLevelMetricsBehavior is required")]
     [TerraformProperty("data_source_level_metrics_behavior")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DataSourceLevelMetricsBehavior { get; set; }
+    public required partial TerraformValue<string> DataSourceLevelMetricsBehavior { get; set; }
 
     /// <summary>
     /// The operation_level_metrics_config attribute.
@@ -38,7 +38,7 @@ public partial class AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperationLevelMetricsConfig is required")]
     [TerraformProperty("operation_level_metrics_config")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> OperationLevelMetricsConfig { get; set; }
+    public required partial TerraformValue<string> OperationLevelMetricsConfig { get; set; }
 
     /// <summary>
     /// The resolver_level_metrics_behavior attribute.
@@ -46,7 +46,7 @@ public partial class AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResolverLevelMetricsBehavior is required")]
     [TerraformProperty("resolver_level_metrics_behavior")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResolverLevelMetricsBehavior { get; set; }
+    public required partial TerraformValue<string> ResolverLevelMetricsBehavior { get; set; }
 
 }
 
@@ -61,7 +61,7 @@ public partial class AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock : Terraform
     /// </summary>
     [TerraformProperty("authorizer_result_ttl_in_seconds")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AuthorizerResultTtlInSeconds { get; set; }
+    public partial TerraformValue<double>? AuthorizerResultTtlInSeconds { get; set; }
 
     /// <summary>
     /// The authorizer_uri attribute.
@@ -69,14 +69,14 @@ public partial class AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerUri is required")]
     [TerraformProperty("authorizer_uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AuthorizerUri { get; set; }
+    public required partial TerraformValue<string> AuthorizerUri { get; set; }
 
     /// <summary>
     /// The identity_validation_expression attribute.
     /// </summary>
     [TerraformProperty("identity_validation_expression")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IdentityValidationExpression { get; set; }
+    public partial TerraformValue<string>? IdentityValidationExpression { get; set; }
 
 }
 
@@ -92,14 +92,14 @@ public partial class AwsAppsyncGraphqlApiLogConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchLogsRoleArn is required")]
     [TerraformProperty("cloudwatch_logs_role_arn")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> CloudwatchLogsRoleArn { get; set; }
+    public required partial TerraformValue<string> CloudwatchLogsRoleArn { get; set; }
 
     /// <summary>
     /// The exclude_verbose_content attribute.
     /// </summary>
     [TerraformProperty("exclude_verbose_content")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? ExcludeVerboseContent { get; set; }
+    public partial TerraformValue<bool>? ExcludeVerboseContent { get; set; }
 
     /// <summary>
     /// The field_log_level attribute.
@@ -107,7 +107,7 @@ public partial class AwsAppsyncGraphqlApiLogConfigBlock : TerraformBlockBase
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldLogLevel is required")]
     [TerraformProperty("field_log_level")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> FieldLogLevel { get; set; }
+    public required partial TerraformValue<string> FieldLogLevel { get; set; }
 
 }
 
@@ -122,21 +122,21 @@ public partial class AwsAppsyncGraphqlApiOpenidConnectConfigBlock : TerraformBlo
     /// </summary>
     [TerraformProperty("auth_ttl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? AuthTtl { get; set; }
+    public partial TerraformValue<double>? AuthTtl { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [TerraformProperty("client_id")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ClientId { get; set; }
+    public partial TerraformValue<string>? ClientId { get; set; }
 
     /// <summary>
     /// The iat_ttl attribute.
     /// </summary>
     [TerraformProperty("iat_ttl")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? IatTtl { get; set; }
+    public partial TerraformValue<double>? IatTtl { get; set; }
 
     /// <summary>
     /// The issuer attribute.
@@ -144,7 +144,7 @@ public partial class AwsAppsyncGraphqlApiOpenidConnectConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     [TerraformProperty("issuer")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Issuer { get; set; }
+    public required partial TerraformValue<string> Issuer { get; set; }
 
 }
 
@@ -159,14 +159,14 @@ public partial class AwsAppsyncGraphqlApiUserPoolConfigBlock : TerraformBlockBas
     /// </summary>
     [TerraformProperty("app_id_client_regex")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? AppIdClientRegex { get; set; }
+    public partial TerraformValue<string>? AppIdClientRegex { get; set; }
 
     /// <summary>
     /// The aws_region attribute.
     /// </summary>
     [TerraformProperty("aws_region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> AwsRegion { get; set; }
+    public partial TerraformValue<string> AwsRegion { get; set; }
 
     /// <summary>
     /// The default_action attribute.
@@ -174,7 +174,7 @@ public partial class AwsAppsyncGraphqlApiUserPoolConfigBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     [TerraformProperty("default_action")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DefaultAction { get; set; }
+    public required partial TerraformValue<string> DefaultAction { get; set; }
 
     /// <summary>
     /// The user_pool_id attribute.
@@ -182,7 +182,7 @@ public partial class AwsAppsyncGraphqlApiUserPoolConfigBlock : TerraformBlockBas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     [TerraformProperty("user_pool_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> UserPoolId { get; set; }
+    public required partial TerraformValue<string> UserPoolId { get; set; }
 
 }
 
@@ -201,7 +201,7 @@ public partial class AwsAppsyncGraphqlApi : TerraformResource
     /// </summary>
     [TerraformProperty("api_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ApiType { get; set; }
+    public partial TerraformValue<string>? ApiType { get; set; }
 
     /// <summary>
     /// The authentication_type attribute.
@@ -209,28 +209,28 @@ public partial class AwsAppsyncGraphqlApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     [TerraformProperty("authentication_type")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AuthenticationType { get; set; }
+    public required partial TerraformValue<string> AuthenticationType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The introspection_config attribute.
     /// </summary>
     [TerraformProperty("introspection_config")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? IntrospectionConfig { get; set; }
+    public partial TerraformValue<string>? IntrospectionConfig { get; set; }
 
     /// <summary>
     /// The merged_api_execution_role_arn attribute.
     /// </summary>
     [TerraformProperty("merged_api_execution_role_arn")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? MergedApiExecutionRoleArn { get; set; }
+    public partial TerraformValue<string>? MergedApiExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -238,70 +238,70 @@ public partial class AwsAppsyncGraphqlApi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The query_depth_limit attribute.
     /// </summary>
     [TerraformProperty("query_depth_limit")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? QueryDepthLimit { get; set; }
+    public partial TerraformValue<double>? QueryDepthLimit { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
     [TerraformProperty("region")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Region { get; set; }
+    public partial TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resolver_count_limit attribute.
     /// </summary>
     [TerraformProperty("resolver_count_limit")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<double>? ResolverCountLimit { get; set; }
+    public partial TerraformValue<double>? ResolverCountLimit { get; set; }
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
     [TerraformProperty("schema")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Schema { get; set; }
+    public partial TerraformValue<string>? Schema { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     [TerraformProperty("tags")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? Tags { get; set; }
+    public partial TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     [TerraformProperty("tags_all")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformMap<string> TagsAll { get; set; }
+    public partial TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
     [TerraformProperty("visibility")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Visibility { get; set; }
+    public partial TerraformValue<string>? Visibility { get; set; }
 
     /// <summary>
     /// The xray_enabled attribute.
     /// </summary>
     [TerraformProperty("xray_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? XrayEnabled { get; set; }
+    public partial TerraformValue<bool>? XrayEnabled { get; set; }
 
     /// <summary>
     /// Block for additional_authentication_provider.
     /// Nesting mode: list
     /// </summary>
     [TerraformProperty("additional_authentication_provider")]
-    public TerraformList<TerraformBlock<AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlock>>? AdditionalAuthenticationProvider { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlock>>? AdditionalAuthenticationProvider { get; set; }
 
     /// <summary>
     /// Block for enhanced_metrics_config.
@@ -309,7 +309,7 @@ public partial class AwsAppsyncGraphqlApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnhancedMetricsConfig block(s) allowed")]
     [TerraformProperty("enhanced_metrics_config")]
-    public TerraformList<TerraformBlock<AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock>>? EnhancedMetricsConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock>>? EnhancedMetricsConfig { get; set; }
 
     /// <summary>
     /// Block for lambda_authorizer_config.
@@ -317,7 +317,7 @@ public partial class AwsAppsyncGraphqlApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LambdaAuthorizerConfig block(s) allowed")]
     [TerraformProperty("lambda_authorizer_config")]
-    public TerraformList<TerraformBlock<AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock>>? LambdaAuthorizerConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock>>? LambdaAuthorizerConfig { get; set; }
 
     /// <summary>
     /// Block for log_config.
@@ -325,7 +325,7 @@ public partial class AwsAppsyncGraphqlApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
     [TerraformProperty("log_config")]
-    public TerraformList<TerraformBlock<AwsAppsyncGraphqlApiLogConfigBlock>>? LogConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAppsyncGraphqlApiLogConfigBlock>>? LogConfig { get; set; }
 
     /// <summary>
     /// Block for openid_connect_config.
@@ -333,7 +333,7 @@ public partial class AwsAppsyncGraphqlApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenidConnectConfig block(s) allowed")]
     [TerraformProperty("openid_connect_config")]
-    public TerraformList<TerraformBlock<AwsAppsyncGraphqlApiOpenidConnectConfigBlock>>? OpenidConnectConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAppsyncGraphqlApiOpenidConnectConfigBlock>>? OpenidConnectConfig { get; set; }
 
     /// <summary>
     /// Block for user_pool_config.
@@ -341,20 +341,20 @@ public partial class AwsAppsyncGraphqlApi : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserPoolConfig block(s) allowed")]
     [TerraformProperty("user_pool_config")]
-    public TerraformList<TerraformBlock<AwsAppsyncGraphqlApiUserPoolConfigBlock>>? UserPoolConfig { get; set; }
+    public partial TerraformList<TerraformBlock<AwsAppsyncGraphqlApiUserPoolConfigBlock>>? UserPoolConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [TerraformProperty("arn")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Arn { get; }
+    public partial TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The uris attribute.
     /// </summary>
     [TerraformProperty("uris")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformMap<string> Uris { get; }
+    public partial TerraformMap<string> Uris { get; }
 
 }

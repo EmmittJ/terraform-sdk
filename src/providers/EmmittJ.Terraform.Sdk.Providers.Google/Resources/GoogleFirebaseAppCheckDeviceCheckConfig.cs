@@ -13,21 +13,21 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -47,14 +47,14 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     [TerraformProperty("app_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> AppId { get; set; }
+    public required partial TerraformValue<string> AppId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key identifier of a private key enabled with DeviceCheck, created in your Apple Developer account.
@@ -62,7 +62,7 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     [TerraformProperty("key_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> KeyId { get; set; }
+    public required partial TerraformValue<string> KeyId { get; set; }
 
     /// <summary>
     /// The contents of the private key (.p8) file associated with the key specified by keyId.
@@ -70,14 +70,14 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     [TerraformProperty("private_key")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> PrivateKey { get; set; }
+    public required partial TerraformValue<string> PrivateKey { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [TerraformProperty("project")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Project { get; set; }
+    public partial TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Specifies the duration for which App Check tokens exchanged from DeviceCheck artifacts will be valid.
@@ -87,21 +87,21 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     /// </summary>
     [TerraformProperty("token_ttl")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> TokenTtl { get; set; }
+    public partial TerraformValue<string> TokenTtl { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The relative resource name of the DeviceCheck configuration object
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Whether the privateKey field was previously set. Since App Check will never return the
@@ -109,6 +109,6 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     /// </summary>
     [TerraformProperty("private_key_set")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<bool> PrivateKeySet { get; }
+    public partial TerraformValue<bool> PrivateKeySet { get; }
 
 }

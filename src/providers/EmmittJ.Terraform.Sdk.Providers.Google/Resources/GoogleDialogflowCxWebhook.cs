@@ -23,7 +23,7 @@ public partial class GoogleDialogflowCxWebhookGenericWebServiceBlock : Terraform
     /// </summary>
     [TerraformProperty("allowed_ca_certs")]
     // Optional argument - source generator will implement get/set
-    public TerraformList<string>? AllowedCaCerts { get; set; }
+    public partial TerraformList<string>? AllowedCaCerts { get; set; }
 
     /// <summary>
     /// HTTP method for the flexible webhook calls. Standard webhook always uses
@@ -31,7 +31,7 @@ public partial class GoogleDialogflowCxWebhookGenericWebServiceBlock : Terraform
     /// </summary>
     [TerraformProperty("http_method")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? HttpMethod { get; set; }
+    public partial TerraformValue<string>? HttpMethod { get; set; }
 
     /// <summary>
     /// Maps the values extracted from specific fields of the flexible webhook
@@ -41,21 +41,21 @@ public partial class GoogleDialogflowCxWebhookGenericWebServiceBlock : Terraform
     /// </summary>
     [TerraformProperty("parameter_mapping")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? ParameterMapping { get; set; }
+    public partial TerraformMap<string>? ParameterMapping { get; set; }
 
     /// <summary>
     /// Defines a custom JSON object as request body to send to flexible webhook.
     /// </summary>
     [TerraformProperty("request_body")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? RequestBody { get; set; }
+    public partial TerraformValue<string>? RequestBody { get; set; }
 
     /// <summary>
     /// The HTTP request headers to send together with webhook requests.
     /// </summary>
     [TerraformProperty("request_headers")]
     // Optional argument - source generator will implement get/set
-    public TerraformMap<string>? RequestHeaders { get; set; }
+    public partial TerraformMap<string>? RequestHeaders { get; set; }
 
     /// <summary>
     /// The SecretManager secret version resource storing the username:password
@@ -64,7 +64,7 @@ public partial class GoogleDialogflowCxWebhookGenericWebServiceBlock : Terraform
     /// </summary>
     [TerraformProperty("secret_version_for_username_password")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecretVersionForUsernamePassword { get; set; }
+    public partial TerraformValue<string>? SecretVersionForUsernamePassword { get; set; }
 
     /// <summary>
     /// Indicate the auth token type generated from the [Diglogflow service
@@ -73,7 +73,7 @@ public partial class GoogleDialogflowCxWebhookGenericWebServiceBlock : Terraform
     /// </summary>
     [TerraformProperty("service_agent_auth")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? ServiceAgentAuth { get; set; }
+    public partial TerraformValue<string>? ServiceAgentAuth { get; set; }
 
     /// <summary>
     /// The webhook URI for receiving POST requests. It must use https protocol.
@@ -81,14 +81,14 @@ public partial class GoogleDialogflowCxWebhookGenericWebServiceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     [TerraformProperty("uri")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Uri { get; set; }
+    public required partial TerraformValue<string> Uri { get; set; }
 
     /// <summary>
     /// Type of the webhook. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;FLEXIBLE&amp;quot;]
     /// </summary>
     [TerraformProperty("webhook_type")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? WebhookType { get; set; }
+    public partial TerraformValue<string>? WebhookType { get; set; }
 
 }
 
@@ -104,7 +104,7 @@ public partial class GoogleDialogflowCxWebhookServiceDirectoryBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     [TerraformProperty("service")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Service { get; set; }
+    public required partial TerraformValue<string> Service { get; set; }
 
 }
 
@@ -119,21 +119,21 @@ public partial class GoogleDialogflowCxWebhookTimeoutsBlock : TerraformBlockBase
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -152,7 +152,7 @@ public partial class GoogleDialogflowCxWebhook : TerraformResource
     /// </summary>
     [TerraformProperty("disabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Disabled { get; set; }
+    public partial TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The human-readable name of the webhook, unique within the agent.
@@ -160,28 +160,28 @@ public partial class GoogleDialogflowCxWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     [TerraformProperty("display_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> DisplayName { get; set; }
+    public required partial TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Deprecated. Indicates if automatic spell correction is enabled in detect intent requests.
     /// </summary>
     [TerraformProperty("enable_spell_correction")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableSpellCorrection { get; set; }
+    public partial TerraformValue<bool>? EnableSpellCorrection { get; set; }
 
     /// <summary>
     /// Deprecated. Determines whether this agent should log conversation queries.
     /// </summary>
     [TerraformProperty("enable_stackdriver_logging")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? EnableStackdriverLogging { get; set; }
+    public partial TerraformValue<bool>? EnableStackdriverLogging { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The agent to create a webhook for.
@@ -189,21 +189,21 @@ public partial class GoogleDialogflowCxWebhook : TerraformResource
     /// </summary>
     [TerraformProperty("parent")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Parent { get; set; }
+    public partial TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// Deprecated. Name of the SecuritySettings reference for the agent. Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/securitySettings/&amp;lt;Security Settings ID&amp;gt;.
     /// </summary>
     [TerraformProperty("security_settings")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? SecuritySettings { get; set; }
+    public partial TerraformValue<string>? SecuritySettings { get; set; }
 
     /// <summary>
     /// Webhook execution timeout.
     /// </summary>
     [TerraformProperty("timeout")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Timeout { get; set; }
+    public partial TerraformValue<string>? Timeout { get; set; }
 
     /// <summary>
     /// Block for generic_web_service.
@@ -211,7 +211,7 @@ public partial class GoogleDialogflowCxWebhook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenericWebService block(s) allowed")]
     [TerraformProperty("generic_web_service")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxWebhookGenericWebServiceBlock>>? GenericWebService { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxWebhookGenericWebServiceBlock>>? GenericWebService { get; set; }
 
     /// <summary>
     /// Block for service_directory.
@@ -219,14 +219,14 @@ public partial class GoogleDialogflowCxWebhook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceDirectory block(s) allowed")]
     [TerraformProperty("service_directory")]
-    public TerraformList<TerraformBlock<GoogleDialogflowCxWebhookServiceDirectoryBlock>>? ServiceDirectory { get; set; }
+    public partial TerraformList<TerraformBlock<GoogleDialogflowCxWebhookServiceDirectoryBlock>>? ServiceDirectory { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<GoogleDialogflowCxWebhookTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<GoogleDialogflowCxWebhookTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique identifier of the webhook.
@@ -234,13 +234,13 @@ public partial class GoogleDialogflowCxWebhook : TerraformResource
     /// </summary>
     [TerraformProperty("name")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> Name { get; }
+    public partial TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Deprecated. Name of the start flow in this agent. A start flow will be automatically created when the agent is created, and can only be deleted by deleting the agent. Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;.
     /// </summary>
     [TerraformProperty("start_flow")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> StartFlow { get; }
+    public partial TerraformValue<string> StartFlow { get; }
 
 }

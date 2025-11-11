@@ -13,28 +13,28 @@ public partial class AzurermNotificationHubAuthorizationRuleTimeoutsBlock : Terr
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
     [TerraformProperty("update")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Update { get; set; }
+    public partial TerraformValue<string>? Update { get; set; }
 
 }
 
@@ -52,21 +52,21 @@ public partial class AzurermNotificationHubAuthorizationRule : TerraformResource
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The listen attribute.
     /// </summary>
     [TerraformProperty("listen")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Listen { get; set; }
+    public partial TerraformValue<bool>? Listen { get; set; }
 
     /// <summary>
     /// The manage attribute.
     /// </summary>
     [TerraformProperty("manage")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Manage { get; set; }
+    public partial TerraformValue<bool>? Manage { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -74,7 +74,7 @@ public partial class AzurermNotificationHubAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The namespace_name attribute.
@@ -82,7 +82,7 @@ public partial class AzurermNotificationHubAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     [TerraformProperty("namespace_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NamespaceName { get; set; }
+    public required partial TerraformValue<string> NamespaceName { get; set; }
 
     /// <summary>
     /// The notification_hub_name attribute.
@@ -90,7 +90,7 @@ public partial class AzurermNotificationHubAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationHubName is required")]
     [TerraformProperty("notification_hub_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> NotificationHubName { get; set; }
+    public required partial TerraformValue<string> NotificationHubName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
@@ -98,48 +98,48 @@ public partial class AzurermNotificationHubAuthorizationRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     [TerraformProperty("resource_group_name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> ResourceGroupName { get; set; }
+    public required partial TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The send attribute.
     /// </summary>
     [TerraformProperty("send")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? Send { get; set; }
+    public partial TerraformValue<bool>? Send { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermNotificationHubAuthorizationRuleTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermNotificationHubAuthorizationRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     [TerraformProperty("primary_access_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryAccessKey { get; }
+    public partial TerraformValue<string> PrimaryAccessKey { get; }
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
     [TerraformProperty("primary_connection_string")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> PrimaryConnectionString { get; }
+    public partial TerraformValue<string> PrimaryConnectionString { get; }
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     [TerraformProperty("secondary_access_key")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecondaryAccessKey { get; }
+    public partial TerraformValue<string> SecondaryAccessKey { get; }
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     [TerraformProperty("secondary_connection_string")]
     // Output-only attribute - source generator will implement read-only get
-    public TerraformValue<string> SecondaryConnectionString { get; }
+    public partial TerraformValue<string> SecondaryConnectionString { get; }
 
 }

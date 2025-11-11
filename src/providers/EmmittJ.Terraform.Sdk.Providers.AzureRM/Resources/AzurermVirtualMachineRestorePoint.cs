@@ -13,21 +13,21 @@ public partial class AzurermVirtualMachineRestorePointTimeoutsBlock : TerraformB
     /// </summary>
     [TerraformProperty("create")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Create { get; set; }
+    public partial TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [TerraformProperty("delete")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Delete { get; set; }
+    public partial TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [TerraformProperty("read")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<string>? Read { get; set; }
+    public partial TerraformValue<string>? Read { get; set; }
 
 }
 
@@ -45,21 +45,21 @@ public partial class AzurermVirtualMachineRestorePoint : TerraformResource
     /// </summary>
     [TerraformProperty("crash_consistency_mode_enabled")]
     // Optional argument - source generator will implement get/set
-    public TerraformValue<bool>? CrashConsistencyModeEnabled { get; set; }
+    public partial TerraformValue<bool>? CrashConsistencyModeEnabled { get; set; }
 
     /// <summary>
     /// The excluded_disks attribute.
     /// </summary>
     [TerraformProperty("excluded_disks")]
     // Optional argument - source generator will implement get/set
-    public TerraformSet<string>? ExcludedDisks { get; set; }
+    public partial TerraformSet<string>? ExcludedDisks { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [TerraformProperty("id")]
     // Optional+Computed - source generator will implement get/set
-    public TerraformValue<string> Id { get; set; }
+    public partial TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
@@ -67,7 +67,7 @@ public partial class AzurermVirtualMachineRestorePoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     [TerraformProperty("name")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> Name { get; set; }
+    public required partial TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The virtual_machine_restore_point_collection_id attribute.
@@ -75,13 +75,13 @@ public partial class AzurermVirtualMachineRestorePoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineRestorePointCollectionId is required")]
     [TerraformProperty("virtual_machine_restore_point_collection_id")]
     // Required argument - source generator will implement get/set
-    public required TerraformValue<string> VirtualMachineRestorePointCollectionId { get; set; }
+    public required partial TerraformValue<string> VirtualMachineRestorePointCollectionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
     [TerraformProperty("timeouts")]
-    public TerraformBlock<AzurermVirtualMachineRestorePointTimeoutsBlock>? Timeouts { get; set; }
+    public partial TerraformBlock<AzurermVirtualMachineRestorePointTimeoutsBlock>? Timeouts { get; set; }
 
 }
