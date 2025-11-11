@@ -1,5 +1,3 @@
-using System.Reflection;
-
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
@@ -14,33 +12,24 @@ public class TerraformLocal : TerraformConstruct
     protected override string[] BlockLabels => Array.Empty<string>();
 
     /// <summary>
-    /// Gets a reference to a local value.
+    /// Sets a local value for serialization.
     /// </summary>
-    public TerraformReferenceExpression this[string name]
+    /// <param name="name">The local value name.</param>
+    /// <param name="value">The value to set.</param>
+    public void Set(string name, object value)
     {
-        get
-        {
-            // Check if the property exists using reflection
-            var properties = GetType().GetProperties(
-                System.Reflection.BindingFlags.Public |
-                System.Reflection.BindingFlags.Instance);
+        SetPropertyValue(name, value);
+    }
 
-            var propertyExists = properties.Any(p =>
-            {
-                var attr = p.GetCustomAttribute<TerraformPropertyNameAttribute>();
-                return attr?.Name == name;
-            });
-
-            if (!propertyExists)
-            {
-                throw new TerraformStackException(
-                    $"Local value '{name}' has not been defined. " +
-                    $"Use Set(\"{name}\", value) to define it first.",
-                    this,
-                    name);
-            }
-            return new TerraformReferenceExpression(this, name);
-        }
+    /// <summary>
+    /// Gets a reference to a local value.
+    /// Always returns a reference expression (local.{name}) for use in other constructs.
+    /// </summary>
+    /// <param name="name">The name of the local value.</param>
+    /// <returns>A reference expression to the local value.</returns>
+    public TerraformExpression this[string name]
+    {
+        get => TerraformExpression.Identifier($"local.{name}");
     }
 
     /// <inheritdoc/>
@@ -50,6 +39,8 @@ public class TerraformLocal : TerraformConstruct
     /// <summary>
     /// Gets the reference expression for a specific local value.
     /// </summary>
+    /// <param name="name">The name of the local value.</param>
+    /// <returns>A reference expression to the local value.</returns>
     public TerraformExpression AsReference(string name)
         => TerraformExpression.Identifier($"local.{name}");
 }

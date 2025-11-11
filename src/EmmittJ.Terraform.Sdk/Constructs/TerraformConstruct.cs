@@ -1,5 +1,3 @@
-using System.Reflection;
-
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
@@ -9,6 +7,13 @@ namespace EmmittJ.Terraform.Sdk;
 /// </summary>
 public abstract class TerraformConstruct : ITerraformSerializable
 {
+    /// <summary>
+    /// Internal storage for property values set by users via source-generated setters.
+    /// Key = Terraform property name (e.g., "name", "location")
+    /// Value = TerraformValue&lt;T&gt;, TerraformList&lt;T&gt;, TerraformMap&lt;T&gt;, etc.
+    /// </summary>
+    private readonly Dictionary<string, object?> _propertyValues = new();
+
     /// <summary>
     /// Gets the block type (e.g., "resource", "data", "provider", "output", "variable", "module").
     /// </summary>
@@ -22,6 +27,48 @@ public abstract class TerraformConstruct : ITerraformSerializable
     protected abstract string[] BlockLabels { get; }
 
     /// <summary>
+    /// Called by source-generated property setters to store values.
+    /// </summary>
+    /// <param name="terraformName">The Terraform property name (from [TerraformProperty("name")] attribute).</param>
+    /// <param name="value">The value to store.</param>
+    protected void SetPropertyValue(string terraformName, object? value)
+    {
+        _propertyValues[terraformName] = value;
+    }
+
+    /// <summary>
+    /// Called by source-generated property getters to retrieve stored values.
+    /// Returns null if the property was never set.
+    /// </summary>
+    /// <typeparam name="T">The property type.</typeparam>
+    /// <param name="terraformName">The Terraform property name.</param>
+    /// <returns>The stored value or null.</returns>
+    protected T? GetPropertyValue<T>(string terraformName)
+    {
+        return _propertyValues.TryGetValue(terraformName, out var value) && value is T ret
+            ? ret
+            : default;
+    }
+
+    /// <summary>
+    /// Called by source-generated property getters for required properties.
+    /// Throws if the property was never set.
+    /// </summary>
+    /// <typeparam name="T">The property type.</typeparam>
+    /// <param name="terraformName">The Terraform property name.</param>
+    /// <returns>The stored value.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when a required property has not been set.</exception>
+    protected T GetRequiredPropertyValue<T>(string terraformName)
+    {
+        return GetPropertyValue<T>(terraformName) ?? throw new InvalidOperationException($"Required property '{terraformName}' has not been set.");
+    }
+
+    /// <summary>
+    /// Gets the internal property values dictionary for serialization.
+    /// </summary>
+    internal IReadOnlyDictionary<string, object?> PropertyValues => _propertyValues;
+
+    /// <summary>
     /// Writes all properties to HCL with proper formatting.
     /// Override this in derived classes to write properties using reflection and polymorphic resolution.
     /// </summary>
@@ -29,122 +76,57 @@ public abstract class TerraformConstruct : ITerraformSerializable
     /// <param name="context">The context for indentation and resolution.</param>
     protected virtual void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
     {
-        // Use reflection to get all public instance properties
-        var properties = GetType().GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
+        var resolveContext = new TerraformResolveContext(context);
 
-        foreach (var prop in properties)
+        foreach (var (terraformName, value) in _propertyValues)
         {
-            // Skip properties that are part of the base class infrastructure
-            if (prop.DeclaringType == typeof(TerraformConstruct) ||
-                prop.Name == "BlockType" ||
-                prop.Name == "BlockLabels")
-            {
-                continue;
-            }
-
-            var value = prop.GetValue(this);
             if (value == null)
-            {
-                continue; // Skip null properties
-            }
+                continue;
 
-            // Get the Terraform property name from the attribute
-            var nameAttr = prop.GetCustomAttribute<TerraformPropertyNameAttribute>();
-            if (nameAttr == null)
-            {
-                continue; // Skip properties without the attribute
-            }
+            TerraformExpression? expression = null;
 
-            string terraformName = nameAttr.Name;
-
-            // Handle TerraformValue<T> system
-            if (IsTerraformValue(prop.PropertyType))
+            // Handle TerraformValue<T> via ITerraformValue interface (no reflection!)
+            if (value is ITerraformValue terraformValue)
             {
-                var expression = ResolveTerraformValue(value, context);
-                if (expression != null)
-                {
-                    var hcl = expression.ToHcl(context);
-                    sb.AppendLine($"{context.Indent}{terraformName} = {hcl}");
-                }
+                if (!terraformValue.HasValue)
+                    continue;
+
+                expression = terraformValue.Resolve(resolveContext);
             }
             // Handle other serializable types (blocks, nested objects, etc.)
             else if (value is ITerraformSerializable serializable)
             {
                 var hcl = serializable.ToHcl(context);
                 sb.AppendLine($"{context.Indent}{terraformName} = {hcl}");
+                continue;
+            }
+            else
+            {
+                // Fallback to literal value
+                expression = TerraformExpression.Literal(value);
+            }
+
+            if (expression != null)
+            {
+                var hcl = expression.ToHcl(context);
+                sb.AppendLine($"{context.Indent}{terraformName} = {hcl}");
             }
         }
     }
-
-    /// <summary>
-    /// Checks if a type is TerraformValue&lt;T&gt;.
-    /// </summary>
-    private static bool IsTerraformValue(Type type)
-    {
-        // Handle nullable TerraformValue<T>
-        var underlyingType = Nullable.GetUnderlyingType(type) ?? type;
-
-        return underlyingType.IsGenericType &&
-               underlyingType.GetGenericTypeDefinition() == typeof(TerraformValue<>);
-    }
-
-    /// <summary>
-    /// Resolves a TerraformValue&lt;T&gt; to a TerraformExpression using reflection.
-    /// Returns null if the value has no content.
-    /// </summary>
-    [System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessage("Trimming", "IL2070",
-        Justification = "TerraformValue<T> is a known struct with consistent HasValue and Resolve methods")]
-    private static TerraformExpression? ResolveTerraformValue(object terraformValue, ITerraformContext context)
-    {
-        var valueType = terraformValue.GetType();
-
-        // Check if it has a value using the HasValue property
-        var hasValueProp = valueType.GetProperty("HasValue");
-        var hasValue = (bool)(hasValueProp?.GetValue(terraformValue) ?? false);
-
-        if (!hasValue)
-        {
-            return null;
-        }
-
-        // Resolve the value
-        var resolveContext = new TerraformResolveContext(context);
-        var resolveMethod = valueType.GetMethod("Resolve", BindingFlags.Public | BindingFlags.Instance);
-        var expression = (TerraformExpression)resolveMethod!.Invoke(terraformValue, new object[] { resolveContext })!;
-
-        return expression;
-    }
-
 
     /// <inheritdoc/>
     public abstract TerraformExpression AsReference();
 
     /// <summary>
     /// Preparation phase - prepares all nested values and expressions.
-    /// Uses reflection to discover properties and calls Prepare() on each ITerraformPreparable.
+    /// Iterates property values dictionary and calls Prepare() on each ITerraformPreparable.
     /// </summary>
     public virtual void Prepare(ITerraformContext context)
     {
-        // Use reflection to get all public instance properties
-        var properties = GetType().GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
-
-        foreach (var prop in properties)
+        foreach (var value in _propertyValues.Values)
         {
-            // Skip properties that are part of the base class infrastructure
-            if (prop.DeclaringType == typeof(TerraformConstruct))
-            {
-                continue;
-            }
-
-            var value = prop.GetValue(this);
-            if (value == null)
-            {
-                continue;
-            }
-
             if (value is ITerraformPreparable preparable)
             {
-                // Call Prepare() on the property (polymorphic)
                 preparable.Prepare(context);
             }
         }

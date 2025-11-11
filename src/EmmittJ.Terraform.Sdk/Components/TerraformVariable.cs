@@ -19,29 +19,50 @@ public class TerraformVariable(string name) : TerraformConstruct
     /// <summary>
     /// Gets or sets the description of the variable.
     /// </summary>
-    [TerraformPropertyName("description")]
-    public TerraformValue<string>? Description { get; set; }
+    public TerraformValue<string>? Description
+    {
+        get => GetPropertyValue<TerraformValue<string>?>("description");
+        set => SetPropertyValue("description", value);
+    }
 
     /// <summary>
     /// Gets or sets the default value.
     /// Can be a literal value or an expression.
     /// </summary>
-    [TerraformPropertyName("default")]
-    public TerraformValue<object>? Default { get; set; }
+    public TerraformValue<object>? Default
+    {
+        get => GetPropertyValue<TerraformValue<object>?>("default");
+        set => SetPropertyValue("default", value);
+    }
 
     /// <summary>
     /// Gets or sets the type constraint (e.g., "string", "list(string)").
     /// </summary>
-    [TerraformPropertyName("type")]
-    public TerraformValue<string>? Type { get; set; }
+    public TerraformValue<string>? Type
+    {
+        get => GetPropertyValue<TerraformValue<string>?>("type");
+        set => SetPropertyValue("type", value);
+    }
 
     /// <summary>
     /// Gets or sets whether the variable is sensitive.
     /// </summary>
-    [TerraformPropertyName("sensitive")]
-    public TerraformValue<bool>? Sensitive { get; set; }
+    public TerraformValue<bool>? Sensitive
+    {
+        get => GetPropertyValue<TerraformValue<bool>?>("sensitive");
+        set => SetPropertyValue("sensitive", value);
+    }
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"var.{Name}");
+
+    /// <summary>
+    /// Implicit conversion to TerraformExpression for natural reference usage.
+    /// Allows using variables directly in expressions without calling AsReference().
+    /// </summary>
+    /// <param name="variable">The variable to convert.</param>
+    /// <returns>A TerraformExpression representing the variable reference.</returns>
+    public static implicit operator TerraformExpression(TerraformVariable variable)
+        => variable.AsReference();
 }

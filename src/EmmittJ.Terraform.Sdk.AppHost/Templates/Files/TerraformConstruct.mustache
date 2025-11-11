@@ -10,7 +10,7 @@ namespace {{Namespace}};
 {{#IsDeprecated}}
 [Obsolete("This block is deprecated.")]
 {{/IsDeprecated}}
-public class {{ClassName}}
+public partial class {{ClassName}} : TerraformBlockBase
 {
 {{#Properties}}
 {{^IsComputedAttribute}}
@@ -23,9 +23,9 @@ public class {{ClassName}}
 {{#IsDeprecated}}
     [Obsolete("This property is deprecated.")]
 {{/IsDeprecated}}
-    [TerraformPropertyName("{{TerraformName}}")]
+    [TerraformProperty("{{TerraformName}}")]
 {{#IsRequiredArgument}}
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    // Required argument - source generator will implement get/set
 {{#UseRequiredKeyword}}
     public required {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/UseRequiredKeyword}}
@@ -34,7 +34,7 @@ public class {{ClassName}}
 {{/UseNullable}}
 {{/IsRequiredArgument}}
 {{#IsOptionalArgument}}
-    // Optional argument - user may or may not set a value
+    // Optional argument - source generator will implement get/set
 {{#UseRequiredKeyword}}
     public required {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/UseRequiredKeyword}}
@@ -43,8 +43,8 @@ public class {{ClassName}}
 {{/UseNullable}}
 {{/IsOptionalArgument}}
 {{#IsOptionalAndComputed}}
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public {{{PropertyWrapper}}} {{Name}} { get; set; } = default!;
+    // Optional+Computed - source generator will implement get/set
+    public {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/IsOptionalAndComputed}}
 {{/IsComputedAttribute}}
 
@@ -62,7 +62,7 @@ public class {{ClassName}}
 {{#RequiresUnreferencedCode}}
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 {{/RequiresUnreferencedCode}}
-public class {{ClassName}} : {{BaseClassName}}
+public partial class {{ClassName}} : {{BaseClassName}}
 {
     public {{ClassName}}(string name) : base("{{TerraformType}}", name)
     {
@@ -78,9 +78,9 @@ public class {{ClassName}} : {{BaseClassName}}
 {{#IsDeprecated}}
     [Obsolete("This property is deprecated.")]
 {{/IsDeprecated}}
-    [TerraformPropertyName("{{TerraformName}}")]
+    [TerraformProperty("{{TerraformName}}")]
 {{#IsRequiredArgument}}
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    // Required argument - source generator will implement get/set
 {{#UseRequiredKeyword}}
     public required {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/UseRequiredKeyword}}
@@ -89,7 +89,7 @@ public class {{ClassName}} : {{BaseClassName}}
 {{/UseNullable}}
 {{/IsRequiredArgument}}
 {{#IsOptionalArgument}}
-    // Optional argument - user may or may not set a value
+    // Optional argument - source generator will implement get/set
 {{#UseRequiredKeyword}}
     public required {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/UseRequiredKeyword}}
@@ -98,12 +98,12 @@ public class {{ClassName}} : {{BaseClassName}}
 {{/UseNullable}}
 {{/IsOptionalArgument}}
 {{#IsOptionalAndComputed}}
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public {{{PropertyWrapper}}} {{Name}} { get; set; } = default!;
+    // Optional+Computed - source generator will implement get/set
+    public {{{PropertyWrapper}}} {{Name}} { get; set; }
 {{/IsOptionalAndComputed}}
 {{#IsComputedAttribute}}
-    // Computed attribute - read-only reference
-    public {{{PropertyWrapper}}} {{Name}} => new TerraformReference(this, "{{TerraformName}}");
+    // Computed attribute - source generator will implement read-only get
+    public {{{PropertyWrapper}}} {{Name}} { get; }
 {{/IsComputedAttribute}}
 
 {{/Properties}}
@@ -118,9 +118,9 @@ public class {{ClassName}} : {{BaseClassName}}
 {{#IsDeprecated}}
     [Obsolete("This block is deprecated.")]
 {{/IsDeprecated}}
-    [TerraformPropertyName("{{TerraformName}}")]
+    [TerraformProperty("{{TerraformName}}")]
 {{#UseRequiredKeyword}}
-    public required {{{BlockPropertyType}}} {{Name}} { get; set; } = default!;
+    public required {{{BlockPropertyType}}} {{Name}} { get; set; }
 {{/UseRequiredKeyword}}
 {{#UseNullable}}
     public {{{BlockPropertyType}}}? {{Name}} { get; set; }
@@ -131,9 +131,9 @@ public class {{ClassName}} : {{BaseClassName}}
     /// <summary>
     /// {{Description}}
     /// </summary>
-    [TerraformPropertyName("{{TerraformName}}")]
-    // Output-only attribute - read-only reference
-    public {{{PropertyWrapper}}} {{Name}} => new TerraformReference(this, "{{TerraformName}}");
+    [TerraformProperty("{{TerraformName}}")]
+    // Output-only attribute - source generator will implement read-only get
+    public {{{PropertyWrapper}}} {{Name}} { get; }
 
 {{/OutputAttributes}}
 }

@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json.schemastore.org/aspire-8.0.json",
+  "resources": {
+    "postgres-password": {
+      "type": "parameter.v0",
+      "value": "{postgres-password.inputs.value}",
+      "inputs": {
+        "value": {
+          "type": "string",
+          "secret": true
+        }
+      }
+    },
+    "cache": {
+      "type": "container.v1",
+      "connectionString": "{cache.bindings.tcp.host}:{cache.bindings.tcp.port},password={cache-password.value}",
+      "image": "docker.io/library/redis:8.2",
+      "entrypoint": "/bin/sh",
+      "args": [
+        "-c",
+        "redis-server --requirepass $REDIS_PASSWORD"
+      ],
+      "env": {
+        "REDIS_PASSWORD": "{cache-password.value}"
+      },
+      "bindings": {
+        "tcp": {
+          "scheme": "tcp",
+          "protocol": "tcp",
+          "transport": "tcp",
+          "targetPort": 6379
+        }
+      }
+    },
+    "postgres": {
+      "type": "container.v1",
+      "connectionString": "Host={postgres.bindings.tcp.host};Port={postgres.bindings.tcp.port};Username=postgres;Password={postgres-password.value}",
+      "image": "docker.io/library/postgres:18.0",
+      "env": {
+        "POSTGRES_HOST_AUTH_METHOD": "scram-sha-256",
+        "POSTGRES_INITDB_ARGS": "--auth-host=scram-sha-256 --auth-local=scram-sha-256 --no-data-checksums",
+        "POSTGRES_USER": "postgres",
+        "POSTGRES_PASSWORD": "{postgres-password.value}"
+      },
+      "bindings": {
+        "tcp": {
+          "scheme": "tcp",
+          "protocol": "tcp",
+          "transport": "tcp",
+          "targetPort": 5432
+        }
+      }
+    },
+    "appdb": {
+      "type": "value.v0",
+      "connectionString": "{postgres.connectionString};Database=appdb"
+    },
+    "api": {
+      "type": "project.v1",
+      "path": "../../TerraformPlayground.ApiService/TerraformPlayground.ApiService.csproj",
+      "env": {
+        "OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES": "true",
+        "OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES": "true",
+        "OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY": "in_memory",
+        "ASPNETCORE_FORWARDEDHEADERS_ENABLED": "true",
+        "HTTP_PORTS": "{api.bindings.http.targetPort}",
+        "ConnectionStrings__cache": "{cache.connectionString}",
+        "CACHE_HOST": "{cache.bindings.tcp.host}",
+        "CACHE_PORT": "{cache.bindings.tcp.port}",
+        "CACHE_PASSWORD": "{cache-password.value}",
+        "CACHE_URI": "redis://:{cache-password-uri-encoded.value}@{cache.bindings.tcp.host}:{cache.bindings.tcp.port}",
+        "ConnectionStrings__appdb": "{appdb.connectionString}",
+        "APPDB_HOST": "{postgres.bindings.tcp.host}",
+        "APPDB_PORT": "{postgres.bindings.tcp.port}",
+        "APPDB_USERNAME": "postgres",
+        "APPDB_PASSWORD": "{postgres-password.value}",
+        "APPDB_URI": "postgresql://postgres:{postgres-password.value}@{postgres.bindings.tcp.host}:{postgres.bindings.tcp.port}/appdb",
+        "APPDB_JDBCCONNECTIONSTRING": "jdbc:postgresql://{postgres.bindings.tcp.host}:{postgres.bindings.tcp.port}/appdb?user=postgres\u0026password={postgres-password-uri-encoded.value}",
+        "APPDB_DATABASE": "appdb"
+      },
+      "bindings": {
+        "http": {
+          "scheme": "http",
+          "protocol": "tcp",
+          "transport": "http",
+          "external": true
+        },
+        "https": {
+          "scheme": "https",
+          "protocol": "tcp",
+          "transport": "http",
+          "external": true
+        }
+      }
+    },
+    "azure": {
+      "error": "This resource does not support generation in the manifest."
+    },
+    "cache-password": {
+      "type": "parameter.v0",
+      "value": "{cache-password.inputs.value}",
+      "inputs": {
+        "value": {
+          "type": "string",
+          "secret": true,
+          "default": {
+            "generate": {
+              "minLength": 22,
+              "special": false
+            }
+          }
+        }
+      }
+    },
+    "cache-password-uri-encoded": {
+      "type": "annotated.string",
+      "value": "{cache-password.value}",
+      "filter": "uri"
+    },
+    "postgres-password-uri-encoded": {
+      "type": "annotated.string",
+      "value": "{postgres-password.value}",
+      "filter": "uri"
+    }
+  }
+}

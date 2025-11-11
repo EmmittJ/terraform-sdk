@@ -11,7 +11,7 @@ namespace {{Namespace}};
 /// Resources: {{ResourceCount}}
 /// Data Sources: {{DataSourceCount}}
 /// </summary>
-public class {{ClassName}} : TerraformProvider
+public partial class {{ClassName}} : TerraformProvider
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="{{ClassName}}"/> class.
@@ -39,6 +39,7 @@ public class {{ClassName}} : TerraformProvider
 {{#IsDeprecated}}
     [Obsolete("This property is deprecated.")]
 {{/IsDeprecated}}
+    [TerraformProperty("{{TerraformName}}")]
 {{#IsArgument}}
 {{#UseRequiredKeyword}}
     public required {{{PropertyWrapper}}} {{Name}} { get; set; }

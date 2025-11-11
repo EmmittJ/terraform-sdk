@@ -136,13 +136,13 @@ public class TerraformAssertBlock : TerraformConstruct
     /// <summary>
     /// Gets or sets the condition expression that must evaluate to true.
     /// </summary>
-    [TerraformPropertyName("condition")]
+    [TerraformProperty("condition")]
     public TerraformValue<TerraformExpression>? Condition { get; set; }
 
     /// <summary>
     /// Gets or sets the error message to display when the condition is false.
     /// </summary>
-    [TerraformPropertyName("error_message")]
+    [TerraformProperty("error_message")]
     public TerraformValue<string>? ErrorMessage { get; set; }
 
     /// <inheritdoc/>

@@ -88,13 +88,13 @@ public class TerraformImportBlock : TerraformConstruct
         }
     }
 
-    [TerraformPropertyName("to")]
+    [TerraformProperty("to")]
     public ImportAddressProperty ToProperty { get; set; }
 
-    [TerraformPropertyName("id")]
+    [TerraformProperty("id")]
     public TerraformValue<string> IdProperty { get; set; }
 
-    [TerraformPropertyName("provider")]
+    [TerraformProperty("provider")]
     public ImportAddressProperty? ProviderProperty { get; set; }
 
     /// <inheritdoc/>

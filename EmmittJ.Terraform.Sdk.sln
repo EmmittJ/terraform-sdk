@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmmittJ.Terraform.Sdk.Provi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmmittJ.Terraform.Sdk.Providers.Aws", "src\providers\EmmittJ.Terraform.Sdk.Providers.Aws\EmmittJ.Terraform.Sdk.Providers.Aws.csproj", "{A820C18E-6DA8-7D53-3347-F92862633E87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmmittJ.Terraform.Sdk.SourceGenerators", "src\EmmittJ.Terraform.Sdk.SourceGenerators\EmmittJ.Terraform.Sdk.SourceGenerators.csproj", "{86685D98-E5F2-4FFC-9CD9-DBD7A5BB044E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -191,6 +193,18 @@ Global
 		{A820C18E-6DA8-7D53-3347-F92862633E87}.Release|x64.Build.0 = Release|Any CPU
 		{A820C18E-6DA8-7D53-3347-F92862633E87}.Release|x86.ActiveCfg = Release|Any CPU
 		{A820C18E-6DA8-7D53-3347-F92862633E87}.Release|x86.Build.0 = Release|Any CPU
+		{86685D98-E5F2-4FFC-9CD9-DBD7A5BB044E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86685D98-E5F2-4FFC-9CD9-DBD7A5BB044E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86685D98-E5F2-4FFC-9CD9-DBD7A5BB044E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{86685D98-E5F2-4FFC-9CD9-DBD7A5BB044E}.Debug|x64.Build.0 = Debug|Any CPU
+		{86685D98-E5F2-4FFC-9CD9-DBD7A5BB044E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{86685D98-E5F2-4FFC-9CD9-DBD7A5BB044E}.Debug|x86.Build.0 = Debug|Any CPU
+		{86685D98-E5F2-4FFC-9CD9-DBD7A5BB044E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86685D98-E5F2-4FFC-9CD9-DBD7A5BB044E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86685D98-E5F2-4FFC-9CD9-DBD7A5BB044E}.Release|x64.ActiveCfg = Release|Any CPU
+		{86685D98-E5F2-4FFC-9CD9-DBD7A5BB044E}.Release|x64.Build.0 = Release|Any CPU
+		{86685D98-E5F2-4FFC-9CD9-DBD7A5BB044E}.Release|x86.ActiveCfg = Release|Any CPU
+		{86685D98-E5F2-4FFC-9CD9-DBD7A5BB044E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -210,6 +224,7 @@ Global
 		{CD552CD0-CB92-C563-C678-2FA83C29741C} = {4D967F7E-74A9-4BC1-B2D1-44B86B085DB9}
 		{4D697B39-D4A4-4049-F54A-967475BAA2B3} = {4D967F7E-74A9-4BC1-B2D1-44B86B085DB9}
 		{A820C18E-6DA8-7D53-3347-F92862633E87} = {4D967F7E-74A9-4BC1-B2D1-44B86B085DB9}
+		{86685D98-E5F2-4FFC-9CD9-DBD7A5BB044E} = {8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {352C09AF-BF74-4C47-ABC6-B780865591B3}

@@ -24,14 +24,14 @@ public class TerraformModule : NamedTerraformConstruct
     /// Gets or sets the source of the module.
     /// Can be a local path, registry source, git URL, etc.
     /// </summary>
-    [TerraformPropertyName("source")]
+    [TerraformProperty("source")]
     public required TerraformValue<string> Source { get; set; }
 
     /// <summary>
     /// Gets or sets the version constraint for the module (optional).
     /// Only applicable for registry modules.
     /// </summary>
-    [TerraformPropertyName("version")]
+    [TerraformProperty("version")]
     public TerraformValue<string>? Version { get; set; }
 
     /// <inheritdoc/>

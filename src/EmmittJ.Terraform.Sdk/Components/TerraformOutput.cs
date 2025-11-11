@@ -20,20 +20,29 @@ public class TerraformOutput(string name) : TerraformConstruct
     /// Gets or sets the output value.
     /// Can be a literal value or an expression.
     /// </summary>
-    [TerraformPropertyName("value")]
-    public TerraformValue<object>? Value { get; set; }
+    public TerraformValue<object>? Value
+    {
+        get => GetPropertyValue<TerraformValue<object>?>("value");
+        set => SetPropertyValue("value", value);
+    }
 
     /// <summary>
     /// Gets or sets the description.
     /// </summary>
-    [TerraformPropertyName("description")]
-    public TerraformValue<string>? Description { get; set; }
+    public TerraformValue<string>? Description
+    {
+        get => GetPropertyValue<TerraformValue<string>?>("description");
+        set => SetPropertyValue("description", value);
+    }
 
     /// <summary>
     /// Gets or sets whether the output is sensitive.
     /// </summary>
-    [TerraformPropertyName("sensitive")]
-    public TerraformValue<bool>? Sensitive { get; set; }
+    public TerraformValue<bool>? Sensitive
+    {
+        get => GetPropertyValue<TerraformValue<bool>?>("sensitive");
+        set => SetPropertyValue("sensitive", value);
+    }
 
     /// <summary>
     /// Gets the list of resources this depends on.
@@ -50,10 +59,19 @@ public class TerraformOutput(string name) : TerraformConstruct
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"output.{Name}");
 
+    /// <summary>
+    /// Implicit conversion to TerraformExpression for natural reference usage.
+    /// Allows using outputs directly in expressions without calling AsReference().
+    /// </summary>
+    /// <param name="output">The output to convert.</param>
+    /// <returns>A TerraformExpression representing the output reference.</returns>
+    public static implicit operator TerraformExpression(TerraformOutput output)
+        => output.AsReference();
+
     /// <inheritdoc/>
     protected override void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
     {
-        if (Value == null)
+        if (GetPropertyValue<TerraformValue<object>?>("value") == null)
         {
             throw new TerraformStackException(
                 $"Output '{Name}' must have a value set before it can be synthesized. " +

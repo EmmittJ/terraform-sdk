@@ -14,7 +14,7 @@ public class TerraformProvider(string name) : NamedTerraformConstruct(name)
     /// <summary>
     /// Gets or sets the alias for this provider instance.
     /// </summary>
-    [TerraformPropertyName("alias")]
+    [TerraformProperty("alias")]
     public TerraformValue<string>? Alias { get; set; }
 
     /// <inheritdoc/>

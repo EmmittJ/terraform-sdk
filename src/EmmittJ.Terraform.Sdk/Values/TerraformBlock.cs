@@ -1,15 +1,11 @@
-using System.Reflection;
-
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
 /// Represents a Terraform nested block as a specialized map of properties.
 /// Blocks are maps where keys are property names and values are heterogeneous types.
-/// Inherits from TerraformMap&lt;object&gt; to reuse map resolution infrastructure.
 ///
-/// KEY INSIGHT: Terraform blocks are semantically maps with string keys (property names)
-/// and heterogeneous values (different types per property). This design leverages the
-/// map infrastructure while maintaining type safety via the generic POCO wrapper.
+/// Uses ITerraformBlockStorage interface to access property values without reflection.
+/// Block classes should implement this interface to provide their property dictionary.
 /// </summary>
 /// <typeparam name="T">The block class type (e.g., AzurermContainerAppTemplateBlock)</typeparam>
 public class TerraformBlock<T> : TerraformMap<object> where T : class
@@ -29,86 +25,79 @@ public class TerraformBlock<T> : TerraformMap<object> where T : class
 
     /// <summary>
     /// Convert block's properties to a map for resolution.
-    /// Uses reflection to extract property values.
+    /// Uses ITerraformBlockStorage interface if available, otherwise returns empty map.
     /// </summary>
     private static Dictionary<string, object> CreateMapFromBlock(T? block)
     {
         if (block == null)
             return new Dictionary<string, object>();
 
-        var map = new Dictionary<string, object>();
-        var properties = typeof(T).GetProperties();
-
-        foreach (var prop in properties)
+        // If the block implements ITerraformBlockStorage, use its property values
+        if (block is ITerraformBlockStorage storage)
         {
-            var attr = prop.GetCustomAttribute<TerraformPropertyNameAttribute>();
-            if (attr != null)
+            var map = new Dictionary<string, object>();
+            foreach (var (key, value) in storage.GetPropertyValues())
             {
-                var value = prop.GetValue(block);
                 if (value != null)
                 {
-                    map[attr.Name] = value;
+                    map[key] = value;
                 }
             }
+            return map;
         }
 
-        return map;
+        // Fallback: empty map
+        return new Dictionary<string, object>();
     }
 
     /// <summary>
     /// Override resolution to handle nested TerraformValue&lt;T&gt; properties correctly.
-    /// This extracts properties via reflection and resolves each to a TerraformExpression.
+    /// Uses ITerraformBlockStorage interface to get property values without reflection.
     /// </summary>
     public override TerraformExpression Resolve(ITerraformResolveContext context)
     {
         if (_block == null)
             return TerraformExpression.Map(); // Empty block
 
-        // Resolve each property individually
-        var resolvedPairs = new List<KeyValuePair<string, TerraformExpression>>();
-        var properties = typeof(T).GetProperties();
-
-        foreach (var prop in properties)
+        // If the block implements ITerraformBlockStorage, use it
+        if (_block is ITerraformBlockStorage storage)
         {
-            var attr = prop.GetCustomAttribute<TerraformPropertyNameAttribute>();
-            if (attr == null)
-                continue;
+            var resolvedPairs = new List<KeyValuePair<string, TerraformExpression>>();
 
-            var value = prop.GetValue(_block);
-            if (value == null)
-                continue;
+            foreach (var (terraformName, value) in storage.GetPropertyValues())
+            {
+                if (value == null)
+                    continue;
 
-            // Handle TerraformValue<T>, TerraformList<T>, etc. via resolution
-            TerraformExpression resolvedValue;
-            if (value is ITerraformResolvable resolvable)
-            {
-                resolvedValue = resolvable.Resolve(context);
-            }
-            else if (value.GetType().IsGenericType)
-            {
-                // Try to resolve via reflection (for TerraformValue<T>, etc.)
-                var resolveMethod = value.GetType().GetMethod("Resolve");
-                if (resolveMethod != null)
+                // Handle ITerraformValue (TerraformValue<T>) via interface
+                TerraformExpression resolvedValue;
+                if (value is ITerraformValue terraformValue)
                 {
-                    resolvedValue = (TerraformExpression)resolveMethod.Invoke(value, new object[] { context })!;
+                    if (!terraformValue.HasValue)
+                        continue;
+                    resolvedValue = terraformValue.Resolve(context);
+                }
+                // Handle other resolvables
+                else if (value is ITerraformResolvable resolvable)
+                {
+                    resolvedValue = resolvable.Resolve(context);
                 }
                 else
                 {
                     resolvedValue = TerraformExpression.Literal(value);
                 }
-            }
-            else
-            {
-                resolvedValue = TerraformExpression.Literal(value);
+
+                resolvedPairs.Add(new KeyValuePair<string, TerraformExpression>(
+                    terraformName,
+                    resolvedValue
+                ));
             }
 
-            resolvedPairs.Add(new KeyValuePair<string, TerraformExpression>(
-                attr.Name,
-                resolvedValue
-            ));
+            return TerraformExpression.Map(resolvedPairs);
         }
 
-        return TerraformExpression.Map(resolvedPairs);
+        // Fallback: empty block
+        return TerraformExpression.Map();
     }
 
     // Implicit conversion from block instance

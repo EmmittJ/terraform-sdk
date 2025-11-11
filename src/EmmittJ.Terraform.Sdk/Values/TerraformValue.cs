@@ -15,7 +15,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// This matches Pulumi's Input&lt;T&gt; pattern and enables polymorphic behavior.
 /// </summary>
 /// <typeparam name="T">The .NET type this value represents (string, double, bool, etc.) - used for compile-time safety</typeparam>
-public class TerraformValue<T>
+public class TerraformValue<T> : ITerraformValue
 {
     protected readonly ITerraformResolvable? _resolvable;
 
