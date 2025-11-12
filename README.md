@@ -1,83 +1,378 @@
-# EmmittJ Terraform SDK Documentation
+# EmmittJ.Terraform.Sdk
 
-Welcome to the EmmittJ Terraform SDK documentation!
+**Infrastructure as C#** - Define Terraform configurations using strongly-typed C# with compile-time safety and IntelliSense support.
 
-## Overview
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![.NET 10](https://img.shields.io/badge/.NET-10.0-purple.svg)](https://dotnet.microsoft.com/download)
+[![Version](https://img.shields.io/badge/version-0.1.0--preview-blue.svg)](https://github.com/EmmittJ/terraform-sdk)
 
-The EmmittJ Terraform SDK is a .NET library that allows you to define Terraform infrastructure as code using C#. It provides a strongly-typed, fluent API for building Terraform configurations programmatically.
+## 🚀 Overview
 
-## Getting Started
+The EmmittJ Terraform SDK is a .NET library that enables infrastructure-as-code using C# instead of HCL. It provides a strongly-typed API for building Terraform configurations programmatically with compile-time safety, IntelliSense support, and the full power of .NET.
 
-To get started with the Terraform SDK, add a reference to the `EmmittJ.Terraform.Sdk` package in your project:
+**Key Features:**
+
+- 🔒 **Type-safe** - Compile-time validation using C# type system
+- 🎯 **Polymorphic value system** - No null reference exceptions, automatic type inference
+- 📝 **IntelliSense support** - Full IDE support with documentation
+- 🔄 **Two-phase resolution** - Intelligent dependency tracking and validation
+- 🏗️ **Expression trees** - Compositional HCL generation with optimization
+- 🌐 **Multi-cloud** - AWS, Azure, GCP support via auto-generated providers
+- 🔌 **Aspire integration** - Deploy infrastructure with .NET Aspire
+
+## 📦 Installation
+
+Add the core SDK package to your project:
 
 ```bash
 dotnet add package EmmittJ.Terraform.Sdk
 ```
 
-### Quick Example
+Add provider packages as needed:
+
+```bash
+dotnet add package EmmittJ.Terraform.Sdk.Providers.Aws
+dotnet add package EmmittJ.Terraform.Sdk.Providers.AzureRM
+dotnet add package EmmittJ.Terraform.Sdk.Providers.Google
+```
+
+## 🎯 Quick Start
+
+### Basic Resource Creation
 
 ```csharp
 using EmmittJ.Terraform.Sdk;
-using EmmittJ.Terraform.Sdk.Providers.Aws.Resources;
+using EmmittJ.Terraform.Sdk.Configuration;
+using EmmittJ.Terraform.Sdk.Blocks;
 
-var stack = new TerraformStack();
+var stack = new TerraformStack { Name = "my-infrastructure" };
 
-// Define a VPC
-var vpc = new AwsVpc("main-vpc")
+// Configure Terraform settings
+stack.Terraform = new TerraformSettings
 {
-    CidrBlock = "10.0.0.0/16",
-    EnableDnsHostnames = true,
-    EnableDnsSupport = true
+    RequiredVersion = ">= 1.9.0"
 };
 
+// Add AWS provider
+var awsProvider = new TerraformProvider("aws")
+{
+    ["region"] = "us-west-2"
+};
+stack.Add(awsProvider);
+
+// Create a VPC
+var vpc = new TerraformResource("aws_vpc", "main")
+{
+    ["cidr_block"] = "10.0.0.0/16",
+    ["enable_dns_hostnames"] = true,
+    ["enable_dns_support"] = true
+};
 stack.Add(vpc);
 
+// Create a subnet referencing the VPC
+var subnet = new TerraformResource("aws_subnet", "public")
+{
+    ["vpc_id"] = vpc["id"],
+    ["cidr_block"] = "10.0.1.0/24",
+    ["availability_zone"] = "us-west-2a"
+};
+stack.Add(subnet);
+
 // Generate HCL
-var hcl = stack.ToHclString();
+string hcl = stack.ToHcl();
 Console.WriteLine(hcl);
 ```
 
-## Project Structure
+### Output Example
 
-- **EmmittJ.Terraform.Sdk** - Core SDK library with base types and HCL generation
-- **EmmittJ.Terraform.Sdk.Providers.\*** - Provider-specific resource definitions (auto-generated)
-  - `Providers.Aws` - AWS provider resources and `AwsProvider` class
-  - `Providers.AzureRM` - Azure Resource Manager provider and `AzureRMProvider` class
-  - `Providers.AzureAD` - Azure Active Directory provider and `AzureADProvider` class
-  - `Providers.Google` - Google Cloud Platform provider and `GoogleProvider` class
-- **EmmittJ.Terraform.Sdk.AppHost** - Code generation using .NET Aspire
-- **EmmittJ.Aspire.Hosting.Terraform** - Integration with .NET Aspire for hosting scenarios
+```hcl
+terraform {
+  required_version = ">= 1.9.0"
+}
 
-## Code Generation
+provider "aws" {
+  region = "us-west-2"
+}
 
-The provider libraries are auto-generated from Terraform provider schemas using the AppHost project. To regenerate the provider code:
+resource "aws_vpc" "main" {
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_hostnames = true
+  enable_dns_support   = true
+}
+
+resource "aws_subnet" "public" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.0.1.0/24"
+  availability_zone = "us-west-2a"
+}
+```
+
+## 🏗️ Architecture
+
+### Polymorphic Value System
+
+The SDK uses a polymorphic type system with `TerraformValue<T>` to provide type safety and avoid null reference exceptions:
+
+```csharp
+// Implicit conversion from literals
+TerraformValue<string> region = "us-west-2";
+TerraformValue<int> port = 443;
+TerraformValue<bool> enabled = true;
+
+// Reference to other resources
+TerraformValue<string> vpcId = vpc["id"];
+
+// Terraform expressions
+TerraformValue<string> name = Tf.Join("-", ["app", "server"]);
+```
+
+### Two-Phase Resolution
+
+Inspired by Terraform CDK and AWS CDK, the SDK uses two-pass compilation:
+
+1. **Prepare Phase** - Collect dependencies, track references, validate structure
+2. **Resolve Phase** - Generate HCL expressions and output
+
+This enables:
+
+- Circular dependency detection
+- Intelligent reference resolution
+- Compile-time validation
+- Optimized HCL generation
+
+### Expression Trees
+
+Terraform configurations are represented as immutable expression trees that compose into larger structures. This design enables:
+
+- Easy validation and transformation
+- Type-safe composition
+- Optimization opportunities
+- Clear separation of concerns
+
+## 🔧 Advanced Features
+
+### Using Terraform Functions
+
+The `Tf` class provides access to Terraform built-in functions:
+
+```csharp
+// String manipulation
+var joined = Tf.Join(",", ["a", "b", "c"]);
+var encoded = Tf.Base64Encode("hello");
+
+// Type constraints
+var stringType = Tf.Types.String;
+var listOfStrings = Tf.Types.List(Tf.Types.String);
+var mapOfNumbers = Tf.Types.Map(Tf.Types.Number);
+```
+
+### Variables and Outputs
+
+```csharp
+// Define input variables
+var region = new TerraformVariable("region")
+{
+    Type = Tf.Types.String,
+    Default = "us-west-2",
+    Description = "AWS region for resources"
+};
+stack.Add(region);
+
+// Define outputs
+var vpcIdOutput = new TerraformOutput("vpc_id")
+{
+    Value = vpc["id"],
+    Description = "The ID of the VPC"
+};
+stack.Add(vpcIdOutput);
+```
+
+### Dynamic Blocks
+
+Create dynamic nested blocks using the `.AsDynamic()` API:
+
+```csharp
+var settings = new TerraformVariable("settings");
+var settingsRef = TerraformValue.FromExpression<object>(settings.AsReference());
+
+// Create dynamic block
+var dynamicBlock = new TerraformDynamicBlock("setting", settingsRef);
+dynamicBlock.Content.SetPropertyValue("key", TerraformExpression.Identifier("setting.value.key"));
+dynamicBlock.Content.SetPropertyValue("value", TerraformExpression.Identifier("setting.value.value"));
+
+resource.SetDynamicBlock("setting", dynamicBlock);
+```
+
+### Meta-Arguments
+
+All standard Terraform meta-arguments are supported:
+
+```csharp
+var servers = new TerraformResource("aws_instance", "server")
+{
+    ["ami"] = "ami-12345678",
+    ["instance_type"] = "t2.micro",
+    Count = 3,  // Create 3 instances
+    DependsOn = [vpc, subnet]
+};
+```
+
+## 🌐 Aspire Integration
+
+Deploy Terraform infrastructure as part of your Aspire applications:
+
+```csharp
+var builder = DistributedApplication.CreateBuilder(args);
+
+// Add Terraform environment
+var terraform = builder.AddTerraformEnvironment("terraform")
+    .WithBackend("s3", backend =>
+    {
+        backend["bucket"] = "my-terraform-state";
+        backend["region"] = "us-west-2";
+        backend["key"] = "terraform.tfstate";
+    });
+
+// Publish project with Terraform infrastructure
+var api = builder.AddProject<Projects.ApiService>("api")
+    .PublishAsTerraform((stack, resource) =>
+    {
+        // Customize infrastructure for API deployment
+        var container = new TerraformResource("azurerm_container_app", "api")
+        {
+            ["name"] = resource.Name,
+            ["container_app_environment_id"] = environment.AsReference()
+        };
+        stack.Add(container);
+    });
+```
+
+Run `aspire publish` to generate and deploy Terraform infrastructure.
+
+## 🔨 Development
+
+### Prerequisites
+
+- [.NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) (RC or later)
+- C# 14 with preview features enabled
+- (Optional) [Aspire workload](https://learn.microsoft.com/dotnet/aspire/fundamentals/setup-tooling) for code generation
+
+### Building from Source
 
 ```bash
-# From the repository root
+# Clone the repository
+git clone https://github.com/EmmittJ/terraform-sdk.git
+cd terraform-sdk
+
+# Restore packages
+dotnet restore
+
+# Build the solution
+dotnet build
+
+# Run tests
+dotnet test
+```
+
+### Code Generation
+
+Provider bindings are auto-generated from Terraform provider schemas:
+
+```bash
+# Generate provider code for all configured providers
 aspire publish
 ```
 
-This will generate:
+This generates:
 
-- Provider classes (e.g., `AwsProvider`, `AzureRMProvider`)
+- Provider configuration classes (`AwsProvider`, `AzureRMProvider`, etc.)
 - Resource classes for all Terraform resources
 - Data source classes for all Terraform data sources
 
-For more information, see [AppHost README](./src/EmmittJ.Terraform.Sdk.AppHost/README.md).
+Generated code locations:
 
-## Documentation Pages
+- `src/providers/EmmittJ.Terraform.Sdk.Providers.Aws/` - AWS resources
+- `src/providers/EmmittJ.Terraform.Sdk.Providers.AzureRM/` - Azure resources
+- `src/providers/EmmittJ.Terraform.Sdk.Providers.Google/` - GCP resources
 
-- [API Reference](./api/README.md) _(coming soon)_
-- [Providers](./providers.md) _(coming soon)_
-- [Aspire Integration](./aspire-integration.md) _(coming soon)_
-- [Contributing](../CONTRIBUTING.md) _(coming soon)_
+**Important:** Do not manually edit generated provider code - it will be overwritten on next generation.
 
-## Additional Resources
+### Testing
+
+The project uses xUnit and Verify for testing:
+
+```bash
+# Run all tests
+dotnet test
+
+# Run tests for a specific project
+dotnet test tests/EmmittJ.Terraform.Sdk.Tests/
+
+# Run a specific test
+dotnet test --filter "FullyQualifiedName~TerraformResourceTests.CanCreateBasicResource"
+
+# Accept snapshot changes (after reviewing)
+dotnet verify accept -y
+```
+
+## 📂 Project Structure
+
+- **EmmittJ.Terraform.Sdk** - Core SDK with polymorphic property system, expression trees, and HCL generation
+- **EmmittJ.Terraform.Sdk.Providers.\*** - Auto-generated provider-specific resources (AWS, Azure, GCP)
+- **EmmittJ.Terraform.Sdk.SourceGenerators** - Roslyn source generators for meta-arguments and properties
+- **EmmittJ.Terraform.Sdk.AppHost** - Code generation using Aspire to generate provider bindings
+- **EmmittJ.Aspire.Hosting.Terraform** - Integration with Aspire for deployment scenarios
+
+## 🛠️ Technology Stack
+
+- **.NET 10.0** with preview features enabled
+- **C# 14** with preview features
+- **Source Generators** for compile-time code generation
+- **Verify** and **xUnit** for testing with snapshot testing
+- **Aspire** for code generation orchestration
+- **Central Package Management** for consistent versioning
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read the development guidelines in [`.github/copilot-instructions.md`](.github/copilot-instructions.md) for:
+
+- Code style and formatting rules
+- Architecture principles
+- Testing guidelines
+- Common development patterns
+
+### Key Principles
+
+- Follow `.editorconfig` rules strictly
+- Use file-scoped namespace declarations
+- Enable nullable reference types
+- Document all public APIs with XML comments
+- Trust the polymorphic type system - avoid runtime type checking
+- Write comprehensive tests with snapshots
+
+## 📚 Additional Resources
 
 - [GitHub Repository](https://github.com/EmmittJ/terraform-sdk)
-- [Sample Projects](../samples/)
-- [Tests](../tests/) - Test examples showing various usage patterns
+- [Terraform Documentation](https://developer.hashicorp.com/terraform)
+- [Terraform Registry](https://registry.terraform.io/)
+- [.NET Aspire Documentation](https://learn.microsoft.com/dotnet/aspire/)
 
-## License
+## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](../LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+Inspired by:
+
+- [Terraform CDK](https://developer.hashicorp.com/terraform/cdktf) - Similar two-phase resolution concepts
+- [AWS CDK](https://aws.amazon.com/cdk/) - Expression tree and construct patterns
+- [Pulumi](https://www.pulumi.com/) - Infrastructure as code with real programming languages
+
+---
+
+**Status:** Pre-1.0.0 preview - APIs may change. Breaking changes are minimized but possible.
+
+**Version:** 0.1.0-preview
+
+Made with ❤️ for .NET and Infrastructure-as-Code
