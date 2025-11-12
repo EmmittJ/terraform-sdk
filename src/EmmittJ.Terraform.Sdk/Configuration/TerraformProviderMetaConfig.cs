@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace EmmittJ.Terraform.Sdk
+namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
 /// Represents a provider_meta block configuration.

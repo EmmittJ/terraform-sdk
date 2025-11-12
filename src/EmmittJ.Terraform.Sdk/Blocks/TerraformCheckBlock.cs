@@ -1,4 +1,4 @@
-namespace EmmittJ.Terraform.Sdk
+namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
 /// Represents a Terraform check block for continuous validation (Terraform 1.5+).
