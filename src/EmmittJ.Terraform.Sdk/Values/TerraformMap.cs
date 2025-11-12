@@ -13,14 +13,14 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
     // Internal: Store values as TerraformValue<T> to preserve unknowns
     private readonly Dictionary<string, TerraformValue<T>> _elements;
 
-    // Parameterless blockor for collection initializer syntax
+    // Parameterless constructor for collection initializer syntax
     public TerraformMap()
         : base()
     {
         _elements = new Dictionary<string, TerraformValue<T>>();
     }
 
-    // Blockor for literal values
+    // Constructor for literal values
     public TerraformMap(IDictionary<string, T> values)
         : this()
     {
@@ -33,7 +33,7 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
         }
     }
 
-    // Blockor for mixed TerraformValue<T> values
+    // Constructor for mixed TerraformValue<T> values
     public TerraformMap(IDictionary<string, TerraformValue<T>> values)
         : this()
     {
@@ -46,7 +46,7 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
         }
     }
 
-    // Blockor for expressions/references
+    // Constructor for expressions/references
     protected TerraformMap(ITerraformResolvable resolvable)
         : base(resolvable)
     {

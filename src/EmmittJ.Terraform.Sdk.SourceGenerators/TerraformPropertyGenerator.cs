@@ -48,7 +48,7 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
         if (!HasRequiredPropertyMethods(classSymbol))
             return null;
 
-        // Determine if this type returns references (has TerraformReference blockor)
+        // Determine if this type returns references (has TerraformReference constructor)
         bool shouldReturnReferences = ShouldReturnReferences(classSymbol);
 
         // Find all properties with [TerraformProperty] attribute that are partial (need implementation)
@@ -206,9 +206,9 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
         var attribute = property.GetAttributes()
             .FirstOrDefault(attr => attr.AttributeClass?.Name == TerraformPropertyAttributeName);
 
-        if (attribute?.BlockorArguments.Length > 0)
+        if (attribute?.ConstructorArguments.Length > 0)
         {
-            var arg = attribute.BlockorArguments[0];
+            var arg = attribute.ConstructorArguments[0];
             if (arg.Value is string name)
                 return name;
         }

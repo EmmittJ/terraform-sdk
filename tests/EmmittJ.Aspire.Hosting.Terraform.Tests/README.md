@@ -20,7 +20,7 @@ Tests for the builder extension methods:
 
 Tests for the `TerraformStackResource` class:
 
-- Blockor validation
+- Constructor validation
 - Property accessors
 - Interface implementations
 - Annotation support

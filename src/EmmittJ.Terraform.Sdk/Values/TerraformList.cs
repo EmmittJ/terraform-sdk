@@ -13,14 +13,14 @@ public class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerable
     // Internal: Store elements as TerraformValue<T> to preserve unknowns (Pulumi pattern)
     private readonly List<TerraformValue<T>> _elements;
 
-    // Parameterless blockor for collection initializer syntax
+    // Parameterless constructor for collection initializer syntax
     public TerraformList()
         : base()
     {
         _elements = new List<TerraformValue<T>>();
     }
 
-    // Blockor for literal values
+    // Constructor for literal values
     public TerraformList(IEnumerable<T> values)
         : this()
     {
@@ -33,7 +33,7 @@ public class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerable
         }
     }
 
-    // Blockor for mixed TerraformValue<T> elements (unknowns)
+    // Constructor for mixed TerraformValue<T> elements (unknowns)
     public TerraformList(IEnumerable<TerraformValue<T>> values)
         : this()
     {
@@ -43,7 +43,7 @@ public class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerable
         }
     }
 
-    // Blockor for expressions/references
+    // Constructor for expressions/references
     private TerraformList(ITerraformResolvable resolvable)
         : base(resolvable)
     {

@@ -13,14 +13,14 @@ public class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerable
     // Internal: Store elements as TerraformValue<T> to preserve unknowns
     private readonly List<TerraformValue<T>> _elements;
 
-    // Parameterless blockor for collection initializer syntax
+    // Parameterless constructor for collection initializer syntax
     public TerraformSet()
         : base()
     {
         _elements = new List<TerraformValue<T>>();
     }
 
-    // Blockor for literal values - enforces uniqueness
+    // Constructor for literal values - enforces uniqueness
     public TerraformSet(IEnumerable<T> values)
         : this()
     {
@@ -33,7 +33,7 @@ public class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerable
         }
     }
 
-    // Blockor for mixed TerraformValue<T> elements
+    // Constructor for mixed TerraformValue<T> elements
     public TerraformSet(IEnumerable<TerraformValue<T>> values)
         : this()
     {
@@ -43,7 +43,7 @@ public class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerable
         }
     }
 
-    // Blockor for expressions/references
+    // Constructor for expressions/references
     private TerraformSet(ITerraformResolvable resolvable)
         : base(resolvable)
     {
