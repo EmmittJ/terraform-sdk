@@ -52,6 +52,15 @@ public class TerraformValue<T> : ITerraformValue
     }
 
     /// <summary>
+    /// Creates a lazy TerraformValue that will be resolved at resolution time.
+    /// The producer function is called during resolution to generate the final expression.
+    /// </summary>
+    /// <param name="producer">A function that produces a TerraformExpression when called with a resolution context.</param>
+    /// <returns>A TerraformValue that wraps the lazy producer.</returns>
+    public static TerraformValue<T> Lazy(Func<ITerraformContext, TerraformExpression> producer)
+        => new TerraformLazyValue<T>(producer);
+
+    /// <summary>
     /// Implicit conversion from literal value - wrap in a resolvable.
     /// Note: For TerraformExpression specifically, this creates a literal value wrapper.
     /// Use the explicit TerraformExpression->TerraformValue conversion below for expression references.
@@ -65,12 +74,6 @@ public class TerraformValue<T> : ITerraformValue
     /// </summary>
     public static implicit operator TerraformValue<T>(TerraformExpression expression)
         => new TerraformValue<T>(expression);
-
-    /// <summary>
-    /// Conversion from TerraformLazyValue.
-    /// </summary>
-    public static implicit operator TerraformValue<T>(TerraformLazyValue lazy)
-        => new TerraformValue<T>(lazy);
 }
 
 /// <summary>
@@ -89,10 +92,24 @@ public static class TerraformValue
     /// </summary>
     public static TerraformValue<T> FromExpression<T>(TerraformExpression expression)
         => new TerraformValue<T>(expression);
+}
 
-    /// <summary>
-    /// Create a TerraformValue from a lazy value.
-    /// </summary>
-    public static TerraformValue<T> FromLazy<T>(TerraformLazyValue lazy)
-        => lazy;
+/// <summary>
+/// Represents a lazy Terraform value that will be computed during resolution.
+/// Internal implementation detail used by TerraformValue.Lazy() factory method.
+/// </summary>
+internal class TerraformLazyValue<T> : TerraformValue<T>
+{
+    private readonly Func<ITerraformContext, TerraformExpression> _producer;
+
+    public TerraformLazyValue(Func<ITerraformContext, TerraformExpression> producer)
+        : base()
+    {
+        _producer = producer ?? throw new ArgumentNullException(nameof(producer));
+    }
+
+    public override TerraformExpression Resolve(ITerraformContext context)
+    {
+        return _producer(context);
+    }
 }

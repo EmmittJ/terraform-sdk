@@ -98,6 +98,15 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
     public static implicit operator TerraformMap<T>(TerraformExpression expression)
         => new TerraformMap<T>(expression);
 
+    /// <summary>
+    /// Creates a lazy TerraformMap that will be resolved at resolution time.
+    /// The producer function is called during resolution to generate the final expression.
+    /// </summary>
+    /// <param name="producer">A function that produces a TerraformExpression when called with a resolution context.</param>
+    /// <returns>A TerraformMap that wraps the lazy producer.</returns>
+    public static new TerraformMap<T> Lazy(Func<ITerraformContext, TerraformExpression> producer)
+        => new TerraformLazyMap<T>(producer);
+
     // IEnumerable for collection initializer syntax (non-functional)
     IEnumerator IEnumerable.GetEnumerator()
         => throw new NotSupportedException(
@@ -107,4 +116,23 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
     // Static empty map
     public static TerraformMap<T> Empty
         => new TerraformMap<T>();
+}
+
+/// <summary>
+/// Internal lazy map implementation for deferred resolution.
+/// </summary>
+internal sealed class TerraformLazyMap<T> : TerraformMap<T>
+{
+    private readonly Func<ITerraformContext, TerraformExpression> _producer;
+
+    public TerraformLazyMap(Func<ITerraformContext, TerraformExpression> producer)
+        : base()
+    {
+        _producer = producer ?? throw new ArgumentNullException(nameof(producer));
+    }
+
+    public override TerraformExpression Resolve(ITerraformContext context)
+    {
+        return _producer(context);
+    }
 }
