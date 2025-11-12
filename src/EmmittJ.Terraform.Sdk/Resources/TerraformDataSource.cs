@@ -45,7 +45,7 @@ public partial class TerraformDataSource :
     /// </summary>
     /// <param name="ctx">The resolution context.</param>
     /// <returns>A TerraformConstructExpression with block type "data" and labels [type, name].</returns>
-    public override TerraformExpression Resolve(ITerraformResolveContext ctx)
+    public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         // Get map expression from properties (via base.Resolve())
         var bodyMap = base.Resolve(ctx);

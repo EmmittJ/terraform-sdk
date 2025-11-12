@@ -1,3 +1,0 @@
-﻿output "all_ids" {
-  value = var.instance_list[*]
-}

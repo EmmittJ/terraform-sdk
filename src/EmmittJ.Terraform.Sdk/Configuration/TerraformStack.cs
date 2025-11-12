@@ -165,19 +165,28 @@ public class TerraformStack
                 ValidationSeverity.Error));
         }
 
-        // Check for duplicate names
+        // Check for duplicate names (resources, data sources, modules, etc.)
         var nameGroups = _constructs
-            .OfType<NamedTerraformConstruct>()
-            .GroupBy(c => new { c.BlockType, c.ConstructName })
+            .Select(c => new
+            {
+                Construct = c,
+                BlockType = c.GetType().GetProperty("BlockType")?.GetValue(c) as string,
+                Name = c.GetType().GetProperty("ResourceName")?.GetValue(c) as string
+                    ?? c.GetType().GetProperty("DataSourceName")?.GetValue(c) as string
+                    ?? c.GetType().GetProperty("Name")?.GetValue(c) as string
+                    ?? c.GetType().GetProperty("ConstructName")?.GetValue(c) as string
+            })
+            .Where(x => x.BlockType != null && x.Name != null)
+            .GroupBy(x => new { x.BlockType, x.Name })
             .Where(g => g.Count() > 1);
 
         foreach (var group in nameGroups)
         {
             errors.Add(new ValidationError(
-                $"Duplicate {group.Key.BlockType} name: '{group.Key.ConstructName}'",
+                $"Duplicate {group.Key.BlockType} name: '{group.Key.Name}'",
                 ValidationSeverity.Error,
-                group.First(),
-                "ConstructName"));
+                group.First().Construct,
+                "Name"));
         }
 
         // Validate reference targets exist within the configuration

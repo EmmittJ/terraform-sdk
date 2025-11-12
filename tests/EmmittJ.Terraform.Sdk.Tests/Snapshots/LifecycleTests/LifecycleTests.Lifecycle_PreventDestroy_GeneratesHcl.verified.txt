@@ -1,7 +1,0 @@
-﻿resource "aws_s3_bucket" "data" {
-  lifecycle {
-    prevent_destroy = true
-  }
-  bucket = "my-important-data"
-}
-

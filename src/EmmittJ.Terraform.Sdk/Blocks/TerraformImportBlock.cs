@@ -96,7 +96,7 @@ public class TerraformImportBlock : TerraformBlock
     /// </summary>
     /// <param name="ctx">The resolution context.</param>
     /// <returns>A TerraformConstructExpression with block type "import" and no labels.</returns>
-    public override TerraformExpression Resolve(ITerraformResolveContext ctx)
+    public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         // Get map expression from properties (via base.Resolve())
         var bodyMap = base.Resolve(ctx);
@@ -124,7 +124,7 @@ public class ImportAddressProperty : ITerraformResolvable
         _address = address;
     }
 
-    public TerraformExpression Resolve(ITerraformResolveContext context)
+    public TerraformExpression Resolve(ITerraformContext context)
     {
         return new ImportAddressExpression(_address);
     }

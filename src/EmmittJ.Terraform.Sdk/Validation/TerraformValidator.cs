@@ -18,6 +18,9 @@ public static class TerraformValidator
 
         var errors = new List<ValidationError>();
 
+        // Validate meta-argument constraints first
+        ValidateMetaArguments(construct, errors);
+
         // Validate using Data Annotations
         var validationContext = new System.ComponentModel.DataAnnotations.ValidationContext(construct);
         var validationResults = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
@@ -42,6 +45,34 @@ public static class TerraformValidator
         return errors.Count > 0
             ? new ValidationResult(errors)
             : ValidationResult.Success();
+    }
+
+    /// <summary>
+    /// Validates meta-argument constraints (e.g., count and for_each are mutually exclusive).
+    /// </summary>
+    private static void ValidateMetaArguments(TerraformBlock construct, List<ValidationError> errors)
+    {
+        // Check if construct has both count and for_each set
+        // Since the properties are source-generated on the marker interfaces, we need to use reflection
+        if (construct is Constructs.MetaArguments.ITerraformHasCount &&
+            construct is Constructs.MetaArguments.ITerraformHasForEach)
+        {
+            var constructType = construct.GetType();
+            var countProperty = constructType.GetProperty("Count");
+            var forEachProperty = constructType.GetProperty("ForEach");
+
+            var count = countProperty?.GetValue(construct);
+            var forEach = forEachProperty?.GetValue(construct);
+
+            if (count != null && forEach != null)
+            {
+                errors.Add(new ValidationError(
+                    $"Cannot use both 'count' and 'for_each' meta-arguments on {construct.GetType().Name}. They are mutually exclusive.",
+                    ValidationSeverity.Error,
+                    construct,
+                    "meta-arguments"));
+            }
+        }
     }
 
     /// <summary>

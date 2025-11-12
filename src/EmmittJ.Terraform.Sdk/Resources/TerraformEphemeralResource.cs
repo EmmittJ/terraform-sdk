@@ -22,7 +22,7 @@ public class TerraformEphemeralResource(string type, string name) : TerraformBlo
         => TerraformExpression.Identifier($"ephemeral.{ConstructType}.{ConstructName}");
 
     /// <inheritdoc/>
-    public override TerraformExpression Resolve(ITerraformResolveContext context)
+    public override TerraformExpression Resolve(ITerraformContext context)
     {
         // Get map expression from properties (via base.Resolve())
         var bodyMap = base.Resolve(context);

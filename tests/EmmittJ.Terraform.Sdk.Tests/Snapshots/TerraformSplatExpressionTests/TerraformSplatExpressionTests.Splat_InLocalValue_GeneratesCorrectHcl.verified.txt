@@ -1,3 +1,0 @@
-﻿locals {
-  instance_private_ips = aws_instance.app[*].private_ip
-}

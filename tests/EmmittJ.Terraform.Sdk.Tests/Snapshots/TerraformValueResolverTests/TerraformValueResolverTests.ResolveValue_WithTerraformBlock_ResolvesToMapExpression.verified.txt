@@ -1,4 +1,0 @@
-﻿{
-  count = 42
-  name = "test-block"
-}

@@ -1,8 +1,0 @@
-﻿output "instance_ip" {
-  value = aws_instance.web.public_ip
-
-  precondition {
-    condition     = aws_instance.web.public_ip != ""
-    error_message = "Instance must have a public IP before output"
-  }
-}

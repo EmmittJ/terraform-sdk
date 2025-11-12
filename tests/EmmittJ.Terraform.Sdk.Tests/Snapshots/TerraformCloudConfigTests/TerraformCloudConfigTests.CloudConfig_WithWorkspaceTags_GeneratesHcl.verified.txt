@@ -1,9 +1,0 @@
-﻿terraform {
-  cloud {
-    organization = "example_corp"
-    workspaces {
-      tags = ["app", "production"]
-    }
-  }
-}
-

@@ -54,7 +54,7 @@ public sealed class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerab
     /// Override resolution to handle nested TerraformValue&lt;T&gt; elements.
     /// This preserves unknowns during serialization.
     /// </summary>
-    public override TerraformExpression Resolve(ITerraformResolveContext context)
+    public override TerraformExpression Resolve(ITerraformContext context)
     {
         // Resolve each element individually
         var resolvedElements = _elements

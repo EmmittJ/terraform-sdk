@@ -78,7 +78,7 @@ public class TerraformCheckBlock : TerraformBlock
     /// <summary>
     /// Resolves to a TerraformConstructExpression representing the check block with nested data sources and asserts.
     /// </summary>
-    public override TerraformExpression Resolve(ITerraformResolveContext ctx)
+    public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         // Get the base map expression with properties
         var bodyMap = base.Resolve(ctx) as TerraformMapExpression ?? new TerraformMapExpression();
@@ -162,7 +162,7 @@ public class TerraformAssertBlock : TerraformBlock
     /// <summary>
     /// Resolves to a TerraformConstructExpression representing the assert block.
     /// </summary>
-    public override TerraformExpression Resolve(ITerraformResolveContext ctx)
+    public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         var bodyMap = base.Resolve(ctx);
         return new TerraformConstructExpression("assert", [], bodyMap);

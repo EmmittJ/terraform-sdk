@@ -1,3 +1,0 @@
-﻿variable "test_var" {
-}
-

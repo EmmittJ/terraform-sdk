@@ -56,7 +56,7 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
     /// <summary>
     /// Override resolution to handle nested TerraformValue&lt;T&gt; values.
     /// </summary>
-    public override TerraformExpression Resolve(ITerraformResolveContext context)
+    public override TerraformExpression Resolve(ITerraformContext context)
     {
         var resolvedPairs = _elements.Select(kvp =>
             new KeyValuePair<string, TerraformExpression>(

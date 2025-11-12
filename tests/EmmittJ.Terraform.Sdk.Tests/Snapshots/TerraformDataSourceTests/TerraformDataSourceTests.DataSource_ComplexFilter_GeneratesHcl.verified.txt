@@ -1,6 +1,0 @@
-﻿data "aws_ami" "ubuntu" {
-  filter_name = "name"
-  filter_values = "ubuntu/images/*"
-  most_recent = true
-  owners = "099720109477"
-}

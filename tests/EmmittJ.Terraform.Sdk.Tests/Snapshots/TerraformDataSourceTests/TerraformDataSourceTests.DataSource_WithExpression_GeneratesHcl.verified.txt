@@ -1,4 +1,0 @@
-﻿data "aws_ami" "filtered" {
-  most_recent = true
-  owners = "self"
-}

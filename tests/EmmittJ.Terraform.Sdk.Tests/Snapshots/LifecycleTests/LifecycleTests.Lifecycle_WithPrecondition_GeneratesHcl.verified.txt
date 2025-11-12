@@ -1,9 +1,0 @@
-﻿resource "aws_instance" "web" {
-  lifecycle {
-    create_before_destroy = true
-    prevent_destroy = false
-  }
-  ami = "ami-12345678"
-  instance_type = "t2.micro"
-}
-

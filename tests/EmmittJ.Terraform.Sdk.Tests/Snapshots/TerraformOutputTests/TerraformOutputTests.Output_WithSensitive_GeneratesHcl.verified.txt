@@ -1,4 +1,0 @@
-﻿output "db_password" {
-  value = "super-secret"
-  sensitive = true
-}

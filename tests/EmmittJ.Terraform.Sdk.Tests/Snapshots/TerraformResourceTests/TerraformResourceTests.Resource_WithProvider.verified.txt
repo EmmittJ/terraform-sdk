@@ -1,5 +1,0 @@
-﻿resource "aws_instance" "web" {
-  provider = aws.west
-  ami = "ami-12345678"
-}
-

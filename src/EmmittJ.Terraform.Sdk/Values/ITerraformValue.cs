@@ -16,5 +16,5 @@ public interface ITerraformValue
     /// </summary>
     /// <param name="context">The resolution context.</param>
     /// <returns>The resolved TerraformExpression.</returns>
-    TerraformExpression Resolve(ITerraformResolveContext context);
+    TerraformExpression Resolve(ITerraformContext context);
 }

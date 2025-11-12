@@ -286,13 +286,9 @@ public class ProviderRequirement
 /// <summary>
 /// Represents the cloud block for Terraform Cloud/Enterprise configuration.
 /// </summary>
-public class TerraformCloudBlock : TerraformConstruct
+public class TerraformCloudBlock : TerraformBlock
 {
-    /// <inheritdoc/>
-    public override string BlockType => "cloud";
-
-    /// <inheritdoc/>
-    protected override string[] BlockLabels => Array.Empty<string>();
+    public TerraformCloudBlock() : base("") { }
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()

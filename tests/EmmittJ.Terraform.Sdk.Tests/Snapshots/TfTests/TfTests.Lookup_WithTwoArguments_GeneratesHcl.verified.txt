@@ -1,1 +1,0 @@
-﻿lookup({production = "prod", development = "dev"}, "production")

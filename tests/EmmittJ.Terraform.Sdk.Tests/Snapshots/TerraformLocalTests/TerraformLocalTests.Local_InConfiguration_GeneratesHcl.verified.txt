@@ -1,5 +1,0 @@
-﻿locals {
-  environment = "staging"
-  project_name = "my-app"
-}
-

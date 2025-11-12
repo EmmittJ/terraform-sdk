@@ -1,5 +1,0 @@
-﻿output "vpc_id" {
-  value = "vpc-12345"
-  description = "VPC ID"
-}
-

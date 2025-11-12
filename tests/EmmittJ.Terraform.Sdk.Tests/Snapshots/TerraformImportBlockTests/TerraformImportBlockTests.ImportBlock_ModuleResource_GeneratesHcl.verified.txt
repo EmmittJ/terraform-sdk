@@ -1,5 +1,0 @@
-﻿import {
-  to = module.web_servers.aws_instance.server
-  id = "i-1234567890abcdef0"
-}
-

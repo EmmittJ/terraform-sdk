@@ -3,13 +3,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// <summary>
 /// Represents a Terraform locals block containing local values.
 /// </summary>
-public class TerraformLocal : TerraformConstruct
+public class TerraformLocal : TerraformBlock
 {
-    /// <inheritdoc/>
-    public override string BlockType => "locals";
-
-    /// <inheritdoc/>
-    protected override string[] BlockLabels => Array.Empty<string>();
+    public TerraformLocal() : base("") { }
 
     /// <summary>
     /// Sets a local value for serialization.
@@ -27,9 +23,21 @@ public class TerraformLocal : TerraformConstruct
     /// </summary>
     /// <param name="name">The name of the local value.</param>
     /// <returns>A reference expression to the local value.</returns>
-    public TerraformExpression this[string name]
+    public new TerraformExpression this[string name]
     {
         get => TerraformExpression.Identifier($"local.{name}");
+    }
+
+    /// <summary>
+    /// Resolves to a TerraformConstructExpression representing the locals block.
+    /// </summary>
+    public override TerraformExpression Resolve(ITerraformContext ctx)
+    {
+        // Get map expression from properties (via base.Resolve())
+        var bodyMap = base.Resolve(ctx);
+
+        // Wrap in construct expression with "locals" block type and no labels
+        return new TerraformConstructExpression("locals", [], bodyMap);
     }
 
     /// <inheritdoc/>

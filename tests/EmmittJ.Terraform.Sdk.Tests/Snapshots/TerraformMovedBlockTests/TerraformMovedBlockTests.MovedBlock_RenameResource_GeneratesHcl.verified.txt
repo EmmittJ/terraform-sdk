@@ -1,5 +1,0 @@
-﻿moved {
-  from = aws_instance.a
-  to = aws_instance.b
-}
-

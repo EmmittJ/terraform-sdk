@@ -1,4 +1,0 @@
-﻿output "endpoint" {
-  value = "https://example.com"
-  depends_on = [aws_instance.web]
-}

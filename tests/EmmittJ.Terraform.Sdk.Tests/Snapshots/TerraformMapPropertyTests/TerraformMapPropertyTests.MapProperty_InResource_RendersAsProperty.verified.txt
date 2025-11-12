@@ -1,7 +1,0 @@
-﻿resource "aws_instance" "example" {
-  tags = {
-    Environment = "Development"
-    Name = "TestInstance"
-  }
-}
-

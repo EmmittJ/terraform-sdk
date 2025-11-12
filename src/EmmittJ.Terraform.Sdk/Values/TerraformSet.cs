@@ -53,7 +53,7 @@ public sealed class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerabl
     /// <summary>
     /// Override resolution to handle nested TerraformValue&lt;T&gt; elements.
     /// </summary>
-    public override TerraformExpression Resolve(ITerraformResolveContext context)
+    public override TerraformExpression Resolve(ITerraformContext context)
     {
         var resolvedElements = _elements
             .Select(e => e.Resolve(context))

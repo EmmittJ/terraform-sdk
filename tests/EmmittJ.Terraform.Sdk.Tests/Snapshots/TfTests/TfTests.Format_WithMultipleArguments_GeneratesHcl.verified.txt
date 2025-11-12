@@ -1,1 +1,0 @@
-﻿format("%s-%s-bucket", var.name, var.region)

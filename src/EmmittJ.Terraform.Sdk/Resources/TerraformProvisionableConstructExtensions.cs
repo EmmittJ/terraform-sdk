@@ -1,8 +1,11 @@
 namespace EmmittJ.Terraform.Sdk;
 
+using EmmittJ.Terraform.Sdk.Constructs.MetaArguments;
+using System.Diagnostics.CodeAnalysis;
+
 /// <summary>
-/// Extension methods for TerraformProvisionableConstruct (resources and data sources).
-/// Provides dynamic block management for constructs that support it.
+/// Extension methods for Terraform constructs that support dynamic blocks.
+/// Provides dynamic block management for resources and data sources.
 /// </summary>
 public static class TerraformProvisionableConstructExtensions
 {
@@ -11,17 +14,22 @@ public static class TerraformProvisionableConstructExtensions
     /// The iterator variable is automatically named after the block type.
     /// Example: resource.WithDynamicBlock("ingress", var.rules, ingress => { ... })
     /// </summary>
-    public static TConstruct WithDynamicBlock<TConstruct>(
+    public static TConstruct WithDynamicBlock<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TConstruct>(
         this TConstruct construct,
         string blockType,
         TerraformExpression forEach,
         Action<TerraformDynamicBlockBuilder> configure)
-        where TConstruct : TerraformProvisionableConstruct
+        where TConstruct : ITerraformHasDynamicBlocks
     {
         var dynamicBlock = new TerraformDynamicBlock(blockType, forEach);
         var builder = new TerraformDynamicBlockBuilder(dynamicBlock, blockType);
         configure(builder);
-        construct.DynamicBlocks.Add(dynamicBlock);
+
+        // Use reflection to access the source-generated DynamicBlocks property
+        var dynamicBlocksProperty = typeof(TConstruct).GetProperty("DynamicBlocks");
+        var dynamicBlocks = dynamicBlocksProperty?.GetValue(construct) as List<TerraformDynamicBlock>;
+        dynamicBlocks?.Add(dynamicBlock);
+
         return construct;
     }
 
@@ -29,13 +37,13 @@ public static class TerraformProvisionableConstructExtensions
     /// Adds a dynamic block with a custom iterator name and a callback to configure the content.
     /// Example: resource.WithDynamicBlock("egress", "rule", var.rules, rule => { ... })
     /// </summary>
-    public static TConstruct WithDynamicBlock<TConstruct>(
+    public static TConstruct WithDynamicBlock<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TConstruct>(
         this TConstruct construct,
         string blockType,
         string iteratorName,
         TerraformExpression forEach,
         Action<TerraformDynamicBlockBuilder> configure)
-        where TConstruct : TerraformProvisionableConstruct
+        where TConstruct : ITerraformHasDynamicBlocks
     {
         var dynamicBlock = new TerraformDynamicBlock(blockType, forEach)
         {
@@ -43,7 +51,12 @@ public static class TerraformProvisionableConstructExtensions
         };
         var builder = new TerraformDynamicBlockBuilder(dynamicBlock, iteratorName);
         configure(builder);
-        construct.DynamicBlocks.Add(dynamicBlock);
+
+        // Use reflection to access the source-generated DynamicBlocks property
+        var dynamicBlocksProperty = typeof(TConstruct).GetProperty("DynamicBlocks");
+        var dynamicBlocks = dynamicBlocksProperty?.GetValue(construct) as List<TerraformDynamicBlock>;
+        dynamicBlocks?.Add(dynamicBlock);
+
         return construct;
     }
 }

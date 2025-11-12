@@ -1,1 +1,0 @@
-﻿custom_function("value1", 42)

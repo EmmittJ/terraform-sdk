@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Reflection;
 
 namespace EmmittJ.Terraform.Sdk;
 
@@ -65,7 +64,7 @@ public static class TerraformValueResolver
     /// Resolves a value to a TerraformExpression.
     /// Pattern matching order is critical:
     /// 1. Check for TerraformExpression first (already resolved)
-    /// 2. Check for TerraformValue&lt;T&gt; (use reflection to resolve)
+    /// 2. Check for ITerraformValue (TerraformValue&lt;T&gt;)
     /// 3. Check for ITerraformResolvable
     /// 4. Check for dictionaries BEFORE IEnumerable (Dictionary implements IEnumerable)
     /// 5. Check for typed collections (List&lt;ITerraformResolvable&gt;)
@@ -85,8 +84,8 @@ public static class TerraformValueResolver
             // Already an expression
             TerraformExpression expr => expr,
 
-            // TerraformValue<T> system - check if it's the generic struct type
-            _ when IsTerraformValue(value) => ResolveTerraformValue(value, context),
+            // TerraformValue<T> - use interface instead of reflection
+            ITerraformValue terraformValue => ResolveTerraformValue(terraformValue, context),
 
             // Generic resolvable to expression
             ITerraformResolvable resolvable => ResolveResolvableValue(resolvable, context),
@@ -107,8 +106,8 @@ public static class TerraformValueResolver
     /// </summary>
     private static TerraformExpression ResolveResolvableValue(ITerraformResolvable resolvable, ITerraformContext? context)
     {
-        ITerraformResolveContext resolveContext;
-        if (context is ITerraformResolveContext rc)
+        ITerraformContext resolveContext;
+        if (context is ITerraformContext rc)
         {
             resolveContext = rc;
         }
@@ -121,47 +120,15 @@ public static class TerraformValueResolver
     }
 
     /// <summary>
-    /// Checks if a value is a TerraformValue&lt;T&gt; struct.
+    /// Resolves a TerraformValue&lt;T&gt; using its Resolve method via interface.
     /// </summary>
-    private static bool IsTerraformValue(object value)
+    private static TerraformExpression ResolveTerraformValue(ITerraformValue terraformValue, ITerraformContext? context)
     {
-        var type = value.GetType();
-        return type.IsGenericType &&
-               type.GetGenericTypeDefinition() == typeof(TerraformValue<>);
-    }
+        ITerraformContext resolveContext = context is ITerraformContext rc
+            ? rc
+            : new TerraformResolveContext(context);
 
-    /// <summary>
-    /// Resolves a TerraformValue&lt;T&gt; using reflection to call its Resolve method.
-    /// </summary>
-    [System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessage("Trimming", "IL2070",
-        Justification = "TerraformValue<T> is a known struct with consistent Resolve method")]
-    private static TerraformExpression ResolveTerraformValue(object terraformValue, ITerraformContext? context)
-    {
-        // Create a resolve context from the ITerraformContext
-        ITerraformResolveContext resolveContext;
-        if (context is ITerraformResolveContext rc)
-        {
-            resolveContext = rc;
-        }
-        else
-        {
-            resolveContext = new TerraformResolveContext(context);
-        }
-
-        // Use reflection to call the Resolve method on TerraformValue<T>
-        // The method is public on the struct
-        var resolveMethod = terraformValue.GetType().GetMethod("Resolve",
-            BindingFlags.Instance | BindingFlags.Public);
-
-        if (resolveMethod == null)
-        {
-            throw new InvalidOperationException(
-                $"Could not find Resolve method on {terraformValue.GetType().Name}");
-        }
-
-        var result = resolveMethod.Invoke(terraformValue, new object[] { resolveContext });
-        return (TerraformExpression)(result ?? throw new InvalidOperationException(
-            "TerraformValue.Resolve returned null"));
+        return terraformValue.Resolve(resolveContext);
     }
 
     private static TerraformExpression ResolveEnumerable(

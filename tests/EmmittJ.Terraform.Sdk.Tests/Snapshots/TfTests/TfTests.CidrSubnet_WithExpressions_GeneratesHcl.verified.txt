@@ -1,1 +1,0 @@
-﻿cidrsubnet(var.vpc_cidr, 8, 0)

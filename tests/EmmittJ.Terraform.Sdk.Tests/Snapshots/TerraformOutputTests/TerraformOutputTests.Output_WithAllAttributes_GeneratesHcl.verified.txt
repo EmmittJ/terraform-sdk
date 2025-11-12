@@ -1,6 +1,0 @@
-﻿output "connection_string" {
-  value = "postgres://localhost:5432/mydb"
-  description = "Database connection string"
-  sensitive = true
-  depends_on = [aws_db_instance.main]
-}

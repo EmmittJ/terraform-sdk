@@ -69,7 +69,7 @@ internal class TerraformReferenceResolvable : ITerraformResolvable
         _attributeName = attributeName;
     }
 
-    public TerraformExpression Resolve(ITerraformResolveContext context)
+    public TerraformExpression Resolve(ITerraformContext context)
     {
         // Generate reference: resource_type.resource_name.attribute_name
         var reference = _block.AsReference();

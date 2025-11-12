@@ -1,3 +1,0 @@
-﻿resource "aws_subnet" "example" {
-  cidr_block = cidrsubnet(var.vpc_cidr, 8, 1)
-}

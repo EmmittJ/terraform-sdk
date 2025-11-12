@@ -40,7 +40,7 @@ public class TerraformValue<T> : ITerraformValue
     /// </summary>
     /// <param name="context">The resolution context.</param>
     /// <returns>The resolved TerraformExpression.</returns>
-    public virtual TerraformExpression Resolve(ITerraformResolveContext context)
+    public virtual TerraformExpression Resolve(ITerraformContext context)
     {
         if (_resolvable == null)
         {

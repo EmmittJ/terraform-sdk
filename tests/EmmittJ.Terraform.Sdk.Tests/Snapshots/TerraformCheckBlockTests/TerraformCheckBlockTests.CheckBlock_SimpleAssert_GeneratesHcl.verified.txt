@@ -1,8 +1,0 @@
-﻿check "health_check" {
-  assert {
-    condition = var.enable_health_check == true
-    error_message = "Health check must be enabled"
-  }
-
-}
-

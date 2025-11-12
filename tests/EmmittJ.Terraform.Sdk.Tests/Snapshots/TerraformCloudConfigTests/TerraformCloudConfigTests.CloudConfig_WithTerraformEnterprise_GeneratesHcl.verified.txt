@@ -1,9 +1,0 @@
-﻿terraform {
-  cloud {
-    organization = "example_corp"
-    hostname = "my.terraform-enterprise.host"
-    workspaces {
-      tags = ["app"]
-    }
-  }
-}

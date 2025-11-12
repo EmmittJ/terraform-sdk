@@ -1,5 +1,0 @@
-﻿import {
-  to = aws_instance.example[0]
-  id = "i-1234567890abcdef0"
-}
-

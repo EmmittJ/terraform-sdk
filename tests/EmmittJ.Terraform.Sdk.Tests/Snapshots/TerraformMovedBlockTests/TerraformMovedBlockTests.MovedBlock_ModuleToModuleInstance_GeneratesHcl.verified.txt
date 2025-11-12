@@ -1,5 +1,0 @@
-﻿moved {
-  from = module.vpc
-  to = module.vpc[2]
-}
-

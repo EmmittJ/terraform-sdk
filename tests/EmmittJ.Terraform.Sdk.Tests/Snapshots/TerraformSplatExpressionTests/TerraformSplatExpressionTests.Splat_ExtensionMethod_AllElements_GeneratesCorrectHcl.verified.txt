@@ -1,3 +1,0 @@
-﻿output "all_items" {
-  value = var.items[*]
-}

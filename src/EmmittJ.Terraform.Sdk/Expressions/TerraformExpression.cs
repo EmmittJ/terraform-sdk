@@ -31,7 +31,7 @@ public abstract class TerraformExpression : ITerraformSerializable, ITerraformRe
     /// </summary>
     /// <param name="context">The resolution context (unused for expressions).</param>
     /// <returns>This expression instance.</returns>
-    public virtual TerraformExpression Resolve(ITerraformResolveContext context) => this;
+    public virtual TerraformExpression Resolve(ITerraformContext context) => this;
 
     /// <summary>
     /// Converts expression to HCL string with optional context for indentation.

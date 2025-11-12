@@ -67,7 +67,7 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
     /// </summary>
     /// <param name="ctx">The resolution context.</param>
     /// <returns>A TerraformConstructExpression with block type "output" and label [name].</returns>
-    public override TerraformExpression Resolve(ITerraformResolveContext ctx)
+    public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         if (GetPropertyValue<TerraformValue<object>?>("value") == null)
         {

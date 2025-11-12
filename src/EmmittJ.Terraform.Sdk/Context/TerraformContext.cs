@@ -8,7 +8,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Creates a new context for the given scope.
 /// </remarks>
 /// <param name="scope">The configuration scope.</param>
-public class TerraformContext(TerraformStack scope) : ITerraformContext, ITerraformResolveContext
+public class TerraformContext(TerraformStack scope) : ITerraformContext
 {
     /// <summary>
     /// Creates a temporary context for testing or one-off resolution.
@@ -37,11 +37,6 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext, ITerraf
 
     /// <inheritdoc/>
     public TerraformStack Scope { get; } = scope ?? throw new ArgumentNullException(nameof(scope));
-
-    /// <summary>
-    /// Explicit implementation of ITerraformResolveContext.Scope
-    /// </summary>
-    object ITerraformResolveContext.Scope => Scope;
 
     /// <inheritdoc/>
     public int IndentLevel => _indentLevel;

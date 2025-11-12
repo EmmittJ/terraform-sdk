@@ -1,5 +1,0 @@
-﻿moved {
-  from = aws_instance.example
-  to = module.servers.aws_instance.example
-}
-

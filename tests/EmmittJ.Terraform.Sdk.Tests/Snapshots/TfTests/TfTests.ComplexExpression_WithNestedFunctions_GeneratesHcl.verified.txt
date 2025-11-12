@@ -1,1 +1,0 @@
-﻿format("subnet-%s", element(split("-", var.name), 0))

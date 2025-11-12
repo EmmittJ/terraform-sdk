@@ -1,5 +1,0 @@
-﻿provider "azurerm" {
-  features = {}
-  subscription_id = "12345-67890"
-  tenant_id = "abcde-fghij"
-}

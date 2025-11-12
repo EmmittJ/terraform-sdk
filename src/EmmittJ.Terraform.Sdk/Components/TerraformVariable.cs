@@ -68,7 +68,7 @@ public partial class TerraformVariable : TerraformBlock
     /// </summary>
     /// <param name="ctx">The resolution context.</param>
     /// <returns>A TerraformConstructExpression with block type "variable" and label [name].</returns>
-    public override TerraformExpression Resolve(ITerraformResolveContext ctx)
+    public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         // Get map expression from properties (via base.Resolve())
         var bodyMap = base.Resolve(ctx);

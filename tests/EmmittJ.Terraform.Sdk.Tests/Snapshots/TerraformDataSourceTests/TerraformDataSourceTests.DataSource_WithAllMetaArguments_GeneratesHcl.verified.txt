@@ -1,6 +1,0 @@
-﻿data "aws_subnet" "selected" {
-  count = 2
-  depends_on = [aws_vpc.main]
-  provider = aws.west
-  vpc_id = "vpc-12345"
-}

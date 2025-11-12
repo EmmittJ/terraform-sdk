@@ -52,7 +52,7 @@ public class TerraformMovedBlock : TerraformBlock
     /// </summary>
     /// <param name="ctx">The resolution context.</param>
     /// <returns>A TerraformConstructExpression with block type "moved" and no labels.</returns>
-    public override TerraformExpression Resolve(ITerraformResolveContext ctx)
+    public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         // Get map expression from properties (via base.Resolve())
         var bodyMap = base.Resolve(ctx);
@@ -81,7 +81,7 @@ public class MovedAddressProperty : ITerraformResolvable
         _address = address ?? throw new ArgumentNullException(nameof(address));
     }
 
-    public TerraformExpression Resolve(ITerraformResolveContext context)
+    public TerraformExpression Resolve(ITerraformContext context)
     {
         // Return a literal expression that renders without quotes
         return new MovedAddressExpression(_address);

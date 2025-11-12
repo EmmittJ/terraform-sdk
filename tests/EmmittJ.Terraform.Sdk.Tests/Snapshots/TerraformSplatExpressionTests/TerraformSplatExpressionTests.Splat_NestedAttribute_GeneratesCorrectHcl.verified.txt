@@ -1,3 +1,0 @@
-﻿output "network_interfaces" {
-  value = aws_instance.web[*].network_interface
-}
