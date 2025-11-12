@@ -8,12 +8,22 @@ namespace EmmittJ.Terraform.Sdk;
 /// Providers are plugins that Terraform uses to create and manage resources.
 /// Each provider adds a set of resource types and/or data sources that Terraform can manage.
 /// </remarks>
-public partial class TerraformProvider : TerraformBlock
+public partial class TerraformProvider : TerraformBlock, ITerraformTopLevelBlock
 {
     /// <summary>
     /// Gets the provider name.
     /// </summary>
     public string Name { get; }
+
+    /// <summary>
+    /// Gets the block type keyword for providers.
+    /// </summary>
+    public string BlockType => "provider";
+
+    /// <summary>
+    /// Gets the block labels for this provider.
+    /// </summary>
+    public string[] BlockLabels => [Name];
 
     /// <summary>
     /// Initializes a new instance of TerraformProvider.
