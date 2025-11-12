@@ -51,7 +51,7 @@ public abstract class TerraformExpression : ITerraformSerializable, ITerraformRe
 
     /// <summary>
     /// Creates an identifier expression with deferred resolution based on a value's state.
-    /// The resolver function is called during the Resolve phase, not at construction time.
+    /// The resolver function is called during the Resolve phase, not at blockion time.
     /// Example: Identifier(provider, p => p.Alias?.LiteralValue != null ? $"aws.{p.Alias.LiteralValue}" : "aws")
     /// </summary>
     public static TerraformExpression Identifier<T>(T value, Func<T, string>? resolver = null)

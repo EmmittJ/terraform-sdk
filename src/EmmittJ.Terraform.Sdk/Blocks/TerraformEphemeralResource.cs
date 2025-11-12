@@ -10,16 +10,16 @@ public class TerraformEphemeralResource(string type, string name) : TerraformBlo
     /// <summary>
     /// Gets the type of this ephemeral resource (e.g., "random_id").
     /// </summary>
-    public string ConstructType { get; } = type ?? throw new ArgumentNullException(nameof(type));
+    public string BlockType { get; } = type ?? throw new ArgumentNullException(nameof(type));
 
     /// <summary>
     /// Gets the name of this ephemeral resource.
     /// </summary>
-    public string ConstructName { get; } = name ?? throw new ArgumentNullException(nameof(name));
+    public string BlockName { get; } = name ?? throw new ArgumentNullException(nameof(name));
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
-        => TerraformExpression.Identifier($"ephemeral.{ConstructType}.{ConstructName}");
+        => TerraformExpression.Identifier($"ephemeral.{BlockType}.{BlockName}");
 
     /// <inheritdoc/>
     public override TerraformExpression Resolve(ITerraformContext context)
@@ -28,9 +28,9 @@ public class TerraformEphemeralResource(string type, string name) : TerraformBlo
         var bodyMap = base.Resolve(context);
 
         // Ephemeral resources use "ephemeral" block type
-        return new TerraformConstructExpression(
+        return new TerraformBlockExpression(
             blockType: "ephemeral",
-            labels: [ConstructType, ConstructName],
+            labels: [BlockType, BlockName],
             body: bodyMap
         );
     }

@@ -50,16 +50,16 @@ See [DEFERRED_RESOLUTION.md](DEFERRED_RESOLUTION.md) for comprehensive documenta
 
 ### 2. **Polymorphic Reference System**
 
-- **`ITerraformConstruct`** interface: All constructs implement `AsReference()`
-- **`TerraformReference`**: Semantic pointer to another construct
+- **`ITerraformBlock`** interface: All blocks implement `AsReference()`
+- **`TerraformReference`**: Semantic pointer to another block
   - Tracks relationships for dependency analysis
-  - Each construct knows how to reference itself (no switch statements!)
+  - Each block knows how to reference itself (no switch statements!)
   - Follows the **Tell, Don't Ask** principle
   - **NEW**: Records dependencies during prepare phase
 
 ### 3. **Infrastructure-Style Container**
 
-- **`TerraformStack`**: Manages all constructs
+- **`TerraformStack`**: Manages all blocks
   - Similar to Azure.Provisioning's `Infrastructure`
   - Centralizes validation and compilation
   - Provides clean API for building configurations
@@ -304,7 +304,7 @@ The SDK is organized into logical folders for maintainability and clarity:
 ```
 EmmittJ.Terraform.Sdk/
 ├── Core/                           # Core type system and configuration
-├── Constructs/                     # Terraform construct implementations
+├── Blocks/                     # Terraform block implementations
 ├── Expressions/                    # Expression AST and complex types
 ├── Validation/                     # Validation system (Phase 1 - In Progress)
 ├── Exceptions/                     # Custom exception types
@@ -315,12 +315,12 @@ EmmittJ.Terraform.Sdk/
 
 **Core/** contains the fundamental type system:
 
-- Interfaces that define contracts (`ITerraformConstruct`, `ITerraformResolvable`, etc.)
+- Interfaces that define contracts (`ITerraformBlock`, `ITerraformResolvable`, etc.)
 - The polymorphic property system (`TerraformProperty`, `LiteralProperty<T>`, `ExpressionProperty`)
-- References between constructs (`TerraformReference`)
+- References between blocks (`TerraformReference`)
 - Configuration container and resolution context
 
-**Constructs/** contains all Terraform block types:
+**Blocks/** contains all Terraform block types:
 
 - Variables, Resources, Data Sources, Providers, Locals, Outputs
 - Base classes with shared functionality
@@ -338,7 +338,7 @@ EmmittJ.Terraform.Sdk/
 
 **Exceptions/** contains custom exception hierarchy:
 
-- Rich error context with construct information
+- Rich error context with block information
 - Separate types for validation vs configuration errors
 
 ## Type System Architecture
@@ -346,7 +346,7 @@ EmmittJ.Terraform.Sdk/
 ```
 ┌─────────────────────────────────────────────────────┐
 │ TerraformStack (Core/)                      │
-│ - Container for all constructs                     │
+│ - Container for all blocks                     │
 │ - Two-pass resolution (Prepare → Resolve)          │
 │ - Validates and compiles to HCL                    │
 └─────────────────────────────────────────────────────┘
@@ -354,13 +354,13 @@ EmmittJ.Terraform.Sdk/
                     │ contains
                     ▼
 ┌─────────────────────────────────────────────────────┐
-│ ITerraformConstruct (Core/)                         │
-│ - TerraformVariable (Constructs/)                   │
-│ - TerraformResource (Constructs/)                   │
-│ - TerraformDataSource (Constructs/)                 │
-│ - TerraformProvider (Constructs/)                   │
-│ - TerraformLocal (Constructs/)                      │
-│ - TerraformOutput (Constructs/)                     │
+│ ITerraformBlock (Core/)                         │
+│ - TerraformVariable (Blocks/)                   │
+│ - TerraformResource (Blocks/)                   │
+│ - TerraformDataSource (Blocks/)                 │
+│ - TerraformProvider (Blocks/)                   │
+│ - TerraformLocal (Blocks/)                      │
+│ - TerraformOutput (Blocks/)                     │
 └─────────────────────────────────────────────────────┘
                     │
                     │ has properties
@@ -390,7 +390,7 @@ EmmittJ.Terraform.Sdk/
 **Key Design Principles:**
 
 1. **Separation of Concerns**: Properties (Core/) are separate from expressions (Expressions/)
-2. **Polymorphism**: Each construct knows how to reference itself via `ITerraformConstruct.AsReference()`
+2. **Polymorphism**: Each block knows how to reference itself via `ITerraformBlock.AsReference()`
 3. **Type Safety**: Polymorphic `TerraformProperty` provides compile-time checking and eliminates null fields
 4. **Two-Pass Resolution**: `ITerraformResolvable` enables dependency tracking and late binding
 5. **Sealed Classes**: Enable JIT devirtualization for better performance
@@ -418,7 +418,7 @@ Benefits:
 
 ### 2. **Polymorphic Self-Reference**
 
-Instead of switch statements on construct types:
+Instead of switch statements on block types:
 
 ```csharp
 // OLD: Switch-based (fragile, not extensible)
@@ -514,13 +514,13 @@ string hcl = config.ToHcl();
 #### Core System
 
 - [x] Polymorphic property system (`TerraformProperty`, `LiteralProperty<T>`, `ExpressionProperty`)
-- [x] `ITerraformConstruct` interface with polymorphic references
+- [x] `ITerraformBlock` interface with polymorphic references
 - [x] `ITerraformResolvable<T>` two-pass resolution system
 - [x] `TerraformStack` container with Prepare → Resolve phases
 - [x] `TerraformContext` resolution context
 - [x] Type-safe property storage (`Dictionary<string, TerraformProperty>`)
 
-#### Constructs (All Implemented!)
+#### Blocks (All Implemented!)
 
 - [x] `TerraformVariable` - Input variables
 - [x] `TerraformResource` - Resources with meta-arguments
@@ -562,7 +562,7 @@ string hcl = config.ToHcl();
 
 - [ ] **Validation System** - Required property validation, reference validation, circular dependency detection
 - [ ] **Dependency Graph** - Explicit graph building with topological sorting and cycle detection
-- [ ] **Module Support** - `TerraformModule` construct for reusable configurations
+- [ ] **Module Support** - `TerraformModule` block for reusable configurations
 
 ### 📋 Planned (Phase 2+)
 

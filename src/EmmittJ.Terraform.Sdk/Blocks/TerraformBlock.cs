@@ -11,22 +11,22 @@ namespace EmmittJ.Terraform.Sdk;
 /// property storage and resolution capabilities. The map-like interface (indexer, Add methods)
 /// is not typically used directly in block classes. This design allows maximum code reuse
 /// of the existing TerraformMap infrastructure without duplicating property storage logic.
-/// TerraformConstruct uses a different approach (direct Dictionary storage) which will be
+/// TerraformBlock uses a different approach (direct Dictionary storage) which will be
 /// unified in a future refactoring.
 /// </remarks>
 public abstract class TerraformBlock : TerraformMap<object>
 {
     /// <summary>
     /// Gets the Terraform block label (e.g., "timeouts", "tags").
-    /// This is set during construction and used during HCL serialization.
-    /// For top-level constructs, this may be empty.
+    /// This is set during blockion and used during HCL serialization.
+    /// For top-level blocks, this may be empty.
     /// </summary>
     public string BlockLabel { get; }
 
     /// <summary>
     /// Initializes a new instance of TerraformBlock.
     /// </summary>
-    /// <param name="blockLabel">The Terraform block label (e.g., "timeouts"). Can be empty for top-level constructs.</param>
+    /// <param name="blockLabel">The Terraform block label (e.g., "timeouts"). Can be empty for top-level blocks.</param>
     protected TerraformBlock(string blockLabel = "") : base()
     {
         BlockLabel = blockLabel;

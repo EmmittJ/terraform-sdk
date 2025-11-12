@@ -1,7 +1,7 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Represents a Terraform module call - a top-level construct for reusing configurations.
+/// Represents a Terraform module call - a top-level block for reusing configurations.
 /// Inherits from TerraformBlock to reuse property storage and expression infrastructure.
 /// </summary>
 /// <remarks>
@@ -55,18 +55,18 @@ public partial class TerraformModule :
     public TerraformValue<string>? Version { get; set; }
 
     /// <summary>
-    /// Resolves to a TerraformConstructExpression representing the module block.
-    /// Overrides the base Resolve() to return a construct expression instead of a map expression.
+    /// Resolves to a TerraformBlockExpression representing the module block.
+    /// Overrides the base Resolve() to return a block expression instead of a map expression.
     /// </summary>
     /// <param name="ctx">The resolution context.</param>
-    /// <returns>A TerraformConstructExpression with block type "module" and label [name].</returns>
+    /// <returns>A TerraformBlockExpression with block type "module" and label [name].</returns>
     public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         // Get map expression from properties (via base.Resolve())
         var bodyMap = base.Resolve(ctx);
 
-        // Wrap in construct expression with module name
-        return new TerraformConstructExpression("module", [Name], bodyMap);
+        // Wrap in block expression with module name
+        return new TerraformBlockExpression("module", [Name], bodyMap);
     }
 
     /// <summary>

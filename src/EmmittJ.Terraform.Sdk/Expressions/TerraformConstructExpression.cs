@@ -3,8 +3,8 @@ namespace EmmittJ.Terraform.Sdk;
 using System.Text;
 
 /// <summary>
-/// Expression representing a complete Terraform construct with block type and labels.
-/// This is used for top-level constructs like resources, data sources, outputs, variables, etc.
+/// Expression representing a complete Terraform block with block type and labels.
+/// This is used for top-level blocks like resources, data sources, outputs, variables, etc.
 /// </summary>
 /// <remarks>
 /// Examples of generated HCL:
@@ -26,19 +26,19 @@ using System.Text;
 /// }
 /// </code>
 /// </remarks>
-public class TerraformConstructExpression : TerraformExpression
+public class TerraformBlockExpression : TerraformExpression
 {
     private readonly string _blockType;
     private readonly string[] _labels;
     private readonly TerraformExpression _body;
 
     /// <summary>
-    /// Initializes a new instance of TerraformConstructExpression.
+    /// Initializes a new instance of TerraformBlockExpression.
     /// </summary>
     /// <param name="blockType">The block type (e.g., "resource", "data", "output", "variable", "provider", "module").</param>
     /// <param name="labels">The block labels. For resources: [type, name]. For outputs/variables: [name].</param>
     /// <param name="body">The body expression, typically a TerraformMapExpression containing properties.</param>
-    public TerraformConstructExpression(
+    public TerraformBlockExpression(
         string blockType,
         string[] labels,
         TerraformExpression body)
@@ -57,7 +57,7 @@ public class TerraformConstructExpression : TerraformExpression
     }
 
     /// <summary>
-    /// Converts the construct to HCL format.
+    /// Converts the block to HCL format.
     /// </summary>
     /// <param name="context">The context providing indentation and scope information.</param>
     /// <returns>The HCL string representation.</returns>
@@ -81,7 +81,7 @@ public class TerraformConstructExpression : TerraformExpression
 
             // If the body is a map expression, it will have outer braces
             // We need to extract the inner content without those braces
-            // since we're already providing the construct-level braces
+            // since we're already providing the block-level braces
             if (bodyHcl.TrimStart().StartsWith("{") && bodyHcl.TrimEnd().EndsWith("}"))
             {
                 // Extract content between braces

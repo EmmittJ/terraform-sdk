@@ -57,7 +57,7 @@ public partial class {{ClassName}}() : TerraformBlock("{{TerraformName}}")
 /// {{AdditionalDescription}}{{/AdditionalDescription}}
 /// </summary>
 {{#IsDeprecated}}
-[Obsolete("This {{ConstructKind}} is deprecated.")]
+[Obsolete("This {{BlockKind}} is deprecated.")]
 {{/IsDeprecated}}
 {{#RequiresUnreferencedCode}}
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]

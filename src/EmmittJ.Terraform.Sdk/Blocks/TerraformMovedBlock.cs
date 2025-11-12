@@ -48,17 +48,17 @@ public class TerraformMovedBlock : TerraformBlock
     public MovedAddressProperty ToProperty { get; set; }
 
     /// <summary>
-    /// Resolves to a TerraformConstructExpression representing the moved block.
+    /// Resolves to a TerraformBlockExpression representing the moved block.
     /// </summary>
     /// <param name="ctx">The resolution context.</param>
-    /// <returns>A TerraformConstructExpression with block type "moved" and no labels.</returns>
+    /// <returns>A TerraformBlockExpression with block type "moved" and no labels.</returns>
     public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         // Get map expression from properties (via base.Resolve())
         var bodyMap = base.Resolve(ctx);
 
-        // Wrap in construct expression with block type "moved" and no labels
-        return new TerraformConstructExpression("moved", [], bodyMap);
+        // Wrap in block expression with block type "moved" and no labels
+        return new TerraformBlockExpression("moved", [], bodyMap);
     }
 
     /// <inheritdoc/>

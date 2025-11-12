@@ -145,8 +145,8 @@ public static class TemplateHelpers
         // Check if block property name conflicts with TerraformMap<object> methods
         bool needsNewKeyword = block.Name == "Add";
 
-        // Single blocks need blockLabel parameter in constructor: new("label")
-        // Collection blocks use parameterless constructor: new()
+        // Single blocks need blockLabel parameter in blockor: new("label")
+        // Collection blocks use parameterless blockor: new()
         bool useBlockLabelInInitializer = block.NestingMode == "single";
 
         return new

@@ -76,7 +76,7 @@ public class TerraformCheckBlock : TerraformBlock
     }
 
     /// <summary>
-    /// Resolves to a TerraformConstructExpression representing the check block with nested data sources and asserts.
+    /// Resolves to a TerraformBlockExpression representing the check block with nested data sources and asserts.
     /// </summary>
     public override TerraformExpression Resolve(ITerraformContext ctx)
     {
@@ -84,7 +84,7 @@ public class TerraformCheckBlock : TerraformBlock
         var bodyMap = base.Resolve(ctx) as TerraformMapExpression ?? new TerraformMapExpression();
 
         // Build a composite expression that includes data sources and asserts as raw HCL
-        // This is necessary because check blocks have nested constructs that aren't just properties
+        // This is necessary because check blocks have nested blocks that aren't just properties
         var compositeBody = new TerraformMapExpression();
 
         // Copy properties from the base map
@@ -100,10 +100,10 @@ public class TerraformCheckBlock : TerraformBlock
             var dataSourceExpr = dataSource.Resolve(ctx);
             // We need to inject the data source's HCL directly into the check block
             // For now, we'll add a marker that will be handled during ToHcl
-            // This is a temporary solution until we have better support for nested constructs
+            // This is a temporary solution until we have better support for nested blocks
         }
 
-        return new TerraformConstructExpression("check", [Name], compositeBody);
+        return new TerraformBlockExpression("check", [Name], compositeBody);
     }
 
     /// <summary>
@@ -160,12 +160,12 @@ public class TerraformAssertBlock : TerraformBlock
     }
 
     /// <summary>
-    /// Resolves to a TerraformConstructExpression representing the assert block.
+    /// Resolves to a TerraformBlockExpression representing the assert block.
     /// </summary>
     public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         var bodyMap = base.Resolve(ctx);
-        return new TerraformConstructExpression("assert", [], bodyMap);
+        return new TerraformBlockExpression("assert", [], bodyMap);
     }
 
     /// <inheritdoc/>

@@ -32,7 +32,7 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
     }
 
     private int _indentLevel = 0;
-    private TerraformBlock? _currentConstruct;
+    private TerraformBlock? _currentBlock;
     private readonly DependencyGraph _dependencyGraph = new();
 
     /// <inheritdoc/>
@@ -50,23 +50,23 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
     public DependencyGraph DependencyGraph => _dependencyGraph;
 
     /// <inheritdoc/>
-    public IDisposable SetCurrentConstruct(TerraformBlock? construct)
+    public IDisposable SetCurrentBlock(TerraformBlock? block)
     {
-        var previousConstruct = _currentConstruct;
-        _currentConstruct = construct;
-        if (construct != null)
+        var previousBlock = _currentBlock;
+        _currentBlock = block;
+        if (block != null)
         {
-            _dependencyGraph.AddBlock(construct);
+            _dependencyGraph.AddBlock(block);
         }
-        return new ConstructScope(this, previousConstruct);
+        return new BlockScope(this, previousBlock);
     }
 
     /// <inheritdoc/>
     public void RecordDependency(TerraformBlock dependency)
     {
-        if (_currentConstruct != null && dependency != _currentConstruct)
+        if (_currentBlock != null && dependency != _currentBlock)
         {
-            _dependencyGraph.AddDependency(_currentConstruct, dependency);
+            _dependencyGraph.AddDependency(_currentBlock, dependency);
         }
     }
 
@@ -101,23 +101,23 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
     }
 
     /// <summary>
-    /// Disposable helper for managing construct scope.
-    /// Automatically restores the previous construct when disposed.
+    /// Disposable helper for managing block scope.
+    /// Automatically restores the previous block when disposed.
     /// </summary>
-    private class ConstructScope : IDisposable
+    private class BlockScope : IDisposable
     {
         private readonly TerraformContext _context;
-        private readonly TerraformBlock? _previousConstruct;
+        private readonly TerraformBlock? _previousBlock;
 
-        public ConstructScope(TerraformContext context, TerraformBlock? previousConstruct)
+        public BlockScope(TerraformContext context, TerraformBlock? previousBlock)
         {
             _context = context;
-            _previousConstruct = previousConstruct;
+            _previousBlock = previousBlock;
         }
 
         public void Dispose()
         {
-            _context._currentConstruct = _previousConstruct;
+            _context._currentBlock = _previousBlock;
         }
     }
 }

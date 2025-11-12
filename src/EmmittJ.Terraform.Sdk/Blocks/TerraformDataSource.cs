@@ -1,7 +1,7 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Represents a Terraform data source - a top-level construct for reading existing infrastructure.
+/// Represents a Terraform data source - a top-level block for reading existing infrastructure.
 /// Inherits from TerraformBlock to reuse property storage and expression infrastructure.
 /// </summary>
 /// <remarks>
@@ -49,18 +49,18 @@ public partial class TerraformDataSource :
     }
 
     /// <summary>
-    /// Resolves to a TerraformConstructExpression representing the data source block.
-    /// Overrides the base Resolve() to return a construct expression instead of a map expression.
+    /// Resolves to a TerraformBlockExpression representing the data source block.
+    /// Overrides the base Resolve() to return a block expression instead of a map expression.
     /// </summary>
     /// <param name="ctx">The resolution context.</param>
-    /// <returns>A TerraformConstructExpression with block type "data" and labels [type, name].</returns>
+    /// <returns>A TerraformBlockExpression with block type "data" and labels [type, name].</returns>
     public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         // Get map expression from properties (via base.Resolve())
         var bodyMap = base.Resolve(ctx);
 
-        // Wrap in construct expression with data source type and name
-        return new TerraformConstructExpression("data",
+        // Wrap in block expression with data source type and name
+        return new TerraformBlockExpression("data",
             [DataSourceType, DataSourceName], bodyMap);
     }
 

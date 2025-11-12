@@ -246,7 +246,7 @@ public class TerraformPipelineIntegrationTests
             var container = builder.AddContainer("myapp", "image")
                 .PublishAsTerraform((stack, _) =>
                 {
-                    // Add multiple types of constructs
+                    // Add multiple types of blocks
                     var stringVar = new TerraformVariable("environment")
                     {
                         Type = "string",

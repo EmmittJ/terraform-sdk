@@ -29,7 +29,7 @@ public class TerraformLocals : TerraformBlock, ITerraformTopLevelBlock
 
     /// <summary>
     /// Gets a reference to a local value.
-    /// Always returns a reference expression (local.{name}) for use in other constructs.
+    /// Always returns a reference expression (local.{name}) for use in other blocks.
     /// </summary>
     /// <param name="name">The name of the local value.</param>
     /// <returns>A reference expression to the local value.</returns>
@@ -39,15 +39,15 @@ public class TerraformLocals : TerraformBlock, ITerraformTopLevelBlock
     }
 
     /// <summary>
-    /// Resolves to a TerraformConstructExpression representing the locals block.
+    /// Resolves to a TerraformBlockExpression representing the locals block.
     /// </summary>
     public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         // Get map expression from properties (via base.Resolve())
         var bodyMap = base.Resolve(ctx);
 
-        // Wrap in construct expression with "locals" block type and no labels
-        return new TerraformConstructExpression("locals", [], bodyMap);
+        // Wrap in block expression with "locals" block type and no labels
+        return new TerraformBlockExpression("locals", [], bodyMap);
     }
 
     /// <inheritdoc/>

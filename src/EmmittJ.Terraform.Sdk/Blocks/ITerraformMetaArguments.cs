@@ -89,7 +89,7 @@ public interface ITerraformHasLifecycle
 /// Source generator will add the DynamicBlocks property to implementing types.
 /// </summary>
 /// <remarks>
-/// Dynamic blocks allow you to construct repeatable nested blocks dynamically based on a complex value.
+/// Dynamic blocks allow you to block repeatable nested blocks dynamically based on a complex value.
 /// They are particularly useful when you need to generate multiple similar nested blocks programmatically.
 /// </remarks>
 public interface ITerraformHasDynamicBlocks
@@ -98,22 +98,4 @@ public interface ITerraformHasDynamicBlocks
     /// Gets the list of dynamic blocks for this block.
     /// </summary>
     List<TerraformDynamicBlock> DynamicBlocks { get; }
-}
-
-/// <summary>
-/// Combined interface for all provisionable block meta-arguments.
-/// Implemented by TerraformResource to get all meta-arguments.
-/// </summary>
-/// <remarks>
-/// This interface is a convenience that combines all the individual meta-argument interfaces.
-/// Resources support all of these meta-arguments, while data sources support only a subset.
-/// </remarks>
-public interface ITerraformProvisionableConstruct :
-    ITerraformHasCount,
-    ITerraformHasForEach,
-    ITerraformHasDependsOn,
-    ITerraformHasProvider,
-    ITerraformHasLifecycle,
-    ITerraformHasDynamicBlocks
-{
 }

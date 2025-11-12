@@ -5,15 +5,15 @@ using EmmittJ.Terraform.Sdk.AppHost.Models;
 namespace EmmittJ.Terraform.Sdk.AppHost.Templates;
 
 /// <summary>
-/// Base template for generating Terraform construct classes (resources, data sources, ephemeral resources).
+/// Base template for generating Terraform block classes (resources, data sources, ephemeral resources).
 /// </summary>
-public abstract class TerraformConstructTemplate
+public abstract class TerraformBlockTemplate
 {
     private static readonly StubbleVisitorRenderer Renderer = new StubbleBuilder().Build();
     private readonly string _templatePath;
     private string? _templateCache;
 
-    protected TerraformConstructTemplate(string templatePath)
+    protected TerraformBlockTemplate(string templatePath)
     {
         _templatePath = templatePath;
     }
@@ -22,13 +22,13 @@ public abstract class TerraformConstructTemplate
     {
         if (_templateCache == null)
         {
-            var templateFile = Path.Combine(_templatePath, "TerraformConstruct.mustache");
+            var templateFile = Path.Combine(_templatePath, "TerraformBlock.mustache");
             _templateCache = File.ReadAllText(templateFile);
         }
         return _templateCache;
     }
 
-    public string Generate(ResourceModel model, string namespacePrefix, string baseClassName, string constructKind, string? additionalDescription = null)
+    public string Generate(ResourceModel model, string namespacePrefix, string baseClassName, string blockKind, string? additionalDescription = null)
     {
         var template = LoadTemplate();
 
@@ -44,7 +44,7 @@ public abstract class TerraformConstructTemplate
             model.IsDeprecated,
             RequiresUnreferencedCode = requiresUnreferencedCode,
             BaseClassName = baseClassName,
-            ConstructKind = constructKind,
+            BlockKind = blockKind,
             AdditionalDescription = additionalDescription,
             IsResource = baseClassName == "TerraformResource",
             IsDataSource = baseClassName == "TerraformDataSource",

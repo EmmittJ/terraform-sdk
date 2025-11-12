@@ -5,7 +5,7 @@ using System.Linq;
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Shared property storage for constructs and configuration containers.
+/// Shared property storage for blocks and configuration containers.
 /// Stores heterogeneous values: TerraformProperty, ITerraformResolvable, collections, and plain values.
 /// Maintains ordering semantics via optional priority.
 /// </summary>

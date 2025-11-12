@@ -1,7 +1,7 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Represents a Terraform output value - a top-level construct for exposing values from a configuration.
+/// Represents a Terraform output value - a top-level block for exposing values from a configuration.
 /// Inherits from TerraformBlock to reuse property storage and expression infrastructure.
 /// </summary>
 /// <remarks>
@@ -70,11 +70,11 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn, I
     public List<TerraformCondition> Preconditions { get; } = new();
 
     /// <summary>
-    /// Resolves to a TerraformConstructExpression representing the output block.
-    /// Overrides the base Resolve() to return a construct expression instead of a map expression.
+    /// Resolves to a TerraformBlockExpression representing the output block.
+    /// Overrides the base Resolve() to return a block expression instead of a map expression.
     /// </summary>
     /// <param name="ctx">The resolution context.</param>
-    /// <returns>A TerraformConstructExpression with block type "output" and label [name].</returns>
+    /// <returns>A TerraformBlockExpression with block type "output" and label [name].</returns>
     public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         if (GetPropertyValue<TerraformValue<object>?>("value") == null)
@@ -85,8 +85,8 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn, I
         // Get map expression from properties (via base.Resolve())
         var bodyMap = base.Resolve(ctx);
 
-        // Wrap in construct expression with output name
-        return new TerraformConstructExpression("output", [Name], bodyMap);
+        // Wrap in block expression with output name
+        return new TerraformBlockExpression("output", [Name], bodyMap);
     }
 
     /// <summary>

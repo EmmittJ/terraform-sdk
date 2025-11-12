@@ -1,7 +1,7 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Represents a Terraform variable declaration - a top-level construct for input values.
+/// Represents a Terraform variable declaration - a top-level block for input values.
 /// Inherits from TerraformBlock to reuse property storage and expression infrastructure.
 /// </summary>
 /// <remarks>
@@ -73,18 +73,18 @@ public partial class TerraformVariable : TerraformBlock, ITerraformTopLevelBlock
     }
 
     /// <summary>
-    /// Resolves to a TerraformConstructExpression representing the variable block.
-    /// Overrides the base Resolve() to return a construct expression instead of a map expression.
+    /// Resolves to a TerraformBlockExpression representing the variable block.
+    /// Overrides the base Resolve() to return a block expression instead of a map expression.
     /// </summary>
     /// <param name="ctx">The resolution context.</param>
-    /// <returns>A TerraformConstructExpression with block type "variable" and label [name].</returns>
+    /// <returns>A TerraformBlockExpression with block type "variable" and label [name].</returns>
     public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         // Get map expression from properties (via base.Resolve())
         var bodyMap = base.Resolve(ctx);
 
-        // Wrap in construct expression with variable name
-        return new TerraformConstructExpression("variable", [Name], bodyMap);
+        // Wrap in block expression with variable name
+        return new TerraformBlockExpression("variable", [Name], bodyMap);
     }
 
     /// <summary>

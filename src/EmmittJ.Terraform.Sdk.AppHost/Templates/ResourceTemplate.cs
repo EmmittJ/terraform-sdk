@@ -2,7 +2,7 @@ using EmmittJ.Terraform.Sdk.AppHost.Models;
 
 namespace EmmittJ.Terraform.Sdk.AppHost.Templates;
 
-public class ResourceTemplate : TerraformConstructTemplate
+public class ResourceTemplate : TerraformBlockTemplate
 {
     public ResourceTemplate(string templatePath) : base(templatePath)
     {

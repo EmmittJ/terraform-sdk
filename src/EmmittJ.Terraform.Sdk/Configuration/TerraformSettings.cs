@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
 /// Represents the terraform {} settings block.
-/// This is a configuration container rather than a construct and renders the terraform block directly.
+/// This is a configuration container rather than a block and renders the terraform block directly.
 /// </summary>
 public class TerraformSettings : ITerraformPreparable
 {

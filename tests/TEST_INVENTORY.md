@@ -1,6 +1,6 @@
 # Test Suite Inventory
 
-**Status:** Tests temporarily removed during TerraformConstruct → TerraformBlock refactoring
+**Status:** Tests temporarily removed during TerraformBlock → TerraformBlock refactoring
 **Date:** November 12, 2025
 **Reason:** Converting from fluent API (.WithProperty) to map indexer syntax (resource["property"] = value)
 
@@ -144,7 +144,7 @@ These test the fundamental Terraform block types and their HCL generation:
     - Attribute access
     - Nested splats
 
-22. **TerraformConstructExpressionTests.cs** - Construct expression type
+22. **TerraformBlockExpressionTests.cs** - Block expression type
 
     - Block type, labels, and body
     - Resolution to HCL
@@ -222,7 +222,7 @@ These test the fundamental Terraform block types and their HCL generation:
 
 37. **DependencyGraphTests.cs** - Dependency tracking
 
-    - Graph construction
+    - Graph blockion
     - Circular detection
     - Topological sorting
 
@@ -292,7 +292,7 @@ Still using fluent API syntax:
 - TerraformMovedBlockTests.cs
 - TerraformImportBlockTests.cs
 - TerraformExpressionTests.cs
-- TerraformConstructExpressionTests.cs
+- TerraformBlockExpressionTests.cs
 - TerraformCloudConfigTests.cs
 - TerraformCheckBlockTests.cs
 - TerraformBackendTests.cs

@@ -8,7 +8,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// </summary>
 /// <remarks>
 /// This is the single source of truth for value resolution logic. Used by:
-/// - TerraformConstruct.Prepare() and WriteProperties()
+/// - TerraformBlock.Prepare() and WriteProperties()
 /// - Any other container that stores heterogeneous property values
 ///
 /// Example value types handled:

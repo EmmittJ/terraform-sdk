@@ -2,7 +2,7 @@ namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
 /// Represents a semantic reference to another Terraform block.
-/// This tracks relationships between constructs for dependency analysis and validation.
+/// This tracks relationships between blocks for dependency analysis and validation.
 /// Extends TerraformExpression so it can be stored directly while maintaining metadata.
 /// Records dependencies during Prepare and resolves to HCL string during ToHcl.
 /// </summary>
@@ -36,7 +36,7 @@ public class TerraformReferenceExpression(TerraformBlock source, string? propert
     /// </summary>
     private TerraformExpression ResolveSource()
     {
-        // Ask the source construct how to reference itself
+        // Ask the source block how to reference itself
         TerraformExpression expr = Source.AsReference();
 
         // If there's a property path, append it as member access

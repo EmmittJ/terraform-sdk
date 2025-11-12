@@ -92,17 +92,17 @@ public class TerraformImportBlock : TerraformBlock
     public ImportAddressProperty? ProviderProperty { get; set; }
 
     /// <summary>
-    /// Resolves to a TerraformConstructExpression representing the import block.
+    /// Resolves to a TerraformBlockExpression representing the import block.
     /// </summary>
     /// <param name="ctx">The resolution context.</param>
-    /// <returns>A TerraformConstructExpression with block type "import" and no labels.</returns>
+    /// <returns>A TerraformBlockExpression with block type "import" and no labels.</returns>
     public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         // Get map expression from properties (via base.Resolve())
         var bodyMap = base.Resolve(ctx);
 
-        // Wrap in construct expression with block type "import" and no labels
-        return new TerraformConstructExpression("import", [], bodyMap);
+        // Wrap in block expression with block type "import" and no labels
+        return new TerraformBlockExpression("import", [], bodyMap);
     }
 
     /// <inheritdoc/>

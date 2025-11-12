@@ -84,8 +84,8 @@ internal sealed class TerraformPublishingContext
             }
         }
 
-        // Generate the root main.tf if we have any constructs
-        if (stack.Constructs.Count > 0)
+        // Generate the root main.tf if we have any blocks
+        if (stack.Blocks.Count > 0)
         {
             await GenerateRootMainTfAsync(stack).ConfigureAwait(false);
         }
@@ -237,7 +237,7 @@ internal sealed class TerraformPublishingContext
 
     private async Task GenerateRootMainTfAsync(TerraformStack rootStack)
     {
-        _logger.LogInformation("Generating root main.tf with {Count} modules", rootStack.Constructs.Count);
+        _logger.LogInformation("Generating root main.tf with {Count} modules", rootStack.Blocks.Count);
 
         // Add terraform settings to the root stack if specified
         if (_environment.Settings != null)

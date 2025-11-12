@@ -1,7 +1,7 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Exception thrown when there's an error in Terraform stack construction.
+/// Exception thrown when there's an error in Terraform stack blockion.
 /// </summary>
 public sealed class TerraformStackException : TerraformException
 {
@@ -25,23 +25,23 @@ public sealed class TerraformStackException : TerraformException
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TerraformStackException"/> class with construct context.
+    /// Initializes a new instance of the <see cref="TerraformStackException"/> class with block context.
     /// </summary>
     /// <param name="message">The error message.</param>
-    /// <param name="construct">The construct associated with this exception.</param>
-    public TerraformStackException(string message, TerraformBlock construct)
-        : base(message, construct)
+    /// <param name="block">The block associated with this exception.</param>
+    public TerraformStackException(string message, TerraformBlock block)
+        : base(message, block)
     {
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TerraformStackException"/> class with construct and property context.
+    /// Initializes a new instance of the <see cref="TerraformStackException"/> class with block and property context.
     /// </summary>
     /// <param name="message">The error message.</param>
-    /// <param name="construct">The construct associated with this exception.</param>
+    /// <param name="block">The block associated with this exception.</param>
     /// <param name="propertyName">The property name where the error occurred.</param>
-    public TerraformStackException(string message, TerraformBlock construct, string propertyName)
-        : base(message, construct)
+    public TerraformStackException(string message, TerraformBlock block, string propertyName)
+        : base(message, block)
     {
         PropertyName = propertyName;
     }
@@ -50,15 +50,15 @@ public sealed class TerraformStackException : TerraformException
     /// Initializes a new instance of the <see cref="TerraformStackException"/> class with full context.
     /// </summary>
     /// <param name="message">The error message.</param>
-    /// <param name="construct">The construct associated with this exception.</param>
+    /// <param name="block">The block associated with this exception.</param>
     /// <param name="propertyName">The property name where the error occurred.</param>
     /// <param name="propertyPath">The full property path for nested errors.</param>
     public TerraformStackException(
         string message,
-        TerraformBlock construct,
+        TerraformBlock block,
         string propertyName,
         string propertyPath)
-        : base(message, construct)
+        : base(message, block)
     {
         PropertyName = propertyName;
         PropertyPath = propertyPath;
@@ -75,13 +75,13 @@ public sealed class TerraformStackException : TerraformException
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TerraformStackException"/> class with construct and inner exception.
+    /// Initializes a new instance of the <see cref="TerraformStackException"/> class with block and inner exception.
     /// </summary>
     /// <param name="message">The error message.</param>
-    /// <param name="construct">The construct associated with this exception.</param>
+    /// <param name="block">The block associated with this exception.</param>
     /// <param name="innerException">The inner exception.</param>
-    public TerraformStackException(string message, TerraformBlock construct, Exception innerException)
-        : base(message, construct, innerException)
+    public TerraformStackException(string message, TerraformBlock block, Exception innerException)
+        : base(message, block, innerException)
     {
     }
 }

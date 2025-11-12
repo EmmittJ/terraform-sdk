@@ -1,13 +1,13 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Represents a deployable Terraform stack containing related infrastructure constructs.
+/// Represents a deployable Terraform stack containing related infrastructure blocks.
 /// Similar to Infrastructure in Azure.Provisioning or Stack in AWS CDK/Pulumi.
 /// Manages variables, resources, data sources, and generates Terraform HCL configuration.
 /// </summary>
 public class TerraformStack
 {
-    private readonly List<TerraformBlock> _constructs = [];
+    private readonly List<TerraformBlock> _blocks = [];
 
     /// <summary>
     /// Gets the name of this configuration.
@@ -17,7 +17,7 @@ public class TerraformStack
     /// <summary>
     /// Gets or sets the terraform {} block configuration.
     /// This configures Terraform itself, including backend, required providers, and other settings.
-    /// When set, it will be automatically added to the constructs list.
+    /// When set, it will be automatically added to the blocks list.
     /// </summary>
     public TerraformSettings? Terraform
     {
@@ -27,25 +27,25 @@ public class TerraformStack
     private TerraformSettings? _terraform;
 
     /// <summary>
-    /// Adds a construct (variable, resource, data source, etc.) to this configuration.
+    /// Adds a block (variable, resource, data source, etc.) to this configuration.
     /// </summary>
-    public void Add(TerraformBlock construct)
+    public void Add(TerraformBlock block)
     {
-        if (construct == null)
+        if (block == null)
         {
-            throw new ArgumentNullException(nameof(construct));
+            throw new ArgumentNullException(nameof(block));
         }
 
-        _constructs.Add(construct);
+        _blocks.Add(block);
     }
 
     /// <summary>
-    /// Gets all constructs in this configuration.
+    /// Gets all blocks in this configuration.
     /// </summary>
-    public IReadOnlyList<TerraformBlock> Constructs => _constructs.AsReadOnly();
+    public IReadOnlyList<TerraformBlock> Blocks => _blocks.AsReadOnly();
 
     /// <summary>
-    /// Compiles all constructs to HCL using two-pass resolution.
+    /// Compiles all blocks to HCL using two-pass resolution.
     /// Pass 1: Prepare - collect dependencies, validate structure
     /// Pass 2: Resolve - generate HCL
     /// </summary>
@@ -56,11 +56,11 @@ public class TerraformStack
         // Pass 1: Prepare - collect dependencies, track references
         _terraform?.Prepare(context);
 
-        foreach (var construct in _constructs)
+        foreach (var block in _blocks)
         {
-            using (context.SetCurrentConstruct(construct))
+            using (context.SetCurrentBlock(block))
             {
-                if (construct is ITerraformPreparable preparable)
+                if (block is ITerraformPreparable preparable)
                 {
                     preparable.Prepare(context);
                 }
@@ -74,16 +74,16 @@ public class TerraformStack
         if (_terraform != null)
         {
             sb.Append(_terraform.ToHcl(context));
-            if (_constructs.Count > 0)
+            if (_blocks.Count > 0)
             {
                 sb.AppendLine();
             }
         }
 
-        // Render all constructs by resolving them to expressions first
-        foreach (var construct in _constructs)
+        // Render all blocks by resolving them to expressions first
+        foreach (var block in _blocks)
         {
-            var expression = construct.Resolve(context);
+            var expression = block.Resolve(context);
             sb.Append(expression.ToHcl(context));
             sb.AppendLine();
         }
@@ -130,15 +130,15 @@ public class TerraformStack
             }
         }
 
-        // Build dependency graph by preparing all constructs
+        // Build dependency graph by preparing all blocks
         var context = new TerraformContext(this);
         _terraform?.Prepare(context);
 
-        foreach (var construct in _constructs)
+        foreach (var block in _blocks)
         {
-            using (context.SetCurrentConstruct(construct))
+            using (context.SetCurrentBlock(block))
             {
-                if (construct is ITerraformPreparable preparable)
+                if (block is ITerraformPreparable preparable)
                 {
                     try
                     {
@@ -149,7 +149,7 @@ public class TerraformStack
                         errors.Add(new ValidationError(
                             $"Error during preparation: {ex.Message}",
                             ValidationSeverity.Error,
-                            construct));
+                            block));
                     }
                 }
             }
@@ -159,22 +159,22 @@ public class TerraformStack
         var cycles = context.DependencyGraph.FindCycles();
         foreach (var cycle in cycles)
         {
-            var cycleDescription = string.Join(" -> ", cycle.Select(GetConstructName));
+            var cycleDescription = string.Join(" -> ", cycle.Select(GetBlockName));
             errors.Add(new ValidationError(
-                $"Circular dependency detected: {cycleDescription} -> {GetConstructName(cycle[0])}",
+                $"Circular dependency detected: {cycleDescription} -> {GetBlockName(cycle[0])}",
                 ValidationSeverity.Error));
         }
 
         // Check for duplicate names (resources, data sources, modules, etc.)
-        var nameGroups = _constructs
+        var nameGroups = _blocks
             .Select(c => new
             {
-                Construct = c,
+                Block = c,
                 BlockType = c.GetType().GetProperty("BlockType")?.GetValue(c) as string,
                 Name = c.GetType().GetProperty("ResourceName")?.GetValue(c) as string
                     ?? c.GetType().GetProperty("DataSourceName")?.GetValue(c) as string
                     ?? c.GetType().GetProperty("Name")?.GetValue(c) as string
-                    ?? c.GetType().GetProperty("ConstructName")?.GetValue(c) as string
+                    ?? c.GetType().GetProperty("BlockName")?.GetValue(c) as string
             })
             .Where(x => x.BlockType != null && x.Name != null)
             .GroupBy(x => new { x.BlockType, x.Name })
@@ -185,23 +185,23 @@ public class TerraformStack
             errors.Add(new ValidationError(
                 $"Duplicate {group.Key.BlockType} name: '{group.Key.Name}'",
                 ValidationSeverity.Error,
-                group.First().Construct,
+                group.First().Block,
                 "Name"));
         }
 
         // Validate reference targets exist within the configuration
-        var allConstructs = _constructs.ToHashSet();
-        foreach (var construct in _constructs)
+        var allBlocks = _blocks.ToHashSet();
+        foreach (var block in _blocks)
         {
-            var dependencies = context.DependencyGraph.GetDependsOn(construct);
+            var dependencies = context.DependencyGraph.GetDependsOn(block);
             foreach (var dependency in dependencies)
             {
-                if (!allConstructs.Contains(dependency))
+                if (!allBlocks.Contains(dependency))
                 {
                     errors.Add(new ValidationError(
-                        $"{GetConstructName(construct)} references {GetConstructName(dependency)} which is not in the configuration",
+                        $"{GetBlockName(block)} references {GetBlockName(dependency)} which is not in the configuration",
                         ValidationSeverity.Error,
-                        construct));
+                        block));
                 }
             }
         }
@@ -212,17 +212,17 @@ public class TerraformStack
     /// <summary>
     /// Gets a string representation of a block for error messages.
     /// </summary>
-    private static string GetConstructName(TerraformBlock construct)
+    private static string GetBlockName(TerraformBlock block)
     {
         // Try to get BlockType property
-        var blockTypeProperty = construct.GetType().GetProperty("BlockType");
-        var blockType = blockTypeProperty?.GetValue(construct) as string ?? construct.GetType().Name;
+        var blockTypeProperty = block.GetType().GetProperty("BlockType");
+        var blockType = blockTypeProperty?.GetValue(block) as string ?? block.GetType().Name;
 
-        // Try to get ConstructName property (from NamedTerraformConstruct or similar)
-        var nameProperty = construct.GetType().GetProperty("ConstructName");
+        // Try to get blockName property (from NamedTerraformblock or similar)
+        var nameProperty = block.GetType().GetProperty("BlockName");
         if (nameProperty != null)
         {
-            var name = nameProperty.GetValue(construct);
+            var name = nameProperty.GetValue(block);
             if (name != null)
             {
                 return $"{blockType}.{name}";

@@ -34,19 +34,19 @@ public interface ITerraformContext
     IDisposable PushIndent();
 
     /// <summary>
-    /// Sets the current construct being prepared/resolved and returns a disposable scope.
+    /// Sets the current block being prepared/resolved and returns a disposable scope.
     /// Used for automatic dependency tracking.
-    /// The construct is automatically added to the dependency graph.
+    /// The block is automatically added to the dependency graph.
     /// Use with 'using' statement for automatic scope management.
     /// </summary>
-    /// <param name="construct">The current construct.</param>
-    /// <returns>A disposable that clears the current construct when disposed.</returns>
-    IDisposable SetCurrentConstruct(TerraformBlock? construct);
+    /// <param name="block">The current block.</param>
+    /// <returns>A disposable that clears the current block when disposed.</returns>
+    IDisposable SetCurrentBlock(TerraformBlock? block);
 
     /// <summary>
-    /// Records a dependency from the current construct to another construct.
+    /// Records a dependency from the current block to another block.
     /// Called automatically when resolving references during the Prepare phase.
     /// </summary>
-    /// <param name="dependency">The construct being depended upon.</param>
+    /// <param name="dependency">The block being depended upon.</param>
     void RecordDependency(TerraformBlock dependency);
 }

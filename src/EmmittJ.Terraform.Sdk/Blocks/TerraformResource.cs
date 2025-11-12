@@ -1,7 +1,7 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Represents a Terraform resource - a top-level construct with type, name, and meta-arguments.
+/// Represents a Terraform resource - a top-level block with type, name, and meta-arguments.
 /// Inherits from TerraformBlock to reuse property storage and expression infrastructure.
 /// </summary>
 /// <remarks>
@@ -9,7 +9,13 @@ namespace EmmittJ.Terraform.Sdk;
 /// infrastructure objects, such as virtual networks, compute instances, or higher-level components
 /// such as DNS records.
 /// </remarks>
-public partial class TerraformResource : TerraformBlock, ITerraformProvisionableConstruct, ITerraformTopLevelBlock
+public partial class TerraformResource : TerraformBlock, ITerraformTopLevelBlock,
+    ITerraformHasCount,
+    ITerraformHasForEach,
+    ITerraformHasDependsOn,
+    ITerraformHasProvider,
+    ITerraformHasLifecycle,
+    ITerraformHasDynamicBlocks
 {
     /// <summary>
     /// Gets the resource type (e.g., "aws_vpc", "azurerm_resource_group").
@@ -43,18 +49,18 @@ public partial class TerraformResource : TerraformBlock, ITerraformProvisionable
     }
 
     /// <summary>
-    /// Resolves to a TerraformConstructExpression representing the resource block.
-    /// Overrides the base Resolve() to return a construct expression instead of a map expression.
+    /// Resolves to a TerraformBlockExpression representing the resource block.
+    /// Overrides the base Resolve() to return a block expression instead of a map expression.
     /// </summary>
     /// <param name="ctx">The resolution context.</param>
-    /// <returns>A TerraformConstructExpression with block type "resource" and labels [type, name].</returns>
+    /// <returns>A TerraformBlockExpression with block type "resource" and labels [type, name].</returns>
     public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         // Get map expression from properties (via base.Resolve())
         var bodyMap = base.Resolve(ctx);
 
-        // Wrap in construct expression with resource type and name
-        return new TerraformConstructExpression("resource",
+        // Wrap in block expression with resource type and name
+        return new TerraformBlockExpression("resource",
             [ResourceType, ResourceName], bodyMap);
     }
 

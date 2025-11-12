@@ -8,7 +8,7 @@ public class TerraformException : Exception
     /// <summary>
     /// Gets the block associated with this exception, if any.
     /// </summary>
-    public TerraformBlock? Construct { get; }
+    public TerraformBlock? Block { get; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="TerraformException"/> class.
@@ -40,22 +40,22 @@ public class TerraformException : Exception
     /// Initializes a new instance of the <see cref="TerraformException"/> class with a specified error message and block.
     /// </summary>
     /// <param name="message">The message that describes the error.</param>
-    /// <param name="construct">The block associated with this exception.</param>
-    public TerraformException(string message, TerraformBlock construct)
+    /// <param name="block">The block associated with this exception.</param>
+    public TerraformException(string message, TerraformBlock block)
         : base(message)
     {
-        Construct = construct;
+        Block = block;
     }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="TerraformException"/> class with a specified error message, block, and inner exception.
     /// </summary>
     /// <param name="message">The error message that explains the reason for the exception.</param>
-    /// <param name="construct">The block associated with this exception.</param>
+    /// <param name="block">The block associated with this exception.</param>
     /// <param name="innerException">The exception that is the cause of the current exception.</param>
-    public TerraformException(string message, TerraformBlock construct, Exception innerException)
+    public TerraformException(string message, TerraformBlock block, Exception innerException)
         : base(message, innerException)
     {
-        Construct = construct;
+        Block = block;
     }
 }

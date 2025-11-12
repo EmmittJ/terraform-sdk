@@ -23,7 +23,7 @@ public class TerraformBackend : TerraformBlockExpression
 
     /// <summary>
     /// Renders the backend as a labeled block: "type" { properties }
-    /// The parent construct provides the "backend" keyword.
+    /// The parent block provides the "backend" keyword.
     /// </summary>
     public override string ToHcl(ITerraformContext? context = null)
     {

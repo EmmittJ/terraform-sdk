@@ -8,7 +8,7 @@ using System.Text;
 namespace EmmittJ.Terraform.Sdk.SourceGenerators;
 
 /// <summary>
-/// Source generator that creates meta-argument property implementations for Terraform constructs.
+/// Source generator that creates meta-argument property implementations for Terraform blocks.
 /// Detects marker interfaces (ITerraformHasCount, ITerraformHasForEach, etc.) and generates
 /// the corresponding properties using the base TerraformBlock's SetPropertyValue/GetPropertyValue infrastructure.
 /// </summary>
@@ -99,7 +99,7 @@ public class MetaArgumentGenerator : IIncrementalGenerator
         {
             sb.AppendLine("        /// <summary>");
             sb.AppendLine("        /// Gets or sets the count meta-argument.");
-            sb.AppendLine("        /// Accepts a whole number, and creates that many instances of the construct.");
+            sb.AppendLine("        /// Accepts a whole number, and creates that many instances of the block.");
             sb.AppendLine("        /// </summary>");
             sb.AppendLine("        public EmmittJ.Terraform.Sdk.TerraformValue<int>? Count");
             sb.AppendLine("        {");
@@ -131,8 +131,8 @@ public class MetaArgumentGenerator : IIncrementalGenerator
             sb.AppendLine();
             sb.AppendLine("        /// <summary>");
             sb.AppendLine("        /// Gets the list of resources this depends on.");
-            sb.AppendLine("        /// Use this meta-argument when a construct relies on some other construct's behavior");
-            sb.AppendLine("        /// but doesn't access any of that construct's data in its arguments.");
+            sb.AppendLine("        /// Use this meta-argument when a block relies on some other block's behavior");
+            sb.AppendLine("        /// but doesn't access any of that block's data in its arguments.");
             sb.AppendLine("        /// </summary>");
             sb.AppendLine("        public System.Collections.Generic.List<string> DependsOn");
             sb.AppendLine("        {");
@@ -178,7 +178,7 @@ public class MetaArgumentGenerator : IIncrementalGenerator
             sb.AppendLine();
             sb.AppendLine("        /// <summary>");
             sb.AppendLine("        /// Gets the list of dynamic blocks for this resource.");
-            sb.AppendLine("        /// Dynamic blocks construct repeatable nested blocks dynamically based on a collection.");
+            sb.AppendLine("        /// Dynamic blocks block repeatable nested blocks dynamically based on a collection.");
             sb.AppendLine("        /// </summary>");
             sb.AppendLine("        public System.Collections.Generic.List<EmmittJ.Terraform.Sdk.TerraformDynamicBlock> DynamicBlocks");
             sb.AppendLine("        {");

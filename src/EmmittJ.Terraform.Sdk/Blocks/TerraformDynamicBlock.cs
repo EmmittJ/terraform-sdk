@@ -2,7 +2,7 @@ namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
 /// Represents a Terraform dynamic block that generates nested blocks conditionally.
-/// Dynamic blocks allow you to dynamically construct repeatable nested blocks based on a collection.
+/// Dynamic blocks allow you to dynamically block repeatable nested blocks based on a collection.
 /// Example: dynamic "ingress" { for_each = var.ingress_rules ... }
 /// </summary>
 public class TerraformDynamicBlock
