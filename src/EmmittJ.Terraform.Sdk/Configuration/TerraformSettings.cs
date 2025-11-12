@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Text;
-using EmmittJ.Terraform.Sdk.Core;
 
 namespace EmmittJ.Terraform.Sdk;
 

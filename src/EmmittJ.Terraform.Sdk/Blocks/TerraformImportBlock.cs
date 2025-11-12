@@ -1,4 +1,4 @@
-namespace EmmittJ.Terraform.Sdk.Constructs;
+namespace EmmittJ.Terraform.Sdk
 
 /// <summary>
 /// Represents a Terraform import block for declarative resource import (Terraform 1.5+).
