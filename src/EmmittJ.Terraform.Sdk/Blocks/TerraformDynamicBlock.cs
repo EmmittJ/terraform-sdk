@@ -15,9 +15,9 @@ public class TerraformDynamicBlock
 
     /// <summary>
     /// Gets or sets the collection to iterate over.
-    /// Can be a list, set, or map expression.
+    /// Can be a list, set, or map.
     /// </summary>
-    public TerraformExpression ForEach { get; set; }
+    public ITerraformValue ForEach { get; set; }
 
     /// <summary>
     /// Gets or sets the name of the iterator variable.
@@ -31,20 +31,20 @@ public class TerraformDynamicBlock
     /// These are evaluated expressions that can use the iterator.
     /// Example: [iterator.value.name] for named blocks
     /// </summary>
-    public List<TerraformExpression> Labels { get; } = new();
+    public List<TerraformValue<string>> Labels { get; } = new();
 
     /// <summary>
     /// Gets the content properties that will be included in each generated block.
-    /// Key is the property name, value is the expression (can reference the iterator).
+    /// Key is the property name, value is the value expression (can reference the iterator).
     /// </summary>
-    public Dictionary<string, TerraformExpression> Content { get; } = new();
+    public Dictionary<string, ITerraformValue> Content { get; } = new();
 
     /// <summary>
     /// Creates a new dynamic block.
     /// </summary>
     /// <param name="blockType">The type name for the generated blocks</param>
     /// <param name="forEach">The collection to iterate over</param>
-    public TerraformDynamicBlock(string blockType, TerraformExpression forEach)
+    public TerraformDynamicBlock(string blockType, ITerraformValue forEach)
     {
         BlockType = blockType ?? throw new ArgumentNullException(nameof(blockType));
         ForEach = forEach ?? throw new ArgumentNullException(nameof(forEach));
@@ -53,7 +53,7 @@ public class TerraformDynamicBlock
     /// <summary>
     /// Sets a content property that will be included in each generated block.
     /// </summary>
-    public TerraformDynamicBlock WithContent(string name, TerraformExpression value)
+    public TerraformDynamicBlock WithContent(string name, ITerraformValue value)
     {
         Content[name] = value ?? throw new ArgumentNullException(nameof(value));
         return this;
@@ -62,7 +62,7 @@ public class TerraformDynamicBlock
     /// <summary>
     /// Sets multiple content properties.
     /// </summary>
-    public TerraformDynamicBlock WithContent(Dictionary<string, TerraformExpression> content)
+    public TerraformDynamicBlock WithContent(Dictionary<string, ITerraformValue> content)
     {
         foreach (var (key, value) in content)
         {
@@ -74,7 +74,7 @@ public class TerraformDynamicBlock
     /// <summary>
     /// Adds a label expression for the generated blocks.
     /// </summary>
-    public TerraformDynamicBlock WithLabel(TerraformExpression label)
+    public TerraformDynamicBlock WithLabel(TerraformValue<string> label)
     {
         Labels.Add(label ?? throw new ArgumentNullException(nameof(label)));
         return this;
@@ -101,7 +101,7 @@ public class TerraformDynamicBlock
             // for_each
             sb.Append(context.Indent);
             sb.Append("for_each = ");
-            sb.AppendLine(ForEach.ToHcl(context));
+            sb.AppendLine(ForEach.Resolve(context).ToHcl(context));
 
             // iterator (optional, only if explicitly set)
             if (Iterator != null)
@@ -124,7 +124,7 @@ public class TerraformDynamicBlock
                     sb.Append(context.Indent);
                     sb.Append(key);
                     sb.Append(" = ");
-                    sb.AppendLine(value.ToHcl(context));
+                    sb.AppendLine(value.Resolve(context).ToHcl(context));
                 }
             }
 

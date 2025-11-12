@@ -27,10 +27,10 @@ public class TerraformLifecycleConfig
     public List<string> IgnoreChanges { get; } = new();
 
     /// <summary>
-    /// Gets or sets an expression that triggers resource replacement.
+    /// Gets or sets a value that triggers resource replacement.
     /// When the referenced value changes, the resource will be replaced.
     /// </summary>
-    public TerraformExpression? ReplaceTriggeredBy { get; set; }
+    public ITerraformValue? ReplaceTriggeredBy { get; set; }
 
     /// <summary>
     /// Gets the list of preconditions to validate before applying changes.
@@ -112,7 +112,7 @@ internal class LifecycleBlockExpression : TerraformBlockExpression
 
             if (_config.ReplaceTriggeredBy != null)
             {
-                sb.AppendLine($"{context.Indent}replace_triggered_by = [{_config.ReplaceTriggeredBy.ToHcl(context)}]");
+                sb.AppendLine($"{context.Indent}replace_triggered_by = [{_config.ReplaceTriggeredBy.Resolve(context).ToHcl(context)}]");
             }
 
             // Write preconditions

@@ -16,7 +16,7 @@ public static class TerraformProvisionableBlockExtensions
     public static TBlock WithDynamicBlock<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TBlock>(
         this TBlock block,
         string blockType,
-        TerraformExpression forEach,
+        ITerraformValue forEach,
         Action<TerraformDynamicBlockBuilder> configure)
         where TBlock : ITerraformHasDynamicBlocks
     {
@@ -38,7 +38,7 @@ public static class TerraformProvisionableBlockExtensions
         this TBlock block,
         string blockType,
         string iteratorName,
-        TerraformExpression forEach,
+        ITerraformValue forEach,
         Action<TerraformDynamicBlockBuilder> configure)
         where TBlock : ITerraformHasDynamicBlocks
     {
@@ -90,7 +90,7 @@ public class TerraformDynamicBlockBuilder
     /// <summary>
     /// Adds a content property to the dynamic block.
     /// </summary>
-    public TerraformDynamicBlockBuilder WithContent(string name, TerraformExpression value)
+    public TerraformDynamicBlockBuilder WithContent(string name, ITerraformValue value)
     {
         _dynamicBlock.WithContent(name, value);
         return this;
@@ -99,7 +99,7 @@ public class TerraformDynamicBlockBuilder
     /// <summary>
     /// Adds multiple content properties to the dynamic block.
     /// </summary>
-    public TerraformDynamicBlockBuilder WithContent(Dictionary<string, TerraformExpression> content)
+    public TerraformDynamicBlockBuilder WithContent(Dictionary<string, ITerraformValue> content)
     {
         _dynamicBlock.WithContent(content);
         return this;
