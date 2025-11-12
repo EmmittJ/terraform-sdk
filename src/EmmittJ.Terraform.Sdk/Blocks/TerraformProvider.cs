@@ -37,7 +37,7 @@ public partial class TerraformProvider : TerraformBlock, ITerraformTopLevelBlock
     /// <summary>
     /// Gets or sets the alias for this provider instance.
     /// </summary>
-    [TerraformProperty("alias")]
+    [TerraformArgument("alias")]
     public TerraformValue<string>? Alias { get; set; }
 
     /// <summary>

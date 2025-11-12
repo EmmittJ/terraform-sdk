@@ -44,14 +44,14 @@ public partial class TerraformModule :
     /// Gets or sets the source of the module.
     /// Can be a local path, registry source, git URL, etc.
     /// </summary>
-    [TerraformProperty("source")]
+    [TerraformArgument("source")]
     public required TerraformValue<string> Source { get; set; }
 
     /// <summary>
     /// Gets or sets the version constraint for the module (optional).
     /// Only applicable for registry modules.
     /// </summary>
-    [TerraformProperty("version")]
+    [TerraformArgument("version")]
     public TerraformValue<string>? Version { get; set; }
 
     /// <summary>

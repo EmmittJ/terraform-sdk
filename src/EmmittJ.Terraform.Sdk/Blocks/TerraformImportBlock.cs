@@ -82,13 +82,13 @@ public class TerraformImportBlock : TerraformBlock
         }
     }
 
-    [TerraformProperty("to")]
+    [TerraformArgument("to")]
     public ImportAddressProperty ToProperty { get; set; }
 
-    [TerraformProperty("id")]
+    [TerraformArgument("id")]
     public TerraformValue<string> IdProperty { get; set; }
 
-    [TerraformProperty("provider")]
+    [TerraformArgument("provider")]
     public ImportAddressProperty? ProviderProperty { get; set; }
 
     /// <summary>

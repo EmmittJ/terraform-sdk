@@ -41,10 +41,10 @@ public class TerraformMovedBlock : TerraformBlock
         ToProperty = new MovedAddressProperty(to);
     }
 
-    [TerraformProperty("from")]
+    [TerraformArgument("from")]
     public MovedAddressProperty FromProperty { get; set; }
 
-    [TerraformProperty("to")]
+    [TerraformArgument("to")]
     public MovedAddressProperty ToProperty { get; set; }
 
     /// <summary>

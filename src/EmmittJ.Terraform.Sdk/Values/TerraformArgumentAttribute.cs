@@ -16,7 +16,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// </code>
 /// </example>
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
-public sealed class TerraformPropertyAttribute : Attribute
+public sealed class TerraformArgumentAttribute : Attribute
 {
     /// <summary>
     /// Gets the Terraform attribute name (as it appears in HCL).
@@ -24,10 +24,10 @@ public sealed class TerraformPropertyAttribute : Attribute
     public string Name { get; }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TerraformPropertyAttribute"/> class.
+    /// Initializes a new instance of the <see cref="TerraformArgumentAttribute"/> class.
     /// </summary>
     /// <param name="name">The Terraform attribute name (e.g., "resource_group_name").</param>
-    public TerraformPropertyAttribute(string name)
+    public TerraformArgumentAttribute(string name)
     {
         Name = name ?? throw new ArgumentNullException(nameof(name));
     }
