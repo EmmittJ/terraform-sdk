@@ -1,7 +1,5 @@
 namespace EmmittJ.Terraform.Sdk;
 
-using EmmittJ.Terraform.Sdk.Constructs.MetaArguments;
-
 /// <summary>
 /// Represents a Terraform output value - a top-level construct for exposing values from a configuration.
 /// Inherits from TerraformBlock to reuse property storage and expression infrastructure.
@@ -11,12 +9,22 @@ using EmmittJ.Terraform.Sdk.Constructs.MetaArguments;
 /// and can expose information for other Terraform configurations to use.
 /// Output values support the depends_on meta-argument.
 /// </remarks>
-public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
+public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn, ITerraformTopLevelBlock
 {
     /// <summary>
     /// Gets the output name.
     /// </summary>
     public string Name { get; }
+
+    /// <summary>
+    /// Gets the block type keyword for outputs.
+    /// </summary>
+    public string BlockType => "output";
+
+    /// <summary>
+    /// Gets the block labels for this output.
+    /// </summary>
+    public string[] BlockLabels => [Name];
 
     /// <summary>
     /// Initializes a new instance of TerraformOutput.

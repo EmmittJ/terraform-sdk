@@ -76,6 +76,8 @@ public static class TerraformValueResolver
     /// <returns>A TerraformExpression representing the value</returns>
     public static TerraformExpression ResolveValue(object? value, ITerraformContext? context)
     {
+        context ??= TerraformContext.Temporary();
+
         return value switch
         {
             // Null
@@ -104,36 +106,20 @@ public static class TerraformValueResolver
     /// <summary>
     /// Resolves an ITerraformResolvable to a TerraformExpression.
     /// </summary>
-    private static TerraformExpression ResolveResolvableValue(ITerraformResolvable resolvable, ITerraformContext? context)
+    private static TerraformExpression ResolveResolvableValue(ITerraformResolvable resolvable, ITerraformContext context)
     {
-        ITerraformContext resolveContext;
-        if (context is ITerraformContext rc)
-        {
-            resolveContext = rc;
-        }
-        else
-        {
-            resolveContext = new TerraformResolveContext(context);
-        }
-
-        return resolvable.Resolve(resolveContext);
+        return resolvable.Resolve(context);
     }
 
     /// <summary>
     /// Resolves a TerraformValue&lt;T&gt; using its Resolve method via interface.
     /// </summary>
-    private static TerraformExpression ResolveTerraformValue(ITerraformValue terraformValue, ITerraformContext? context)
+    private static TerraformExpression ResolveTerraformValue(ITerraformValue terraformValue, ITerraformContext context)
     {
-        ITerraformContext resolveContext = context is ITerraformContext rc
-            ? rc
-            : new TerraformResolveContext(context);
-
-        return terraformValue.Resolve(resolveContext);
+        return terraformValue.Resolve(context);
     }
 
-    private static TerraformExpression ResolveEnumerable(
-        IEnumerable enumerable,
-        ITerraformContext? context)
+    private static TerraformExpression ResolveEnumerable(IEnumerable enumerable, ITerraformContext context)
     {
         var expressions = new List<TerraformExpression>();
         foreach (var item in enumerable)
@@ -143,9 +129,7 @@ public static class TerraformValueResolver
         return TerraformExpression.List(expressions.ToArray());
     }
 
-    private static TerraformExpression ResolveDictionary(
-        IDictionary dictionary,
-        ITerraformContext? context)
+    private static TerraformExpression ResolveDictionary(IDictionary dictionary, ITerraformContext context)
     {
         var map = new TerraformMapExpression();
         foreach (DictionaryEntry entry in dictionary)

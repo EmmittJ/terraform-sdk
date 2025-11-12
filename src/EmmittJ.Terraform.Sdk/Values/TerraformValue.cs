@@ -67,12 +67,6 @@ public class TerraformValue<T> : ITerraformValue
         => new TerraformValue<T>(expression);
 
     /// <summary>
-    /// Conversion from TerraformReference.
-    /// </summary>
-    public static implicit operator TerraformValue<T>(TerraformReference reference)
-        => new TerraformValue<T>(reference);
-
-    /// <summary>
     /// Conversion from TerraformLazyValue.
     /// </summary>
     public static implicit operator TerraformValue<T>(TerraformLazyValue lazy)
@@ -95,12 +89,6 @@ public static class TerraformValue
     /// </summary>
     public static TerraformValue<T> FromExpression<T>(TerraformExpression expression)
         => new TerraformValue<T>(expression);
-
-    /// <summary>
-    /// Create a TerraformValue from a reference.
-    /// </summary>
-    public static TerraformValue<T> FromReference<T>(TerraformReference reference)
-        => reference;
 
     /// <summary>
     /// Create a TerraformValue from a lazy value.

@@ -1,7 +1,5 @@
 namespace EmmittJ.Terraform.Sdk;
 
-using EmmittJ.Terraform.Sdk.Constructs.MetaArguments;
-
 /// <summary>
 /// Represents a Terraform resource - a top-level construct with type, name, and meta-arguments.
 /// Inherits from TerraformBlock to reuse property storage and expression infrastructure.
@@ -11,7 +9,7 @@ using EmmittJ.Terraform.Sdk.Constructs.MetaArguments;
 /// infrastructure objects, such as virtual networks, compute instances, or higher-level components
 /// such as DNS records.
 /// </remarks>
-public partial class TerraformResource : TerraformBlock, ITerraformProvisionableConstruct
+public partial class TerraformResource : TerraformBlock, ITerraformProvisionableConstruct, ITerraformTopLevelBlock
 {
     /// <summary>
     /// Gets the resource type (e.g., "aws_vpc", "azurerm_resource_group").
@@ -22,6 +20,16 @@ public partial class TerraformResource : TerraformBlock, ITerraformProvisionable
     /// Gets the resource name (unique within the configuration).
     /// </summary>
     public string ResourceName { get; }
+
+    /// <summary>
+    /// Gets the block type keyword for resources.
+    /// </summary>
+    public string BlockType => "resource";
+
+    /// <summary>
+    /// Gets the block labels for this resource.
+    /// </summary>
+    public string[] BlockLabels => [ResourceType, ResourceName];
 
     /// <summary>
     /// Initializes a new instance of TerraformResource.

@@ -11,9 +11,9 @@ public sealed class ValidationError
     public string Message { get; }
 
     /// <summary>
-    /// Gets the construct where the error occurred, if applicable.
+    /// Gets the block where the error occurred, if applicable.
     /// </summary>
-    public TerraformBlock? Construct { get; }
+    public TerraformBlock? Block { get; }
 
     /// <summary>
     /// Gets the property name where the error occurred, if applicable.
@@ -30,17 +30,17 @@ public sealed class ValidationError
     /// </summary>
     /// <param name="message">The error message.</param>
     /// <param name="severity">The severity level.</param>
-    /// <param name="construct">The construct where the error occurred.</param>
+    /// <param name="block">The block where the error occurred.</param>
     /// <param name="propertyName">The property name where the error occurred.</param>
     public ValidationError(
         string message,
         ValidationSeverity severity = ValidationSeverity.Error,
-        TerraformBlock? construct = null,
+        TerraformBlock? block = null,
         string? propertyName = null)
     {
         Message = message ?? throw new ArgumentNullException(nameof(message));
         Severity = severity;
-        Construct = construct;
+        Block = block;
         PropertyName = propertyName;
     }
 
@@ -51,22 +51,20 @@ public sealed class ValidationError
     {
         var parts = new List<string> { $"[{Severity}] {Message}" };
 
-        if (Construct != null)
+        if (Block != null)
         {
-            // Try to get BlockType property
-            var blockTypeProperty = Construct.GetType().GetProperty("BlockType");
-            var blockType = blockTypeProperty?.GetValue(Construct) as string ?? Construct.GetType().Name;
-            parts.Add($"Construct: {blockType}");
-
-            // Add the name if it has a ConstructName property
-            var nameProperty = Construct.GetType().GetProperty("ConstructName");
-            if (nameProperty != null)
+            if (Block is ITerraformTopLevelBlock topLevelBlock)
             {
-                var name = nameProperty.GetValue(Construct);
-                if (name != null)
-                {
-                    parts.Add($"Name: {name}");
-                }
+                // Use BlockType and BlockLabels from interface
+                var blockIdentifier = topLevelBlock.BlockLabels.Length > 0
+                    ? $"{topLevelBlock.BlockType} \"{string.Join("\" \"", topLevelBlock.BlockLabels)}\""
+                    : topLevelBlock.BlockType;
+                parts.Add($"Block: {blockIdentifier}");
+            }
+            else
+            {
+                // Fallback for nested blocks
+                parts.Add($"Block: {Block.GetType().Name}");
             }
         }
 

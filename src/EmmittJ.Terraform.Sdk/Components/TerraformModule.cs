@@ -1,7 +1,5 @@
 namespace EmmittJ.Terraform.Sdk;
 
-using EmmittJ.Terraform.Sdk.Constructs.MetaArguments;
-
 /// <summary>
 /// Represents a Terraform module call - a top-level construct for reusing configurations.
 /// Inherits from TerraformBlock to reuse property storage and expression infrastructure.
@@ -15,12 +13,23 @@ public partial class TerraformModule :
     TerraformBlock,
     ITerraformHasDependsOn,
     ITerraformHasCount,
-    ITerraformHasForEach
+    ITerraformHasForEach,
+    ITerraformTopLevelBlock
 {
     /// <summary>
     /// Gets the module name.
     /// </summary>
     public string Name { get; }
+
+    /// <summary>
+    /// Gets the block type keyword for modules.
+    /// </summary>
+    public string BlockType => "module";
+
+    /// <summary>
+    /// Gets the block labels for this module.
+    /// </summary>
+    public string[] BlockLabels => [Name];
 
     /// <summary>
     /// Initializes a new instance of TerraformModule.

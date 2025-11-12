@@ -1,7 +1,7 @@
-namespace EmmittJ.Terraform.Sdk.Constructs.MetaArguments;
+namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Marker interface for constructs that support the 'count' meta-argument.
+/// Marker interface for blocks that support the 'count' meta-argument.
 /// Source generator will add the Count property to implementing types.
 /// </summary>
 /// <remarks>
@@ -11,43 +11,49 @@ namespace EmmittJ.Terraform.Sdk.Constructs.MetaArguments;
 /// </remarks>
 public interface ITerraformHasCount
 {
-    // Property will be source-generated:
-    // TerraformValue<int>? Count { get; set; }
+    /// <summary>
+    /// Gets or sets the count meta-argument value.
+    /// </summary>
+    TerraformValue<int>? Count { get; set; }
 }
 
 /// <summary>
-/// Marker interface for constructs that support the 'for_each' meta-argument.
+/// Marker interface for blocks that support the 'for_each' meta-argument.
 /// Source generator will add the ForEach property to implementing types.
 /// </summary>
 /// <remarks>
 /// The for_each meta-argument accepts a map or a set of strings, and creates an instance for each item in that map or set.
 /// Each instance has a distinct infrastructure object associated with it, and each is separately created,
 /// updated, or destroyed when the configuration is applied.
-/// Note: A construct cannot use both count and for_each.
+/// Note: A block cannot use both count and for_each.
 /// </remarks>
 public interface ITerraformHasForEach
 {
-    // Property will be source-generated:
-    // TerraformValue<object>? ForEach { get; set; }
+    /// <summary>
+    /// Gets or sets the for_each meta-argument value.
+    /// </summary>
+    TerraformValue<object>? ForEach { get; set; }
 }
 
 /// <summary>
-/// Marker interface for constructs that support the 'depends_on' meta-argument.
+/// Marker interface for blocks that support the 'depends_on' meta-argument.
 /// Source generator will add the DependsOn property to implementing types.
 /// </summary>
 /// <remarks>
-/// The depends_on meta-argument accepts a list of references to other constructs.
-/// Use this meta-argument when a construct relies on some other construct's behavior but doesn't access
-/// any of that construct's data in its arguments.
+/// The depends_on meta-argument accepts a list of references to other blocks.
+/// Use this meta-argument when a block relies on some other block's behavior but doesn't access
+/// any of that block's data in its arguments.
 /// </remarks>
 public interface ITerraformHasDependsOn
 {
-    // Property will be source-generated:
-    // List<string> DependsOn { get; }
+    /// <summary>
+    /// Gets the list of dependencies for this block.
+    /// </summary>
+    List<string> DependsOn { get; }
 }
 
 /// <summary>
-/// Marker interface for constructs that support the 'provider' meta-argument.
+/// Marker interface for blocks that support the 'provider' meta-argument.
 /// Source generator will add the Provider property to implementing types.
 /// </summary>
 /// <remarks>
@@ -56,12 +62,14 @@ public interface ITerraformHasDependsOn
 /// </remarks>
 public interface ITerraformHasProvider
 {
-    // Property will be source-generated:
-    // string? Provider { get; set; }
+    /// <summary>
+    /// Gets or sets the provider meta-argument value.
+    /// </summary>
+    string? Provider { get; set; }
 }
 
 /// <summary>
-/// Marker interface for constructs that support the 'lifecycle' meta-argument.
+/// Marker interface for blocks that support the 'lifecycle' meta-argument.
 /// Source generator will add the Lifecycle property to implementing types.
 /// </summary>
 /// <remarks>
@@ -70,12 +78,14 @@ public interface ITerraformHasProvider
 /// </remarks>
 public interface ITerraformHasLifecycle
 {
-    // Property will be source-generated:
-    // TerraformLifecycleConfig? Lifecycle { get; set; }
+    /// <summary>
+    /// Gets or sets the lifecycle configuration for this block.
+    /// </summary>
+    TerraformLifecycleConfig? Lifecycle { get; set; }
 }
 
 /// <summary>
-/// Marker interface for constructs that support 'dynamic' blocks.
+/// Marker interface for blocks that support 'dynamic' blocks.
 /// Source generator will add the DynamicBlocks property to implementing types.
 /// </summary>
 /// <remarks>
@@ -84,12 +94,14 @@ public interface ITerraformHasLifecycle
 /// </remarks>
 public interface ITerraformHasDynamicBlocks
 {
-    // Property will be source-generated:
-    // List<TerraformDynamicBlock> DynamicBlocks { get; }
+    /// <summary>
+    /// Gets the list of dynamic blocks for this block.
+    /// </summary>
+    List<TerraformDynamicBlock> DynamicBlocks { get; }
 }
 
 /// <summary>
-/// Combined interface for all provisionable construct meta-arguments.
+/// Combined interface for all provisionable block meta-arguments.
 /// Implemented by TerraformResource to get all meta-arguments.
 /// </summary>
 /// <remarks>

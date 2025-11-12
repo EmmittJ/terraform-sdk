@@ -47,8 +47,8 @@ public sealed class ValidationResult
     /// <summary>
     /// Creates a validation result with a single error.
     /// </summary>
-    public static ValidationResult Error(string message, TerraformBlock? construct = null, string? propertyName = null)
-        => new(new[] { new ValidationError(message, ValidationSeverity.Error, construct, propertyName) });
+    public static ValidationResult Error(string message, TerraformBlock? block = null, string? propertyName = null)
+        => new(new[] { new ValidationError(message, ValidationSeverity.Error, block, propertyName) });
 
     /// <summary>
     /// Gets a formatted summary of all validation errors.

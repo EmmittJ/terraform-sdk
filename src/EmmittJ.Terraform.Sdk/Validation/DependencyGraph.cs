@@ -14,17 +14,17 @@ public sealed class DependencyGraph
     /// <summary>
     /// Gets all blocks in the dependency graph.
     /// </summary>
-    public IReadOnlyCollection<TerraformBlock> Constructs => _dependsOn.Keys;
+    public IReadOnlyCollection<TerraformBlock> Blocks => _dependsOn.Keys;
 
     /// <summary>
     /// Adds a block to the graph.
     /// </summary>
-    /// <param name="construct">The block to add.</param>
-    public void AddConstruct(TerraformBlock construct)
+    /// <param name="block">The block to add.</param>
+    public void AddBlock(TerraformBlock block)
     {
-        if (!_dependsOn.ContainsKey(construct))
+        if (!_dependsOn.ContainsKey(block))
         {
-            _dependsOn[construct] = new HashSet<TerraformBlock>();
+            _dependsOn[block] = new HashSet<TerraformBlock>();
         }
     }
 
@@ -41,8 +41,8 @@ public sealed class DependencyGraph
         ArgumentNullException.ThrowIfNull(dependency);
 
         // Ensure both blocks exist in the graph
-        AddConstruct(dependent);
-        AddConstruct(dependency);
+        AddBlock(dependent);
+        AddBlock(dependency);
 
         // Record: dependent depends_on dependency
         _dependsOn[dependent].Add(dependency);
@@ -51,11 +51,11 @@ public sealed class DependencyGraph
     /// <summary>
     /// Gets all blocks that this block depends on (its depends_on list).
     /// </summary>
-    /// <param name="construct">The block to get dependencies for.</param>
+    /// <param name="block">The block to get dependencies for.</param>
     /// <returns>The set of blocks that this block depends on.</returns>
-    public IReadOnlySet<TerraformBlock> GetDependsOn(TerraformBlock construct)
+    public IReadOnlySet<TerraformBlock> GetDependsOn(TerraformBlock block)
     {
-        return _dependsOn.TryGetValue(construct, out var deps)
+        return _dependsOn.TryGetValue(block, out var deps)
             ? deps
             : new HashSet<TerraformBlock>();
     }
@@ -64,14 +64,14 @@ public sealed class DependencyGraph
     /// Gets all blocks that depend on this block (reverse lookup).
     /// Useful for understanding impact of changes.
     /// </summary>
-    /// <param name="construct">The block to find dependents for.</param>
+    /// <param name="block">The block to find dependents for.</param>
     /// <returns>The set of blocks that depend on this block.</returns>
-    public IReadOnlySet<TerraformBlock> GetDependents(TerraformBlock construct)
+    public IReadOnlySet<TerraformBlock> GetDependents(TerraformBlock block)
     {
         var dependents = new HashSet<TerraformBlock>();
         foreach (var (dependent, dependencies) in _dependsOn)
         {
-            if (dependencies.Contains(construct))
+            if (dependencies.Contains(block))
             {
                 dependents.Add(dependent);
             }
@@ -99,11 +99,11 @@ public sealed class DependencyGraph
         var recursionStack = new HashSet<TerraformBlock>();
         var path = new List<TerraformBlock>();
 
-        foreach (var construct in _dependsOn.Keys)
+        foreach (var block in _dependsOn.Keys)
         {
-            if (!visited.Contains(construct))
+            if (!visited.Contains(block))
             {
-                FindCyclesRecursive(construct, visited, recursionStack, path, cycles);
+                FindCyclesRecursive(block, visited, recursionStack, path, cycles);
             }
         }
 
@@ -111,18 +111,18 @@ public sealed class DependencyGraph
     }
 
     private void FindCyclesRecursive(
-        TerraformBlock construct,
+        TerraformBlock block,
         HashSet<TerraformBlock> visited,
         HashSet<TerraformBlock> recursionStack,
         List<TerraformBlock> path,
         List<IReadOnlyList<TerraformBlock>> cycles)
     {
-        visited.Add(construct);
-        recursionStack.Add(construct);
-        path.Add(construct);
+        visited.Add(block);
+        recursionStack.Add(block);
+        path.Add(block);
 
         // Follow the depends_on edges
-        foreach (var dependency in _dependsOn[construct])
+        foreach (var dependency in _dependsOn[block])
         {
             if (!visited.Contains(dependency))
             {
@@ -138,7 +138,7 @@ public sealed class DependencyGraph
         }
 
         path.RemoveAt(path.Count - 1);
-        recursionStack.Remove(construct);
+        recursionStack.Remove(block);
     }
 
     /// <summary>
@@ -152,7 +152,7 @@ public sealed class DependencyGraph
         if (HasCycles())
         {
             var cycles = FindCycles();
-            var cycleDescription = string.Join(", ", cycles.First().Select(GetConstructName));
+            var cycleDescription = string.Join(", ", cycles.First().Select(GetBlockName));
             throw new TerraformStackException(
                 $"Cannot perform topological sort: circular dependency detected: {cycleDescription}");
         }
@@ -160,11 +160,11 @@ public sealed class DependencyGraph
         var result = new List<TerraformBlock>();
         var visited = new HashSet<TerraformBlock>();
 
-        foreach (var construct in _dependsOn.Keys)
+        foreach (var block in _dependsOn.Keys)
         {
-            if (!visited.Contains(construct))
+            if (!visited.Contains(block))
             {
-                TopologicalSortRecursive(construct, visited, result);
+                TopologicalSortRecursive(block, visited, result);
             }
         }
 
@@ -172,14 +172,14 @@ public sealed class DependencyGraph
     }
 
     private void TopologicalSortRecursive(
-        TerraformBlock construct,
+        TerraformBlock block,
         HashSet<TerraformBlock> visited,
         List<TerraformBlock> result)
     {
-        visited.Add(construct);
+        visited.Add(block);
 
         // Visit all dependencies first (things this block depends on)
-        foreach (var dependency in _dependsOn[construct])
+        foreach (var dependency in _dependsOn[block])
         {
             if (!visited.Contains(dependency))
             {
@@ -188,25 +188,21 @@ public sealed class DependencyGraph
         }
 
         // Add this block after all its dependencies
-        result.Add(construct);
+        result.Add(block);
     }
 
     /// <summary>
     /// Gets a string representation of a block for error messages.
     /// </summary>
-    private static string GetConstructName(TerraformBlock construct)
+    private static string GetBlockName(TerraformBlock block)
     {
-        var type = construct.GetType().Name;
-        var nameProperty = construct.GetType().GetProperty("Name");
-        if (nameProperty != null)
+        if (block is ITerraformTopLevelBlock topLevelBlock)
         {
-            var name = nameProperty.GetValue(construct);
-            if (name != null)
-            {
-                return $"{type}({name})";
-            }
+            return topLevelBlock.BlockLabels.Length > 0
+                ? $"{topLevelBlock.BlockType}.{string.Join(".", topLevelBlock.BlockLabels)}"
+                : topLevelBlock.BlockType;
         }
-        return type;
+        return block.GetType().Name;
     }
 
     /// <summary>
@@ -220,17 +216,17 @@ public sealed class DependencyGraph
             ""
         };
 
-        foreach (var construct in _dependsOn.Keys.OrderBy(GetConstructName))
+        foreach (var block in _dependsOn.Keys.OrderBy(GetBlockName))
         {
-            var deps = _dependsOn[construct];
+            var deps = _dependsOn[block];
             if (deps.Any())
             {
-                var depNames = string.Join(", ", deps.Select(GetConstructName));
-                lines.Add($"  {GetConstructName(construct)} depends_on: {depNames}");
+                var depNames = string.Join(", ", deps.Select(GetBlockName));
+                lines.Add($"  {GetBlockName(block)} depends_on: {depNames}");
             }
             else
             {
-                lines.Add($"  {GetConstructName(construct)} (no dependencies)");
+                lines.Add($"  {GetBlockName(block)} (no dependencies)");
             }
         }
 

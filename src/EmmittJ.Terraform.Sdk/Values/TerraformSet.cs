@@ -91,10 +91,6 @@ public sealed class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerabl
     public static implicit operator TerraformSet<T>(TerraformExpression expression)
         => new TerraformSet<T>(expression);
 
-    // Implicit conversion from TerraformReference
-    public static implicit operator TerraformSet<T>(TerraformReference reference)
-        => new TerraformSet<T>(reference);
-
     // IEnumerable for collection initializer syntax (non-functional)
     IEnumerator IEnumerable.GetEnumerator()
         => throw new NotSupportedException(

@@ -56,7 +56,7 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
         _currentConstruct = construct;
         if (construct != null)
         {
-            _dependencyGraph.AddConstruct(construct);
+            _dependencyGraph.AddBlock(construct);
         }
         return new ConstructScope(this, previousConstruct);
     }

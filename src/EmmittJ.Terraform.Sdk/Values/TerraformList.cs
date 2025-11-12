@@ -90,10 +90,6 @@ public sealed class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerab
     public static implicit operator TerraformList<T>(TerraformExpression expression)
         => new TerraformList<T>(expression);
 
-    // Implicit conversion from TerraformReference (for referencing other lists)
-    public static implicit operator TerraformList<T>(TerraformReference reference)
-        => new TerraformList<T>(reference);
-
     // IEnumerable for collection initializer syntax (non-functional)
     IEnumerator IEnumerable.GetEnumerator()
         => throw new NotSupportedException(

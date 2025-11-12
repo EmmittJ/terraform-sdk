@@ -9,12 +9,22 @@ namespace EmmittJ.Terraform.Sdk;
 /// the module's own source code. This functionality allows you to share modules across
 /// different Terraform configurations, making your module composable and reusable.
 /// </remarks>
-public partial class TerraformVariable : TerraformBlock
+public partial class TerraformVariable : TerraformBlock, ITerraformTopLevelBlock
 {
     /// <summary>
     /// Gets the name of the variable.
     /// </summary>
     public string Name { get; }
+
+    /// <summary>
+    /// Gets the block type keyword for variables.
+    /// </summary>
+    public string BlockType => "variable";
+
+    /// <summary>
+    /// Gets the block labels for this variable.
+    /// </summary>
+    public string[] BlockLabels => [Name];
 
     /// <summary>
     /// Initializes a new instance of TerraformVariable.

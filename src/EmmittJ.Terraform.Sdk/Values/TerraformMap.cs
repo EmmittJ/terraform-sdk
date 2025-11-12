@@ -98,10 +98,6 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
     public static implicit operator TerraformMap<T>(TerraformExpression expression)
         => new TerraformMap<T>(expression);
 
-    // Implicit conversion from TerraformReference
-    public static implicit operator TerraformMap<T>(TerraformReference reference)
-        => new TerraformMap<T>(reference);
-
     // IEnumerable for collection initializer syntax (non-functional)
     IEnumerator IEnumerable.GetEnumerator()
         => throw new NotSupportedException(

@@ -1,7 +1,5 @@
 namespace EmmittJ.Terraform.Sdk;
 
-using EmmittJ.Terraform.Sdk.Constructs.MetaArguments;
-
 /// <summary>
 /// Represents a Terraform data source - a top-level construct for reading existing infrastructure.
 /// Inherits from TerraformBlock to reuse property storage and expression infrastructure.
@@ -16,7 +14,8 @@ public partial class TerraformDataSource :
     ITerraformHasDependsOn,
     ITerraformHasProvider,
     ITerraformHasCount,
-    ITerraformHasForEach
+    ITerraformHasForEach,
+    ITerraformTopLevelBlock
 {
     /// <summary>
     /// Gets the data source type (e.g., "aws_ami", "azurerm_client_config").
@@ -27,6 +26,16 @@ public partial class TerraformDataSource :
     /// Gets the data source name (unique within the configuration).
     /// </summary>
     public string DataSourceName { get; }
+
+    /// <summary>
+    /// Gets the block type keyword for data sources.
+    /// </summary>
+    public string BlockType => "data";
+
+    /// <summary>
+    /// Gets the block labels for this data source.
+    /// </summary>
+    public string[] BlockLabels => [DataSourceType, DataSourceName];
 
     /// <summary>
     /// Initializes a new instance of TerraformDataSource.
