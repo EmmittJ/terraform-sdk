@@ -20,7 +20,6 @@ public class MetaArgumentGenerator : IIncrementalGenerator
     private const string DependsOnInterfaceName = "ITerraformHasDependsOn";
     private const string ProviderInterfaceName = "ITerraformHasProvider";
     private const string LifecycleInterfaceName = "ITerraformHasLifecycle";
-    private const string DynamicBlocksInterfaceName = "ITerraformHasDynamicBlocks";
 
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
@@ -59,10 +58,9 @@ public class MetaArgumentGenerator : IIncrementalGenerator
         var hasDependsOn = interfaces.Any(i => i.Name == DependsOnInterfaceName);
         var hasProvider = interfaces.Any(i => i.Name == ProviderInterfaceName);
         var hasLifecycle = interfaces.Any(i => i.Name == LifecycleInterfaceName);
-        var hasDynamicBlocks = interfaces.Any(i => i.Name == DynamicBlocksInterfaceName);
 
         // Only generate if at least one marker interface is implemented
-        if (!hasCount && !hasForEach && !hasDependsOn && !hasProvider && !hasLifecycle && !hasDynamicBlocks)
+        if (!hasCount && !hasForEach && !hasDependsOn && !hasProvider && !hasLifecycle)
             return null;
 
         return new ClassInfo(
@@ -72,8 +70,7 @@ public class MetaArgumentGenerator : IIncrementalGenerator
             HasForEach: hasForEach,
             HasDependsOn: hasDependsOn,
             HasProvider: hasProvider,
-            HasLifecycle: hasLifecycle,
-            HasDynamicBlocks: hasDynamicBlocks);
+            HasLifecycle: hasLifecycle);
     }
 
     private static void Execute(SourceProductionContext context, ClassInfo classInfo)
@@ -171,22 +168,6 @@ public class MetaArgumentGenerator : IIncrementalGenerator
             sb.AppendLine();
         }
 
-        // Generate DynamicBlocks property
-        if (classInfo.HasDynamicBlocks)
-        {
-            sb.AppendLine("        private System.Collections.Generic.List<EmmittJ.Terraform.Sdk.TerraformDynamicBlock>? _dynamicBlocks;");
-            sb.AppendLine();
-            sb.AppendLine("        /// <summary>");
-            sb.AppendLine("        /// Gets the list of dynamic blocks for this resource.");
-            sb.AppendLine("        /// Dynamic blocks block repeatable nested blocks dynamically based on a collection.");
-            sb.AppendLine("        /// </summary>");
-            sb.AppendLine("        public System.Collections.Generic.List<EmmittJ.Terraform.Sdk.TerraformDynamicBlock> DynamicBlocks");
-            sb.AppendLine("        {");
-            sb.AppendLine("            get => _dynamicBlocks ??= new System.Collections.Generic.List<EmmittJ.Terraform.Sdk.TerraformDynamicBlock>();");
-            sb.AppendLine("        }");
-            sb.AppendLine();
-        }
-
         sb.AppendLine("    }");
         sb.AppendLine("}");
 
@@ -200,6 +181,5 @@ public class MetaArgumentGenerator : IIncrementalGenerator
         bool HasForEach,
         bool HasDependsOn,
         bool HasProvider,
-        bool HasLifecycle,
-        bool HasDynamicBlocks);
+        bool HasLifecycle);
 }

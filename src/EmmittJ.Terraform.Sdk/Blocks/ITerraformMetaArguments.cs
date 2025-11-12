@@ -83,19 +83,3 @@ public interface ITerraformHasLifecycle
     /// </summary>
     TerraformLifecycleConfig? Lifecycle { get; set; }
 }
-
-/// <summary>
-/// Marker interface for blocks that support 'dynamic' blocks.
-/// Source generator will add the DynamicBlocks property to implementing types.
-/// </summary>
-/// <remarks>
-/// Dynamic blocks allow you to block repeatable nested blocks dynamically based on a complex value.
-/// They are particularly useful when you need to generate multiple similar nested blocks programmatically.
-/// </remarks>
-public interface ITerraformHasDynamicBlocks
-{
-    /// <summary>
-    /// Gets the list of dynamic blocks for this block.
-    /// </summary>
-    List<TerraformDynamicBlock> DynamicBlocks { get; }
-}

@@ -86,7 +86,7 @@ public partial class TerraformOutput : TerraformBlock, ITerraformHasDependsOn, I
         var bodyMap = base.Resolve(ctx);
 
         // Wrap in block expression with output name
-        return new TerraformBlockExpression("output", [Name], bodyMap);
+        return new TerraformTopLevelBlockExpression("output", [Name], bodyMap);
     }
 
     /// <summary>

@@ -1,0 +1,10 @@
+﻿{
+  name = "test"
+  dynamic "test_block" {
+    for_each = var.rules
+
+    content {
+      port = 443
+    }
+  }
+}

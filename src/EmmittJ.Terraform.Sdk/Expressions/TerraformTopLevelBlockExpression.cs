@@ -3,8 +3,9 @@ namespace EmmittJ.Terraform.Sdk;
 using System.Text;
 
 /// <summary>
-/// Expression representing a complete Terraform block with block type and labels.
+/// Expression representing a complete top-level Terraform block with block type and labels.
 /// This is used for top-level blocks like resources, data sources, outputs, variables, etc.
+/// Renamed from TerraformBlockExpression to avoid conflict with nested block expression.
 /// </summary>
 /// <remarks>
 /// Examples of generated HCL:
@@ -26,19 +27,19 @@ using System.Text;
 /// }
 /// </code>
 /// </remarks>
-public class TerraformBlockExpression : TerraformExpression
+public class TerraformTopLevelBlockExpression : TerraformExpression
 {
     private readonly string _blockType;
     private readonly string[] _labels;
     private readonly TerraformExpression _body;
 
     /// <summary>
-    /// Initializes a new instance of TerraformBlockExpression.
+    /// Initializes a new instance of TerraformTopLevelBlockExpression.
     /// </summary>
     /// <param name="blockType">The block type (e.g., "resource", "data", "output", "variable", "provider", "module").</param>
     /// <param name="labels">The block labels. For resources: [type, name]. For outputs/variables: [name].</param>
     /// <param name="body">The body expression, typically a TerraformMapExpression containing properties.</param>
-    public TerraformBlockExpression(
+    public TerraformTopLevelBlockExpression(
         string blockType,
         string[] labels,
         TerraformExpression body)

@@ -60,7 +60,7 @@ public partial class TerraformDataSource :
         var bodyMap = base.Resolve(ctx);
 
         // Wrap in block expression with data source type and name
-        return new TerraformBlockExpression("data",
+        return new TerraformTopLevelBlockExpression("data",
             [DataSourceType, DataSourceName], bodyMap);
     }
 

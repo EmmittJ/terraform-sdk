@@ -14,8 +14,7 @@ public partial class TerraformResource : TerraformBlock, ITerraformTopLevelBlock
     ITerraformHasForEach,
     ITerraformHasDependsOn,
     ITerraformHasProvider,
-    ITerraformHasLifecycle,
-    ITerraformHasDynamicBlocks
+    ITerraformHasLifecycle
 {
     /// <summary>
     /// Gets the resource type (e.g., "aws_vpc", "azurerm_resource_group").
@@ -60,7 +59,7 @@ public partial class TerraformResource : TerraformBlock, ITerraformTopLevelBlock
         var bodyMap = base.Resolve(ctx);
 
         // Wrap in block expression with resource type and name
-        return new TerraformBlockExpression("resource",
+        return new TerraformTopLevelBlockExpression("resource",
             [ResourceType, ResourceName], bodyMap);
     }
 

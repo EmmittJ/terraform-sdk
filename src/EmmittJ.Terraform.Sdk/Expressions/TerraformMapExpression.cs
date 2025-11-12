@@ -278,11 +278,25 @@ public class TerraformMapExpression : TerraformExpression,
         return sb.ToString();
     }
 
-    protected virtual void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
+    /// <summary>
+    /// Writes the properties to a StringBuilder with proper indentation.
+    /// Made internal to allow TerraformDynamicBlockExpression to reuse property rendering.
+    /// Detects TerraformDynamicBlockExpression and renders with dynamic block syntax.
+    /// </summary>
+    internal virtual void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
     {
         foreach (var (key, value) in _properties.OrderBy(p => p.Key))
         {
-            sb.AppendLine($"{context.Indent}{key}{base.AssignmentOperator}{value.ToHcl(context)}");
+            // Check if this is a dynamic block expression - render with special syntax
+            if (value is TerraformDynamicBlockExpression dynamicBlockExpr)
+            {
+                sb.AppendLine(dynamicBlockExpr.ToHcl(context));
+            }
+            else
+            {
+                // Normal property rendering
+                sb.AppendLine($"{context.Indent}{key}{base.AssignmentOperator}{value.ToHcl(context)}");
+            }
         }
     }
 

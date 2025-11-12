@@ -103,7 +103,7 @@ public class TerraformCheckBlock : TerraformBlock
             // This is a temporary solution until we have better support for nested blocks
         }
 
-        return new TerraformBlockExpression("check", [Name], compositeBody);
+        return new TerraformTopLevelBlockExpression("check", [Name], compositeBody);
     }
 
     /// <summary>
@@ -165,7 +165,7 @@ public class TerraformAssertBlock : TerraformBlock
     public override TerraformExpression Resolve(ITerraformContext ctx)
     {
         var bodyMap = base.Resolve(ctx);
-        return new TerraformBlockExpression("assert", [], bodyMap);
+        return new TerraformTopLevelBlockExpression("assert", [], bodyMap);
     }
 
     /// <inheritdoc/>

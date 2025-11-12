@@ -1,0 +1,9 @@
+﻿dynamic "test_block" {
+  for_each = var.patch_schedules
+  iterator = schedule
+
+  content {
+    name = schedule.value.day
+    port = schedule.value.hour
+  }
+}

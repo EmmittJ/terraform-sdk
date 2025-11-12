@@ -38,13 +38,34 @@ public abstract class TerraformBlock : TerraformMap<object>
     /// </summary>
     /// <param name="terraformName">The Terraform property name (from [TerraformProperty("name")] attribute).</param>
     /// <param name="value">The value to store (TerraformValue&lt;T&gt;, TerraformList&lt;T&gt;, nested blocks, etc.).</param>
-    protected void SetPropertyValue(string terraformName, object? value)
+    public void SetPropertyValue(string terraformName, object? value)
     {
-        // Use the indexer from base TerraformMap<object>
-        // The indexer expects TerraformValue<object>, and there's an implicit conversion from object to TerraformValue<object>
-        // So we can pass the value directly and it will be wrapped automatically
-        if (value != null)
+        if (value == null)
+            return;
+
+        // Handle TerraformExpression directly - avoid double-wrapping
+        if (value is TerraformExpression expr)
         {
+            this[terraformName] = TerraformValue.FromExpression<object>(expr);
+        }
+        // Handle TerraformValue<T> - unwrap and rewrap as TerraformValue<object> to avoid double-wrapping
+        // When a TerraformValue<int> is passed as object, we can't use implicit conversion to TerraformValue<object>
+        // because that would wrap the TerraformValue<int> instance itself as a literal object
+        else if (value is ITerraformValue tfValue)
+        {
+            // ITerraformValue has a Resolve method, so we can resolve and rewrap
+            this[terraformName] = TerraformValue<object>.Lazy(ctx => tfValue.Resolve(ctx));
+        }
+        // Handle ITerraformResolvable
+        else if (value is ITerraformResolvable resolvable)
+        {
+            this[terraformName] = new TerraformValue<object>(resolvable);
+        }
+        else
+        {
+            // Use the indexer from base TerraformMap<object>
+            // The indexer expects TerraformValue<object>, and there's an implicit conversion from object to TerraformValue<object>
+            // So we can pass the value directly and it will be wrapped automatically
             this[terraformName] = value;
         }
     }
@@ -57,7 +78,7 @@ public abstract class TerraformBlock : TerraformMap<object>
     /// <typeparam name="T">The property type.</typeparam>
     /// <param name="terraformName">The Terraform property name.</param>
     /// <returns>The stored value or null.</returns>
-    protected T? GetPropertyValue<T>(string terraformName)
+    public T? GetPropertyValue<T>(string terraformName)
     {
         try
         {
