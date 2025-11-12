@@ -271,7 +271,7 @@ public class TerraformMapExpression : TerraformExpression,
 
         using (context.PushIndent())
         {
-            WriteProperties(sb, context);
+            sb.Append(RenderProperties(context));
         }
         sb.Append($"{context.Indent}}}");
 
@@ -279,12 +279,17 @@ public class TerraformMapExpression : TerraformExpression,
     }
 
     /// <summary>
-    /// Writes the properties to a StringBuilder with proper indentation.
-    /// Made internal to allow TerraformDynamicBlockExpression to reuse property rendering.
+    /// Renders the properties as HCL with proper indentation.
+    /// Returns the rendered properties without surrounding braces, allowing parent expressions
+    /// to compose the content within their own block structures.
     /// Detects TerraformDynamicBlockExpression and renders with dynamic block syntax.
     /// </summary>
-    internal virtual void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
+    /// <param name="context">The rendering context providing indentation and scope information.</param>
+    /// <returns>The rendered properties as a string.</returns>
+    protected internal virtual string RenderProperties(ITerraformContext context)
     {
+        var sb = new System.Text.StringBuilder();
+
         foreach (var (key, value) in _properties.OrderBy(p => p.Key))
         {
             // Check if this is a dynamic block expression - render with special syntax
@@ -298,6 +303,8 @@ public class TerraformMapExpression : TerraformExpression,
                 sb.AppendLine($"{context.Indent}{key}{base.AssignmentOperator}{value.ToHcl(context)}");
             }
         }
+
+        return sb.ToString();
     }
 
     #endregion

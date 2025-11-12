@@ -91,8 +91,8 @@ public class TerraformDynamicBlockExpression : TerraformExpression
 
             using (context.PushIndent())
             {
-                // Render the content's properties
-                _content.WriteProperties(sb, context);
+                // Render the content's properties without outer braces
+                sb.Append(_content.RenderProperties(context));
             }
 
             sb.Append(context.Indent);

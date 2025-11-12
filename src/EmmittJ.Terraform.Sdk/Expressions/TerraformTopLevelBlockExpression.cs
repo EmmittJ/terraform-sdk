@@ -78,39 +78,16 @@ public class TerraformTopLevelBlockExpression : TerraformExpression
         // Body - render with increased indentation
         using (context.PushIndent())
         {
-            var bodyHcl = _body.ToHcl(context);
-
-            // If the body is a map expression, it will have outer braces
-            // We need to extract the inner content without those braces
+            // If the body is a TerraformMapExpression, render just the properties without braces
             // since we're already providing the block-level braces
-            if (bodyHcl.TrimStart().StartsWith("{") && bodyHcl.TrimEnd().EndsWith("}"))
+            if (_body is TerraformMapExpression mapExpr)
             {
-                // Extract content between braces
-                var lines = bodyHcl.Split('\n');
-                var relevantLines = new List<string>();
-
-                // Skip first and last lines (which contain the braces)
-                // and handle any potential trailing whitespace
-                for (int i = 1; i < lines.Length - 1; i++)
-                {
-                    var line = lines[i];
-                    // Only add non-empty lines or lines with content
-                    if (!string.IsNullOrWhiteSpace(line) || i < lines.Length - 2)
-                    {
-                        relevantLines.Add(line);
-                    }
-                }
-
-                // Join the lines back together
-                if (relevantLines.Count > 0)
-                {
-                    sb.AppendLine(string.Join("\n", relevantLines));
-                }
+                sb.Append(mapExpr.RenderProperties(context));
             }
             else
             {
-                // If it's not a map expression (shouldn't normally happen),
-                // just append it as-is
+                // For other expression types, render normally
+                var bodyHcl = _body.ToHcl(context);
                 sb.Append(bodyHcl);
                 if (!bodyHcl.EndsWith("\n"))
                 {

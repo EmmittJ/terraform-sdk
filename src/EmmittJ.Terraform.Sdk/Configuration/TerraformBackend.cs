@@ -39,7 +39,7 @@ public class TerraformBackend : TerraformBlockExpression
 
         using (context.PushIndent())
         {
-            WriteProperties(sb, context);
+            sb.Append(RenderProperties(context));
         }
         sb.Append($"{context.Indent}}}");
 
