@@ -100,8 +100,8 @@ public class TerraformIntegrationTests_SimpleResource : TerraformIntegrationTest
         // Arrange
         var config = new TerraformStack();
         config.Add(new TerraformResource("aws_instance", "web")
-            .WithProperty("ami", "ami-12345678")
-            .WithProperty("instance_type", "t2.micro"));
+            ["ami"] = "ami-12345678")
+            ["instance_type"] = "t2.micro"));
 
         // Act & Assert
         await AssertTerraformValidatesAsync(config);
@@ -127,7 +127,7 @@ public class TerraformIntegrationTests_Backend : TerraformIntegrationTestBase
         };
 
         config.Add(new TerraformResource("aws_s3_bucket", "data")
-            .WithProperty("bucket", "my-data-bucket"));
+            ["bucket"] = "my-data-bucket"));
 
         // Act & Assert
         await AssertTerraformValidatesAsync(config);
@@ -155,8 +155,8 @@ public class TerraformIntegrationTests_Settings : TerraformIntegrationTestBase
         };
 
         config.Add(new TerraformResource("aws_instance", "web")
-            .WithProperty("ami", "ami-12345678")
-            .WithProperty("instance_type", "t2.micro"));
+            ["ami"] = "ami-12345678")
+            ["instance_type"] = "t2.micro"));
 
         // Act & Assert
         await AssertTerraformValidatesAsync(config);
@@ -180,8 +180,8 @@ public class TerraformIntegrationTests_Lifecycle : TerraformIntegrationTestBase
             }
         };
         resource.Lifecycle.IgnoreChanges.Add("tags");
-        resource.WithProperty("ami", "ami-12345678")
-            .WithProperty("instance_type", "t2.micro");
+        resource["ami"] = "ami-12345678")
+            ["instance_type"] = "t2.micro");
         config.Add(resource);
 
         // Act & Assert
@@ -198,7 +198,7 @@ public class TerraformIntegrationTests_DataSource : TerraformIntegrationTestBase
         // Arrange
         var config = new TerraformStack();
         var dataSource = new TerraformDataSource("aws_ami", "ubuntu");
-        dataSource.WithProperty("most_recent", true);
+        dataSource["most_recent"] = true);
         config.Add(dataSource);
 
         // Act & Assert
@@ -233,12 +233,12 @@ public class TerraformIntegrationTests_Complex : TerraformIntegrationTestBase
 
         // Add provider
         var provider = new TerraformProvider("aws");
-        provider.WithProperty("region", "us-west-2");
+        provider["region"] = "us-west-2");
         config.Add(provider);
 
         // Add data source
         var ami = new TerraformDataSource("aws_ami", "ubuntu");
-        ami.WithProperty("most_recent", true);
+        ami["most_recent"] = true);
         config.Add(ami);
 
         // Add resource with lifecycle (reference ami output)
@@ -250,8 +250,8 @@ public class TerraformIntegrationTests_Complex : TerraformIntegrationTestBase
             }
         };
         var amiRef = new TerraformReferenceExpression(ami, "id");
-        instance.WithProperty("ami", amiRef)
-            .WithProperty("instance_type", "t2.micro");
+        instance["ami"] = amiRef)
+            ["instance_type"] = "t2.micro");
         config.Add(instance);
 
         // Act & Assert

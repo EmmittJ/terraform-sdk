@@ -7,6 +7,8 @@ namespace EmmittJ.Terraform.Sdk.Tests;
 /// </summary>
 public class EnhancedApiTests
 {
+    // TODO: Priority feature removed with fluent API - these tests need to be redesigned
+    /*
     [Fact]
     public Task WithProperty_WithPriority_RendersInOrder()
     {
@@ -25,6 +27,7 @@ public class EnhancedApiTests
 
         return Verify(config.ToHcl());
     }
+    */
 
     [Fact]
     public Task DictionaryImplicitConversion_Works()
@@ -34,20 +37,22 @@ public class EnhancedApiTests
             Name = "test"
         };
 
-        var resource = new TerraformResource("aws_instance", "web")
-            .WithProperty("ami", "ami-12345")
-            .WithProperty("tags", new Dictionary<string, string>
-            {
-                ["Name"] = "Web Server",
-                ["Environment"] = "Production",
-                ["ManagedBy"] = "Terraform"
-            });
+        var resource = new TerraformResource("aws_instance", "web");
+        resource["ami"] = "ami-12345";
+        resource["tags"] = new Dictionary<string, string>
+        {
+            ["Name"] = "Web Server",
+            ["Environment"] = "Production",
+            ["ManagedBy"] = "Terraform"
+        };
 
         config.Add(resource);
 
         return Verify(config.ToHcl());
     }
 
+    // TODO: Priority feature removed with fluent API - need to redesign without WithReference priority param
+    /*
     [Fact]
     public Task WithReference_WithPriority_Works()
     {
@@ -68,6 +73,7 @@ public class EnhancedApiTests
 
         return Verify(config.ToHcl());
     }
+    */
 
     [Fact]
     public Task MixedTypeDictionary_Works()
@@ -77,14 +83,14 @@ public class EnhancedApiTests
             Name = "test"
         };
 
-        var resource = new TerraformResource("test_resource", "example")
-            .WithProperty("config", new Dictionary<string, object>
-            {
-                ["name"] = "my-resource",
-                ["count"] = 5,
-                ["enabled"] = true,
-                ["timeout"] = 30.5
-            });
+        var resource = new TerraformResource("test_resource", "example");
+        resource["config"] = new Dictionary<string, object>
+        {
+            ["name"] = "my-resource",
+            ["count"] = 5,
+            ["enabled"] = true,
+            ["timeout"] = 30.5
+        };
 
         config.Add(resource);
 

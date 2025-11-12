@@ -95,7 +95,7 @@ public class TerraformValueResolverTests
     {
         // Arrange
         var block = new TestBlock()
-            .WithProperty("name", new TerraformLiteralProperty<string>("block-name"));
+            ["name"] = new TerraformLiteralProperty<string>("block-name"));
 
         // Act - should not throw
         TerraformValueResolver.PrepareValue(block, _context);
@@ -185,8 +185,8 @@ public class TerraformValueResolverTests
     {
         // Arrange
         var block = new TestBlock()
-            .WithProperty("name", new TerraformLiteralProperty<string>("test-block"))
-            .WithProperty("count", new TerraformLiteralProperty<int>(42));
+            ["name"] = new TerraformLiteralProperty<string>("test-block"))
+            ["count"] = new TerraformLiteralProperty<int>(42));
 
         // Act
         var result = TerraformValueResolver.ResolveValue(block, _context);
@@ -215,13 +215,13 @@ public class TerraformValueResolverTests
         var blocks = new List<TestBlock>
         {
             new TestBlock()
-                .WithProperty("tags", new Dictionary<string, TerraformValue<string>>
+                ["tags"] = new Dictionary<string, TerraformValue<string>>
                 {
                     ["env"] = new TerraformLiteralProperty<string>("dev"),
                     ["owner"] = new TerraformLiteralProperty<string>("team")
                 }),
             new TestBlock()
-                .WithProperty("tags", new Dictionary<string, TerraformValue<string>>
+                ["tags"] = new Dictionary<string, TerraformValue<string>>
                 {
                     ["env"] = new TerraformLiteralProperty<string>("prod")
                 })

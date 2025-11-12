@@ -110,8 +110,7 @@ public class TerraformSplatExpressionTests
     public Task Splat_InLocalValue_GeneratesCorrectHcl()
     {
         var local = new TerraformLocal()
-            .WithProperty("instance_private_ips",
-                TerraformExpression.Identifier("aws_instance.app").Splat("private_ip"));
+            ["instance_private_ips"] = TerraformExpression.Identifier("aws_instance.app").Splat("private_ip"));
 
         return Verify(local.Resolve());
     }

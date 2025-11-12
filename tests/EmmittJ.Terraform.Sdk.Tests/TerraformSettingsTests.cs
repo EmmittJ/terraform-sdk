@@ -91,7 +91,7 @@ public class TerraformSettingsTests
         config.Add(variable);
 
         var provider = new TerraformProvider("aws");
-        provider.WithProperty("region", variable.AsReference());
+        provider["region"] = variable.AsReference());
         config.Add(provider);
 
         return Verify(config.ToHcl());

@@ -16,8 +16,9 @@ public class TerraformResourceTests
     public Task Resource_WithSingleProperty()
     {
         var config = new TerraformStack();
-        config.Add(new TerraformResource("aws_vpc", "main")
-            .WithProperty("cidr_block", "10.0.0.0/16"));
+        var resource = new TerraformResource("aws_vpc", "main");
+        resource["cidr_block"] = "10.0.0.0/16";
+        config.Add(resource);
 
         return Verify(config.ToHcl());
     }
@@ -26,9 +27,10 @@ public class TerraformResourceTests
     public Task Resource_WithMultipleProperties()
     {
         var config = new TerraformStack();
-        config.Add(new TerraformResource("aws_instance", "web")
-            .WithProperty("ami", "ami-12345678")
-            .WithProperty("instance_type", "t2.micro"));
+        var resource = new TerraformResource("aws_instance", "web");
+        resource["ami"] = "ami-12345678";
+        resource["instance_type"] = "t2.micro";
+        config.Add(resource);
 
         return Verify(config.ToHcl());
     }
@@ -45,8 +47,9 @@ public class TerraformResourceTests
         };
         config.Add(cidrVar);
 
-        config.Add(new TerraformResource("aws_vpc", "main")
-            .WithProperty("cidr_block", cidrVar.AsReference()));
+        var resource = new TerraformResource("aws_vpc", "main");
+        resource["cidr_block"] = cidrVar.AsReference();
+        config.Add(resource);
 
         return Verify(config.ToHcl());
     }
@@ -56,14 +59,14 @@ public class TerraformResourceTests
     {
         var config = new TerraformStack();
 
-        var vpc = new TerraformResource("aws_vpc", "main")
-            .WithProperty("cidr_block", "10.0.0.0/16")
-            .WithOutput("id");
+        var vpc = new TerraformResource("aws_vpc", "main");
+        vpc["cidr_block"] = "10.0.0.0/16";
         config.Add(vpc);
 
-        config.Add(new TerraformResource("aws_subnet", "public")
-            .WithProperty("vpc_id", vpc["id"])
-            .WithProperty("cidr_block", "10.0.1.0/24"));
+        var subnet = new TerraformResource("aws_subnet", "public");
+        subnet["vpc_id"] = vpc["id"];
+        subnet["cidr_block"] = "10.0.1.0/24";
+        config.Add(subnet);
 
         return Verify(config.ToHcl());
     }
@@ -73,9 +76,9 @@ public class TerraformResourceTests
     {
         var config = new TerraformStack();
 
-        config.Add(new TerraformResource("aws_subnet", "calculated")
-            .WithProperty("cidr_block",
-                TerraformExpression.Raw("cidrsubnet(\"10.0.0.0/16\", 8, count.index)")));
+        var resource = new TerraformResource("aws_subnet", "calculated");
+        resource["cidr_block"] = TerraformExpression.Raw("cidrsubnet(\"10.0.0.0/16\", 8, count.index)");
+        config.Add(resource);
 
         return Verify(config.ToHcl());
     }
@@ -89,9 +92,8 @@ public class TerraformResourceTests
         {
             Count = 3
         };
-        config.Add(resource
-            .WithProperty("cidr_block",
-                TerraformExpression.Raw("cidrsubnet(\"10.0.0.0/16\", 8, count.index)")));
+        resource["cidr_block"] = TerraformExpression.Raw("cidrsubnet(\"10.0.0.0/16\", 8, count.index)");
+        config.Add(resource);
 
         return Verify(config.ToHcl());
     }
@@ -111,9 +113,9 @@ public class TerraformResourceTests
         {
             ForEach = azs.AsReference()
         };
-        config.Add(resource
-            .WithProperty("availability_zone", TerraformExpression.Identifier("each.value"))
-            .WithProperty("cidr_block", "10.0.1.0/24"));
+        resource["availability_zone"] = TerraformExpression.Identifier("each.value");
+        resource["cidr_block"] = "10.0.1.0/24";
+        config.Add(resource);
 
         return Verify(config.ToHcl());
     }
@@ -127,7 +129,8 @@ public class TerraformResourceTests
         {
             Provider = "aws.west"
         };
-        config.Add(resource.WithProperty("ami", "ami-12345678"));
+        resource["ami"] = "ami-12345678";
+        config.Add(resource);
 
         return Verify(config.ToHcl());
     }
@@ -137,17 +140,19 @@ public class TerraformResourceTests
     {
         var config = new TerraformStack();
 
-        config.Add(new TerraformResource("aws_vpc", "main")
-            .WithProperty("cidr_block", "10.0.0.0/16"));
+        var vpc = new TerraformResource("aws_vpc", "main");
+        vpc["cidr_block"] = "10.0.0.0/16";
+        config.Add(vpc);
 
-        config.Add(new TerraformResource("aws_internet_gateway", "main")
-            .WithProperty("vpc_id", "aws_vpc.main.id"));
+        var gateway = new TerraformResource("aws_internet_gateway", "main");
+        gateway["vpc_id"] = "aws_vpc.main.id";
+        config.Add(gateway);
 
         var route = new TerraformResource("aws_route", "internet");
         route.DependsOn.Add("aws_internet_gateway.main");
-        config.Add(route
-            .WithProperty("route_table_id", "aws_route_table.main.id")
-            .WithProperty("gateway_id", "aws_internet_gateway.main.id"));
+        route["route_table_id"] = "aws_route_table.main.id";
+        route["gateway_id"] = "aws_internet_gateway.main.id";
+        config.Add(route);
 
         return Verify(config.ToHcl());
     }
@@ -165,7 +170,6 @@ public class TerraformResourceTests
     public void Resource_IndexerAccess_CreatesReference()
     {
         var resource = new TerraformResource("aws_vpc", "main");
-        resource.WithOutput("cidr_block");
         var reference = resource["cidr_block"];
 
         Assert.NotNull(reference);
@@ -187,17 +191,14 @@ public class TerraformResourceTests
         config.Add(cidr);
 
         // VPC
-        var vpc = new TerraformResource("aws_vpc", "main")
-            .WithProperty("cidr_block", cidr.AsReference())
-            .WithOutput("id")
-            .WithOutput("cidr_block");
+        var vpc = new TerraformResource("aws_vpc", "main");
+        vpc["cidr_block"] = cidr.AsReference();
         config.Add(vpc);
 
         // Subnet
-        var subnet = new TerraformResource("aws_subnet", "public")
-            .WithProperty("vpc_id", vpc["id"])
-            .WithProperty("cidr_block",
-                TerraformExpression.Raw("cidrsubnet(aws_vpc.main.cidr_block, 8, 1)"));
+        var subnet = new TerraformResource("aws_subnet", "public");
+        subnet["vpc_id"] = vpc["id"];
+        subnet["cidr_block"] = TerraformExpression.Raw("cidrsubnet(aws_vpc.main.cidr_block, 8, 1)");
         config.Add(subnet);
 
         return Verify(config.ToHcl());

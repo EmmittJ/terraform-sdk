@@ -5,8 +5,8 @@ public class TerraformProviderTests
     [Fact]
     public Task Provider_BasicConfiguration_GeneratesHcl()
     {
-        var provider = new TerraformProvider("aws")
-            .WithProperty("region", "us-east-1");
+        var provider = new TerraformProvider("aws");
+        provider["region"] = "us-east-1";
 
         return Verify(provider.Resolve());
     }
@@ -18,7 +18,7 @@ public class TerraformProviderTests
         {
             Alias = "west"
         };
-        provider.WithProperty("region", "us-west-2");
+        provider["region"] = "us-west-2";
 
         return Verify(provider.Resolve());
     }
@@ -26,10 +26,10 @@ public class TerraformProviderTests
     [Fact]
     public Task Provider_WithMultipleProperties_GeneratesHcl()
     {
-        var provider = new TerraformProvider("azurerm")
-            .WithProperty("features", TerraformExpression.Raw("{}"))
-            .WithProperty("subscription_id", "12345-67890")
-            .WithProperty("tenant_id", "abcde-fghij");
+        var provider = new TerraformProvider("azurerm");
+        provider["features"] = TerraformExpression.Raw("{}");
+        provider["subscription_id"] = "12345-67890";
+        provider["tenant_id"] = "abcde-fghij";
 
         return Verify(provider.Resolve());
     }
@@ -38,8 +38,8 @@ public class TerraformProviderTests
     public Task Provider_WithReference_GeneratesHcl()
     {
         var regionVar = new TerraformVariable("aws_region") { Type = "string" };
-        var provider = new TerraformProvider("aws")
-            .WithProperty("region", regionVar.AsReference());
+        var provider = new TerraformProvider("aws");
+        provider["region"] = regionVar.AsReference();
 
         return Verify(provider.Resolve());
     }
@@ -47,9 +47,9 @@ public class TerraformProviderTests
     [Fact]
     public Task Provider_WithExpression_GeneratesHcl()
     {
-        var provider = new TerraformProvider("aws")
-            .WithProperty("region", TerraformExpression.Identifier("var.region"))
-            .WithProperty("skip_metadata_api_check", true);
+        var provider = new TerraformProvider("aws");
+        provider["region"] = TerraformExpression.Identifier("var.region");
+        provider["skip_metadata_api_check"] = true;
 
         return Verify(provider.Resolve());
     }
@@ -75,12 +75,12 @@ public class TerraformProviderTests
     [Fact]
     public Task Provider_FluentChaining_MaintainsType()
     {
-        var provider = new TerraformProvider("google")
-            .WithProperty("project", "my-project")
-            .WithProperty("region", "us-central1")
-            .WithProperty("zone", "us-central1-a");
+        var provider = new TerraformProvider("google");
+        provider["project"] = "my-project";
+        provider["region"] = "us-central1";
+        provider["zone"] = "us-central1-a";
 
-        // Verify fluent chaining returns TerraformProvider
+        // Verify type
         Assert.IsType<TerraformProvider>(provider);
 
         return Verify(provider.Resolve());
@@ -90,8 +90,8 @@ public class TerraformProviderTests
     public Task Provider_InConfiguration_GeneratesHcl()
     {
         var config = new TerraformStack();
-        var provider = new TerraformProvider("aws")
-            .WithProperty("region", "us-east-1");
+        var provider = new TerraformProvider("aws");
+        provider["region"] = "us-east-1";
 
         config.Add(provider);
 
@@ -107,13 +107,13 @@ public class TerraformProviderTests
         {
             Alias = "east"
         };
-        eastProvider.WithProperty("region", "us-east-1");
+        eastProvider["region"] = "us-east-1";
 
         var westProvider = new TerraformProvider("aws")
         {
             Alias = "west"
         };
-        westProvider.WithProperty("region", "us-west-2");
+        westProvider["region"] = "us-west-2";
 
         config.Add(eastProvider);
         config.Add(westProvider);

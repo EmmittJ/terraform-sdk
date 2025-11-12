@@ -17,8 +17,8 @@ public class TerraformDynamicBlockTests
             }
         };
 
-        resource.WithProperty("name", "example-sg");
-        resource.WithProperty("vpc_id", TerraformExpression.Identifier("aws_vpc.main.id"));
+        resource["name"] = "example-sg");
+        resource["vpc_id"] = TerraformExpression.Identifier("aws_vpc.main.id"));
 
         return Verify(resource.Resolve());
     }
@@ -41,7 +41,7 @@ public class TerraformDynamicBlockTests
             }
         };
 
-        resource.WithProperty("name", "example-sg");
+        resource["name"] = "example-sg");
 
         return Verify(resource.Resolve());
     }
@@ -64,8 +64,8 @@ public class TerraformDynamicBlockTests
             }
         };
 
-        resource.WithProperty("name", "example-sg");
-        resource.WithProperty("description", "Security group with dynamic rules");
+        resource["name"] = "example-sg");
+        resource["description"] = "Security group with dynamic rules");
 
         return Verify(resource.Resolve());
     }
@@ -84,8 +84,8 @@ public class TerraformDynamicBlockTests
             }
         };
 
-        resource.WithProperty("ami", "ami-12345678");
-        resource.WithProperty("instance_type", "t2.micro");
+        resource["ami"] = "ami-12345678");
+        resource["instance_type"] = "t2.micro");
 
         return Verify(resource.Resolve());
     }
@@ -105,7 +105,7 @@ public class TerraformDynamicBlockTests
             }
         };
 
-        resource.WithProperty("bucket", "my-bucket");
+        resource["bucket"] = "my-bucket");
 
         return Verify(resource.Resolve());
     }
@@ -124,8 +124,8 @@ public class TerraformDynamicBlockTests
             }
         };
 
-        resource.WithProperty("name", "example-template");
-        resource.WithProperty("image_id", "ami-12345678");
+        resource["name"] = "example-template");
+        resource["image_id"] = "ami-12345678");
 
         return Verify(resource.Resolve());
     }
@@ -150,7 +150,7 @@ public class TerraformDynamicBlockTests
             }
         };
 
-        resource.WithProperty("name", "example-sg");
+        resource["name"] = "example-sg");
 
         return Verify(resource.Resolve());
     }
@@ -173,7 +173,7 @@ public class TerraformDynamicBlockTests
             }
         };
 
-        resource.WithProperty("name", "filtered-sg");
+        resource["name"] = "filtered-sg");
 
         return Verify(resource.Resolve());
     }
@@ -197,7 +197,7 @@ public class TerraformDynamicBlockTests
             }
         };
 
-        resource.WithProperty("name", "example-sg");
+        resource["name"] = "example-sg");
 
         return Verify(resource.Resolve());
     }
@@ -215,7 +215,7 @@ public class TerraformDynamicBlockTests
             }
         };
 
-        dataSource.WithProperty("state", "available");
+        dataSource["state"] = "available");
 
         return Verify(dataSource.Resolve());
     }
@@ -256,8 +256,8 @@ public class TerraformDynamicBlockTests
                    .WithContent("cidr_blocks", ingress.Value["cidr_blocks"]);
         });
 
-        resource.WithProperty("name", "example-sg");
-        resource.WithProperty("vpc_id", TerraformExpression.Identifier("aws_vpc.main.id"));
+        resource["name"] = "example-sg");
+        resource["vpc_id"] = TerraformExpression.Identifier("aws_vpc.main.id"));
 
         return Verify(resource.Resolve());
     }
@@ -275,7 +275,7 @@ public class TerraformDynamicBlockTests
                 .WithContent("cidr_blocks", rule.Value["cidr_blocks"]);
         });
 
-        resource.WithProperty("name", "example-sg");
+        resource["name"] = "example-sg");
 
         return Verify(resource.Resolve());
     }
@@ -293,7 +293,7 @@ public class TerraformDynamicBlockTests
                    .WithContent("protocol", TerraformExpression.Literal("tcp"));
         });
 
-        resource.WithProperty("name", "example-sg");
+        resource["name"] = "example-sg");
 
         return Verify(resource.Resolve());
     }
@@ -311,8 +311,8 @@ public class TerraformDynamicBlockTests
                .WithContent("volume_type", ebs.Value["type"]);
         });
 
-        resource.WithProperty("ami", "ami-12345678");
-        resource.WithProperty("instance_type", "t2.micro");
+        resource["ami"] = "ami-12345678");
+        resource["instance_type"] = "t2.micro");
 
         return Verify(resource.Resolve());
     }
@@ -334,8 +334,8 @@ public class TerraformDynamicBlockTests
                       .WithContent("protocol", egress.Value["protocol"]);
             });
 
-        resource.WithProperty("name", "example-sg");
-        resource.WithProperty("description", "Security group with fluent dynamic blocks");
+        resource["name"] = "example-sg");
+        resource["description"] = "Security group with fluent dynamic blocks");
 
         return Verify(resource.Resolve());
     }

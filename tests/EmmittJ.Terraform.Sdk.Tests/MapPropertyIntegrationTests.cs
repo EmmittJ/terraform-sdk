@@ -21,9 +21,9 @@ public class MapPropertyIntegrationTests
         };
 
         var instance = new TerraformResource("aws_instance", "web")
-            .WithProperty("ami", "ami-0c55b159cbfafe1f0")
-            .WithProperty("instance_type", "t2.micro")
-            .WithProperty("tags", tags);
+            ["ami"] = "ami-0c55b159cbfafe1f0")
+            ["instance_type"] = "t2.micro")
+            ["tags"] = tags);
 
         stack.Add(instance);
 
@@ -52,8 +52,8 @@ public class MapPropertyIntegrationTests
         };
 
         var config = new TerraformResource("kubernetes_config_map", "example")
-            .WithProperty("metadata", metadata)
-            .WithProperty("data", data);
+            ["metadata"] = metadata)
+            ["data"] = data);
 
         stack.Add(config);
 
@@ -84,9 +84,9 @@ public class MapPropertyIntegrationTests
         };
 
         var instance = new TerraformResource("aws_instance", "app")
-            .WithProperty("ami", "ami-12345678")
-            .WithProperty("instance_type", "t2.micro")
-            .WithProperty("tags", tags);
+            ["ami"] = "ami-12345678")
+            ["instance_type"] = "t2.micro")
+            ["tags"] = tags);
 
         stack.Add(instance);
 
@@ -103,8 +103,8 @@ public class MapPropertyIntegrationTests
         var emptyTags = new Dictionary<string, string>();
 
         var resource = new TerraformResource("aws_s3_bucket", "example")
-            .WithProperty("bucket", "my-bucket")
-            .WithProperty("tags", emptyTags);
+            ["bucket"] = "my-bucket")
+            ["tags"] = emptyTags);
 
         stack.Add(resource);
 
@@ -126,8 +126,8 @@ public class MapPropertyIntegrationTests
         };
 
         var instance = new TerraformResource("aws_instance", "web")
-            .WithProperty("ami", "ami-12345678")
-            .WithProperty("tags", instanceTags);
+            ["ami"] = "ami-12345678")
+            ["tags"] = instanceTags);
 
         // RDS Database with mixed type configuration
         var dbParams = new Dictionary<string, object>
@@ -138,8 +138,8 @@ public class MapPropertyIntegrationTests
         };
 
         var database = new TerraformResource("aws_db_instance", "postgres")
-            .WithProperty("engine", "postgres")
-            .WithProperty("parameters", dbParams);
+            ["engine"] = "postgres")
+            ["parameters"] = dbParams);
 
         stack.Add(instance);
         stack.Add(database);

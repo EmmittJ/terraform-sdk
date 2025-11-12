@@ -11,8 +11,8 @@ public class TerraformModuleTests
             Version = "5.0.0"
         };
 
-        module.WithProperty("cidr", "10.0.0.0/16");
-        module.WithProperty("azs", new[] { "us-west-2a", "us-west-2b" });
+        module["cidr"] = "10.0.0.0/16";
+        module["azs"] = new[] { "us-west-2a", "us-west-2b" };
 
         var hcl = module.Resolve();
 
@@ -27,7 +27,7 @@ public class TerraformModuleTests
             Source = "./modules/networking"
         };
 
-        module.WithProperty("vpc_id", "vpc-123");
+        module["vpc_id"] = "vpc-123";
 
         var hcl = module.Resolve();
 
@@ -41,9 +41,6 @@ public class TerraformModuleTests
         {
             Source = "terraform-aws-modules/vpc/aws"
         };
-
-        module.WithOutput("vpc_id");
-        module.WithOutput("subnet_ids");
 
         var vpcIdRef = module["vpc_id"];
         var subnetIdsRef = module["subnet_ids"];
@@ -62,9 +59,9 @@ public class TerraformModuleTests
             Source = "terraform-aws-modules/vpc/aws"
         };
 
-        var ex = Assert.Throws<TerraformStackException>(() => module["vpc_id"]);
-        Assert.Contains("has not been declared", ex.Message);
-        Assert.Contains("WithOutput", ex.Message);
+        // Now indexer always works - test removed or needs different approach
+        var reference = module["vpc_id"];
+        Assert.NotNull(reference);
     }
 
     [Fact]
@@ -77,11 +74,10 @@ public class TerraformModuleTests
             Source = "terraform-aws-modules/vpc/aws",
             Version = "5.0.0"
         };
-        vpcModule.WithProperty("cidr", "10.0.0.0/16");
-        vpcModule.WithOutput("vpc_id");
+        vpcModule["cidr"] = "10.0.0.0/16";
 
         var subnet = new TerraformResource("aws_subnet", "app");
-        subnet.WithProperty("vpc_id", vpcModule["vpc_id"]);
+        subnet["vpc_id"] = vpcModule["vpc_id"];
 
         config.Add(vpcModule);
         config.Add(subnet);
@@ -98,12 +94,12 @@ public class TerraformModuleTests
             Version = "5.0.0"
         };
 
-        module.WithProperty("cidr", "10.0.0.0/16");
-        module.WithProperty("azs", new[] { "us-west-2a", "us-west-2b", "us-west-2c" });
-        module.WithProperty("private_subnets", new[] { "10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24" });
-        module.WithProperty("public_subnets", new[] { "10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24" });
-        module.WithProperty("enable_nat_gateway", true);
-        module.WithProperty("enable_vpn_gateway", false);
+        module["cidr"] = "10.0.0.0/16";
+        module["azs"] = new[] { "us-west-2a", "us-west-2b", "us-west-2c" };
+        module["private_subnets"] = new[] { "10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24" };
+        module["public_subnets"] = new[] { "10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24" };
+        module["enable_nat_gateway"] = true;
+        module["enable_vpn_gateway"] = false;
 
         var hcl = module.Resolve();
 
@@ -125,8 +121,8 @@ public class TerraformModuleTests
             Version = "5.0.0"
         };
 
-        vpcModule.WithProperty("region", region.AsReference());
-        vpcModule.WithProperty("cidr", "10.0.0.0/16");
+        vpcModule["region"] = region.AsReference();
+        vpcModule["cidr"] = "10.0.0.0/16";
 
         var config = new TerraformStack();
         config.Add(region);
@@ -164,9 +160,8 @@ public class TerraformModuleTests
             Default = "us-west-2"
         };
 
-        module
-            .WithReference("region_var", region)
-            .WithProperty("cidr", "10.0.0.0/16");
+        module["region_var"] = region;
+        module["cidr"] = "10.0.0.0/16";
 
         // Should not throw
         module.Prepare(context);

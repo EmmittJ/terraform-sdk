@@ -124,13 +124,13 @@ public class TestResourceWithRequiredProperty : TerraformResource
     public required TerraformValue<string> RequiredName
     {
         get => GetProperty<TerraformValue<string>>("required_name")!;
-        set => this.WithProperty("required_name", value);
+        set => this["required_name"] = value);
     }
 
     public TerraformValue<string>? OptionalDescription
     {
         get => GetProperty<TerraformValue<string>>("optional_description");
-        set => this.WithProperty("optional_description", value);
+        set => this["optional_description"] = value);
     }
 }
 
@@ -145,7 +145,7 @@ public class TestResourceWithCollectionConstraints : TerraformResource
     public required TerraformValue<string> RequiredName
     {
         get => GetProperty<TerraformValue<string>>("required_name")!;
-        set => this.WithProperty("required_name", value);
+        set => this["required_name"] = value);
     }
 
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "Items must have at least 1 element")]
@@ -153,6 +153,6 @@ public class TestResourceWithCollectionConstraints : TerraformResource
     public List<TerraformValue<string>>? Items
     {
         get => GetProperty<List<TerraformValue<string>>>("items");
-        set => this.WithProperty("items", value);
+        set => this["items"] = value);
     }
 }

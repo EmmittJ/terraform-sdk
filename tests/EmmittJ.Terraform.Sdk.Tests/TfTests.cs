@@ -227,8 +227,8 @@ public class TfTests
     public Task CidrSubnet_InResourceConfiguration_GeneratesHcl()
     {
         var vpcCidr = new TerraformVariable("vpc_cidr");
-        var subnet = new TerraformResource("aws_subnet", "example")
-            .WithProperty("cidr_block", Tf.Functions.CidrSubnet(vpcCidr.AsReference(), 8, TerraformExpression.Literal(1)));
+        var subnet = new TerraformResource("aws_subnet", "example");
+        subnet["cidr_block"] = Tf.Functions.CidrSubnet(vpcCidr.AsReference(), 8, TerraformExpression.Literal(1));
 
         return Verify(subnet.Resolve());
     }
@@ -250,8 +250,8 @@ public class TfTests
     {
         // [for i in range(3) : cidrsubnet(var.vpc_cidr, 8, i)]
         var vpcCidr = new TerraformVariable("vpc_cidr");
-        var local = new TerraformLocal()
-            .WithProperty("subnet_cidrs", TerraformExpression.Raw("[for i in range(3) : cidrsubnet(var.vpc_cidr, 8, i)]"));
+        var local = new TerraformLocal();
+        local["subnet_cidrs"] = TerraformExpression.Raw("[for i in range(3) : cidrsubnet(var.vpc_cidr, 8, i)]");
 
         return Verify(local.Resolve());
     }

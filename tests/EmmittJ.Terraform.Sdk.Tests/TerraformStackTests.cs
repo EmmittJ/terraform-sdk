@@ -28,7 +28,7 @@ public class TerraformStackTests
     {
         var config = new TerraformStack();
         var resource = new TerraformResource("aws_vpc", "main")
-            .WithProperty("cidr_block", "10.0.0.0/16");
+            ["cidr_block"] = "10.0.0.0/16");
         config.Add(resource);
 
         return Verify(config.ToHcl());
@@ -41,12 +41,12 @@ public class TerraformStackTests
 
         // Add in mixed order
         config.Add(new TerraformResource("aws_vpc", "main")
-            .WithProperty("cidr_block", "10.0.0.0/16"));
+            ["cidr_block"] = "10.0.0.0/16"));
 
         config.Add(new TerraformVariable("region"));
 
         config.Add(new TerraformResource("aws_subnet", "public")
-            .WithProperty("cidr_block", "10.0.1.0/24"));
+            ["cidr_block"] = "10.0.1.0/24"));
 
         config.Add(new TerraformVariable("environment"));
 
