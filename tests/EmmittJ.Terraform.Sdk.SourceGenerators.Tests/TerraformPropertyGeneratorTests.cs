@@ -20,7 +20,7 @@ public partial class TestResource : TerraformResource
 {
     public TestResource(string name) : base(""test_resource"", name) { }
 
-    [TerraformProperty(""test_property"")]
+    [TerraformArgument(""test_property"")]
     public partial TerraformValue<string> TestProperty { get; set; }
 }
 ";
@@ -45,7 +45,7 @@ public partial class TestDataSource : TerraformDataSource
 {
     public TestDataSource(string name) : base(""test_data"", name) { }
 
-    [TerraformProperty(""computed_property"")]
+    [TerraformArgument(""computed_property"")]
     public partial TerraformValue<string> ComputedProperty { get; }
 }
 ";
@@ -70,7 +70,7 @@ public partial class TestResource : TerraformResource
 {
     public TestResource(string name) : base(""test_resource"", name) { }
 
-    [TerraformProperty(""auto_property"")]
+    [TerraformArgument(""auto_property"")]
     public TerraformValue<string> AutoProperty { get; set; }
 }
 ";
@@ -95,7 +95,7 @@ public partial class TestProvider : TerraformProvider
 {
     public TestProvider() : base(""test"") { }
 
-    [TerraformProperty(""required_config"")]
+    [TerraformArgument(""required_config"")]
     public required partial TerraformValue<string> RequiredConfig { get; set; }
 }
 ";
@@ -120,7 +120,7 @@ public partial class TestProvider : TerraformProvider
 {
     public TestProvider() : base(""test"") { }
 
-    [TerraformProperty(""non_nullable_config"")]
+    [TerraformArgument(""non_nullable_config"")]
     public partial TerraformValue<string> NonNullableConfig { get; set; }
 }
 ";
@@ -146,7 +146,7 @@ public partial class TestProvider : TerraformProvider
 {
     public TestProvider() : base(""test"") { }
 
-    [TerraformProperty(""nullable_config"")]
+    [TerraformArgument(""nullable_config"")]
     public partial TerraformValue<string>? NullableConfig { get; set; }
 }
 ";
@@ -173,7 +173,7 @@ public partial class TestBlock : TerraformBlock
 {
     public TestBlock(string blockLabel) : base(blockLabel) { }
 
-    [TerraformProperty(""primary_connection_string"")]
+    [TerraformArgument(""primary_connection_string"")]
     public partial TerraformValue<string> PrimaryConnectionString { get; }
 }
 ";
@@ -199,7 +199,7 @@ public partial class AzurermRedisCache : TerraformResource
 {
     public AzurermRedisCache(string name) : base(""azurerm_redis_cache"", name) { }
 
-    [TerraformProperty(""primary_connection_string"")]
+    [TerraformArgument(""primary_connection_string"")]
     public partial TerraformValue<string> PrimaryConnectionString { get; }
 }
 ";

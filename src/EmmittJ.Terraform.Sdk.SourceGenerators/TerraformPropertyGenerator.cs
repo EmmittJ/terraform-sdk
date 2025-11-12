@@ -51,7 +51,7 @@ public class TerraformPropertyGenerator : IIncrementalGenerator
         // Determine if this type returns references (has TerraformReference constructor)
         bool shouldReturnReferences = ShouldReturnReferences(classSymbol);
 
-        // Find all properties with [TerraformProperty] attribute that are partial (need implementation)
+        // Find all properties with [TerraformArgument] attribute that are partial (need implementation)
         var propertiesBuilder = ImmutableArray.CreateBuilder<PropertyToGenerate>();
 
         foreach (var member in classSymbol.GetMembers().OfType<IPropertySymbol>())

@@ -39,7 +39,7 @@ public partial class {{ClassName}} : TerraformProvider
 {{#IsDeprecated}}
     [Obsolete("This property is deprecated.")]
 {{/IsDeprecated}}
-    [TerraformProperty("{{TerraformName}}")]
+    [TerraformArgument("{{TerraformName}}")]
 {{#IsArgument}}
 {{#UseRequiredKeyword}}
     public required {{{PropertyWrapper}}} {{Name}} { get; set; }

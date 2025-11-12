@@ -23,7 +23,7 @@ public partial class {{ClassName}}() : TerraformBlock("{{TerraformName}}")
 {{#IsDeprecated}}
     [Obsolete("This property is deprecated.")]
 {{/IsDeprecated}}
-    [TerraformProperty("{{TerraformName}}")]
+    [TerraformArgument("{{TerraformName}}")]
 {{#IsRequiredArgument}}
     // Required argument - source generator will implement get/set
 {{#UseRequiredKeyword}}
@@ -78,7 +78,7 @@ public partial class {{ClassName}} : {{BaseClassName}}
 {{#IsDeprecated}}
     [Obsolete("This property is deprecated.")]
 {{/IsDeprecated}}
-    [TerraformProperty("{{TerraformName}}")]
+    [TerraformArgument("{{TerraformName}}")]
 {{#IsRequiredArgument}}
     // Required argument - source generator will implement get/set
 {{#UseRequiredKeyword}}
@@ -118,7 +118,7 @@ public partial class {{ClassName}} : {{BaseClassName}}
 {{#IsDeprecated}}
     [Obsolete("This block is deprecated.")]
 {{/IsDeprecated}}
-    [TerraformProperty("{{TerraformName}}")]
+    [TerraformArgument("{{TerraformName}}")]
 {{#UseRequiredKeyword}}
 {{#UseBlockLabelInInitializer}}
     public required {{#NeedsNewKeyword}}new {{/NeedsNewKeyword}}{{{BlockPropertyType}}} {{Name}} { get; set; } = new();
@@ -141,7 +141,7 @@ public partial class {{ClassName}} : {{BaseClassName}}
     /// <summary>
     /// {{Description}}
     /// </summary>
-    [TerraformProperty("{{TerraformName}}")]
+    [TerraformArgument("{{TerraformName}}")]
     // Output-only attribute - source generator will implement read-only get
     public partial {{{PropertyWrapper}}} {{Name}} { get; }
 

@@ -10,7 +10,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <code>
 /// public partial class AzurermResourceGroup : TerraformResource
 /// {
-///     [TerraformProperty("name")]
+///     [TerraformArgument("name")]
 ///     public required partial TerraformValue&lt;string&gt; Name { get; set; }
 /// }
 /// </code>
